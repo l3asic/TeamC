@@ -11,8 +11,8 @@ String name = request.getParameter("name");
 OmrDTO dto = new OmrDTO();
 UserDTO dtos = new UserDTO();
 
-// dto.setId(request.getParameter("id"));
-// dtos.setName(request.getParameter("name"));
+dto.setId(request.getParameter("id"));
+dtos.setName(request.getParameter("name"));
 
 pageContext.setAttribute("dto", dto);
 %>
@@ -39,11 +39,11 @@ function fnReset(){
 }
 </script>
 </head>
-<body>  
-	<h3>"request.getParameter('id')"</h3>
+<body>
+	<h3>답안지 체크</h3>
 	<form action="mark.jsp" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
 		<div>
-			<label>수험번호 <input type="text" name="id" value=<%=request.getParameter("id")%> readonly/></label>
+			<label <input type="text" name="id" value="request.getParameter('id')" />><%=request.getParameter("id") %></label>
 		</div>
 		<div>
 			<label>1</label><input type="radio" name="input_v1" value="1" required="required" />
@@ -109,6 +109,5 @@ function fnReset(){
 				<input type="submit" value="제출하기" onclick="location.href='mark.jsp'"/>
 				<input type="reset" value="초기화하기"/>
 			</div>
-		</form>
 </body>
 </html>

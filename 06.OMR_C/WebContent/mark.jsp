@@ -10,7 +10,7 @@
 	request.setCharacterEncoding("utf-8");
 
 	OmrDTO dto = new OmrDTO();
-	
+
 	dto.setId(request.getParameter("id"));
 	dto.setAnswer1(Integer.parseInt(request.getParameter("input_v1")));
 	dto.setAnswer2(Integer.parseInt(request.getParameter("input_v2")));

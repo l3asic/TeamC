@@ -1,0 +1,59 @@
+★ Servlet(Controller) 생성 : servlet-api.jar(C:\tomcat\lib) ▶ JRE > lib > ext : 복사 & 붙여넣기
+	- Java Resources > src > 마오 > New > Servlet : Servlet 마법사 실행
+	- ① : Java package, Class name 입력
+	- ② : URL mapping → /xx.do ▶ <form action="xx.do" ~~>
+	- ③ : [V]service 체크 > Finish
+	- 불필요한 코드 삭제 : service() 메소드는 삭제할지 말 것!
+	
+○ Servlet Mapping 수동설정 : WebContent > WEB-INF > web.xml
+	<!-- Servlet Class 정의 -->
+  	<servlet>
+	  	<display-name>Servlet Class Name</display-name>
+	  	<servlet-name>Servlet Class Name</servlet-name>
+	  	<servlet-class>package.Servlet Class Name</servlet-class>
+  	</servlet>
+  	<!-- Servlet Mapping 수동설정 -->
+  	<servlet-mapping>
+	  	<servlet-name>Servlet Class Name</servlet-name>
+	  	<url-pattern>/xx.do</url-pattern>
+  	</servlet-mapping>
+==================================================================
+○ HelloServlet
+	helloServlet.html → hs.do → web.xml → HelloServlet.java → HelloServlet.class
+
+○ Servlet01
+	numberCalc01.html → s01.do → web.xml → Servlet01.java
+
+○ Servlet02
+	numberCalc02.html → s02.do → web.xml → Servlet02.java → SumMachine.java
+                                                                     ↓	
+	result.jsp ←---------------------------------- sum      ←    getSum();    
+	|==========================|=============================|=================|
+	           View                      Controller                 Model                             
+
+○ Servlet03
+	memberMain.html → s03.do → web.xml → Servlet03.java → MemberDAO.java → memberInsert()
+	                                                                                 ↓
+	                                             응답      ←   return succ  ←     DB연동
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+  	

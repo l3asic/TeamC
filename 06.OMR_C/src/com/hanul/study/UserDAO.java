@@ -97,10 +97,11 @@ public class UserDAO {
 	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
 		conn = getConn();
 		String sql = "select * from answer_c where id=?";
-		ArrayList<OmrDTO> list = new ArrayList<>();
+		ArrayList<OmrDTO> m_list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				int answer1 = rs.getInt("answer1");
 				int answer2 = rs.getInt("answer2");
@@ -112,10 +113,10 @@ public class UserDAO {
 				int answer8 = rs.getInt("answer8");
 				int answer9 = rs.getInt("answer9");
 				int answer10 = rs.getInt("answer10");
-				rs = ps.executeQuery();
+
 				OmrDTO dto = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
 						answer9, answer10);
-				list.add(dto);
+				m_list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,15 +124,16 @@ public class UserDAO {
 		} finally {
 			dbClose();
 		}
-		return list;
+		return m_list;
 	}
 
 	public ArrayList<CorrectAnsDTO> CorrectAns() { // 정답 리스트
 		conn = getConn();
 		String sql = "select * from correctanswer_C";
-		ArrayList<CorrectAnsDTO> list = new ArrayList<>();
+		ArrayList<CorrectAnsDTO> c_list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				int ca1 = rs.getInt("ca1");
 				int ca2 = rs.getInt("ca2");
@@ -143,9 +145,9 @@ public class UserDAO {
 				int ca8 = rs.getInt("ca8");
 				int ca9 = rs.getInt("ca9");
 				int ca10 = rs.getInt("ca10");
-				rs = ps.executeQuery();
+
 				CorrectAnsDTO dto = new CorrectAnsDTO(ca1, ca2, ca3, ca4, ca5, ca6, ca7, ca8, ca9, ca10);
-				list.add(dto);
+				c_list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -153,7 +155,7 @@ public class UserDAO {
 		} finally {
 			dbClose();
 		}
-		return list;
+		return c_list;
 	}
 
 	public ArrayList<UserDTO> OXOX(String id) { // 사용자 점수???
@@ -162,7 +164,7 @@ public class UserDAO {
 		ArrayList<CorrectAnsDTO> c = CorrectAns();// n
 
 		conn = getConn();
-		ArrayList<UserDTO> list = new ArrayList<>();
+		ArrayList<UserDTO> ox_list = new ArrayList<>();
 
 		try {
 			for (int i = 0; i < CorrectAns().size(); i++) {
@@ -170,11 +172,11 @@ public class UserDAO {
 				if (m.get(i + 1).equals(c.get(i))) {
 					String ox = "O";
 					UserDTO dto = new UserDTO(ox);
-					list.add(dto);
+					ox_list.add(dto);
 				} else {
 					String ox = "X";
 					UserDTO dto = new UserDTO(ox);
-					list.add(dto);
+					ox_list.add(dto);
 				}
 
 			}
@@ -185,7 +187,7 @@ public class UserDAO {
 		} finally {
 			dbClose();
 		}
-		return list;
+		return ox_list;
 	}
 
 	public void addTester(String id, String name) {
@@ -214,6 +216,8 @@ public class UserDAO {
 			ps.setString(2, name);
 			succ = ps.executeUpdate();
 		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("리무브테스터 에러");
 		} finally {
 			dbClose();
 		}
@@ -236,6 +240,30 @@ public class UserDAO {
 		}
 		return succ;
 
+	}
+
+	public ArrayList<UserDTO> passFail() {
+		ArrayList<UserDTO> pf_list = new ArrayList<>();
+		conn = getConn();
+		String sql = "select * from user_c";
+
+		try {
+
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				UserDTO dto = new UserDAO();
+				dto.setName(rs.getString("name"));
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				pf_list.add(dto);
+			}
+		} catch (Exception e) {
+
+		} finally {
+			dbClose();
+		}
+		return pf_list;
 	}
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속

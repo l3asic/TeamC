@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.hanul.study.OmrDTO"%>
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.CorrectAnsDTO"%>
@@ -8,7 +9,7 @@
 <%
 request.setCharacterEncoding("utf-8");
 
-request.setParameter("id");
+String id = request.getParameter("id");
 
 // ArrayList<OmrDTO> m_list = new ArrayList<>();  //사용자 정답 리스트
 // ArrayList<CorrectAnsDTO> c_list = new ArrayList<>();  //정답 리스트
@@ -89,7 +90,7 @@ ArrayList<UserDTO> ox_list = dao.OXOX("id");
 			} //if
 			%>
 			<%
-			if (list.size() == 0) {
+			if (m_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">등록된 회원목록이 없습니다!</td>
@@ -121,7 +122,7 @@ ArrayList<UserDTO> ox_list = dao.OXOX("id");
 			} //if
 			%>
 			<%
-			if (ox_list.size() == 0) {
+			if (ox_list.size() == 0) {		//리스트 이름이 안적혀져있었음 확인 요망
 			%>
 			<tr align="center">
 				<td colspan="11">등록된 회원목록이 없습니다!</td>

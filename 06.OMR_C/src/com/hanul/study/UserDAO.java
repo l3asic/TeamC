@@ -50,7 +50,7 @@ public class UserDAO {
 
 	}
 
-	public int insertOmr(OmrDTO dto) {
+	public int insertOmr(OmrDTO dto) { // 사용자가 입력한 답안
 		conn = getConn();
 		String sql = "insert into answer_c values(?,?,?,?,?,?,?,?,?,?,?)";
 		int succ = 0;
@@ -94,14 +94,13 @@ public class UserDAO {
 		return succ; // 결과값을 리턴
 	}// deleteOmr()
 
-	public ArrayList<OmrDTO> myAns(String id) {
+	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
 		conn = getConn();
 		String sql = "select * from answer_c where id=?";
 		ArrayList<OmrDTO> list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
-			rs = ps.executeQuery();
 			while (rs.next()) {
 				int answer1 = rs.getInt("answer1");
 				int answer2 = rs.getInt("answer2");
@@ -113,6 +112,7 @@ public class UserDAO {
 				int answer8 = rs.getInt("answer8");
 				int answer9 = rs.getInt("answer9");
 				int answer10 = rs.getInt("answer10");
+				rs = ps.executeQuery();
 				OmrDTO dto = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
 						answer9, answer10);
 				list.add(dto);
@@ -126,13 +126,12 @@ public class UserDAO {
 		return list;
 	}
 
-	public ArrayList<CorrectAnsDTO> correctAns() {
+	public ArrayList<CorrectAnsDTO> CorrectAns() { // 정답 리스트
 		conn = getConn();
 		String sql = "select * from correctanswer_C";
 		ArrayList<CorrectAnsDTO> list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
-			rs = ps.executeQuery();
 			while (rs.next()) {
 				int ca1 = rs.getInt("ca1");
 				int ca2 = rs.getInt("ca2");
@@ -144,6 +143,7 @@ public class UserDAO {
 				int ca8 = rs.getInt("ca8");
 				int ca9 = rs.getInt("ca9");
 				int ca10 = rs.getInt("ca10");
+				rs = ps.executeQuery();
 				CorrectAnsDTO dto = new CorrectAnsDTO(ca1, ca2, ca3, ca4, ca5, ca6, ca7, ca8, ca9, ca10);
 				list.add(dto);
 			}
@@ -156,16 +156,16 @@ public class UserDAO {
 		return list;
 	}
 
-	public ArrayList<UserDTO> OXOX(String id) {
+	public ArrayList<UserDTO> OXOX(String id) { // 사용자 점수???
 
 		ArrayList<OmrDTO> m = myAns(id); // n+1
-		ArrayList<CorrectAnsDTO> c = correctAns();// n
+		ArrayList<CorrectAnsDTO> c = CorrectAns();// n
 
 		conn = getConn();
 		ArrayList<UserDTO> list = new ArrayList<>();
 
 		try {
-			for (int i = 0; i < correctAns().size(); i++) {
+			for (int i = 0; i < CorrectAns().size(); i++) {
 
 				if (m.get(i + 1).equals(c.get(i))) {
 					String ox = "O";
@@ -188,6 +188,55 @@ public class UserDAO {
 		return list;
 	}
 
+	public void addTester(String id, String name) {
+		conn = getConn();
+		String sql = "insert into user_c (id, name) values (?, ?)";
+		int succ = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, name);
+			succ = ps.executeUpdate();
+		} catch (Exception e) {
+		} finally {
+			dbClose();
+		}
+		return succ;
+	}
+
+	public int removeTester(String id, String name) { // DELETE FROM Table1 WHERE ID = 'testId';
+		conn = getConn();
+		String sql = "delete from user_c where id=?and?";
+		int succ = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, name);
+			succ = ps.executeUpdate();
+		} catch (Exception e) {
+		} finally {
+			dbClose();
+		}
+		return succ;
+
+	}
+
+	public int editTester(String id, String name) { // UPDATE Temp_Table SET field3='변경된 값' WHERE field1 = 'data2';
+		conn = getConn();
+		String sql = "insert into user_c (id, name) values (?, ?)";
+		int succ = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, name);
+			succ = ps.executeUpdate();
+		} catch (Exception e) {
+		} finally {
+			dbClose();
+		}
+		return succ;
+
+	}
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속
 	 * String sql = "select * from answer_c"; //SQL 문장 작성 ArrayList<OmrDTO> list =

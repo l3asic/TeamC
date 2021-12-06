@@ -57,10 +57,10 @@
 
 			<%-- 향상된 for문을 이용한 출력 --%>
 			<%
-				if (c_list.size() == 0) {
+				if (c_list.size() ==0) {
 			%>
 			<tr align="center">
-				<td colspan="11">등록된 회원목록이 없습니다!</td>
+				<td colspan="9">등록된 회원목록이 없습니다!</td>
 			</tr>
 			<%
 				} else {
@@ -92,7 +92,7 @@
 				if (m_list.size() == 0) {
 			%>
 			<tr align="center">
-				<td colspan="11">등록된 회원목록이 없습니다!</td>
+				<td colspan="10">등록된 회원목록이 없습니다!</td>
 			</tr>
 			<%
 				} else {

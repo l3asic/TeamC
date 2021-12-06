@@ -122,5 +122,6 @@
 			<input type="reset" value="초기화하기" /> <input type="button"
 				value="처음으로" onclick="location.href='OmrMain.html'" />
 		</div>
+	</form>
 </body>
 </html>

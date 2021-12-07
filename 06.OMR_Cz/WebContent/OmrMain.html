@@ -44,27 +44,33 @@ return true;
 
 	<div id="wrap" align="center">
 		<div class="main">
-			<h3>수험자 ㅁㅁ정보입력</h3>
-			<h3>ㅁㅁㅁㅁㅁ</h3>
+			<h3>수험자 aaaaㅁㅁ정보입력</h3>
+			<h3>ㅁ</h3>
 			<form action="testPage.jsp" method="post"
 				onsubmit="return fnSubmit()" onreset="return fnReset()">
-				<div>
-					<label>수험번호</label> <input type="text" name="id"
-						required="required" />
-				</div>
-				<div>
-					<label>성명</label> <input type="text" name="name"
-						required="required" />
-				</div>
+				<table border="1">
+					<tr>
+						<td><label>수험번호</label></td>
+						<td><input type="text" name="id" required="required" /></td>
+						<td rowspan="2"><input type="submit" value="응시시작" /></td>
+						<td rowspan="2"><input type="button" value="결과조회"
+							onclick="location.href='result.jsp'" /></td>
+					</tr>
+					<tr>
+						<td><label>성명</label></td>
+						<td><input type="text" name="name" required="required" /></td>
+					</tr>
 
-				<div class="btns">
-					<input type="submit" value="응시시작" /> <input type="reset"
-						value="초기화하기" /> <input type="button" value="결과조회"
-						onclick="location.href='result.jsp'" />
-				</div>
+					<tr class="btns">
+						<td colspan="4" align="center"><input type="submit" value="응시시작" /> <input
+							type="reset" value="초기화하기" /> <input type="button" value="결과조회"
+							onclick="location.href='result.jsp'" /></td>
+
+					</tr>
+				</table>
 				<div class="btns">
 					<input type="button" value="관리자"
-						onclick="location.href='adminLogin.jsp'" />
+						onclick="location.href='adminMain.jsp'" />
 				</div>
 			</form>
 		</div>

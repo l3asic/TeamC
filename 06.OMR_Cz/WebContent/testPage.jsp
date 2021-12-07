@@ -1,3 +1,4 @@
+<%@page import="com.hanul.study.UserDAO"%>
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.OmrDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,10 +12,16 @@
 	OmrDTO dto = new OmrDTO();
 	UserDTO dtos = new UserDTO();
 
-	dto.setId(request.getParameter("id"));
-	dtos.setName(request.getParameter("name"));
+	UserDAO dao = new UserDAO();
+	if (Integer.parseInt(id) == dao.checkAdmin()) { //dtos에 관리자 id가 있는지
+		response.sendRedirect("adminMain.jsp");
+	} else {
 
-	pageContext.setAttribute("dto", dto);
+		dto.setId(request.getParameter("id"));
+		dtos.setName(request.getParameter("name"));
+
+		pageContext.setAttribute("dto", dto);
+	}
 %>
 <!DOCTYPE html>
 <html>

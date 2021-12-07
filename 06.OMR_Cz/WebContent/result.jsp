@@ -8,12 +8,12 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-	request.getParameter("id");
+	String id = request.getParameter("id");
 
 	UserDAO dao = new UserDAO();
 	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
-/*  	ArrayList<OmrDTO> m_list = dao.myAns("id");
-	ArrayList<UserDTO> ox_list = dao.OXOX("id");  */
+	ArrayList<OmrDTO> m_list = dao.myAns(id);
+	ArrayList<UserDTO> ox_list = dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -54,7 +54,7 @@
 
 			<%-- 향상된 for문을 이용한 출력 --%>
 			<%
-				if (c_list.size() ==0) {
+				if (c_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="9">등록된 회원목록이 없습니다!</td>
@@ -85,7 +85,7 @@
 			<%
 				} //if
 			%>
-			<%-- <%
+			<%
 				if (m_list.size() == 0) {
 			%>
 			<tr align="center">
@@ -141,17 +141,17 @@
 				<td>1</td>
 				<td>1</td>
 				<td>1</td>
-								<td><%=dto.ox_list()%></td>
-								<td><%=dto.getOx1()%></td>
-								<td><%=dto.getOx2()%></td>
-								<td><%=dto.getOx3()%></td>
-								<td><%=dto.getOx4()%></td>
-								<td><%=dto.getOx5()%></td>
-								<td><%=dto.getOx6()%></td>
-								<td><%=dto.getOx7()%></td>
-								<td><%=dto.getOx8()%></td>
-								<td><%=dto.getOx9()%></td>
-								<td><%=dto.getOx10()%></td>
+				<%-- 				<td><%=dto.ox_list()%></td> --%>
+				<%-- 				<td><%=dto.getOx1()%></td> --%>
+				<%-- 				<td><%=dto.getOx2()%></td> --%>
+				<%-- 				<td><%=dto.getOx3()%></td> --%>
+				<%-- 				<td><%=dto.getOx4()%></td> --%>
+				<%-- 				<td><%=dto.getOx5()%></td> --%>
+				<%-- 				<td><%=dto.getOx6()%></td> --%>
+				<%-- 				<td><%=dto.getOx7()%></td> --%>
+				<%-- 				<td><%=dto.getOx8()%></td> --%>
+				<%-- 				<td><%=dto.getOx9()%></td> --%>
+				<%-- 				<td><%=dto.getOx10()%></td> --%>
 
 			</tr>
 			<%
@@ -160,7 +160,7 @@
 			<%
 				} //if
 			%>
- --%>
+
 			<tr align="center">
 				<td colspan="11"><input type="button" value="처음으로"
 					onclick="location.href='OmrMain.html'" /></td>

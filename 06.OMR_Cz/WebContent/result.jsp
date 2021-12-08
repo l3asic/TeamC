@@ -13,7 +13,7 @@
 	UserDAO dao = new UserDAO();
 	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
 	ArrayList<OmrDTO> m_list = dao.myAns(id);
-	OmrDTO dtozz = dao.OXOX("970528");
+	ArrayList<UserDTO> ox_list = dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -27,16 +27,16 @@
 		<table border="1">
 			<tr>
 				<th>ㅁㅁ</th>
-				<th>&nbsp;Q. 01&nbsp;</th>
-				<th>&nbsp;Q. 02&nbsp;</th>
-				<th>&nbsp;Q. 03&nbsp;</th>
-				<th>&nbsp;Q. 04&nbsp;</th>
-				<th>&nbsp;Q. 05&nbsp;</th>
-				<th>&nbsp;Q. 06&nbsp;</th>
-				<th>&nbsp;Q. 07&nbsp;</th>
-				<th>&nbsp;Q. 08&nbsp;</th>
-				<th>&nbsp;Q. 09&nbsp;</th>
-				<th>&nbsp;Q. 10&nbsp;</th>
+				<th>Q1</th>
+				<th>Q2</th>
+				<th>Q3</th>
+				<th>Q4</th>
+				<th>Q5</th>
+				<th>Q6</th>
+				<th>Q7</th>
+				<th>Q8</th>
+				<th>Q9</th>
+				<th>Q0</th>
 			</tr>
 
 			<%-- 단순 for문을 이용한 출력
@@ -118,8 +118,7 @@
 				} //if
 			%>
 			<%
-				// 				if (ox_list.size() == 0) {
-				if (false) {
+				if (ox_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">등록된 회원목록이 없습니다!</td>
@@ -127,35 +126,21 @@
 			<%
 				} else {
 			%>
+			<%
+				for (UserDTO dto : ox_list) {
+			%>
 			<tr align="center">
-				<%-- 				<% --%>
-				<!-- 				// for (OmrDTO dto : ) { -->
-				<%-- 				%> --%>
-
-				<td>맞으면O 틀리면X</td>
-				<td><%=dtozz.getAnswer1()%></td>
-				<td><%=dtozz.getAnswer2()%></td>
-				<td><%=dtozz.getAnswer3()%></td>
-				<td><%=dtozz.getAnswer4()%></td>
-				<td><%=dtozz.getAnswer5()%></td>
-				<td><%=dtozz.getAnswer6()%></td>
-				<td><%=dtozz.getAnswer7()%></td>
-				<td><%=dtozz.getAnswer8()%></td>
-				<td><%=dtozz.getAnswer9()%></td>
-				<td><%=dtozz.getAnswer10()%></td>
-
-
-				<!-- 	${ox_list.ox}			<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
 				<%-- 				<td><%=dto.ox_list()%></td> --%>
 				<%-- 				<td><%=dto.getOx1()%></td> --%>
 				<%-- 				<td><%=dto.getOx2()%></td> --%>
@@ -173,7 +158,7 @@
 				} //for
 			%>
 			<%
-				// 				} //if
+				} //if
 			%>
 
 			<tr align="center">

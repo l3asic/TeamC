@@ -51,9 +51,14 @@
 			%>
 
 			<tr>
+<<<<<<< HEAD
 				<td><%=dto.getId()%></td>
 				<td><%=dto.getName()%></td>
 				<td>아아아</td>
+=======
+				<th><%=dto.getId()%></th>
+				<th><%=dto.getName()%></th>
+>>>>>>> d8baf047f15f4885b4fd1c9d4e036ca9abdcf38f
 				<%-- 				<th><%=dto.getId()%></th> --%>
 				<%-- 				<th><%=dto.getName()%></th> --%>
 			</tr>

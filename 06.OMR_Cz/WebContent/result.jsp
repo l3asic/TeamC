@@ -8,12 +8,29 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
+<<<<<<< HEAD
+	String id = request.getParameter("id");
+=======
+<<<<<<< HEAD
 	String id = request.getParameter("id");
 
 	UserDAO dao = new UserDAO();
 	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
 	ArrayList<OmrDTO> m_list = dao.myAns(id);
+	ArrayList<UserDTO> ox_list = dao.OXOX(id);
+=======
+	request.getParameter("id");
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
+
+	UserDAO dao = new UserDAO();
+	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
+<<<<<<< HEAD
+	ArrayList<OmrDTO> m_list = dao.myAns(id);
 	OmrDTO dtozz = dao.OXOX("970528");
+=======
+	ArrayList<UserDTO> ox_list = dao.OXOX("id");
+>>>>>>> ChaMinHwan
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 %>
 <!DOCTYPE html>
 <html>
@@ -54,7 +71,15 @@
 
 			<%-- 향상된 for문을 이용한 출력 --%>
 			<%
+<<<<<<< HEAD
 				if (c_list.size() == 0) {
+=======
+<<<<<<< HEAD
+				if (c_list.size() == 0) {
+=======
+				if (c_list.size() ==0) {
+>>>>>>> ChaMinHwan
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 			%>
 			<tr align="center">
 				<td colspan="9">등록된 회원목록이 없습니다!</td>
@@ -177,8 +202,14 @@
 			%>
 
 			<tr align="center">
+<<<<<<< HEAD
+				<td colspan="11">
+					<input type="button" value="처음으로" onclick="location.href='OmrMain.html'" />
+				</td>
+=======
 				<td colspan="11"><input type="button" value="처음으로"
 					onclick="location.href='OmrMain.html'" /></td>
+>>>>>>> ChaMinHwan
 			</tr>
 		</table>
 	</div>

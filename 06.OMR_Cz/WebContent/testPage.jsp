@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.hanul.study.UserDAO"%>
+=======
+<<<<<<< HEAD
+<%@page import="com.hanul.study.UserDAO"%>
+=======
+>>>>>>> ChaMinHwan
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.OmrDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,6 +20,7 @@
 	OmrDTO dto = new OmrDTO();
 	UserDTO dtos = new UserDTO();
 
+<<<<<<< HEAD
 	UserDAO dao = new UserDAO();
 
 	dtos.setId(id);
@@ -36,18 +44,40 @@
 
 // 			response.sendRedirect("OmrMain.html");
 		} else { //응시자격이 없지 않으면서 -> 관리자가 아니고 시험을 이미 보지않음.
+=======
+<<<<<<< HEAD
+	UserDAO dao = new UserDAO();
+	
+	dtos.setId(id);
+	
+	if (dao.checkId(dtos)) {
+		if (Integer.parseInt(id) == dao.checkAdmin()) { //dtos에 관리자 id가 있는지
+			response.sendRedirect("admin_Testers.jsp");
+		} else {
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 
 			dto.setId(request.getParameter("id"));
 			dtos.setName(request.getParameter("name"));
 
 			pageContext.setAttribute("dto", dto);
 		}
+<<<<<<< HEAD
 
 	}
+=======
+	} else {
+		out.println("<script>alert('응시자격없음');");
+		out.println("location.href='javascript:history.go(-1);';</script>");
+		// 		response.sendRedirect("OmrMain.html");
+
+	}
+=======
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 	dto.setId(request.getParameter("id"));
 	dtos.setName(request.getParameter("name"));
 
 	pageContext.setAttribute("dto", dto);
+>>>>>>> ChaMinHwan
 %>
 <!DOCTYPE html>
 <html>
@@ -155,6 +185,13 @@
 			<input type="reset" value="초기화하기" /> <input type="button"
 				value="처음으로" onclick="location.href='OmrMain.html'" />
 		</div>
+<<<<<<< HEAD
 	</form>
+=======
+<<<<<<< HEAD
+	</form>
+=======
+>>>>>>> ChaMinHwan
+>>>>>>> 287fc057d3656ccc38767dea6c8e3f757a134f01
 </body>
 </html>

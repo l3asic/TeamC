@@ -10,11 +10,7 @@
 	<div align="center">
 		<h3>관리자모드 메인</h3>
 		<div class="btns">
-			<input type="button" value="응시자 결과"
-				onclick="location.href='admin_PassFail.jsp'" />
-		</div>
-		<div class="btns">
-			<input type="button" value="응시자 조회"
+			<input type="button" value="admin_Select.jsp"
 				onclick="location.href='admin_Select.jsp'" />
 		</div>
 		<div class="btns">

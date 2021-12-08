@@ -4,8 +4,8 @@
 <%@page import="com.hanul.study.CorrectAnsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.hanul.study.UserDAO"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%-- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -33,7 +33,6 @@
 				<th>정답여부</th>
 				<th>합격여부</th>
 				<th>맞은갯수</th>
-				<th>맞은갯수ㅋㅋ</th>
 			</tr>
 
 			<%-- 단순 for문을 이용한 출력
@@ -77,9 +76,9 @@
 			<%
 				} //if
 			%> --%>
-			
-			
-		<%-- 	*********************<tr>
+
+
+			<%-- 	*********************<tr>
 				<td>${u_list.id}</td>
 				<td>${u_list.name}</td>
 				<td>${u_list.score}</td>
@@ -88,34 +87,38 @@
 				<td>${u_list.cnt}</td>
 			</tr> --%>
 
-			<%for(int i = 0; i < u_list.size(); i++){ %>
+			<%
+				for (int i = 0; i < u_list.size(); i++) {
+			%>
 			<tr>
-				<td>ㅁㄴㅇㄹ</td>
-				<td><%= u_list.get(i).getId() %></td>
-				<td><%= u_list.get(i).getId() %></td>
-				<td><%= u_list.get(i).getId() %></td>
-				<td><%= u_list.get(i).getId() %></td>
-				<td><%= u_list.get(i).getId() %></td>
-				
+				<td><%=u_list.get(i).getId()%></td>
+				<td><%=u_list.get(i).getName()%></td>
+				<td><%=u_list.get(i).getScore()%></td>
+				<td><%=u_list.get(i).getOx()%></td>
+				<td><%=u_list.get(i).getPass()%></td>
+				<td><%=u_list.get(i).getCnt()%></td>
+
 			</tr>
-			<%} %>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<%-- 		<%
+			<%
+				}
+			%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<%-- 		<%
 				if (m_list.size() == 0) {
 			%>
 			<tr align="center">
@@ -192,8 +195,9 @@
 			%> --%>
 
 			<tr align="center">
-				<td colspan="11"><input type="button" value="처음으로"
-					onclick="location.href='OmrMain.html'" /></td>
+				<td colspan="11"><input type="button" value="adminMain.jsp"
+					onclick="location.href='adminMain.jsp'" /> <input type="button"
+					value="OmrMain.html" onclick="location.href='OmrMain.html'" /></td>
 			</tr>
 		</table>
 	</div>

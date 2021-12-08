@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="com.hanul.study.UserDAO"%>
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.OmrDTO"%>
@@ -13,32 +14,46 @@
 	UserDTO dtos = new UserDTO();
 
 	UserDAO dao = new UserDAO();
-	
+
 	dtos.setId(id);
 
-	if (dao.checkId(dtos)) {
-		if (Integer.parseInt(id) == dao.checkAdmin()) { //dtos에 관리자 id가 있는지
+	if (dao.checkId(dtos) == false) { //응시자격이 없는지
+		out.println("<script>alert('응시자격없음');");
+		out.println("location.href='javascript:history.go(-1);';</script>");
+		// 		response.sendRedirect("OmrMain.html");
+
+	} else { //응시자격이 있는사람들 중에서
+		if (Integer.parseInt(id) == dao.checkAdmin()) { // 관리자인지
 			response.sendRedirect("adminMain.jsp");
-		} else {
+		} else if (dao.checkTried(id) > 0) { //시험을 이미 봤는지
+			out.println("<script>alert('시험 이미 봤다고!');");
+			out.println("location.href='OmrMain.html';</script>");
+			//out.println("location.href='javascript:history.go(-1);';</script>");
+
+
+
+// 			out.flush();
+
+// 			response.sendRedirect("OmrMain.html");
+		} else { //응시자격이 없지 않으면서 -> 관리자가 아니고 시험을 이미 보지않음.
 
 			dto.setId(request.getParameter("id"));
 			dtos.setName(request.getParameter("name"));
 
 			pageContext.setAttribute("dto", dto);
 		}
-	} else {
-		out.println("<script>alert('응시자격없음');");
-		out.println("location.href='javascript:history.go(-1);';</script>");
-		// 		response.sendRedirect("OmrMain.html");
 
 	}
+	dto.setId(request.getParameter("id"));
+	dtos.setName(request.getParameter("name"));
+
+	pageContext.setAttribute("dto", dto);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Test Page</title>
-
 <script>
 	function fnSubmit() {
 		if (confirm("답안지를 제출 하시겠습니까?")) {

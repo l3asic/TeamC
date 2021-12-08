@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인적사항 먼저 입력?</title>
+
+
+<!-- <script type="text/javascript">
+function fnResult(){
+	alert('hi');
+return true;
+}
+</script> -->
+
+
+</head>
+<body>
+
+
+	<!-- 	<form action="check.jsp" method="post" onsubmit="return fnSubmit()"
+		onreset="return fnReset">
+
+		<table border="1">
+			<tr>
+				<th>수험번호</th>
+				<td><input type="text" name="id" required="required"
+					placeholder="xxxxx" /></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="name" required="required"
+					placeholder="이름" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="응시시작" /> <input type="reset" value="초기화하기" /> <input
+					type="button" value="결과조회" onclick="location.href='result.jsp'" /></td>
+			</tr>
+		</table>
+
+
+	</form> -->
+
+
+	<div id="wrap" align="center">
+		<div class="main">
+			<h3>수험자 ㄴㄴ정보입력</h3>
+			<h3>ㅁㅁㅁㅁㅁ</h3>
+			<form action="testPage.jsp" method="post"
+				onsubmit="return fnSubmit()" onreset="return fnReset()">
+				<div>
+					<label>수험번호</label> <input type="text" name="id"
+						required="required" />
+				</div>
+				<div>
+					<label>성명</label> <input type="text" name="name"
+						required="required" />
+				</div>
+
+				<div class="btns">
+					<input type="submit" value="응시시작" /> <input type="reset"
+						value="초기화하기" /> <input type="button" value="결과조회"
+						onclick="location.href='result.jsp'" />
+				</div>
+				<div class="btns">
+					<input type="button" value="관리자"
+						onclick="location.href='adminLogin.jsp'" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- 	"return fnResult(String id)" -->
+
+
+</body>
+</html>

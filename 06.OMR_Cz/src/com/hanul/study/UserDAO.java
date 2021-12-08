@@ -43,7 +43,7 @@ public class UserDAO {
 		}
 	}// dbClose()
 
-	public ArrayList<UserDTO> markQna() {
+	public ArrayList<UserDTO> markQna() { // XXXXX
 		// 트라이캐치 (반복문(채점 하면서 db ox컬럼에 정답여부 삽입))
 
 		return null;
@@ -77,7 +77,7 @@ public class UserDAO {
 		return succ;
 	}// deleteOmr()
 
-	public int deleteOmr(String id) {
+	public int deleteOmr(String id) { // answer_c 테이블 컬럼삭제
 		conn = getConn(); // DB접속
 		String sql = "delete from answer_c where id = ?"; // SQL 문장 작성
 		int succ = 0; // 성공여부를 판단하기 위한 변수를 초기화
@@ -278,7 +278,7 @@ public class UserDAO {
 		return ox_list;
 	}
 
-	public int addTester(String id, String name) {
+	public int addTester(String id, String name) { // user_c 테이블 insert into
 		conn = getConn();
 		String sql = "insert into user_c (id, name) values (?, ?)";
 		int succ = 0;
@@ -332,7 +332,7 @@ public class UserDAO {
 
 	}
 
-	public ArrayList<UserDTO> passFail() {
+	public ArrayList<UserDTO> passFail() { // "select * from user_c";
 		ArrayList<UserDTO> pf_list = new ArrayList<>();
 		conn = getConn();
 		String sql = "select * from user_c";
@@ -356,7 +356,7 @@ public class UserDAO {
 		return pf_list;
 	}
 
-	public boolean checkId(UserDTO dto) {
+	public boolean checkId(UserDTO dto) { // select count(*) cnt from user_c where id = ?
 		boolean result = false;
 		conn = getConn(); // DB접속
 		String sql = "select count(*) cnt from user_c where id = ?"; // SQL 문장 작성
@@ -378,7 +378,7 @@ public class UserDAO {
 		return result; // 결과값을 리턴
 	}
 
-	public ArrayList<UserDTO> displayTester() {
+	public ArrayList<UserDTO> displayTester() { //select * from user_c where id != '9999'
 		ArrayList<UserDTO> list = new ArrayList<>();
 		conn = getConn();
 		String sql = "select * from user_c where id != '9999'";
@@ -409,7 +409,7 @@ public class UserDAO {
 		return list;
 	}
 
-	public int checkAdmin() {
+	public int checkAdmin() { //"select * from user_c where id = '9999'"
 		conn = getConn();
 		int succ = 0;
 		String sql = "select * from user_c where id = '9999'";
@@ -429,7 +429,7 @@ public class UserDAO {
 		return succ;
 	}// checkAdmin()
 
-	public int checkTried(String id) {
+	public int checkTried(String id) { //"select count(*) cnt from answer_c where id = ?
 		conn = getConn();
 		int succ = 0;
 		String sql = "select count(*) cnt from answer_c where id = ?";
@@ -449,6 +449,56 @@ public class UserDAO {
 		}
 		return succ;
 	}// checkAdmin()
+
+	public ArrayList<UserDTO> selectAll() { //"select * from user_c";
+		ArrayList<UserDTO> u_list = new ArrayList<>();
+		conn = getConn();
+		String sql = "select * from user_c";
+
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				UserDTO dto = new UserDTO();
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				u_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("전체회원 목록조회 에러");
+		} finally {
+			dbClose();
+		}
+		return u_list;
+	}
+
+	public ArrayList<UserDTO> selectUser(String id) { //"select * from user_c where id=?";
+		ArrayList<UserDTO> user_list = new ArrayList<>();
+		conn = getConn();
+		String sql = "select * from user_c where id=?";
+		try {
+			ps = conn.prepareStatement(sql);
+			UserDTO dto = new UserDTO();
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				dto.setScore(rs.getInt("score"));
+				dto.setOx(rs.getString("ox"));
+				dto.setPass(rs.getString("pass"));
+				dto.setCnt(rs.getInt("cnt"));
+				user_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("selectUser() Exception!!!");
+		} finally {
+			dbClose();
+		}
+		return user_list;
+	}// selectUser()
 
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속

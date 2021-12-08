@@ -6,9 +6,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+String id = request.getParameter("id");
 	UserDAO dao = new UserDAO();
 	ArrayList<UserDTO> u_list = dao.displayTester();
 	ArrayList<OmrDTO> m_list = dao.myAns("*");
+	
+	dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>

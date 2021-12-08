@@ -19,7 +19,11 @@
 			<h3>ㅁㅁㅁㅁㅁ</h3>
 			<form action="admin_Testers_Add_Action.jsp" method="post"
 				onsubmit="return fnSubmit()" onreset="return fnReset()">
+<<<<<<< HEAD
 				<table border="1">
+=======
+				<table border="1" >
+>>>>>>> KimWonKeun
 					<tr>
 						<td><label>추가할 수험번호</label></td>
 						<td><input type="text" name="id" required="required" /></td>
@@ -28,6 +32,7 @@
 						<td><label>추가할 성명</label></td>
 						<td><input type="text" name="name" required="required" /></td>
 					</tr>
+<<<<<<< HEAD
 
 				</table>
 				<div class="btns">
@@ -40,6 +45,16 @@
 						type="button" value="관리자메인으로"
 						onclick="location.href='adminMain.jsp'" />
 				</div>
+=======
+					<tr >
+						<td align="center">
+							<input type="submit" value="응시자 추가" />
+						    <input type="button" value="응시자목록 조회" onclick="location.href='admin_Testers.jsp'" />
+						</td>
+					</tr>
+				</table>
+				
+>>>>>>> KimWonKeun
 			</form>
 		</div>
 	</div>

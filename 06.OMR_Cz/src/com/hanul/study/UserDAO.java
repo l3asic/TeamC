@@ -94,9 +94,47 @@ public class UserDAO {
 		return succ; // 결과값을 리턴
 	}// deleteOmr()
 
+<<<<<<< HEAD
+	public ArrayList<CorrectAnsDTO> CorrectAns() { // 정답 리스트
+		conn = getConn();
+		String sql = "select * from correctanswer_C";
+		ArrayList<CorrectAnsDTO> c_list = new ArrayList<>();
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int ca1 = rs.getInt("ca1");
+				int ca2 = rs.getInt("ca2");
+				int ca3 = rs.getInt("ca3");
+				int ca4 = rs.getInt("ca4");
+				int ca5 = rs.getInt("ca5");
+				int ca6 = rs.getInt("ca6");
+				int ca7 = rs.getInt("ca7");
+				int ca8 = rs.getInt("ca8");
+				int ca9 = rs.getInt("ca9");
+				int ca10 = rs.getInt("ca10");
+
+				CorrectAnsDTO dto = new CorrectAnsDTO(ca1, ca2, ca3, ca4, ca5, ca6, ca7, ca8, ca9, ca10);
+				c_list.add(dto);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("정답불러오기 에러");
+		} finally {
+			dbClose();
+		}
+		return c_list;
+	}
+
+	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
+		conn = getConn();
+		String sql = "select * from answer_c where id = ? order by id asc";
+=======
 	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
 		conn = getConn();
 		String sql = "select * from answer_c where id=?";
+>>>>>>> ChaMinHwan
 		ArrayList<OmrDTO> m_list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -127,6 +165,8 @@ public class UserDAO {
 		return m_list;
 	}
 
+<<<<<<< HEAD
+=======
 	public ArrayList<CorrectAnsDTO> CorrectAns() { // 정답 리스트
 		conn = getConn();
 		String sql = "select * from correctanswer_C";
@@ -158,6 +198,7 @@ public class UserDAO {
 		return c_list;
 	}
 
+>>>>>>> ChaMinHwan
 	public ArrayList<UserDTO> OXOX(String id) { // 사용자 점수???
 
 		ArrayList<OmrDTO> m = myAns(id); // n+1
@@ -200,20 +241,35 @@ public class UserDAO {
 			ps.setString(2, name);
 			succ = ps.executeUpdate();
 		} catch (Exception e) {
+<<<<<<< HEAD
+			e.printStackTrace();
+			System.out.println("dao.addTester 에러임 ㅋㅋㅋ");
+=======
+>>>>>>> ChaMinHwan
 		} finally {
 			dbClose();
 		}
 		return succ;
 	}
 
+<<<<<<< HEAD
+	public int removeTester(String id) { // DELETE FROM Table1 WHERE ID = 'testId';
+		conn = getConn();
+		String sql = "delete from user_c where id=?";
+=======
 	public int removeTester(String id, String name) { // DELETE FROM Table1 WHERE ID = 'testId';
 		conn = getConn();
 		String sql = "delete from user_c where id=?and?";
+>>>>>>> ChaMinHwan
 		int succ = 0;
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
+<<<<<<< HEAD
+			//ps.setString(2, name);
+=======
 			ps.setString(2, name);
+>>>>>>> ChaMinHwan
 			succ = ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -227,7 +283,11 @@ public class UserDAO {
 
 	public int editTester(String id, String name) { // UPDATE Temp_Table SET field3='변경된 값' WHERE field1 = 'data2';
 		conn = getConn();
+<<<<<<< HEAD
+		String sql = "업데이트 테이블";
+=======
 		String sql = "insert into user_c (id, name) values (?, ?)";
+>>>>>>> ChaMinHwan
 		int succ = 0;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -265,6 +325,81 @@ public class UserDAO {
 		}
 		return pf_list;
 	}
+<<<<<<< HEAD
+
+	public boolean checkId(UserDTO dto) {
+		conn = getConn(); // DB접속
+		String sql = "select count(*) cnt from user_c where id = ?"; // SQL 문장 작성
+		try {
+			ps = conn.prepareStatement(sql); // 전송객체생성
+			ps.setString(1, dto.getId()); // 매개변수 값을 세팅
+			rs = ps.executeQuery(); // SQL문장 실행 : select → ResultSet 결과객체 생성
+			while (rs.next()) {
+				if (rs.getInt("cnt") > 0) { // if문 작성 : count(*)의 값이 0보다 큰지 비교
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("checkId() Exception!!!");
+		} finally {
+			dbClose(); // DB접속 해제
+		}
+		return false; // 결과값을 리턴
+	}
+
+	public ArrayList<UserDTO> displayTester() {
+		ArrayList<UserDTO> list = new ArrayList<>();
+		conn = getConn();
+		String sql = "select * from user_c where id != '9999'";
+
+		try {
+
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				UserDTO dto = new UserDTO();
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				dto.setScore(rs.getInt("score"));
+				dto.setOx(rs.getString("ox"));
+				dto.setPass(rs.getString("pass"));
+				dto.setCnt(rs.getInt("cnt"));
+				list.add(dto);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("디스플레이 테스터 에러");
+		} finally {
+			dbClose();
+		}
+
+		return list;
+	}
+
+	public int checkAdmin() {
+		conn = getConn();
+		int succ = 0;
+		String sql = "select * from user_c where id = '9999'";
+		try {
+			ps = conn.prepareStatement(sql); // 전송객체생성
+			// ps.setString(1, dto.getId()); //매개변수 값을 세팅
+			rs = ps.executeQuery(); // SQL문장 실행 : select → ResultSet 결과객체 생성
+			while (rs.next()) {
+				succ = Integer.parseInt(rs.getString("id"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("checkAdmin() Exception!!!");
+		} finally {
+			dbClose(); // DB접속 해제
+		}
+		return succ;
+	}// checkAdmin()
+=======
+>>>>>>> ChaMinHwan
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속
 	 * String sql = "select * from answer_c"; //SQL 문장 작성 ArrayList<OmrDTO> list =

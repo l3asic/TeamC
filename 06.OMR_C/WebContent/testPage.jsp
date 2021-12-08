@@ -43,7 +43,11 @@ function fnReset(){
 	<h3>답안지 체크</h3>
 	<form action="mark.jsp" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
 		<div>
+<<<<<<< HEAD
 			<label <input type="text" name="id" value="request.getParameter('id')" />><%=request.getParameter("id") %></label>
+=======
+			<label>수험번호 <input type="text" name="id" value=<%=request.getParameter("id")%> readonly/></label>
+>>>>>>> KimWonKeun
 		</div>
 		<div>
 			<label>1</label><input type="radio" name="input_v1" value="1" required="required" />
@@ -106,8 +110,15 @@ function fnReset(){
 							<input type="radio" name="input_v10" value="4" required="required" />
 		</div>
 		<div class="btns">
+<<<<<<< HEAD
 				<input type="submit" value="제출하기" onclick="location.href='mark.jsp'"/>
 				<input type="reset" value="초기화하기"/>
 			</div>
+=======
+				<input type="submit" value="제출하기" onclick="location.href='result.jsp'"/>
+				<input type="reset" value="초기화하기"/>
+			</div>
+			</form>
+>>>>>>> KimWonKeun
 </body>
 </html>

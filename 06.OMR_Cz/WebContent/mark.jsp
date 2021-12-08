@@ -25,11 +25,23 @@
 
 	UserDAO dao = new UserDAO();
 	int succ = dao.insertOmr(dto);
+<<<<<<< HEAD
+	if (succ > 0) {
+		out.println("<script>alert('답안제출 성공!');");
+		// 		out.println("location.href='OmrMain.html';</script>");
+		out.println("location.href='result.jsp?id=" + dto.getId() + "'</script>");
+
+	} else {
+		out.println("<script>alert('답안제출 실패!');");
+		// 		out.println("location.href='OmrMain.html';</script>");
+		out.println("location.href='result.jsp?id='" + dto.getId() + ";</script>");
+=======
 	if(succ > 0){
 		out.println("<script>alert('답안제출 성공!');");
 		out.println("location.href='OmrMain.html';</script>");
 	}else{
 		out.println("<script>alert('답안제출 실패!');");
 		out.println("location.href='OmrMain.html';</script>");
+>>>>>>> ChaMinHwan
 	}
 %>

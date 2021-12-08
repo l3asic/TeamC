@@ -12,6 +12,7 @@
 	OmrDTO dto = new OmrDTO();
 
 	dto.setId(request.getParameter("id"));
+<<<<<<< HEAD
 	dto.setAnswer1(Integer.parseInt(request.getParameter("answer1")));
 	dto.setAnswer2(Integer.parseInt(request.getParameter("answer2")));
 	dto.setAnswer3(Integer.parseInt(request.getParameter("answer3")));
@@ -22,6 +23,18 @@
 	dto.setAnswer8(Integer.parseInt(request.getParameter("answer8")));
 	dto.setAnswer9(Integer.parseInt(request.getParameter("answer9")));
 	dto.setAnswer10(Integer.parseInt(request.getParameter("answer10")));
+=======
+	dto.setAnswer1(Integer.parseInt(request.getParameter("input_v1")));
+	dto.setAnswer2(Integer.parseInt(request.getParameter("input_v2")));
+	dto.setAnswer3(Integer.parseInt(request.getParameter("input_v3")));
+	dto.setAnswer4(Integer.parseInt(request.getParameter("input_v4")));
+	dto.setAnswer5(Integer.parseInt(request.getParameter("input_v5")));
+	dto.setAnswer6(Integer.parseInt(request.getParameter("input_v6")));
+	dto.setAnswer7(Integer.parseInt(request.getParameter("input_v7")));
+	dto.setAnswer8(Integer.parseInt(request.getParameter("input_v8")));
+	dto.setAnswer9(Integer.parseInt(request.getParameter("input_v9")));
+	dto.setAnswer10(Integer.parseInt(request.getParameter("input_v10")));
+>>>>>>> KimWonKeun
 
 	UserDAO dao = new UserDAO();
 	int succ = dao.insertOmr(dto);

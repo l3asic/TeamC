@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-cccccc
-mmmmmm
-hhhhh
+
 </body>
 </html>

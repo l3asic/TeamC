@@ -45,19 +45,38 @@
 			<%
 				} //if
 			%>
+<<<<<<< HEAD
 			<tr>
 				<td colspan="10" align="center" class="btns">
 						<input type="button" value="응시자 목록" onclick="location.href='admin_Testers.jsp'" />
 						<input type="button" value="처음으로" onclick="location.href='OmrMain.html'" />
 				</td>
 			</tr>
+=======
+
+>>>>>>> ChaMinHwan
 
 		</table>
 	</div>
 
 	<div align="center">
 		<h3>예쁘게 만드세요 ㅋㅋ</h3>
+<<<<<<< HEAD
 		
+=======
+		<div class="btns">
+			<input type="button" value="뒤로가기"
+				onclick="location.href='adminMain.jsp'" />
+		</div>
+		<div class="btns">
+			<input type="button" value="응시자격 목록 수정"
+				onclick="location.href='admin_Testers.jsp'" />
+		</div>
+		<div class="btns">
+			<input type="button" value="처음으로"
+				onclick="location.href='OmrMain.html'" />
+		</div>
+>>>>>>> ChaMinHwan
 	</div>
 </body>
 </html>

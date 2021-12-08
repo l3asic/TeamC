@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <%@page import="com.hanul.study.UserDAO"%>
+=======
+>>>>>>> ChaMinHwan
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.OmrDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,6 +15,7 @@
 	OmrDTO dto = new OmrDTO();
 	UserDTO dtos = new UserDTO();
 
+<<<<<<< HEAD
 	UserDAO dao = new UserDAO();
 	
 	dtos.setId(id);
@@ -32,6 +36,12 @@
 		// 		response.sendRedirect("OmrMain.html");
 
 	}
+=======
+	dto.setId(request.getParameter("id"));
+	dtos.setName(request.getParameter("name"));
+
+	pageContext.setAttribute("dto", dto);
+>>>>>>> ChaMinHwan
 %>
 <!DOCTYPE html>
 <html>
@@ -139,6 +149,9 @@
 			<input type="reset" value="초기화하기" /> <input type="button"
 				value="처음으로" onclick="location.href='OmrMain.html'" />
 		</div>
+<<<<<<< HEAD
 	</form>
+=======
+>>>>>>> ChaMinHwan
 </body>
 </html>

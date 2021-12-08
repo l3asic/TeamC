@@ -25,7 +25,7 @@
 		if (dao.addTester(id, name) > 0) {
 			out.println("<script>alert('방금 입력한사람 등록 성공');");
 			out.println("location.href='admin_Testers.jsp'</script>");
-		}else{
+		} else {
 			out.println("<script>alert('방금 입력한사람 등록 실패 (dao.addTester 에러)');");
 			out.println("location.href='admin_Testers.jsp'</script>");
 		}

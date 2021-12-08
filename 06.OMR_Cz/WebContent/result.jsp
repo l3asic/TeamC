@@ -13,7 +13,7 @@
 	UserDAO dao = new UserDAO();
 	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
 	ArrayList<OmrDTO> m_list = dao.myAns(id);
-	OmrDTO dtozz = dao.OXOX("970528");
+	OmrDTO dtozz = dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>

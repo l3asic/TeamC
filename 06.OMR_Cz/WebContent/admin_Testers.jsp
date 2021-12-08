@@ -6,11 +6,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String id = request.getParameter("id");
+	request.setCharacterEncoding("utf-8");
+	String id = request.getParameter("id");
 	UserDAO dao = new UserDAO();
+
 	ArrayList<UserDTO> u_list = dao.displayTester();
-	ArrayList<OmrDTO> m_list = dao.myAns("*");
-	
+
 	dao.OXOX(id);
 %>
 <!DOCTYPE html>
@@ -38,6 +39,7 @@ String id = request.getParameter("id");
 		<h3>응시자 정보</h3>
 		<table border="1">
 			<tr>
+				<th>시험 응시여부</th>
 				<th>수험번호</th>
 				<th>이름</th>
 				<th>점수</th>
@@ -55,19 +57,30 @@ String id = request.getParameter("id");
 				} else {
 			%>
 			<%
-				for (UserDTO dto : u_list) {
+				// 				for (UserDTO dto : u_list) {
+					for (int i = 0; i < u_list.size(); i++) {
 			%>
 			<tr>
-				<td><%=dto.getId()%></td>
-				<td><%=dto.getName()%></td>
-				<td><%=dto.getScore()%></td>
-				<td><%=dto.getOx()%></td>
-				<td><%=dto.getPass()%></td>
-				<td><%=dto.getCnt()%></td>
+				<%
+					if (dao.myAns(id).get(i).getAnswer1() == null) {
+				%>
+				<td>시험 봤음</td>
+				<%
+					} else {
+				%>
+				<td>시험 아직 안봤음</td>
+				<%
+					}
+				%>
+				<td><%=u_list.get(i).getId()%></td>
+				<td><%=u_list.get(i).getName()%></td>
+				<td><%=u_list.get(i).getScore()%></td>
+				<td><%=u_list.get(i).getOx()%></td>
+				<td><%=u_list.get(i).getPass()%></td>
+				<td><%=u_list.get(i).getCnt()%></td>
 				<td><input type="button" value="삭제"
-					onclick="fnDelete('${dto.id}')" /></td>
-				<td><input type="button" value="수정"
-					onclick="fnDelete('${dto.id}')" /></td>
+					onclick="fnDelete(<%=u_list.get(i).getId()%>)" /></td>
+
 			</tr>
 			<%
 				} //for

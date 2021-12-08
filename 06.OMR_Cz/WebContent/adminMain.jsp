@@ -14,10 +14,6 @@
 				onclick="location.href='admin_Select.jsp'" />
 		</div>
 		<div class="btns">
-			<input type="button" value="응시자 조회"
-				onclick="location.href='admin_Select.jsp'" />
-		</div>
-		<div class="btns">
 			<input type="button" value="응시자격 목록 수정"
 				onclick="location.href='admin_Testers.jsp'" />
 		</div>

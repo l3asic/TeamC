@@ -128,7 +128,7 @@ public class UserDAO {
 
 	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
 		conn = getConn();
-		String sql = "select * from answer_c where id = ? order by id asc";
+		String sql = "select * from answer_c where id = ?";
 		ArrayList<OmrDTO> m_list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -159,29 +159,116 @@ public class UserDAO {
 		return m_list;
 	}
 
-	public ArrayList<UserDTO> OXOX(String id) { // 사용자 점수???
+	public OmrDTO OXOX(String id) { // 사용자 점수???
 
 		ArrayList<OmrDTO> m = myAns(id); // n+1
 		ArrayList<CorrectAnsDTO> c = CorrectAns();// n
 
 		conn = getConn();
-		ArrayList<UserDTO> ox_list = new ArrayList<>();
+//		ArrayList<OmrDTO> ox_list = new ArrayList<>();
+		OmrDTO ox_list = new OmrDTO();
 
 		try {
 			for (int i = 0; i < CorrectAns().size(); i++) {
 
-				if (m.get(i + 1).equals(c.get(i))) {
-					String ox = "O";
-					UserDTO dto = new UserDTO(ox);
-					ox_list.add(dto);
+				if (m.get(i).answer1 == c.get(i).ca1) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer1(1); // 정답이면 int 1
 				} else {
-					String ox = "X";
-					UserDTO dto = new UserDTO(ox);
-					ox_list.add(dto);
+					ox_list.setAnswer1(0); // 오답이면 int 0
 				}
 
-			}
+				if (m.get(i).answer2 == c.get(i).ca2) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer2(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer2(0); // 오답이면 int 0
+				}
 
+				if (m.get(i).answer3 == c.get(i).ca3) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer3(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer3(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer4 == c.get(i).ca4) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer4(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer4(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer5 == c.get(i).ca5) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer5(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer5(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer6 == c.get(i).ca6) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer6(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer6(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer7 == c.get(i).ca7) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer7(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer7(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer8 == c.get(i).ca8) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer8(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer8(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer9 == c.get(i).ca9) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer9(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer9(0); // 오답이면 int 0
+				}
+
+				if (m.get(i).answer10 == c.get(i).ca10) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
+					ox_list.setAnswer10(1); // 정답이면 int 1
+				} else {
+					ox_list.setAnswer10(0); // 오답이면 int 0
+				}
+
+				int answer1 = ox_list.getAnswer1();
+				int answer2 = ox_list.getAnswer2();
+				int answer3 = ox_list.getAnswer3();
+				int answer4 = ox_list.getAnswer4();
+				int answer5 = ox_list.getAnswer5();
+				int answer6 = ox_list.getAnswer6();
+				int answer7 = ox_list.getAnswer7();
+				int answer8 = ox_list.getAnswer8();
+				int answer9 = ox_list.getAnswer9();
+				int answer10 = ox_list.getAnswer10();
+
+//				System.out.println(answer1);
+//				System.out.println(answer2);
+//				System.out.println(answer3);
+//				System.out.println(answer4);
+//				System.out.println(answer5);
+//				if (m.get(i + 1).equals(c.get(i))) {
+//					String ox = "O";
+//					OmrDTO dto = new OmrDTO();
+//				} else {
+//					String ox = "X";
+//					OmrDTO dto = new OmrDTO();
+//				}
+//				System.out.println(i + "번재반복ㅋㅋ");
+//				System.out.println(i + "번재반복ㅋㅋ");
+//				System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁ");
+//				System.out.println(CorrectAns().size());
+//				System.out.println(CorrectAns().size());
+//				System.out.println(CorrectAns().size());
+//				System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁ");
+//				System.out.println(i + "번재반복ㅋㅋ");
+//				System.out.println(i + "번재반복ㅋㅋ");
+//
+//			}
+				ox_list = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
+						answer9, answer10);
+//				ox_list.add(dto);
+			}
 		} catch (Exception e) {
 			System.out.println("OXOX에러");
 			e.printStackTrace();
@@ -211,7 +298,7 @@ public class UserDAO {
 
 	public int removeTester(String id, String name) { // DELETE FROM Table1 WHERE ID = 'testId';
 		conn = getConn();
-		String sql = "delete from user_c where id=?and?";
+		String sql = "delete from user_c where id=?and ?";
 		int succ = 0;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -269,12 +356,8 @@ public class UserDAO {
 		return pf_list;
 	}
 
-<<<<<<< HEAD
 	public boolean checkId(UserDTO dto) { // select count(*) cnt from user_c where id = ?
 		boolean result = false;
-=======
-	public boolean checkId(UserDTO dto) {
->>>>>>> d8baf047f15f4885b4fd1c9d4e036ca9abdcf38f
 		conn = getConn(); // DB접속
 		String sql = "select count(*) cnt from user_c where id = ?"; // SQL 문장 작성
 		try {
@@ -283,7 +366,7 @@ public class UserDAO {
 			rs = ps.executeQuery(); // SQL문장 실행 : select → ResultSet 결과객체 생성
 			while (rs.next()) {
 				if (rs.getInt("cnt") > 0) { // if문 작성 : count(*)의 값이 0보다 큰지 비교
-					return true;
+					result = true;
 				}
 			}
 		} catch (Exception e) {
@@ -292,7 +375,7 @@ public class UserDAO {
 		} finally {
 			dbClose(); // DB접속 해제
 		}
-		return false; // 결과값을 리턴
+		return result; // 결과값을 리턴
 	}
 
 	public ArrayList<UserDTO> displayTester() { //select * from user_c where id != '9999'
@@ -345,62 +428,25 @@ public class UserDAO {
 		}
 		return succ;
 	}// checkAdmin()
-<<<<<<< HEAD
 
 	public int checkTried(String id) { //"select count(*) cnt from answer_c where id = ?
-=======
-	
-	//검색회원 조회
-	public ArrayList<UserDTO> selectUser(String id) {
-		ArrayList<UserDTO> user_list = new ArrayList<>();
->>>>>>> d8baf047f15f4885b4fd1c9d4e036ca9abdcf38f
 		conn = getConn();
-		String sql = "select * from user_c where id=?";
-			try {
-				ps = conn.prepareStatement(sql);
-				UserDTO dto = new UserDTO();
-				ps.setString(1, id);
-				rs = ps.executeQuery();
-				while (rs.next()) {
-					dto.setId(rs.getString("id"));
-					dto.setName(rs.getString("name"));
-					dto.setScore(rs.getInt("score"));
-					dto.setOx(rs.getString("ox"));
-					dto.setPass(rs.getString("pass"));
-					dto.setCnt(rs.getInt("cnt"));
-					user_list.add(dto);
-				}
-			} catch (Exception e) {
-					e.printStackTrace();
-					System.out.println("selectUser() Exception!!!");
-			} finally {
-				dbClose();
-			}
-			return user_list;
-		}//selectUser()
-	
-	//전체회원 조회
-	public ArrayList<UserDTO> selectAll() { // 정답 리스트
-		ArrayList<UserDTO> u_list = new ArrayList<>();
-		conn = getConn();
-		String sql = "select * from user_c";
-		
+		int succ = 0;
+		String sql = "select count(*) cnt from answer_c where id = ?";
 		try {
-			ps = conn.prepareStatement(sql);
-			rs = ps.executeQuery();
+			ps = conn.prepareStatement(sql); // 전송객체생성
+			ps.setString(1, id);
+			// ps.setString(1, dto.getId()); //매개변수 값을 세팅
+			rs = ps.executeQuery(); // SQL문장 실행 : select → ResultSet 결과객체 생성
 			while (rs.next()) {
-				UserDTO dto = new UserDTO();
-				dto.setId(rs.getString("id"));
-				dto.setName(rs.getString("name"));
-				u_list.add(dto);
+				succ = rs.getInt("cnt");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("전체회원 목록조회 에러");
+			System.out.println("checkAdmin() Exception!!!");
 		} finally {
-			dbClose();
+			dbClose(); // DB접속 해제
 		}
-<<<<<<< HEAD
 		return succ;
 	}// checkAdmin()
 
@@ -454,11 +500,6 @@ public class UserDAO {
 		return user_list;
 	}// selectUser()
 
-=======
-		return u_list;
-	}
-	
->>>>>>> d8baf047f15f4885b4fd1c9d4e036ca9abdcf38f
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속
 	 * String sql = "select * from answer_c"; //SQL 문장 작성 ArrayList<OmrDTO> list =

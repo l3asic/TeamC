@@ -5,40 +5,25 @@
 	pageEncoding="UTF-8"%>
 <%
 	UserDAO dao = new UserDAO();
-	ArrayList<UserDTO> u_list = dao.selectAll();
+	ArrayList<UserDTO> pf_list = dao.passFail();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>응시자 조회</title>
+<title>합불 여부</title>
 </head>
 <body>
-	<div align="center">
-		.
-		<h3>시험결과 목록</h3>
+	<div align="center">.
+	<h3>시험결과 목록</h3>
 		<table border="1">
-
-
-			<tr align="center">
-				<td colspan="5">
-					<form action="userResult.jsp" method="post">
-						<select name="part">
-							<option value="u_id">수험번호</option>
-							<option value="u_name">성명</option>
-						</select> <input type="text" name="searchData" required="required" /> <input
-							type="submit" value="검색하기" /> <input type="button"
-							value="관리자화면으로 돌아가기" onclick="location.href='adminMain.jsp'" />
-					</form>
 			<tr>
+				<th>이름</th>
 				<th>수험번호</th>
-				<th>성명</th>
-				<th>응시여부</th>
-			</tr>
-			</td>
+				<th>결과</th>
 			</tr>
 			<%
-				if (u_list.size() == 0) {
+				if (pf_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">등록된 회원목록이 없습니다!</td>
@@ -47,25 +32,13 @@
 				} else {
 			%>
 			<%
-				for (UserDTO dto : u_list) {
+				for (UserDTO dto : pf_list) {
 			%>
-
 			<tr>
-				<td><%=dto.getId()%></td>
-				<td><%=dto.getName()%></td>
-				<td>아아아</td>
-				<%-- 				<th><%=dto.getId()%></th> --%>
-				<%-- 				<th><%=dto.getName()%></th> --%>
+				<th><%=dto.getName()%></th>
+				<th><%=dto.getId()%></th>
+				<th><%=dto.getPass()%></th>
 			</tr>
-
-
-
-
-
-
-
-
-
 			<%
 				} //for
 			%>

@@ -16,12 +16,16 @@ UserDAO : 메소드 수정
   쿼리수정
     기응시자 검색 : select * from user_c where id like %?% ;
   
-  
+admin_Select.jsp 검색 결과
+  userResult.jsp : 스타일 적용안됨,  검색창 다시 나오면 자연스러울것같음
 
 단어수정
 
 스타일은 수정안(못)했음
-  style="width:80%";  margin-top:??;  버튼정렬  
+  style="width:80%";  margin-top:??;  
+  
+버튼정렬++
+  버튼 링크, 기능, 위치 
  
 --------------------------------------------------
   

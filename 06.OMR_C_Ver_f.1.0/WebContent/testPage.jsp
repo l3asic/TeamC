@@ -18,7 +18,7 @@
 	dtos.setId(id);
 
 	if (dao.checkId(dtos) == false) { //응시자격이 없는지
-		out.println("<script>alert('응시자격없음');");
+		out.println("<script>alert('응시 자격이 없습니다.');");
 		out.println("location.href='javascript:history.go(-1);';</script>");
 		// 		response.sendRedirect("OmrMain.html");
 
@@ -103,7 +103,7 @@ body {
 </head>
 <body>
 	<div class="img">
-		<img alt="sheet" src="images/test_sheet.png">
+		<img alt="sheet" src="images/test_sheet_new.png">
 	</div>
 
 	</br>

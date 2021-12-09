@@ -20,6 +20,27 @@
 <head>
 <meta charset="UTF-8">
 <title>시험 결과 보여주는 페이지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<style type="text/css">
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid #333;
+}
+input {
+	outline: none;
+}
+
+body {
+	background-color: #F3E7E7;
+}
+.ans {
+	background-color: #00ff00;
+	text-color : #ffffff;
+}
+.main {
+	margin-top: 10%;
+}
+</style>
 </head>
 <body>
 	<div align="center">
@@ -143,8 +164,10 @@
 			%>
 
 			<tr align="center">
-				<td colspan="11"><input type="button" value="처음으로"
-					onclick="location.href='OmrMain.html'" /></td>
+				<td colspan="11">
+					<input class="btn btn-outline-info btn-sm" type="button" value="처음으로" onclick="location.href='OmrMain.html'" />
+					
+				</td>
 			</tr>
 		</table>
 	</div>

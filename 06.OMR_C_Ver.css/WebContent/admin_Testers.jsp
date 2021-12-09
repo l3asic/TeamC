@@ -21,6 +21,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<style type="text/css">
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid #333;
+}
+input {
+	outline: none;
+}
+
+body {
+		background-color: #F3E7E7;
+}
+.main {
+	margin-top: 10%;
+}
+</style>
 <script type="text/javascript">
 	function fnDelete(id) {
 		//alert("ID : " + id);
@@ -37,7 +54,7 @@
 </script>
 </head>
 <body>
-	<div align="center">
+	<div class="main" align="center">
 		<h3>응시자 정보</h3>
 		<table border="1" >
 			<tr>
@@ -112,7 +129,7 @@
 				<!-- 합불 -->
 				<td><%=u_list2.get(0).getCnt()%></td>
 				<!-- 갯수 -->
-				<td><input type="button" value="삭제"
+				<td><input class="btn btn-outline-danger" type="button" value="삭제"
 					onclick="fnDelete(<%=u_list.get(i).getId()%>)" /></td>
 			</tr>
 			<%
@@ -122,29 +139,13 @@
 				} //else
 			%>
 			<tr>
-				<td colspan="10" align="center"><div class="btns">
-						<input type="button"
-							value="응시자 추가(jsp->dao.addTester(String id, String name))"
-							onclick="location.href='admin_Testers_Add.jsp'" />
-					</div></td>
+				<td colspan="10" align="center" >
+						<input class="btn btn-outline-success btn-sm" type="button" value="응시자 추가" onclick="location.href='admin_Testers_Add.jsp'" />
+						<input class="btn btn-outline-warning btn-sm" type="button" value="응시자 결과" onclick="location.href='admin_Select.jsp'" />
+						<input class="btn btn-outline-info btn-sm" type="button" value="처음으로" onclick="location.href='OmrMain.html'" />
+				</td>
 			</tr>
 		</table>
-	</div>
-
-	<div align="center">
-		<h3>예브게 꾸미세요</h3>
-		<div class="btns">
-			<input type="button" value="뒤로가기"
-				onclick="location.href='adminMain.jsp'" />
-		</div>
-		<div class="btns">
-			<input type="button" value="응시자 결과"
-				onclick="location.href='admin_Select.jsp'" />
-		</div>
-		<div class="btns">
-			<input type="button" value="처음으로"
-				onclick="location.href='OmrMain.html'" />
-		</div>
 	</div>
 </body>
 </html>

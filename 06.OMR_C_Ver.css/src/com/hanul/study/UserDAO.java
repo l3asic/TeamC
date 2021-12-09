@@ -452,7 +452,7 @@ public class UserDAO {
 	public ArrayList<UserDTO> selectAll() { // "select * from user_c";
 		ArrayList<UserDTO> u_list = new ArrayList<>();
 		conn = getConn();
-		String sql = "select * from user_c";
+		String sql = "select a.* from user_c a, answer_c b where a.id = b.id ";
 
 		try {
 			ps = conn.prepareStatement(sql);

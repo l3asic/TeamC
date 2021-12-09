@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import org.apache.catalina.User;
 
 public class UserDAO {
 
@@ -15,9 +18,10 @@ public class UserDAO {
 	// DB접속 : ojdbc8.jar(C:\oracle18c\dbhomeXE\jdbc\lib) ▶ WebContent > WEB-INF >
 	// lib : 복붙(등록)
 	public Connection getConn() {
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "hanul";
 		String password = "0000";
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, password);
@@ -126,8 +130,16 @@ public class UserDAO {
 		return c_list;
 	}
 
-	public ArrayList<OmrDTO> myAns(String id) { // db에 저장된 사용자 답안
+	public ArrayList<OmrDTO> myAns(String id)  { // db에 저장된 사용자 답안
 		conn = getConn();
+		try {
+			if (conn.isClosed()) {
+				System.out.println("닫힘");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		String sql = "select * from answer_c where id = ?";
 		ArrayList<OmrDTO> m_list = new ArrayList<>();
 		try {
@@ -167,9 +179,15 @@ public class UserDAO {
 		conn = getConn();
 		OmrDTO dto = new OmrDTO();
 		ArrayList<OmrDTO> ox_list = new ArrayList<>();
-		try {
+		
 			for (int i = 0; i < c.size(); i++) {
-
+				try {
+				if(m.size() == 0) {
+					OmrDTO dtozz = new OmrDTO(id, "-","-","-","-","-","-","-","-","-","-");
+					ox_list.add(dtozz);
+				}else {
+					
+				
 				if (m.get(i).answer1.equals(c.get(i).ca1)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
 					dto.setAnswer1("O"); // 정답이면 O
 				} else {
@@ -244,14 +262,18 @@ public class UserDAO {
 				OmrDTO dtozz = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
 						answer9, answer10);
 				ox_list.add(dtozz);
+				}
 			}
-		} catch (Exception e) {
+		 catch (Exception e) {
 			System.out.println("OXOX에러 프린트스택트레이스주석해놧음");
 			System.out.println("OXOX에러 프린트스택트레이스주석해놧음");
 			e.printStackTrace();
+			continue;
+			
 		} finally {
 			dbClose();
 		}
+			}
 		return ox_list;
 	}
 
@@ -476,6 +498,140 @@ public class UserDAO {
 		}
 		return user_list;
 	}// selectUser()
+
+	public ArrayList<UserDTO> newUl(String id) {
+		int cnt = 0;
+//		UserDTO userdto = new UserDTO();
+		conn = getConn();
+		ArrayList<UserDTO> nu_list = new ArrayList<>();
+		ArrayList<OmrDTO> ox = OXOX(id);
+		try {
+	
+		System.out.println("");
+		if(ox.size() == 0) {
+			
+		}else {
+			
+	
+				if (ox.get(0).getAnswer1().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer2().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer3().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer4().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer5().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer6().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer7().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer8().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer9().equals("O")) {
+					cnt += 1;
+				}
+				if (ox.get(0).getAnswer10().equals("O")) {
+					cnt += 1;
+				}
+			
+//			for(int i=0; i<10; i++) {
+//				if(배열[i].equal("o")) {
+//					cnt++
+//				}
+
+			}
+		} catch (Exception e) {
+			System.out.println("newUl 에러");
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+	
+		int score = cnt * 10;
+		String passFail = null;
+
+		if (score >= 60) {
+			passFail = "합격";
+		} else {
+			passFail = "불합격";
+		}
+
+//		userdto.setCnt(sum);
+//		userdto.setScore(sum * 10);
+//		userdto.setOx(passFail);
+		UserDTO userdto =null;
+		
+		if(ox.get(0).getAnswer1().equals("-") ) {
+			userdto = new UserDTO(id, "plz", score, "wait", "시험안봄", 0);
+		}else {
+			userdto = new UserDTO(id, "plz", score, "sorry", passFail, cnt);
+		}
+		nu_list.add(userdto);
+		if(nu_list.size() < 1) {
+			System.out.println("ddd");
+		}
+
+		return nu_list;
+	}
+
+	public ArrayList<UserDTO> newUl(String[] oxlist) {
+		int cnt = 0;
+		ArrayList<UserDTO> list = new ArrayList<>();
+
+		if (oxlist[0].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[1].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[2].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[3].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[4].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[5].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[6].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[7].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[8].equals("O")) {
+			cnt++;
+		}
+		if (oxlist[9].equals("O")) {
+			cnt++;
+		}
+//		UserDTO userdto = new UserDTO();
+
+		int score = cnt * 10;
+		String pass = null;
+
+		if (score >= 60) {
+			pass = "합";
+		} else {
+			pass = "불";
+		}
+		UserDTO dto = new UserDTO("sorry1", "sorry2", score, "sorry3", pass, cnt);
+		list.add(dto);
+		return list;
+	}
 
 	/*
 	 * 수정할 것!! public ArrayList<OmrDTO> omrSearchAll() { conn = getConn(); //DB접속

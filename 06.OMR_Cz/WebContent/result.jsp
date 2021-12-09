@@ -25,6 +25,9 @@
 	<div align="center">
 		<h3>[내시험결과 보기]</h3>
 		<table border="1">
+		<form>
+			<input type="hidden" name="ox_list" val=<%=ox_list %>/>
+		</form>
 			<tr>
 				<th>ㅁㅁ</th>
 				<th>&nbsp;Q. 01&nbsp;</th>
@@ -129,7 +132,6 @@
 				<td><%=dto.getAnswer8()%></td>
 				<td><%=dto.getAnswer9()%></td>
 				<td><%=dto.getAnswer10()%></td>
-
 
 			</tr>
 			<%

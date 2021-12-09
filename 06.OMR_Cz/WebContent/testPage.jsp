@@ -30,11 +30,9 @@
 			out.println("location.href='OmrMain.html';</script>");
 			//out.println("location.href='javascript:history.go(-1);';</script>");
 
+			// 			out.flush();
 
-
-// 			out.flush();
-
-// 			response.sendRedirect("OmrMain.html");
+			// 			response.sendRedirect("OmrMain.html");
 		} else { //응시자격이 없지 않으면서 -> 관리자가 아니고 시험을 이미 보지않음.
 
 			dto.setId(request.getParameter("id"));
@@ -75,7 +73,7 @@
 <body>
 	<h3>답안지 체크</h3>
 	<form action="mark.jsp" method="post" onsubmit="return fnSubmit()"
-		onreset="return fnReset()">
+		onreset="return fnReset()" align="center">
 		<div>
 			<label>수험번호 <input type="text" name="id"
 				value=<%=request.getParameter("id")%> readonly /></label>

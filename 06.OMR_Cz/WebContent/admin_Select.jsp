@@ -53,7 +53,7 @@
 			<tr>
 				<td><%=dto.getId()%></td>
 				<td><%=dto.getName()%></td>
-				<td>아아아</td>
+				<td></td>
 				<%-- 				<th><%=dto.getId()%></th> --%>
 				<%-- 				<th><%=dto.getName()%></th> --%>
 			</tr>

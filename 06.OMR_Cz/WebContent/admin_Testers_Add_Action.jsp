@@ -12,7 +12,7 @@
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
 
-	UserDTO dto = new UserDTO(id, name, 0, null, null);
+	UserDTO dto = new UserDTO(id, name, 0, null, null, 0);
 
 	UserDAO dao = new UserDAO();
 

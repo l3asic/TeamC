@@ -11,18 +11,20 @@ public class UserDTO {
 	public UserDTO() {
 		super();
 	}
+
 	public UserDTO(String ox) {
 		super();
 	}
-	public UserDTO(String id, String name, int score, String ox, String pass) {
+
+	public UserDTO(String id, String name, int score, String ox, String pass, int cnt) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.score = score;
 		this.ox = ox;
 		this.pass = pass;
+		this.cnt = cnt;
 	}
-	
 
 	public String getId() {
 		return id;
@@ -71,7 +73,5 @@ public class UserDTO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	
-	
 
 }

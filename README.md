@@ -9,9 +9,14 @@ commit;
 db테이블 : user_C 인서트가 없음 : oxox만들어서 그때그때 만들어오는 형식임
   correctanswer_c : ID VARCHAR2(10) 과목 추가 가능 -> dto dao 싹다수정해야됨
 
-UserDAO : 안쓰는메소드 정리
-  public ArrayList<UserDTO> newUl(String[] oxlist)d
-  eleteOmr()
+UserDAO : 메소드 수정
+  미사용
+    public ArrayList<UserDTO> newUl(String[] oxlist)d 
+    eleteOmr()
+  쿼리수정
+    기응시자 검색 : select * from user_c where id like %?% ;
+  
+  
 
 단어수정
 

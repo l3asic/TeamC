@@ -13,7 +13,7 @@
 	UserDAO dao = new UserDAO();
 	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
 	ArrayList<OmrDTO> m_list = dao.myAns(id);
-	OmrDTO dtozz = dao.OXOX(id);
+	ArrayList<OmrDTO> ox_list = dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div align="center">
-		<h3>[전체회원 목록보기]</h3>
+		<h3>[내시험결과 보기]</h3>
 		<table border="1">
 			<tr>
 				<th>ㅁㅁ</th>
@@ -39,20 +39,6 @@
 				<th>&nbsp;Q. 10&nbsp;</th>
 			</tr>
 
-			<%-- 단순 for문을 이용한 출력
-	<%for(int i = 0; i < list.size(); i++){ %>
-		<tr align="center">
-			<td><%= list.get(i).getName() %></td>
-			<td><%= list.get(i).getId() %></td>
-			<td><%= list.get(i).getPw() %></td>
-			<td><%= list.get(i).getAge() %></td>
-			<td><%= list.get(i).getAddr() %></td>
-			<td><%= list.get(i).getTel() %></td>
-		</tr>	
-	<%}//for %>
-	--%>
-
-			<%-- 향상된 for문을 이용한 출력 --%>
 			<%
 				if (c_list.size() == 0) {
 			%>
@@ -118,8 +104,7 @@
 				} //if
 			%>
 			<%
-				// 				if (ox_list.size() == 0) {
-				if (false) {
+				if (ox_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">등록된 회원목록이 없습니다!</td>
@@ -128,48 +113,27 @@
 				} else {
 			%>
 			<tr align="center">
-				<%-- 				<% --%>
-				<!-- 				// for (OmrDTO dto : ) { -->
-				<%-- 				%> --%>
 
+				<%
+					for (OmrDTO dto : ox_list) {
+				%>
 				<td>맞으면O 틀리면X</td>
-				<td><%=dtozz.getAnswer1()%></td>
-				<td><%=dtozz.getAnswer2()%></td>
-				<td><%=dtozz.getAnswer3()%></td>
-				<td><%=dtozz.getAnswer4()%></td>
-				<td><%=dtozz.getAnswer5()%></td>
-				<td><%=dtozz.getAnswer6()%></td>
-				<td><%=dtozz.getAnswer7()%></td>
-				<td><%=dtozz.getAnswer8()%></td>
-				<td><%=dtozz.getAnswer9()%></td>
-				<td><%=dtozz.getAnswer10()%></td>
 
+				<td><%=dto.getAnswer1()%></td>
+				<td><%=dto.getAnswer2()%></td>
+				<td><%=dto.getAnswer3()%></td>
+				<td><%=dto.getAnswer4()%></td>
+				<td><%=dto.getAnswer5()%></td>
+				<td><%=dto.getAnswer6()%></td>
+				<td><%=dto.getAnswer7()%></td>
+				<td><%=dto.getAnswer8()%></td>
+				<td><%=dto.getAnswer9()%></td>
+				<td><%=dto.getAnswer10()%></td>
 
-				<!-- 	${ox_list.ox}			<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<!-- 				<td>12</td> -->
-				<%-- 				<td><%=dto.ox_list()%></td> --%>
-				<%-- 				<td><%=dto.getOx1()%></td> --%>
-				<%-- 				<td><%=dto.getOx2()%></td> --%>
-				<%-- 				<td><%=dto.getOx3()%></td> --%>
-				<%-- 				<td><%=dto.getOx4()%></td> --%>
-				<%-- 				<td><%=dto.getOx5()%></td> --%>
-				<%-- 				<td><%=dto.getOx6()%></td> --%>
-				<%-- 				<td><%=dto.getOx7()%></td> --%>
-				<%-- 				<td><%=dto.getOx8()%></td> --%>
-				<%-- 				<td><%=dto.getOx9()%></td> --%>
-				<%-- 				<td><%=dto.getOx10()%></td> --%>
 
 			</tr>
 			<%
+				}
 				} //for
 			%>
 			<%

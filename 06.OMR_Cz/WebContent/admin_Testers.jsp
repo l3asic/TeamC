@@ -12,7 +12,7 @@
 
 	ArrayList<UserDTO> u_list = dao.displayTester();
 
-	dao.OXOX(id);
+// 	dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +62,7 @@
 			%>
 			<tr>
 				<%
-					if (dao.myAns(id).get(i).getAnswer1() == null) {
+					if (dao.checkTried(u_list.get(i).getId()) > 0) {
 				%>
 				<td>시험 봤음</td>
 				<%

@@ -159,120 +159,96 @@ public class UserDAO {
 		return m_list;
 	}
 
-	public OmrDTO OXOX(String id) { // 사용자 점수???
+	public ArrayList<OmrDTO> OXOX(String id) { // 사용자 점수???
 
 		ArrayList<OmrDTO> m = myAns(id); // n+1
 		ArrayList<CorrectAnsDTO> c = CorrectAns();// n
 
 		conn = getConn();
-//		ArrayList<OmrDTO> ox_list = new ArrayList<>();
-		OmrDTO ox_list = new OmrDTO();
-
+		OmrDTO dto = new OmrDTO();
+		ArrayList<OmrDTO> ox_list = new ArrayList<>();
 		try {
-			for (int i = 0; i < CorrectAns().size(); i++) {
+			for (int i = 0; i < c.size(); i++) {
 
 				if (m.get(i).answer1.equals(c.get(i).ca1)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer1("O"); // 정답이면 int 1
+					dto.setAnswer1("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer1("X"); // 오답이면 int 0
+					dto.setAnswer1("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer2.equals(c.get(i).ca2)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer2("O"); // 정답이면 int 1
+					dto.setAnswer2("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer2("X"); // 오답이면 int 0
+					dto.setAnswer2("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer3.equals(c.get(i).ca3)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer3("O"); // 정답이면 int 1
+					dto.setAnswer3("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer3("X"); // 오답이면 int 0
+					dto.setAnswer3("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer4.equals(c.get(i).ca4)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer4("O"); // 정답이면 int 1
+					dto.setAnswer4("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer4("X"); // 오답이면 int 0
+					dto.setAnswer4("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer5.equals(c.get(i).ca5)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer5("O"); // 정답이면 int 1
+					dto.setAnswer5("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer5("X"); // 오답이면 int 0
+					dto.setAnswer5("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer6.equals(c.get(i).ca6)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer6("O"); // 정답이면 int 1
+					dto.setAnswer6("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer6("X"); // 오답이면 int 0
+					dto.setAnswer6("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer7.equals(c.get(i).ca7)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer7("O"); // 정답이면 int 1
+					dto.setAnswer7("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer7("X"); // 오답이면 int 0
+					dto.setAnswer7("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer8.equals(c.get(i).ca8)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer8("O"); // 정답이면 int 1
+					dto.setAnswer8("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer8("X"); // 오답이면 int 0
+					dto.setAnswer8("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer9.equals(c.get(i).ca9)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer9("O"); // 정답이면 int 1
+					dto.setAnswer9("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer9("X"); // 오답이면 int 0
+					dto.setAnswer9("X"); // 오답이면 X
 				}
 
 				if (m.get(i).answer10.equals(c.get(i).ca10)) { // 엘리먼트 잘 읽어주세요 ;ㅅ;
-					ox_list.setAnswer10("O"); // 정답이면 int 1
+					dto.setAnswer10("O"); // 정답이면 O
 				} else {
-					ox_list.setAnswer10("X"); // 오답이면 int 0
+					dto.setAnswer10("X"); // 오답이면 X
 				}
 
-				String answer1 = ox_list.getAnswer1();
-				String answer2 = ox_list.getAnswer2();
-				String answer3 = ox_list.getAnswer3();
-				String answer4 = ox_list.getAnswer4();
-				String answer5 = ox_list.getAnswer5();
-				String answer6 = ox_list.getAnswer6();
-				String answer7 = ox_list.getAnswer7();
-				String answer8 = ox_list.getAnswer8();
-				String answer9 = ox_list.getAnswer9();
-				String answer10 = ox_list.getAnswer10();
+				String answer1 = dto.getAnswer1();
+				String answer2 = dto.getAnswer2();
+				String answer3 = dto.getAnswer3();
+				String answer4 = dto.getAnswer4();
+				String answer5 = dto.getAnswer5();
+				String answer6 = dto.getAnswer6();
+				String answer7 = dto.getAnswer7();
+				String answer8 = dto.getAnswer8();
+				String answer9 = dto.getAnswer9();
+				String answer10 = dto.getAnswer10();
 
-//				System.out.println(answer1);
-//				System.out.println(answer2);
-//				System.out.println(answer3);
-//				System.out.println(answer4);
-//				System.out.println(answer5);
-//				if (m.get(i + 1).equals(c.get(i))) {
-//					String ox = "O";
-//					OmrDTO dto = new OmrDTO();
-//				} else {
-//					String ox = "X";
-//					OmrDTO dto = new OmrDTO();
-//				}
-//				System.out.println(i + "번재반복ㅋㅋ");
-//				System.out.println(i + "번재반복ㅋㅋ");
-//				System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁ");
-//				System.out.println(CorrectAns().size());
-//				System.out.println(CorrectAns().size());
-//				System.out.println(CorrectAns().size());
-//				System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁ");
-//				System.out.println(i + "번재반복ㅋㅋ");
-//				System.out.println(i + "번재반복ㅋㅋ");
-//
-//			}
-				ox_list = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
+				OmrDTO dtozz = new OmrDTO(id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8,
 						answer9, answer10);
-//				ox_list.add(dto);
+				ox_list.add(dtozz);
 			}
 		} catch (Exception e) {
 			System.out.println("OXOX에러 프린트스택트레이스주석해놧음");
 			System.out.println("OXOX에러 프린트스택트레이스주석해놧음");
-//			e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			dbClose();
 		}
@@ -444,7 +420,7 @@ public class UserDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("checkAdmin() Exception!!!");
+			System.out.println("checkTried() Exception!!!");
 		} finally {
 			dbClose(); // DB접속 해제
 		}

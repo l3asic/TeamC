@@ -7,12 +7,17 @@ commit;
 06.OMR_C_Ver_f.1.2
 --------------------------------------------------
 db테이블 : user_C 인서트가 없음 : oxox만들어서 그때그때 만들어오는 형식임
+  correctanswer_c : ID VARCHAR2(10) 과목 추가 가능 -> dto dao 싹다수정해야됨
 
 UserDAO : 안쓰는메소드 정리
   public ArrayList<UserDTO> newUl(String[] oxlist)d
   eleteOmr()
 
- 단어수정
+단어수정
+
+스타일은 수정안(못)했음
+  style="width:80%";  margin-top:??;  버튼정렬  
+ 
 --------------------------------------------------
   
 --------------------------------------------------

@@ -29,7 +29,7 @@
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #333;
-	text-align: "center";
+	text-align: center;
 }
 
 input {
@@ -149,7 +149,7 @@ body {
 					onclick="location.href='admin_Testers_Add.jsp'" /> <input
 					class="btn btn-outline-warning btn-sm" type="button" value="응시자 결과"
 					onclick="location.href='admin_Select.jsp'" /> <input
-					class="btn btn-outline-info btn-sm" type="button" value="처음으로"
+					class="btn btn-outline-info btn-sm" type="button" value="관리자모드 종료"
 					onclick="location.href='OmrMain.html'" /></td>
 			</tr>
 		</table>

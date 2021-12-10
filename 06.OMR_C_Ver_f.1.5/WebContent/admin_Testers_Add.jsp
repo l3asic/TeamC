@@ -17,7 +17,7 @@ request.setCharacterEncoding("utf-8");
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #333;
-	text-align: "center";
+	text-align: center;
 }
 
 input {

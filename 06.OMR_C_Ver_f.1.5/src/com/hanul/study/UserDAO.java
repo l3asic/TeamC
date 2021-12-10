@@ -378,7 +378,7 @@ public class UserDAO {
 	public ArrayList<UserDTO> displayTester() { // select * from user_c where id != '9999'
 		ArrayList<UserDTO> list = new ArrayList<>();
 		conn = getConn();
-		String sql = "select * from user_c where id != '9999'";
+		String sql = "select * from user_c where id != '9999' order by id asc";
 
 		try {
 
@@ -450,7 +450,7 @@ public class UserDAO {
 	public ArrayList<UserDTO> selectAll() { // "select * from user_c";
 		ArrayList<UserDTO> u_list = new ArrayList<>();
 		conn = getConn();
-		String sql = "select a.* from user_c a, answer_c b where a.id = b.id ";
+		String sql = "select a.* from user_c a, answer_c b where a.id = b.id";
 
 		try {
 			ps = conn.prepareStatement(sql);

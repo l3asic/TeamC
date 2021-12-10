@@ -28,7 +28,7 @@
 	crossorigin="anonymous">
 <style type="text/css">
 body, td, th {
-text-align: "center";
+	text-align: "center";
 	background-color: #F3E7E7;
 	display: flex;
 	justify-content: center;

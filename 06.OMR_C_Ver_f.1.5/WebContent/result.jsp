@@ -6,14 +6,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 
-String id = request.getParameter("id");
+	String id = request.getParameter("id");
 
-UserDAO dao = new UserDAO();
-ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
-ArrayList<OmrDTO> m_list = dao.myAns(id);
-ArrayList<OmrDTO> ox_list = dao.OXOX(id);
+	UserDAO dao = new UserDAO();
+	ArrayList<CorrectAnsDTO> c_list = dao.CorrectAns();
+	ArrayList<OmrDTO> m_list = dao.myAns(id);
+	ArrayList<OmrDTO> ox_list = dao.OXOX(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -25,10 +25,14 @@ ArrayList<OmrDTO> ox_list = dao.OXOX(id);
 	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
 	crossorigin="anonymous">
 <style type="text/css">
+body {
+	background: url("images/note+pan.jpg") no-repeat top;
+}
+
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #333;
-	text-align: "center";
+	text-align: center;
 }
 
 input {
@@ -36,7 +40,7 @@ input {
 }
 
 body {
-	background-color: #F3E7E7;
+	background-color: #fff;
 }
 
 .ans {
@@ -50,7 +54,7 @@ body {
 </style>
 </head>
 <body>
-	<div align="center">
+	<div align="center" style="margin-top: 100px;">
 		<h3>[내 시험 결과 보기]</h3>
 		<table border="1">
 			<form>
@@ -68,19 +72,21 @@ body {
 				<th>&nbsp;Q. 08&nbsp;</th>
 				<th>&nbsp;Q. 09&nbsp;</th>
 				<th>&nbsp;Q. 10&nbsp;</th>
+				<th rowspan="2">합격 여부</th>
+				<th rowspan="2">&nbsp;점수&nbsp;</th>
 			</tr>
 
 			<%
-			if (c_list.size() == 0) {
+				if (c_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">[ERROR] 정답 목록을 불러올 수 없습니다.</td>
 			</tr>
 			<%
-			} else {
+				} else {
 			%>
 			<%
-			for (CorrectAnsDTO dto : c_list) {
+				for (CorrectAnsDTO dto : c_list) {
 			%>
 			<tr align="center">
 				<td>정답</td>
@@ -95,27 +101,29 @@ body {
 				<td><%=dto.getCa9()%></td>
 				<td><%=dto.getCa10()%></td>
 
+
 			</tr>
 			<%
-			} //for
+				} //for
 			%>
 			<%
-			} //if
+				} //if
 			%>
 			<%
-			if (m_list.size() == 0) {
+				if (m_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">[ERROR] 제출된 답안을 불러올 수 없습니다.</td>
 			</tr>
 			<%
-			} else {
+				} else {
 			%>
 			<%
-			for (OmrDTO dto : m_list) {
+				for (OmrDTO dto : m_list) {
+						ArrayList<UserDTO> u_list2 = dao.newUl(dto.getId());
 			%>
 			<tr align="center">
-				<td><%=dto.getId()%></td>
+				<td>기입한 답</td>
 				<td><%=dto.getAnswer1()%></td>
 				<td><%=dto.getAnswer2()%></td>
 				<td><%=dto.getAnswer3()%></td>
@@ -126,27 +134,29 @@ body {
 				<td><%=dto.getAnswer8()%></td>
 				<td><%=dto.getAnswer9()%></td>
 				<td><%=dto.getAnswer10()%></td>
+				<th rowspan="2"><%=u_list2.get(0).getPass()%></th>
+				<th rowspan="2"><%=u_list2.get(0).getScore()%></th>
 
 			</tr>
 			<%
-			} //for
+				} //for
 			%>
 			<%
-			} //if
+				} //if
 			%>
 			<%
-			if (ox_list.size() == 0) {
+				if (ox_list.size() == 0) {
 			%>
 			<tr align="center">
 				<td colspan="11">[ERROR] 정답 여부를 불러올 수 없습니다.</td>
 			</tr>
 			<%
-			} else {
+				} else {
 			%>
 			<tr align="center">
 
 				<%
-				for (OmrDTO dto : ox_list) {
+					for (OmrDTO dto : ox_list) {
 				%>
 				<td>정답여부</td>
 
@@ -163,15 +173,15 @@ body {
 
 			</tr>
 			<%
-			}
-			} //for
+				}
+				} //for
 			%>
 			<%
-			// 				} //if
+				// 				} //if
 			%>
 
 			<tr align="center">
-				<td colspan="11"><input class="btn btn-outline-info btn-sm"
+				<td colspan="13"><input class="btn btn-outline-info btn-sm"
 					type="button" value="처음으로" onclick="location.href='OmrMain.html'" />
 
 				</td>

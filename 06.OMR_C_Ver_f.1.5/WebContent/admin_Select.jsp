@@ -21,7 +21,7 @@
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #333;
-	text-align: "center";
+	text-align: center;
 }
 
 input {
@@ -58,7 +58,7 @@ body {
 						</select> <input type="text" name="searchData" required="required" /> <input
 							class="btn btn-outline-primary btn-sm" type="submit" value="검색하기" />
 						<input class="btn btn-outline-success btn-sm" type="button"
-							value="관리자화면으로 돌아가기" onclick="location.href='adminMain.jsp'" />
+							value="뒤로가기" onclick="location.href='adminMain.jsp'" />
 					</form>
 			<tr align="center">
 				<th>수험번호</th>

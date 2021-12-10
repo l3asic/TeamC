@@ -5,49 +5,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 
-String id = request.getParameter("id");
-String name = request.getParameter("name");
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
 
-OmrDTO dto = new OmrDTO();
-UserDTO dtos = new UserDTO();
+	OmrDTO dto = new OmrDTO();
+	UserDTO dtos = new UserDTO();
 
-UserDAO dao = new UserDAO();
+	UserDAO dao = new UserDAO();
 
-dtos.setId(id);
+	dtos.setId(id);
 
-if (dao.checkId(dtos) == false) { //응시자격이 없는지
-	out.println("<script>alert('응시 자격이 없습니다.');");
-	out.println("location.href='javascript:history.go(-1);';</script>");
-	// 		response.sendRedirect("OmrMain.html");
+	if (dao.checkId(dtos) == false) { //응시자격이 없는지
+		out.println("<script>alert('응시 자격이 없습니다.');");
+		out.println("location.href='javascript:history.go(-1);';</script>");
+		// 		response.sendRedirect("OmrMain.html");
 
-} else { //응시자격이 있는사람들 중에서
-	if (Integer.parseInt(id) == dao.checkAdmin()) { // 관리자인지
-		out.println("<script>alert('관리자 모드로 진입 합니다.');");
-		out.println("location.href='adminMain.jsp;';</script>");
-		//		response.sendRedirect("adminMain.jsp");
-	} else if (dao.checkTried(id) > 0) { //시험을 이미 봤는지
-		out.println("<script>alert('이미 응시 하였습니다.');");
-		out.println("location.href='OmrMain.html';</script>");
-		//out.println("location.href='javascript:history.go(-1);';</script>");
+	} else { //응시자격이 있는사람들 중에서
+		if (Integer.parseInt(id) == dao.checkAdmin()) { // 관리자인지
+			out.println("<script>alert('관리자 모드로 진입 합니다.');");
+			out.println("location.href='adminMain.jsp;';</script>");
+			//		response.sendRedirect("adminMain.jsp");
+		} else if (dao.checkTried(id) > 0) { //시험을 이미 봤는지
+			out.println("<script>alert('이미 응시 하였습니다.');");
+			out.println("location.href='OmrMain.html';</script>");
+			//out.println("location.href='javascript:history.go(-1);';</script>");
 
-		// 			out.flush();
+			// 			out.flush();
 
-		// 			response.sendRedirect("OmrMain.html");
-	} else { //응시자격이 없지 않으면서 -> 관리자가 아니고 시험을 이미 보지않음.
+			// 			response.sendRedirect("OmrMain.html");
+		} else { //응시자격이 없지 않으면서 -> 관리자가 아니고 시험을 이미 보지않음.
 
-		dto.setId(request.getParameter("id"));
-		dtos.setName(request.getParameter("name"));
+			dto.setId(request.getParameter("id"));
+			dtos.setName(request.getParameter("name"));
 
-		pageContext.setAttribute("dto", dto);
+			pageContext.setAttribute("dto", dto);
+		}
+
 	}
+	dto.setId(request.getParameter("id"));
+	dtos.setName(request.getParameter("name"));
 
-}
-dto.setId(request.getParameter("id"));
-dtos.setName(request.getParameter("name"));
-
-pageContext.setAttribute("dto", dto);
+	pageContext.setAttribute("dto", dto);
 %>
 <!DOCTYPE html>
 <html>

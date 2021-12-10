@@ -36,21 +36,22 @@ body {
 </head>
 <body>
 	<div class="main" align="center">
-		<h3>관리자모드</h3>
-		<h3></h3>
-		<h3></h3>
-		<div class="btns">
-			<input class="btn btn-outline-success btn-sm" type="button"
-				value="기응시자 목록" onclick="location.href='admin_Select.jsp'" />
-		</div>
-		<div class="btns">
-			<input class="btn btn-outline-primary btn-sm" type="button"
-				value="응시자격 관리" onclick="location.href='admin_Testers.jsp'" />
-		</div>
-		<div class="btns">
-			<input class="btn btn-outline-info btn-sm" type="button"
-				value="관리자모드 종료" onclick="location.href='OmrMain.html'" />
-		</div>
+<h3>관리자모드 메인</h3>
+      </br>
+      <div class="btns">
+         <input class="btn btn-outline-success btn-sm" type="button" value="응시자  시험 결과"
+            onclick="location.href='admin_Select.jsp'" />
+      </div>
+      </br>
+      <div class="btns">
+         <input class="btn btn-outline-primary btn-sm"type="button" value="응시자 목록 수정"
+            onclick="location.href='admin_Testers.jsp'" />
+      </div>
+      </br>
+      <div class="btns">
+         <input class="btn btn-outline-info btn-sm" type="button" value="처 음 으 로"
+            onclick="location.href='OmrMain.html'" />
+      </div>
 	</div>
 </body>
 </html>

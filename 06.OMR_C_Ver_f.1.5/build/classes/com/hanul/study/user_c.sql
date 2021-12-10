@@ -8,6 +8,8 @@ CREATE TABLE user_C(
 	CNT		NUMBER
 );
 
+insert into id values ('9999') --관리자 IdKey
+
 desc user_c;
 
 commit;

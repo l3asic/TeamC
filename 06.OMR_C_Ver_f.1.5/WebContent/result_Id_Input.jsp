@@ -10,10 +10,14 @@
 	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
 	crossorigin="anonymous">
 <style type="text/css">
+body {
+	background: url("images/note+pan.jpg") no-repeat top;
+}
+
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #333;
-	text-align: "center";
+	text-align: center;
 }
 
 input {
@@ -21,7 +25,7 @@ input {
 }
 
 body {
-	background-color: #F3E7E7;
+	background-color: #fff;
 }
 
 .ans {

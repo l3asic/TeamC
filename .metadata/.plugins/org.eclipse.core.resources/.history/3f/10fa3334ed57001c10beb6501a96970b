@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery02</title>
+</head>
+<body>
+<div style="background-color: yellow; width: 200px; height: 100px;">
+안녕하세요, jQuery!
+</div>
+</body>
+</html>

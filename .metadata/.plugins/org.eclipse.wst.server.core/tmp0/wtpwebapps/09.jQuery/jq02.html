@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery02</title>
+<style type="text/css">
+.bg{
+	background-color: red;
+	width: 250px;
+	height: 150px;
+}
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#display").css("background", "silver").css("width", "300px").css("height", "200px");
+	$("#display").click(function(){
+		$("#display").removeAttr("style");
+		$(this).addClass("bg");
+	});	//click()
+});	//ready()
+</script>
+</head>
+<body>
+<div style="background-color: yellow; width: 200px; height: 100px;">
+안녕하세요, jQuery!
+</div>
+
+<div class="bg">
+안녕하세요, jQuery!
+</div>
+
+<div id="display">
+안녕하세요, jQuery!
+</div>
+</body>
+</html>

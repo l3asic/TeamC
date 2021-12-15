@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery12</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			dataType : "xml",
+			url : "imageList.xml",
+			success : function(data){ resultHtml(data); },
+			error : function(){ alert("로딩실패!"); }
+		});	//ajax()
+	});	//click()
+});	//ready()
+
+function resultHtml(data){
+	//alert("로딩성공!");
+	var images = $(data).find("img");
+	//alert(images.length);
+	var html = "";
+	for(var i = 0; i < images.length; i++){
+		var imgPath = images.eq(i);
+		//alert(imgPath.text());
+		html += "<img src='" + imgPath.text() + "' width='150' height='150' /><br/>";		
+	}
+	$("#display").html(html);
+}
+</script>
+</head>
+<body>
+<button id="btn">이미지 보기</button>
+<br/><br/>
+<div id="display">
+이미지가 출력되는 영역
+</div>
+</body>
+</html>

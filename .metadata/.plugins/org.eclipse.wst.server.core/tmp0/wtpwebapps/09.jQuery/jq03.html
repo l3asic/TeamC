@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery03</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn1").on("click", function(){
+		$("#display1").empty();
+		$("#display1").append("안녕하세요^^");
+	});	//on()
+	
+	$("#btn2").click(function(){
+		$("#display2").html("반갑습니다^^");
+	});	//click()
+});	//ready()
+
+function fnClick(){	
+	var display = document.getElementById("display3");
+	//display.innerText = "";
+	display.innerText = "어서오세요^^";
+}
+</script>
+
+</head>
+<body>
+<button id="btn1">버튼A</button>
+<br/><br/>
+<div id="display1">
+버튼A를 클릭하시면 여기의 글자가 변경됩니다.
+</div>
+
+<hr>
+
+<button id="btn2">버튼B</button>
+<br/><br/>
+<div id="display2">
+버튼B를 클릭하시면 여기의 글자가 변경됩니다.
+</div>
+
+<hr>
+
+<button id="btn3" onclick="fnClick()">버튼C</button>
+<br/><br/>
+<div id="display3">
+버튼C를 클릭하시면 여기의 글자가 변경됩니다.
+</div>
+</body>
+</html>

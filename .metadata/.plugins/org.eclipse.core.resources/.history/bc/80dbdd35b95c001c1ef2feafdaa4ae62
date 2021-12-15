@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery13</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+});	//ready()
+</script>
+</head>
+<body>
+<input type="number" id="num1" required="required"/>
+~
+<input type="number" id="num2" required="required"/>
+<button id="btn">누적합 계산하기</button>
+<br/><br/>
+<div id="display">
+결과값 출력
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\hanul\Desktop\06.OMR_A"/>
+		<item value="C:\Users\hanul\Desktop\06.Project"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="402" key="DIALOG_HEIGHT"/>
+		<item value="550" key="DIALOG_X_ORIGIN"/>
+		<item value="162" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\hanul\Desktop\TeamC-ChaMinHwan\TeamC-ChaMinHwan"/>
+			<item value="C:\Users\hanul\Desktop\06.OMR_A"/>
+			<item value="C:\Users\hanul\Desktop"/>
+			<item value="C:\Users\hanul\Desktop\04.TestMVC"/>
+			<item value="C:\Users\hanul\Desktop\정효인"/>
+			<item value="C:\Users\hanul\Desktop\차민환"/>
+			<item value="C:\Users\hanul\Desktop\김시원"/>
+			<item value="C:\Users\hanul\Desktop\염주은"/>
+			<item value="C:\Users\hanul\Desktop\장희운"/>
+			<item value="C:\Users\hanul\Desktop\오대욱"/>
+			<item value="C:\Users\hanul\Desktop\이지강_zip"/>
+			<item value="C:\Users\hanul\Desktop\배준호"/>
+			<item value="C:\Users\hanul\Desktop\김원근"/>
+			<item value="C:\Users\hanul\Desktop\기근태"/>
+			<item value="C:\Users\hanul\Desktop\김승경"/>
+			<item value="C:\Users\hanul\Desktop\노명운"/>
+			<item value="C:\Users\hanul\Desktop\최성욱"/>
+			<item value="D:\Study_Web\workspace\강은혜"/>
+			<item value="C:\Users\hanul\Desktop\04.OmrProgram_C"/>
+			<item value="C:\Users\hanul\Desktop\04.OmrProgram_B\04.OmrProgram_B"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="525" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="580" key="DIALOG_HEIGHT"/>
+		<item value="546" key="DIALOG_X_ORIGIN"/>
+		<item value="52" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

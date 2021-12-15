@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery05</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	alert($("p").text());		//tag 선택자
+	$("p").each(function(){		//tag 선택자.each();
+		//alert($("p").text());
+		alert($(this).text());
+	});//each()
+});	//ready()
+</script>
+</head>
+<body>
+<p>JAVA</p>
+<p>JSP</p>
+<p>Android</p>
+
+</body>
+</html>

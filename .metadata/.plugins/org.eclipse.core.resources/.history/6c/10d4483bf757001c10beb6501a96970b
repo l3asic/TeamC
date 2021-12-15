@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery04</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn").click(function(){
+		var row = $("#row").val();
+		var col = $("#col").val();
+		alert("row : " + row + "\ncol : " + col);
+		
+	});	//click()
+});	//ready()
+</script>
+
+</head>
+<body>
+<input type="number" id="row" min="1"/>행 X <input type="number" id="col" min="1"/>열
+<button id="btn">테이블 생성하기</button>
+
+<br/><br/>
+
+<div id="display">
+여기에 테이블이 생성됩니다.
+</div>
+</body>
+</html>

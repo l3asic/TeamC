@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery13</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		var num1 = $("#num1").val();
+		var num2 = $("#num2").val();
+		//alert("num1 : " + num1 + "\nnum2 : " + num2);
+		var param = "num1=" + num1 + "&num2=" + num2;
+		
+		$.ajax({
+			dataType : "text",
+			url : "jq13.jsp",
+			data : param,
+			success : function(data){ resultHtml(num1, num2, data); },
+			error : function(){ alert("실패!"); }
+		});	//ajax()		
+	});	//click()
+});	//ready()
+
+function resultHtml(num1, num2, data){
+	//alert("성공!");
+	var html = num1 + "부터 " + num2 + "까지의 누적합 : " + data;
+	$("#display").html(html);
+}
+</script>
+</head>
+<body>
+<input type="number" id="num1" required="required"/>
+~
+<input type="number" id="num2" required="required"/>
+<button id="btn">누적합 계산하기</button>
+<br/><br/>
+<div id="display">
+결과값 출력
+</div>
+</body>
+</html>

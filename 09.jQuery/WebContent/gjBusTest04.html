@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gwangju Bus Test04</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			dataType : "xml",
+			url : "gjBusXml.jsp",
+			success : function(data){ resultHtml(data); },
+			error : function(){ alert("로딩실패!"); }
+		});	//ajax()
+	});	//click()
+});	//ready()
+
+function resultHtml(data){
+	//alert("로딩성공!");
+	var html = "<table border='1'>";
+	html += "<tr>";
+	html += "<th>노선번호</th>";
+	html += "<th>출발지</th>";
+	html += "<th>도착지</th>";
+	html += "<th>첫차</th>";
+	html += "<th>막차</th>";
+	html += "<th>운행간격</th>";
+	html += "<th>노선종류</th>";	
+	html += "</tr>";
+	
+	var LINE = $(data).find("LINE");
+	//alert(LINE.length);
+	
+	for(var i = 0; i < LINE.length; i++){
+		if(LINE.eq(i).find("LINE_KIND").text() != 6){
+			html += "<tr align='center'>";
+			html += "<td>" + LINE.eq(i).find("LINE_NAME").text() + "</td>";
+			html += "<td>" + LINE.eq(i).find("DIR_UP_NAME").text() + "</td>";
+			html += "<td>" + LINE.eq(i).find("DIR_DOWN_NAME").text() + "</td>";
+			html += "<td>" + LINE.eq(i).find("FIRST_RUN_TIME").text() + "</td>";
+			html += "<td>" + LINE.eq(i).find("LAST_RUN_TIME").text() + "</td>";
+			html += "<td>" + LINE.eq(i).find("RUN_INTERVAL").text() + "</td>";
+			//html += "<td>" + LINE.eq(i).find("LINE_KIND").text() + "</td>";
+			if(LINE.eq(i).find("LINE_KIND").text() == 1){
+				html += "<td>급행간선</td>";
+			}else if(LINE.eq(i).find("LINE_KIND").text() == 2){
+				html += "<td>간선</td>";
+			}else if(LINE.eq(i).find("LINE_KIND").text() == 3){
+				html += "<td>지선</td>";
+			}else if(LINE.eq(i).find("LINE_KIND").text() == 4){
+				html += "<td>마을버스</td>";
+			}else if(LINE.eq(i).find("LINE_KIND").text() == 5){
+				html += "<td>공항버스</td>";
+			}
+			
+			html += "</tr>";
+		}	
+	}
+	
+	html += "</table>";
+	$("#display").html(html); 
+	
+}
+</script>
+</head>
+<body>
+<button id="btn">광주광역시 버스 노선정보</button>
+<br/><br/>
+<div id="display">
+여기에 버스 노선정보가 출력됩니다.
+</div>
+</body>
+</html>

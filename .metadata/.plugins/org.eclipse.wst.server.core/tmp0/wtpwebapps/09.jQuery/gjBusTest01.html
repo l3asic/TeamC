@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gwangju Bus Test01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			dataType : "json",
+			url : "http://api.gwangju.go.kr/json/lineInfo",
+			success : function(data){ resultHtml(data); },
+			error : function(){ alert("로딩실패!"); }
+		});	//ajax()
+	});	//click()
+});	//ready()
+
+function resultHtml(data){
+	//alert("로딩성공!");
+	var html = "<table border='1'>";
+	html += "<tr>";
+	html += "<th>노선번호</th>";
+	html += "<th>출발지</th>";
+	html += "<th>도착지</th>";
+	html += "<th>첫차</th>";
+	html += "<th>막차</th>";
+	html += "<th>운행간격</th>";
+	html += "<th>노선종류</th>";	
+	html += "</tr>";
+	
+	$.each(data, function(key, value){
+		if(key == "LINE_LIST"){
+			$.each(value, function(key, value){
+				html += "<tr align='center'>";
+				html += "<td>" + value.LINE_NAME + "</td>";
+				html += "<td>" + value.DIR_UP_NAME + "</td>";
+				html += "<td>" + value.DIR_DOWN_NAME + "</td>";
+				//html += "<td>" + value.FIRST_RUN_TIME + "</td>";
+				if(value.FIRST_RUN_TIME == null){
+					html += "<td>-</td>";
+				}else{
+					html += "<td>" + value.FIRST_RUN_TIME + "</td>";
+				}
+				
+				//html += "<td>" + value.LAST_RUN_TIME + "</td>";
+				if(value.LAST_RUN_TIME == null){
+					html += "<td>-</td>";
+				}else{
+					html += "<td>" + value.LAST_RUN_TIME + "</td>";
+				}
+				
+				//html += "<td>" + value.RUN_INTERVAL + "</td>";
+				if(value.RUN_INTERVAL == null){
+					html += "<td>-</td>";
+				}else{
+					html += "<td>" + value.RUN_INTERVAL + "</td>";
+				}				
+				
+				//html += "<td>" + value.LINE_KIND + "</td>";
+				if(value.LINE_KIND == 1){
+					html += "<td>급행간선</td>";
+				}else if(value.LINE_KIND == 2){
+					html += "<td>간선</td>";
+				}else if(value.LINE_KIND == 3){
+					html += "<td>지선</td>";
+				}else if(value.LINE_KIND == 4){
+					html += "<td>마을버스</td>";
+				}else if(value.LINE_KIND == 5){
+					html += "<td>공항버스</td>";
+				}else if(value.LINE_KIND == 6){
+					html += "<td>광역버스</td>";
+				}
+				
+				html += "</tr>";
+			});	//each()
+		}//if
+	});	//each()	
+	
+	html += "</table>";
+	$("#display").html(html);
+}
+</script>
+</head>
+<body>
+<button id="btn">광주광역시 버스 노선정보</button>
+<br/><br/>
+<div id="display">
+여기에 버스 노선정보가 출력됩니다.
+</div>
+
+<!-- 
+1. allow control allow origin 검색
+2. https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf 접속
+3. 크롬에 추가 > 확장프로그램에 추가
+4. 주소표시줄 오른쪽 상단의 확장프로그램 > Allow CORS 클릭 > C: 아이콘 활성화
+-->
+
+</body>
+</html>

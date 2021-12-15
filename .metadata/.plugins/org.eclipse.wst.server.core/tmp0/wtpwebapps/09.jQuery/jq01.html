@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery01</title>
+<style type="text/css">
+table tr{
+	background-color: #ff0000;
+	color: #ffffff;
+}
+</style>
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr:odd').css("background", "#ff0000");
+	$("tr:even").css("background", "#00ff00");
+	$("tr:first").css("background", "#0000ff").css("color", "#ffffff");
+});	//ready()
+</script>
+</head>
+<body>
+<div align="center">
+<table>
+	<tr><th>이름</th><th>혈액형</th><th>주소</th></tr>
+	<tr><td>홍길동</td><td>A형</td><td>광주시 서구 경열로 3</td></tr>
+	<tr><td>홍길동</td><td>B형</td><td>광주시 서구 경열로 3</td></tr>
+	<tr><td>홍길동</td><td>O형</td><td>광주시 서구 경열로 3</td></tr>
+	<tr><td>홍길동</td><td>AB형</td><td>광주시 서구 경열로 3</td></tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.hanul.study;
+
+public class GwangjuBusParser {
+	//Jericho Html Parser ▶ jericho-html-3.4.jar > WebContent > WEB-INF > lib
+	public void makeJson() {
+		
+	}//makeJson()
+}//class

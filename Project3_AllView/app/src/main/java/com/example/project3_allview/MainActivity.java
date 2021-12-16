@@ -17,6 +17,7 @@ import com.example.project3_allview.tab.Frag_RecyclerView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "main:";
@@ -32,7 +33,14 @@ public class MainActivity extends AppCompatActivity {
                 R.id.container , fragment
         ).commit();      //붙일 레이아웃 , 붙을 view(Fragment) , ctrl + p
 
-        
+        TestConn testConn = new TestConn("test.vw");
+        try {
+            testConn.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         list = new ArrayList<>();
         list.add(new TabDTO("Pager" , new Frag_pagerMain()));

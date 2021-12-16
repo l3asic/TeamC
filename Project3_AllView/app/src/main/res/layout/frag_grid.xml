@@ -3,11 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#994612"
+    android:background="#E8E6E5"
     tools:context="tab.Frag_GridView">
 
-    <!-- TODO: Update blank fragment layout -->
-    <Button android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridv"
+        android:numColumns="2"
+        android:listSelector="#75A2CF"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        />
 
 </FrameLayout>

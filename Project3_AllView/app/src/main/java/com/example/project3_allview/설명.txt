@@ -12,6 +12,23 @@
 
 3.※ ListView , GridView , RecyclerView(※)
 -모든 View(목록을 가진)들은 Adapter라는 데이터 연결부가 필요하다.
+    -GridView : 격자형으로 아이템들을 보여주기 위한 View
+    listSelector : 선택 된 아이템을 어떤색으로 바꿀껀지. (색)
+    numColumns : 몇칸으로 나눌건지
+    vertivalSpacing : 공간을 띄어놓는다면 어느정도 dp를 줄껀지.
+- Adapter를 설정할때 필요한것들
+(Adapter -> getView ( 디자인 <-> java)
+    Context <- Activity나 화면의 제어권을 가진 객체
+    ↑ Fragment까지는 getActivity (화면단에 서로 떠있기때문에 유기적인 관계있음)
+    ↑ class <- 일반클래스
+    Adapter를 구성하는 ArrayList<Item> ※
+    LayoutInflater <-화면을 직접 커스터마이징해서 만들었다면 화면을 붙일수있는
+    inflate기능이 필요함. ※
+
+
+
+
+
 
 etc.Fragment
 -1.Fragment는 Activity처럼 새로운 화면을 띄우는게 아니라 Activity의 레이아웃에 inflate되는

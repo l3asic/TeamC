@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.project3_allview.Atask.TestConn;
 import com.example.project3_allview.pager.Frag_pager1;
 import com.example.project3_allview.pager.Frag_pagerMain;
 import com.example.project3_allview.tab.Frag_GridView;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 R.id.container , fragment
         ).commit();      //붙일 레이아웃 , 붙을 view(Fragment) , ctrl + p
 
+        
+
         list = new ArrayList<>();
         list.add(new TabDTO("Pager" , new Frag_pagerMain()));
         list.add(new TabDTO("ListView" , new Frag_Listview()));
@@ -52,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 int position = tab.getPosition();
                 //String + int = String
                 Log.d(TAG, "onTabSelected: " + position);
+                if(position == 0 ){
+
+                list.get(position).setFragment(new Frag_pagerMain() );
+                }
                 Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
                  getSupportFragmentManager().beginTransaction().replace(R.id.container,
                        list.get(position).fragment

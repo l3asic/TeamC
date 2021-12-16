@@ -1,0 +1,31 @@
+com/example/project3_allview/BuildConfig.java
+ com.example.project3_allview.BuildConfig
+com/example/project3_allview/TabDTO.java
+ com.example.project3_allview.TabDTO
+com/example/project3_allview/Atask/TestConn.java
+ com.example.project3_allview.Atask.TestConn
+com/example/project3_allview/dto/GridDTO.java
+ com.example.project3_allview.dto.GridDTO
+com/example/project3_allview/pager/Frag_pager1.java
+ com.example.project3_allview.pager.Frag_pager1
+com/example/project3_allview/tab/Frag_RecyclerView.java
+ com.example.project3_allview.tab.Frag_RecyclerView
+com/example/project3_allview/pager/Frag_pagerMain.java
+ com.example.project3_allview.pager.Frag_pagerMain
+ com.example.project3_allview.pager.Frag_pagerMain$PagerAdapter
+com/example/project3_allview/pager/Frag_pager2.java
+ com.example.project3_allview.pager.Frag_pager2
+com/example/project3_allview/tab/Frag_Listview.java
+ com.example.project3_allview.tab.Frag_Listview
+com/example/project3_allview/MainFragment.java
+ com.example.project3_allview.MainFragment
+com/example/project3_allview/pager/Frag_pager3.java
+ com.example.project3_allview.pager.Frag_pager3
+com/example/project3_allview/adapter/GridAdapter.java
+ com.example.project3_allview.adapter.GridAdapter
+ com.example.project3_allview.adapter.GridAdapter$GridViewHolder
+com/example/project3_allview/tab/Frag_GridView.java
+ com.example.project3_allview.tab.Frag_GridView
+com/example/project3_allview/MainActivity.java
+ com.example.project3_allview.MainActivity
+ com.example.project3_allview.MainActivity$1

@@ -7,6 +7,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+var idCheck = 0;
+var pwCheck = 0;
 $(document).ready(function(){
 	//ID 유효성 검사
 	$("#member_id").keyup(function(){
@@ -51,6 +53,7 @@ function fnCheck(check){
 		$("#idCheck").text(msg);
 		$("#idCheck").css("display", "block");		
 		$("#idCheck").css("color", "blue");	
+		idCheck = 1;
 	}
 }//fnCheck()
 

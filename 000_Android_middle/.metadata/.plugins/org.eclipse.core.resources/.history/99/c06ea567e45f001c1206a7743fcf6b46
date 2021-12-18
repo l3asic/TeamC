@@ -1,0 +1,34 @@
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.oreilly.servlet.MultipartRequest;
+
+@WebServlet(".acc")
+public class Test_AccController extends HttpServlet {
+
+	Gson gson = new Gson();
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		String path = req.getRealPath("/");
+		System.out.println(path);
+		MultipartRequest multi = new MultipartRequest(req, path, 300000);
+		String returnString = multi.getParameter("signOnInf");
+		System.out.println(returnString);
+
+		PrintWriter out = res.getWriter();
+		out.print("아!!!!!!!!" + returnString);
+
+	}
+
+}

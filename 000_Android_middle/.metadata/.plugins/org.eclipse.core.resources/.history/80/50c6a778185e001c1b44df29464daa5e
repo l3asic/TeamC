@@ -1,0 +1,55 @@
+package controller;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import dto.UserDTO;
+import oracle.net.ns.SessionAtts;
+
+@WebServlet("*.vw")
+public class Ex03_AllViewController extends HttpServlet {
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		System.out.println(req.getServletPath());
+		initMybatis();
+		System.out.println("오버라이드안쪽");
+	}
+
+	public void initMybatis() {
+		try {
+			System.out.println("트라이블럭안쪽");
+			String resource = "mybatis/config.xml";
+			InputStream inputStream;
+			inputStream = Resources.getResourceAsStream(resource);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+			try (SqlSession session = sqlSessionFactory.openSession()) {
+				int data = session.selectOne("org.mybatis.example.BlogMapper.selectBlog");
+				System.out.println(data);
+				session.close();
+			}
+		} catch (Exception e) {
+
+			System.out.println("initMybatis() 에러");
+			e.printStackTrace();
+			System.out.println("initMybatis() 에러");
+		}
+
+	}
+
+}

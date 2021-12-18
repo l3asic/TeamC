@@ -1,0 +1,59 @@
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.tools.ForwardingFileObject;
+import javax.xml.ws.Response;
+
+import com.google.gson.Gson;
+import com.oreilly.servlet.MultipartRequest;
+
+import action.Action;
+import action.ActionForward;
+import dto.AccDTO;
+
+@WebServlet("*.acc")
+public class Test_AccController extends HttpServlet {
+
+	Gson gson = new Gson();
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		String path = req.getRealPath("/");
+		System.out.println("지손데이터를 써야함;");
+		System.out.println(path);
+		MultipartRequest multi = new MultipartRequest(req, path, 300000);
+		String returnString = multi.getParameter("signOnInf");
+		System.out.println(returnString);
+
+		AccDTO dto = gson.fromJson(returnString, AccDTO.class);
+
+		System.out.println(dto);
+		
+
+//		Action action = null;
+//		ActionForward forward = null;
+//		
+//		forward = new ActionForward();
+//		forward.setPath("signon.jsp");
+//		
+//		if(forward!=null) {
+//			if (forward.isRedirect()) {
+//				response
+
+	}
+
+//		PrintWriter out = res.getWriter();
+//		out.print("아!!!!!!!!" + returnString);
+	public void signOn(dto) {
+		
+	}
+
+}

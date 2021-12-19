@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TestConn extends AsyncTask<String,String,String> {
+public class TestConn extends AsyncTask<String, String, String> {
     String getData;
     String name;
     private static final String TAG = "common";
@@ -28,16 +28,15 @@ public class TestConn extends AsyncTask<String,String,String> {
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
     final String HTTPIP = "http://192.168.0.35";//IP
     final String SVRPATH = "/01.Middle/"; //
-    private String postUrl ;
+    private String postUrl;
     private String mapping;
 
 
-
-
-    public TestConn(String mapping, String getData, String name) { //name:식별값
+    public TestConn(String mapping, String name, String getData) { //name:식별값
+        this.mapping = mapping;
         this.name = name;
         this.getData = getData;
-        this.mapping = mapping;
+
     }
 
     @Override
@@ -50,8 +49,8 @@ public class TestConn extends AsyncTask<String,String,String> {
         builder = MultipartEntityBuilder.create();
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
         ///===========================================
-        builder.addTextBody(name , getData ,
-                ContentType.create("Multipart/related" , "UTF-8"));
+        builder.addTextBody(name, getData,
+                ContentType.create("Multipart/related", "UTF-8"));
         //==================================================
         httpClient = AndroidHttpClient.newInstance("Android");
         //conn , ps<-// ps( sql ) , ps.setInt , ps.setString
@@ -63,7 +62,7 @@ public class TestConn extends AsyncTask<String,String,String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(in != null){
+        if (in != null) {
 
         }
         return null;

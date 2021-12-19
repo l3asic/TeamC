@@ -4,11 +4,19 @@ public class MemberDTO {
     String id, pw, name;
     int birth;
 
+
+    public MemberDTO() {
+    }
     public MemberDTO(String id, String pw, String name, int birth) {
         this.id=id;
         this.pw=pw;
         this.name=name;
         this.birth=birth;
+    }
+
+    public MemberDTO(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
     }
 
     public String getId() {

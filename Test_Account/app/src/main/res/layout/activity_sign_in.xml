@@ -75,6 +75,7 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/signin_edt_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -86,6 +87,7 @@
                     android:textColorHint="#f6f6f6" />
 
                 <EditText
+                    android:id="@+id/signin_edt_pw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"

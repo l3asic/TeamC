@@ -5,13 +5,17 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="아니 ㅆ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
+        android:id="@+id/fgm_user_inf_tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="아니" />
+
+    <TextView
+        android:id="@+id/fgm_user_inf_tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="여기가 로그왼훠어정보" />
 
 </LinearLayout>

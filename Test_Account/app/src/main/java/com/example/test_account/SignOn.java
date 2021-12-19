@@ -33,7 +33,7 @@ public class SignOn extends AppCompatActivity {
 
                 try {
 
-                    int birth = Integer.parseInt(signon_edt_birth.getText()+"");
+                    int birth = Integer.parseInt(signon_edt_birth.getText() + "");
 
                     MemberDTO dto = new MemberDTO(
                             signon_edt_id.getText() + "",
@@ -47,22 +47,16 @@ public class SignOn extends AppCompatActivity {
                     String signOnInf = gson.toJson(dto);
 
 
-                    TestConn tc = new TestConn("signOn.acc", signOnInf, "signON"); // 맵핑주소, Json스트링, 식별값
+                    TestConn tc = new TestConn("signOn.acc", "signOnInf", signOnInf); // 맵핑주소, Json스트링, 식별값
                     tc.execute().get();
-                    //디비insert into 해야됨;; settext->append?
-                    /*        Intent intent = new Intent(SignOn.this, SignIn.class);*/
-
-                    /*                intent.putExtra("list", list);*/
 
 
-
-
-
-                    /*    startActivity(intent);*/
+                    Intent intent = new Intent(SignOn.this, SignIn.class);
+                    startActivity(intent);
 
 
                 } catch (Exception e) {
-                    Toast.makeText(SignOn.this, "트라이캐치", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignOn.this, "사인온에러ㅋㅋ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

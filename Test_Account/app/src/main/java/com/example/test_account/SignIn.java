@@ -50,6 +50,9 @@ public class SignIn extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+
+                //여기 이프(로그인성공한거 불러오기) 해야됨?
+
                 Intent intent = new Intent(SignIn.this, Logined.class);
                 intent.putExtra("id", signin_edt_id.getText());
                 startActivity(intent);

@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TestConn extends AsyncTask<String, String, String> {
+public class TestConn extends AsyncTask<String, String, InputStream> {
     String getData;
     String name;
     private static final String TAG = "common";
@@ -40,7 +40,7 @@ public class TestConn extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected String doInBackground(String... strings) {
+    protected InputStream doInBackground(String... strings) {
         //반복되는 소스가 어디서부터 어디까지 생기고
         //어떻게하면 줄일수있을까?
         //무조건 InputStream으로 무조건 return을 받음.

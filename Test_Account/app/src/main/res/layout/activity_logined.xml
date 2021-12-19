@@ -6,6 +6,7 @@
     android:weightSum="100">
 
     <TextView
+        android:id="@+id/logined_tv_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="80"

@@ -1,4 +1,4 @@
-package com.example.project3_allview.adapter;
+package com.example.test_account.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,7 +15,7 @@ import com.example.test_account.R;
 
 import java.util.ArrayList;
 
-public class GridAdapter extends BaseAdapter {
+public class AccAdapter extends BaseAdapter {
     private static final String TAG = "aa";
     Context context; // <- foreGround  == frontGround
     // ,  ↑ BackGround ( Context )==생성자
@@ -23,7 +23,7 @@ public class GridAdapter extends BaseAdapter {
     LayoutInflater inflater;
 
     //GridAdapter <= FragmentGrid.Class(java) 생성해보기
-    public GridAdapter(Context context, ArrayList<MemberDTO> list) {
+    public AccAdapter(Context context, ArrayList<MemberDTO> list) {
         this.context = context;
         this.list = list;
         //this.inflater = inflater;←만들어서 넘겨준거 세팅, ↓직접 만들기
@@ -71,8 +71,8 @@ public class GridAdapter extends BaseAdapter {
             viewHolder = (GridViewHolder) convertView.getTag();
         }
         //if(list.get(position).getImgresId() == 1)
-        viewHolder.tv1.setText(list.get(position).getTitle());
-        viewHolder.tv2.setText(list.get(position).getContent());
+        viewHolder.tv1.setText(list.get(position).getId());
+        viewHolder.tv2.setText(list.get(position).getName());
         //viewHolder.imgv1.setImageResource(list.get(position).getImgresId());
         viewHolder.tv1.setOnClickListener(new View.OnClickListener() {
             @Override

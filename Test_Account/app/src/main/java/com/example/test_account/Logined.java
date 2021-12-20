@@ -2,11 +2,13 @@ package com.example.test_account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.test_account.DTO.MemberDTO;
+import com.example.test_account.adapter.AccAdapter;
 import com.example.test_account.conn.TestConn;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,17 +29,22 @@ public class Logined extends AppCompatActivity {
 
         try {
 
+
             Intent intent = new Intent(this.getIntent());
             String getId = intent.getStringExtra("id");
             Gson gson = new Gson();
             String signInInf = gson.toJson(getId);
 
-            TestConn tc = new TestConn("signIn.acc", "signInInf", signInInf); // 맵핑주소, Json스트링, 식별값
+            TestConn tc = new TestConn("afterSignIn.acc", "afterSignIn", signInInf); // 맵핑주소, Json스트링, 식별값
 
             InputStream is = tc.execute().get();
-            ArrayList<MemberDTO> list = gson.fromJson(new InputStreamReader(is),
+            // 액티비티 : 컨텍스트 있음       프래그 : 컨텍스트 받아와야함
+            ArrayList<MemberDTO> list = new ArrayList<>();
+            AccAdapter adapter = new AccAdapter(Logined.this, list);
+            list = gson.fromJson(new InputStreamReader(is),
                     new TypeToken<List<MemberDTO>>() {
                     }.getType());
+
             adapter.addItem(list);
         } catch (ExecutionException e) {
             Toast.makeText(Logined.this, "에러ㅋㅋ : Logined ExecutionException", Toast.LENGTH_SHORT).show();
@@ -48,6 +55,7 @@ public class Logined extends AppCompatActivity {
         }
 
 
-
     }
+
+
 }

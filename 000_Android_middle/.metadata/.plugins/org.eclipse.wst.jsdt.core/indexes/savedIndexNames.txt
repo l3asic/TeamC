@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+D:\study_Android\000_Android_middle\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2425905434.index
-3994903874.index
-3077728281.index
-1291331364.index
-2295088278.index
-2561573656.index

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/drawable/login_background.xml" value="0.378125" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_main.xml" value="0.34739583333333335" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_starting.xml" value="0.25" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm01_home.xml" value="0.3515625" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm02_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm03_center.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm04_notice.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm05_mypage.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/menu_bottom_nav.xml" value="0.3515625" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/menu/btn_nav_menu.xml" value="0.3515625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

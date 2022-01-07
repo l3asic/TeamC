@@ -8,10 +8,10 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.example.chaminhwan_kakaostory.fgm.fgm01_home;
-import com.example.chaminhwan_kakaostory.fgm.fgm02_home;
-import com.example.chaminhwan_kakaostory.fgm.fgm03_home;
-import com.example.chaminhwan_kakaostory.fgm.fgm04_home;
-import com.example.chaminhwan_kakaostory.fgm.fgm05_home;
+import com.example.chaminhwan_kakaostory.fgm.fgm02_search;
+import com.example.chaminhwan_kakaostory.fgm.fgm03_center;
+import com.example.chaminhwan_kakaostory.fgm.fgm04_notice;
+import com.example.chaminhwan_kakaostory.fgm.fgm05_mypage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         SettingListener();
-        bottomNavigationView.setSelectedItemId(R.id.tab_01);
+  //      bottomNavigationView.setSelectedItemId(R.id.tab_01);
     }
 
     private void init() {
@@ -48,19 +48,19 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     case R.id.tab_02: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm02_home()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm02_search()).commit();
                         return true;
                     }
                     case R.id.tab_03: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm03_home()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm03_center()).commit();
                         return true;
                     }
                     case R.id.tab_04: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm04_home()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm04_notice()).commit();
                         return true;
                     }
                     case R.id.tab_05: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm05_home()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fgm_00, new fgm05_mypage()).commit();
                         return true;
                     }
                 }

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.chaminhwan_kakaostory.login.LoginActivity;
+
 public class StartingActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class StartingActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(StartingActivity.this, MainActivity.class);
+                Intent intent = new Intent(StartingActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

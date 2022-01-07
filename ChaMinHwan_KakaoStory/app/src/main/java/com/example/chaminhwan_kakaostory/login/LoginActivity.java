@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.chaminhwan_kakaostory.MainActivity;
 import com.example.chaminhwan_kakaostory.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -23,7 +24,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_login_kakao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

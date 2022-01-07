@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fgm.fgm02_search">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="22222222222222" />
+        android:layout_height="wrap_content"
+        android:id="@+id/cus_schview"
+        app:queryHint="검색어를 입력하세요."/>
 
 </FrameLayout>

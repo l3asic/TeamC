@@ -18,6 +18,6 @@ public class fgm02_search extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fgm01_home, container, false);
+        return inflater.inflate(R.layout.fragment_fgm02_search, container, false);
     }
 }

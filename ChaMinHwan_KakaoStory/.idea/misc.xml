@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/drawable-v24/item_color.xml" value="0.36770833333333336" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/drawable/login_background.xml" value="0.378125" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_login_signin.xml" value="0.33" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_login_signon.xml" value="0.25" />
-        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_main.xml" value="0.34739583333333335" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/activity_starting.xml" value="0.25" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm01_home.xml" value="0.3515625" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm02_search.xml" value="0.36614583333333334" />
@@ -15,6 +16,7 @@
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm04_notice.xml" value="0.36614583333333334" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/fragment_fgm05_mypage.xml" value="0.36614583333333334" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/layout/menu_bottom_nav.xml" value="0.3515625" />
+        <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/menu/bottom_menu.xml" value="0.3515625" />
         <entry key="..\:/study_Android/ChaMinHwan_KakaoStory/app/src/main/res/menu/btn_nav_menu.xml" value="0.3515625" />
       </map>
     </option>

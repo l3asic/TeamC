@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".OptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.Login_SignonActivity"
             android:exported="false" />
         <activity

@@ -38,5 +38,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
+    /*서클뷰*/
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    }
 }

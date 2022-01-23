@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.totproject">
+<<<<<<< HEAD
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+>>>>>>> BJH
 
     <application
         android:allowBackup="true"
@@ -12,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
+<<<<<<< HEAD
             android:name=".Tendency2Activity"
             android:exported="false" />
         <activity
@@ -25,6 +29,15 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+=======
+            android:name=".party_plan.PlanMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party.PartyMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+>>>>>>> BJH
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -47,6 +61,8 @@
                     android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
             </intent-filter>
         </activity>
+=======
+>>>>>>> BJH
     </application>
 
 </manifest>

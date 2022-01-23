@@ -62,12 +62,18 @@
                     android:id="@+id/recommend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+=======
+                    android:layout_margin="20dp"
+>>>>>>> BJH
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="vertical">
+<<<<<<< HEAD
 
+=======
+>>>>>>> BJH
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,11 +81,19 @@
                         android:text="추천 여행지"
                         android:textSize="20dp"
                         android:textStyle="bold" />
+<<<<<<< HEAD
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rec_recommend"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+=======
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rec_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+                    </androidx.recyclerview.widget.RecyclerView>
+>>>>>>> BJH
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/local"
@@ -125,7 +139,10 @@
 
             </RelativeLayout>
         </FrameLayout>
+<<<<<<< HEAD
 
+=======
+>>>>>>> BJH
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_nav"
             android:layout_width="match_parent"
@@ -133,7 +150,11 @@
             android:background="#DFDFDF"
             app:itemIconTint="@drawable/nav_select"
             app:itemTextColor="@drawable/nav_select"
+<<<<<<< HEAD
             app:menu="@menu/nav_menu" />
+=======
+            app:menu="@menu/nav_menu"/>
+>>>>>>> BJH
 
     </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,6 +2,7 @@ package com.example.totproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -13,6 +14,9 @@ import com.kakao.sdk.common.KakaoSdk;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+=======
+import android.os.Bundle;
+>>>>>>> BJH
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
 
 
 
     }
 
+=======
+    }
+>>>>>>> BJH
 }

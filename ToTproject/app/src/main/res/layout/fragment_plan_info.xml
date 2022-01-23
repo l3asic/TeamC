@@ -196,7 +196,6 @@
                 android:layout_weight="1"
                 android:layout_height="60dp"
                 android:text=" * 예상 경비    : "/>
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -207,26 +206,11 @@
                 android:background="@drawable/bottom_line"/>
         </LinearLayout>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:text="세부 일정 확인"
+            android:layout_gravity="center"
+            android:background="@drawable/radious"/>
     </LinearLayout>
 </FrameLayout>

@@ -24,9 +24,11 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-  Button login_btn_login, login_btn_join;
+  Button login_btn_login, login_btn_join ;
   EditText edit_login_id, edit_login_pw;
   ImageView imgv_kakaologin;
+
+  Button chaminhwan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,17 @@ public class LoginActivity extends AppCompatActivity {
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
         imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
+
+
+        chaminhwan = findViewById(R.id.cha_min_hwan);
+        chaminhwan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");

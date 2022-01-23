@@ -15,12 +15,10 @@
         android:layout_weight="10"
         android:orientation="horizontal">
 
-
-        <ImageView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_weight="1" />
 
         <TextView
             android:layout_width="0dp"
@@ -34,12 +32,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="★" />
+            android:text="▼" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5px"
         android:background="#000000" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,12 +48,11 @@
         android:weightSum="100">
 
 
-
         <LinearLayout
-            android:layout_marginHorizontal="40dp"
-
             android:layout_width="match_parent"
+
             android:layout_height="0dp"
+            android:layout_marginHorizontal="40dp"
             android:layout_weight="20"
             android:orientation="horizontal">
 
@@ -83,10 +82,10 @@
             android:orientation="vertical">
 
             <EditText
-                android:layout_marginHorizontal="40dp"
-
                 android:layout_width="match_parent"
+
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp"
                 android:layout_marginBottom="30dp"
                 android:background="#999999"
                 android:gravity="center"
@@ -100,10 +99,12 @@
 
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5px"
         android:background="#000000" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -113,9 +114,9 @@
 
 
         <LinearLayout
-            android:layout_marginHorizontal="40dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginHorizontal="40dp"
             android:layout_weight="25"
             android:orientation="horizontal">
 
@@ -148,10 +149,10 @@
                             android:background="#000000" />-->
 
             <LinearLayout
-                android:layout_marginHorizontal="40dp"
-
                 android:layout_width="match_parent"
+
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="40dp"
                 android:layout_weight="33"
                 android:orientation="horizontal">
 
@@ -175,17 +176,16 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginHorizontal="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="67"
-             >
+                android:layout_marginHorizontal="40dp"
+                android:layout_weight="67">
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_launcher_background"
-                    android:text="<임시> 이 버튼 영역은 컨테이너로 쓸 것입니다" />
+                    android:text=" 이 버튼 영역은 컨테이너로 쓸 것입니다" />
 
             </LinearLayout>
 
@@ -199,10 +199,72 @@
 
     </LinearLayout>
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="#000000" />
+
+
     <LinearLayout
-        android:layout_marginHorizontal="40dp"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_weight="15"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="* 참여멤버 : " />
+
+            <Spinner
+
+                android:id="@+id/join_spinner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+
+                <GridView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </GridView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_weight="15"
         android:orientation="vertical">
 
@@ -242,44 +304,4 @@
                 android:text="★" />
         </LinearLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5px"
-        android:background="#000000" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="80dp"
-        android:layout_weight="15"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="25dp"
-            android:layout_weight="1"
-
-
-            android:text="완료 " />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="25dp"
-
-            android:layout_weight="1"
-
-            android:text="취소" />
-
-    </LinearLayout>
-
-
 </LinearLayout>

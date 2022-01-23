@@ -1,0 +1,274 @@
+[
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_cmh_pic_bridge.jpg.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\cmh_pic_bridge.jpg"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_num_05.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\num_05.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_burger.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_burger.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_gear.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_gear.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_cmh_pic_cat.jpg.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\cmh_pic_cat.jpg"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_search_top_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\search_top_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_num_01.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\num_01.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_ks_logo.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\ks_logo.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm05_mypage_02_list.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm05_mypage_02_list.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_item_color.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable-v24\\item_color.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_left.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_left.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm04_notice.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm04_notice.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_mypage_middle_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\mypage_middle_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_narrow.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\kakao_login_large_narrow.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_num_02.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\num_02.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm05_mypage.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm05_mypage.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_mailon.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_mailon.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_cmh_pic_moon.jpg.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\cmh_pic_moon.jpg"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_menu.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\bottom_menu.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_ks_logo_black.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\ks_logo_black.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_cmh_pic_light.jpg.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\cmh_pic_light.jpg"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_home_top_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\home_top_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_camera.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_camera.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_cmh_pic_moon_png.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\cmh_pic_moon_png.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_num_03.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\num_03.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_ooo.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_ooo.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm02_search.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm02_search.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_wide.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\kakao_login_large_wide.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm03_center.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm03_center.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm01_home.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm01_home.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_mypage_top_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\mypage_top_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm04_notice_02_msg.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm04_notice_02_msg.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_narrow.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\kakao_login_medium_narrow.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm05_mypage_01_square.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm05_mypage_01_square.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login_signon.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\activity_login_signon.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_login_background.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\login_background.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_pen.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_pen.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_num_04.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\num_04.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm04_notice_01_alarm.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm04_notice_01_alarm.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fgm05_mypage_00_option.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\fragment_fgm05_mypage_00_option.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_mail.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_mail.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_home.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_home.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_search.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_search.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_wide.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\kakao_login_medium_wide.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_people.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_people.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_bell.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_bell.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\menu_notice_top_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\menu\\notice_top_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_notice_top_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\notice_top_nav.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_starting.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\activity_starting.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login_signin.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\activity_login_signin.xml"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_plus.png.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\drawable\\icon_plus.png"
+    },
+    {
+        "merged": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\build\\intermediates\\merged_res\\debug\\layout_menu_bottom_nav.xml.flat",
+        "source": "D:\\Computer\\WorkSpace\\Study_Android-main\\ChaMinHwan_KakaoStory\\app\\src\\main\\res\\layout\\menu_bottom_nav.xml"
+    }
+]

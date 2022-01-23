@@ -68,6 +68,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,11 +76,11 @@
                         android:text="추천 여행지"
                         android:textSize="20dp"
                         android:textStyle="bold" />
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rec_recommend"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp">
-                    </androidx.recyclerview.widget.RecyclerView>
+                        android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/local"
@@ -125,6 +126,7 @@
 
             </RelativeLayout>
         </FrameLayout>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_nav"
             android:layout_width="match_parent"
@@ -132,7 +134,7 @@
             android:background="#DFDFDF"
             app:itemIconTint="@drawable/nav_select"
             app:itemTextColor="@drawable/nav_select"
-            app:menu="@menu/nav_menu"/>
+            app:menu="@menu/nav_menu" />
 
     </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

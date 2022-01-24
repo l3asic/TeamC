@@ -3,8 +3,6 @@ package com.example.totproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-public class Tendency2Activity extends AppCompatActivity {
 import android.widget.Button;
 
 public class Tendency2Activity extends AppCompatActivity {

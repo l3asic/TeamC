@@ -28,14 +28,10 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-  Button login_btn_login, login_btn_join ;
-  EditText edit_login_id, edit_login_pw;
-  ImageView imgv_kakaologin;
-
-  Button chaminhwan;
   Button login_btn_login, login_btn_join;
   EditText edit_login_id, edit_login_pw;
   ImageView imgv_kakaologin, imgv_naverlogin;
+
   OAuthLogin mOAuthLoginModule;
   Context mContext;
 
@@ -48,17 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
         imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
-
-
-        chaminhwan = findViewById(R.id.cha_min_hwan);
-        chaminhwan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
         imgv_naverlogin = findViewById(R.id.imgv_naverlogin);
 
         mContext = getApplicationContext();

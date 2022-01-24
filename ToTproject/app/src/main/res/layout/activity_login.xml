@@ -170,6 +170,13 @@
                 android:layout_height="match_parent"
                 android:text="임시 로그인 버튼"/>
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="혹시, Trip Or Travel이 처음이신가요?  회원가입"
+                android:textSize="18dp"
+                android:id="@+id/login_btn_join"
+                android:layout_gravity="bottom"
+                />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

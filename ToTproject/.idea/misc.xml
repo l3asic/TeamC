@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Computer/WorkSpace/Study_Android-main/ToTproject/app/src/main/res/layout/activity_login.xml" value="0.2140625" />
         <entry key="..\:/Computer/WorkSpace/Study_Android-main/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Computer/WorkSpace/Study_Android-main/ToTproject/app/src/main/res/layout/activity_party_new_after.xml" value="0.28177083333333336" />
@@ -30,11 +31,14 @@
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/party_openparty_item.xml" value="0.22" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/plan_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.365625" />
+=======
+>>>>>>> KimWonKeun
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable-anydpi/main_burger.xml" value="0.21666666666666667" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.2171875" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/menu/main_nav.xml" value="0.196875" />
+<<<<<<< HEAD
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_join.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.1634963768115942" />
@@ -55,6 +59,14 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/plan_list_item.xml" value="0.3104166666666667" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/menu/bottomnav_menu.xml" value="0.3104166666666667" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.3104166666666667" />
+=======
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_join.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_login.xml" value="0.34010416666666665" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendency2.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyactivity.xml" value="0.34010416666666665" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyctivity.xml" value="0.22282608695652173" />
+>>>>>>> KimWonKeun
       </map>
     </option>
   </component>

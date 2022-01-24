@@ -22,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
@@ -42,4 +42,16 @@ dependencies {
     implementation "com.kakao.sdk:v2-link:2.8.4" // 메시지(카카오링크)
     implementation "com.kakao.sdk:v2-navi:2.8.4" // 카카오내비
 
+<<<<<<< HEAD
+=======
+
+    implementation "com.naver.nid:naveridlogin-android-sdk:4.2.6"  //네이버 로그인
+
+    // naveridlogin dependencies
+    def android_x_version = "1.0.0"
+    implementation "androidx.appcompat:appcompat:$android_x_version"
+    implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
+    implementation "androidx.browser:browser:$android_x_version"
+    implementation "androidx.legacy:legacy-support-v4:$android_x_version"
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 }

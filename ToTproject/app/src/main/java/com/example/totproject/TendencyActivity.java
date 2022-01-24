@@ -14,7 +14,11 @@ public class TendencyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(R.layout.activity_tendenacyctivity);
+=======
+        setContentView(R.layout.activity_tendencyActivity);
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 
         tend_btn1_skip = findViewById(R.id.tend_btn1_skip);
         tend_btn2_next = findViewById(R.id.tend_btn2_next);

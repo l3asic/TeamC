@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 
-import com.kakao.sdk.common.KakaoSdk;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 
     }
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class JoinActivity extends AppCompatActivity {
 
-    EditText join_id, join_pw, join_pw_donfirm, join_tel;
+    EditText join_id, join_pw, join_pw_confirm, join_tel;
     TextView join_next;
     Button join_id_confirm;
 
@@ -23,7 +23,7 @@ public class JoinActivity extends AppCompatActivity {
         join_id = findViewById(R.id.join_id);
         join_id_confirm = findViewById(R.id.join_id_confirm);
         join_pw = findViewById(R.id.join_pw);
-        join_pw_donfirm = findViewById(R.id.join_pw_confirm);
+        join_pw_confirm = findViewById(R.id.join_pw_confirm);
         join_next = findViewById(R.id.join_next);
 
 

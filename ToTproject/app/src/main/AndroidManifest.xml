@@ -12,12 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
-            android:name=".Tendency2Activity"
-            android:exported="false" />
-        <activity
             android:name=".TendencyActivity"
             android:exported="false" />
         <activity
+<<<<<<< HEAD
+            android:name=".TendencyActivity"
+=======
+            android:name=".Tendency2Activity"
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
+            android:exported="false" />
+        <activity
+            android:name=".activity_party_new_before"
+            android:exported="false" />
+
+        <activity
+<<<<<<< HEAD
+            android:name=".MainActivity"
+            android:exported="false" />
+=======
             android:name=".JoinActivity"
             android:exported="false" />
         <activity
@@ -25,12 +37,16 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false"/>
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
@@ -46,7 +62,25 @@
                     android:host="oauth"
                     android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
             </intent-filter>
+=======
+>>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
         </activity>
+
+<!--        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                &lt;!&ndash; Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" &ndash;&gt;
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
+            </intent-filter>
+        </activity>-->
     </application>
 
 </manifest>

@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/bot_home"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/icon_home"
         android:title="Home"/>
     <item
-        android:id="@+id/nav_category"
+        android:id="@+id/bot_category"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/icon_category"
         android:title="Category"/>
     <item
-        android:id="@+id/nav_board"
+        android:id="@+id/bot_board"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/icon_board"
         android:title="Board"/>
     <item
-        android:id="@+id/nav_party"
+        android:id="@+id/bot_party"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/icon_party"

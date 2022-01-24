@@ -10,11 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"
-<<<<<<< HEAD
         >
-=======
-       >
->>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 
         <TextView
             android:layout_width="match_parent"
@@ -260,11 +256,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-<<<<<<< HEAD
             >
-=======
-           >
->>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 
             <RadioButton
                 android:id="@+id/tend2_rg6_radio1"

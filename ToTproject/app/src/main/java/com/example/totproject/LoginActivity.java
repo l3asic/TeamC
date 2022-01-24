@@ -2,8 +2,6 @@ package com.example.totproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -22,27 +20,15 @@ import com.kakao.sdk.common.model.ClientErrorCause;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.Profile;
-import com.nhn.android.naverlogin.OAuthLogin;
-import com.nhn.android.naverlogin.OAuthLoginHandler;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-<<<<<<< HEAD
   Button login_btn_login;
   EditText edit_login_id, edit_login_pw;
   TextView text_login_join;
   ImageView imgv_kakaologin;
-=======
-  Button login_btn_login, login_btn_join;
-  EditText edit_login_id, edit_login_pw;
-  ImageView imgv_kakaologin, imgv_naverlogin;
-
-  OAuthLogin mOAuthLoginModule;
-  Context mContext;
-
->>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
         imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
-        imgv_naverlogin = findViewById(R.id.imgv_naverlogin);
 
-<<<<<<< HEAD
-=======
-        mContext = getApplicationContext();
-
->>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
 
@@ -124,47 +104,6 @@ public class LoginActivity extends AppCompatActivity {
               
             }
         });
-
-        // naver login
-        imgv_naverlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mOAuthLoginModule = OAuthLogin.getInstance();
-                mOAuthLoginModule.init(
-                        mContext
-                        ,getString(R.string.naver_client_id)
-                        ,getString(R.string.naver_client_secret)
-                        ,getString(R.string.naver_client_name));
-
-                @SuppressLint("HandlerLeak")
-                OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
-                    @Override
-                    public void run(boolean success) {
-                        if (success) {
-                            String accessToken = mOAuthLoginModule.getAccessToken(mContext);
-                            String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
-                            long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
-                            String tokenType = mOAuthLoginModule.getTokenType(mContext);
-
-                            Log.i("LoginData","accessToken : "+ accessToken);
-                            Log.i("LoginData","refreshToken : "+ refreshToken);
-                            Log.i("LoginData","expiresAt : "+ expiresAt);
-                            Log.i("LoginData","tokenType : "+ tokenType);
-
-                        } else {
-                            String errorCode = mOAuthLoginModule
-                                    .getLastErrorCode(mContext).getCode();
-                            String errorDesc = mOAuthLoginModule.getLastErrorDesc(mContext);
-                            Toast.makeText(mContext, "errorCode:" + errorCode
-                                    + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
-                        }
-                    };
-                };
-
-                mOAuthLoginModule.startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
-            }
-        });
-
 
     }// onCreate()
 

@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5198b08e8ea4c1223a74d3ca32e54005e2c02cdd
 
     }
 

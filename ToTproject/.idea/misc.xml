@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/ToTproject-jj/app/src/main/res/layout/activity_join.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject-jj/app/src/main/res/layout/activity_login.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject-jj/app/src/main/res/layout/activity_tendenacyctivity.xml" value="0.25" />
+        <entry key="..\:/Study_Android/ToTproject-jj/app/src/main/res/layout/activity_tendency2.xml" value="0.25" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable-anydpi/main_burger.xml" value="0.21666666666666667" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.2171875" />
@@ -11,8 +15,7 @@
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_join.xml" value="0.16271442986881937" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_login.xml" value="0.34010416666666665" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendency2.xml" value="0.33" />
-        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyactivity.xml" value="0.34010416666666665" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendency2.xml" value="0.22282608695652173" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyctivity.xml" value="0.22282608695652173" />
       </map>
     </option>

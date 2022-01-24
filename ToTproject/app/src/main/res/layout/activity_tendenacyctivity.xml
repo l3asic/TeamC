@@ -42,7 +42,7 @@
             android:id="@+id/tend_radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4인이상 여행 선호 여부"
+            android:text="관광 여부"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
             android:id="@+id/tend_rg1"

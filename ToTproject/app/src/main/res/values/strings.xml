@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">ToTproject</string>
-
-    <string name="naver_client_id">uGpmI5HP4456GOdaotwq</string>
-    <string name="naver_client_secret">ElhUyTFWhH</string>
-    <string name="naver_client_name">ToT</string>
 </resources>

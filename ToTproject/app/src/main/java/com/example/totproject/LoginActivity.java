@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -24,31 +25,19 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-  Button login_btn_login, login_btn_join ;
+  Button login_btn_login;
   EditText edit_login_id, edit_login_pw;
+  TextView text_login_join;
   ImageView imgv_kakaologin;
-
-  Button chaminhwan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         login_btn_login = findViewById(R.id.login_btn_login);
-        login_btn_join = findViewById(R.id.login_btn_join);
+        text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
         imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
-
-
-        chaminhwan = findViewById(R.id.cha_min_hwan);
-        chaminhwan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
@@ -69,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // 회원가입
-        login_btn_join.setOnClickListener(new View.OnClickListener() {
+        text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, JoinActivity.class);

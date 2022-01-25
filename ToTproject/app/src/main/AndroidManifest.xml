@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
+            android:name=".Activity03BoardDetail"
+            android:exported="false" />
+        <activity
             android:name=".Party04Planning"
             android:exported="false" />
         <activity
@@ -21,7 +24,7 @@
             android:name=".TendencyActivity02"
             android:exported="false" />
         <activity
-            android:name=".activity_party_new_before"
+            android:name=".Activity04PartyNewBefore"
             android:exported="false" />
         <activity
             android:name=".JoinActivity"

@@ -1820,6 +1820,10 @@ drawable icon_setting
 drawable icon_text
 drawable img_login_kakao
 drawable img_login_naver
+drawable kakao_login_large_narrow
+drawable kakao_login_large_wide
+drawable kakao_login_medium_narrow
+drawable kakao_login_medium_wide
 drawable logo_tot
 drawable logo_tot_old
 drawable main_search
@@ -2529,6 +2533,8 @@ layout activity_04_party_new_before
 layout activity_04_party_plans
 layout activity_party04_planning_01_
 layout activity_party04_planning_03_plan
+layout activity_party_member_invite
+layout activity_party_member_manage
 layout activity_talk_auth_code
 layout activity_tendency_activity_01
 layout activity_tendency_activity_02

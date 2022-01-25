@@ -1,3 +1,9 @@
+com/example/totproject/BuildConfig.java
+ com.example.totproject.BuildConfig
+com/example/totproject/MemberDTO.java
+ com.example.totproject.MemberDTO
+com/example/totproject/activity_party_new_before.java
+ com.example.totproject.activity_party_new_before
 com/example/totproject/party_plan/PlanInfoFragment.java
  com.example.totproject.party_plan.PlanInfoFragment
 com/example/totproject/SplashActivity.java
@@ -21,12 +27,8 @@ com/example/totproject/LoginActivity.java
  com.example.totproject.LoginActivity$2
  com.example.totproject.LoginActivity$3
  com.example.totproject.LoginActivity$4
-com/example/totproject/activity_party_new_before.java
- com.example.totproject.activity_party_new_before
 com/example/totproject/party/PartyMainActivity.java
  com.example.totproject.party.PartyMainActivity
-com/example/totproject/MemberDTO.java
- com.example.totproject.MemberDTO
 com/example/totproject/party/OpenpartyListFragment.java
  com.example.totproject.party.OpenpartyListFragment
 com/example/totproject/party/MypartyListFragment.java
@@ -50,5 +52,3 @@ com/example/totproject/party_plan/PlanListFragment.java
  com.example.totproject.party_plan.PlanListFragment
 com/example/totproject/Party04Planning.java
  com.example.totproject.Party04Planning
-com/example/totproject/BuildConfig.java
- com.example.totproject.BuildConfig

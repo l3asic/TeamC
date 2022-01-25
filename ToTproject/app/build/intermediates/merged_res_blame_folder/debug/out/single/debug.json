@@ -8,6 +8,10 @@
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_narrow.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_large_narrow.png"
+    },
+    {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_item_party04_planning_list.xml.flat",
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\item_party04_planning_list.xml"
     },
@@ -36,6 +40,10 @@
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_party_member_manage.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_party_member_manage.xml"
+    },
+    {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -48,12 +56,16 @@
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_00_login.xml"
     },
     {
-        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_narrow.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_medium_narrow.png"
     },
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_04_party_new_after.xml.flat",
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_04_party_new_after.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_setting.png.flat",
@@ -74,6 +86,10 @@
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_party04_planning_01_.xml.flat",
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_party04_planning_01_.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_wide.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_large_wide.png"
     },
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -138,6 +154,14 @@
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_x_mas_splash.jpg.flat",
         "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\x_mas_splash.jpg"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_wide.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_medium_wide.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_party_member_invite.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_party_member_invite.xml"
     },
     {
         "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_01_main.xml.flat",

@@ -211,6 +211,6 @@
             android:layout_height="100dp"
             android:text="세부 일정 확인"
             android:layout_gravity="center"
-            android:background="@drawable/radious"/>
+            android:background="@drawable/radius"/>
     </LinearLayout>
 </FrameLayout>

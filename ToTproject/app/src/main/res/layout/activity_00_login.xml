@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:orientation="vertical"
-    >
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,14 +14,33 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="로그인"
-                android:textSize="30dp"/>
+                android:textSize="30dp" />
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="(칸나누기용 리니어)"
+                />
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                android:textSize="30dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -30,24 +48,24 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <EditText
                 android:id="@+id/edit_login_id"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:hint="아이디 또는 이메일을 입력하세요"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
+
             <EditText
                 android:id="@+id/edit_login_pw"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:hint="비밀번호를  입력하세요"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>
 
@@ -56,32 +74,51 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
                     android:id="@+id/login_btn_login"
                     android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:text="로그인"
-                    android:textSize="22dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:text="로그인"
+                    android:textSize="22dp" />
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    android:text="아이디 찾기 |"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -91,21 +128,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
-                    android:text="아이디 찾기 |"
-                    android:layout_marginLeft="120dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:text="비밀번호 찾기"
-                    android:textSize="15dp"
-                    android:layout_marginTop="10dp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -115,52 +140,54 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <ImageView
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:textFontWeight="1">
+
+                <Button
                     android:id="@+id/imgv_naverlogin"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
+                    android:layout_width="250dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/img_login_naver"
-                    android:layout_marginTop="10dp"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <ImageView
                     android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/img_login_naver" />
+
+
+                <Button
                     android:id="@+id/imgv_kakaologin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_login_kakao"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    />
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kakao_login_large_narrow" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
+                android:id="@+id/text_login_join"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="혹시, Trip Or Travel이 처음이신가요?  회원가입"
-                android:textSize="18dp"
-                android:id="@+id/text_login_join"
                 android:layout_gravity="bottom"
-                />
+                android:gravity="center"
+                android:text="혹시, Trip Or Travel이 처음이신가요?  회원가입"
+                android:textSize="18dp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

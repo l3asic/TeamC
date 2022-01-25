@@ -1,0 +1,13 @@
+com/example/totproject/SplashActivity.java
+ com.example.totproject.SplashActivity
+ com.example.totproject.SplashActivity$1
+com/example/totproject/BoardActivity.java
+ com.example.totproject.BoardActivity
+com/example/totproject/MainActivity.java
+ com.example.totproject.MainActivity
+com/example/totproject/Travel_list_Fragment.java
+ com.example.totproject.Travel_list_Fragment
+com/example/totproject/Board_User_Fragment.java
+ com.example.totproject.Board_User_Fragment
+com/example/totproject/BuildConfig.java
+ com.example.totproject.BuildConfig

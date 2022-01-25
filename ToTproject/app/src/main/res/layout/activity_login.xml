@@ -22,6 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="로그인"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/bottom_line"
                 android:textSize="30dp"/>
         </LinearLayout>
 
@@ -92,8 +95,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
                     android:text="아이디 찾기 |"
-                    android:layout_marginLeft="120dp"
-                    android:textSize="15dp" />
+                    android:layout_marginLeft="110dp"
+                    android:textSize="18dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
@@ -103,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="비밀번호 찾기"
-                    android:textSize="15dp"
+                    android:textSize="18dp"
                     android:layout_marginTop="10dp"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -129,7 +132,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:src="@drawable/naver_login"
+                    android:src="@drawable/img_login_naver"
                     android:layout_marginTop="10dp"
                     />
             </LinearLayout>
@@ -142,7 +145,7 @@
                     android:id="@+id/imgv_kakaologin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/kakaoimage_medium"
+                    android:src="@drawable/img_login_kakao"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     />
@@ -157,6 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="혹시, Trip Or Travel이 처음이신가요?  회원가입"
+                android:gravity="center"
                 android:textSize="18dp"
                 android:id="@+id/text_login_join"
                 android:layout_gravity="bottom"

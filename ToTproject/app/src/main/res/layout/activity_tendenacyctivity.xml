@@ -14,8 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="♣ 성향분석"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom_line"
             android:textSize="22dp"/>
     </LinearLayout>
     <LinearLayout
@@ -48,12 +49,17 @@
             android:id="@+id/tend_rg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <RadioButton
+                android:checked="true"
                 android:id="@+id/tend_rg1_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
                 android:padding="15dp"/>
 
@@ -61,6 +67,9 @@
                 android:id="@+id/tend_rg1_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
                 android:padding="15dp"/>
 
@@ -68,6 +77,9 @@
                 android:id="@+id/tend_rg1_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
                 android:padding="15dp"/>
 
@@ -75,6 +87,9 @@
                 android:id="@+id/tend_rg1_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
                 android:padding="15dp"/>
 
@@ -82,6 +97,9 @@
                 android:id="@+id/tend_rg1_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 

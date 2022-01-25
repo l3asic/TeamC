@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <%@page import="com.hanul.study.UserDAO"%>
-=======
->>>>>>> ChaMinHwan
 <%@page import="com.hanul.study.UserDTO"%>
 <%@page import="com.hanul.study.OmrDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,14 +12,13 @@
 	OmrDTO dto = new OmrDTO();
 	UserDTO dtos = new UserDTO();
 
-<<<<<<< HEAD
 	UserDAO dao = new UserDAO();
 	
 	dtos.setId(id);
-	
+
 	if (dao.checkId(dtos)) {
 		if (Integer.parseInt(id) == dao.checkAdmin()) { //dtos에 관리자 id가 있는지
-			response.sendRedirect("admin_Testers.jsp");
+			response.sendRedirect("adminMain.jsp");
 		} else {
 
 			dto.setId(request.getParameter("id"));
@@ -36,18 +32,13 @@
 		// 		response.sendRedirect("OmrMain.html");
 
 	}
-=======
-	dto.setId(request.getParameter("id"));
-	dtos.setName(request.getParameter("name"));
-
-	pageContext.setAttribute("dto", dto);
->>>>>>> ChaMinHwan
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Test Page</title>
+
 <script>
 	function fnSubmit() {
 		if (confirm("답안지를 제출 하시겠습니까?")) {
@@ -149,9 +140,6 @@
 			<input type="reset" value="초기화하기" /> <input type="button"
 				value="처음으로" onclick="location.href='OmrMain.html'" />
 		</div>
-<<<<<<< HEAD
 	</form>
-=======
->>>>>>> ChaMinHwan
 </body>
 </html>

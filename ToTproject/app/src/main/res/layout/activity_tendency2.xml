@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,8 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="♣ 성향분석"
-            android:layout_marginLeft="140dp"
-            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom_line"
             android:textSize="22dp" />
     </LinearLayout>
 
@@ -317,7 +319,7 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend2_btn2_next"
+            android:id="@+id/tend2_btn2_join"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

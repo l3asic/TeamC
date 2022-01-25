@@ -18,7 +18,7 @@ public class JoinActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
+        setContentView(R.layout.activity_00_join);
 
         join_id = findViewById(R.id.join_id);
         join_id_confirm = findViewById(R.id.join_id_confirm);
@@ -30,7 +30,7 @@ public class JoinActivity extends AppCompatActivity {
         join_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JoinActivity.this, Tendencyctivity.class);
+                Intent intent = new Intent(JoinActivity.this, TendencyActivity01.class);
                 startActivity(intent);
             }
         });

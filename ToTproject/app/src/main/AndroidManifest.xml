@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.totproject">
+    <!-- 인터넷 사용 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,27 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
-
-
         <activity
-            android:name=".Tendency2Activity"
+            android:name=".Party04Planning"
             android:exported="false" />
         <activity
-            android:name=".Tendencyctivity"
+            android:name=".TendencyActivity01"
+            android:exported="false" />
+        <activity
+            android:name=".TendencyActivity02"
+            android:exported="false" />
+        <activity
+            android:name=".activity_party_new_before"
             android:exported="false" />
         <activity
             android:name=".JoinActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-
-
-
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -38,7 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

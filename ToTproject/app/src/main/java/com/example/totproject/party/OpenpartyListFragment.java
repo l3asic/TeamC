@@ -1,17 +1,16 @@
 package com.example.totproject.party;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.totproject.R;
 
 
-public class Openparty_list_Fragment extends Fragment {
+public class OpenpartyListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

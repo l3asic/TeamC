@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
   Button login_btn_login;
   EditText edit_login_id, edit_login_pw;
   TextView text_login_join;
-  ImageView imgv_kakaologin;
+  Button kakaologin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
-        imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
+        kakaologin = findViewById(R.id.imgv_kakaologin);
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // 카카오 로그인
-        imgv_kakaologin.setOnClickListener(new View.OnClickListener() {
+        kakaologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인

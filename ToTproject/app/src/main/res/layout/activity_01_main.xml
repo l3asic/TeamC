@@ -133,10 +133,21 @@
             android:background="#DFDFDF"
             app:itemIconTint="@drawable/nav_select"
             app:itemTextColor="@drawable/nav_select"
-            app:menu="@menu/nav_menu" />
+            app:menu="@menu/bottomnav_menu" />
 
     </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_marginTop="20dp"
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_headermain"
+        app:menu="@menu/nav_menu"
+        app:itemTextAppearance="@style/BigText"
+        android:layout_marginLeft="50dp"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

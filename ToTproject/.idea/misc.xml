@@ -14,14 +14,16 @@
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendency2.xml" value="0.33" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyactivity.xml" value="0.34010416666666665" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyctivity.xml" value="0.22282608695652173" />
+        <entry key="..\:/Study_Project/ToTproject/app/src/main/res/layout/activity_01_main.xml" value="0.28940217391304346" />
+        <entry key="..\:/Study_Project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.28940217391304346" />
+        <entry key="..\:/Study_Project/ToTproject/app/src/main/res/menu/bottomnav_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/bottom_line.xml" value="0.38229166666666664" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_join.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_login.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_splash.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_01_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_03_board_detail.xml" value="0.33" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_03_board_list_my.xml" value="0.33" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_03_board_new.xml" value="0.22" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_03_board_detail.xml" value="0.2046875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_04_party_main.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_04_party_new_after.xml" value="0.3546195652173913" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_04_party_new_before.xml" value="0.36614583333333334" />
@@ -53,17 +55,16 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_party.xml" value="0.322463768115942" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_plan_info.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_plan_list.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_board_detail_reply.xml" value="0.19739583333333333" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_board_reply.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_check_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party04_planning_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party_list.xml" value="0.24003623188405798" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party_list_open.xml" value="0.3546195652173913" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party_plan_list.xml" value="0.25" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party_plan_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_party_plan_member_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_planning_list.xml" value="0.5" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.22" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.25" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/party_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/party_openparty_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/plan_list_item.xml" value="0.36614583333333334" />

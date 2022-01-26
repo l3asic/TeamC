@@ -53,6 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_party_main_old"
+        app:headerLayout="@layout/nav_party_main"
         app:menu="@menu/menu_party" />
 </LinearLayout>

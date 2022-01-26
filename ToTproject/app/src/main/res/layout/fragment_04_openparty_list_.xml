@@ -24,7 +24,7 @@
                 android:layout_height="40dp"
                 android:hint="   공개 파티 검색"
                 android:layout_margin="10dp"
-                android:background="@drawable/radious">
+                android:background="@drawable/radius">
             </EditText>
             <ImageView
                 android:layout_width="40dp"

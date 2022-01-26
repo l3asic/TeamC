@@ -4,18 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.example.totproject.common.Common;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.KakaoSdk;
-import com.kakao.sdk.common.model.ClientErrorCause;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.Profile;
@@ -24,31 +22,19 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-  Button login_btn_login, login_btn_join ;
+  Button login_btn_login;
   EditText edit_login_id, edit_login_pw;
-  ImageView imgv_kakaologin;
-
-  Button chaminhwan;
+  TextView text_login_join;
+  Button kakaologin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_00_login);
         login_btn_login = findViewById(R.id.login_btn_login);
-        login_btn_join = findViewById(R.id.login_btn_join);
+        text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
-        imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
-
-
-        chaminhwan = findViewById(R.id.cha_min_hwan);
-        chaminhwan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        kakaologin = findViewById(R.id.imgv_kakaologin);
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
@@ -59,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                if((edit_login_id.getText()+"").equals("aaa") && (edit_login_pw.getText()+"").equals("aaa") ) {
                    Toast.makeText(LoginActivity.this, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
-                goMain();
+                   Common.goMain(LoginActivity.this);
                } else {
                    Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호틀림", Toast.LENGTH_SHORT).show();
                }
@@ -69,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // 회원가입
-        login_btn_join.setOnClickListener(new View.OnClickListener() {
+        text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
@@ -87,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if(oAuthToken != null){
                     Toast.makeText(LoginActivity.this, "정보를 받아옴", Toast.LENGTH_SHORT).show();
-                   getKakaoinfo();
+                    getKakaoinfo();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -101,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // 카카오 로그인
-        imgv_kakaologin.setOnClickListener(new View.OnClickListener() {
+        kakaologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
@@ -130,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                     Profile profile = kakaoAcount.getProfile();
                     if(profile != null){
                         Toast.makeText(LoginActivity.this, profile.getNickname()+"님 환영", Toast.LENGTH_SHORT).show();
-                        goMain();
+                        Common.goMain(LoginActivity.this);
                     }
                 }
             }
@@ -140,9 +126,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void goMain() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
 }

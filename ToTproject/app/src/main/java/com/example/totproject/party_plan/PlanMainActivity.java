@@ -11,6 +11,9 @@ public class PlanMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_party_plan);
+        setContentView(R.layout.activity_04_party_plans);
+        My//마이파티리스트 이거왜 두개뜸..?@@@@@@@@@@@@@@@@@@@
+
+
     }
 }

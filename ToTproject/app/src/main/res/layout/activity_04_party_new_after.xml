@@ -7,7 +7,7 @@
     android:clipChildren="false"
     android:orientation="vertical"
     android:weightSum="100"
-    tools:context=".activity_party_new_before">
+    tools:context=".Activity04PartyNewBefore">
 
     <LinearLayout
         android:layout_width="match_parent"

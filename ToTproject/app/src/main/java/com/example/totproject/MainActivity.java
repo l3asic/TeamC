@@ -1,34 +1,34 @@
 package com.example.totproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 
-import com.kakao.sdk.common.KakaoSdk;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import android.os.Bundle;
-import android.view.WindowManager;
+import com.example.totproject.party.PartyFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    BottomNavigationView bottom_nav;
+    //PartyFragment party_frag = new PartyFragment(MainActivity.this);    //와 죽고싶다
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_01_main);
 
-// 상단 시계있는 부분까지 풀스크린 처리하는 소스
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        bottom_nav = findViewById(R.id.main_nav);
+
+        //   PartyFragment party_frag = new PartyFragment();
+
+        PartyFragment party_frag = new PartyFragment();//ㅈㅈㅈㅅㅈㅅㅈㅅㅈㅅ
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, party_frag).commit();
 
 
+    }//onCreate()
 
-    }
 
-}
+}//MainActivity()

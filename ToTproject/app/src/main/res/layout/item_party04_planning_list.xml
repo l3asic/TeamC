@@ -18,43 +18,38 @@
 
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <TextView
-            android:gravity="center"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="방문 시간" />
-
-        <TextView
+            android:layout_height="0dp"
             android:layout_weight="8"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="방문 장소" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:orientation="horizontal">
 
 
-            <TextView
-                android:gravity="center"
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="-" />
+                android:text="X" />
 
-            <TextView
-                android:layout_weight="8"
+            <Button
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="유저 메모" />
+                android:layout_weight="2"
+                android:text="프사" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="이름" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="등급" />
+
+
         </LinearLayout>
     </LinearLayout>
 

@@ -8,6 +8,7 @@
     android:layout_gravity="end"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
+    android:background="@drawable/ic_launcher_background"
     tools:openDrawer="start">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -32,7 +33,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_marginRight="20dp"
-                    android:background="@color/white"
+
                     android:src="@drawable/icon_main_burger" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -41,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            android:background="@color/white"
+
             android:orientation="vertical">
 
             <FrameLayout
@@ -50,86 +51,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="9">
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/main_seach"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
-                    android:background="@drawable/main_search" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/recommend"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="?attr/actionBarSize"
-                            android:text="추천 여행지"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rec_recommend"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/local"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/recommend"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="지역 축제정보"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <androidx.viewpager2.widget.ViewPager2
-                            android:id="@+id/pager_local"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:orientation="horizontal"></androidx.viewpager2.widget.ViewPager2>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tour"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/local"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="?attr/actionBarSize"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rec_tour2"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
-                    </LinearLayout>
-
-
-                </RelativeLayout>
+        >
             </FrameLayout>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -144,7 +66,7 @@
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.google.android.material.navigation.NavigationView
+<!--    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -154,7 +76,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_headermain"
         app:itemTextAppearance="@style/BigText"
-        app:menu="@menu/nav_menu" />
+        app:menu="@menu/nav_menu" />-->
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

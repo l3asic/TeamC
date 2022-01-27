@@ -11,94 +11,93 @@
         android:orientation="vertical">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:layout_width="0dp"
-                android:layout_weight="9"
                 android:layout_height="40dp"
-                android:hint="   공개 파티 검색"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius">
-            </EditText>
+                android:layout_weight="9"
+                android:background="@drawable/radius"
+                android:hint="공개 파티 검색"
+                android:paddingLeft="10dp"></EditText>
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher">
-            </ImageView>
+                android:src="@mipmap/ic_launcher"></ImageView>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:orientation="vertical"
             android:layout_marginVertical="20dp"
             android:background="@drawable/bottom_line"
+            android:orientation="vertical"
             android:paddingBottom="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="15dp"
                     android:text="#해시태그"
-                    android:textSize="20dp"
-                    android:layout_margin="15dp"/>
+                    android:textSize="20dp" />
             </LinearLayout>
-
-
-
-
-
 
 
         </LinearLayout>
@@ -116,19 +115,7 @@
         </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-
     </LinearLayout>
-
 
 
 </FrameLayout>

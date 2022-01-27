@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".party_plan.PlanInfoFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,204 +14,216 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
             <TextView
-                android:gravity="center"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="60dp"
-                android:text=" * 여행 출발 일자   : "/>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 여행 출발 일자   : " />
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="60dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="22/01/22"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="am 07:00"
-                    android:gravity="center"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <TextView
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp"
-                android:text=" * 여행 복귀 일자   : "/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="22/01/25"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="am 07:00"
-                    android:gravity="center"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <TextView
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp"
-                android:text=" * 여행지    : "/>
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:text="프랑스 파리"
                     android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/bottom_line"/>
+                    android:text="22/01/22" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="am 07:00" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <TextView
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp"
-                android:text=" * 출발지    : "/>
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 여행 복귀 일자   : " />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="22/01/25" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="am 07:00" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 여행지    : " />
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:text="농성역에서 모이기"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_line"
                 android:gravity="center"
                 android:paddingBottom="10dp"
-                android:background="@drawable/bottom_line"/>
+                android:text="프랑스 파리" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
             <TextView
-                android:gravity="center"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="60dp"
-                android:text=" * 참여 멤버    : "/>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 출발지    : " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_line"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:text="농성역에서 모이기" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 참여 멤버    : " />
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp">
-            </LinearLayout>
+                android:layout_height="60dp"
+                android:layout_weight="1"></LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="vertical">
             <!-- ↓ plan_member_list 출력 공간-->
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:orientation="horizontal"
             android:layout_margin="10dp"
-            android:background="@drawable/bottom_line">
-            <TextView
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="60dp"
-                android:text=" * 숙소    : "/>
+            android:background="@drawable/bottom_line"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="60dp"
-                android:text="파리 호텔"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 숙소    : " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_line"
                 android:gravity="center"
 
-                android:background="@drawable/bottom_line"/>
+                android:text="파리 호텔" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="준비물 체크리스트"
                 android:gravity="center"
-                android:textSize="24dp"/>
+                android:text="준비물 체크리스트"
+                android:textSize="24dp" />
 
             <!-- check_list_item -->
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
             <TextView
-                android:gravity="center"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="60dp"
-                android:text=" * 예상 경비    : "/>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" * 예상 경비    : " />
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="30dp"
-                android:text="240만원 유동"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_line"
                 android:gravity="center"
                 android:paddingBottom="10dp"
-                android:background="@drawable/bottom_line"/>
+                android:text="240만원 유동" />
         </LinearLayout>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="100dp"
-            android:text="세부 일정 확인"
             android:layout_gravity="center"
-            android:background="@drawable/radius"/>
+            android:background="@drawable/radius"
+            android:text="세부 일정 확인" />
     </LinearLayout>
 </FrameLayout>

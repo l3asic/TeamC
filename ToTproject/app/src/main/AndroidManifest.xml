@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
+            android:name=".Activity02PartyMain"
+            android:exported="false" />
+        <activity
             android:name=".Activity03BoardDetail"
             android:exported="false" />
         <activity

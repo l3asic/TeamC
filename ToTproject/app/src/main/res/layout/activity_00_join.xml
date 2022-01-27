@@ -34,7 +34,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="♣ 회원가입"
-                    android:textSize="15dp"/>
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="25dp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -157,13 +159,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                >
+                android:orientation="horizontal">
                 <EditText
                     android:id="@+id/join_tell"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
                     android:text="휴대전화 번호를 입력하세요"
                     android:textSize="15dp"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="인증번호받기"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="인증번호 입력"
+                    android:textSize="23dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/join_tell_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="인증 번호를 입력하세요"
+                    android:textSize="15dp"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="확 인"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

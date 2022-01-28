@@ -12,5 +12,6 @@ public class CategoryMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_act_main);
+
     }
 }

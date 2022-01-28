@@ -4,19 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.KakaoSdk;
-import com.kakao.sdk.common.model.ClientErrorCause;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.Profile;
@@ -28,16 +24,16 @@ public class LoginActivity extends AppCompatActivity {
   Button login_btn_login;
   EditText edit_login_id, edit_login_pw;
   TextView text_login_join;
-  ImageView imgv_kakaologin;
+  Button kakaologin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_00_login);
         login_btn_login = findViewById(R.id.login_btn_login);
         text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
-        imgv_kakaologin = findViewById(R.id.imgv_kakaologin);
+        kakaologin = findViewById(R.id.imgv_kakaologin);
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
@@ -90,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // 카카오 로그인
-        imgv_kakaologin.setOnClickListener(new View.OnClickListener() {
+        kakaologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인

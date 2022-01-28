@@ -63,33 +63,37 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="내가속한 파티이름" />
+                    android:textColor="@color/item"
+                    android:text="메시지" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+                    android:src="@drawable/icon_cancel"></ImageView>
+
+                <TextView
+                    android:textColor="@color/item"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="공개파티보기" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <ImageView
-
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-
-                    android:src="@drawable/icon_cancel"></ImageView>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="내가속한 파티이름" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,11 +109,12 @@
                     android:src="@drawable/icon_cancel"></ImageView>
 
                 <TextView
+                    android:textColor="@color/item"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="내가속한 파티이름" />
+                    android:text="파티만들기" />
             </LinearLayout>
         </LinearLayout>
 

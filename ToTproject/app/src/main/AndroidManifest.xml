@@ -12,22 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
-            android:name=".Activity02PartyMain"
+            android:name=".category.CategoryMainActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity03BoardDetail"
+            android:name=".board.Activity03BoardDetail"
             android:exported="false" />
         <activity
             android:name=".party_plan.Party04Planning"
             android:exported="false" />
         <activity
-            android:name=".TendencyActivity01"
+            android:name=".login.TendencyActivity01"
             android:exported="false" />
         <activity
-            android:name=".TendencyActivity02"
+            android:name=".login.TendencyActivity02"
             android:exported="false" />
         <activity
-            android:name=".Activity04PartyNewBefore"
+            android:name=".party.PartyCreateActivity"
             android:exported="false" />
         <activity
             android:name=".login.JoinActivity"
@@ -39,7 +39,7 @@
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".login.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

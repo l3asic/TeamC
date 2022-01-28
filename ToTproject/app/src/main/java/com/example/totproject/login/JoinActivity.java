@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.totproject.R;
-import com.example.totproject.TendencyActivity01;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -21,7 +20,7 @@ public class JoinActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_00_join);
+        setContentView(R.layout.join_act_join);
 
         join_id = findViewById(R.id.join_id);
         join_id_confirm = findViewById(R.id.join_id_confirm);

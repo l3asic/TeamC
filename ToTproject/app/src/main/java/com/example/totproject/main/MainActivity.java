@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_01_main);
+        setContentView(R.layout.main_act_main);
 
         bottom_nav = findViewById(R.id.main_nav);
         container = R.id.container;

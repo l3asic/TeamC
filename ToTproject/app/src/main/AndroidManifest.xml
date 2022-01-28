@@ -18,7 +18,7 @@
             android:name=".Activity03BoardDetail"
             android:exported="false" />
         <activity
-            android:name=".Party04Planning"
+            android:name=".party_plan.Party04Planning"
             android:exported="false" />
         <activity
             android:name=".TendencyActivity01"
@@ -30,13 +30,13 @@
             android:name=".Activity04PartyNewBefore"
             android:exported="false" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".login.JoinActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

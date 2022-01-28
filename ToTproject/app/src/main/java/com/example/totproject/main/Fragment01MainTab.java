@@ -1,4 +1,4 @@
-package com.example.totproject;
+package com.example.totproject.main;
 
 import android.os.Bundle;
 
@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.totproject.R;
 
-public class Fragment02CategoryDetail extends Fragment {
+
+public class Fragment01MainTab extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_02_category_detail, container, false);
+
+        return inflater.inflate(R.layout.fragment_01_main, container, false);
     }
 }

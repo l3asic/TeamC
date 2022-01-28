@@ -1,4 +1,4 @@
-package com.example.totproject;
+package com.example.totproject.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.totproject.R;
+import com.example.totproject.TendencyActivity01;
 
 public class JoinActivity extends AppCompatActivity {
 

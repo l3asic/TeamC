@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.totproject.main.MainActivity;
+
 public class TendencyActivity01 extends AppCompatActivity {
 
     Button tend_btn1_skip, tend_btn2_next;

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="end"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
+    tools:context=".main.MainActivity"
     android:background="@drawable/ic_launcher_background"
     tools:openDrawer="start">
 
@@ -27,7 +27,13 @@
                 android:background="@color/white"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="50dp"
 
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="유동"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -51,7 +57,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="9">
 
-        >
+
             </FrameLayout>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView

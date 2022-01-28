@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_background"
     android:orientation="vertical"
-    tools:context=".Fragment02Category">
+    tools:context=".main.Fragment02CategoryTab">
 
     <!-- TODO: Update blank fragment layout -->
 

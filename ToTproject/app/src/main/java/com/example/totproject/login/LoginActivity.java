@@ -1,4 +1,4 @@
-package com.example.totproject;
+package com.example.totproject.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.totproject.R;
+import com.example.totproject.main.MainActivity;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.KakaoSdk;
 import com.kakao.sdk.user.UserApiClient;

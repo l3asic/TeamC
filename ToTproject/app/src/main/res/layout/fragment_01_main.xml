@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment01Main">
+    tools:context=".main.Fragment01MainTab">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/main_seach"
@@ -59,7 +59,6 @@
                 android:id="@+id/pager_local"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="@drawable/ic_launcher_background"
                 android:orientation="horizontal"></androidx.viewpager2.widget.ViewPager2>
         </LinearLayout>
 
@@ -68,18 +67,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/local"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <ImageView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="?attr/actionBarSize"
-                android:background="@drawable/ic_launcher_background"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

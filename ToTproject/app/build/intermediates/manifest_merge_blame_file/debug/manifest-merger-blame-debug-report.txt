@@ -1,0 +1,172 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.totproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml
+10    <!-- 인터넷 사용 권한 설정 -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <queries>
+13-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:11:5-14:15
+14        <package android:name="com.locnall.KimGiSa" />
+14-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:12:9-55
+14-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:12:18-52
+15        <package android:name="com.lguplus.navi" />
+15-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:13:9-52
+15-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:13:18-49
+16        <package android:name="com.kakao.talk" />
+16-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:12:9-50
+16-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:12:18-47
+17        <package android:name="com.kakao.talk.alpha" />
+17-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:13:9-56
+17-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:13:18-53
+18        <package android:name="com.kakao.talk.sandbox" />
+18-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:14:9-58
+18-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:14:18-55
+19        <package android:name="com.kakao.onetalk" />
+19-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:15:9-53
+19-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:15:18-50
+20        <package android:name="com.android.chrome" />
+20-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:16:9-54
+20-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:16:18-51
+21        <package android:name="com.chrome.beta" />
+21-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:17:9-51
+21-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:17:18-48
+22        <package android:name="com.chrome.dev" />
+22-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:18:9-50
+22-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:18:18-47
+23    </queries>
+24
+25    <application
+25-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:7:5-50:19
+26        android:allowBackup="true"
+26-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:8:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.7.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\21249a56641fb0309777a5ae16ce99ff\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+28        android:debuggable="true"
+29        android:icon="@mipmap/ic_launcher"
+29-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:9:9-43
+30        android:label="@string/app_name"
+30-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:10:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:11:9-54
+32        android:supportsRtl="true"
+32-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:12:9-35
+33        android:theme="@style/Theme.ToTproject" >
+33-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:13:9-48
+34        <activity
+34-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:14:9-16:40
+35            android:name="com.example.totproject.Tendency2Activity"
+35-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:15:13-46
+36            android:exported="false" />
+36-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:16:13-37
+37        <activity
+37-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:17:9-19:40
+38            android:name="com.example.totproject.Tendencyctivity"
+38-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:18:13-44
+39            android:exported="false" />
+39-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:19:13-37
+40        <activity
+40-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:20:9-22:40
+41            android:name="com.example.totproject.JoinActivity"
+41-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:21:13-41
+42            android:exported="false" />
+42-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:22:13-37
+43        <activity
+43-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:23:9-25:40
+44            android:name="com.example.totproject.MainActivity"
+44-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:24:13-41
+45            android:exported="false" />
+45-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:25:13-37
+46        <activity
+46-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:26:9-34:20
+47            android:name="com.example.totproject.LoginActivity"
+47-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:27:13-42
+48            android:exported="true" >
+48-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:28:13-36
+49            <intent-filter>
+49-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:29:13-33:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:30:17-69
+50-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:30:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:32:17-77
+52-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:32:27-74
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:35:9-49:20
+56            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+56-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:36:13-70
+57            android:exported="true"
+57-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:37:13-36
+58            android:launchMode="singleTask"
+58-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
+59            android:theme="@style/TransparentCompat" >
+59-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
+60            <intent-filter>
+60-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:38:13-48:29
+61                <action android:name="android.intent.action.VIEW" />
+61-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:39:17-69
+61-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:39:25-66
+62
+63                <category android:name="android.intent.category.DEFAULT" />
+63-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:41:17-76
+63-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:41:27-73
+64                <category android:name="android.intent.category.BROWSABLE" />
+64-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:42:17-78
+64-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:42:27-75
+65
+66                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+67                <data
+67-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:45:17-47:78
+68                    android:host="oauth"
+68-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:46:21-41
+69                    android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
+69-->D:\Computer\WorkSpace\Study_Android-main\ToTproject\app\src\main\AndroidManifest.xml:47:21-75
+70            </intent-filter>
+71        </activity>
+72        <activity
+72-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
+73            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
+73-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
+74            android:exported="false"
+74-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
+75            android:launchMode="singleTask"
+75-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
+76            android:theme="@style/TransparentCompat" />
+76-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\DooDeoMi\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
+77
+78        <provider
+78-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+79            android:name="androidx.startup.InitializationProvider"
+79-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+80            android:authorities="com.example.totproject.androidx-startup"
+80-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+81            android:exported="false" >
+81-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+82            <meta-data
+82-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+83                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+83-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+84                android:value="androidx.startup" />
+84-->[androidx.emoji2:emoji2:1.0.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+85            <meta-data
+85-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+86                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+86-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+87                android:value="androidx.startup" />
+87-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\DooDeoMi\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+88        </provider>
+89    </application>
+90
+91</manifest>

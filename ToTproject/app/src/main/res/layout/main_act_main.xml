@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="end"
+    android:background="@drawable/ic_launcher_background"
     android:fitsSystemWindows="true"
     tools:context=".main.MainActivity"
-    android:background="@drawable/ic_launcher_background"
     tools:openDrawer="start">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -27,20 +27,23 @@
                 android:background="@color/white"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:textSize="50dp"
-
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="유동"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="20dp"
 
-                    android:src="@drawable/icon_main_burger" />
+                    android:layout_gravity="center"
+                    android:text="유동"
+                    android:textSize="50dp" />
+
+                               <Button
+                                    android:id="@+id/main_btn_burger"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="end"
+                                    android:layout_marginRight="20dp"
+                                    android:src="@drawable/icon_main_burger" />
+
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -72,17 +75,18 @@
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-<!--    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/main_nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
+
+        android:layout_gravity="start"
+
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_headermain"
-        app:itemTextAppearance="@style/BigText"
-        app:menu="@menu/nav_menu" />-->
+        app:headerLayout="@layout/main_burgermenu"
+        app:menu="@menu/nav_menu" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

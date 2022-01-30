@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.example.totproject.R;
 
 
-public class MypartyListFragment extends Fragment {
+public class ZZZ_MypartyListFragment extends Fragment {
 
 
 

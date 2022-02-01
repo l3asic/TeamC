@@ -36,13 +36,13 @@
                     android:text="유동"
                     android:textSize="50dp" />
 
-                               <Button
-                                    android:id="@+id/main_btn_burger"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="end"
-                                    android:layout_marginRight="20dp"
-                                    android:src="@drawable/icon_main_burger" />
+                <Button
+                    android:id="@+id/main_btn_burger"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/icon_main_burger" />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -80,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:layout_gravity="start"
+        android:layout_gravity="right"
 
         android:layout_marginTop="20dp"
         android:background="@color/white"

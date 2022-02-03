@@ -11,10 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
-
-        <activity
-            android:name=".party.PartyMainActivity"
-            android:exported="false" />
         <activity
             android:name=".category.CategoryMainActivity"
             android:exported="false" />

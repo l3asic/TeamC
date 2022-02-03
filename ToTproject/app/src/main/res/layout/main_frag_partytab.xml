@@ -3,11 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PartyFragment">
+    tools:context=".main.Fragment04PartyTab">
 
-
-
-    tools:context=".party.PartyTabFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,7 +62,6 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="60dp"/>
             <TextView
-                android:id="@+id/tv_create_party"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -76,7 +72,6 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="60dp"/>
             <TextView
-                android:id="@+id/tv_my_party_list"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

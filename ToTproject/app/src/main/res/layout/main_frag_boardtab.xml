@@ -43,7 +43,10 @@
 
         </LinearLayout>-->
 
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8">
 
             <!-- ↓ plan_list_item 출력 공간-->
             <androidx.recyclerview.widget.RecyclerView
@@ -52,6 +55,7 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -102,7 +106,6 @@ android:visibility="invisible" />-->
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="15sp"
-        android:backgroundTint="#9500ff"
-        android:src="@drawable/icon_cancel" />
+        android:backgroundTint="#9500ff" />
 
 </FrameLayout>

@@ -45,6 +45,8 @@ dependencies {
     implementation "com.kakao.sdk:v2-link:2.8.4" // 메시지(카카오링크)
     implementation "com.kakao.sdk:v2-navi:2.8.4" // 카카오내비
 
+    /* 네이버 로그인 */
+    implementation 'com.navercorp.nid:oauth:5.0.0'
 
     /* circleimageview 사용하기 위한 버전 */
     implementation 'de.hdodenhof:circleimageview:3.1.0'

@@ -54,6 +54,9 @@
                 android:id="@+id/tend_rg1_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
                 android:padding="15dp"/>
 
@@ -61,6 +64,9 @@
                 android:id="@+id/tend_rg1_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
                 android:padding="15dp"/>
 
@@ -68,6 +74,9 @@
                 android:id="@+id/tend_rg1_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
                 android:padding="15dp"/>
 
@@ -75,6 +84,9 @@
                 android:id="@+id/tend_rg1_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
                 android:padding="15dp"/>
 
@@ -82,6 +94,9 @@
                 android:id="@+id/tend_rg1_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 

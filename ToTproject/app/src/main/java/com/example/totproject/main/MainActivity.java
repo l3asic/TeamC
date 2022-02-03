@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.totproject.R;
+import com.example.totproject.board.BoardMainActivity;
+import com.example.totproject.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
-
-
-
+        //Fragment05IotTab loginTab_frag = new Fragment05IotTab();
 
 
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -55,12 +56,17 @@ public class MainActivity extends AppCompatActivity {
                 }else if(item.getItemId() == R.id.bot_board) {
                     ChangeFrament(main_container, boardTab_frag);
                     return true;
+
                 }else if(item.getItemId() == R.id.bot_party) {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 }else if(item.getItemId() == R.id.bot_iot) {
                     ChangeFrament(main_container, partyTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
+
+                    // 로그인 테스트위해 임시로 만듦
+                    /*Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);*/
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 //fking i can't typing Korean;;;

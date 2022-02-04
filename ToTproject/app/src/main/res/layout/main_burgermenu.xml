@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
             android:layout_marginTop="10dp"
-            android:text="닉네임"
+            android:text="로그인 (유저이름)"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
             android:layout_marginTop="35dp"
-            android:text="이곳에 회원가입 버튼이 \들어가겟습니당"
+            android:text="회원가입 (공백)"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />

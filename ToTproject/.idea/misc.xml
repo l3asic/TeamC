@@ -56,14 +56,6 @@
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.2171875" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/category_act_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/category_frag_detail.xml" value="0.2046875" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/category_frag_gridlist.xml" value="0.2046875" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.5" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.2046875" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/main_frag_boardtab.xml" value="0.2046875" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.18" />
-        <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.2046875" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/menu/main_nav.xml" value="0.196875" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_join.xml" value="0.16271442986881937" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_login.xml" value="0.34010416666666665" />
@@ -71,29 +63,30 @@
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendency2.xml" value="0.33" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyactivity.xml" value="0.34010416666666665" />
         <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/activity_tendencyctivity.xml" value="0.22282608695652173" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/drawable/main_search.xml" value="0.26564102564102565" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/drawable/party_tab_button.xml" value="0.26564102564102565" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/drawable/radius.xml" value="0.26564102564102565" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/category_act_main.xml" value="0.264" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/category_frag_detail.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/category_frag_detail_item_review.xml" value="0.19635416666666666" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/category_frag_gridlist.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.25" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/main_act_main.xml" value="0.19791666666666666" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/main_frag_boardtab.xml" value="0.12916666666666668" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/main_frag_categorytab.xml" value="0.12916666666666668" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/main_frag_partytab.xml" value="0.12916666666666668" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/layout/party_frag_openpartylist.xml" value="0.19791666666666666" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/menu/bottomnav_menu.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_c/app/src/main/res/menu/nav_menu.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_act_main.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_act_main_new.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_frag_detail.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_frag_detail_item_review.xml" value="0.4" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_frag_gridlist.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.21422101449275363" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/main_act_main.xml" value="0.1296875" />
-        <entry key="..\:/Users/a0105/Study_Android/WorkSpace/ToTproject_ccc/app/src/main/res/layout/main_frag_categorytab.xml" value="0.21422101449275363" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.16" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/main_frag_partytab.xml" value="0.22" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_act_createparty.xml" value="0.5" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_act_main.xml" value="0.2" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_burgermenu_myparty.xml" value="0.2046875" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_frag_mypartylist.xml" value="0.2046875" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_frag_mypartylist_item.xml" value="0.22864583333333333" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_frag_openpartylist.xml" value="0.2" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/party_frag_openpartylist_item.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/partyplan_act_createplan01_item_user.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/partyplan_act_createplan02.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/partyplan_act_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/partyplan_frag_planlist.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/ToTproject/app/src/main/res/layout/partyplan_frag_planlist_item.xml" value="0.22" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/drawable-v24/both_line.xml" value="0.38229166666666664" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/main_burgermenu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/main_frag_boardtab.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_openpartylist.xml" value="0.2046875" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_partyjoin.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_partyjoin_hashtag_item.xml" value="0.9" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_partyjoin_member_item.xml" value="0.33" />
+        <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/partyplan_act_createplan02.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/bottom_line.xml" value="0.38229166666666664" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_join.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_login.xml" value="0.33" />
@@ -226,10 +219,6 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/menu/bottomnav_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/menu/menu_party.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject_ccc/app/src/main/res/layout/category_act_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject_ccc/app/src/main/res/layout/category_act_main_new.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject_ccc/app/src/main/res/layout/main_act_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject_ccc/app/src/main/res/layout/main_burgermenu.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

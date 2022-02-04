@@ -1,19 +1,12 @@
 package com.example.totproject.category;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
 

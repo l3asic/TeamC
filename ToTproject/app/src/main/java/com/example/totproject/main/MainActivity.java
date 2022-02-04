@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.totproject.R;
 import com.example.totproject.board.BoardMainActivity;
@@ -103,19 +104,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        NavigationView nav_view = findViewById(R.id.main_burger_view);
 
-        cancel = findViewById(R.id.mainburger_btn_cancel);
-/*        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "asdf", Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
-        NavigationView nav_view = findViewById(R.id.main_nav_view);
+
         View nav_headerview = nav_view.getHeaderView(0);
         ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
         TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
+
+        cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "x눌림", Toast.LENGTH_SHORT).show();
+                if (drawer.isDrawerOpen(Gravity.END)) {
+                    drawer.closeDrawer(Gravity.END);
+                } else {
+                    drawer.openDrawer(Gravity.END);
+                }
+            }
+        });
+
+
+
+
 
     }//onCreate()
 

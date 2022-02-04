@@ -1,6 +1,5 @@
 package com.example.totproject.category;
 
-import java.io.Serializable;
 import java.util.Date;
 
 public class GridDTO {

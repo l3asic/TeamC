@@ -6,13 +6,13 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
+8-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
+9-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml
 10    <!-- 인터넷 사용 권한 설정 -->
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:5:5-67
-11-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <queries>
 13-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:11:5-14:15
@@ -46,98 +46,98 @@
 23    </queries>
 24
 25    <application
-25-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-54:19
+25-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-54:19
 26        android:allowBackup="true"
-26-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:8:9-35
+26-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:8:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 27-->[androidx.core:core:1.7.0] C:\Users\hanul\.gradle\caches\transforms-3\21249a56641fb0309777a5ae16ce99ff\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 28        android:debuggable="true"
 29        android:icon="@mipmap/ic_launcher"
-29-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:9:9-43
+29-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:9:9-43
 30        android:label="@string/app_name"
-30-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:10:9-41
+30-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:10:9-41
 31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:11:9-54
+31-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:11:9-54
 32        android:supportsRtl="true"
-32-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:12:9-35
+32-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:12:9-35
 33        android:testOnly="true"
 34        android:theme="@style/Theme.ToTproject" >
-34-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:13:9-48
+34-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:13:9-48
 35        <activity
-35-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:15:9-17:40
+35-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:15:9-17:40
 36            android:name="com.example.totproject.party.PartyMainActivity"
-36-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:16:13-52
+36-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:16:13-52
 37            android:exported="false" />
-37-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:17:13-37
+37-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:17:13-37
 38        <activity
-38-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:9-20:40
+38-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:18:9-20:40
 39            android:name="com.example.totproject.category.CategoryMainActivity"
-39-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:19:13-58
+39-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:19:13-58
 40            android:exported="false" />
-40-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-37
+40-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-37
 41        <activity
-41-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:21:9-23:40
+41-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:21:9-23:40
 42            android:name="com.example.totproject.board.Activity03BoardDetail"
-42-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-56
+42-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-56
 43            android:exported="false" />
-43-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:23:13-37
+43-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:23:13-37
 44        <activity
-44-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:24:9-26:40
+44-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:24:9-26:40
 45            android:name="com.example.totproject.party_plan.Party04Planning"
-45-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:25:13-55
+45-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:25:13-55
 46            android:exported="false" />
-46-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:26:13-37
+46-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:26:13-37
 47        <activity
-47-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:27:9-29:40
+47-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:27:9-29:40
 48            android:name="com.example.totproject.login.TendencyActivity01"
-48-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:28:13-53
+48-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:28:13-53
 49            android:exported="false" />
-49-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:29:13-37
+49-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:29:13-37
 50        <activity
-50-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:30:9-32:40
+50-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:30:9-32:40
 51            android:name="com.example.totproject.login.TendencyActivity02"
-51-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:31:13-53
+51-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:31:13-53
 52            android:exported="false" />
-52-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:32:13-37
+52-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:32:13-37
 53        <activity
-53-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:33:9-35:40
+53-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:33:9-35:40
 54            android:name="com.example.totproject.party.PartyCreateActivity"
-54-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:13-54
+54-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:34:13-54
 55            android:exported="false" />
-55-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:13-37
+55-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:35:13-37
 56        <activity
-56-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:9-38:40
+56-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:36:9-38:40
 57            android:name="com.example.totproject.login.JoinActivity"
-57-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:13-47
+57-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:37:13-47
 58            android:exported="false" />
-58-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:13-37
+58-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:38:13-37
 59        <activity
-59-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:39:9-41:40
+59-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:39:9-41:40
 60            android:name="com.example.totproject.main.MainActivity"
-60-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:40:13-46
+60-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:40:13-46
 61            android:exported="false" />
-61-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:41:13-37
+61-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:41:13-37
 62        <activity
-62-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:42:9-44:40
+62-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:42:9-44:40
 63            android:name="com.example.totproject.login.LoginActivity"
-63-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:43:13-48
+63-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:43:13-48
 64            android:exported="false" />
-64-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:44:13-37
+64-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:44:13-37
 65        <activity
-65-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:45:9-53:20
+65-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:45:9-53:20
 66            android:name="com.example.totproject.login.SplashActivity"
-66-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:46:13-49
+66-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:46:13-49
 67            android:exported="true" >
-67-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:47:13-36
+67-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:47:13-36
 68            <intent-filter>
-68-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-52:29
+68-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-52:29
 69                <action android:name="android.intent.action.MAIN" />
-69-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:17-69
-69-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:25-66
+69-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:49:17-69
+69-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:49:25-66
 70
 71                <category android:name="android.intent.category.LAUNCHER" />
-71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:17-77
-71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:27-74
+71-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:51:17-77
+71-->D:\study_project\ToTproject\app\src\main\AndroidManifest.xml:51:27-74
 72            </intent-filter>
 73        </activity>
 74        <activity

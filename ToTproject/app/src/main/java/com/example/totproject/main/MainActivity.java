@@ -105,13 +105,20 @@ public class MainActivity extends AppCompatActivity {
         View nav_headerview = nav_view.getHeaderView(0);
         ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
         TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
-        cancel = nav_view.findViewById(R.id.mainburger_btn_cancel);
-/*        cancel.setOnClickListener(new View.OnClickListener() {
+
+        cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "asdf", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "x눌림", Toast.LENGTH_SHORT).show();
+                if (drawer.isDrawerOpen(Gravity.END)) {
+                    drawer.closeDrawer(Gravity.END);
+                } else {
+                    drawer.openDrawer(Gravity.END);
+                }
             }
-        });*/
+        });
 
 
 

@@ -13,7 +13,6 @@ public class PartyCreateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.party_act_createparty);
-        OpenpartyListFragment openparty_list_frag = new OpenpartyListFragment();
 
 
 

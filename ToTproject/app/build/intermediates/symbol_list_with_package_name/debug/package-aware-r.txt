@@ -1792,6 +1792,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable both_line
 drawable bottom_line
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2110,6 +2111,7 @@ id image
 id imgv_kakaologin
 id imgv_naverlogin
 id imgv_party
+id imgv_plan
 id immediateStop
 id included
 id info
@@ -2136,6 +2138,7 @@ id left
 id leftToRight
 id legacy
 id lin_party_click
+id lin_plan_click
 id line1
 id line3
 id linear
@@ -2249,6 +2252,7 @@ id parentPanel
 id parentRelative
 id parent_matrix
 id party_main_container
+id party_plan_container
 id party_title
 id password_toggle
 id path
@@ -2256,6 +2260,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id planlist_item
 id position
 id postLayout
 id progress_circular
@@ -2462,6 +2467,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tv_create_party
+id tv_date
 id tv_my_party_list
 id tv_open_party_list
 id tv_party_detail
@@ -2469,6 +2475,9 @@ id tv_party_name
 id tv_party_tag1
 id tv_party_tag2
 id tv_party_tag3
+id tv_plan_name
+id tv_time
+id tv_writer
 id unchecked
 id uniform
 id unlabeled
@@ -2673,6 +2682,9 @@ layout party_frag_mypartylist_item
 layout party_frag_newresult
 layout party_frag_openpartylist
 layout party_frag_openpartylist_item
+layout party_frag_partyjoin
+layout party_frag_partyjoin_hashtag_item
+layout party_frag_partyjoin_member_item
 layout partyplan_act_createplan01
 layout partyplan_act_createplan01_item_user
 layout partyplan_act_createplan02

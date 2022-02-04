@@ -60,4 +60,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/party_burgermenu_myparty"
         app:menu="@menu/menu_party" />
+
+
 </LinearLayout>

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.totproject.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -97,8 +98,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        NavigationView nav_view = findViewById(R.id.main_burger_view);
 
-        cancel = findViewById(R.id.mainburger_btn_cancel);
+
+
+        View nav_headerview = nav_view.getHeaderView(0);
+        ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
+        TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
+        cancel = nav_view.findViewById(R.id.mainburger_btn_cancel);
 /*        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,10 +113,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        NavigationView nav_view = findViewById(R.id.main_nav_view);
-        View nav_headerview = nav_view.getHeaderView(0);
-        ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
-        TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
+
+
+
 
     }//onCreate()
 

@@ -5,14 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".category.Fragment02CategoryGridView">
 
-        <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/gridv"
-        android:numColumns="2"
-        android:listSelector="#75A2CF"
-        android:horizontalSpacing="8dp"
-        android:verticalSpacing="8dp"
-        />
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+    </GridView>
 </FrameLayout>

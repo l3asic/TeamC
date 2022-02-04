@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".party.OpenpartyList_Fragment">
+    tools:context=".party.OpenpartyListFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,6 +108,7 @@
             android:orientation="vertical">
             <!-- ↓ party_list_item 출력 공간-->
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/openpartylist_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 

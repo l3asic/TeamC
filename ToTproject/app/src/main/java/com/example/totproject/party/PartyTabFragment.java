@@ -18,6 +18,6 @@ public class PartyTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_party, container, false);
+        return inflater.inflate(R.layout.main_frag_partytab, container, false);
     }
 }

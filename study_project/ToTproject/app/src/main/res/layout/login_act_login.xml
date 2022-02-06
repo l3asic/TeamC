@@ -154,8 +154,8 @@
                 android:orientation="vertical"
                 android:textFontWeight="1">
 
-                <Button
-                    android:id="@+id/imgv_naverlogin"
+                <com.navercorp.nid.oauth.view.NidOAuthLoginButton
+                    android:id="@+id/naverlogin"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -165,7 +165,7 @@
 
 
                 <Button
-                    android:id="@+id/imgv_kakaologin"
+                    android:id="@+id/kakaologin"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"

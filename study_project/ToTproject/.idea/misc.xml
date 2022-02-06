@@ -51,6 +51,7 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_party_main_old.xml" value="0.36614583333333334" />
+<<<<<<< HEAD:study_project/ToTproject/.idea/misc.xml
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_createparty.xml" value="0.33" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_main.xml" value="0.3651041666666667" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_memberinvite.xml" value="0.1480978260869565" />
@@ -102,6 +103,26 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_manual.xml" value="0.19114583333333332" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.19375" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_service.xml" value="0.20520833333333333" />
+=======
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/drawable-v24/selector_radio_button.xml" value="0.1675925925925926" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/drawable-v24/selector_radio_text.xml" value="0.1675925925925926" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_tendency_activity_01.xml" value="0.33" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_tendency_activity_02.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_boardlist_item.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_detail.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_detail_item_reply.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_mylist.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_search.xml" value="0.2" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_searchlist.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/category_act_main.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/category_act_main_new.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/category_frag_detail.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/join_act_join.xml" value="0.21910112359550563" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/login_act_login.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/main_frag_boardtab.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/main_frag_partytab.xml" value="0.16271442986881937" />
+>>>>>>> 9e88a0fc98fb0871769b0982c4a4021d5697b34a:ToTproject/.idea/misc.xml
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable-anydpi/main_burger.xml" value="0.21666666666666667" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.2171875" />

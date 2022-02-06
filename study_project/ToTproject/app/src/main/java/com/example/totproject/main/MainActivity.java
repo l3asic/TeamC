@@ -20,7 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
+<<<<<<< HEAD:study_project/ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
+=======
+import com.example.totproject.board.BoardMainActivity;
+import com.example.totproject.login.LoginActivity;
+>>>>>>> 9e88a0fc98fb0871769b0982c4a4021d5697b34a:ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
+<<<<<<< HEAD:study_project/ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
+=======
+        //Fragment05IotTab loginTab_frag = new Fragment05IotTab();
+>>>>>>> 9e88a0fc98fb0871769b0982c4a4021d5697b34a:ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
 
 
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,12 +66,21 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.bot_board) {
                     ChangeFrament(main_container, boardTab_frag);
                     return true;
+<<<<<<< HEAD:study_project/ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
                 } else if (item.getItemId() == R.id.bot_party) {
+=======
+
+                }else if(item.getItemId() == R.id.bot_party) {
+>>>>>>> 9e88a0fc98fb0871769b0982c4a4021d5697b34a:ToTproject/app/src/main/java/com/example/totproject/main/MainActivity.java
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
                     ChangeFrament(main_container, partyTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
+
+                    // 로그인 테스트위해 임시로 만듦
+                    /*Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);*/
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 //fking i can't typing Korean;;;

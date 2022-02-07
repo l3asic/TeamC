@@ -47,11 +47,11 @@
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/mainnav_image"
+            android:id="@+id/main_burger_imgv_circle"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_below="@+id/mainburger_btn_cancel"
-            android:layout_alignEnd="@+id/mainnav_nickname"
+            android:layout_alignEnd="@+id/main_burger_tv_login"
             android:layout_marginTop="10dp"
             android:padding="8dp"
             android:src="@drawable/ic_launcher_foreground"
@@ -60,7 +60,7 @@
             app:civ_border_width="3dp" />
 
         <TextView
-            android:id="@+id/mainnav_nickname"
+            android:id="@+id/main_burger_tv_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
@@ -71,7 +71,7 @@
             android:textStyle="bold" />
 
         <TextView
-
+android:id="@+id/main_burger_tv_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
@@ -83,7 +83,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mainnav_nickname"
+            android:layout_below="@+id/main_burger_tv_login"
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 

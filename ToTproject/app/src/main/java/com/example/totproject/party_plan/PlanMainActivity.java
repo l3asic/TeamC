@@ -1,8 +1,8 @@
 package com.example.totproject.party_plan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 

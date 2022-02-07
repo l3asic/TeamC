@@ -10,13 +10,15 @@ import androidx.fragment.app.Fragment;
 import com.example.totproject.R;
 
 
-public class Fragment03BoardTab extends Fragment {
+public class Fragment05IotTab extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.main_frag_boardtab, container, false);
+        return inflater.inflate(R.layout.main_act_main, container, false);
+
+
     }
 }

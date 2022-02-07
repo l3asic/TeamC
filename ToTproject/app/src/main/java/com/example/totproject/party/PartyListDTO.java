@@ -1,6 +1,8 @@
 package com.example.totproject.party;
 
-public class PartyListDTO {
+import java.io.Serializable;
+
+public class PartyListDTO implements Serializable {
     private int picture_filepath;
     private String party_sn;
     private String party_private;

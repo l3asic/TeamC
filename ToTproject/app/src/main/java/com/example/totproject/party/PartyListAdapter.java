@@ -1,6 +1,7 @@
 package com.example.totproject.party;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,13 +30,13 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
 
     @NonNull
     @Override
-    public PartyListAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.party_frag_openpartylist_item , parent , false);
         return new Viewholder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PartyListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         holder.bind(holder,position);
     }
 
@@ -53,6 +54,7 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
             //imgv_party = itemView.findViewById(R.id.imgv_party);
             tv_party_name = itemView.findViewById(R.id.tv_party_name);
             tv_party_detail = itemView.findViewById(R.id.tv_party_detail);
+            lin_party_click =itemView.findViewById(R.id.lin_party_click);
             tv_party_tag1 = itemView.findViewById(R.id.tv_party_tag1);
             tv_party_tag2 = itemView.findViewById(R.id.tv_party_tag2);
             tv_party_tag3 = itemView.findViewById(R.id.tv_party_tag3);
@@ -68,19 +70,17 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
             holder.tv_party_tag2.setText( list.get(position).getParty_tag2() +"" );
             holder.tv_party_tag3.setText( list.get(position).getParty_tag3() +"" );
 
-//            holder.lin_party_click.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//
-//
-//                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-//                    Intent intent = new Intent(context, DetailActivity.class);
-//                    intent.putExtra("vo" , list.get(position));
-//                    // intent.putExtra("id" , list.get(position).getId());
-//                    context.startActivity(intent);
-//                }
-//            });
+            holder.lin_party_click.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.container , frag1).commit();
+                    Intent intent = new Intent(context,PartyJoinActivity.class);
+                    intent.putExtra("vo" , list.get(position));
+                    context.startActivity(intent);
+                }
+            });
 
         }
 

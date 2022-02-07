@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
+import com.example.totproject.login.JoinActivity;
+import com.example.totproject.login.LoginActivity;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -43,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
-
-
+        Fragment05IotTab loginTab_frag = new Fragment05IotTab();
+        ChangeFrament(main_container, mainTab_frag);
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    ChangeFrament(main_container, partyTab_frag); //★★아이오티 화면나오면 수정해야함
+                    ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //차민환
 
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -103,8 +107,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         View nav_headerview = nav_view.getHeaderView(0);
-        ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
-        TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
+        ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
+
+        TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
+        main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView main_burger_tv_join = nav_headerview.findViewById(R.id.main_burger_tv_join);
+        main_burger_tv_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -132,13 +153,12 @@ public class MainActivity extends AppCompatActivity {
                 String tabText = (String) item.getTitle();
                 String title = item.getTitle().toString();
                 if (id == R.id.mainnav_notice) {
-                    //ChangeActivity();
-                    ChangeActivity(MainBurger00Activity.class,1,tabText);
+                    ChangeActivity(MainBurger00Activity.class, 1, tabText);
                 } else if (id == R.id.mainnav_customer) {
-                    ChangeActivity(MainBurger00Activity.class,2,tabText);
+                    ChangeActivity(MainBurger00Activity.class, 2, tabText);
                 } else if (id == R.id.mainnav_policy) {
-                    ChangeActivity(MainBurger00Activity.class,3,tabText);
-                }else if (id == R.id.mainnav_version) {
+                    ChangeActivity(MainBurger00Activity.class, 3, tabText);
+                } else if (id == R.id.mainnav_version) {
                     Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
                 }
 
@@ -149,23 +169,24 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate()
 
+    //메소드
     public void ChangeFrament(int container, Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(container, fragment).commit();
     }
 
-    public void ChangeActivity(Class nextAct,int tabcode) {
+    public void ChangeActivity(Class nextAct, int tabcode) {
         Intent intent = new Intent(MainActivity.this, nextAct);
-        intent.putExtra("tabcode",tabcode);
-       // intent.putExtra("tabText",tabText);
-        startActivity(intent);
-    }
-    public void ChangeActivity(Class nextAct,int tabcode ,String tabText) {
-        Intent intent = new Intent(MainActivity.this, nextAct);
-        intent.putExtra("tabcode",tabcode);
-         intent.putExtra("tabText",tabText);
+        intent.putExtra("tabcode", tabcode);
+        // intent.putExtra("tabText",tabText);
         startActivity(intent);
     }
 
+    public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
+        Intent intent = new Intent(MainActivity.this, nextAct);
+        intent.putExtra("tabcode", tabcode);
+        intent.putExtra("tabText", tabText);
+        startActivity(intent);
+    }
 
 
 }

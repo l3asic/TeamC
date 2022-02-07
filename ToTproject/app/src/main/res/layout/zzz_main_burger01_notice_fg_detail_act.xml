@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".zzchaminhwan.MainBurger01NoticeFgDetail">
+    android:background="@drawable/ic_launcher_foreground"
+    android:orientation="vertical"
+    tools:context=".zzchaminhwan.MainBurger01NoticeFgDetailAct">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,11 +43,10 @@
     </LinearLayout>
 
     <TextView
-        android:background="@drawable/ic_launcher_foreground"
-        android:layout_weight="1"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="공공지지내내요용"
-        />
+        android:layout_weight="1"
+        android:text="공공지지내내요용" />
 
 </LinearLayout>

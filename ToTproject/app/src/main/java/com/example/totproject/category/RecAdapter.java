@@ -28,7 +28,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
     //할수있는 기능들을 처리할수가있다. (일반 클래스에도 context를 넘기면 화면 제어를 할수가있음)
     //RecAdapter<- 일반 클래스임
 
-    //메인에서 넘겨 받을 필드griddto
+    //메인에서 넘겨 받을 필드
     Context context;
     ArrayList<DetailDTO> list;
     LayoutInflater inflater;

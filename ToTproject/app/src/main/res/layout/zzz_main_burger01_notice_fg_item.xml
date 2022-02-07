@@ -12,15 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_weight="8"
+        android:background="@drawable/radius"
         android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="5px"
+            android:layout_height="0px"
             android:background="#000000" />
 
 
         <TextView
+
             android:id="@+id/notice_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"

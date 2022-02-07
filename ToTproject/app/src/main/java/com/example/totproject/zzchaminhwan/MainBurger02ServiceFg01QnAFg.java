@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.totproject.R;
 
-public class MainBurger02ServiceFg01QnA extends Fragment {
+public class MainBurger02ServiceFg01QnAFg extends Fragment {
     /*        a01.setVisibility(View.GONE);          // view 삭제
         a01.setVisibility(View.INVISIBLE);   // view 그대로 숨기기
         a01.setVisibility(View.VISIBLE);      // view 보이기*/
@@ -30,7 +30,7 @@ public class MainBurger02ServiceFg01QnA extends Fragment {
     Context context;
     FragmentManager manager;
 
-    public MainBurger02ServiceFg01QnA(Context context, FragmentManager manager) { //컨텍슽르르 메인에서부터 가져옴
+    public MainBurger02ServiceFg01QnAFg(Context context, FragmentManager manager) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
         this.manager = manager;
     }

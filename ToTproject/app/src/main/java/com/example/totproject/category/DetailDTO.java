@@ -1,7 +1,5 @@
 package com.example.totproject.category;
 
-import com.example.totproject.zzchaminhwan.NoticeVO;
-
 public class DetailDTO {
     private int reply_sn, board_sn;
     private String reply_content, member_id;
@@ -24,7 +22,7 @@ public class DetailDTO {
     }
 
     public int getBoard_sn() {
-       return  board_sn;
+        return board_sn;
     }
 
     public void setBoard_sn(int board_sn) {

@@ -27,7 +27,7 @@ public class MainBurger00Activity extends AppCompatActivity {
         tabcode = getIntent.getIntExtra("tabcode", 0);
         FragmentManager manager = getSupportFragmentManager();
         if (tabcode == 1) {
-            MainBurger01NoticeFg mainBurger01NoticeFg = new MainBurger01NoticeFg();
+            MainBurger01NoticeFg mainBurger01NoticeFg = new MainBurger01NoticeFg(MainBurger00Activity.this,manager);
             getSupportFragmentManager().beginTransaction().replace(R.id.mainburger_container, mainBurger01NoticeFg).commit();
 
             // 공지사항 출력연계

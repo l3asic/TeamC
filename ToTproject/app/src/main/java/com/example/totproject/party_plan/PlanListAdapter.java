@@ -28,13 +28,13 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
 
     @NonNull
     @Override
-    public PlanListAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.partyplan_frag_planlist_item, parent , false);
         return new Viewholder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         holder.bind(holder,position);
     }
 
@@ -57,7 +57,7 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
 
         }
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
-        public void bind(@NonNull PlanListAdapter.Viewholder holder, int position){
+        public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
             //holder.imgv_plan.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
             holder.tv_writer.setText( list.get(position).getWriter() +"" );

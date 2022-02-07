@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
+            android:name=".zzchaminhwan.MainBurger01NoticeFgDetailFg"
+            android:exported="false" />
+        <activity
             android:name=".zzchaminhwan.MainBurger00Activity"
             android:exported="false" />
         <activity

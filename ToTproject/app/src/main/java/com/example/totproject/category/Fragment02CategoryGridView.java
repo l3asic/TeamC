@@ -16,12 +16,13 @@ import java.util.ArrayList;
 public class Fragment02CategoryGridView extends Fragment{
     GridView gridView;
 
-    GridDTO dto = new GridDTO();
     public View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            GridDTO dto = new GridDTO();
+
             Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
-            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).commit();
+            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).addToBackStack(null).commit();
             Bundle bundle = new Bundle();
             bundle.putString("sn", dto.getBoard_sn()+"");
             getParentFragmentManager().setFragmentResult("sn",bundle);

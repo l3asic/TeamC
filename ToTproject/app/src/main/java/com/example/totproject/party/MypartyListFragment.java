@@ -2,14 +2,13 @@ package com.example.totproject.party;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.totproject.R;
 
@@ -39,12 +38,15 @@ public class MypartyListFragment extends Fragment {
                             "n",
                             "partyname01",
                             "파티 설명입니다  블라블라",
-                            "태그01",
-                            "태그02",
-                            "태그03"
+                    "#partyhashtag1",
+                    "#partyhashtag2",
+                    "#partyhashtag3"
+
                     )
             );
         }
+
+
         // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
 
         PartyListAdapter partyListAdapter = new PartyListAdapter(context,list);

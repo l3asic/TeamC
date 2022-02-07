@@ -13,7 +13,9 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.totproject.R;
 
-public class MainBurger02ServiceFg03Email extends Fragment {
+public class MainBurger02ServiceFg02OneOneFg extends Fragment {
+
+
 
 
 
@@ -21,11 +23,13 @@ public class MainBurger02ServiceFg03Email extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.zzz_main_burger02_service_fg_03_email, container, false);
+        View v = inflater.inflate(R.layout.zzz_main_burger02_service_fg_02_oneone, container, false);
 
 
         return v;
+
     }
+
 
 
 }

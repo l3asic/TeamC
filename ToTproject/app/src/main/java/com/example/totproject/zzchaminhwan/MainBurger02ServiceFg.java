@@ -37,7 +37,7 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                changeFragment(new MainBurger02ServiceFg01QnA(context,manager));
+                changeFragment(new MainBurger02ServiceFg01QnAFg(context,manager));
             }
         });
 
@@ -46,7 +46,7 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                changeFragment(new MainBurger02ServiceFg02OneOne());
+                changeFragment(new MainBurger02ServiceFg02OneOneFg());
             }
         });
 
@@ -55,7 +55,7 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                changeFragment(new MainBurger02ServiceFg03Email());
+                changeFragment(new MainBurger02ServiceFg03EmailFg());
             }
         });
 
@@ -64,7 +64,7 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                changeFragment(new MainBurger02ServiceFg04Tel());
+                changeFragment(new MainBurger02ServiceFg04TelFg());
             }
         });
 

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=""
+                android:gravity="center"
+                android:background="@drawable/bottom_line"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="사용자 게시판"
+                android:textSize="28dp"
+                android:gravity="center"
+                android:background="@drawable/bottom_line"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_line"
+                android:src="@drawable/icon_main_burger"/>
+
+        </LinearLayout>-->
+
+
+
+            <!-- ↓ plan_list_item 출력 공간-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+
+    <!-- Floating Action Button 사용하기-->
+    <!-- https://berkbach.com/android-floating-action-button-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-6ca52aba7a1f-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/board_fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="160dp"
+        android:backgroundTint="#FF5722"
+        android:elevation="6dp"/>
+    <!--android:pressedTranslationZ="12dp"
+    android:visibility="invisible" />-->
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/board_fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#FFC107"
+        android:elevation="6dp"/>
+    <!--android:pressedTranslationZ="12dp"
+    android:visibility="invisible" />-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/board_fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#00BCD4"
+        android:elevation="6dp"/>
+    <!--android:pressedTranslationZ="12dp"
+android:visibility="invisible" />-->
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/board_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="15sp"
+        android:backgroundTint="#9500ff"
+        android:src="@drawable/icon_cancel" />
+
+</FrameLayout>

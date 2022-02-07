@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:weightSum="100">
 
-    <!--상단바-->
+    <!--상단바
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:layout_weight="1" />
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
     <!--콘텐츠-->
@@ -141,13 +141,15 @@
         </LinearLayout>
 
 
+        <!-- 만약 안될경우 LinearLayout 로 변경 할 것 -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="wrap_content"
+                android:id="@+id/category_detail_recview"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>

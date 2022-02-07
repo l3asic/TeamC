@@ -16,6 +16,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/category_img_tour"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
@@ -26,6 +27,7 @@
             app:civ_border_width="3dp" />
 
         <TextView
+            android:id="@+id/category_tv_tourname"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center"
@@ -45,6 +47,7 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
+                android:id="@+id/category_tv_like"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -57,6 +60,7 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
+                android:id="@+id/category_tv_comment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

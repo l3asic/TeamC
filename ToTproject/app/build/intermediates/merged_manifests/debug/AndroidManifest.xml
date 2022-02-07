@@ -33,6 +33,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.ToTproject" >
         <activity
+            android:name="com.example.totproject.party.PartyJoinActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.totproject.party.PartyMainActivity"
             android:exported="false" />
         <activity

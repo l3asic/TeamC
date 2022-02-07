@@ -39,12 +39,15 @@ public class MypartyListFragment extends Fragment {
                             "n",
                             "partyname01",
                             "파티 설명입니다  블라블라",
-                            "태그01",
-                            "태그02",
-                            "태그03"
+                    "#partyhashtag1",
+                    "#partyhashtag2",
+                    "#partyhashtag3"
+
                     )
             );
         }
+
+
         // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
 
         PartyListAdapter partyListAdapter = new PartyListAdapter(context,list);

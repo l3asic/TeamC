@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 홈"
+        app:showAsAction="ifRoom" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 공지"
+        app:showAsAction="ifRoom" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 게시판"
+        app:showAsAction="ifRoom" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 계획"
+        app:showAsAction="ifRoom" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 멤버"
+        app:showAsAction="ifRoom" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/icon_cancel"
+        android:title="파티 채팅"
+        app:showAsAction="ifRoom" />
+</menu>

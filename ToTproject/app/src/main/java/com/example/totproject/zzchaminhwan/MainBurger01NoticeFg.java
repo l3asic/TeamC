@@ -3,33 +3,26 @@ package com.example.totproject.zzchaminhwan;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totproject.R;
-import com.example.totproject.category.DetailDTO;
 import com.example.totproject.category.Fragment02CategoryDetail;
-import com.example.totproject.category.GridDTO;
-import com.example.totproject.category.RecAdapter;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

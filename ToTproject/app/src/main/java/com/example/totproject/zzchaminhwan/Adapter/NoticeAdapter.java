@@ -1,4 +1,4 @@
-package com.example.totproject.zzchaminhwan;
+package com.example.totproject.zzchaminhwan.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 
 import java.util.ArrayList;
 

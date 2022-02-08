@@ -1,4 +1,4 @@
-package com.example.totproject.zzchaminhwan;
+package com.example.totproject.zzchaminhwan.VO;
 
 import java.io.Serializable;
 import java.util.Date;

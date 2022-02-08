@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.category.Fragment02CategoryDetail;
+import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -26,22 +26,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.google.gson.Gson;
 
 import android.mainburger.MainBurgerNoticeVO;
+import android.mainburger.OneOneEmailVO;
 
 @Controller
 public class MainBurgerController {
 	Gson gson = new Gson();
 	MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+	
 	@Autowired
 	@Qualifier("cteam")
 	private SqlSession sql;
 	
 	int i=0;
 	@RequestMapping("/android/cmh/test")
-	public void home(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-	
+	public void noticeList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
-		System.out.println("테스트 : android/cmh/test : "+i);
-		
+		System.out.println("테스트 : android/cmh/test : "+i+"\n");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -52,10 +52,33 @@ public class MainBurgerController {
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
 		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
 		 */
-		list = sql.selectList("mainburgernotice.mapper.noticelist");
+		list = sql.selectList("mainburger.mapper.noticelist");
 
 //		이걸 안드로이드에서 가져감
 		writer.print(gson.toJson(list));
+
+	}
+	
+	@RequestMapping("/android/cmh/insertVS")
+	public void insertVS(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		i++;
+		System.out.println("테스트 : android/cmh/insertVS : "+i+"\n");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		
+		OneOneEmailVO vo = new OneOneEmailVO();
+		
+		/*
+		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
+		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
+		 */
+		sql.insert("mainburger.mapper.insertVs",vo);
+
+//		이걸 안드로이드에서 가져감
+		vo=sql.selectOne("mainburger.mapper.selectThisVs");
+		writer.print(gson.toJson(vo));
 
 	}
 

@@ -1989,6 +1989,8 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_create_party
+id btn_party_tag
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2015,6 +2017,7 @@ id center_vertical
 id chain
 id chains
 id checkbox
+id checkbox_party_private
 id checked
 id chip
 id chip1
@@ -2080,6 +2083,9 @@ id east
 id edit_login_id
 id edit_login_pw
 id edit_query
+id edt_party_detail
+id edt_party_name
+id edt_party_tag
 id elastic
 id end
 id endToStart
@@ -2125,10 +2131,12 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imgv_back_btn
 id imgv_kakaologin
 id imgv_member_pic
 id imgv_naverlogin
 id imgv_party
+id imgv_party_pic
 id imgv_plan
 id immediateStop
 id included
@@ -2155,6 +2163,7 @@ id layout
 id left
 id leftToRight
 id legacy
+id lin_display_tags
 id lin_party_click
 id lin_partyjoin_btn
 id lin_plan_click
@@ -2498,6 +2507,7 @@ id tv_my_party_list
 id tv_open_party_list
 id tv_party_detail
 id tv_party_name
+id tv_party_pic
 id tv_party_tag1
 id tv_party_tag2
 id tv_party_tag3

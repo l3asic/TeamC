@@ -8,16 +8,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
+import com.example.totproject.login.JoinActivity;
+import com.example.totproject.login.LoginActivity;
+import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     Button main_btn_burger;
     Toolbar toolbar;
     ImageView cancel;
+    LinearLayout afterLogin;
+    TextView tv_main_title ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,38 +49,38 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
+        Fragment05IotTab loginTab_frag = new Fragment05IotTab();
+        tv_main_title = findViewById(R.id.tv_main_title);
 
 
-
-
-
+        ChangeFrament(main_container, mainTab_frag, "ToT home");
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId() == R.id.bot_home){
-                    ChangeFrament(main_container, mainTab_frag);
+                if (item.getItemId() == R.id.bot_home) {
+                    ChangeFrament(main_container, mainTab_frag,"ToT home");
                     return true;
-                }else if(item.getItemId() == R.id.bot_category){
-                    ChangeFrament(main_container, categoryTab_frag);
+                } else if (item.getItemId() == R.id.bot_category) {
+                    ChangeFrament(main_container, categoryTab_frag,"여행지 바로가기");
                     return true;
-                }else if(item.getItemId() == R.id.bot_board) {
-                    ChangeFrament(main_container, boardTab_frag);
+                } else if (item.getItemId() == R.id.bot_board) {
+                    ChangeFrament(main_container, boardTab_frag, "게시판");
                     return true;
-                }else if(item.getItemId() == R.id.bot_party) {
-                    ChangeFrament(main_container, partyTab_frag);
+                } else if (item.getItemId() == R.id.bot_party) {
+                    ChangeFrament(main_container, partyTab_frag,"파티");
                     return true;
-                }else if(item.getItemId() == R.id.bot_iot) {
-                    ChangeFrament(main_container, partyTab_frag); //★★아이오티 화면나오면 수정해야함
+                } else if (item.getItemId() == R.id.bot_iot) {
+                    ChangeFrament(main_container, loginTab_frag,"캐리어 보안"); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
-                //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                //fking i can't typing Korean;;;
 
 
                 return false;
             }
         });
 
+
+        //차민환
 
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -101,17 +111,32 @@ public class MainActivity extends AppCompatActivity {
         NavigationView nav_view = findViewById(R.id.main_burger_view);
 
 
-
         View nav_headerview = nav_view.getHeaderView(0);
-        ImageView nav_img = nav_headerview.findViewById(R.id.mainnav_image);
-        TextView nav_textv = nav_headerview.findViewById(R.id.mainnav_nickname);
+        ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
+
+        TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
+        main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView main_burger_tv_join = nav_headerview.findViewById(R.id.main_burger_tv_join);
+        main_burger_tv_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "x눌림", Toast.LENGTH_SHORT).show();
                 if (drawer.isDrawerOpen(Gravity.END)) {
                     drawer.closeDrawer(Gravity.END);
                 } else {
@@ -120,14 +145,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Menu nav_menu = nav_view.getMenu();
 
+        NavigationView bottom_nav2;
+        bottom_nav2 = findViewById(R.id.main_burger_view);
+        bottom_nav2.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item.setChecked(true);
+
+                int id = item.getItemId();
+                String tabText = (String) item.getTitle();
+                String title = item.getTitle().toString();
+                if (id == R.id.mainnav_notice) {
+                    ChangeActivity(MainBurger00Activity.class, 1, tabText);
+                } else if (id == R.id.mainnav_customer) {
+                    ChangeActivity(MainBurger00Activity.class, 2, tabText);
+                } else if (id == R.id.mainnav_policy) {
+                    ChangeActivity(MainBurger00Activity.class, 3, tabText);
+                } else if (id == R.id.mainnav_version) {
+                    Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
+                }
+
+
+                return true;
+            }
+        });
 
 
 
     }//onCreate()
 
-    public void ChangeFrament(int container, Fragment fragment){
+    //메소드
+    public void ChangeFrament(int container, Fragment fragment, String title) {
         getSupportFragmentManager().beginTransaction().replace(container, fragment).commit();
+        tv_main_title.setText(title);
     }
+
+    public void ChangeActivity(Class nextAct, int tabcode) {
+        Intent intent = new Intent(MainActivity.this, nextAct);
+        intent.putExtra("tabcode", tabcode);
+        // intent.putExtra("tabText",tabText);
+        startActivity(intent);
+    }
+
+    public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
+        Intent intent = new Intent(MainActivity.this, nextAct);
+        intent.putExtra("tabcode", tabcode);
+        intent.putExtra("tabText", tabText);
+        startActivity(intent);
+    }
+
 
 }

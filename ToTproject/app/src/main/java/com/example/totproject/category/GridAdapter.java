@@ -69,7 +69,7 @@ public class GridAdapter extends BaseAdapter {
         }
         //if(list.get(position).getImgresId() == 1)
         viewHolder.category_tv_tourname.setText(list.get(position).getBoard_title());
-        viewHolder.category_tv_like.setText(list.get(position).getBoard_replly_able());
+        viewHolder.category_tv_comment.setText(list.get(position).getBoard_replly_able());
         convertView.setOnClickListener(listener);
 
         //viewHolder.imgv1.setImageResource(list.get(position).getImgresId());

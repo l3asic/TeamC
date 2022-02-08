@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
         <activity
+            android:name=".party_plan.PlanMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party.MyPartyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".zzchaminhwan.MainBurger00Activity"
+            android:exported="false" />
+        <activity
             android:name=".party.PartyJoinActivity"
             android:exported="false" />
         <activity

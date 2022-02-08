@@ -1,16 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.kakao.sdk:v2-talk:2.8.4@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/res" />
-      <root url="file://$PROJECT_DIR$/../../caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7164854cda4689a86f559bfcdf79c687/transformed/jetified-v2-talk-2.8.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/com.kakao.sdk/v2-talk/2.8.4/d0674569f8c7316e9d349e879113daa1ee81d225/v2-talk-2.8.4-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kakao.sdk/v2-talk/2.8.4/d0674569f8c7316e9d349e879113daa1ee81d225/v2-talk-2.8.4-sources.jar!/" />
     </SOURCES>
   </library>

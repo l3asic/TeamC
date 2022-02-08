@@ -2,7 +2,6 @@ package com.example.totproject.party;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,23 +20,25 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
     Context context;
     ArrayList<PartyListDTO> list;
     LayoutInflater inflater;
+    int tabcode = 0 ;
 
-    public PartyListAdapter(Context context, ArrayList<PartyListDTO> list) {
+    public PartyListAdapter(Context context, ArrayList<PartyListDTO> list, int tabcode) {
         this.context = context;
         this.list = list;
+        this.tabcode = tabcode;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
 
     @NonNull
     @Override
-    public PartyListAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.party_frag_openpartylist_item , parent , false);
         return new Viewholder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PartyListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         holder.bind(holder,position);
     }
 
@@ -74,12 +75,17 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
             holder.lin_party_click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(tabcode == 1){
+                        Intent intent = new Intent(context,PartyJoinActivity.class);
+                        intent.putExtra("dto" , list.get(position));
+                        context.startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(context,MyPartyInfoActivity.class);
+                        intent.putExtra("dto" , list.get(position));
+                        context.startActivity(intent);
+                    }
 
-                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.container , frag1).commit();
-                    Intent intent = new Intent(context,PartyJoinActivity.class);
-                    intent.putExtra("vo" , list.get(position));
-                    context.startActivity(intent);
+
                 }
             });
 

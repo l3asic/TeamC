@@ -13,7 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e5ac14b-192f-4855-aa13-615f397c275a" name="Default Changelist" comment="" />
+    <list default="true" id="6a54ed6b-f7e1-4a74-9894-c9ee3898be87" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,23 +25,7 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="layoutResourceFile" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="24MY5IKowy1Tz2oEIAaEYEnFZoe" />
+  <component name="ProjectId" id="24oaQ6W4s05rf9DBEBwGaWJve4k" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,20 +33,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/widget/LinearLayout.java_LinearLayout_DIMENSIONS" value="1080&#10;1920" />
-    <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/widget/LinearLayout.java_SELECTED" value="LinearLayout" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.421882656">
+    <key name="android.template.2054512737">
       <recent name="com.example.totproject.party" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\study_project\ToTproject\app\src\main\res\layout" />
-      <recent name="D:\study_project\ToTproject\app\src\main\java\com\example\totproject\category" />
-      <recent name="D:\Study_project\ToTproject\app\src\main\res\drawable-v24" />
-      <recent name="D:\Study_project\ToTproject\app\src\main\res\drawable" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.totproject.common" />
     </key>
   </component>
   <component name="RunManager">
@@ -128,12 +106,63 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1e5ac14b-192f-4855-aa13-615f397c275a" name="Default Changelist" comment="" />
-      <created>1643441738139</created>
+      <changelist id="6a54ed6b-f7e1-4a74-9894-c9ee3898be87" name="Default Changelist" comment="" />
+      <created>1644299373818</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1643441738139</updated>
+      <updated>1644299373818</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/MyPartyInfoActivity.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/MyPartyInfoActivity.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/PartyMainActivity.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/PartyMainActivity.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/PartyMainActivity.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanMainActivity.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanMainActivity.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanMainActivity.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party/MyPartyInfoActivity.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

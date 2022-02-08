@@ -33,6 +33,15 @@
         android:testOnly="true"
         android:theme="@style/Theme.ToTproject" >
         <activity
+            android:name="com.example.totproject.party_plan.PlanMainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.totproject.party.MyPartyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
+            android:exported="false" />
+        <activity
             android:name="com.example.totproject.party.PartyJoinActivity"
             android:exported="false" />
         <activity

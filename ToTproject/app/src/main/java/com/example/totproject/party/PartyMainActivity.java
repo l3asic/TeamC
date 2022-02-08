@@ -1,10 +1,10 @@
 package com.example.totproject.party;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 
@@ -12,8 +12,6 @@ public class PartyMainActivity extends AppCompatActivity {
 
     int tabcode = 0 ;
     TextView party_title;
-
-
 
 
     @Override
@@ -28,7 +26,7 @@ public class PartyMainActivity extends AppCompatActivity {
 
         Intent party_intent = getIntent();
 
-        tabcode =party_intent.getIntExtra("tabcode",0);
+        tabcode = party_intent.getIntExtra("tabcode",0);
 
         if(tabcode == 1 || tabcode ==0 ){   //공개 파티목록 띄우기
             getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, openparty_list_frag).commit();
@@ -42,6 +40,7 @@ public class PartyMainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, myparty_list_frag).commit();
             party_title.setText("가입된 파티 목록");
         }
+
 
 
 

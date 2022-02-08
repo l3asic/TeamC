@@ -27,22 +27,30 @@
                 android:background="@color/white"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tv_main_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="유동"
+                        android:textSize="30dp" />
 
-                    android:layout_gravity="center"
-                    android:text="유동"
-                    android:textSize="50dp" />
+                </LinearLayout>
+
+
 
                 <Button
+                    android:background="@drawable/icon_main_burger"
                     android:id="@+id/main_btn_burger"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/icon_main_burger" />
+                 />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>

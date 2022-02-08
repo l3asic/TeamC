@@ -7,15 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
-
-
 
 import java.util.ArrayList;
 
@@ -26,14 +23,15 @@ public class PartyCreateActivity extends Activity {
     LinearLayout lin_display_tags;
     EditText edt_party_tag;
     TextView tv_party_tag1,tv_party_tag2,tv_party_tag3;
-    Button btn_create_party;
+    Button btn_create_party,btn_create_party2;
     Button btn_party_tag;
     Button btn_checkid;
     ImageView imgv_back_btn;
 
-    int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 ++ 멤버 스피너 처리 해보기@@@@@@@@@@@@@@@
+    int party_sn;
+    int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 @@@@@@@@@@@@@@@
     String party_leader = "준호";     //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기@@@@@@@@@@@@@@@
-    String party_sn, party_name, party_detail, party_private, party_tag1, party_tag2, party_tag3;
+    String party_name, party_detail, party_private, party_tag1, party_tag2, party_tag3;
     ArrayList tags = new ArrayList();
 
 
@@ -50,6 +48,7 @@ public class PartyCreateActivity extends Activity {
         checkbox_party_private = findViewById(R.id.checkbox_party_private);
         edt_party_tag = findViewById(R.id.edt_party_tag);
         btn_create_party = findViewById(R.id.btn_create_party);
+        btn_create_party2 = findViewById(R.id.btn_create_party2);
         btn_party_tag = findViewById(R.id.btn_party_tag);
         tv_party_tag1 = findViewById(R.id.tv_party_tag1);
         tv_party_tag2 = findViewById(R.id.tv_party_tag2);
@@ -121,36 +120,19 @@ public class PartyCreateActivity extends Activity {
 
         btn_create_party.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {                
-                party_sn = "partysn00";     //@@@@@ 스프링에서 추가넘버 삽입?
-                party_name = edt_party_name.getText()+"";
-                party_detail = edt_party_detail.getText()+"";
-
-                if(checkbox_party_private.isChecked()){
-                    party_private = "y";
-                }else{
-                    party_private = "n";
-                }
-                party_tag1 = tv_party_tag1.getText()+"";
-                party_tag2 = tv_party_tag2.getText()+"";
-                party_tag3 = tv_party_tag3.getText()+"";
-
-                ArrayList<PartyListDTO> dto = new ArrayList<>();
-                dto.add(new PartyListDTO(party_pic,party_sn,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3));
-                
-                //@@@@@@@@@@@@@ 여기에 디비 async 연결 코드 추가 해줄것@@@@@@@@@@@
-                
-                
-
-                Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
-                intent.putExtra("tabcode",3);
-                startActivity(intent);
-
-
-
-
+            public void onClick(View v) {
+                saveCreateParty();
             }
         });
+
+        btn_create_party2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveCreateParty();
+            }
+        });
+
+
 
 
 
@@ -210,6 +192,34 @@ public class PartyCreateActivity extends Activity {
         tags.remove(i);
         setTags();
     }
+
+    public void saveCreateParty(){
+        party_sn = 0001;     //@@@@@ 스프링에서 추가넘버 삽입?
+        party_name = edt_party_name.getText()+"";
+        party_detail = edt_party_detail.getText()+"";
+
+        if(checkbox_party_private.isChecked()){
+            party_private = "y";
+        }else{
+            party_private = "n";
+        }
+        party_tag1 = tv_party_tag1.getText()+"";
+        party_tag2 = tv_party_tag2.getText()+"";
+        party_tag3 = tv_party_tag3.getText()+"";
+
+        ArrayList<PartyListDTO> dto = new ArrayList<>();
+        dto.add(new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3));
+
+        //@@@@@@@@@@@@@ 여기에 디비 async 연결 코드 추가 해줄것@@@@@@@@@@@
+
+
+        Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
+        intent.putExtra("tabcode",3);
+        startActivity(intent);
+
+
+    }//saveCreateParty()
+
 
 
 

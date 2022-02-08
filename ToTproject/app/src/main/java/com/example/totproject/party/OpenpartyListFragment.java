@@ -33,8 +33,9 @@ public class OpenpartyListFragment extends Fragment {
 
         //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
         for (int i=0; i<10;i++){
-            list.add(new PartyListDTO(R.drawable.ic_launcher_background,
-                    "partySN01"+i,
+            list.add(new PartyListDTO(
+                    001+i,
+                    R.drawable.ic_launcher_background,
                     "n",
                     "파티리더명",
                     "partyname01",
@@ -47,7 +48,7 @@ public class OpenpartyListFragment extends Fragment {
         }
         // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
 
-        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list);
+        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 context , RecyclerView.VERTICAL , false
         );

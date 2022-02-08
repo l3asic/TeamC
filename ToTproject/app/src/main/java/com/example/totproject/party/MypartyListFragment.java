@@ -2,14 +2,13 @@ package com.example.totproject.party;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.totproject.R;
 
@@ -34,8 +33,9 @@ public class MypartyListFragment extends Fragment {
 
         //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
         for (int i=0; i<10;i++){
-            list.add(new PartyListDTO(R.drawable.ic_launcher_background,
-                            "partySN01",
+            list.add(new PartyListDTO(
+                    001+i,
+                    R.drawable.ic_launcher_background,
                             "n",
                             "파티리더명",
                             "partyname01",
@@ -51,7 +51,7 @@ public class MypartyListFragment extends Fragment {
 
         // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
 
-        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list);
+        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,3);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 context , RecyclerView.VERTICAL , false
         );

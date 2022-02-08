@@ -1,16 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.kakao.sdk:v2-navi:2.8.4@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/res" />
-      <root url="file://$PROJECT_DIR$/../../caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d0c595e02d1afcb088f5bf5e9ecbdfed/transformed/jetified-v2-navi-2.8.4/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/com.kakao.sdk/v2-navi/2.8.4/83638919b521796438b35d555befa792db4e26b4/v2-navi-2.8.4-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kakao.sdk/v2-navi/2.8.4/83638919b521796438b35d555befa792db4e26b4/v2-navi-2.8.4-sources.jar!/" />
     </SOURCES>
   </library>

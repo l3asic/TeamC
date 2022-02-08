@@ -2008,7 +2008,7 @@ int id btn_create_party 0x7f090072
 int id btn_create_party2 0x7f0902bb
 int id btn_party_info_berger 0x7f0902bd
 int id btn_party_tag 0x7f090073
-int id btn_plan_detail 0x7f0902c2
+int id btn_plan_info02 0x7f0902cb
 int id buttonPanel 0x7f090074
 int id cache_measures 0x7f090075
 int id callMeasure 0x7f090076
@@ -2801,8 +2801,9 @@ int layout partyplan_act_createplan01 0x7f0c009b
 int layout partyplan_act_createplan01_item_user 0x7f0c009c
 int layout partyplan_act_createplan02 0x7f0c009d
 int layout partyplan_act_main 0x7f0c009e
-int layout partyplan_frag_plandetail 0x7f0c009f
 int layout partyplan_frag_plandetail_item_checklist 0x7f0c00a0
+int layout partyplan_frag_planinfo01 0x7f0c00c3
+int layout partyplan_frag_planinfo02 0x7f0c00c4
 int layout partyplan_frag_planlist 0x7f0c00a1
 int layout partyplan_frag_planlist_item 0x7f0c00a2
 int layout select_dialog_item_material 0x7f0c00a3

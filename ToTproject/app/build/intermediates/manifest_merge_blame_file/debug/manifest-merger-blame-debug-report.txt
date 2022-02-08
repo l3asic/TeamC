@@ -107,8 +107,8 @@
 55-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:13-37
 56        <activity
 56-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:9-37:40
-57            android:name="com.example.totproject.party_plan.Party04Planning"
-57-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-55
+57            android:name="com.example.totproject.party_plan.PlanCreatePlan02Activity"
+57-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-64
 58            android:exported="false" />
 58-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:13-37
 59        <activity

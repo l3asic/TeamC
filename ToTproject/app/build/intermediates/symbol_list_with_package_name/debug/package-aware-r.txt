@@ -2009,7 +2009,7 @@ id btn_create_party
 id btn_create_party2
 id btn_party_info_berger
 id btn_party_tag
-id btn_plan_detail
+id btn_plan_info02
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2802,8 +2802,9 @@ layout partyplan_act_createplan01
 layout partyplan_act_createplan01_item_user
 layout partyplan_act_createplan02
 layout partyplan_act_main
-layout partyplan_frag_plandetail
 layout partyplan_frag_plandetail_item_checklist
+layout partyplan_frag_planinfo01
+layout partyplan_frag_planinfo02
 layout partyplan_frag_planlist
 layout partyplan_frag_planlist_item
 layout select_dialog_item_material

@@ -54,7 +54,7 @@
             android:name="com.example.totproject.board.Activity03BoardDetail"
             android:exported="false" />
         <activity
-            android:name="com.example.totproject.party_plan.Party04Planning"
+            android:name="com.example.totproject.party_plan.PlanCreatePlan02Activity"
             android:exported="false" />
         <activity
             android:name="com.example.totproject.login.TendencyActivity01"

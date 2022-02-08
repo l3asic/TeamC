@@ -1,4 +1,4 @@
-package com.hanul.tot.and;
+package com.hanul.tot.burgercontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.google.gson.Gson;
 
 @Controller
-public class AndTestController {
+public class MainBurgerController {
 	/**
 	 * 객체화구간
 	 */
@@ -42,9 +42,9 @@ public class AndTestController {
 	/**
 	 * 이 밑으로부터 코드작성
 	 */
-	@RequestMapping(value = "/test.and", method = RequestMethod.GET)
+	@RequestMapping(value = "/android/cmh/test", method = RequestMethod.GET)
 	public String home(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-		System.out.println("AndTestController 테스트 test");
+		System.out.println("android/cmh/test");
 		
 		
 //		logger.info("Welcome home! The client locale is {}.", locale);
@@ -62,7 +62,7 @@ public class AndTestController {
 		
 		
 		
-		return "and/test";
+		return "android/cmh/test";
 	}
 
 }

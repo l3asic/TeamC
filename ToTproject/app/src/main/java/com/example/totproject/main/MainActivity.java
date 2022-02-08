@@ -27,6 +27,10 @@ import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.apache.http.util.VersionInfo;
+
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottom_nav;
@@ -162,7 +166,8 @@ LinearLayout afterLogin;
                 } else if (id == R.id.mainnav_policy) {
                     ChangeActivity(MainBurger00Activity.class, 3, tabText);
                 } else if (id == R.id.mainnav_version) {
-                    Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
+                    Date date = new Date();
+                    Toast.makeText(MainActivity.this, "버전정보 확인 : "+date, Toast.LENGTH_LONG).show();
                 }
 
 

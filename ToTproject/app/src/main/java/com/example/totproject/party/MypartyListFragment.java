@@ -36,6 +36,7 @@ public class MypartyListFragment extends Fragment {
             list.add(new PartyListDTO(R.drawable.ic_launcher_background,
                             "partySN01",
                             "n",
+                            "파티리더명",
                             "partyname01",
                             "파티 설명입니다  블라블라",
                     "#partyhashtag1",

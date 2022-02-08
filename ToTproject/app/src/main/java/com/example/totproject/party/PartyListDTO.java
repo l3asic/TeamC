@@ -6,16 +6,18 @@ public class PartyListDTO implements Serializable {
     private int picture_filepath;
     private String party_sn;
     private String party_private;
+    private String party_leader;
     private String party_name;
     private String party_detail;
     private String party_tag1;
     private String party_tag2;
     private String party_tag3;
 
-    public PartyListDTO(int picture_filepath, String party_sn, String party_private, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3) {
+    public PartyListDTO(int picture_filepath, String party_sn, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3) {
         this.picture_filepath = picture_filepath;
         this.party_sn = party_sn;
         this.party_private = party_private;
+        this.party_leader = party_leader;
         this.party_name = party_name;
         this.party_detail = party_detail;
         this.party_tag1 = party_tag1;
@@ -45,6 +47,14 @@ public class PartyListDTO implements Serializable {
 
     public void setParty_private(String party_private) {
         this.party_private = party_private;
+    }
+
+    public String getParty_leader() {
+        return party_leader;
+    }
+
+    public void setParty_leader(String party_leader) {
+        this.party_leader = party_leader;
     }
 
     public String getParty_name() {

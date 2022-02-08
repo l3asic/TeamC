@@ -1,9 +1,11 @@
-package com.hanul.tot.and;
+package com.hanul.tot.burgercontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,53 +18,45 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
 
+import android.mainburger.MainBurgerNoticeVO;
+
 @Controller
-public class AndTestController {
-	/**
-	 * 객체화구간
-	 */
+public class MainBurgerController {
 	Gson gson = new Gson();
-	
-// vo = new vo
-//	@Autowired
-//	@Autowired
-//	@Autowired
-
-	@Qualifier("hanul")
+	MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+	@Autowired
+	@Qualifier("cteam")
 	private SqlSession sql;
-
-//	private static final Logger logger = LoggerFactory.getLogger(AndTestController.class);
-
-	/**
-	 * 이 밑으로부터 코드작성
-	 */
-	@RequestMapping(value = "/test.and", method = RequestMethod.GET)
-	public String home(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-		System.out.println("AndTestController 테스트");
+	
+	int i=0;
+	@RequestMapping("/android/cmh/test")
+	public void home(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+	
+		i++;
+		System.out.println("테스트 : android/cmh/test : "+i);
 		
-		
-//		logger.info("Welcome home! The client locale is {}.", locale);
-
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
-
-		
-//		이걸 안드로이드에서 가져감
 		PrintWriter writer = res.getWriter();
-		writer.print(gson.toJson("Test Text zz"));
-		writer.print("asdf");
 		
-		
-		
-		
-		return "and/test";
+		List<MainBurgerNoticeVO> list = new ArrayList<MainBurgerNoticeVO>();
+		/*
+		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
+		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
+		 */
+		list = sql.selectList("mainburgernotice.mapper.noticelist");
+
+//		이걸 안드로이드에서 가져감
+		writer.print(gson.toJson(list));
+
 	}
 
 }

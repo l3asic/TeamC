@@ -76,8 +76,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
-            holder.title.setText(list.get(position).getBoard_title() + "tlqkf");
-            holder.writedate.setText(list.get(position).getBoard_date_create() + "tlqkf");
+            holder.title.setText(list.get(position).getBoard_title() + "어댑터에서 추가된 문자열" );
+            holder.writedate.setText(list.get(position).getBoard_date_create() + "어댑터에서 추가된 문자열");
 
             holder.title.setOnClickListener(new View.OnClickListener() {
                 @Override

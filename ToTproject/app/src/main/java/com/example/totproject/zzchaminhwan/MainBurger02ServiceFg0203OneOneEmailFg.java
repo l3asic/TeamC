@@ -19,6 +19,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.main.MainActivity;
 import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 import com.example.totproject.zzchaminhwan.VO.OneOneEmailVO;
 import com.google.gson.Gson;
@@ -27,6 +28,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Timer;
 
 public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
 
@@ -69,74 +71,83 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
             isCaseText(email);
             isCaseText(tel);
             isCaseText(password);
-            isCaseHide(ifHide01);
+            //isCaseHide(ifHide01);
             //isCaseHide(ifHide02);
         } else if ("Email".equals(isCase)) {
             Toast.makeText(context, "수동입력", Toast.LENGTH_SHORT).show();
         }
 
 
-
-        vo.setName( getText(name, getname));
+        vo.setName(getText(name, getname));
         vo.setEmail(getText(email, getemail));
-        vo.setTel(  getText(tel, gettel));
-        vo.setTitle( getText(title, gettitle));
-        vo.setContent( getText(content, getcontent));
-        vo.setPassword( getText(password, getpassword));
-
-
-
+        vo.setTel(getText(tel, gettel));
+        vo.setTitle(getText(title, gettitle));
+        vo.setContent(getText(content, getcontent));
+        vo.setPassword(getText(password, getpassword));
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "취소버튼 눌림", Toast.LENGTH_SHORT).show();
+                manager.popBackStack();
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "확인버튼 눌림 - DB연동 해야함", Toast.LENGTH_SHORT).show();
-                insertVs(vo);//db연결(vo);
+                ;//db연결(vo);
+
+
             }
         });
         return v;
 
     }
+
     /**/
     CommonAsk commonAsk;
     Gson gson = new Gson();
     OneOneEmailVO vo = new OneOneEmailVO();
 
-    public OneOneEmailVO  insertVs(OneOneEmailVO vo) {
+    public OneOneEmailVO insertVs(OneOneEmailVO vo) {
         commonAsk = new CommonAsk("android/cmh/insertVS");
 
         commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
-      //파일은 안주므로 주석  commonAsk.fileParams.add(new CommonAskParam("file", img_filepath));
-        InputStream in =  CommonMethod.excuteAsk(commonAsk);
+        //파일은 안주므로 주석  commonAsk.fileParams.add(new CommonAskParam("file", img_filepath));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
 
-        String result = gson.fromJson(new InputStreamReader(in) , String.class);
-        if(result != null && result.equals("1")){
+/*        String result = gson.fromJson(new InputStreamReader(in), new TypeToken<OneOneEmailVO>() {
+        }.getType());
+        if (result != null && result.equals("1")) {
             Toast.makeText(context, "뒤로가야할듯.", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "오류발생", Toast.LENGTH_SHORT).show();
-        }
+        } else {
+            Toast.makeText(context, "오류발생 ", Toast.LENGTH_SHORT).show();
+        }*/
 
         try {
-            vo = gson.fromJson(new InputStreamReader(in), new TypeToken<List<NoticeVO>>() {
-            }.getType());
+            vo = gson.fromJson(new InputStreamReader(in), OneOneEmailVO.class);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (vo != null) {
+            Toast.makeText(context, "db insert 성공", Toast.LENGTH_SHORT).show();
+            manager.popBackStack();
+
+        } else {
+            Toast.makeText(context, "오류발생 ", Toast.LENGTH_SHORT).show();
+
         }
         return vo;
     }
     /**/
 
     public void isCaseText(TextView textView) {
-        textView.isEnabled();
-        textView.setText("Loginedvo.getInfo 오버로딩");
-        //textView.setText(logInvo.get.(append(textView) )); <ㅡ 이런거 안되면 이상한 고집부리지말고 걍 하드코딩하면됨
+        textView.setEnabled(true);
+        textView.setText("ChaMinHwan");
+        //textView.setText(logInvo.get.(append(textView) )); <ㅡ 이런거 안되면 이상한 고집부리지말고 걍 하드코딩하면됨 민환쨩 화이팅 간바레~ 앙 기모링~!
         textView.setBackgroundColor(Color.GRAY);
     }
 
@@ -148,5 +159,6 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         getText = textView.getText() + "";
         return getText;
     }
+
 
 }

@@ -72,7 +72,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //rtnString(in);
+
         return in;
     }
 

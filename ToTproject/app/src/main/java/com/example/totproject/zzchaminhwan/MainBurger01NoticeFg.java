@@ -91,7 +91,7 @@ public class MainBurger01NoticeFg extends Fragment {
     Gson gson = new Gson();
 
     public ArrayList<NoticeVO> list() {
-        service = new CommonAsk("android/cmh/test");
+        service = new CommonAsk("android/cmh/notice");
         InputStream in = CommonMethod.excuteAsk(service);
 
         try {

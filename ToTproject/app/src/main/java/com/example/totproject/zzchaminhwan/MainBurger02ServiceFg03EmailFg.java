@@ -21,9 +21,10 @@ public class MainBurger02ServiceFg03EmailFg extends Fragment implements OnBackPr
 
     EditText name, email, tel, title, content, password;
     Button cancel, submit;
+
+
     Context context;
     FragmentManager manager;
-
     public MainBurger02ServiceFg03EmailFg(Context context, FragmentManager manager) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
         this.manager = manager;

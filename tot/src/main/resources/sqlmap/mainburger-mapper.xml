@@ -8,10 +8,10 @@ select board_sn, board_title, board_content from tbl_board where board_class = '
 </select>
 
 <insert id="insertVs">
-insert into tbl_board (member_id, board_title, board_content) values (#{name}, #{title}, #{content})
+insert into tbl_board (member_id, board_title, board_content, board_class) values (#{name, jdbcType=VARCHAR}, #{title}, #{content}, 'vs')
 </insert>
-<select id="selectThisVs">
-select * from tbl_board where member_id=#{name} and board_title=#{title} and board_content = #{content}
+<select id="selectThisVs" resultType="android.mainburger.OneOneEmailVO">
+select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
 </select>
 
 </mapper>

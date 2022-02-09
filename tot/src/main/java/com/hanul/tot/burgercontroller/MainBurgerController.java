@@ -32,21 +32,22 @@ import android.mainburger.OneOneEmailVO;
 public class MainBurgerController {
 	Gson gson = new Gson();
 	MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
-	
+
 	@Autowired
 	@Qualifier("cteam")
 	private SqlSession sql;
-	
-	int i=0;
-	@RequestMapping("/android/cmh/test")
+
+	int i = 0;
+
+	@RequestMapping("/android/cmh/notice")
 	public void noticeList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
-		System.out.println("테스트 : android/cmh/test : "+i+"\n");
+		System.out.println("테스트 : android/cmh/notice : " + i + "\n");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
-		
+
 		List<MainBurgerNoticeVO> list = new ArrayList<MainBurgerNoticeVO>();
 		/*
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
@@ -58,27 +59,36 @@ public class MainBurgerController {
 		writer.print(gson.toJson(list));
 
 	}
-	
+
 	@RequestMapping("/android/cmh/insertVS")
 	public void insertVS(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
-		System.out.println("테스트 : android/cmh/insertVS : "+i+"\n");
+		System.out.println("테스트 : android/cmh/insertVS : " + i + "\n");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
-		
+
 		OneOneEmailVO vo = new OneOneEmailVO();
-		
+		vo.setName("ChaMinHwan");
+		vo.setTitle("testtest");
+		vo.setContent("testtest");
 		/*
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
 		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
 		 */
-		sql.insert("mainburger.mapper.insertVs",vo);
+		try {
 
-//		이걸 안드로이드에서 가져감
-		vo=sql.selectOne("mainburger.mapper.selectThisVs");
-		writer.print(gson.toJson(vo));
+			sql.insert("mainburger.mapper.insertVs", vo);
+
+//			이걸 안드로이드에서 가져감
+		//	vo = sql.selectOne("mainburger.mapper.selectThisVs");
+		
+			writer.print(gson.toJson(vo));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

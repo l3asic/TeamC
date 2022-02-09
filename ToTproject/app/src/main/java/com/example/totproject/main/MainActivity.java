@@ -139,6 +139,7 @@ LinearLayout afterLogin;
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
+
                 if (drawer.isDrawerOpen(Gravity.END)) {
                     drawer.closeDrawer(Gravity.END);
                 } else {
@@ -175,7 +176,7 @@ LinearLayout afterLogin;
             }
         });
 
-
+        onBackPressed();
 
     }//onCreate()
 

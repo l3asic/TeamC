@@ -73,12 +73,14 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
             holder.lin_plan_click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    PlanMainActivity activity = (PlanMainActivity) context;
+                    activity.changePlanFrag(2,"test");
                     //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-                    Intent intent = new Intent(context, PlanMainActivity.class);
-                    intent.putExtra("dto" , list.get(position));
-                    intent.putExtra("tabcode",2);
+                   // Intent intent = new Intent(context, PlanMainActivity.class);
+                  //  intent.putExtra("dto" , list.get(position));
+                   // intent.putExtra("tabcode",2);
                     // intent.putExtra("id" , list.get(position).getId());
-                    context.startActivity(intent);
+                  //  context.startActivity(intent);
                 }
             });
 

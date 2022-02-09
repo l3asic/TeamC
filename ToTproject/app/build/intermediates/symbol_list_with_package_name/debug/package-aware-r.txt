@@ -2010,6 +2010,8 @@ id btn_create_party2
 id btn_party_info_berger
 id btn_party_tag
 id btn_plan_info02
+id btn_plandetail_delete
+id btn_plandetail_update
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2112,6 +2114,9 @@ id edit_query
 id edt_party_detail
 id edt_party_name
 id edt_party_tag
+id edt_partyplan_content
+id edt_partyplan_content_detail
+id edt_partyplan_time
 id elastic
 id end
 id endToStart
@@ -2121,6 +2126,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id expdListView
 id fade
 id fill
 id fill_horizontal
@@ -2189,6 +2195,7 @@ id layout
 id left
 id leftToRight
 id legacy
+id lin_click_content
 id lin_display_tags
 id lin_party_click
 id lin_partyjoin_btn
@@ -2335,6 +2342,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id plan_detail_list
 id planlist_item
 id position
 id postLayout
@@ -2558,6 +2566,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tv_create_party
+id tv_createplan02_title
 id tv_main_title
 id tv_member_nick
 id tv_my_party_list
@@ -2568,6 +2577,10 @@ id tv_party_pic
 id tv_party_tag1
 id tv_party_tag2
 id tv_party_tag3
+id tv_partyplan_content
+id tv_partyplan_content_detail
+id tv_partyplan_day
+id tv_partyplan_time
 id tv_plan_cost
 id tv_plan_enddate
 id tv_plan_endtime
@@ -2800,11 +2813,14 @@ layout partyboard_frag_search
 layout partyboard_frag_searchlist
 layout partyplan_act_createplan01
 layout partyplan_act_createplan01_item_user
-layout partyplan_act_createplan02
 layout partyplan_act_main
+layout partyplan_act_updateplan
+layout partyplan_act_updateplan_item
 layout partyplan_frag_plandetail_item_checklist
 layout partyplan_frag_planinfo01
 layout partyplan_frag_planinfo02
+layout partyplan_frag_planinfo02_item
+layout partyplan_frag_planinfo02_item_dayitem
 layout partyplan_frag_planlist
 layout partyplan_frag_planlist_item
 layout select_dialog_item_material

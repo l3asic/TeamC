@@ -15,39 +15,32 @@ import com.example.totproject.R;
 public class PlanMainActivity extends AppCompatActivity {
     int tabcode = 0;
     TextView tv_planmain_title;
+    String title_name;
+
+    PlanListFragment   plan_list_frag     ;
+    PlanInfo01Fragment plan_info_frag01 ;
+    PlanInfo02Fragment plan_info_frag02 ;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.partyplan_act_main);
-
+         plan_list_frag   = new PlanListFragment(PlanMainActivity.this);
+         plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this);
+         plan_info_frag02 = new PlanInfo02Fragment(PlanMainActivity.this);
         tv_planmain_title = findViewById(R.id.tv_planmain_title);
 
-        PlanListFragment plan_list_frag = new PlanListFragment(PlanMainActivity.this);
-        PlanInfo01Fragment plan_info_frag = new PlanInfo01Fragment(PlanMainActivity.this);
-        PlanInfo02Fragment planInfo02Fragment = new PlanInfo02Fragment();
+
         Intent plan_intent = getIntent();
 
         tabcode = plan_intent.getIntExtra("tabcode",0);
 
+        //title_name = plan_intent.getIntExtra("title_name","임시제목");        //@@@@@@@@ 타이틀 제목 세팅해주기
+        title_name = "임시 제목";
 
-
-
-
-        if (tabcode == 0 || tabcode ==1) {
-            // @@@@  일단 플랜 리스트 화면 보여주기(임시)
-            changeFrag(plan_list_frag,tv_planmain_title,"파티 플랜 목록");
-        }
-
-        if (tabcode == 2){
-            getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag).commit();
-            tv_planmain_title.setText("파티 계획 제목01");        //@@@@@@@@@@ 플랜 이름 넣어주기
-        }
-
-
-
-
+        changePlanFrag(tabcode,title_name);
 
 
 
@@ -63,14 +56,24 @@ public class PlanMainActivity extends AppCompatActivity {
     }//onCreate()
 
     //@@@@@@테스트용 체인지 프레그@@@@@@
-    public void changeFrag(Fragment frag, TextView title, String str){
-        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, frag).commit();
-        title.setText(str);
+    public void changePlanFrag(int tabcode, String title_name){
+        if(tabcode == 1 || tabcode == 0){
+            getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_list_frag).commit();
+        }else if(tabcode ==2){
+            getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).commit();
+        }else if(tabcode ==3){
+            getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag02).commit();
+        }
+
+        tv_planmain_title.setText(title_name);
+
     }
 
-
-
-
-
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+         if(tabcode ==3){
+           // getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag02).commit();
+        }
+    }
 }

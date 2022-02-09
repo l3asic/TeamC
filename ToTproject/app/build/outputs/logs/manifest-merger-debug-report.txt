@@ -163,12 +163,12 @@ ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:32:9-34:
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:13-37
 	android:name
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:33:13-56
-activity#com.example.totproject.party_plan.PlanCreatePlan02Activity
+activity#com.example.totproject.party_plan.PlanUpdatePlanActivity
 ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:9-37:40
 	android:exported
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-64
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-62
 activity#com.example.totproject.login.TendencyActivity01
 ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:9-40:40
 	android:exported

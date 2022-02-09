@@ -17,7 +17,9 @@ import com.example.totproject.main.MainActivity;
 
 public class PlanInfo01Fragment extends Fragment {
     Context context;
-    PlanMainActivity planMainActivity;
+    PlanMainActivity planMainActivity = new PlanMainActivity();
+
+
 
     //@@@@@@ 멤버 추가하기@@@@@@@@@@@@@@@@
     TextView tv_plan_startdate, tv_plan_starttime, tv_plan_enddate, tv_plan_endtime, tv_plan_location, tv_plan_startpoint,
@@ -40,7 +42,7 @@ public class PlanInfo01Fragment extends Fragment {
         View view = inflater.inflate(R.layout.partyplan_frag_planinfo01, container, false);
 
         planMainActivity = (PlanMainActivity) getActivity();
-        PlanInfo02Fragment planInfo02Fragment = new PlanInfo02Fragment();
+
 
         btn_plan_info02 = view.findViewById(R.id.btn_plan_info02);
 
@@ -100,12 +102,13 @@ public class PlanInfo01Fragment extends Fragment {
         btn_plan_info02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(context, PlanMainActivity.class);       //@@@@@@ 파티플랜 디테일로 이동
+                //planMainActivity.changePlanFrag(3,"플랜임시제목");
+                //planMainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, new PlanInfo02Fragment(context)).commit();
+              //  getFragmentManager().beginTransaction().replace(R.id.party_plan_container, new PlanInfo02Fragment(context)).commit();
+                planMainActivity.changePlanFrag(3 , "te");
+//                Intent intent = new Intent(context,  PlanMainActivity.class);
 //                intent.putExtra("tabcode", "3");
 //                startActivity(intent);
-                // getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_list_frag).commit();
-                // ((MainActivity)getActivity()).replaceFragment(NewFragment.newInstance());
-                planMainActivity.changeFrag(planInfo02Fragment,view.findViewById(R.id.tv_planmain_title),"파티 계획 제목01");
 
 
             }

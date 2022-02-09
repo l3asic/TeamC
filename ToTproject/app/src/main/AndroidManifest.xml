@@ -33,7 +33,7 @@
             android:name=".board.Activity03BoardDetail"
             android:exported="false" />
         <activity
-            android:name=".party_plan.PlanCreatePlan02Activity"
+            android:name=".party_plan.PlanUpdatePlanActivity"
             android:exported="false" />
         <activity
             android:name=".login.TendencyActivity01"

@@ -68,6 +68,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView title, writedate; //xml에 있는 위젯들을 전역변수로 선언.
+        int board_sn;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +81,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
             //내용 바꾸기 처리
             holder.title.setText(list.get(position).getBoard_title() + "어댑터에서 추가된 문자열" );
             holder.writedate.setText(list.get(position).getBoard_date_create() + "어댑터에서 추가된 문자열");
+            holder.board_sn = list.get(position).getBoard_sn();
 
             holder.title.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,7 +91,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
                     intent.putExtra("vo", list.get(position));
 
                     context.startActivity(intent);*/
-                    MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg();
+                    MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
                     manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
                 }
             });

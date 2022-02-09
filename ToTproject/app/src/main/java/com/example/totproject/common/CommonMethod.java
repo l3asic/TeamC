@@ -11,7 +11,7 @@ public class CommonMethod {
 
 
         try {
-            in = ask.execute().get();
+            in = ask.execute().get(); //집에서하면 항상 여기서고장남
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

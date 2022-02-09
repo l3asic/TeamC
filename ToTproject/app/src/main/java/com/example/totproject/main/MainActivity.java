@@ -176,7 +176,7 @@ LinearLayout afterLogin;
             }
         });
 
-        onBackPressed();
+
 
     }//onCreate()
 

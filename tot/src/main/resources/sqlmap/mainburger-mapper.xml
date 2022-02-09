@@ -7,6 +7,10 @@
 select board_sn, board_title, board_content from tbl_board where board_class = 'notice'
 </select>
 
+<select id="notice_detail" resultType="android.mainburger.MainBurgerNoticeVO">
+select * from tbl_board where board_sn = #{paramSn}
+</select>
+
 <insert id="insertVs">
 insert into tbl_board (member_id, board_title, board_content, board_class) values (#{name, jdbcType=VARCHAR}, #{title}, #{content}, 'vs')
 </insert>

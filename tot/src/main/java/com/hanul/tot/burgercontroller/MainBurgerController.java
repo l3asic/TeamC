@@ -1,6 +1,7 @@
 package com.hanul.tot.burgercontroller;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import android.mainburger.OneOneEmailVO;
 @Controller
 public class MainBurgerController {
 	Gson gson = new Gson();
-	MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+	
 
 	@Autowired
 	@Qualifier("cteam")
@@ -60,6 +61,24 @@ public class MainBurgerController {
 
 	}
 
+	@RequestMapping("/android/cmh/notice_detail")
+	public void notice_detail(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		i++;
+		System.out.println("테스트 : android/cmh/insertVS : " + i + "\n");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		
+		MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+		int paramSn = Integer.parseInt(req.getParameter("paramSn"));
+		
+		vo = sql.selectOne("mainburger.mapper.notice_detail", paramSn);
+		
+		
+		writer.print(gson.toJson(vo));
+	}
+
 	@RequestMapping("/android/cmh/insertVS")
 	public void insertVS(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
@@ -70,9 +89,11 @@ public class MainBurgerController {
 		PrintWriter writer = res.getWriter();
 
 		OneOneEmailVO vo = new OneOneEmailVO();
-		vo.setName("ChaMinHwan");
-		vo.setTitle("testtest");
-		vo.setContent("testtest");
+		vo = (OneOneEmailVO) req.getAttribute("vo");
+		
+		vo.setName(vo.getName());
+		vo.setTitle(vo.getTitle());
+		vo.setContent(vo.getContent());
 		/*
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
 		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
@@ -82,8 +103,8 @@ public class MainBurgerController {
 			sql.insert("mainburger.mapper.insertVs", vo);
 
 //			이걸 안드로이드에서 가져감
-		//	vo = sql.selectOne("mainburger.mapper.selectThisVs");
-		
+			// vo = sql.selectOne("mainburger.mapper.selectThisVs");
+
 			writer.print(gson.toJson(vo));
 
 		} catch (Exception e) {

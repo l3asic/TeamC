@@ -98,7 +98,7 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(context, "확인버튼 눌림 - DB연동 해야함", Toast.LENGTH_SHORT).show();
                 ;//db연결(vo);
-
+insertVs(vo);
 
             }
         });

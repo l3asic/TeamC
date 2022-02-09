@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment01Main">
+    tools:context=".main.Fragment01MainTab">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/main_seach"
@@ -38,6 +38,7 @@
                 android:id="@+id/rec_recommend"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
 
         <LinearLayout

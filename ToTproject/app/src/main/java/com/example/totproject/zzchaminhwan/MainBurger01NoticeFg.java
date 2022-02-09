@@ -31,9 +31,7 @@ public class MainBurger01NoticeFg extends Fragment {
 
 
     RecyclerView notice_rc_view;
-    Context context;
     Date date = new Date();
-    FragmentManager manager;
     ArrayList<NoticeVO> list = new ArrayList<>();
     public View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -49,6 +47,9 @@ public class MainBurger01NoticeFg extends Fragment {
 
         }
     };
+
+    Context context;
+    FragmentManager manager;
 
     public MainBurger01NoticeFg(MainBurger00Activity mainBurger00Activity, FragmentManager manager) {
         this.context = mainBurger00Activity;

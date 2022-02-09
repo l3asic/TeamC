@@ -12,7 +12,9 @@ import com.example.totproject.R;
 
 public class Fragment01MainTab extends Fragment {
 
+/*mRecyclerView.setLayoutManager(new LinearLayoutManager(this));	// 세로
 
+mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));	// 가로*/
 
 
 

@@ -2009,9 +2009,11 @@ id btn_create_party
 id btn_create_party2
 id btn_party_info_berger
 id btn_party_tag
+id btn_plan_create
 id btn_plan_info02
 id btn_plandetail_delete
 id btn_plandetail_update
+id btn_planmain_create
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2117,6 +2119,13 @@ id edt_party_tag
 id edt_partyplan_content
 id edt_partyplan_content_detail
 id edt_partyplan_time
+id edt_plan_cost
+id edt_plan_enddate
+id edt_plan_hotel
+id edt_plan_location
+id edt_plan_name
+id edt_plan_startdate
+id edt_plan_startpoint
 id elastic
 id end
 id endToStart
@@ -2196,6 +2205,7 @@ id left
 id leftToRight
 id legacy
 id lin_click_content
+id lin_click_update_content
 id lin_display_tags
 id lin_party_click
 id lin_partyjoin_btn
@@ -2811,8 +2821,8 @@ layout partyboard_frag_detail_item_reply
 layout partyboard_frag_mylist
 layout partyboard_frag_search
 layout partyboard_frag_searchlist
-layout partyplan_act_createplan01
-layout partyplan_act_createplan01_item_user
+layout partyplan_act_createplan
+layout partyplan_act_createplan_item_user
 layout partyplan_act_main
 layout partyplan_act_updateplan
 layout partyplan_act_updateplan_item

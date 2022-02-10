@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject">
+        PlanCreatePlan01Activity
+
+        <activity
+            android:name=".party_plan.PlanCreatePlanActivity"
+            android:exported="false" />
         <activity
             android:name=".party_plan.PlanMainActivity"
             android:exported="false" />

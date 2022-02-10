@@ -32,6 +32,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.ToTproject" >
+        PlanCreatePlan01Activity
+        <activity
+            android:name="com.example.totproject.party_plan.PlanCreatePlanActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.totproject.party_plan.PlanMainActivity"
             android:exported="false" />

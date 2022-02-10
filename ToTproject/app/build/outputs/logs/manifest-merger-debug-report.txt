@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hanul\.gradle\caches\transforms-3\f794c157ce27c216c504b2261e60ef5d\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.kakao.sdk:v2-user:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\616f778d55c964c569df9a9ad84b3d62\transformed\jetified-v2-user-2.8.4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.kakao.sdk:v2-talk:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\7164854cda4689a86f559bfcdf79c687\transformed\jetified-v2-talk-2.8.4\AndroidManifest.xml:2:1-11:12
@@ -62,20 +62,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\998ecad2e598076d0444e5b886cc28b2\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\511e2a36f18b29fdf3f425e3962668f8\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\hanul\.gradle\caches\transforms-3\abd986d958258d7e8503cbe4ed7e75cb\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
 	package
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:2:11-69
@@ -84,7 +84,7 @@ ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-65:19
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-70:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hanul\.gradle\caches\transforms-3\f794c157ce27c216c504b2261e60ef5d\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hanul\.gradle\caches\transforms-3\f794c157ce27c216c504b2261e60ef5d\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:11:5-21:19
@@ -121,106 +121,112 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\hanul\.gradle\cach
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:13:9-48
+activity#com.example.totproject.party_plan.PlanCreatePlanActivity
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:17:13-62
 activity#com.example.totproject.party_plan.PlanMainActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:14:9-16:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:19:9-21:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:16:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:21:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:15:13-56
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-56
 activity#com.example.totproject.party.MyPartyInfoActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:17:9-19:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:9-24:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:19:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-54
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:23:13-54
 activity#com.example.totproject.zzchaminhwan.MainBurger00Activity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:9-22:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:25:9-27:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:21:13-62
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:26:13-62
 activity#com.example.totproject.party.PartyJoinActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:23:9-25:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:28:9-30:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:25:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:24:13-52
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:29:13-52
 activity#com.example.totproject.party.PartyMainActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:26:9-28:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:31:9-33:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:28:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:27:13-52
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:32:13-52
 activity#com.example.totproject.category.CategoryMainActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:29:9-31:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:9-36:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:31:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:30:13-58
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:13-58
 activity#com.example.totproject.board.Activity03BoardDetail
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:32:9-34:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:33:13-56
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:13-56
 activity#com.example.totproject.party_plan.PlanUpdatePlanActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:9-37:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:40:9-42:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-62
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:41:13-62
 activity#com.example.totproject.login.TendencyActivity01
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:9-40:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:43:9-45:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:40:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:39:13-53
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:44:13-53
 activity#com.example.totproject.login.TendencyActivity02
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:41:9-43:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:46:9-48:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:42:13-53
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:47:13-53
 activity#com.example.totproject.party.PartyCreateActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:44:9-46:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:9-51:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:46:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:45:13-54
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:50:13-54
 activity#com.example.totproject.login.JoinActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:47:9-49:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:52:9-54:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:54:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-47
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:53:13-47
 activity#com.example.totproject.main.MainActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:50:9-52:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:55:9-57:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:52:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:13-46
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:56:13-46
 activity#com.example.totproject.login.LoginActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:53:9-55:40
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:58:9-60:40
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:55:13-37
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:13-37
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:54:13-48
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:59:13-48
 activity#com.example.totproject.login.SplashActivity
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:56:9-64:20
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:61:9-69:20
 	android:exported
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:58:13-36
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:63:13-36
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-49
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:59:13-63:29
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:64:13-68:29
 action#android.intent.action.MAIN
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:17-69
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:17-69
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:25-66
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:17-77
+ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:67:17-77
 	android:name
-		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:27-74
+		ADDED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:67:27-74
 uses-sdk
 INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml

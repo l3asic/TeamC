@@ -29,6 +29,7 @@
             android:text="파티 이름 1번 유동"
             android:textSize="20dp" />
         <Button
+            android:id="@+id/btn_planmain_create"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

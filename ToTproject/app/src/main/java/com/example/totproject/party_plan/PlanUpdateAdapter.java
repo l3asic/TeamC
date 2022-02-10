@@ -49,10 +49,10 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
     public class Viewholder extends RecyclerView.ViewHolder{
         EditText edt_partyplan_time, edt_partyplan_content, edt_partyplan_content_detail;
-        LinearLayout lin_click_content;
+        LinearLayout lin_click_update_content;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            lin_click_content = itemView.findViewById(R.id.lin_click_content);
+            lin_click_update_content = itemView.findViewById(R.id.lin_click_update_content);
             edt_partyplan_time = itemView.findViewById(R.id.edt_partyplan_time);
             edt_partyplan_content = itemView.findViewById(R.id.edt_partyplan_content);
             edt_partyplan_content_detail = itemView.findViewById(R.id.edt_partyplan_content_detail);
@@ -68,7 +68,7 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
 
 
-            holder.lin_click_content.setOnClickListener(new View.OnClickListener() {
+            holder.lin_click_update_content.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용

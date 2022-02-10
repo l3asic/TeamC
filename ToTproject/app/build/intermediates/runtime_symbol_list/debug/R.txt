@@ -2008,9 +2008,11 @@ int id btn_create_party 0x7f090072
 int id btn_create_party2 0x7f090073
 int id btn_party_info_berger 0x7f090074
 int id btn_party_tag 0x7f090075
+int id btn_plan_create 0x7f0902d9
 int id btn_plan_info02 0x7f090076
 int id btn_plandetail_delete 0x7f0902d2
 int id btn_plandetail_update 0x7f0902d3
+int id btn_planmain_create 0x7f0902d8
 int id buttonPanel 0x7f090077
 int id cache_measures 0x7f090078
 int id callMeasure 0x7f090079
@@ -2116,6 +2118,13 @@ int id edt_party_tag 0x7f0900dc
 int id edt_partyplan_content 0x7f0902d4
 int id edt_partyplan_content_detail 0x7f0902d5
 int id edt_partyplan_time 0x7f0902d6
+int id edt_plan_cost 0x7f0902da
+int id edt_plan_enddate 0x7f0902db
+int id edt_plan_hotel 0x7f0902dc
+int id edt_plan_location 0x7f0902dd
+int id edt_plan_name 0x7f0902de
+int id edt_plan_startdate 0x7f0902df
+int id edt_plan_startpoint 0x7f0902e0
 int id elastic 0x7f0900dd
 int id end 0x7f0900de
 int id endToStart 0x7f0900df
@@ -2195,6 +2204,7 @@ int id left 0x7f090128
 int id leftToRight 0x7f090129
 int id legacy 0x7f09012a
 int id lin_click_content 0x7f09012b
+int id lin_click_update_content 0x7f0902d7
 int id lin_display_tags 0x7f09012c
 int id lin_party_click 0x7f09012d
 int id lin_partyjoin_btn 0x7f09012e
@@ -2810,8 +2820,8 @@ int layout partyboard_frag_detail_item_reply 0x7f0c0098
 int layout partyboard_frag_mylist 0x7f0c0099
 int layout partyboard_frag_search 0x7f0c009a
 int layout partyboard_frag_searchlist 0x7f0c009b
-int layout partyplan_act_createplan01 0x7f0c009c
-int layout partyplan_act_createplan01_item_user 0x7f0c009d
+int layout partyplan_act_createplan 0x7f0c00c6
+int layout partyplan_act_createplan_item_user 0x7f0c00c7
 int layout partyplan_act_main 0x7f0c009e
 int layout partyplan_act_updateplan 0x7f0c009f
 int layout partyplan_act_updateplan_item 0x7f0c00c5

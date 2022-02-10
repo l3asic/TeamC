@@ -1,20 +1,19 @@
 package com.example.totproject.party_plan;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
 
 public class PlanMainActivity extends AppCompatActivity {
     int tabcode = 0;
     TextView tv_planmain_title;
+    Button btn_planmain_create;
     String title_name;
 
     PlanListFragment   plan_list_frag     ;
@@ -42,7 +41,15 @@ public class PlanMainActivity extends AppCompatActivity {
 
         changePlanFrag(tabcode,title_name);
 
+        btn_planmain_create = findViewById(R.id.btn_planmain_create);
 
+        btn_planmain_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanMainActivity.this, PlanCreatePlanActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -21,6 +21,7 @@
             android:layout_weight="1"
             android:src="@drawable/ic_launcher_background" />
         <TextView
+            android:id="@+id/tv_planmain_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
@@ -28,20 +29,20 @@
             android:text="파티 이름 1번 유동"
             android:textSize="20dp" />
         <Button
+            android:id="@+id/btn_planmain_create"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="계획추가" />
     </LinearLayout>
 
-    <ScrollView
+
+    <FrameLayout
+        android:id="@+id/party_plan_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <fragment
-            android:id="@+id/party_plan_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </fragment>
-    </ScrollView>
+        android:layout_height="0dp"
+        android:layout_weight="90">
+    </FrameLayout>
+
 
 </LinearLayout>

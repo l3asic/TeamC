@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".party_plan.PlanInfoFragment">
+    tools:context=".party_plan.PlanCreatePlanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,18 +17,20 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <TextView
+        <EditText
+            android:id="@+id/edt_plan_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="여행 플래닝"
-            android:textSize="50dp" />
+            android:hint="여행 제목을 입력"
+            android:textSize="30dp" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text=""/>
 
     </LinearLayout>
 
@@ -62,11 +64,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <Button
+                    <EditText
+                        android:id="@+id/edt_plan_startdate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="달력 이미지" />
+                        android:hint="ex) 20220318"/>
 
 
                 </LinearLayout>
@@ -91,11 +94,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <Button
+                    <EditText
+                        android:id="@+id/edt_plan_enddate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="달력 이미지" />
+                        android:hint="ex) 20220321" />
 
 
                 </LinearLayout>
@@ -115,13 +119,14 @@
                     android:text=" * 여행지    : " />
 
                 <EditText
+                    android:id="@+id/edt_plan_location"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/bottom_line"
                     android:gravity="center"
                     android:paddingBottom="10dp"
-                    android:text="프랑스 파리" />
+                    android:hint="ex) 프랑스 파리" />
             </LinearLayout>
 
             <LinearLayout
@@ -138,13 +143,14 @@
                     android:text=" * 출발지    : " />
 
                 <EditText
+                    android:id="@+id/edt_plan_startpoint"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/bottom_line"
                     android:gravity="center"
                     android:paddingBottom="10dp"
-                    android:text="농성역에서 모이기" />
+                    android:hint="ex) 농성역에서 모이기" />
             </LinearLayout>
 
             <LinearLayout
@@ -196,13 +202,14 @@
                     android:text=" * 숙소    : " />
 
                 <EditText
+                    android:id="@+id/edt_plan_hotel"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:background="@drawable/bottom_line"
                     android:gravity="center"
 
-                    android:text="파리 호텔" />
+                    android:hint="ex) 파리 호텔"/>
             </LinearLayout>
 
             <LinearLayout
@@ -237,22 +244,25 @@
                     android:gravity="center"
                     android:text=" * 예상 경비    : " />
 
-                <TextView
+                <EditText
+                    android:id="@+id/edt_plan_cost"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/bottom_line"
                     android:gravity="center"
                     android:paddingBottom="10dp"
-                    android:text="240만원 유동" />
+                    android:text="ex) 2400000" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_plan_create"
                 android:layout_width="300dp"
-                android:layout_height="100dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/radius"
-                android:text="세부 일정 확인" />
+                android:text="플랜 저장하기" />
         </LinearLayout>
 
     </ScrollView>

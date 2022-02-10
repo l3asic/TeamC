@@ -21,12 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
-import com.example.totproject.board.BoardMainActivity;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import org.apache.http.util.VersionInfo;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,9 +64,8 @@ LinearLayout afterLogin;
                     ChangeFrament(main_container, categoryTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_board) {
-                    //ChangeFrament(main_container, boardTab_frag);
-                    Intent intent = new Intent(MainActivity.this, BoardMainActivity.class);
-                    startActivity(intent);
+                    ChangeFrament(main_container, boardTab_frag);
+                    return true;
                 } else if (item.getItemId() == R.id.bot_party) {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
@@ -137,6 +139,7 @@ LinearLayout afterLogin;
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
+
                 if (drawer.isDrawerOpen(Gravity.END)) {
                     drawer.closeDrawer(Gravity.END);
                 } else {
@@ -164,7 +167,8 @@ LinearLayout afterLogin;
                 } else if (id == R.id.mainnav_policy) {
                     ChangeActivity(MainBurger00Activity.class, 3, tabText);
                 } else if (id == R.id.mainnav_version) {
-                    Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
+                    Date date = new Date();
+                    Toast.makeText(MainActivity.this, "버전정보 확인 : "+date, Toast.LENGTH_LONG).show();
                 }
 
 

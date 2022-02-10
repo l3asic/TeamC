@@ -1,4 +1,4 @@
-package com.example.totproject.zzchaminhwan;
+package com.example.totproject.zzchaminhwan.VO;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 public class NoticeVO implements Serializable {
     private int board_sn,board_read_cnt, board_reviewepath;
     private String board_title, board_content, board_is_updated,board_private, board_replly_able,board_class, member_id;
-    private Date board_date_create;
+    private String board_date_create;
     //alt + insert key
 
 
@@ -91,11 +91,11 @@ public class NoticeVO implements Serializable {
         this.member_id = member_id;
     }
 
-    public Date getBoard_date_create() {
+    public String getBoard_date_create() {
         return board_date_create;
     }
 
-    public void setBoard_date_create(Date board_date_create) {
+    public void setBoard_date_create(String board_date_create) {
         this.board_date_create = board_date_create;
     }
 }

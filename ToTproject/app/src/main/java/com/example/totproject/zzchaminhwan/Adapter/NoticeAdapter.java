@@ -1,4 +1,4 @@
-package com.example.totproject.zzchaminhwan;
+package com.example.totproject.zzchaminhwan.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 
 import java.util.ArrayList;
 
@@ -66,6 +68,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView title, writedate; //xml에 있는 위젯들을 전역변수로 선언.
+        int board_sn;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -76,8 +79,9 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
-            holder.title.setText(list.get(position).getBoard_title() + "tlqkf");
-            holder.writedate.setText(list.get(position).getBoard_date_create() + "tlqkf");
+            holder.title.setText(list.get(position).getBoard_title() + "어댑터에서 추가된 문자열" );
+            holder.writedate.setText(list.get(position).getBoard_date_create() + "어댑터에서 추가된 문자열");
+            holder.board_sn = list.get(position).getBoard_sn();
 
             holder.title.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -87,7 +91,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
                     intent.putExtra("vo", list.get(position));
 
                     context.startActivity(intent);*/
-                    MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg();
+                    MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
                     manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
                 }
             });

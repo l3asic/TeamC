@@ -71,6 +71,7 @@ public class MainBurgerController {
 		PrintWriter writer = res.getWriter();
 		
 		MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+		System.out.println(req.getParameter("paramSn"));
 		int paramSn = Integer.parseInt(req.getParameter("paramSn"));
 		
 		vo = sql.selectOne("mainburger.mapper.notice_detail", paramSn);

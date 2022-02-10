@@ -1,5 +1,7 @@
 package com.example.totproject.login;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 import com.example.totproject.main.MainActivity;
@@ -19,21 +18,14 @@ import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.Profile;
 
-import com.navercorp.nid.oauth.OAuthLoginCallback;
-import com.navercorp.nid.oauth.view.NidOAuthLoginButton;
-import com.nhn.android.naverlogin.OAuthLogin;
-
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-    Button login_btn_login;
-    EditText edit_login_id, edit_login_pw;
-    TextView text_login_join, search_id, search_pw;
-    Button kakaologin;
-    OAuthLogin authLogin ;
-    NidOAuthLoginButton naverlogin;
-
+  Button login_btn_login;
+  EditText edit_login_id, edit_login_pw;
+  TextView text_login_join;
+  Button kakaologin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,41 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
-        search_id = findViewById(R.id.search_id);
-        search_pw = findViewById(R.id.search_pw);
-        kakaologin = findViewById(R.id.kakaologin);
-
-        // Naver 로그인
-        authLogin = OAuthLogin.getInstance();
-        authLogin.showDevelopersLog(true);
-        authLogin.init(
-                LoginActivity.this,
-                "uGpmI5HP4456GOdaotwq",
-                "ElhUyTFWhH",
-                "ToT"
-        );
-        naverlogin = findViewById(R.id.naverlogin);
-        naverlogin.setOAuthLoginCallback(new OAuthLoginCallback() {
-            @Override
-            public void onSuccess() {
-                String accesToken = authLogin.getAccessToken(LoginActivity.this);
-                String refreshToken = authLogin.getRefreshToken(LoginActivity.this);
-                Toast.makeText(LoginActivity.this, "네이버로그인 성공", Toast.LENGTH_SHORT).show();
-                goMain();
-
-            }
-
-            @Override
-            public void onFailure(int i, @NonNull String s) {
-
-            }
-
-            @Override
-            public void onError(int i, @NonNull String s) {
-
-            }
-        });
-
+        kakaologin = findViewById(R.id.imgv_kakaologin);
 
         // Kakao SDK 초기화
         KakaoSdk.init(this, "77f34c0e0e72631cebb2c001a7e0257a");
@@ -95,23 +53,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        // 아이디 찾기
-        search_id.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        // 비밀번호 찾기
-        search_pw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
 
         // 회원가입
         text_login_join.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if(oAuthToken != null){
                     Toast.makeText(LoginActivity.this, "정보를 받아옴", Toast.LENGTH_SHORT).show();
-                    getKakaoinfo();
+                   getKakaoinfo();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -150,14 +91,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
-                if( UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)) {
-                    Toast.makeText(LoginActivity.this, "카카오톡 설치됨", Toast.LENGTH_SHORT).show();
-                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
-                }else {
-                    Toast.makeText(LoginActivity.this, "카카오톡 설치 안됨", Toast.LENGTH_SHORT).show();
-                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
-                }
-
+               if( UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)) {
+                   Toast.makeText(LoginActivity.this, "카카오톡 설치됨", Toast.LENGTH_SHORT).show();
+                   UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
+               }else {
+                   Toast.makeText(LoginActivity.this, "카카오톡 설치 안됨", Toast.LENGTH_SHORT).show();
+                   UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
+               }
+              
             }
         });
 

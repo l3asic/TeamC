@@ -3,11 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     tools:context=".main.Fragment01MainTab">
-    <ScrollView
-        android:layout_weight="9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
 
     <androidx.appcompat.widget.SearchView
@@ -40,9 +37,10 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_recommend"
+android:layout_gravity="center_horizontal"
+                android:id="@+id/maintab_rv_recommend"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="150dp"></androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
@@ -62,9 +60,9 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_nearby"
+                android:id="@+id/maintab_rv_nearby"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="150dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +83,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager_local"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:orientation="horizontal"></androidx.viewpager2.widget.ViewPager2>
         </LinearLayout>
 
@@ -108,12 +106,12 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_tour2"
+                android:id="@+id/maintab_rv_tour"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
 
     </RelativeLayout>
-    </ScrollView>
+
 </FrameLayout>

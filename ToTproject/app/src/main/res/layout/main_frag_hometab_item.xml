@@ -61,7 +61,7 @@
                     android:src="@drawable/icon_bell" />
 
                 <TextView
-                    android:id="@+id/category_tv_like"
+                    android:id="@+id/hometab_tv_like"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -73,7 +73,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="20dp"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:id="@+id/hometab_img_comment"
                     android:layout_width="match_parent"
@@ -81,7 +80,7 @@
                     android:src="@drawable/icon_guild" />
 
                 <TextView
-                    android:id="@+id/category_tv_comment"
+                    android:id="@+id/hometab_tv_comment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

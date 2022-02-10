@@ -65,7 +65,7 @@ public class MainBurger01NoticeFg_backup extends Fragment {
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, listener, manager);
+        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
 
         notice_rc_view.setLayoutManager(lmanager);
         notice_rc_view.setAdapter(adapter);

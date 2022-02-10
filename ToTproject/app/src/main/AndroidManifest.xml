@@ -43,6 +43,12 @@
             android:name=".category.CategoryMainActivity"
             android:exported="false" />
         <activity
+            android:name=".board.BoardMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".board.BoardNewActivity"
+            android:exported="false" />
+        <activity
             android:name=".board.Activity03BoardDetail"
             android:exported="false" />
         <activity

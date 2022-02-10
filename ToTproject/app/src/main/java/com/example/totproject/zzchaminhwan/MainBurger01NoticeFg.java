@@ -33,7 +33,7 @@ public class MainBurger01NoticeFg extends Fragment {
     RecyclerView notice_rc_view;
     Date date = new Date();
     ArrayList<NoticeVO> list = new ArrayList<>();
-    public View.OnClickListener listener = new View.OnClickListener() {
+   /* public View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             NoticeVO vo = new NoticeVO();
@@ -46,7 +46,7 @@ public class MainBurger01NoticeFg extends Fragment {
             getParentFragmentManager().setFragmentResult("sn", bundle);
 
         }
-    };
+    };*/
 
     Context context;
     FragmentManager manager;
@@ -77,7 +77,7 @@ public class MainBurger01NoticeFg extends Fragment {
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, listener, manager);
+        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
 
         notice_rc_view.setLayoutManager(lmanager);
         notice_rc_view.setAdapter(adapter);
@@ -92,7 +92,7 @@ public class MainBurger01NoticeFg extends Fragment {
     Gson gson = new Gson();
 
     public ArrayList<NoticeVO> list() {
-        service = new CommonAsk("android/cmh/notice");
+        service = new CommonAsk("android/cmh/board.list.notice");
         InputStream in = CommonMethod.excuteAsk(service);
 
         try {

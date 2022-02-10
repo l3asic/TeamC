@@ -78,12 +78,6 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         }
 
 
-        vo.setName(getText(name, getname));
-        vo.setEmail(getText(email, getemail));
-        vo.setTel(getText(tel, gettel));
-        vo.setTitle(getText(title, gettitle));
-        vo.setContent(getText(content, getcontent));
-        vo.setPassword(getText(password, getpassword));
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +90,15 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 vo.setName(getText(name, getname));
+                vo.setEmail(getText(email, getemail));
+                vo.setTel(getText(tel, gettel));
+
+                vo.setTitle(getText(title, null ) );
+                vo.setContent(getText(content, null ) );
+
+                vo.setPassword(getText(password, getpassword));
+
                 Toast.makeText(context, "확인버튼 눌림 - DB연동 해야함", Toast.LENGTH_SHORT).show();
                 ;//db연결(vo);
 insertVs(vo);

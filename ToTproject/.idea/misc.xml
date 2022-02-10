@@ -145,6 +145,7 @@
         <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_partyjoin_hashtag_item.xml" value="0.9" />
         <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/party_frag_partyjoin_member_item.xml" value="0.33" />
         <entry key="..\:/Study_project/ToTproject/app/src/main/res/layout/partyplan_act_createplan02.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable-v24/selector_radio_button.xml" value="0.1955" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/bottom_line.xml" value="0.38229166666666664" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_join.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_login.xml" value="0.33" />
@@ -180,7 +181,7 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_tendencyactivity.xml" value="0.2046875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_detail.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_detail_item_reply.xml" value="0.5" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_main.xml" value="0.6070826306913997" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_main.xml" value="0.2" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_mylist.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_new.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_boardlist_item.xml" value="0.18931159420289856" />
@@ -229,11 +230,12 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/item_sibal02.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/join_act_join.xml" value="0.2" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/login_act_login.xml" value="0.1875" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.1875" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.22" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_burgermenu.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_boardtab.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.1875" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.1875" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.33" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item.xml" value="0.17806484295845998" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_partytab.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.17" />

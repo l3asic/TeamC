@@ -29,7 +29,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }//NoticeAdapter
-    public NoticeAdapter(Context context, ArrayList<NoticeVO> list, View.OnClickListener listener, FragmentManager manager) {
+    public NoticeAdapter(Context context, ArrayList<NoticeVO> list,  FragmentManager manager) {
         this.manager = manager;
         this.context = context;
         this.list = list;

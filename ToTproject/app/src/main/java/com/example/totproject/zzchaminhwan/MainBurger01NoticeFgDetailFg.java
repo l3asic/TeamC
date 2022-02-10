@@ -70,7 +70,7 @@ notice_detail_title.setText(vo.getBoard_title());
     Gson gson = new Gson();
 
     public NoticeVO detail(int paramSn) {
-        commonAsk = new CommonAsk("android/cmh/notice_detail");
+        commonAsk = new CommonAsk("android/cmh/board.detail.notice");
         commonAsk.params.add(new CommonAskParam("paramSn", paramSn+""));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 

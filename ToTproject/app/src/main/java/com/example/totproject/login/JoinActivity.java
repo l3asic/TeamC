@@ -14,10 +14,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
-import com.example.totproject.kwkcommon.CommonAskParam;
-import com.example.totproject.kwkcommon.CommonMethod;
-import com.example.totproject.kwkcommon.MemberDTO;
-import com.example.totproject.kwkcommon.kwkCommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.MemberDTO;
+import com.example.totproject.common.kwkCommonAsk;
 import com.google.gson.Gson;
 
 import java.io.InputStream;

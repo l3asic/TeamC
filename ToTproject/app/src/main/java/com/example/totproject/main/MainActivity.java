@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
+import com.example.totproject.board.BoardMainActivity;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     ImageView cancel;
 LinearLayout afterLogin;
-
+    FragmentManager manager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +50,27 @@ LinearLayout afterLogin;
 
         bottom_nav = findViewById(R.id.main_nav);
         main_container = R.id.main_container;
-        Fragment01MainTab mainTab_frag = new Fragment01MainTab();
+        Fragment01MainTab mainTab_frag = new Fragment01MainTab(MainActivity.this, manager);
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab loginTab_frag = new Fragment05IotTab();
-        ChangeFrament(main_container, mainTab_frag);
+        //ChangeFrament(main_container, mainTab_frag);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.bot_home) {
-                    ChangeFrament(main_container, mainTab_frag);
+                    //ChangeFrament(main_container, mainTab_frag);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
                     return true;
                 } else if (item.getItemId() == R.id.bot_category) {
                     ChangeFrament(main_container, categoryTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_board) {
-                    ChangeFrament(main_container, boardTab_frag);
+                 //   ChangeFrament(main_container, boardTab_frag);
+                    Intent intent = new Intent(MainActivity.this, BoardMainActivity.class);
+                    startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.bot_party) {
                     ChangeFrament(main_container, partyTab_frag);

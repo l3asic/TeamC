@@ -1,34 +1,47 @@
 package com.example.totproject.login;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.MemberDTO;
+import com.google.gson.Gson;
 
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import retrofit2.Response;
+
 public class JoinActivity extends AppCompatActivity {
 
-    EditText join_id, join_pw, join_pw_confirm, join_tel;
+    EditText join_id, join_pw, join_pw_confirm, join_name, join_nick, join_email, join_tel;
     TextView join_next;
-    Button join_id_confirm;
-    String email;
-    String emailValidation = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]" +
-                "+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    String pwValidation = "^.*(?=^.{8.20}$)(?=.*[0-9])(?=.*[a-zA-Z](?=.*[!@#$%^&+=]).*$";
+    Button join_id_confirm, join_gender, join_gender_f;
+    AlertDialog dialog;
+    boolean validate = false;
+    //String pwValidation = "^.*(?=^.{4,}$)(?=.*[0-9])(?=.^[a-zA-Z]).*$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,51 +52,161 @@ public class JoinActivity extends AppCompatActivity {
         join_id_confirm = findViewById(R.id.join_id_confirm);
         join_pw = findViewById(R.id.join_pw);
         join_pw_confirm = findViewById(R.id.join_pw_confirm);
+        join_tel = findViewById(R.id.join_tell);
+        join_name = findViewById(R.id.join_name);
+        join_nick = findViewById(R.id.join_nick);
+        join_gender = findViewById(R.id.join_gender);
+        join_email = findViewById(R.id.join_email);
         join_next = findViewById(R.id.join_next);
 
+        // 아이디 유효성
+        join_id.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String text = s.toString();
+                if(text.length() <5) {
+                    join_id.setTextColor(Color.RED);
+                }else if(text.matches("!,@,#,$,%,^,&,*")) {
+                    join_id.setTextColor(Color.RED);
+                }else {
+                    join_id.setTextColor(Color.GREEN);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
+        // 아이디 중복확인
+        join_id_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validate) {
+
+                    return;  //
+                }
+                if(join_id.getText().length() < 1) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                    dialog = builder.setMessage("아이디는 필수 입력값압니다").setPositiveButton("확인", null).create();
+                    dialog.show();
+                    return;
+                }
+
+            }
+        });// join_id_confirm()
+
+
+        // 비밀번호 유효성
+        join_pw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String text = s.toString();
+                if(text.length() > 4) {
+                    join_pw.setTextColor(Color.GREEN);
+                }else {
+                    join_pw.setTextColor(Color.RED);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
+
+
+
+        // 비밀번호 확인
+        join_pw_confirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                 if(join_pw_confirm.getText().toString().equals(join_pw.getText().toString())) {
+                    join_pw_confirm.setTextColor(Color.GREEN);
+                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                     dialog = builder.setMessage("비밀번호가 일치합니다").setPositiveButton("확인", null).create();
+                     dialog.show();
+                }else {
+                    join_pw_confirm.setTextColor(Color.RED);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        // 아이디, 비번, 핸드폰 미입력 확인
         join_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JoinActivity.this, TendencyActivity01.class);
-                startActivity(intent);
+             /*   if(join_id.getText().length() < 1 || join_pw.getText().length() < 1
+                        || join_name.getText().length() <1 || join_nick.getText().length() <1
+                        || join_tel.getText().length() < 1 || join_pw_confirm.getText().length() < 1) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                    dialog = builder.setMessage("아이디, 비번, 이름, 닉네임,전화번호는  필수 입력값압니다").setPositiveButton("확인", null).create();
+                    dialog.show();
+                    return;
+                }
+                else {*/
+
+                    MemberDTO dto = new MemberDTO(
+                            join_id.getText() + "testid",
+                            join_pw.getText() + "test",
+                            join_name.getText() + "test",
+                            join_nick.getText() + "test",
+                            join_gender.getText() + "f",
+                            join_tel.getText() + "010",
+                            join_email.getText() + "test"
+                    );
+                    joinConnect(dto);
+
+
+                    Intent intent = new Intent(JoinActivity.this, TendencyActivity01.class);
+                    startActivity(intent);
+              /*  }*/
             }
         });
+
     } // onCreate()
+    CommonMethod commonMethod = new CommonMethod();
+    Gson gson = new Gson();
+    CommonAsk commonAsk;
+    public  void joinConnect (MemberDTO dto) {
+        commonAsk = new CommonAsk("join.test");
+        String data = gson.toJson(dto);
+        commonAsk.params.add(new CommonAskParam("vo",data));
 
-    public final static boolean isValidEmail(CharSequence target) {
-        if (TextUtils.isEmpty(target)) {
-            return false;
-        } else {
-            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
-        }
-    }
+
+try {
 
 
-    public void check_validation(String email, String password) {
-        // 비밀번호 유효성 검사식1 : 숫자, 특수문자가 포함되어야 한다.
-        String val_symbol = "([0-9].*[!,@,#,^,&,*,(,)])|([!,@,#,^,&,*,(,)].*[0-9])";
-        // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
-        String val_alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])";
+    InputStream in = commonMethod.excuteAsk(commonAsk);
+}catch (Exception e) {
+    e.printStackTrace();
+}
 
-        // 정규표현식 컴파일
-        Pattern pattern_symbol = Pattern.compile(val_symbol);
-        Pattern pattern_alpha = Pattern.compile(val_alpha);
 
-        Matcher matcher_symbol = pattern_symbol.matcher(password);
-        Matcher matcher_alpha = pattern_alpha.matcher(password);
-
-        if (matcher_symbol.find() && matcher_alpha.find()) {
-            // email과 password로 회원가입 진행
-            email_signIn(email, password);
-        }else {
-            Toast.makeText(this, "비밀번호로 부적절합니다", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    private void email_signIn(String email, String password) {
 
     }
 }

@@ -20,7 +20,7 @@ import com.example.totproject.common.Common;
 
 
 public class Fragment02CategoryTab extends Fragment {
-Button category_btn_tour, category_btn_activity, category_btn_festival;
+    Button category_btn_tour, category_btn_activity, category_btn_festival;
 
 
     @Override

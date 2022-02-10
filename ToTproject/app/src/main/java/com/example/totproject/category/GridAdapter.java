@@ -1,14 +1,12 @@
 package com.example.totproject.category;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.totproject.R;
 
@@ -71,7 +69,7 @@ public class GridAdapter extends BaseAdapter {
         }
         //if(list.get(position).getImgresId() == 1)
         viewHolder.category_tv_tourname.setText(list.get(position).getBoard_title());
-        viewHolder.category_tv_like.setText(list.get(position).getBoard_replly_able());
+        viewHolder.category_tv_comment.setText(list.get(position).getBoard_replly_able());
         convertView.setOnClickListener(listener);
 
         //viewHolder.imgv1.setImageResource(list.get(position).getImgresId());

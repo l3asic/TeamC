@@ -11,7 +11,8 @@ import com.example.totproject.R;
 import com.example.totproject.main.MainActivity;
 
 public class TendencyActivity02 extends AppCompatActivity {
-    Button tend2_btn_skip, tend2_btn_next;
+    Button tend2_btn_skip, tend2_btn_join;
+    int tabcode = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,7 @@ public class TendencyActivity02 extends AppCompatActivity {
         setContentView(R.layout.activity_tendency_activity_02);
 
         tend2_btn_skip = findViewById(R.id.tend2_btn_skip);
-        tend2_btn_next = findViewById(R.id.tend2_btn_next);
+        tend2_btn_join = findViewById(R.id.tend2_btn_join);
 
         tend2_btn_skip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +30,7 @@ public class TendencyActivity02 extends AppCompatActivity {
             }
         });
 
-        tend2_btn_next.setOnClickListener(new View.OnClickListener() {
+        tend2_btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

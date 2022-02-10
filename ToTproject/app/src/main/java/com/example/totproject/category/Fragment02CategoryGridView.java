@@ -1,19 +1,12 @@
 package com.example.totproject.category;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
 
@@ -23,12 +16,13 @@ import java.util.ArrayList;
 public class Fragment02CategoryGridView extends Fragment{
     GridView gridView;
 
-    GridDTO dto = new GridDTO();
     public View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            GridDTO dto = new GridDTO();
+
             Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
-            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).commit();
+            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).addToBackStack(null).commit();
             Bundle bundle = new Bundle();
             bundle.putString("sn", dto.getBoard_sn()+"");
             getParentFragmentManager().setFragmentResult("sn",bundle);

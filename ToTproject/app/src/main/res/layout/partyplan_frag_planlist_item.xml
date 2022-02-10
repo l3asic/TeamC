@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/lin_plan_click"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -15,12 +16,14 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
+                android:id="@+id/imgv_plan"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/ic_launcher_foreground"
                 android:scaleType="fitXY"
                 />
             <TextView
+                android:id="@+id/tv_writer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성자아이디"
@@ -34,6 +37,7 @@
             android:layout_height="100dp"
             android:gravity="center">
             <TextView
+                android:id="@+id/tv_plan_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="여행 계획 1번"
@@ -49,6 +53,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="22/01/23"
@@ -58,18 +63,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="AM"
-                    android:textSize="14dp"
-                    android:layout_margin="5dp"/>
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="09:30"
+                    android:text="AM 09:30"
                     android:textSize="14dp"
                     android:layout_margin="5dp"/>
             </LinearLayout>

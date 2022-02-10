@@ -37,12 +37,13 @@
                     android:textSize="50dp" />
 
                 <Button
+                    android:background="@drawable/icon_main_burger"
                     android:id="@+id/main_btn_burger"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/icon_main_burger" />
+                 />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -76,7 +77,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/main_nav_view"
+        android:id="@+id/main_burger_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 

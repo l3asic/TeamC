@@ -1,15 +1,12 @@
 package com.example.totproject.category;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.totproject.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
+import com.example.totproject.R;
 
 public class CategoryMainActivity extends AppCompatActivity {
     //GridView gridView;

@@ -1,6 +1,12 @@
 package com.example.totproject.category;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,11 +15,6 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.totproject.R;
 
 import java.util.ArrayList;
@@ -21,11 +22,22 @@ import java.util.ArrayList;
 
 public class Fragment02CategoryDetail extends Fragment {
     RecyclerView recyclerView;
+    TextView category_detail_tv_reply;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView  = (ViewGroup)
                 inflater.inflate(R.layout.category_frag_detail , container , false);
+
+        category_detail_tv_reply = rootView.findViewById(R.id.category_detail_tv_reply);
+
+        category_detail_tv_reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryReplyActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ArrayList<DetailDTO> list = new ArrayList<>();
 

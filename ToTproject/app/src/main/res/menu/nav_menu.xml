@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <item
-        android:id="@+id/nav_notice"
+        android:id="@+id/mainnav_notice"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="　공지사항" />
     <item
-        android:id="@+id/nav_customer"
+        android:id="@+id/mainnav_customer"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="　고객센터" />
     <item
-        android:id="@+id/nav_policy"
+        android:id="@+id/mainnav_policy"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="　이용약관 및 정책" />
     <item
-        android:id="@+id/nav_version"
+        android:id="@+id/mainnav_version"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="　버전정보" />

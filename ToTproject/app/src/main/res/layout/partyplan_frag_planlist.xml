@@ -7,6 +7,7 @@
     >
     <!-- ↓ plan_list_item 출력 공간-->
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/planlist_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

@@ -12,17 +12,17 @@ import com.example.totproject.main.MainActivity;
 
 public class TendencyActivity01 extends AppCompatActivity {
 
-    Button tend_btn1_skip, tend_btn2_next;
+    Button tend_btn_skip, tend_btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tendency_activity_01);
 
-        tend_btn1_skip = findViewById(R.id.tend_btn1_skip);
-        tend_btn2_next = findViewById(R.id.tend_btn2_next);
+        tend_btn_skip = findViewById(R.id.tend_btn_skip);
+        tend_btn_next = findViewById(R.id.tend_btn_next);
 
-        tend_btn1_skip.setOnClickListener(new View.OnClickListener() {
+        tend_btn_skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TendencyActivity01.this, MainActivity.class);
@@ -30,7 +30,7 @@ public class TendencyActivity01 extends AppCompatActivity {
             }
         });
 
-        tend_btn2_next.setOnClickListener(new View.OnClickListener() {
+        tend_btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TendencyActivity01.this, TendencyActivity02.class);

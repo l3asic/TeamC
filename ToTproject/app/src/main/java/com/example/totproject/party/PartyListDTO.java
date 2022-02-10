@@ -3,8 +3,8 @@ package com.example.totproject.party;
 import java.io.Serializable;
 
 public class PartyListDTO implements Serializable {
-    private int party_sn;
     private int picture_filepath;
+    private String party_sn;
     private String party_private;
     private String party_leader;
     private String party_name;
@@ -13,9 +13,9 @@ public class PartyListDTO implements Serializable {
     private String party_tag2;
     private String party_tag3;
 
-    public PartyListDTO(int party_sn, int picture_filepath, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3) {
-        this.party_sn = party_sn;
+    public PartyListDTO(int picture_filepath, String party_sn, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3) {
         this.picture_filepath = picture_filepath;
+        this.party_sn = party_sn;
         this.party_private = party_private;
         this.party_leader = party_leader;
         this.party_name = party_name;
@@ -25,20 +25,20 @@ public class PartyListDTO implements Serializable {
         this.party_tag3 = party_tag3;
     }
 
-    public int getParty_sn() {
-        return party_sn;
-    }
-
-    public void setParty_sn(int party_sn) {
-        this.party_sn = party_sn;
-    }
-
     public int getPicture_filepath() {
         return picture_filepath;
     }
 
     public void setPicture_filepath(int picture_filepath) {
         this.picture_filepath = picture_filepath;
+    }
+
+    public String getParty_sn() {
+        return party_sn;
+    }
+
+    public void setParty_sn(String party_sn) {
+        this.party_sn = party_sn;
     }
 
     public String getParty_private() {

@@ -54,34 +54,53 @@
                 android:id="@+id/tend_rg1_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg1_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg1_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg1_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg1_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -105,34 +124,53 @@
                 android:id="@+id/tend_rg2_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg2_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg2_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg2_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg2_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -156,35 +194,54 @@
                 android:id="@+id/tend_rg3_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg3_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg3_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg3_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg3_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
+                android:text="5"
                 android:padding="15dp"/>
 
 
@@ -207,34 +264,53 @@
                 android:id="@+id/tend_rg4_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg4_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg4_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg4_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg4_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -258,40 +334,58 @@
                 android:id="@+id/tend_rg5_radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg5_radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg5_radio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg5_radio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
                 android:id="@+id/tend_rg5_radio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
 
         </RadioGroup>
-
 
     </LinearLayout>
 
@@ -300,7 +394,7 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend_btn1_skip"
+            android:id="@+id/tend_btn_skip"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -315,7 +409,7 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend_btn2_next"
+            android:id="@+id/tend_btn_next"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

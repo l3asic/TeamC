@@ -51,7 +51,7 @@
 
             <EditText
                 android:id="@+id/edit_login_id"
-                android:layout_width="match_parent"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -60,7 +60,7 @@
 
             <EditText
                 android:id="@+id/edit_login_pw"
-                android:layout_width="match_parent"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -88,10 +88,10 @@
 
                 <Button
                     android:id="@+id/login_btn_login"
-                    android:layout_width="350dp"
-                    android:layout_height="70dp"
+                    android:layout_width="270dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:layout_margin="30dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="10dp"
                     android:text="로그인"
                     android:textSize="22dp" />
@@ -111,6 +111,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/search_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="120dp"
@@ -125,6 +126,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/search_pw"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
@@ -154,8 +156,8 @@
                 android:orientation="vertical"
                 android:textFontWeight="1">
 
-                <Button
-                    android:id="@+id/imgv_naverlogin"
+                <com.navercorp.nid.oauth.view.NidOAuthLoginButton
+                    android:id="@+id/naverlogin"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -165,7 +167,7 @@
 
 
                 <Button
-                    android:id="@+id/imgv_kakaologin"
+                    android:id="@+id/kakaologin"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -184,7 +186,7 @@
                 android:id="@+id/text_login_join"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:text="혹시, Trip Or Travel이 처음이신가요?  회원가입"
                 android:textSize="18dp" />

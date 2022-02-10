@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/lin_plan_click"
@@ -24,7 +23,7 @@
                 android:scaleType="fitXY"
                 />
             <TextView
-                android:id="@+id/tv_plan_writer"
+                android:id="@+id/tv_writer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성자아이디"
@@ -54,7 +53,7 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/tv_startdate"
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="22/01/23"
@@ -66,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
                 <TextView
-                    android:id="@+id/tv_starttime"
+                    android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="AM 09:30"

@@ -19,10 +19,6 @@ public class PlanListFragment extends Fragment {
     RecyclerView planlist_item;
     Context context;
 
-    public PlanListFragment(Context context) {
-        this.context = context;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,20 +29,11 @@ public class PlanListFragment extends Fragment {
 
         //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
         for (int i=0; i<10;i++){
-            list.add(new PlanlistDTO(001+i,
-                    R.drawable.ic_launcher_foreground,
-                    0+i,
-                    "제주도여행계획"+i,
-                    "작성자준호",
-                    "2022/02/08",
-                    "2022/02/10",
-                    "제주도 서귀포",
-                    "농성역",
-                    "제주호텔A",
-                    "300000",
-                    "juno",
-                    "09:00",
-                    "19:00"
+            list.add(new PlanlistDTO(R.drawable.ic_launcher_foreground,
+                    "작성자01",
+                    "제주도여행계획",
+                    "2022 02 02",
+                    "09:30"
                     )
             );
         }

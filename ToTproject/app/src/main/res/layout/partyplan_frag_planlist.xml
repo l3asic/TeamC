@@ -6,20 +6,12 @@
     tools:context=".party_plan.PlanListFragment"
     >
     <!-- ↓ plan_list_item 출력 공간-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/planlist_item"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/planlist_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </LinearLayout>
-
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </FrameLayout>

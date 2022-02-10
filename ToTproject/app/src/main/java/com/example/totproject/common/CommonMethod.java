@@ -7,11 +7,11 @@ import java.util.concurrent.ExecutionException;
 
 public class CommonMethod {
     static InputStream in = null;
-    public static InputStream excuteAsk(AsyncTask<String,String,InputStream> ask){
+    public static InputStream excuteAsk(    AsyncTask<String,String,InputStream> ask      ){
 
 
         try {
-            in = ask.execute().get(); //집에서하면 항상 여기서고장남
+            in = ask.execute().get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

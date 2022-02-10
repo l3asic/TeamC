@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category.mapper">
+
+	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
+	<select id="tour_list" resultType="category.CategoryVO">
+		select * from tbl_board
+	</select>
+	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
+
+	<insert id="reply_insert">
+		insert into tbl_board()
+		values (trg_board_sn.nextval , #{board_title}, #{board_content}, #{board_class}, #{member_id})
+	</insert>
+	<insert id="reply_picture">
+		insert into tbl_board_picture (picture_filepath)
+		values (#{picture_filepath})
+	</insert>
+</mapper>

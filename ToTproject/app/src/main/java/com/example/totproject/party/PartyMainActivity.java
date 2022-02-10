@@ -14,8 +14,6 @@ public class PartyMainActivity extends AppCompatActivity {
     TextView party_title;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +26,7 @@ public class PartyMainActivity extends AppCompatActivity {
 
         Intent party_intent = getIntent();
 
-        tabcode =party_intent.getIntExtra("tabcode",0);
+        tabcode = party_intent.getIntExtra("tabcode",0);
 
         if(tabcode == 1 || tabcode ==0 ){   //공개 파티목록 띄우기
             getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, openparty_list_frag).commit();
@@ -42,6 +40,7 @@ public class PartyMainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, myparty_list_frag).commit();
             party_title.setText("가입된 파티 목록");
         }
+
 
 
 

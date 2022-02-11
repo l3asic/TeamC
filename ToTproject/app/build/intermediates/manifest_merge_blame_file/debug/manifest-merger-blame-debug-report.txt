@@ -46,7 +46,7 @@
 23    </queries>
 24
 25    <application
-25-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-70:19
+25-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:7:5-74:19
 26        android:allowBackup="true"
 26-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:8:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -61,156 +61,165 @@
 32        android:supportsRtl="true"
 32-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:12:9-35
 33        android:testOnly="true"
-34        android:theme="@style/Theme.ToTproject" >
-34-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:13:9-48
-35        PlanCreatePlan01Activity
+34        android:theme="@style/Theme.ToTproject"
+34-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:14:9-48
+35        android:usesCleartextTraffic="true" >
+35-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:13:9-44
 36        <activity
-36-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:16:9-18:40
+36-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:15:9-17:40
 37            android:name="com.example.totproject.party_plan.PlanCreatePlanActivity"
-37-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:17:13-62
+37-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:16:13-62
 38            android:exported="false" />
-38-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-37
+38-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:17:13-37
 39        <activity
-39-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:19:9-21:40
+39-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:9-20:40
 40            android:name="com.example.totproject.party_plan.PlanMainActivity"
-40-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-56
+40-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:19:13-56
 41            android:exported="false" />
-41-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:21:13-37
+41-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-37
 42        <activity
-42-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:9-24:40
-43            android:name="com.example.totproject.party.MyPartyInfoActivity"
-43-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:23:13-54
+42-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:21:9-23:40
+43            android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
+43-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-62
 44            android:exported="false" />
-44-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:24:13-37
+44-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:23:13-37
 45        <activity
 45-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:25:9-27:40
-46            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
-46-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:26:13-62
+46            android:name="com.example.totproject.party.MyPartyInfoActivity"
+46-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:26:13-54
 47            android:exported="false" />
 47-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:27:13-37
 48        <activity
 48-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:28:9-30:40
-49            android:name="com.example.totproject.party.PartyJoinActivity"
-49-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:29:13-52
+49            android:name="com.example.totproject.party.PartyCreateActivity"
+49-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:29:13-54
 50            android:exported="false" />
 50-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:30:13-37
 51        <activity
 51-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:31:9-33:40
-52            android:name="com.example.totproject.party.PartyMainActivity"
+52            android:name="com.example.totproject.party.PartyJoinActivity"
 52-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:32:13-52
 53            android:exported="false" />
 53-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:33:13-37
 54        <activity
 54-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:34:9-36:40
-55            android:name="com.example.totproject.category.CategoryMainActivity"
-55-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:13-58
+55            android:name="com.example.totproject.party.PartyMainActivity"
+55-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:35:13-52
 56            android:exported="false" />
 56-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:36:13-37
 57        <activity
-57-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:37:9-39:40
-58            android:name="com.example.totproject.board.Activity03BoardDetail"
-58-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:13-56
+57-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:38:9-40:40
+58            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
+58-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:39:13-62
 59            android:exported="false" />
-59-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:39:13-37
+59-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:40:13-37
 60        <activity
-60-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:40:9-42:40
-61            android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
-61-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:41:13-62
+60-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:41:9-43:40
+61            android:name="com.example.totproject.category.CategoryMainActivity"
+61-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:42:13-58
 62            android:exported="false" />
-62-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:42:13-37
+62-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:43:13-37
 63        <activity
-63-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:43:9-45:40
-64            android:name="com.example.totproject.login.TendencyActivity01"
-64-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:44:13-53
+63-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:44:9-46:40
+64            android:name="com.example.totproject.board.Activity03BoardDetail"
+64-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:45:13-56
 65            android:exported="false" />
-65-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:45:13-37
+65-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:46:13-37
 66        <activity
-66-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:46:9-48:40
-67            android:name="com.example.totproject.login.TendencyActivity02"
-67-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:47:13-53
+66-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:47:9-49:40
+67            android:name="com.example.totproject.login.TendencyActivity01"
+67-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-53
 68            android:exported="false" />
-68-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:13-37
+68-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:13-37
 69        <activity
-69-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:9-51:40
-70            android:name="com.example.totproject.party.PartyCreateActivity"
-70-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:50:13-54
+69-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:50:9-52:40
+70            android:name="com.example.totproject.login.TendencyActivity02"
+70-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:13-53
 71            android:exported="false" />
-71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:51:13-37
+71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:52:13-37
 72        <activity
-72-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:52:9-54:40
+72-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:53:9-55:40
 73            android:name="com.example.totproject.login.JoinActivity"
-73-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:53:13-47
+73-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:54:13-47
 74            android:exported="false" />
-74-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:54:13-37
+74-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:55:13-37
 75        <activity
-75-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:55:9-57:40
+75-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:56:9-58:40
 76            android:name="com.example.totproject.main.MainActivity"
-76-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:56:13-46
+76-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-46
 77            android:exported="false" />
-77-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-37
+77-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:58:13-37
 78        <activity
-78-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:58:9-60:40
+78-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:59:9-61:40
 79            android:name="com.example.totproject.login.LoginActivity"
-79-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:59:13-48
+79-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:13-48
 80            android:exported="false" />
-80-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:13-37
+80-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:61:13-37
 81        <activity
-81-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:61:9-69:20
+81-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:9-70:20
 82            android:name="com.example.totproject.login.SplashActivity"
-82-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:13-49
+82-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:63:13-49
 83            android:exported="true" >
-83-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:63:13-36
+83-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:64:13-36
 84            <intent-filter>
-84-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:64:13-68:29
+84-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:13-69:29
 85                <action android:name="android.intent.action.MAIN" />
-85-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:17-69
-85-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:25-66
+85-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:66:17-69
+85-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:66:25-66
 86
 87                <category android:name="android.intent.category.LAUNCHER" />
-87-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:67:17-77
-87-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:67:27-74
+87-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:68:17-77
+87-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:68:27-74
 88            </intent-filter>
 89        </activity>
-90        <activity
-90-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
-91            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
-91-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
-92            android:exported="false"
-92-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
-93            android:launchMode="singleTask"
-93-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
-94            android:theme="@style/TransparentCompat" />
-94-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
+90
+91        <uses-library
+91-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:71:9-73:40
+92            android:name="org.apache.http.legacy"
+92-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:72:13-50
+93            android:required="false" />
+93-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:73:13-37
+94
 95        <activity
-95-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:17:9-20:56
-96            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
-96-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:18:13-70
-97            android:launchMode="singleTask"
-97-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
-98            android:theme="@style/TransparentCompat" />
-98-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
-99
-100        <provider
-100-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-101            android:name="androidx.startup.InitializationProvider"
-101-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
-102            android:authorities="com.example.totproject.androidx-startup"
-102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
-103            android:exported="false" >
-103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
-104            <meta-data
-104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-105                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-106                android:value="androidx.startup" />
-106-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
-107            <meta-data
-107-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-108                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-108-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-109                android:value="androidx.startup" />
-109-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-110        </provider>
-111    </application>
-112
-113</manifest>
+95-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
+96            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
+96-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
+97            android:exported="false"
+97-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
+98            android:launchMode="singleTask"
+98-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
+99            android:theme="@style/TransparentCompat" />
+99-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
+100        <activity
+100-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:17:9-20:56
+101            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+101-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:18:13-70
+102            android:launchMode="singleTask"
+102-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
+103            android:theme="@style/TransparentCompat" />
+103-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
+104
+105        <provider
+105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+106            android:name="androidx.startup.InitializationProvider"
+106-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+107            android:authorities="com.example.totproject.androidx-startup"
+107-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+108            android:exported="false" >
+108-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+109            <meta-data
+109-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+110                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+111                android:value="androidx.startup" />
+111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+112            <meta-data
+112-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+113                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+113-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+114                android:value="androidx.startup" />
+114-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+115        </provider>
+116    </application>
+117
+118</manifest>

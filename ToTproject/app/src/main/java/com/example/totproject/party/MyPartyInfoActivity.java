@@ -1,11 +1,11 @@
 package com.example.totproject.party;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 import com.example.totproject.party_plan.PlanMainActivity;

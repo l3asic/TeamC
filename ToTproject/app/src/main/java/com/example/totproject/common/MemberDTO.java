@@ -1,6 +1,8 @@
 package com.example.totproject.common;
 
-public class MemberDTO  {
+import java.io.Serializable;
+
+public class MemberDTO implements Serializable {
    private String id, pw, name, tel;
 
     public MemberDTO(String id, String pw, String name, String tel) {

@@ -13,7 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a54ed6b-f7e1-4a74-9894-c9ee3898be87" name="Default Changelist" comment="" />
+    <list default="true" id="9b3481ea-4930-4a6b-bbb1-2ee96ed150a7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,14 +25,6 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="layoutResourceFile" />
-      </list>
-    </option>
-  </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -41,7 +33,7 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProjectId" id="24oaQ6W4s05rf9DBEBwGaWJve4k" />
+  <component name="ProjectId" id="24tz1JpIf8tSLLP6ySbHXm05WKs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,20 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Study_Android/00MiniProject" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Study_project\ToTproject\app\src\main\res\drawable" />
-      <recent name="D:\Study_project\ToTproject\app\src\main\res\drawable-v24" />
-    </key>
-    <key name="android.template.2054512737">
-      <recent name="com.example.totproject.party_plan" />
-      <recent name="com.example.totproject.party" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.totproject.common" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -127,23 +106,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6a54ed6b-f7e1-4a74-9894-c9ee3898be87" name="Default Changelist" comment="" />
-      <created>1644299373818</created>
+      <changelist id="9b3481ea-4930-4a6b-bbb1-2ee96ed150a7" name="Default Changelist" comment="" />
+      <created>1644464455380</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1644299373818</updated>
+      <updated>1644464455380</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanMainActivity.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

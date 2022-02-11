@@ -32,6 +32,10 @@
         "source": "D:\\Study_project\\ToTproject\\app\\src\\main\\res\\menu\\nav_menu.xml"
     },
     {
+        "merged": "D:\\Study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab_item.xml.flat",
+        "source": "D:\\Study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab_item.xml"
+    },
+    {
         "merged": "D:\\Study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "D:\\Study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "D:\\Study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\anim_fab_close.xml.flat",
         "source": "D:\\Study_project\\ToTproject\\app\\src\\main\\res\\anim\\fab_close.xml"
+    },
+    {
+        "merged": "D:\\Study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_main_burger02_service_fg_0203_oneoneemail.xml.flat",
+        "source": "D:\\Study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_main_burger02_service_fg_0203_oneoneemail.xml"
     },
     {
         "merged": "D:\\Study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_updateplan.xml.flat",

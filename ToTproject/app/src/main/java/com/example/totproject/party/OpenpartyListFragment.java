@@ -11,13 +11,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class OpenpartyListFragment extends Fragment {
     RecyclerView openpartylist_item;
     Context context;
+    ArrayList<PartyListDTO> list = new ArrayList<>();
+    CommonAsk commonAsk;
+    Gson gson = new Gson();
 
     public OpenpartyListFragment(Context context) {
         this.context = context;
@@ -29,24 +40,13 @@ public class OpenpartyListFragment extends Fragment {
         View view = inflater.inflate(R.layout.party_frag_openpartylist, container, false);
 
         openpartylist_item = view.findViewById(R.id.openpartylist_item);
-        ArrayList<PartyListDTO> list = new ArrayList<>();
 
-        //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
-        for (int i=0; i<10;i++){
-            list.add(new PartyListDTO(
-                    001+i,
-                    R.drawable.ic_launcher_background,
-                    "n",
-                    "파티리더명",
-                    "partyname01",
-                    "파티 설명입니다  블라블라",
-                    "#partyhashtag1",
-                    "#partyhashtag2",
-                    "#partyhashtag3"
-                    )
-            );
-        }
-        // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
+
+
+
+        showOpenPartylist();
+
+
 
         PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
@@ -63,5 +63,22 @@ public class OpenpartyListFragment extends Fragment {
 
 
         return view;
-    }
+    }//onCreateView()
+
+
+    private ArrayList<PartyListDTO> showOpenPartylist() {
+        commonAsk = new CommonAsk("android/party/openpartylist");
+        //commonAsk.params.add(new CommonAskParam("party_private",gson.toJson(party_private)));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        //commonAsk.params.add(new CommonAskParam("party_private", party_private ));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }//showOpenPartylist()
 }

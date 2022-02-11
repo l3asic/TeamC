@@ -27,6 +27,10 @@ import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.apache.http.util.VersionInfo;
+
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottom_nav;
@@ -34,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button main_btn_burger;
     Toolbar toolbar;
     ImageView cancel;
-    LinearLayout afterLogin;
-    TextView tv_main_title ;
+LinearLayout afterLogin;
 
 
     @Override
@@ -50,29 +53,28 @@ public class MainActivity extends AppCompatActivity {
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab loginTab_frag = new Fragment05IotTab();
-        tv_main_title = findViewById(R.id.tv_main_title);
-
-
-        ChangeFrament(main_container, mainTab_frag, "ToT home");
+        ChangeFrament(main_container, mainTab_frag);
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.bot_home) {
-                    ChangeFrament(main_container, mainTab_frag,"ToT home");
+                    ChangeFrament(main_container, mainTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_category) {
-                    ChangeFrament(main_container, categoryTab_frag,"여행지 바로가기");
+                    ChangeFrament(main_container, categoryTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_board) {
-                    ChangeFrament(main_container, boardTab_frag, "게시판");
+                    ChangeFrament(main_container, boardTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_party) {
-                    ChangeFrament(main_container, partyTab_frag,"파티");
+                    ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    ChangeFrament(main_container, loginTab_frag,"캐리어 보안"); //★★아이오티 화면나오면 수정해야함
+                    ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
+                //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                //fking i can't typing Korean;;;
 
 
                 return false;
@@ -137,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
+
                 if (drawer.isDrawerOpen(Gravity.END)) {
                     drawer.closeDrawer(Gravity.END);
                 } else {
@@ -164,7 +167,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (id == R.id.mainnav_policy) {
                     ChangeActivity(MainBurger00Activity.class, 3, tabText);
                 } else if (id == R.id.mainnav_version) {
-                    Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
+                    Date date = new Date();
+                    Toast.makeText(MainActivity.this, "버전정보 확인 : "+date, Toast.LENGTH_LONG).show();
                 }
 
 
@@ -177,9 +181,8 @@ public class MainActivity extends AppCompatActivity {
     }//onCreate()
 
     //메소드
-    public void ChangeFrament(int container, Fragment fragment, String title) {
+    public void ChangeFrament(int container, Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(container, fragment).commit();
-        tv_main_title.setText(title);
     }
 
     public void ChangeActivity(Class nextAct, int tabcode) {

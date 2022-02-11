@@ -77,9 +77,10 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
                 public void onClick(View v) {
                     if(tabcode == 1){
                         Intent intent = new Intent(context,PartyJoinActivity.class);
-                        intent.putExtra("dto" , list.get(position));
+                        intent.putExtra("party_sn" , list.get(position).getParty_sn());
                         context.startActivity(intent);
                     }else{
+                        // @@@@@@@@@@@ 수정필요
                         Intent intent = new Intent(context,MyPartyInfoActivity.class);
                         intent.putExtra("dto" , list.get(position));
                         context.startActivity(intent);

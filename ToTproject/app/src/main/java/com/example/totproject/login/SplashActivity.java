@@ -8,7 +8,6 @@ import android.view.WindowManager;
 
 import com.example.totproject.R;
 import com.example.totproject.common.Common;
-import com.example.totproject.common.CommonMethod;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                 //딜레를 주고나서 run을 실행함.
                 //Toast.makeText(SplashActivity.this, "여기서 로그인 여부를 판별해 다음 액티비티를 정해야합니다 !", Toast.LENGTH_SHORT).show();
 
-                CommonMethod.goMain(SplashActivity.this);
+                Common.goMain(SplashActivity.this);
                 finish();//뒤로가기 했을때 액티비티가 없게 현재 액티비를 종료시킴.
             }
         } ,  300); // 1초는 == , 1000 * 내가 주고싶은 초

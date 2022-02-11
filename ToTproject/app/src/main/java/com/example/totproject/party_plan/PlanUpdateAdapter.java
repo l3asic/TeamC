@@ -1,14 +1,11 @@
 package com.example.totproject.party_plan;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,13 +29,13 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
     @NonNull
     @Override
-    public PlanUpdateAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.partyplan_act_updateplan_item, parent , false);
-        return new PlanUpdateAdapter.Viewholder(itemView);
+        return new Viewholder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanUpdateAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         holder.bind(holder,position);
     }
 
@@ -59,7 +56,7 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
         }
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
-        public void bind(@NonNull PlanUpdateAdapter.Viewholder holder, int position){
+        public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
             //holder.imgv_plan.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
             holder.edt_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );

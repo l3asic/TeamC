@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category.mapper">
+
+	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
+	<select id="categoryList_tour" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_class = 'tour'
+	</select>
+	<select id="categoryList_activity" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_class = 'activity'
+	</select>
+	<select id="categoryList_festival" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_class = 'festival'
+	</select>
+	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
+
+	<insert id="reply_insert">
+		insert into tbl_board(board_title, board_content, board_class, member_id)
+		values (#{board_title}, #{board_content}, #{board_class}, #{member_id})
+	</insert>
+	<insert id="reply_picture"  parameterType="java.util.List">
+	
+		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
+		    INTO tbl_board_picture (picture_filepath,board_sn,member_id) VALUES (#{item.picture_filepath}, #{item.board_sn}, #{item.member_id})
+		</foreach>
+		
+	</insert>
+	<!-- <insert id="reply_picture">
+		insert into tbl_board_picture (picture_filepath)
+		values (#{picture_filepath})
+	</insert> -->
+	
+	<select id="detail_List" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_sn = #{board_sn}
+	</select>
+	
+	<select id="detail_categoryBoard" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_sn = #{board_sn}
+	</select>
+	
+</mapper>

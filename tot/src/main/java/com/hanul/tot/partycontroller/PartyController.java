@@ -75,16 +75,13 @@ public class PartyController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
-		//@@@@@@@@@@@@ zz VO는 임시 멤버 VO임 수정할 것@@@@@@@@@@
-		ZZMemberVO vo = new ZZMemberVO();
-		String from_and_dto = req.getParameter("memberDTO");
-		vo = (ZZMemberVO) gson.fromJson(from_and_dto, ZZMemberVO.class);
-
-		System.out.println(vo.getId());	//DTO 받아왔는지 찍을려고 테스트
+		//		
+		String member_id = req.getParameter("member_id");
+		
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
-			list = plDAO.selectMypartyList(vo.getId());
+			list = plDAO.selectMypartyList(member_id);
 
 			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");
 			System.out.println(list.get(0).getParty_name());

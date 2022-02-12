@@ -1,6 +1,12 @@
 package com.example.totproject.common;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.StrictMode;
+
+
+import com.example.totproject.main.MainActivity;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
@@ -20,4 +26,11 @@ public class CommonMethod {
 
         return in;
     }
+
+
+
+
+
+
+
 }

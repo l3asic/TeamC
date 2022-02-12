@@ -2007,6 +2007,7 @@ int id btn_checkid 0x7f090071
 int id btn_create_party 0x7f090072
 int id btn_create_party2 0x7f090073
 int id btn_party_info_berger 0x7f090074
+int id btn_party_search 0x7f090303
 int id btn_party_tag 0x7f090075
 int id btn_plan_create 0x7f090076
 int id btn_plan_info02 0x7f090077
@@ -2430,6 +2431,7 @@ int id search_close_btn 0x7f090217
 int id search_edit_frame 0x7f090218
 int id search_go_btn 0x7f090219
 int id search_mag_icon 0x7f09021a
+int id search_partylist_item 0x7f090304
 int id search_plate 0x7f09021b
 int id search_src_text 0x7f09021c
 int id search_voice_btn 0x7f09021d
@@ -2851,6 +2853,7 @@ int layout party_frag_openpartylist_item 0x7f0c0093
 int layout party_frag_partyjoin 0x7f0c0094
 int layout party_frag_partyjoin_hashtag_item 0x7f0c0095
 int layout party_frag_partyjoin_member_item 0x7f0c0096
+int layout party_frag_search 0x7f0c00c8
 int layout partyboard_act_new 0x7f0c0097
 int layout partyboard_frag_detail 0x7f0c0098
 int layout partyboard_frag_detail_item_reply 0x7f0c0099

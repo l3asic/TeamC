@@ -18,6 +18,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/edt_search_keyword"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
@@ -26,12 +27,14 @@
                 android:hint="공개 파티 검색"
                 android:paddingLeft="10dp"></EditText>
 
-            <ImageView
+            <Button
+                android:id="@+id/btn_party_search"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher"></ImageView>
+                android:text="검색"
+                android:background="@drawable/party_tab_button"></Button>
 
         </LinearLayout>
 

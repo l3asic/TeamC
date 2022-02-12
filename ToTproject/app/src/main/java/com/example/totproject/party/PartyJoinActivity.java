@@ -61,8 +61,8 @@ public class PartyJoinActivity extends AppCompatActivity {
         int party_sn = intent.getIntExtra("party_sn",0);
         partyDetail(party_sn);
 
-        // String member_id = memberDTO.getMember_id;
-        String member_id = "b01";   //@@@@@@@@@@ 임시 아이디임 멤버DTO에서 받아올것@@@@@@@@
+
+
 
         for (int i =0 ; i<list.size(); i++){
             partymemberList.add(new PartymemberListDTO(list.get(i).getMember_id(),0));
@@ -97,7 +97,7 @@ public class PartyJoinActivity extends AppCompatActivity {
                         list.get(0).getParty_tag1(),
                         list.get(0).getParty_tag2(),
                         list.get(0).getParty_tag3(),
-                        member_id
+                        MemberDTO.id
                         );
                 partyJoin(dto);
 
@@ -115,7 +115,7 @@ public class PartyJoinActivity extends AppCompatActivity {
 
     public ArrayList<PartyListDTO> partyDetail(int party_sn){
         commonAsk = new CommonAsk("android/party/partydetail");
-        commonAsk.params.add(new CommonAskParam("party_sn",party_sn+""));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        commonAsk.params.add(new CommonAskParam("party_sn",party_sn+""));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {

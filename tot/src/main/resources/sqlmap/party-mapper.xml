@@ -20,13 +20,13 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 <insert id="insertParty">	
 	
 	insert into tbl_party (party_sn, member_id, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader )
-	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )	
+	values( seq_party_sn.nextval, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )	
 	
 </insert>
 
 <select id="selectMypartyList" resultType="android.partyvo.PartyListVO">
 
-	select * from tbl_party where member_id = #{id}
+	select * from tbl_party where member_id = #{member_id}
 	
 </select>
 
@@ -45,11 +45,10 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 
 <insert id="insertJoinparty">	
 	
-	insert into tbl_party (party_sn, member_id, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader )
-	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )	
+	insert into tbl_party 
+	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail, jdbcType=VARCHAR}, #{party_tag1,jdbcType=VARCHAR}, #{party_tag2,jdbcType=VARCHAR}, #{party_tag3,jdbcType=VARCHAR}, #{party_leader, jdbcType=VARCHAR}  )	
 	
 </insert>
-
 
 
 

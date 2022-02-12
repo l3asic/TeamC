@@ -2008,6 +2008,7 @@ id btn_checkid
 id btn_create_party
 id btn_create_party2
 id btn_party_info_berger
+id btn_party_search
 id btn_party_tag
 id btn_plan_create
 id btn_plan_info02
@@ -2431,6 +2432,7 @@ id search_close_btn
 id search_edit_frame
 id search_go_btn
 id search_mag_icon
+id search_partylist_item
 id search_plate
 id search_src_text
 id search_voice_btn
@@ -2852,6 +2854,7 @@ layout party_frag_openpartylist_item
 layout party_frag_partyjoin
 layout party_frag_partyjoin_hashtag_item
 layout party_frag_partyjoin_member_item
+layout party_frag_search
 layout partyboard_act_new
 layout partyboard_frag_detail
 layout partyboard_frag_detail_item_reply

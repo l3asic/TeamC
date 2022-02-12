@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +31,10 @@ public class OpenpartyListFragment extends Fragment {
     ArrayList<PartyListDTO> list = new ArrayList<>();
     CommonAsk commonAsk;
     Gson gson = new Gson();
+    Button btn_party_search;
+    EditText edt_search_keyword;
+    PartyMainActivity partyMainActivity = new PartyMainActivity();
+
 
     public OpenpartyListFragment(Context context) {
         this.context = context;
@@ -40,21 +46,33 @@ public class OpenpartyListFragment extends Fragment {
         View view = inflater.inflate(R.layout.party_frag_openpartylist, container, false);
 
         openpartylist_item = view.findViewById(R.id.openpartylist_item);
+        btn_party_search = view.findViewById(R.id.btn_party_search);
+        edt_search_keyword = view.findViewById(R.id.edt_search_keyword);
 
-
+        partyMainActivity = (PartyMainActivity) getActivity();
 
 
         showOpenPartylist();
+        if(!list.isEmpty()){
+            PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(
+                    context , RecyclerView.VERTICAL , false
+            );
+            openpartylist_item.setLayoutManager(layoutManager);
+            openpartylist_item.setAdapter(partyListAdapter);
+        }
+
+
+        btn_party_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchPartyFragment searchPartyFrag= new SearchPartyFragment(edt_search_keyword.getText()+"");
+                partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
+            }
+        });
 
 
 
-        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(
-                context , RecyclerView.VERTICAL , false
-        );
-
-        openpartylist_item.setLayoutManager(layoutManager);
-        openpartylist_item.setAdapter(partyListAdapter);
 
 
 
@@ -68,8 +86,6 @@ public class OpenpartyListFragment extends Fragment {
 
     private ArrayList<PartyListDTO> showOpenPartylist() {
         commonAsk = new CommonAsk("android/party/openpartylist");
-        //commonAsk.params.add(new CommonAskParam("party_private",gson.toJson(party_private)));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
-        //commonAsk.params.add(new CommonAskParam("party_private", party_private ));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
@@ -81,4 +97,8 @@ public class OpenpartyListFragment extends Fragment {
         return list;
 
     }//showOpenPartylist()
+
+
+
+
 }

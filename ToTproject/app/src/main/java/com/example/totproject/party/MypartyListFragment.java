@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,22 +47,26 @@ public class MypartyListFragment extends Fragment {
         mypartylist_item = view.findViewById(R.id.mypartylist_item);
 
 
-        // @@@@@@@@ 멤버 DTO 임의 세팅 수정할것@@@@@@@@@
-        MemberDTO memberDTO = new MemberDTO("a01","1234","준호","01012341234");   //저아디 하나 가져갈려고 하는거긴한데 일단 DTO 보내는거
-        // @@@@@@@@ 멤버 DTO 임의 세팅 수정할것@@@@@@@@@
 
-        showMyPartylist(memberDTO);
+
+        showMyPartylist();
 
 
 
+        // 가입된 파티가 있는지 없는지
+        if (list != null){
+            PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,3);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(
+                    context , RecyclerView.VERTICAL , false
+            );
+            mypartylist_item.setLayoutManager(layoutManager);
+            mypartylist_item.setAdapter(partyListAdapter);
+        }else{
+            Toast.makeText(getActivity(), "가입된 파티가 없습니다 (임시)", Toast.LENGTH_SHORT).show();
+        }
 
-        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,3);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(
-                context , RecyclerView.VERTICAL , false
-        );
 
-        mypartylist_item.setLayoutManager(layoutManager);
-        mypartylist_item.setAdapter(partyListAdapter);
+
 
 
 
@@ -70,9 +75,9 @@ public class MypartyListFragment extends Fragment {
     }//onCreateView()
 
 
-    public ArrayList<PartyListDTO> showMyPartylist(MemberDTO memberDTO){
+    public ArrayList<PartyListDTO> showMyPartylist(){
         commonAsk = new CommonAsk("android/party/mypartylist");
-        commonAsk.params.add(new CommonAskParam("memberDTO",gson.toJson(memberDTO)));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        commonAsk.params.add(new CommonAskParam("member_id",MemberDTO.id));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
@@ -81,6 +86,7 @@ public class MypartyListFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return list;
 
     }//showMyPartylist()

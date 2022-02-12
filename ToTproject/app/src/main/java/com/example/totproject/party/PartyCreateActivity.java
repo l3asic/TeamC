@@ -16,6 +16,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.MemberDTO;
 import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -43,7 +44,7 @@ public class PartyCreateActivity extends Activity {
     int party_sn;
     int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 @@@@@@@@@@@@@@@
     String party_leader = "준호";     //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기@@@@@@@@@@@@@@@
-    String party_member = "멤버준호";    //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기@@@@@@@@@@@@@@@
+    // String party_member = "b08";    //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기 - 완료?@@@@@@@@@@@@@@@
     String party_name, party_detail, party_private, party_tag1, party_tag2, party_tag3;
     ArrayList tags = new ArrayList();
 
@@ -232,7 +233,7 @@ public class PartyCreateActivity extends Activity {
 //      ArrayList<PartyListDTO> dto = new ArrayList<>();
 //      dto.add(new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3));
 
-        PartyListDTO dto = new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3,party_member);
+        PartyListDTO dto = new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3, MemberDTO.id);
 
 
         //@@@@@@@@@@@@@ 여기에 디비 async 연결 코드 추가 해줄것@@@@@@@@@@@
@@ -278,6 +279,7 @@ public class PartyCreateActivity extends Activity {
         commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
+        Toast.makeText(PartyCreateActivity.this, "파티 생성완료 ( 임시)", Toast.LENGTH_SHORT).show();
 
         return dto;
     }

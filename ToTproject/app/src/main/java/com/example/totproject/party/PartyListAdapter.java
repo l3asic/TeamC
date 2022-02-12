@@ -75,12 +75,12 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
             holder.lin_party_click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(tabcode == 1){
+                    if(tabcode == 1){   //탭코드 1일시 해당파티조인(디테일) 이동
                         Intent intent = new Intent(context,PartyJoinActivity.class);
                         intent.putExtra("party_sn" , list.get(position).getParty_sn());
                         context.startActivity(intent);
                     }else{
-                        // @@@@@@@@@@@ 수정필요
+                        // @@@@@@@@@@@ 탭코드 다른것일시 내파티 바로가기 수정필요?
                         Intent intent = new Intent(context,MyPartyInfoActivity.class);
                         intent.putExtra("dto" , list.get(position));
                         context.startActivity(intent);

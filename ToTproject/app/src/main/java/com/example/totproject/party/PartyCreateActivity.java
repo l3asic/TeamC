@@ -24,8 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
+
 
 public class PartyCreateActivity extends Activity {
     EditText edt_party_name;
@@ -39,12 +38,11 @@ public class PartyCreateActivity extends Activity {
     Button btn_checkid;
     ImageView imgv_back_btn;
 
+    int can_pass = 2;   //2일시 중복체크상태, 1일시 이름 중복된 상태, 0일시 이름 (중복아님 파티가입가능)
 
 
     int party_sn;
-    int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 @@@@@@@@@@@@@@@
-    String party_leader = "준호";     //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기@@@@@@@@@@@@@@@
-    // String party_member = "b08";    //@@@@@@@@@@@@@@@@@@@@@@ DTO 멤버 아이디 불러오기 - 완료?@@@@@@@@@@@@@@@
+    int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 , DTO 세팅도 다시해야함@@@@@@@@@@@@@@@
     String party_name, party_detail, party_private, party_tag1, party_tag2, party_tag3;
     ArrayList tags = new ArrayList();
 
@@ -60,7 +58,7 @@ public class PartyCreateActivity extends Activity {
         setContentView(R.layout.party_act_createparty);
 
         btn_checkid = findViewById(R.id.btn_checkid);
-        edt_party_name = findViewById(R.id.edt_party_name);
+        edt_party_name = findViewById(R.id.edt_party_namet);
         edt_party_detail = findViewById(R.id.edt_party_detail);
         lin_display_tags = findViewById(R.id.lin_display_tags);
         checkbox_party_private = findViewById(R.id.checkbox_party_private);
@@ -87,7 +85,19 @@ public class PartyCreateActivity extends Activity {
         btn_checkid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // @@@@@@@@@@@ 파티 아이디 중복체크 할것 @@@@@@@@@@
+
+                String check = checkPartyName(edt_party_name.getText()+"");
+
+                Toast.makeText(PartyCreateActivity.this, check, Toast.LENGTH_SHORT).show();
+
+                if(check.equals("0")){
+                    Toast.makeText(PartyCreateActivity.this, "사용가능한 파티 이름입니다.", Toast.LENGTH_SHORT).show();
+                    can_pass = 0;
+                }else{
+                    Toast.makeText(PartyCreateActivity.this, "중복된 파티 이름입니다.", Toast.LENGTH_SHORT).show();
+                    can_pass = 1;
+                }
+
             }
         });
 
@@ -110,7 +120,14 @@ public class PartyCreateActivity extends Activity {
         btn_party_tag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertTags();
+                if (can_pass == 2){
+                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 해주세요", Toast.LENGTH_SHORT).show();
+                }else if(can_pass == 1){
+                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 다시 해주세요", Toast.LENGTH_SHORT).show();
+                }else{
+                    insertTags();
+                }
+
             }
         });
 
@@ -154,16 +171,6 @@ public class PartyCreateActivity extends Activity {
                 inserCreateparty();
             }
         });
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -217,7 +224,6 @@ public class PartyCreateActivity extends Activity {
     }
 
     public void inserCreateparty(){
-        party_sn = 03;     //@@@@@ 스프링에서 추가넘버 삽입?
         party_name = edt_party_name.getText()+"";
         party_detail = edt_party_detail.getText()+"";
 
@@ -230,40 +236,9 @@ public class PartyCreateActivity extends Activity {
         party_tag2 = tv_party_tag2.getText()+"";
         party_tag3 = tv_party_tag3.getText()+"";
 
-//      ArrayList<PartyListDTO> dto = new ArrayList<>();
-//      dto.add(new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3));
 
-        PartyListDTO dto = new PartyListDTO(party_sn,party_pic,party_private,party_leader,party_name,party_detail,party_tag1,party_tag2,party_tag3, MemberDTO.id);
-
-
-        //@@@@@@@@@@@@@ 여기에 디비 async 연결 코드 추가 해줄것@@@@@@@@@@@
-
-//        ask = new CommonAsk("partyCreate.tot");        //매핑, dto값들
-//        try {
-//            ask.execute().get();     //get 은 inputString 위해
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
+        PartyListDTO dto = new PartyListDTO(0,party_pic,party_private,MemberDTO.id,party_name,party_detail,party_tag1,party_tag2,party_tag3, MemberDTO.id);
         insertParty(dto);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
         intent.putExtra("tabcode",3);
@@ -271,6 +246,24 @@ public class PartyCreateActivity extends Activity {
 
 
     }//saveCreateParty()
+
+    public String checkPartyName(String party_name) {
+        String check = "1";
+        commonAsk = new CommonAsk("android/party/checkpartyname");
+        commonAsk.params.add(new CommonAskParam("party_name",party_name));
+
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            check = gson.fromJson(new InputStreamReader(in), new TypeToken<String>() {
+            }.getType());            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check;
+    }
+
 
 
 

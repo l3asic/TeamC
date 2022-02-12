@@ -1,5 +1,6 @@
 package com.example.totproject.party;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -36,8 +37,9 @@ public class PartyMainActivity extends AppCompatActivity {
 //            party_title.setText("공개 파티 목록");
         }
         if(tabcode == 2){   //파티 만들기 
-            Intent intent = new Intent(PartyMainActivity.this,PartyCreateActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(PartyMainActivity.this,PartyCreateActivity.class);
+//            startActivity(intent);
+            moveAct(PartyMainActivity.this,PartyCreateActivity.class);
         }
         if(tabcode == 3){   //내파티리스트 띄우기
             changeFrag(myparty_list_frag,"가입된 내 파티 목록");
@@ -51,6 +53,11 @@ public class PartyMainActivity extends AppCompatActivity {
     public void changeFrag(Fragment frag, String title){
         getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, frag).commit();
         party_title.setText(title);
+    }
+
+    public void moveAct(Context context, Class classs){
+        Intent intent = new Intent(context,classs);
+        startActivity(intent);
     }
 
 

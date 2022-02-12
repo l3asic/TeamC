@@ -3,6 +3,7 @@ package com.hanul.tot.partycontroller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -55,7 +57,8 @@ public class PartyController {
 
 			plDAO.insertParty(vo);
 
-			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");
+			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");			
+			
 
 			writer.print(gson.toJson(vo));
 
@@ -150,18 +153,12 @@ public class PartyController {
 		String from_and_party_sn= req.getParameter("party_sn");
 		int party_sn = Integer.parseInt(from_and_party_sn);
 
-		System.out.println(party_sn);	//안드 값 받아왔는지 찍을려고 테스트
-		
-		
-				
+						
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
 			list = plDAO.selectPartyDetail(party_sn);
-			System.out.println("party_sn = " + list.get(0).getParty_sn() );
-			System.out.println("0번째 멤버" + list.get(0).getMember_id());
 			
-
 			writer.print(gson.toJson(list));
 
 		} catch (Exception e) {
@@ -203,18 +200,77 @@ public class PartyController {
 
 	}//partyJoin()
 	
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/searchopenpartylist")
+	public void searchOpenPartylist(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("searchOpenPartylist() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		String search_keyword = req.getParameter("search_keyword");
+		
+		
+		try {
+			
+			List<PartyListVO> list = new ArrayList<PartyListVO>();
+			list = plDAO.selectSearchOpenPartylist(search_keyword);
+			
+
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//searchOpenPartylist()
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/checkpartyname")
+	public void checkPartyname(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("checkPartyname() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		String party_name = req.getParameter("party_name");
+		
+		try {
+						
+			String check = plDAO.selectcheckPartyname(party_name);			
+
+			writer.print(check);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//checkpartyname()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 }//PartyController()
-
-
-
-
-
-
-
-
-
-
-
 

@@ -2114,7 +2114,7 @@ int id edit_login_id 0x7f0900db
 int id edit_login_pw 0x7f0900dc
 int id edit_query 0x7f0900dd
 int id edt_party_detail 0x7f0900de
-int id edt_party_name 0x7f0900df
+int id edt_party_namet 0x7f090307
 int id edt_party_tag 0x7f0900e0
 int id edt_partyplan_content 0x7f0900e1
 int id edt_partyplan_content_detail 0x7f0900e2
@@ -2126,6 +2126,7 @@ int id edt_plan_location 0x7f0900e7
 int id edt_plan_name 0x7f0900e8
 int id edt_plan_startdate 0x7f0900e9
 int id edt_plan_startpoint 0x7f0900ea
+int id edt_search_keyword 0x7f090305
 int id elastic 0x7f0900eb
 int id end 0x7f0900ec
 int id endToStart 0x7f0900ed
@@ -2615,6 +2616,7 @@ int id tv_open_party_list 0x7f0902ce
 int id tv_party_detail 0x7f0902cf
 int id tv_party_name 0x7f0902d0
 int id tv_party_pic 0x7f0902d1
+int id tv_party_searchresult 0x7f090306
 int id tv_party_tag1 0x7f0902d2
 int id tv_party_tag2 0x7f0902d3
 int id tv_party_tag3 0x7f0902d4

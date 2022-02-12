@@ -2115,7 +2115,7 @@ id edit_login_id
 id edit_login_pw
 id edit_query
 id edt_party_detail
-id edt_party_name
+id edt_party_namet
 id edt_party_tag
 id edt_partyplan_content
 id edt_partyplan_content_detail
@@ -2127,6 +2127,7 @@ id edt_plan_location
 id edt_plan_name
 id edt_plan_startdate
 id edt_plan_startpoint
+id edt_search_keyword
 id elastic
 id end
 id endToStart
@@ -2616,6 +2617,7 @@ id tv_open_party_list
 id tv_party_detail
 id tv_party_name
 id tv_party_pic
+id tv_party_searchresult
 id tv_party_tag1
 id tv_party_tag2
 id tv_party_tag3

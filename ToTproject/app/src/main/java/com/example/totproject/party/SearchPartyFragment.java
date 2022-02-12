@@ -4,13 +4,17 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,13 +26,18 @@ import java.util.List;
 
 
 public class SearchPartyFragment extends Fragment {
-    String SearchKeyword;
+    Context context;
+    String search_keyword;
+    RecyclerView search_partylist_item;
+    TextView tv_party_searchresult;
+
     ArrayList<PartyListDTO> list = new ArrayList<>();
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
-    public SearchPartyFragment(String searchKeyword) {
-        SearchKeyword = searchKeyword;
+    public SearchPartyFragment(Context context, String search_keyword) {
+        this.context = context;
+        this.search_keyword = search_keyword;
     }
 
     @Override
@@ -36,9 +45,21 @@ public class SearchPartyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.party_frag_search, container, false);
 
+        search_partylist_item = view.findViewById(R.id.search_partylist_item);
+        tv_party_searchresult = view.findViewById(R.id.tv_party_searchresult);
 
-        검색화면 하는중
+        tv_party_searchresult.setText("'"+search_keyword + "'에 대한 검색 결과입니다.");
 
+
+        searchOpenPartylist(search_keyword);
+        if (list != null){
+            PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(
+                    context , RecyclerView.VERTICAL , false
+            );
+            search_partylist_item.setLayoutManager(layoutManager);
+            search_partylist_item.setAdapter(partyListAdapter);
+        }
 
 
 
@@ -46,10 +67,10 @@ public class SearchPartyFragment extends Fragment {
     }
 
 
-    private ArrayList<PartyListDTO> searchOpenPartylist() {
+    // @@@@@@@@@@@@ 검색기능 불능 수정필요 @@@@@@@@@@@@@@@@@@
+    private ArrayList<PartyListDTO> searchOpenPartylist(String search_keyword) {
         commonAsk = new CommonAsk("android/party/searchopenpartylist");
-        //commonAsk.params.add(new CommonAskParam("party_private",gson.toJson(party_private)));
-        //commonAsk.params.add(new CommonAskParam("party_private", party_private ));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        commonAsk.params.add(new CommonAskParam("search_keyword", search_keyword ));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {

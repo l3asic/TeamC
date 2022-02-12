@@ -18,14 +18,14 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:layout_weight="9"
                 android:background="@drawable/radius"
                 android:paddingLeft="10dp"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tv_party_searchresult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="'팀 TOT'에 대한 검색 결과입니다."

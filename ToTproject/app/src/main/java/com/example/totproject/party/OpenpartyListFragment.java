@@ -53,7 +53,7 @@ public class OpenpartyListFragment extends Fragment {
 
 
         showOpenPartylist();
-        if(!list.isEmpty()){
+        if(list != null){
             PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
             LinearLayoutManager layoutManager = new LinearLayoutManager(
                     context , RecyclerView.VERTICAL , false
@@ -63,10 +63,11 @@ public class OpenpartyListFragment extends Fragment {
         }
 
 
+        //검색 버튼
         btn_party_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SearchPartyFragment searchPartyFrag= new SearchPartyFragment(edt_search_keyword.getText()+"");
+                SearchPartyFragment searchPartyFrag= new SearchPartyFragment(getActivity(),edt_search_keyword.getText()+"");
                 partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
             }
         });

@@ -49,6 +49,20 @@ public class PartyListDAO {
 		sql.insert("party.mapper.insertJoinparty",vo);
 		
 	}
+
+
+	public List<PartyListVO> selectSearchOpenPartylist(String search_keyword) {
+		
+		return sql.selectList("party.mapper.selectSearchOpenPartylist",search_keyword);
+		
+	}
+
+
+	public String selectcheckPartyname(String party_name) {
+		String check ;
+		check = sql.selectOne("party.mapper.selectcheckPartyname", party_name);
+		return check;
+	}
 	
 	
 	

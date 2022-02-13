@@ -7,15 +7,7 @@
     tools:context=".main.Fragment01MainTab">
 
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/main_seach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:background="@drawable/main_search" />
-
     <ScrollView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -118,5 +110,20 @@
 
 
         </RelativeLayout>
+
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.SearchView
+android:layout_marginVertical="15dp"
+            android:id="@+id/main_seach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/main_search" />
+    </LinearLayout>
 </FrameLayout>

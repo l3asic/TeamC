@@ -3,12 +3,14 @@
 
 <mapper namespace="mbti.mapper">
 
-<select id="beforecompare" resultType="android.chaminhwan.MbtiVO">
+<select id="beforecompare" resultType="android.mainburger.MainBurgerNoticeVO">
 select *
+select  board.*
     from(
     select rownum as rn1, c.* 
     from(
-    select b.*, abs(a.mbti_activity+ b.mbti_activity) +
+   select  mbti.* from(
+    select  b.*, abs(a.mbti_activity+ b.mbti_activity) +
     abs(a.mbti_festival+ b.mbti_festival)+
     abs(a.mbti_tour+ b.mbti_tour)+
     abs(a.mbti_solo+ b.mbti_solo)+
@@ -19,11 +21,16 @@ select *
     abs(a.mbti_sd+ b.mbti_sd)+
     abs(a.mbti_io+ b.mbti_io) as matchscore
     from (select * from tbl_mbti where member_id='ChaMinHwan') a ,(select * from tbl_mbti where member_id is null) b 
-    order by matchscore) c
-    where rownum <![CDATA[ <= ]]>  100
+    order by matchscore) mbti 
+    ) c
+    where rownum <![CDATA[ <= ]]> 100
      order by DBMS_RANDOM.VALUE(1,500 )
-    ) d
-where rownum <![CDATA[ <= ]]> 10
+    ) d , tbl_board board
+where rownum <![CDATA[ <= ]]>10 and d.board_sn = board.board_sn
+
+    
+    
+    
 
 </select>
 

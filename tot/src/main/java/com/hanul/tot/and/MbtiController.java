@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.google.gson.Gson;
 
 import android.chaminhwan.MbtiVO;
+import android.mainburger.MainBurgerNoticeVO;
 import common.TempDAO;
 
 @Controller
@@ -29,7 +30,7 @@ public class MbtiController {
 
 	int i = 0;
 
-	@RequestMapping("/android/cmh/mbti")
+	@RequestMapping("/android/cmh/mbti/")
 	public void mbtiMatch(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
@@ -42,12 +43,11 @@ public class MbtiController {
 		PrintWriter writer = res.getWriter();
 
 		MbtiVO vo = new MbtiVO();
-
 		vo = gson.fromJson(req.getParameter("mbtiVO"), MbtiVO.class);
 		System.out.println(vo);
 
 		try {
-			List<MbtiVO> list = sql.selectList("mbti.mapper.beforecompare", vo);
+			List<MainBurgerNoticeVO> list = sql.selectList("mbti.mapper.beforecompare");
 
 		//	TempDAO dao = new TempDAO();
 		//	list = dao.mbtiMatch(list);

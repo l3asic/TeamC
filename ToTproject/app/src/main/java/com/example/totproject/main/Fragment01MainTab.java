@@ -15,7 +15,8 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.main.Adapter.MainTabAdapter;
+import com.example.totproject.main.Adapter.MainTabAdapter_big;
+import com.example.totproject.main.Adapter.MainTabAdapter_small;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -49,15 +50,16 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_frag_hometab, container, false);
-int cnt = 3;
+int cnt = 5;
 
         {
           //  board_list@board_class=notice/view_cnt=10/
-     //       list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
+          //  list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
+            list= dbBoardCall("android/cmh/mbti/");
             maintab_rv_recommend = v.findViewById(R.id.maintab_rv_recommend);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter adapter = new MainTabAdapter(getContext(), list, manager);
+            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
 
             maintab_rv_recommend.setLayoutManager(lmanager);
             maintab_rv_recommend.setAdapter(adapter);
@@ -65,22 +67,22 @@ int cnt = 3;
 
 
         {
-  //          list= dbBoardCall("android/cmh/board_list@board+class=review/view_cnt="+cnt+"/");
+            list= dbBoardCall("android/cmh/board_list@board+class=review/view_cnt="+cnt+"/");
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter adapter = new MainTabAdapter(getContext(), list, manager);
+            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
 
             maintab_rv_where.setLayoutManager(lmanager);
             maintab_rv_where.setAdapter(adapter);
         }
 
         {
-   //         list= dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt="+cnt+"/");
+            list= dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt="+cnt+"/");
             maintab_rv_tour = v.findViewById(R.id.maintab_rv_tour);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.VERTICAL, false);
-            MainTabAdapter adapter = new MainTabAdapter(getContext(), list, manager);
+            MainTabAdapter_big adapter = new MainTabAdapter_big(getContext(), list, manager);
 
             maintab_rv_tour.setLayoutManager(lmanager);
             maintab_rv_tour.setAdapter(adapter);

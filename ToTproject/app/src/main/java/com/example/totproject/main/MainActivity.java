@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    Intent(TendencyActivity01.class);
+                    ChangeActivity(TendencyActivity01.class);
                    // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
@@ -121,9 +121,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         NavigationView nav_view = findViewById(R.id.main_burger_view);
-
-
         View nav_headerview = nav_view.getHeaderView(0);
+
+        cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public void onClick(View v) {
+
+                if (drawer.isDrawerOpen(Gravity.END)) {
+                    drawer.closeDrawer(Gravity.END);
+                } else {
+                    drawer.openDrawer(Gravity.END);
+                }
+            }
+        });
         ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
         main_burger_imgv_circle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,19 +188,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("WrongConstant")
-            @Override
-            public void onClick(View v) {
 
-                if (drawer.isDrawerOpen(Gravity.END)) {
-                    drawer.closeDrawer(Gravity.END);
-                } else {
-                    drawer.openDrawer(Gravity.END);
-                }
-            }
-        });
 
         Menu nav_menu = nav_view.getMenu();
 
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     
-    public  void Intent(Class nextClass){
+    public  void ChangeActivity(Class nextClass){
         Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
     }

@@ -18,7 +18,7 @@ import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
 
 import java.util.ArrayList;
 
-public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.Viewholder> {
+public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_small.Viewholder> {
     //xml로 만들어놓은 아이템을 붙이기위한 LayoutInfler <- Context
     Context context;
     ArrayList<BoardCommonVO> list;
@@ -26,14 +26,14 @@ public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.Viewhold
     View.OnClickListener listener;
     FragmentManager manager;
 
-    public MainTabAdapter(Context context, ArrayList<BoardCommonVO> list) {
+    public MainTabAdapter_small(Context context, ArrayList<BoardCommonVO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }//NoticeAdapter
 
-    public MainTabAdapter(Context context, ArrayList<BoardCommonVO> list, FragmentManager manager) {
+    public MainTabAdapter_small(Context context, ArrayList<BoardCommonVO> list, FragmentManager manager) {
         this.manager = manager;
         this.context = context;
         this.list = list;
@@ -48,7 +48,7 @@ public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.Viewhold
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.main_frag_hometab_item, parent, false);
+        View itemView = inflater.inflate(R.layout.main_frag_hometab_item_small, parent, false);
         //1. ViewHolder holder = new ViewHolder(itemview);
         // return holder;
         return new Viewholder(itemView);
@@ -69,32 +69,32 @@ public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.Viewhold
 
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class Viewholder extends RecyclerView.ViewHolder {
-        ImageView hometab_img, hometab_img_like, hometab_img_comment;
-        TextView hometab_tv_title, hometab_tv_like, hometab_tv_comment; //xml에 있는 위젯들을 전역변수로 선언.
+        ImageView hometab_small_img, hometab_small_img_like, hometab_small_img_comment;
+        TextView hometab_small_tv_title, hometab_small_tv_like, hometab_small_tv_comment; //xml에 있는 위젯들을 전역변수로 선언.
         int board_sn;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            hometab_img = itemView.findViewById(R.id.hometab_img);
-            hometab_img_like = itemView.findViewById(R.id.hometab_img_like);
-            hometab_img_comment = itemView.findViewById(R.id.hometab_img_comment);
+            hometab_small_img = itemView.findViewById(R.id.hometab_small_img);
+            hometab_small_img_like = itemView.findViewById(R.id.hometab_small_img_like);
+            hometab_small_img_comment = itemView.findViewById(R.id.hometab_small_img_comment);
 
-            hometab_tv_title = itemView.findViewById(R.id.hometab_tv_title);
-            hometab_tv_like = itemView.findViewById(R.id.hometab_tv_like);
-            hometab_tv_comment = itemView.findViewById(R.id.hometab_tv_comment);
+            hometab_small_tv_title = itemView.findViewById(R.id.hometab_small_tv_title);
+            hometab_small_tv_like = itemView.findViewById(R.id.hometab_small_tv_like);
+            hometab_small_tv_comment = itemView.findViewById(R.id.hometab_small_tv_comment);
         }
 
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
-            holder.hometab_tv_title.setText(list.get(position).getBoard_title() + "어댑터 제목");
+            holder.hometab_small_tv_title.setText(list.get(position).getBoard_title() + "어댑터 제목");
 
-            holder.hometab_tv_like.setText(list.get(position).getBoard_cnt_like()+"");
-            holder.hometab_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
+            holder.hometab_small_tv_like.setText(list.get(position).getBoard_cnt_like()+"");
+            holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
 
             holder.board_sn = list.get(position).getBoard_sn();
 
-            holder.hometab_tv_title.setOnClickListener(new View.OnClickListener() {
+            holder.hometab_small_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

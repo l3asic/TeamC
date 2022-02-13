@@ -26,16 +26,19 @@ insert into tbl_mbti values (0,'테스트','ChaMinHwan',null, '우리집', 65535,65535
 insert into tbl_mbti values (1,'테스트',null,101, 'addr', 65535,65535,5,1,1,5,5,5,5,5,5,5);
 insert into tbl_mbti values (2,'테스트',null,102, 'addr', 65535,65535,1,5,1,4,4,4,4,4,4,4);
 
+insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);
+insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);
+insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);
+insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);
+insert into tbl_mbti values (3,'테스트',null,360, 'addr', 65535,65535,1,1,1,1,1,1,1,1,1,1);
 insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
-insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,2,2,2,2,2,2,2,2,2,2);
+insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,3,3,3,3,3,3,3,3,3,3);
+insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,4,4,4,4,4,4,4,4,4,4);
+insert into tbl_mbti values (3,'테스트',null,1001, 'addr', 65535,65535,5,5,5,5,5,5,5,5,5,5);
+
+select * from tbl_mbti order by board_sn;
+
+select mbti.* from tbl_board board, tbl_mbti mbti where board.board_sn=360;
 
 DBMS_RANDOM.VALUE(1,5 )
 
@@ -68,11 +71,12 @@ mbti_activity =  0,
     mbti_io =  0
 where member_id = 'ChaMinHwan';
 --
-select *
+select  board.*, d.*
     from(
     select rownum as rn1, c.* 
     from(
-    select b.*, abs(a.mbti_activity+ b.mbti_activity) +
+   select  mbti.* from(
+    select  b.*, abs(a.mbti_activity+ b.mbti_activity) +
     abs(a.mbti_festival+ b.mbti_festival)+
     abs(a.mbti_tour+ b.mbti_tour)+
     abs(a.mbti_solo+ b.mbti_solo)+
@@ -83,11 +87,12 @@ select *
     abs(a.mbti_sd+ b.mbti_sd)+
     abs(a.mbti_io+ b.mbti_io) as matchscore
     from (select * from tbl_mbti where member_id='ChaMinHwan') a ,(select * from tbl_mbti where member_id is null) b 
-    order by matchscore) c
+    order by matchscore asc) mbti 
+    ) c
     where rownum <= 100
-     order by DBMS_RANDOM.VALUE(1,500 )
-    ) d
-where rownum <=10
+     order by DBMS_RANDOM.VALUE(1,1000 )
+    ) d , tbl_board board
+where rownum <=10 and d.board_sn = board.board_sn
 ;
 
 
@@ -125,3 +130,26 @@ alter tABLE tbl_mbti MODIFY  (mbti_io inVISIBLE);
 --
 
 alter table tbl_mbti modify column mbti_local after mbti_sn;
+
+
+
+select  rownum, board.board_sn --하 알았다 여기서 고장났었네 ㅡㅡ, board.board_content 
+from (
+   select rownum, mbti.* from(
+    select  b.*, abs(a.mbti_activity+ b.mbti_activity) +
+    abs(a.mbti_festival+ b.mbti_festival)+
+    abs(a.mbti_tour+ b.mbti_tour)+
+    abs(a.mbti_solo+ b.mbti_solo)+
+    abs(a.mbti_couple+ b.mbti_couple)+
+    abs(a.mbti_buddys+ b.mbti_buddys)+
+    abs(a.mbti_family+ b.mbti_family)+
+    abs(a.mbti_price+ b.mbti_price)+
+    abs(a.mbti_sd+ b.mbti_sd)+
+    abs(a.mbti_io+ b.mbti_io) as matchscore
+    from (select * from tbl_mbti where member_id='ChaMinHwan') a ,(select * from tbl_mbti where member_id is null) b 
+    order by matchscore asc) mbti where rownum<=100 order by DBMS_RANDOM.VALUE(1,1000 )
+      ) top100 , tbl_board board 
+      where board.board_sn = top100.board_sn and rownum<=10
+      ;
+  
+commit;

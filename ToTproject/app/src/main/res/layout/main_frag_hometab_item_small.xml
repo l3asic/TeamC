@@ -25,7 +25,7 @@
             app:civ_border_overlay="true"
             app:civ_border_width="3dp" />-->
         <ImageView
-            android:id="@+id/hometab_img"
+            android:id="@+id/hometab_small_img"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
@@ -33,7 +33,7 @@
             android:src="@drawable/ic_launcher_foreground" />
 
         <TextView
-            android:id="@+id/hometab_tv_title"
+            android:id="@+id/hometab_small_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center"
@@ -58,14 +58,14 @@
 
                 <ImageView
                     android:layout_weight="1"
-                    android:id="@+id/hometab_img_like"
+                    android:id="@+id/hometab_small_img_like"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_bell" />
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/hometab_tv_like"
+                    android:id="@+id/hometab_small_tv_like"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -80,14 +80,14 @@
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_weight="1"
-                    android:id="@+id/hometab_img_comment"
+                    android:id="@+id/hometab_small_img_comment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_guild" />
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/hometab_tv_comment"
+                    android:id="@+id/hometab_small_tv_comment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

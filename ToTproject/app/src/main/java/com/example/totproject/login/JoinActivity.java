@@ -3,6 +3,7 @@ package com.example.totproject.login;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -49,7 +50,7 @@ public class JoinActivity extends AppCompatActivity {
         join_gender_f = findViewById(R.id.join_gender_f);
         join_email = findViewById(R.id.join_email);
         join_next = findViewById(R.id.join_next);
-
+        
         // 아이디 유효성
         join_id.addTextChangedListener(new TextWatcher() {
             @Override

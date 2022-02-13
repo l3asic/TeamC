@@ -7,14 +7,51 @@ import java.sql.Date;
 
 public class MainBurgerNoticeVO {
 
-	    private int board_sn,board_read_cnt, board_reviewepath;
-	    private String board_title, board_content, board_is_updated,board_private, board_replly_able,board_class, member_id;
-	    private Date board_date_create;
-	    //alt + insert key
+	private int board_sn,board_read_cnt, board_reviewepath;
+    private String board_title, board_content, board_is_updated,board_private, board_replly_able,board_class, member_id;
+    private String board_date_create, picture_filepath;
+    private int picture_file_count;
+    private int board_cnt_reply, board_cnt_like;
 
 
 
-	    public int getBoard_sn() {
+	    public String getPicture_filepath() {
+		return picture_filepath;
+	}
+
+	public void setPicture_filepath(String picture_filepath) {
+		this.picture_filepath = picture_filepath;
+	}
+
+	public int getPicture_file_count() {
+		return picture_file_count;
+	}
+
+	public void setPicture_file_count(int picture_file_count) {
+		this.picture_file_count = picture_file_count;
+	}
+
+	public int getBoard_cnt_reply() {
+		return board_cnt_reply;
+	}
+
+	public void setBoard_cnt_reply(int board_cnt_reply) {
+		this.board_cnt_reply = board_cnt_reply;
+	}
+
+	public int getBoard_cnt_like() {
+		return board_cnt_like;
+	}
+
+	public void setBoard_cnt_like(int board_cnt_like) {
+		this.board_cnt_like = board_cnt_like;
+	}
+
+	public void setBoard_date_create(String board_date_create) {
+		this.board_date_create = board_date_create;
+	}
+
+		public int getBoard_sn() {
 	        return board_sn;
 	    }
 
@@ -94,11 +131,9 @@ public class MainBurgerNoticeVO {
 	        this.member_id = member_id;
 	    }
 
-	    public Date getBoard_date_create() {
-	        return board_date_create;
-	    }
+		public String getBoard_date_create() {
+			return board_date_create;
+		}
 
-	    public void setBoard_date_create(Date board_date_create) {
-	        this.board_date_create = board_date_create;
-	    }
+
 }

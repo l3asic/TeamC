@@ -70,6 +70,9 @@ public class MainBurgerController {
 //		이걸 안드로이드에서 가져감
 		writer.print(gson.toJson(list));
 
+		
+		sql.close();
+
 	}
 	
 	@RequestMapping("/android/cmh/board_list@*/*/")

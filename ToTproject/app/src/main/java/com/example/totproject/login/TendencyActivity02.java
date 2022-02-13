@@ -24,7 +24,7 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
     RadioButton mbti_buddy_rad1, mbti_buddy_rad2, mbti_buddy_rad3, mbti_buddy_rad4, mbti_buddy_rad5, mbti_family_rad1, mbti_family_rad2, mbti_family_rad3, mbti_family_rad4, mbti_family_rad5, mbti_price_rad1, mbti_price_rad2, mbti_price_rad3, mbti_price_rad4, mbti_price_rad5, mbti_sd_rad1, mbti_sd_rad2, mbti_sd_rad3, mbti_sd_rad4, mbti_sd_rad5, mbti_io_rad1, mbti_io_rad2, mbti_io_rad3, mbti_io_rad4, mbti_io_rad5;
     Button tend2_btn_skip, tend2_btn_join;
     int tabcode = 0;
-    TendDTO dto2 = new TendDTO();
+    MbtiVO dto2 = new MbtiVO();
 
 
     @Override
@@ -97,7 +97,7 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
         tend2_btn_skip = findViewById(R.id.tend2_btn_skip);
         tend2_btn_join = findViewById(R.id.tend2_btn_join);
 
-        TendDTO dto1 = (TendDTO) getIntent().getSerializableExtra("TendDTO");
+        MbtiVO dto1 = (MbtiVO) getIntent().getSerializableExtra("TendDTO");
         mbti_buddy.setOnCheckedChangeListener(this);
         mbti_family.setOnCheckedChangeListener(this);
         mbti_price.setOnCheckedChangeListener(this);
@@ -113,6 +113,7 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
         tend2_btn_skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(TendencyActivity02.this, "회원가입", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TendencyActivity02.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -122,18 +123,10 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TendencyActivity02.this, MainActivity.class);
-
-
-                //mbti_tour mbti_activity mbti_festival mbti_solo mbti_couple
-
-      
-
                 intent.putExtra("TendDTO", dto2);
-
-
-                Toast.makeText(TendencyActivity02.this, "왜안되냐고 ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TendencyActivity02.this, "회원가입", Toast.LENGTH_SHORT).show();
                 //tendConnect(dto);
-               // startActivity(intent);
+                // startActivity(intent);
 
             }
         });
@@ -148,19 +141,14 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
 
         if (radioGroup.getId() == R.id.mbti_buddy) {
             dto2.setMbti_buddy((Integer) rdo_btn.getTag());
-            Toast.makeText(TendencyActivity02.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         } else if (radioGroup.getId() == R.id.mbti_family) {
             dto2.setMbti_family((Integer) rdo_btn.getTag());
-            Toast.makeText(TendencyActivity02.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         } else if (radioGroup.getId() == R.id.mbti_price) {
             dto2.setMbti_price((Integer) rdo_btn.getTag());
-            Toast.makeText(TendencyActivity02.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         } else if (radioGroup.getId() == R.id.mbti_sd) {
             dto2.setMbti_sd((Integer) rdo_btn.getTag());
-            Toast.makeText(TendencyActivity02.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         } else if (radioGroup.getId() == R.id.mbti_io) {
             dto2.setMbti_io((Integer) rdo_btn.getTag());
-            Toast.makeText(TendencyActivity02.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -171,7 +159,7 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
     kwkCommonAsk commonAsk;
     Gson gson = new Gson();
 
-    public void tendConnect(TendDTO dto) {
+    public void tendConnect(MbtiVO dto) {
         commonAsk = new kwkCommonAsk("tend_insert");
         String data = gson.toJson(dto);
         commonAsk.params.add(new CommonAskParam("vo", data));

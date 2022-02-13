@@ -18,4 +18,5 @@ insert into tbl_board (member_id, board_title, board_content, board_class) value
 select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
 </select>
 
+
 </mapper>

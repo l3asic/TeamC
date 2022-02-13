@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar,
@@ -125,7 +125,13 @@ public class MainActivity extends AppCompatActivity {
 
         View nav_headerview = nav_view.getHeaderView(0);
         ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
+        main_burger_imgv_circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "이미지 눌렸음 ㅎ", Toast.LENGTH_SHORT).show();
 
+            }
+        });
 
         afterLogin = nav_headerview.findViewById(R.id.main_burger_afterlogin);
         main_burger_myboard = nav_headerview.findViewById(R.id.main_burger_myboard);
@@ -135,19 +141,19 @@ public class MainActivity extends AppCompatActivity {
         main_burger_myboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "이미지 눌렸음 ㅎ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "이미지 눌렸음 ", Toast.LENGTH_SHORT).show();
             }
         });
         main_burger_myscrap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "이미지 눌렸음 ㅎ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "이미지 눌렸음 ", Toast.LENGTH_SHORT).show();
             }
         });
         main_burger_myparty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "이미지 눌렸음 ㅎ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "이미지 눌렸음 ", Toast.LENGTH_SHORT).show();
             }
         });
 

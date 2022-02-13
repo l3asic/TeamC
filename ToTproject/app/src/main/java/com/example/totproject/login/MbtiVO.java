@@ -2,9 +2,73 @@ package com.example.totproject.login;
 
 import java.io.Serializable;
 
-public class TendDTO implements Serializable {
+public class MbtiVO implements Serializable {
+    String mbti_local;
+    String member_id;
+    int board_sn;
+    String mbti_addr;
+    int mbti_x, mbti_y;
     int mbti_tour, mbti_activity, mbti_festival, mbti_solo, mbti_couple
             , mbti_buddy, mbti_family, mbti_price, mbti_sd, mbti_io;
+    int matchScore;
+
+    public int getMatchScore() {
+        return matchScore;
+    }
+
+    public void setMatchScore(int matchScore) {
+        this.matchScore = matchScore;
+    }
+
+    public String getMbti_local() {
+        return mbti_local;
+    }
+
+    public void setMbti_local(String mbti_local) {
+        this.mbti_local = mbti_local;
+    }
+
+    public String getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
+    }
+
+    public int getBoard_sn() {
+        return board_sn;
+    }
+
+    public void setBoard_sn(int board_sn) {
+        this.board_sn = board_sn;
+    }
+
+    public String getMbti_addr() {
+        return mbti_addr;
+    }
+
+    public void setMbti_addr(String mbti_addr) {
+        this.mbti_addr = mbti_addr;
+    }
+
+    public int getMbti_x() {
+        return mbti_x;
+    }
+
+    public void setMbti_x(int mbti_x) {
+        this.mbti_x = mbti_x;
+    }
+
+    public int getMbti_y() {
+        return mbti_y;
+    }
+
+    public void setMbti_y(int mbti_y) {
+        this.mbti_y = mbti_y;
+    }
+
+
 
 
 

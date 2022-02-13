@@ -50,9 +50,9 @@
             android:id="@+id/main_burger_imgv_circle"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/mainburger_btn_cancel"
-            android:layout_alignEnd="@+id/main_burger_tv_login"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+
+            android:layout_marginTop="35dp"
             android:padding="8dp"
             android:src="@drawable/ic_launcher_foreground"
             app:civ_border_color="#ffffff"
@@ -61,7 +61,7 @@
 
         <TextView
             android:id="@+id/main_burger_tv_login"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
             android:layout_marginTop="10dp"
@@ -71,8 +71,8 @@
             android:textStyle="bold" />
 
         <TextView
-android:id="@+id/main_burger_tv_join"
-            android:layout_width="match_parent"
+            android:id="@+id/main_burger_tv_join"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainburger_btn_cancel"
             android:layout_marginTop="35dp"

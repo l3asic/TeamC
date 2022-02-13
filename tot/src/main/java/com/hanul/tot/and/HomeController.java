@@ -1,9 +1,11 @@
 package com.hanul.tot.and;
 
+import java.net.http.HttpRequest;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -40,7 +42,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/test")
-	public String test(HttpSession session) {
+	public String test(HttpSession session, HttpServletRequest req) {
+		System.out.println("asdfasdf");
+		System.out.println();
 		return "home";
 	}
 	

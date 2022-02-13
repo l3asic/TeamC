@@ -47,8 +47,8 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/item_party_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/item_party_member_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/login_act_login.xml" value="0.25" />
-        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_burgermenu.xml" value="0.19375" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_act_main.xml" value="0.25" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_burgermenu.xml" value="0.33" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_boardtab.xml" value="0.3651041666666667" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.20208333333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.25" />
@@ -63,7 +63,9 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_memberinvite_item.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_membermanage.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_membermanage_item.xml" value="0.1480978260869565" />
-        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_burgermenu_myparty.xml" value="0.33" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_myparty_info.xml" value="0.25" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_act_partyjoin.xml" value="0.36614583333333334" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_burgermenu_myparty.xml" value="0.25" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_burgermenu_partylist.xml" value="0.25" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_burgermenu_partylist_item.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/party_frag_mypartylist.xml" value="0.1480978260869565" />

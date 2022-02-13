@@ -10,8 +10,9 @@
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:name="android.hardware.camera2"
-        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
 
 
     <!--API30이상부터는 queries라는 권한부여를 받는 처리가 한번 더 생김-->
@@ -115,22 +116,25 @@
             </intent-filter>
         </activity>
 
+
         <!--Kakao -->
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
+            -
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
                     android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
             </intent-filter>
         </activity>
+
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

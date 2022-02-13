@@ -145,6 +145,7 @@ public class Fragment02CategoryGridView extends Fragment{
 
 
 
+
    /* public void boardSN(int sn){
         Intent intent = new Intent(getActivity(), Fragment02CategoryDetail.class);
         intent.putExtra("sn",sn);

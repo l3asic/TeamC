@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.MemberDTO;
 import com.example.totproject.common.kwkCommonAsk;
 import com.google.gson.Gson;
 
@@ -26,7 +26,8 @@ public class JoinActivity extends AppCompatActivity {
 
     EditText join_id, join_pw, join_pw_confirm, join_name, join_nick, join_email, join_tel;
     TextView join_next;
-    Button join_id_confirm, join_gender, join_gender_f;
+    RadioGroup join_gender;
+    Button join_id_confirm, join_gender_m, join_gender_f;
     AlertDialog dialog;
     boolean validate = false;
     //String pwValidation = "^.*(?=^.{4,}$)(?=.*[0-9])(?=.^[a-zA-Z]).*$";
@@ -44,6 +45,8 @@ public class JoinActivity extends AppCompatActivity {
         join_name = findViewById(R.id.join_name);
         join_nick = findViewById(R.id.join_nick);
         join_gender = findViewById(R.id.join_gender);
+        join_gender_m = findViewById(R.id.join_gender_m);
+        join_gender_f = findViewById(R.id.join_gender_f);
         join_email = findViewById(R.id.join_email);
         join_next = findViewById(R.id.join_next);
 
@@ -143,12 +146,20 @@ public class JoinActivity extends AppCompatActivity {
             }
         });
 
+        /*//
+        String join_sex = "";
+        if (join_gender.getCheckedRadioButtonId() == R.id.join_gender_m) {
+            join_sex = "남성";
+        }
+        if (join_gender.getCheckedRadioButtonId() == R.id.join_gender_f) {
+            join_sex = "여성";
+        }*/
 
         // 아이디, 비번, 핸드폰 미입력 확인
         join_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             /*   if(join_id.getText().length() < 1 || join_pw.getText().length() < 1
+                if(join_id.getText().length() < 1 || join_pw.getText().length() < 1
                         || join_name.getText().length() <1 || join_nick.getText().length() <1
                         || join_tel.getText().length() < 1 || join_pw_confirm.getText().length() < 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
@@ -156,27 +167,29 @@ public class JoinActivity extends AppCompatActivity {
                     dialog.show();
                     return;
                 }
-                else {*/
+                else {
 
                     MemberDTO dto = new MemberDTO(
-                            join_id.getText() + "testid",
-                            join_pw.getText() + "test",
-                            join_name.getText() + "test",
-                            join_nick.getText() + "test",
-                            join_gender.getText() + "f",
-                            join_tel.getText() + "010",
-                            join_email.getText() + "test"
+                            join_id.getText() + "",
+                            join_pw.getText() + "",
+                            join_name.getText() + "",
+                            join_nick.getText() + "",
+                            join_gender.getTransitionName() + "",
+                            join_tel.getText() + "",
+                            join_email.getText() + ""
                     );
                     joinConnect(dto);
 
 
                     Intent intent = new Intent(JoinActivity.this, TendencyActivity01.class);
                     startActivity(intent);
-              /*  }*/
+              }
             }
         });
 
     } // onCreate()
+
+
     CommonMethod commonMethod = new CommonMethod();
     Gson gson = new Gson();
     kwkCommonAsk commonAsk;
@@ -186,15 +199,13 @@ public class JoinActivity extends AppCompatActivity {
         commonAsk.params.add(new CommonAskParam("vo",data));
 
 
-try {
-
-
-    InputStream in = commonMethod.excuteAsk(commonAsk);
-}catch (Exception e) {
-    e.printStackTrace();
-}
+    try {
+        InputStream in = commonMethod.excuteAsk(commonAsk);
+        }catch (Exception e) {
+        e.printStackTrace();
+        }
 
 
 
-    }
+    }//joinConnect()
 }

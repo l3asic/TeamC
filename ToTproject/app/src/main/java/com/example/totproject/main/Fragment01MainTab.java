@@ -53,7 +53,7 @@ int cnt = 3;
 
         {
           //  board_list@board_class=notice/view_cnt=10/
-            list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
+     //       list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
             maintab_rv_recommend = v.findViewById(R.id.maintab_rv_recommend);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
@@ -65,7 +65,7 @@ int cnt = 3;
 
 
         {
-            list= dbBoardCall("android/cmh/board_list@board+class=review/view_cnt="+cnt+"/");
+  //          list= dbBoardCall("android/cmh/board_list@board+class=review/view_cnt="+cnt+"/");
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
@@ -76,7 +76,7 @@ int cnt = 3;
         }
 
         {
-            list= dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt="+cnt+"/");
+   //         list= dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt="+cnt+"/");
             maintab_rv_tour = v.findViewById(R.id.maintab_rv_tour);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.VERTICAL, false);

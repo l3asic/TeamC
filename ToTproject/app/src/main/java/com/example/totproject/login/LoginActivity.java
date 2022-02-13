@@ -84,12 +84,12 @@ public class LoginActivity extends AppCompatActivity {
         login_btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if((edit_login_id.getText()+"").equals("aaa") && (edit_login_pw.getText()+"").equals("aaa") ) {
-                   Toast.makeText(LoginActivity.this, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
-                goMain();
-               } else {
-                   Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호틀림", Toast.LENGTH_SHORT).show();
-               }
+                if((edit_login_id.getText()+"").equals("aaa") && (edit_login_pw.getText()+"").equals("aaa") ) {
+                    Toast.makeText(LoginActivity.this, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                    goMain();
+                } else {
+                    Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호틀림", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
         search_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(LoginActivity.this, "터치 확인", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         search_pw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(LoginActivity.this, "터치 확인", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+                Intent intent = new Intent(LoginActivity.this, TendencyActivity01.class);
                 startActivity(intent);
             }
         });

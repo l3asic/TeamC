@@ -151,8 +151,8 @@ System.out.println("실제값 : " + vo.getParam0());
 
 		OneOneEmailVO vo = new OneOneEmailVO();
 
-		String svo = req.getParameter("vo");
-		vo = gson.fromJson(svo, OneOneEmailVO.class);
+		String getVo = req.getParameter("vo");
+		vo = gson.fromJson(getVo, OneOneEmailVO.class);
 
 		/*
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =

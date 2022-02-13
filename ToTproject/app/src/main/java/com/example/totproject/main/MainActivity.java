@@ -25,6 +25,8 @@ import com.example.totproject.R;
 import com.example.totproject.board.BoardMainActivity;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
+import com.example.totproject.login.TendencyActivity01;
+import com.example.totproject.login.TendencyActivity02;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -77,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
+                    Intent(TendencyActivity01.class);
+                   // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -228,6 +231,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, nextAct);
         intent.putExtra("tabcode", tabcode);
         intent.putExtra("tabText", tabText);
+        startActivity(intent);
+    }
+    
+    public  void Intent(Class nextClass){
+        Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
     }
 

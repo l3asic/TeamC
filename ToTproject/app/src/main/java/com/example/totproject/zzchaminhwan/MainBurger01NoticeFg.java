@@ -60,7 +60,7 @@ public class MainBurger01NoticeFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup v = (ViewGroup)
-                inflater.inflate(R.layout.zzz_main_burger01_notice_fg, container, false);
+                inflater.inflate(R.layout.mainburger01_notice_fg, container, false);
 
 
         list();

@@ -35,7 +35,7 @@ public class OpenpartyListFragment extends Fragment {
         for (int i=0; i<10;i++){
             list.add(new PartyListDTO(
                     001+i,
-                    R.drawable.ic_launcher_background,
+                    R.drawable.  ic_launcher_foreground,
                     "n",
                     "파티리더명",
                     "partyname01",

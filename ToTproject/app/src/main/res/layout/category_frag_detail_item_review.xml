@@ -37,21 +37,21 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/ic_launcher_background" />
+            android:background="@drawable/ic_launcher_foreground" />
         <ImageView
             android:id="@+id/category_detail_img2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/ic_launcher_background"/>
+            android:background="@drawable/ic_launcher_foreground"/>
         <ImageView
             android:id="@+id/category_detail_img3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/ic_launcher_background" />
+            android:background="@drawable/ic_launcher_foreground" />
     </LinearLayout>
 
     <TextView

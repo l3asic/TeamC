@@ -7,7 +7,7 @@
     tools:context=".zzchaminhwan.MainBurger02ServiceFg">
 
     <LinearLayout
-
+android:background="@drawable/ic_launcher_foreground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -15,14 +15,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/radius"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/qna_tv_q01"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/radius"
+
                 android:gravity="center_vertical"
                 android:text="비밀번호를 잃어버렸어요"
                 android:textSize="20dp" />
@@ -40,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/radius">
+             >
 
             <TextView
                 android:layout_width="match_parent"
@@ -59,14 +58,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/radius"
+
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/qna_tv_q02"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/radius"
+
                 android:gravity="center_vertical"
                 android:text="비밀번호를 잃어버렸어요"
                 android:textSize="20dp" />
@@ -83,7 +82,7 @@
             android:id="@+id/qna_tv_a02"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:background="@drawable/radius">
+             >
 
             <TextView
                 android:layout_width="match_parent"
@@ -96,6 +95,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/ic_launcher_background"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -103,14 +104,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/radius"
+
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/qna_tv_q03"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/radius"
+
                 android:gravity="center_vertical"
                 android:text="비밀번호를 잃어버렸어요"
                 android:textSize="20dp" />
@@ -132,7 +133,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:background="@drawable/radius"
+
 
                 android:padding="5dp"
                 android:text="로그인 - 비밀번호찾기 에서 찾으세요" />
@@ -140,7 +141,8 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/zzz_main_burger02_service_fg_01_qna_item"
+        android:id="@+id/mainburger02_service_fg_01_qna"
+        tools:listitem="@layout/mainburger02_service_fg_01_qna_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center" />

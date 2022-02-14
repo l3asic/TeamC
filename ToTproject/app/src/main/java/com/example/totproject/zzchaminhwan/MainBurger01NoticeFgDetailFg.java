@@ -42,7 +42,7 @@ public class MainBurger01NoticeFgDetailFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.zzz_main_burger01_notice_fg_detail_fg, container, false);
+        View v = inflater.inflate(R.layout.mainburger01_notice_fg_detail_fg, container, false);
 
         notice_detail_title = v.findViewById(R.id.notice_detail_title);
         notice_detail_content = v.findViewById(R.id.notice_detail_content);

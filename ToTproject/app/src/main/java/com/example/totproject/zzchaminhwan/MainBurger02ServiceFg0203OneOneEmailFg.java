@@ -46,7 +46,7 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.zzz_main_burger02_service_fg_0203_oneoneemail, container, false);
+        View v = inflater.inflate(R.layout.mainburger02_service_fg_0203_oneoneemail, container, false);
 
         name = v.findViewById(R.id.main_burger_service_oneoneemail_edt_name);
         email = v.findViewById(R.id.main_burger_service_oneoneemail_edt_email);

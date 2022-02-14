@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22083333333333333" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.22135416666666666" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/activity_00_join.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/activity_01_main.xml" value="0.32382246376811596" />
@@ -53,9 +54,12 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_categorytab.xml" value="0.20208333333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.25" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item.xml" value="0.33" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_big.xml" value="0.3651041666666667" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_small.xml" value="0.3614583333333333" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_recitem.xml" value="0.3614583333333333" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/main_frag_partytab.xml" value="0.20208333333333334" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/mainburger02_service_fg_01_qna.xml" value="0.25" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/mainburger02_service_fg_01_qna_item.xml" value="0.25" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/nav_party_main_old.xml" value="0.36614583333333334" />
@@ -88,6 +92,7 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_act_createplan01_item_user.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_act_createplan02.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_act_main.xml" value="0.1480978260869565" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_act_updateplan.xml" value="0.2046875" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_frag_plandetail.xml" value="0.33" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_frag_planlist.xml" value="0.1480978260869565" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/layout/partyplan_frag_planlist_item.xml" value="0.1480978260869565" />
@@ -114,6 +119,8 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_manual.xml" value="0.19114583333333332" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.19375" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_service.xml" value="0.20520833333333333" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.38125" />
+        <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.38125" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable-anydpi/main_burger.xml" value="0.21666666666666667" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/nav_select.xml" value="0.2171875" />

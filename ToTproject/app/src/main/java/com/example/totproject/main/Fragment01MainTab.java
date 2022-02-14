@@ -54,8 +54,8 @@ int cnt = 5;
 
         {
           //  board_list@board_class=notice/view_cnt=10/
-          //  list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
-            list= dbBoardCall("android/cmh/mbti/");
+            list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
+          //  list= dbBoardCall("android/cmh/mbti/");
             maintab_rv_recommend = v.findViewById(R.id.maintab_rv_recommend);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);

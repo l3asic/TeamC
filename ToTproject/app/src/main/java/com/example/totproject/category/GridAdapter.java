@@ -56,7 +56,7 @@ public class GridAdapter extends BaseAdapter {
         GridViewHolder viewHolder;
         if (convertView == null){//아직 초기 디자인이 없는상태의 view라면
             convertView =            //layout        , parent , 제어권 false
-                    inflater.inflate(R.layout.category_frag_grildlist_item_list,parent ,false);
+                    inflater.inflate(R.layout.category_frag_gridlist_item_list,parent ,false);
             viewHolder = new GridViewHolder();
             viewHolder.category_img_tour = convertView.findViewById(R.id.category_img_tour);
             viewHolder.category_tv_tourname = convertView.findViewById(R.id.category_tv_tourname);

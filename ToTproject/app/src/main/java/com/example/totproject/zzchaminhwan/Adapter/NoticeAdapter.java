@@ -16,11 +16,12 @@ import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder> {
     //xml로 만들어놓은 아이템을 붙이기위한 LayoutInfler <- Context
     Context context;
-    ArrayList<BoardCommonVO> list;
+    List<BoardCommonVO> list;
     LayoutInflater inflater;
     View.OnClickListener listener;
     FragmentManager manager;
@@ -30,7 +31,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }//NoticeAdapter
-    public NoticeAdapter(Context context, ArrayList<BoardCommonVO> list,  FragmentManager manager) {
+    public NoticeAdapter(Context context, List<BoardCommonVO> list, FragmentManager manager) {
         this.manager = manager;
         this.context = context;
         this.list = list;

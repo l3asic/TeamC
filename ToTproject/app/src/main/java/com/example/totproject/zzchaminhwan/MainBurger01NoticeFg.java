@@ -31,7 +31,7 @@ public class MainBurger01NoticeFg extends Fragment {
 
     RecyclerView notice_rc_view;
     Date date = new Date();
-    ArrayList<BoardCommonVO> list = new ArrayList<>();
+    List<BoardCommonVO> list = new ArrayList<>();
    /* public View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -90,9 +90,9 @@ public class MainBurger01NoticeFg extends Fragment {
     CommonAsk service;
     Gson gson = new Gson();
 
-    public ArrayList<BoardCommonVO> list() {
+    public List<BoardCommonVO> list() {
 
-        service = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=100/");
+        service = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
         InputStream in = CommonMethod.excuteAsk(service);
 
         try {

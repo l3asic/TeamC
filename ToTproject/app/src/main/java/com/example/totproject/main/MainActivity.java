@@ -27,12 +27,9 @@ import com.example.totproject.board.BoardMainActivity;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.login.TendencyActivity01;
-import com.example.totproject.login.TendencyActivity02;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-
-import org.apache.http.util.VersionInfo;
 
 import java.util.Date;
 
@@ -56,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
         bottom_nav = findViewById(R.id.main_nav);
         main_container = R.id.main_container;
-        Fragment01MainTab mainTab_frag = new Fragment01MainTab(MainActivity.this, manager);
+        Fragment01HomeTab mainTab_frag = new Fragment01HomeTab(MainActivity.this, manager);
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab loginTab_frag = new Fragment05IotTab();
         //ChangeFrament(main_container, mainTab_frag);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

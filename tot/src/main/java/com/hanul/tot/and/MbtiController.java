@@ -55,7 +55,7 @@ public class MbtiController {
 			writer.print(gson.toJson(list));
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 	}

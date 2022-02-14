@@ -1,20 +1,15 @@
 package com.example.totproject.category;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.totproject.R;
-import com.example.totproject.main.Fragment02CategoryTab;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
+import com.example.totproject.R;
 
 public class CategoryMainActivity extends AppCompatActivity {
     //GridView gridView;
@@ -22,6 +17,7 @@ public class CategoryMainActivity extends AppCompatActivity {
     TextView category_main_title;
     ImageView category_img_back;
 
+int paramSn=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +53,12 @@ public class CategoryMainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, categoryGridView).commit();
             // 지역축제시 출력연계
 
+        }
+        int paramSn = intent.getIntExtra("paramSn",0);
+        if(paramSn>0){ //메인 홈탭에서 왔을경우
+
+          Fragment02CategoryDetail detail = new Fragment02CategoryDetail(paramSn);
+        getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, detail).commit();
         }
 
         category_img_back.setOnClickListener(new View.OnClickListener() {

@@ -1,10 +1,5 @@
 package com.example.totproject.category;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,6 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
@@ -39,7 +39,7 @@ public class CategoryReplyActivity extends AppCompatActivity {
     RecyclerView image_recyler;
     ReplyAdapter replyAdapter;
     final int MAXIMAGE = 3;
-
+    int boardSN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,12 @@ public class CategoryReplyActivity extends AppCompatActivity {
             }
         });
 
+
+
         category_reply_edt = findViewById(R.id.category_reply_edt);
+
+        Intent intent = getIntent();
+        boardSN = intent.getIntExtra("sn",0);
 
         image_recyler = findViewById(R.id.image_recyler);
         replyAdapter = new ReplyAdapter(CategoryReplyActivity.this);
@@ -71,6 +76,8 @@ public class CategoryReplyActivity extends AppCompatActivity {
         String content = category_reply_edt.getText()+"";
 
         BoardCommonVO vo = new BoardCommonVO();
+        vo.setBoard_sn(boardSN);
+        vo.setBoard_content(content);
 
         /*vo.setMember_id("ChaMinHwan");
         vo.setBoard_title("갱");
@@ -88,10 +95,10 @@ public class CategoryReplyActivity extends AppCompatActivity {
             if(replyAdapter.getItemCount() >= MAXIMAGE){
                 Toast.makeText(CategoryReplyActivity.this,"최대 갯수는 3개입니다.",Toast.LENGTH_SHORT).show();
             }else{
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_PICK);
-                startActivityForResult(Intent.createChooser(intent, "사용할 앱 선택"), 0);
+                Intent imageIntent = new Intent();
+                imageIntent.setType("image/*");
+                imageIntent.setAction(Intent.ACTION_PICK);
+                startActivityForResult(Intent.createChooser(imageIntent, "사용할 앱 선택"), 0);
             }
 
         });
@@ -106,6 +113,7 @@ public class CategoryReplyActivity extends AppCompatActivity {
                     Toast.makeText(CategoryReplyActivity.this,"내용을 입력하세요.",Toast.LENGTH_SHORT).show();
                 }else{
                     reply_insert();
+                    finish();
                 }
             }
         });
@@ -160,11 +168,17 @@ public class CategoryReplyActivity extends AppCompatActivity {
         BoardCommonVO responseVO = null;
 
         String category_reply_edt_text = category_reply_edt.getText().toString();
+
+      /*  Bundle bundle = new Bundle();
+        int replysn = bundle.getInt("sn");
+
+        requestVO.setBoard_sn(replysn);*/
         requestVO.setBoard_content(category_reply_edt_text);
         requestVO.setPicture_file_count(replyAdapter.getItemCount());
         requestVO.setBoard_title("title");
         requestVO.setBoard_class("category");
         requestVO.setMember_id("1111");
+        requestVO.setBoard_sn(boardSN);
         commonAsk = new CommonAsk("category_reply");
 
         commonAsk.params.add(new CommonAskParam("category", gson.toJson(requestVO)));

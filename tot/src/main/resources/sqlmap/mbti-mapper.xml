@@ -19,11 +19,10 @@ from (
     abs(a.mbti_io- b.mbti_io) as matchscore
     from (select * from tbl_mbti where member_id='ChaMinHwan') a ,(select * from tbl_mbti where member_id is null) b ,tbl_board board  where  board.board_sn = b.board_sn
     order by matchscore asc
-    ) mbti where rownum<![CDATA[ <= ]]>   order by DBMS_RANDOM.VALUE(1,1000 ) 
-      ) top100 where rownum <![CDATA[ <= ]]> 10;
+    ) mbti where rownum<![CDATA[ <= ]]>  100 order by DBMS_RANDOM.VALUE(1,1000 ) 
+      ) top100 where rownum <![CDATA[ <= ]]> 10
 
 
-<![CDATA[ <= ]]>
 
     
     

@@ -54,7 +54,12 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
 
-
+        <activity
+            android:name=".category.CategoryReplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".category.CategoryMainActivity"
+            android:exported="false" />
         <activity
             android:name=".party_plan.PlanCreatePlanActivity"
             android:exported="false" />
@@ -64,6 +69,7 @@
         <activity
             android:name=".party_plan.PlanUpdatePlanActivity"
             android:exported="false" />
+
 
         <activity
             android:name=".party.MyPartyInfoActivity"
@@ -77,12 +83,12 @@
         <activity
             android:name=".party.PartyMainActivity"
             android:exported="false" />
+
+
         <activity
             android:name=".zzchaminhwan.MainBurger00Activity"
             android:exported="false" />
-        <activity
-            android:name=".category.CategoryMainActivity"
-            android:exported="false" />
+
         <activity
             android:name=".board.BoardMainActivity"
             android:exported="false" />
@@ -92,17 +98,20 @@
         <activity
             android:name=".board.Activity03BoardDetail"
             android:exported="false" />
+
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".login.TendencyActivity01"
             android:exported="false" />
         <activity
             android:name=".login.TendencyActivity02"
             android:exported="false" />
+
+
         <activity
             android:name=".login.JoinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"

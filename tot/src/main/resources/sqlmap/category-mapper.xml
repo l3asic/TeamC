@@ -5,22 +5,40 @@
 
 	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
 	<select id="categoryList_tour" resultType="category.CategoryVO">
-		select * from tbl_board
-		where board_class = 'tour'
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a 
+		where a.board_class = 'tour'
 	</select>
 	<select id="categoryList_activity" resultType="category.CategoryVO">
-		select * from tbl_board
-		where board_class = 'activity'
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a 
+		where a.board_class = 'activity'
 	</select>
 	<select id="categoryList_festival" resultType="category.CategoryVO">
-		select * from tbl_board
-		where board_class = 'festival'
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a 
+		where a.board_class = 'festival'
 	</select>
 	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
 
-	<insert id="reply_insert">
-		insert into tbl_board(board_title, board_content, board_class, member_id)
-		values (#{board_title}, #{board_content}, #{board_class}, #{member_id})
+	<insert id="reply_insert" useGeneratedKeys="false">
+		insert into tbl_board(board_sn,board_title, board_content, board_class, member_id,board_reviewpath)
+		values (seq_board_sn.NEXTVAL, #{board_title}, #{board_content}, #{board_class}, #{member_id},#{board_sn})
+		
+		<selectKey keyProperty="board_sn" resultType="int" order="AFTER"> SELECT seq_board_sn.CURRVAL FROM DUAL </selectKey>
+		
 	</insert>
 	<insert id="reply_picture"  parameterType="java.util.List">
 	
@@ -34,14 +52,50 @@
 		values (#{picture_filepath})
 	</insert> -->
 	
-	<select id="detail_List" resultType="category.CategoryVO">
+	<!-- <select id="detail_List" resultType="category.CategoryVO">
 		select * from tbl_board
 		where board_sn = #{board_sn}
-	</select>
+	</select> -->
 	
 	<select id="detail_categoryBoard" resultType="category.CategoryVO">
 		select * from tbl_board
 		where board_sn = #{board_sn}
 	</select>
+	
+	
+	<select id="list_picture" resultType="picture.PictureVO">
+		select * from tbl_board_picture
+		where board_sn = #{board_sn}
+	</select>
+	
+	<select id="list_reviewpath" resultType="category.CategoryVO">
+		select a.* , b.member_nick from tbl_board a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
+		where a.board_reviewpath = #{board_sn}
+		order by board_date_create desc
+	</select>
+	
+	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like
+		from tbl_board a 
+		where a.board_sn = #{board_sn}
+	</select>
+
+	<select id="category_like" resultType="int">
+		select NVL(COUNT(*),0) from tbl_board_function
+		where board_sn = #{board_sn}
+	</select>
+	
+	<insert id="like_insert">
+		insert into tbl_board_function(board_sn, member_id)
+		values (#{board_sn}, #{member_id})
+	</insert>
+	
+	<delete id="like_delete">
+		delete from tbl_board_function where board_sn = #{board_sn} and member_id = #{member_id}
+	</delete>
 	
 </mapper>

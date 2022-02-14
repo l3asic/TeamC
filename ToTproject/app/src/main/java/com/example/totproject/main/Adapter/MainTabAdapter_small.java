@@ -1,6 +1,7 @@
 package com.example.totproject.main.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.category.CategoryMainActivity;
 import com.example.totproject.common.VO.BoardCommonVO;
 
 import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
@@ -88,22 +90,22 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
             holder.hometab_small_tv_title.setText(list.get(position).getBoard_title() + "");
-
-            holder.hometab_small_tv_like.setText(list.get(position).getBoard_cnt_like()+"");
+            holder.hometab_small_tv_like.setText(list.get(position).getFunction_like()+"");
             holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
 
             holder.board_sn = list.get(position).getBoard_sn();
+
 
             holder.hometab_small_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-             /*       Intent intent = new Intent(context, MainBurger01NoticeFgDetailAct.class);
-                    intent.putExtra("vo", list.get(position));
+                    Intent intent = new Intent(context, CategoryMainActivity.class);
+                    intent.putExtra("paramSn", list.get(position).getBoard_sn());
 
-                    context.startActivity(intent);*/
-                    MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
-                    manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
+                    context.startActivity(intent);
+        //            MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
+                  //  manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
                 }
             });
 

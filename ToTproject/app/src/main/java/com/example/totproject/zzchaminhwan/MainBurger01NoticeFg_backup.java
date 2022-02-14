@@ -18,7 +18,6 @@ import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MainBurger01NoticeFg_backup extends Fragment {
 

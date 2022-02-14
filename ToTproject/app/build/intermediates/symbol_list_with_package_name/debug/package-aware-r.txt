@@ -2614,6 +2614,12 @@ id tv_createplan02_title
 id tv_member_nick
 id tv_my_party_list
 id tv_open_party_list
+id tv_openparty_tag1
+id tv_openparty_tag2
+id tv_openparty_tag3
+id tv_openparty_tag4
+id tv_openparty_tag5
+id tv_openparty_tag6
 id tv_party_detail
 id tv_party_name
 id tv_party_pic

@@ -77,7 +77,7 @@ public class MypartyListFragment extends Fragment {
 
     public ArrayList<PartyListDTO> showMyPartylist(){
         commonAsk = new CommonAsk("android/party/mypartylist");
-        commonAsk.params.add(new CommonAskParam("member_id",MemberDTO.id));        //@@@@@@ 아이디 => 멤버 아이디로해줄것
+        commonAsk.params.add(new CommonAskParam("member_id",MemberDTO.id));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {

@@ -21,15 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import android.mainburger.MainBurgerNoticeVO;
-import android.partydao.PartyListDAO;
+import android.partydao.PartyDAO;
 import android.partyvo.PartyListVO;
+import android.partyvo.PartyPlanListVO;
 import android.partyvo.ZZMemberVO;
 
 @Controller
 public class PartyController {
 	Gson gson = new Gson();
 	@Autowired
-	PartyListDAO plDAO;
+	PartyDAO pDAO;
 
 	@Autowired
 	@Qualifier("cteam")
@@ -55,7 +56,7 @@ public class PartyController {
 
 		try {
 
-			plDAO.insertParty(vo);
+			pDAO.insertParty(vo);
 
 			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");			
 			
@@ -84,7 +85,7 @@ public class PartyController {
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
-			list = plDAO.selectMypartyList(member_id);
+			list = pDAO.selectMypartyList(member_id);
 
 			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");
 			System.out.println(list.get(0).getParty_name());
@@ -125,7 +126,7 @@ public class PartyController {
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
-			list = plDAO.selectOpenpartyList();
+			list = pDAO.selectOpenpartyList();
 			System.out.println(list.get(0).getParty_name());
 
 			writer.print(gson.toJson(list));
@@ -157,7 +158,7 @@ public class PartyController {
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
-			list = plDAO.selectPartyDetail(party_sn);
+			list = pDAO.selectPartyDetail(party_sn);
 			
 			writer.print(gson.toJson(list));
 
@@ -188,7 +189,7 @@ public class PartyController {
 
 		try {
 
-			plDAO.insertJoinparty(vo);
+			pDAO.insertJoinparty(vo);
 
 			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");
 
@@ -217,7 +218,7 @@ public class PartyController {
 		try {
 			
 			List<PartyListVO> list = new ArrayList<PartyListVO>();
-			list = plDAO.selectSearchOpenPartylist(search_keyword);
+			list = pDAO.selectSearchOpenPartylist(search_keyword);
 			
 
 			writer.print(gson.toJson(list));
@@ -244,7 +245,7 @@ public class PartyController {
 		
 		try {
 						
-			String check = plDAO.selectcheckPartyname(party_name);			
+			String check = pDAO.selectcheckPartyname(party_name);			
 
 			writer.print(check);
 
@@ -255,6 +256,91 @@ public class PartyController {
 		
 
 	}//checkpartyname()
+	
+	
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ         파티 플랜 영역			 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ         파티 플랜 영역			 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+	
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/insertplan")	
+	public void insertPartyPlan(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		int succ;
+		System.out.println("insertPartyPlan 메소드 접근");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		PartyPlanListVO vo = new PartyPlanListVO();
+		String from_and_dto = req.getParameter("dto");
+		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
+		System.out.println(vo.getPlan_name());
+
+		/*
+		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
+		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
+		 */
+
+		try {
+
+			succ = pDAO.insertPartyPlan(vo);
+
+			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");			
+			
+
+			writer.print(succ);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}//insertParty
+
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/planlist")
+	public void selectPlanList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("planlist() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//		
+		String party_sn = req.getParameter("party_sn");
+		
+		try {
+			
+			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
+			list = pDAO.selectPlanList(party_sn);
+
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//mypartylist()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

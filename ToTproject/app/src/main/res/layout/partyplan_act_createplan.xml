@@ -252,7 +252,7 @@
                     android:background="@drawable/bottom_line"
                     android:gravity="center"
                     android:paddingBottom="10dp"
-                    android:text="ex) 2400000" />
+                    android:hint="ex) 2400000" />
             </LinearLayout>
 
             <Button

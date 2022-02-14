@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class MemberDTO implements Serializable {
 
-   public static String id = "b06";
+   public static String id = "b07";
    public static String pw;
    public static String name;
    public static String tel;

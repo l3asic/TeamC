@@ -67,7 +67,7 @@ public class SearchPartyFragment extends Fragment {
     }
 
 
-    // @@@@@@@@@@@@ 검색기능 불능 수정필요 @@@@@@@@@@@@@@@@@@
+
     private ArrayList<PartyListDTO> searchOpenPartylist(String search_keyword) {
         commonAsk = new CommonAsk("android/party/searchopenpartylist");
         commonAsk.params.add(new CommonAskParam("search_keyword", search_keyword ));

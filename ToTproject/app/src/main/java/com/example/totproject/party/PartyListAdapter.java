@@ -80,9 +80,9 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
                         intent.putExtra("party_sn" , list.get(position).getParty_sn());
                         context.startActivity(intent);
                     }else{
-                        // @@@@@@@@@@@ 탭코드 다른것일시 내파티 바로가기 수정필요?
+                        // 탭코드가 1이 아닐시 해당하는 파티(내파티) 이동
                         Intent intent = new Intent(context,MyPartyInfoActivity.class);
-                        intent.putExtra("dto" , list.get(position));
+                        intent.putExtra("party_dto" , list.get(position));
                         context.startActivity(intent);
                     }
 

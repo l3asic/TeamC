@@ -76,4 +76,28 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 
 
 
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 파티 플랜 영역 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->
+
+
+<!-- 오류남 무결성 제약조건 위배 부모키가없음 -->
+<insert id="insertPartyPlan">	
+	
+	insert into tbl_plan (plan_sn, party_sn, plan_name, plan_startdate, plan_enddate, 
+	plan_location, plan_startpoint, plan_hotel, plan_cost, member_id, plan_writer, plan_starttime)
+	values( seq_plan_sn.nextval, #{party_sn}, #{plan_name}, #{plan_startdate}, #{plan_enddate}, 
+	#{plan_location}, #{plan_startpoint}, #{plan_hotel}, #{plan_cost}, #{member_id}, #{plan_writer}, #{plan_starttime}) 
+	
+</insert>
+
+
+
+<select id="selectPlanList" resultType="android.partyvo.PartyPlanListVO">
+
+	select * from tbl_plan where party_sn = #{party_sn}
+	
+</select>
+
+
+
+
 </mapper>

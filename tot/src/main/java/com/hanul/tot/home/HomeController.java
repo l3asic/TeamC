@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -37,6 +38,17 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	@RequestMapping("/test")
+	public String test(HttpSession session, HttpServletRequest req) {
+		System.out.println("asdfasdf");
+		System.out.println();
+		return "home";
+	}
+	
+	@RequestMapping("/and/test")
+	public String testand(HttpSession session) {
+		return "android/test";
 	}
 	
 }

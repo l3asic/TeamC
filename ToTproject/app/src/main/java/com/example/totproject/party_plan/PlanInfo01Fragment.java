@@ -70,16 +70,15 @@ public class PlanInfo01Fragment extends Fragment {
                 "제주호텔",
                 "350000",
                 "준호",
-                "09:30",
-                "17:30"
+                "09:30"
         );
 
         //@@@@@@@@@@@ 안드 더미데이터 @@@@@@@@@@@
 
         plan_startdate = dto.getPlan_startdate();
         plan_starttime = dto.getPlan_starttime();
-        plan_enddate = dto.getPlan_endtime();
-        plan_endtime = dto.getPlan_endtime();
+//        plan_enddate = dto.getPlan_endtime();
+//        plan_endtime = dto.getPlan_endtime();
         plan_location = dto.getPlan_location();
         plan_startpoint = dto.getPlan_startpoint();
         plan_hotel = dto.getPlan_hotel();

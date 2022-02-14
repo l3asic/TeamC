@@ -16,9 +16,8 @@ public class PlanlistDTO implements Serializable {
     private String plan_cost;
     private String member_id;
     private String plan_starttime;
-    private String plan_endtime;
 
-    public PlanlistDTO(int plan_sn, int picture_filepath, int party_sn, String plan_name, String plan_writer, String plan_startdate, String plan_enddate, String plan_location, String plan_startpoint, String plan_hotel, String plan_cost, String member_id, String plan_starttime, String plan_endtime) {
+    public PlanlistDTO(int plan_sn, int picture_filepath, int party_sn, String plan_name, String plan_writer, String plan_startdate, String plan_enddate, String plan_location, String plan_startpoint, String plan_hotel, String plan_cost, String member_id, String plan_starttime) {
         this.plan_sn = plan_sn;
         this.picture_filepath = picture_filepath;
         this.party_sn = party_sn;
@@ -32,7 +31,7 @@ public class PlanlistDTO implements Serializable {
         this.plan_cost = plan_cost;
         this.member_id = member_id;
         this.plan_starttime = plan_starttime;
-        this.plan_endtime = plan_endtime;
+
     }
 
     public int getPlan_sn() {
@@ -139,11 +138,5 @@ public class PlanlistDTO implements Serializable {
         this.plan_starttime = plan_starttime;
     }
 
-    public String getPlan_endtime() {
-        return plan_endtime;
-    }
 
-    public void setPlan_endtime(String plan_endtime) {
-        this.plan_endtime = plan_endtime;
-    }
 }

@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,7 +36,7 @@ public class OpenpartyListFragment extends Fragment {
     Button btn_party_search;
     EditText edt_search_keyword;
     PartyMainActivity partyMainActivity = new PartyMainActivity();
-
+    TextView tv_openparty_tag1,tv_openparty_tag2,tv_openparty_tag3,tv_openparty_tag4,tv_openparty_tag5,tv_openparty_tag6;   //@@@@@@ 6개 해시태그클릭검색 추가할것
 
     public OpenpartyListFragment(Context context) {
         this.context = context;
@@ -48,6 +50,7 @@ public class OpenpartyListFragment extends Fragment {
         openpartylist_item = view.findViewById(R.id.openpartylist_item);
         btn_party_search = view.findViewById(R.id.btn_party_search);
         edt_search_keyword = view.findViewById(R.id.edt_search_keyword);
+
 
         partyMainActivity = (PartyMainActivity) getActivity();
 
@@ -63,6 +66,12 @@ public class OpenpartyListFragment extends Fragment {
         }
 
 
+
+
+
+
+
+
         //검색 버튼
         btn_party_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +80,6 @@ public class OpenpartyListFragment extends Fragment {
                 partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
             }
         });
-
-
 
 
 
@@ -98,6 +105,9 @@ public class OpenpartyListFragment extends Fragment {
         return list;
 
     }//showOpenPartylist()
+
+
+
 
 
 

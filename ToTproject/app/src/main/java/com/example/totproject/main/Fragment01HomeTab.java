@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
@@ -36,6 +37,7 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
 
 
     ArrayList<BoardCommonVO> list = new ArrayList<>();
+    BoardCommonVO vo = new BoardCommonVO();
 
     Context context;
     FragmentManager manager;
@@ -51,8 +53,11 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_frag_hometab, container, false);
         int cnt = 5;
+        vo.setList_cnt_many(cnt);
+
         //  board_list@board_class=notice/view_cnt=10/
 
+        /* ==================== 추천 ====================*/
         {
             // list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
             list = dbBoardCall("android/cmh/mbti/");
@@ -64,10 +69,15 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
             maintab_rv_recommend.setLayoutManager(lmanager);
             maintab_rv_recommend.setAdapter(adapter);
         }
+        /* ==================== 추천 ====================*/
 
 
+        /* ==================== 거리 ====================*/
         {
-            list = dbBoardCall("android/cmh/board_list@board+class=activity/view_cnt=" + cnt + "/");
+            // list = dbBoardCall("android/cmh/board_list@board+class=activity/view_cnt=" + cnt + "/");
+            vo.setBoard_class("activity");
+            list = selectBoardList(vo);
+
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
@@ -76,9 +86,14 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
             maintab_rv_where.setLayoutManager(lmanager);
             maintab_rv_where.setAdapter(adapter);
         }
+        /* ==================== 거리 ====================*/
 
+        /* ==================== 여행지 ====================*/
         {
-            list = dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt=" + cnt + "/");
+            // list = dbBoardCall("android/cmh/board_list@board_class=tour/view_cnt=" + cnt + "/");
+            vo.setBoard_class("tour");
+            list = selectBoardList(vo);
+
             maintab_rv_tour = v.findViewById(R.id.maintab_rv_tour);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.VERTICAL, false);
@@ -87,6 +102,7 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
             maintab_rv_tour.setLayoutManager(lmanager);
             maintab_rv_tour.setAdapter(adapter);
         }
+        /* ==================== 여행지 ====================*/
 
         return v;
     }
@@ -98,6 +114,20 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
         commonAsk = new CommonAsk(mapping);
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public ArrayList<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
+        commonAsk = new CommonAsk("android/cmh/board_select");
+
+        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
         try {
             list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
             }.getType());

@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     ImageView cancel;
 
+
+
     LinearLayout afterLogin, main_burger_myboard, main_burger_myscrap, main_burger_myparty;
     FragmentManager manager = getSupportFragmentManager();
 
@@ -107,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         /* toggle.syncState();*/
 
+        NavigationView nav_view = findViewById(R.id.main_burger_view);
+        View nav_headerview = nav_view.getHeaderView(0);
+
+        /* ==================== 버거메뉴 여닫기 ==================== */
         main_btn_burger = findViewById(R.id.main_btn_burger);
         main_btn_burger.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
@@ -119,10 +125,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        NavigationView nav_view = findViewById(R.id.main_burger_view);
-        View nav_headerview = nav_view.getHeaderView(0);
-
         cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
@@ -136,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        /* ========================================================= */
+
+
         ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
         main_burger_imgv_circle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     // 첫 번째 뒤로가기 버튼을 누를때 표시
     private Toast toast;
+
     @Override
     public void onBackPressed() {
         // 기존 뒤로가기 버튼의 기능을 막기위해 주석처리 또는 삭제

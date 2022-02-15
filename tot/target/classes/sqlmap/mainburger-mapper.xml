@@ -4,7 +4,7 @@
 <mapper namespace="mainburger.mapper">
 
 <select id="board_list" resultType="android.mainburger.MainBurgerNoticeVO">
-select rownum, tbl.* from (select * from tbl_board where board_class = #{param0}  order by board_sn desc ) tbl  where rownum  <![CDATA[ <= ]]> #{param1} order by rownum
+select rownum, tbl.* from (select * from tbl_board where board_class = #{board_class}  order by board_sn desc ) tbl  where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>
 
 <select id="board_detail" resultType="android.mainburger.MainBurgerNoticeVO">

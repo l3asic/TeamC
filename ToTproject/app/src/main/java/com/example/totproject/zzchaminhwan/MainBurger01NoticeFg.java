@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
@@ -30,22 +31,9 @@ public class MainBurger01NoticeFg extends Fragment {
 
 
     RecyclerView notice_rc_view;
-    Date date = new Date();
-    List<BoardCommonVO> list = new ArrayList<>();
-   /* public View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-              BoardCommonVO vo = new   BoardCommonVO();
+    ArrayList<BoardCommonVO> list = new ArrayList<>();
+    BoardCommonVO vo = new BoardCommonVO();
 
-            Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
-            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).commit();
-
-            Bundle bundle = new Bundle();
-            bundle.putString("sn", vo.getBoard_sn() + "");
-            getParentFragmentManager().setFragmentResult("sn", bundle);
-
-        }
-    };*/
 
     Context context;
     FragmentManager manager;
@@ -62,8 +50,9 @@ public class MainBurger01NoticeFg extends Fragment {
         ViewGroup v = (ViewGroup)
                 inflater.inflate(R.layout.mainburger01_notice_fg, container, false);
 
-
-        list();
+        vo.setBoard_class("notice");
+        vo.setList_cnt_many(999);
+        selectBoardList(vo);
 /*        for (int i = 0; i < 10; i++) {
               BoardCommonVO vo = new   BoardCommonVO();
             vo.setBoard_title(i + 1 + "번째 공지사항 제목");
@@ -87,13 +76,13 @@ public class MainBurger01NoticeFg extends Fragment {
         return v;
     }
 
-    CommonAsk service;
+    CommonAsk commonAsk;
     Gson gson = new Gson();
 
     public List<BoardCommonVO> list() {
 
-        service = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
-        InputStream in = CommonMethod.excuteAsk(service);
+        commonAsk = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
             list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
@@ -102,6 +91,20 @@ public class MainBurger01NoticeFg extends Fragment {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public ArrayList<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
+        commonAsk = new CommonAsk("android/cmh/board_select");
+
+        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  list;
     }
 
 }

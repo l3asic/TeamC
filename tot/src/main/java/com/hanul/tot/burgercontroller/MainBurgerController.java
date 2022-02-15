@@ -26,8 +26,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
 
-import android.chaminhwan.MappingParamVO;
-import android.chaminhwan.SelectMapperParamVO;
 import android.mainburger.MainBurgerNoticeVO;
 import android.mainburger.OneOneEmailVO;
 
@@ -40,6 +38,7 @@ public class MainBurgerController {
 	private SqlSession sql;
 
 	int i = 0;
+
 //http://localhost/tot/android/cmh/board_list@board_class=notice/view_cnt=10/
 //notice recommand where tour
 // * : /로 분리가능 읭 정렬기준 추가 가능.
@@ -47,17 +46,19 @@ public class MainBurgerController {
 	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
-		System.out.println("\n 테스트 : " + i + "\n" + path);
+		System.out.println("\n 테스트 : " + i + "\n" + "localhost/tot" + path);
 		System.out.println("getServletPath : " + path);
 
-		SelectMapperParamVO vo = new SelectMapperParamVO();
-		vo = gson.fromJson(req.getParameter("vo"), SelectMapperParamVO.class);
-
+		MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+		vo = gson.fromJson(req.getParameter("vo"), MainBurgerNoticeVO.class);
+		System.out.println("board_class = " + vo.getBoard_class());
+		System.out.println("list_cnt_many = " + vo.getList_cnt_many());
 		System.out.println();
 
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
+
 		PrintWriter writer = res.getWriter();
 
 		List<MainBurgerNoticeVO> list = new ArrayList<MainBurgerNoticeVO>();
@@ -65,21 +66,21 @@ public class MainBurgerController {
 		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
 		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
 		 */
-		list = sql.selectList("mainburger.mapper.board_select", vo);
+		list = sql.selectList("mainburger.mapper.board_list", vo);
 
 //		이걸 안드로이드에서 가져감
 		writer.print(gson.toJson(list));
-
-		
-		sql.close();
+		// sql.close(); 여기 오류
+		System.out.println();
 
 	}
-	
+
 	@RequestMapping("/android/cmh/board_list@*/*/")
 	public void noticeList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
-		System.out.println("\n 테스트 : " + i + "\n" + "localhost/tot"+path);
+
+		System.out.println("\n 테스트 : " + i + "\n" + "localhost/tot" + path);
 		System.out.println("getServletPath : " + path);
 
 		int idx = path.indexOf("@");
@@ -87,21 +88,19 @@ public class MainBurgerController {
 		System.out.println("afterSub : " + afterSub);
 
 		String[] paramCnt = afterSub.split("/");
-		MappingParamVO vo = new MappingParamVO();
+		MainBurgerNoticeVO vo = new MainBurgerNoticeVO();
+		// vo =gson.fromJson(req.getParameter("vo"), MainBurgerNoticeVO.class) ;
 		System.out.println("paramCnt.length : " + paramCnt.length);
-		for (int i = 0; i < paramCnt.length; i++) {
-			System.out.print("vo에 담을거임 - > paramCnt[" + i + "] : ");
-			System.out.println(paramCnt[i]);
-		}
 
 		idx = paramCnt[0].indexOf("=");
-		vo.setParam0(paramCnt[0].substring(idx + 1));
-System.out.println("실제값 : " + vo.getParam0());
+		vo.setBoard_class(paramCnt[0].substring(idx + 1));
+		System.out.println("실제값 : " + vo.getBoard_class());
 		idx = paramCnt[1].indexOf("=");
-		vo.setParam1(paramCnt[1].substring(idx + 1));
-		System.out.println("실제값 : " + vo.getParam1());
+		vo.setList_cnt_many(Integer.parseInt(paramCnt[1].substring(idx + 1)));
+		System.out.println("실제값 : " + vo.getList_cnt_many());
 		System.out.println();
-
+		System.out.println("board_class = " + vo.getBoard_class());
+		System.out.println("list_cnt_many = " + vo.getList_cnt_many());
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");

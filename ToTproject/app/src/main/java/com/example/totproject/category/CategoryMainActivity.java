@@ -57,7 +57,7 @@ int paramSn=-1;
         int paramSn = intent.getIntExtra("paramSn",0);
         if(paramSn>0){ //메인 홈탭에서 왔을경우
 
-          Fragment02CategoryDetail detail = new Fragment02CategoryDetail(paramSn);
+          Fragment02CategoryDetail detail = new Fragment02CategoryDetail(paramSn, tabcode);
         getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, detail).commit();
         }
 

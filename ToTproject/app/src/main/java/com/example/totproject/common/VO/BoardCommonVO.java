@@ -8,6 +8,15 @@ public class BoardCommonVO implements Serializable {
     private String board_date_create, picture_filepath , member_nick;
     private int picture_file_count;
     private int board_cnt_reply, function_like;
+    private int list_cnt_many;
+
+    public int getList_cnt_many() {
+        return list_cnt_many;
+    }
+
+    public void setList_cnt_many(int list_cnt_many) {
+        this.list_cnt_many = list_cnt_many;
+    }
 
     public int getBoard_sn() {
         return board_sn;

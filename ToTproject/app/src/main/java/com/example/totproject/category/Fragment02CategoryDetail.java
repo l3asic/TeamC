@@ -44,6 +44,7 @@ public class Fragment02CategoryDetail extends Fragment {
     TextView category_detail_tv_content;    // 추가
     TextView category_detail_like_count;    // 추가
     ImageView like_ico;
+    int routeFrom;
     int boardSN=-1;      // 추가
     BoardCommonVO vo = new BoardCommonVO();
  //   Context dCOmtext;
@@ -52,8 +53,9 @@ public class Fragment02CategoryDetail extends Fragment {
 
     public Fragment02CategoryDetail( ) {
     }
-    public Fragment02CategoryDetail(int paramSn) {
+    public Fragment02CategoryDetail(int paramSn, int routeFrom) {
         this.boardSN=paramSn;
+        this.routeFrom=routeFrom;
     }
 
 

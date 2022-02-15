@@ -267,7 +267,7 @@ public class PartyController {
 	@ResponseBody
 	@RequestMapping("/android/party/insertplan")	
 	public void insertPartyPlan(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-		int succ;
+		int succ = 0 ;
 		System.out.println("insertPartyPlan 메소드 접근");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
@@ -276,20 +276,12 @@ public class PartyController {
 
 		PartyPlanListVO vo = new PartyPlanListVO();
 		String from_and_dto = req.getParameter("dto");
-		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
-		System.out.println(vo.getPlan_name());
-
-		/*
-		 * vo.setBoard_class(req.getParameter("board_class")+""); list =
-		 * sql.selectList("mainburgernotice.mapper.noticelist",vo);
-		 */
+		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);	
 
 		try {
 
 			succ = pDAO.insertPartyPlan(vo);
-
-			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");			
-			
+			System.out.println(succ);
 
 			writer.print(succ);
 
@@ -312,7 +304,7 @@ public class PartyController {
 		PrintWriter writer = res.getWriter();
 
 		//		
-		String party_sn = req.getParameter("party_sn");
+		int party_sn = Integer.parseInt(req.getParameter("party_sn"));
 		
 		try {
 			

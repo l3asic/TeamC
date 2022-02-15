@@ -1,5 +1,6 @@
 package com.example.totproject.party_plan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +20,11 @@ public class PlanMainActivity extends AppCompatActivity {
     String title_name;
 
     PlanListFragment   plan_list_frag     ;
-    PlanInfo01Fragment plan_info_frag01 ;
+//    PlanInfo01Fragment plan_info_frag01 ;
     PlanInfo02Fragment plan_info_frag02 ;
+
+
+
 
 
 
@@ -41,7 +45,7 @@ public class PlanMainActivity extends AppCompatActivity {
         tabcode = get_intent.getIntExtra("tabcode",0);
 
         plan_list_frag   = new PlanListFragment(PlanMainActivity.this, plDTO.getParty_sn());
-        plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this);
+//        plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this);
         plan_info_frag02 = new PlanInfo02Fragment(PlanMainActivity.this);
 
         title_name = plDTO.getParty_name()+" 플랜 목록";
@@ -63,21 +67,14 @@ public class PlanMainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
     }//onCreate()
 
     //@@@@@@테스트용 체인지 프레그@@@@@@      추후 프레그도 넘겨받는식으로 수정해볼것   @@@@@@
     public void changePlanFrag(int tabcode, String title_name ){    // 
         if(tabcode == 1 || tabcode == 0){
             getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_list_frag).commit();
-        }else if(tabcode ==2){
-            getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).commit();
+        //}else if(tabcode ==2){
+          //  getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).commit();
         }else if(tabcode ==3){
             getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag02).commit();
         }
@@ -85,6 +82,20 @@ public class PlanMainActivity extends AppCompatActivity {
         tv_planmain_title.setText(title_name);
 
     }
+
+    // 해당하는 플랜 보여주기 (이동)
+    public void changePlanFrag(PlanlistDTO planDTO){
+        PlanInfo01Fragment plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this, planDTO);
+        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).commit();
+
+        tv_planmain_title.setText(planDTO.getPlan_name());
+
+    }
+
+
+
+
+
 
     @Override
     protected void onRestart() {

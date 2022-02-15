@@ -58,24 +58,24 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
-            //holder.imgv_plan.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
+            //holder.imgv_plan.setImage
             holder.edt_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );
             holder.edt_partyplan_content.setText( list.get(position).getPlandetail_content() +"" );
             holder.edt_partyplan_content_detail.setText( list.get(position).getPlandetail_content_detail() +"" );
 
 
 
-            holder.lin_click_update_content.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-//                    Intent intent = new Intent(context, PlanMainActivity.class);
-//                    intent.putExtra("dto" , list.get(position));
-//                    intent.putExtra("tabcode",2);
-//                    // intent.putExtra("id" , list.get(position).getId());
-//                    context.startActivity(intent);
-                }
-            });
+//            holder.lin_click_update_content.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
+////                    Intent intent = new Intent(context, PlanMainActivity.class);
+////                    intent.putExtra("dto" , list.get(position));
+////                    intent.putExtra("tabcode",2);
+////                    // intent.putExtra("id" , list.get(position).getId());
+////                    context.startActivity(intent);
+//                }
+//            });
 
         }
 

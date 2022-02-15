@@ -66,14 +66,13 @@ public class PartyDAO {
 	}
 	
 	
-	public int insertPartyPlan(PartyPlanListVO vo) {
-		
+	public int insertPartyPlan(PartyPlanListVO vo) {		
 			
 		return	sql.insert("party.mapper.insertPartyPlan", vo);
 	}
 
 
-	public List<PartyPlanListVO> selectPlanList(String party_sn) {
+	public List<PartyPlanListVO> selectPlanList(int party_sn) {
 		
 		return sql.selectList("party.mapper.selectPlanList", party_sn);
 	}

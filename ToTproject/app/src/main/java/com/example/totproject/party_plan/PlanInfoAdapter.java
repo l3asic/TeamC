@@ -51,7 +51,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
     // return 받게 해둠. )
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return list.get(groupPosition).getPlandetail_content();
+        return list.get(groupPosition).getSubList().get(childPosition);
     }
 
 

@@ -16,6 +16,7 @@ import com.example.totproject.R;
 public class PlanInfo01Fragment extends Fragment {
     Context context;
     PlanMainActivity planMainActivity = new PlanMainActivity();
+    PlanlistDTO planDTO;
 
 
 
@@ -23,16 +24,14 @@ public class PlanInfo01Fragment extends Fragment {
     TextView tv_plan_startdate, tv_plan_starttime, tv_plan_enddate, tv_plan_endtime, tv_plan_location, tv_plan_startpoint,
             tv_plan_hotel, tv_plan_cost;
 
-    String plan_startdate, plan_starttime, plan_enddate, plan_endtime, plan_location, plan_startpoint, plan_hotel, plan_cost;
 
     Button btn_plan_info02;
 
 
-
-    public PlanInfo01Fragment(Context context) {
+    public PlanInfo01Fragment(Context context, PlanlistDTO planDTO) {
         this.context = context;
+        this.planDTO = planDTO;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,41 +56,42 @@ public class PlanInfo01Fragment extends Fragment {
 
         //@@@@@@@@@@@ 안드 더미데이터 @@@@@@@@@@@
 
-        PlanlistDTO dto =new PlanlistDTO(
-                01,
-                001,
-                0001,
-                "제주 여행 계획",
-                "준호",
-                "2022-02-08",
-                "2022-20-10",
-                "제주도 서귀포",
-                "농성역에서 모이기",
-                "제주호텔",
-                "350000",
-                "준호",
-                "09:30"
-        );
+//        PlanlistDTO dto =new PlanlistDTO(
+//                01,
+//                001,
+//                0001,
+//                "제주 여행 계획",
+//                "준호",
+//                "2022-02-08",
+//                "2022-20-10",
+//                "제주도 서귀포",
+//                "농성역에서 모이기",
+//                "제주호텔",
+//                "350000",
+//                "준호",
+//                "09:30"
+//        );
 
         //@@@@@@@@@@@ 안드 더미데이터 @@@@@@@@@@@
 
-        plan_startdate = dto.getPlan_startdate();
-        plan_starttime = dto.getPlan_starttime();
-//        plan_enddate = dto.getPlan_endtime();
-//        plan_endtime = dto.getPlan_endtime();
-        plan_location = dto.getPlan_location();
-        plan_startpoint = dto.getPlan_startpoint();
-        plan_hotel = dto.getPlan_hotel();
-        plan_cost = dto.getPlan_cost();
+//        plan_startdate = planDTO.getPlan_startdate();
+//        plan_starttime = planDTO.getPlan_starttime();
+//        plan_enddate = planDTO.getPlan_enddate();
+//        plan_endtime = planDTO.getPlan_endtime();
+//        plan_location = planDTO.getPlan_location();
+//        plan_startpoint = planDTO.getPlan_startpoint();
+//        plan_hotel = planDTO.getPlan_hotel();
+//        plan_cost = planDTO.getPlan_cost();
 
-        tv_plan_startdate.setText(plan_startdate);
-        tv_plan_starttime.setText(plan_starttime);
-        tv_plan_enddate.setText(plan_enddate);
-        tv_plan_endtime.setText(plan_endtime);
-        tv_plan_location.setText(plan_location);
-        tv_plan_startpoint.setText(plan_startpoint);
-        tv_plan_hotel.setText(plan_hotel);
-        tv_plan_cost.setText(plan_cost);
+        tv_plan_startdate.setText(planDTO.getPlan_startdate());
+        tv_plan_starttime.setText(planDTO.getPlan_starttime());
+        tv_plan_enddate.setText(planDTO.getPlan_enddate());
+        tv_plan_endtime.setText("17:00");   // @@@@ 임의값   수정할것
+        //tv_plan_endtime.setText(planDTO.getPlan_endtime());   // @@@@ 임의값   수정할것
+        tv_plan_location.setText(planDTO.getPlan_location());
+        tv_plan_startpoint.setText(planDTO.getPlan_startpoint());
+        tv_plan_hotel.setText(planDTO.getPlan_hotel());
+        tv_plan_cost.setText(planDTO.getPlan_cost());
 
 
 

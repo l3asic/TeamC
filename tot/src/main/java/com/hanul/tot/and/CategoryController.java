@@ -34,7 +34,6 @@ public class CategoryController {
 
 
 	// 이 밑으로부터 코드작성
-	int i =0;
 	@ResponseBody
 	@RequestMapping("/category_list")
 	public void category_list(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -71,7 +70,7 @@ public class CategoryController {
 				String server_path = "http://" + req.getLocalAddr()
 				+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
 				System.out.println(server_path + path);
-				serverPathList.add(server_path);
+				serverPathList.add(server_path + path);
 			}
 			
 			/*
@@ -80,21 +79,172 @@ public class CategoryController {
 			 */
 			
 		}else {
-			System.out.println("파일 안들어옴..");
+			System.out.println("파일 안들어옴");
 		}
 		
 		System.out.println(vo.getBoard_sn());
 		System.out.println(vo.getBoard_title());
 		System.out.println(vo.getBoard_class());
-		
+		System.out.println(vo.getMember_id());
 		
 		System.out.println(vo.getBoard_content());
 		
-		dao.reply_insert(vo);
+		System.out.println(dao.reply_insert(vo) + "asdasdasd");
 		
 		if(pictureCount != 0) {
-			
+			ArrayList<PictureVO> pictureVOs = new ArrayList<PictureVO>();
+			for(String path : serverPathList) {
+				PictureVO pVO = new PictureVO();
+				pVO.setPicture_filepath(path);
+				pVO.setMember_id(vo.getMember_id());
+				pVO.setBoard_sn(vo.getBoard_sn());
+				pictureVOs.add(pVO);
+			}
+			if(pictureVOs.size() != 0)
+				dao.reply_picture_insert(pictureVOs);
 		}
 		
 	}
+	
+	@ResponseBody
+	@RequestMapping("/categoryList_tour")
+	public void detail_tour(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detail_tour 확인");
+		
+		List<CategoryVO> list = dao.catetour_list();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/categoryList_activity")
+	public void detail_activity(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detail_activity 확인");
+		
+		List<CategoryVO> list = dao.cateact_list();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/categoryList_festival")
+	public void detail_festival(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detail_festival 확인");
+		
+		List<CategoryVO> list = dao.catefes_list();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/category_detial")
+	public void detail_categoryBoard(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detail_categoryBoard 확인");
+		
+		List<CategoryVO> list = dao.detail_categoryBoard();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/list_picture")
+	public void list_picture(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("list_picture 확인");
+		
+		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
+		
+		List<PictureVO> list = dao.list_picture(board_sn);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/detail_categoryBoard")
+	public void board_picture_list(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detail_categoryBoard 확인");
+		
+		String tempVo = req.getParameter("category");
+		CategoryVO vo = gson.fromJson(tempVo, CategoryVO.class);
+		
+		CategoryVO resultVO = dao.detail_categoryBoard(vo);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(resultVO));
+		
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/list_reviewpath")
+	public void list_reviewpath(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("list_reviewpath 확인");
+		
+		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
+		
+		List<CategoryVO> list = dao.list_reviewpath(board_sn);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/category_like")
+	public void category_like(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("list_reviewpath 확인");
+		
+		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
+		
+		int count = dao.category_like(board_sn);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println(count);
+		
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/set_like")
+	public void set_like(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("set_like 확인");
+		
+		String tempVo = req.getParameter("category");
+		CategoryVO vo = gson.fromJson(tempVo, CategoryVO.class);
+
+		if(vo.getFunction_like() > 0) { //좋아요 삭제
+			dao.like_delete(vo);
+		}else {	//좋아요 추가
+			dao.like_insert(vo);
+		}
+		
+	}
+	
+	
 }

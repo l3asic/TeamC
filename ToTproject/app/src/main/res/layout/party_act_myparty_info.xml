@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".party.MyPartyInfoActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="@drawable/bottom_line"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/party_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="파티이름 유동"
+            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btn_party_info_berger"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="버거메뉴" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="90"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n">
+            </TextView>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:hint="채팅 내용을 입력하세요"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/party_burgermenu_myparty"
+        app:menu="@menu/menu_party"
+        android:visibility="gone"/>
+</LinearLayout>

@@ -79,7 +79,7 @@ public class MainBurger01NoticeFg extends Fragment {
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
-    public List<BoardCommonVO> list() {
+    public List<BoardCommonVO> list123() {
 
         commonAsk = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
         InputStream in = CommonMethod.excuteAsk(commonAsk);

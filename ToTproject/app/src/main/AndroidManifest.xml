@@ -55,11 +55,12 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".category.CategoryReplyActivity"
-            android:exported="false" />
-        <activity
             android:name=".category.CategoryMainActivity"
             android:exported="false" />
+        <activity
+            android:name=".category.CategoryReplyActivity"
+            android:exported="false" />
+
         <activity
             android:name=".party_plan.PlanCreatePlanActivity"
             android:exported="false" />

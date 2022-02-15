@@ -13,11 +13,10 @@ import com.example.totproject.R;
 
 public class CategoryMainActivity extends AppCompatActivity {
     //GridView gridView;
-    int tabcode;
+    int tabcode, paramSn;
     TextView category_main_title;
     ImageView category_img_back;
 
-int paramSn=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +34,8 @@ int paramSn=-1;
         category_main_title = findViewById(R.id.category_main_title);
         Intent intent = getIntent();
         tabcode = intent.getIntExtra("tabcode" ,  0);
+        paramSn = intent.getIntExtra("paramSn",0);
+
         category_main_title.setText(getIntent().getStringExtra("tabText"));
 
         Fragment02CategoryGridView categoryGridView = new Fragment02CategoryGridView(tabcode);
@@ -53,12 +54,9 @@ int paramSn=-1;
             getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, categoryGridView).commit();
             // 지역축제시 출력연계
 
-        }
-        int paramSn = intent.getIntExtra("paramSn",0);
-        if(paramSn>0){ //메인 홈탭에서 왔을경우
-
-          Fragment02CategoryDetail detail = new Fragment02CategoryDetail(paramSn, tabcode);
-        getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, detail).commit();
+        }else if (tabcode ==4){
+            Fragment02CategoryGridView categoryGridView2 = new Fragment02CategoryGridView(tabcode,paramSn);
+            getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, categoryGridView2).commit();
         }
 
         category_img_back.setOnClickListener(new View.OnClickListener() {

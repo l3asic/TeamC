@@ -3,6 +3,7 @@ package com.example.totproject.category;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.main.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,13 +31,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Fragment02CategoryGridView extends Fragment{
+public class Fragment02CategoryGridView extends Fragment {
     GridView gridView;
-    int tabcode;
+    int tabcode, paramSn;
     ArrayList<BoardCommonVO> list = new ArrayList<>();
+    int sorry_chaminhwan = 0; //메인탭으로부터 진입시 무한루프 방지
 
     public Fragment02CategoryGridView(int tabcode) {
         this.tabcode = tabcode;
+    }
+
+    public Fragment02CategoryGridView(int tabcode, int paramSn) {
+        this.tabcode = tabcode;
+        this.paramSn = paramSn;
     }
 
     @Override
@@ -48,16 +56,32 @@ public class Fragment02CategoryGridView extends Fragment{
         String result = pref.getString("tabText", "");*/
 
 
-        if(tabcode == 1){
+        if (tabcode == 1) {
             categoryList_tour();
-        }else if (tabcode == 2){
+        } else if (tabcode == 2) {
             categoryList_activity();
-        }else if (tabcode == 3){
+        } else if (tabcode == 3) {
             categoryList_festival();
+        } else if (tabcode == 4) {
+
+            if(sorry_chaminhwan ==0) {
+                BoardCommonVO vo = new BoardCommonVO();
+                vo.setBoard_sn(paramSn);
+                Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
+                getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).addToBackStack(null).commit();
+                Bundle bundle = new Bundle();
+                bundle.putInt("sn", vo.getBoard_sn());
+                getParentFragmentManager().setFragmentResult("sn", bundle);
+                sorry_chaminhwan ++;
+            }else{
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+
         }
 
 
-        CategoryAdapter adapter = new CategoryAdapter(getContext(),list);
+        CategoryAdapter adapter = new CategoryAdapter(getContext(), list);
         gridView = rooView.findViewById(R.id.gridv);
 
         gridView.setAdapter(adapter);
@@ -85,52 +109,52 @@ public class Fragment02CategoryGridView extends Fragment{
         return  list;
     }*/
 
-    public ArrayList<BoardCommonVO> categoryList_tour(){
+    public ArrayList<BoardCommonVO> categoryList_tour() {
         Gson gson = new Gson();
         CommonAsk commonAsk = new CommonAsk("categoryList_tour");
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
-        try{
+        try {
 
 
-
-            list    = gson.fromJson(new InputStreamReader(in), new TypeToken< List<BoardCommonVO> >(){}.getType());
-        }catch (Exception e){
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return  list;
+        return list;
     }
 
-    public ArrayList<BoardCommonVO> categoryList_activity(){
+    public ArrayList<BoardCommonVO> categoryList_activity() {
         Gson gson = new Gson();
         CommonAsk commonAsk = new CommonAsk("categoryList_activity");
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
-        try{
+        try {
 
 
-
-            list    = gson.fromJson(new InputStreamReader(in), new TypeToken< List<BoardCommonVO> >(){}.getType());
-        }catch (Exception e){
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return  list;
+        return list;
     }
 
-    public ArrayList<BoardCommonVO> categoryList_festival(){
+    public ArrayList<BoardCommonVO> categoryList_festival() {
         Gson gson = new Gson();
         CommonAsk commonAsk = new CommonAsk("categoryList_festival");
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
-        try{
+        try {
 
 
-
-            list    = gson.fromJson(new InputStreamReader(in), new TypeToken< List<BoardCommonVO> >(){}.getType());
-        }catch (Exception e){
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return  list;
+        return list;
     }
 
 
@@ -219,13 +243,12 @@ public class Fragment02CategoryGridView extends Fragment{
 
     }
 
-    public void boardSN(int sn){
+   /* public void boardSN(int sn){
         Intent intent = new Intent(getActivity(), Fragment02CategoryDetail.class);
         intent.putExtra("sn",sn);
-        startActivity(intent  );
+        startActivity(intent);
 
-
-    }
+    }*/
 
 
 

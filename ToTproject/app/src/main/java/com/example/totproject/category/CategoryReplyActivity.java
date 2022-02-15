@@ -189,7 +189,7 @@ public class CategoryReplyActivity extends AppCompatActivity {
         //파일은 안주므로 주석  commonAsk.fileParams.add(new CommonAskParam("file", img_filepath));
         InputStream in =  CommonMethod.excuteAsk(commonAsk);
 
-        String result = gson.fromJson(new InputStreamReader(in) , String.class);
+       // String result = gson.fromJson(new InputStreamReader(in) , String.class);
         try {
             responseVO = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
             }.getType());

@@ -101,6 +101,7 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
                 public void onClick(View v) {
 
                     Intent intent = new Intent(context, CategoryMainActivity.class);
+                    intent.putExtra("tabcode", 4);
                     intent.putExtra("paramSn", list.get(position).getBoard_sn());
 
                     context.startActivity(intent);

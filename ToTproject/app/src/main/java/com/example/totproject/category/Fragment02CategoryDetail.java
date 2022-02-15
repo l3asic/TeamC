@@ -44,22 +44,14 @@ public class Fragment02CategoryDetail extends Fragment {
     TextView category_detail_tv_content;    // 추가
     TextView category_detail_like_count;    // 추가
     ImageView like_ico;
-    int routeFrom;
-    int boardSN=-1;      // 추가
+    int boardSN;      // 추가
     BoardCommonVO vo = new BoardCommonVO();
  //   Context dCOmtext;
 
     ArrayList<BoardCommonVO> list = new ArrayList<>();
 
-    public Fragment02CategoryDetail( ) {
-    }
-    public Fragment02CategoryDetail(int paramSn, int routeFrom) {
-        this.boardSN=paramSn;
-        this.routeFrom=routeFrom;
-    }
 
-
-    //    Context context; ;FragmentManager manager; int getParamSn;
+//    Context context; ;FragmentManager manager; int getParamSn;
 //    public Fragment02CategoryDetail(Context context, FragmentManager manager, int getParamSn) { //컨텍슽르르 메인에서부터 가져옴
 //        this.context = context;
 //        this.manager = manager;
@@ -111,22 +103,12 @@ public class Fragment02CategoryDetail extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        getReplyList();
-
-    }
-
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getParentFragmentManager().setFragmentResultListener("sn", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String sn, @NonNull Bundle bundle) {
-                if(boardSN==0){
-                boardSN = bundle.getInt("sn");}
-
+                boardSN = bundle.getInt("sn");
                 detail();
                 contentPictureList();
                 getLikeCount();
@@ -135,9 +117,7 @@ public class Fragment02CategoryDetail extends Fragment {
 
             }
         });
-
     }
-
 
 
     //CategoryVO vo = new CategoryVO();

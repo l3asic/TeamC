@@ -93,6 +93,7 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
             holder.hometab_small_tv_like.setText(list.get(position).getFunction_like()+"");
             holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
 
+
             holder.board_sn = list.get(position).getBoard_sn();
 
 

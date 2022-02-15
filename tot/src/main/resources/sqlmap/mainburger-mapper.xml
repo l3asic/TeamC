@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mainburger.mapper">
+
+<select id="board_list" resultType="android.mainburger.BoardCommonVO">
+select rownum, tbl.* from (select * from tbl_board where board_class = #{board_class}  order by board_sn desc ) tbl  where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
+</select>
+
+<select id="board_detail" resultType="android.mainburger.BoardCommonVO">
+select * from tbl_board where board_sn = #{paramSn}
+</select>
+
+<insert id="insertVs">
+insert into tbl_board (member_id, board_title, board_content, board_class) values (#{name, jdbcType=VARCHAR}, #{title}, #{content}, 'vs')
+</insert>
+<select id="selectThisVs" resultType="android.mainburger.BoardCommonVO">
+select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
+</select>
+
+</mapper>

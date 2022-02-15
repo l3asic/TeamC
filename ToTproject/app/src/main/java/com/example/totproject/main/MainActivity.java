@@ -34,7 +34,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    https://salix97.tistory.com/72
+    //https://salix97.tistory.com/72
     BottomNavigationView bottom_nav;
     int main_container;
     Button main_btn_burger;

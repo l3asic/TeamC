@@ -20,6 +20,8 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.main.Adapter.MainTabAdapter_small;
+import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
+import com.example.totproject.zzchaminhwan.Adapter.QnaAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -55,11 +57,12 @@ public class MainBurger02ServiceFg01QnAFg extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.mainburger02_service_fg_01_qna, container, false);
-        list = dbBoardCall("android/cmh/board_list@board+class=qna/view_cnt=" + 999 + "/");
+
+        list = dbBoardCall("android/cmh/board_list@board_class=QnA/view_cnt=" + 999 + "/");
         mainburger02_service_fg_01_qna = v.findViewById(R.id.mainburger02_service_fg_01_qna);
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
+        QnaAdapter adapter = new QnaAdapter(getContext(), list, manager);
         mainburger02_service_fg_01_qna.setLayoutManager(lmanager);
         mainburger02_service_fg_01_qna.setAdapter(adapter);
 

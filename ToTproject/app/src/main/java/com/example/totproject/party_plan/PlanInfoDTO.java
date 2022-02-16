@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class PlanInfoDTO implements Serializable {
 
-    private String plandetail_date;
+    private String plandetail_day;
     private String plandetail_time;
     private int plan_sn;
     private String plandetail_content;
@@ -16,12 +16,12 @@ public class PlanInfoDTO implements Serializable {
         return subList;
     }
 
-    public void setSubList(ArrayList<PlanInfoDTO> subList) {
-        this.subList = subList;
+    public void setSubList() {
+        this.subList = new ArrayList<>();
     }
 
     public PlanInfoDTO(String plandetail_date, String plandetail_time, int plan_sn, String plandetail_content, String plandetail_content_detail) {
-        this.plandetail_date = plandetail_date;
+        this.plandetail_day = plandetail_date;
         this.plandetail_time = plandetail_time;
         this.plan_sn = plan_sn;
         this.plandetail_content = plandetail_content;
@@ -29,11 +29,11 @@ public class PlanInfoDTO implements Serializable {
     }
 
     public String getPlandetail_date() {
-        return plandetail_date;
+        return plandetail_day;
     }
 
-    public void setPlandetail_date(String plandetail_date) {
-        this.plandetail_date = plandetail_date;
+    public void setPlandetail_date(String plandetail_day) {
+        this.plandetail_day = plandetail_day;
     }
 
     public String getPlandetail_time() {

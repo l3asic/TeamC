@@ -16,7 +16,7 @@ import com.example.totproject.R;
 public class PlanInfo01Fragment extends Fragment {
     Context context;
     PlanMainActivity planMainActivity = new PlanMainActivity();
-    PlanlistDTO planDTO;
+    PlanlistDTO planlistDTO;
 
 
 
@@ -27,9 +27,9 @@ public class PlanInfo01Fragment extends Fragment {
     Button btn_plan_info02;
 
 
-    public PlanInfo01Fragment(Context context, PlanlistDTO planDTO) {
+    public PlanInfo01Fragment(Context context, PlanlistDTO planlistDTO) {
         this.context = context;
-        this.planDTO = planDTO;
+        this.planlistDTO = planlistDTO;
     }
 
     @Override
@@ -53,21 +53,21 @@ public class PlanInfo01Fragment extends Fragment {
         tv_plan_cost=view.findViewById(R.id.tv_plan_cost);
 
 
-        tv_plan_startdate.setText(planDTO.getPlan_startdate());
-        tv_plan_starttime.setText(planDTO.getPlan_starttime());
-        tv_plan_enddate.setText(planDTO.getPlan_enddate());
-        tv_plan_endtime.setText(planDTO.getPlan_endtime());
-        tv_plan_location.setText(planDTO.getPlan_location());
-        tv_plan_startpoint.setText(planDTO.getPlan_startpoint());
-        tv_plan_hotel.setText(planDTO.getPlan_hotel());
-        tv_plan_cost.setText(planDTO.getPlan_cost());
+        tv_plan_startdate.setText(planlistDTO.getPlan_startdate());
+        tv_plan_starttime.setText(planlistDTO.getPlan_starttime());
+        tv_plan_enddate.setText(planlistDTO.getPlan_enddate());
+        tv_plan_endtime.setText(planlistDTO.getPlan_endtime());
+        tv_plan_location.setText(planlistDTO.getPlan_location());
+        tv_plan_startpoint.setText(planlistDTO.getPlan_startpoint());
+        tv_plan_hotel.setText(planlistDTO.getPlan_hotel());
+        tv_plan_cost.setText(planlistDTO.getPlan_cost());
 
 
         btn_plan_info02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PlanInfo02Fragment plan_info_frag02 = new PlanInfo02Fragment(getActivity());
-                planMainActivity.changePlanFrag(plan_info_frag02 , planDTO.getPlan_name());
+                PlanInfo02Fragment plan_info_frag02 = new PlanInfo02Fragment(getActivity(),planlistDTO);
+                planMainActivity.changePlanFrag(plan_info_frag02 , planlistDTO.getPlan_name());
 
             }
         });

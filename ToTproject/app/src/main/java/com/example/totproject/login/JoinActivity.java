@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.kwkCommonAsk;
 import com.google.gson.Gson;
 
@@ -171,13 +172,6 @@ public class JoinActivity extends AppCompatActivity {
                 else {
 
                     MemberDTO dto = new MemberDTO(
-                            join_id.getText() + "",
-                            join_pw.getText() + "",
-                            join_name.getText() + "",
-                            join_nick.getText() + "",
-                            join_gender.getTransitionName() + "",
-                            join_tel.getText() + "",
-                            join_email.getText() + ""
                     );
                     joinConnect(dto);
 
@@ -194,7 +188,7 @@ public class JoinActivity extends AppCompatActivity {
     CommonMethod commonMethod = new CommonMethod();
     Gson gson = new Gson();
     kwkCommonAsk commonAsk;
-    public  void joinConnect (MemberDTO dto) {
+    public  void joinConnect ( MemberDTO dto) {
         commonAsk = new kwkCommonAsk("join.test");
         String data = gson.toJson(dto);
         commonAsk.params.add(new CommonAskParam("vo",data));

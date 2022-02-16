@@ -16,11 +16,9 @@ import com.example.totproject.R;
 import com.example.totproject.category.CategoryMainActivity;
 import com.example.totproject.common.VO.BoardCommonVO;
 
-import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
-
 import java.util.ArrayList;
 
-public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_small.Viewholder> {
+public class MainTabAdapter_small_mbti extends RecyclerView.Adapter<MainTabAdapter_small_mbti.Viewholder> {
     //xml로 만들어놓은 아이템을 붙이기위한 LayoutInfler <- Context
     Context context;
     ArrayList<BoardCommonVO> list;
@@ -28,14 +26,14 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
     View.OnClickListener listener;
     FragmentManager manager;
 
-    public MainTabAdapter_small(Context context, ArrayList<BoardCommonVO> list) {
+    public MainTabAdapter_small_mbti(Context context, ArrayList<BoardCommonVO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }//NoticeAdapter
 
-    public MainTabAdapter_small(Context context, ArrayList<BoardCommonVO> list, FragmentManager manager) {
+    public MainTabAdapter_small_mbti(Context context, ArrayList<BoardCommonVO> list, FragmentManager manager) {
         this.manager = manager;
         this.context = context;
         this.list = list;
@@ -50,7 +48,7 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.main_frag_hometab_item_small, parent, false);
+        View itemView = inflater.inflate(R.layout.main_frag_hometab_item_small_mbti, parent, false);
         //1. ViewHolder holder = new ViewHolder(itemview);
         // return holder;
         return new Viewholder(itemView);
@@ -73,6 +71,7 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
     public class Viewholder extends RecyclerView.ViewHolder {
         ImageView hometab_small_img, hometab_small_img_like, hometab_small_img_comment;
         TextView hometab_small_tv_title, hometab_small_tv_like, hometab_small_tv_comment; //xml에 있는 위젯들을 전역변수로 선언.
+        TextView hometab_small_tv_score;
         int board_sn;
 
         public Viewholder(@NonNull View itemView) {
@@ -84,18 +83,20 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
             hometab_small_tv_title = itemView.findViewById(R.id.hometab_small_tv_title);
             hometab_small_tv_like = itemView.findViewById(R.id.hometab_small_tv_like);
             hometab_small_tv_comment = itemView.findViewById(R.id.hometab_small_tv_comment);
+
+            hometab_small_tv_score = itemView.findViewById(R.id.hometab_small_tv_score);
         }
 
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
             holder.hometab_small_tv_title.setText(list.get(position).getBoard_title() + "");
-            holder.hometab_small_tv_like.setText(list.get(position).getFunction_like()+"");
-            holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
-
+            holder.hometab_small_tv_like.setText(list.get(position).getFunction_like() + "");
+            holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply() + "");
 
             holder.board_sn = list.get(position).getBoard_sn();
 
+            holder.hometab_small_tv_score.setText("추천 No." + (position + 1) + ", 성향일치" + (100 - list.get(position).getMatchScore()) + "점");
 
             holder.hometab_small_img.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -106,8 +107,8 @@ public class MainTabAdapter_small extends RecyclerView.Adapter<MainTabAdapter_sm
                     intent.putExtra("paramSn", list.get(position).getBoard_sn());
 
                     context.startActivity(intent);
-        //            MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
-                  //  manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
+                    //            MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
+                    //  manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();
                 }
             });
 

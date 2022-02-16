@@ -16,7 +16,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
-import com.example.totproject.main.Adapter.MainTabAdapter_small;
+import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -59,7 +59,7 @@ int cnt = 5;
             maintab_rv_recommend = v.findViewById(R.id.maintab_rv_recommend);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
+            MainTabAdapter_small_mbti adapter = new MainTabAdapter_small_mbti(getContext(), list, manager);
 
             maintab_rv_recommend.setLayoutManager(lmanager);
             maintab_rv_recommend.setAdapter(adapter);
@@ -71,7 +71,7 @@ int cnt = 5;
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
+            MainTabAdapter_small_mbti adapter = new MainTabAdapter_small_mbti(getContext(), list, manager);
 
             maintab_rv_where.setLayoutManager(lmanager);
             maintab_rv_where.setAdapter(adapter);

@@ -13,6 +13,15 @@ public class BoardCommonVO implements Serializable {
     private int picture_file_count;
     private int board_cnt_reply, function_like;
     private int list_cnt_many;
+private int matchScore;
+    
+    public int getMatchScore() {
+        return matchScore;
+    }
+
+    public void setMatchScore(int matchScore) {
+        this.matchScore = matchScore;
+    }
 
     public int getList_cnt_many() {
         return list_cnt_many;

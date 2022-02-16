@@ -60,6 +60,7 @@
                 android:textAlignment="center" />
 
             <EditText
+
                 android:id="@+id/edit_login_pw"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
@@ -76,29 +77,16 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/login_btn_login"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="10dp"
                     android:text="로그인"
                     android:textSize="22dp" />
-            </LinearLayout>
 
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

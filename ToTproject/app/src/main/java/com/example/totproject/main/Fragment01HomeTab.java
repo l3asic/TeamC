@@ -17,7 +17,9 @@ import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
-import com.example.totproject.main.Adapter.MainTabAdapter_small;
+
+import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
+import com.example.totproject.main.Adapter.MainTabAdapter_small_xy;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -52,41 +54,43 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_frag_hometab, container, false);
+
+        /* ==================== 표시할항목수 ====================*/
         int cnt = 5;
         vo.setList_cnt_many(cnt);
+        /* ======================================================*/
 
-        //  board_list@board_class=notice/view_cnt=10/
+        // 맵핑 ex) board_list@board_class=notice/view_cnt=10/
 
         /* ==================== 추천 ====================*/
         {
             // list= dbBoardCall("android/cmh/board_list@class=vs/view_cnt="+cnt+"/");
-            list = dbBoardCall("android/cmh/mbti/");
+            list = dbBoardCall("android/cmh/mbti_mbti/");
             maintab_rv_recommend = v.findViewById(R.id.maintab_rv_recommend);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
+            MainTabAdapter_small_mbti adapter = new MainTabAdapter_small_mbti(getContext(), list, manager);
 
             maintab_rv_recommend.setLayoutManager(lmanager);
             maintab_rv_recommend.setAdapter(adapter);
         }
-        /* ==================== 추천 ====================*/
-
+        /* ==============================================*/
 
         /* ==================== 거리 ====================*/
         {
             // list = dbBoardCall("android/cmh/board_list@board+class=activity/view_cnt=" + cnt + "/");
             vo.setBoard_class("activity");
-            list = selectBoardList(vo);
-
+            // list = selectBoardList(vo);
+            list = dbBoardCall("android/cmh/mbti_xy/");
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
-            MainTabAdapter_small adapter = new MainTabAdapter_small(getContext(), list, manager);
+            MainTabAdapter_small_xy adapter = new MainTabAdapter_small_xy(getContext(), list, manager);
 
             maintab_rv_where.setLayoutManager(lmanager);
             maintab_rv_where.setAdapter(adapter);
         }
-        /* ==================== 거리 ====================*/
+        /* ==============================================*/
 
         /* ==================== 여행지 ====================*/
         {
@@ -102,7 +106,7 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
             maintab_rv_tour.setLayoutManager(lmanager);
             maintab_rv_tour.setAdapter(adapter);
         }
-        /* ==================== 여행지 ====================*/
+        /* ================================================*/
 
         return v;
     }

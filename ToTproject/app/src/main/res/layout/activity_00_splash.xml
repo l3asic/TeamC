@@ -21,7 +21,7 @@
         android:layout_below="@+id/sp_img"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="당신의 맞춤여행 플래너 Trip Or Travel!"
+        android:text="당신의 맞춤여행 플래너 Trip Or Travel !"
         android:textSize="30dp"
         android:textStyle="italic" />
 

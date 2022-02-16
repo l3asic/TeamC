@@ -19,7 +19,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.main.Adapter.MainTabAdapter_small;
+
 import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
 import com.example.totproject.zzchaminhwan.Adapter.QnaAdapter;
 import com.google.gson.Gson;

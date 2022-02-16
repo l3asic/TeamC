@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.totproject.R;
 import com.example.totproject.board.BoardMainActivity;
+import com.example.totproject.common.statics.isLogined;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.login.TendencyActivity01;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView cancel;
 
 
-
     LinearLayout afterLogin, main_burger_myboard, main_burger_myscrap, main_burger_myparty;
     FragmentManager manager = getSupportFragmentManager();
 
@@ -50,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_act_main);
-        if(android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy);}
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         bottom_nav = findViewById(R.id.main_nav);
         main_container = R.id.main_container;
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab loginTab_frag = new Fragment05IotTab();
         //ChangeFrament(main_container, mainTab_frag);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
                     ChangeActivity(TendencyActivity01.class);
-                   // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
+                    // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -176,6 +178,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
+        if (isLogined.isLogined == true) {
+            main_burger_tv_login.setText("스태틱클래스.저장된이름");
+        }
         main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
         Menu nav_menu = nav_view.getMenu();
@@ -244,8 +248,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabText", tabText);
         startActivity(intent);
     }
-    
-    public  void ChangeActivity(Class nextClass){
+
+    public void ChangeActivity(Class nextClass) {
         Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
     }

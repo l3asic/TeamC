@@ -106,20 +106,21 @@ public class TempDAO {
 	private SqlSession sql;
 	public  void insertRandomMbti() {
 	
-		Random random = new Random();	
+		Random random = new Random();
 		ParamIntVO vo = new ParamIntVO();
 		
 		for (int i = 0; i < 1000; i++) {
-			vo.setPn0(random.nextInt(1,5));
-			vo.setPn1(random.nextInt(1,5));
-			vo.setPn2(random.nextInt(1,5));
-			vo.setPn3(random.nextInt(1,5));
-			vo.setPn4(random.nextInt(1,5));
-			vo.setPn5(random.nextInt(1,5));
-			vo.setPn6(random.nextInt(1,5));
-			vo.setPn7(random.nextInt(1,5));
-			vo.setPn8(random.nextInt(1,5));
-			vo.setPn9(random.nextInt(1,5));
+			
+			vo.setPn0(random.nextInt(5));
+			vo.setPn1(random.nextInt(5));
+			vo.setPn2(random.nextInt(5));
+			vo.setPn3(random.nextInt(5));
+			vo.setPn4(random.nextInt(5));
+			vo.setPn5(random.nextInt(5));
+			vo.setPn6(random.nextInt(5));
+			vo.setPn7(random.nextInt(5));
+			vo.setPn8(random.nextInt(5));
+			vo.setPn9(random.nextInt(5));
 
 			sql.insert("temp.mapper.randommbti", vo);
 		}

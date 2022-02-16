@@ -2,6 +2,7 @@ package com.hanul.tot.and;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,7 @@ public class MbtiController {
 
 	int i = 0;
 
-	@RequestMapping("/android/cmh/mbti/")
+	@RequestMapping("/android/cmh/mbti_*/")
 	public void mbtiMatch(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
@@ -46,17 +47,29 @@ public class MbtiController {
 		vo = gson.fromJson(req.getParameter("mbtiVO"), MbtiVO.class);
 		System.out.println(vo);
 
-		try {
-			List<BoardCommonVO> list = sql.selectList("mbti.mapper.beforecompare");
+		List<BoardCommonVO> list = new ArrayList<BoardCommonVO>();
 
-		//	TempDAO dao = new TempDAO();
-		//	list = dao.mbtiMatch(list);
+		/* ========================= if ========================= */
+		/* ==================== 성향추천 요청시 ==================== */
+		if (path.equals("/android/cmh/mbti_mbti/")) {
+			try {
+				list = sql.selectList("mbti.mapper.mbtimbti");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} /* ==================== 거리추천 요청시 ==================== */
+		else if (path.equals("/android/cmh/mbti_xy/")) {
+			try {
+				list = sql.selectList("mbti.mapper.mbtixy");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("==========");
+			System.out.println("요청 오류");
+			System.out.println("==========");
+		} /* ======================================================== */
 
-			writer.print(gson.toJson(list));
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		writer.print(gson.toJson(list));
 	}
 }

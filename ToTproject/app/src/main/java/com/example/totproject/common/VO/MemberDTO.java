@@ -1,10 +1,46 @@
-package com.example.totproject.login;
+package com.example.totproject.common.VO;
 
-public class MemberDTO  {
+import java.io.Serializable;
+
+public class MemberDTO implements Serializable {
     private String member_id, member_pw, member_name,
             member_nick, member_gender, member_tel, member_email;
+    private String naver, kakao;
+    private String social_type, social_email;
 
-    public MemberDTO(String member_id, String member_pw, String member_name
+    public String getNaver() {
+        return naver;
+    }
+
+    public void setNaver(String naver) {
+        this.naver = naver;
+    }
+
+    public String getKakao() {
+        return kakao;
+    }
+
+    public void setKakao(String kakao) {
+        this.kakao = kakao;
+    }
+
+    public String getSocial_type() {
+        return social_type;
+    }
+
+    public void setSocial_type(String social_type) {
+        this.social_type = social_type;
+    }
+
+    public String getSocial_email() {
+        return social_email;
+    }
+
+    public void setSocial_email(String social_email) {
+        this.social_email = social_email;
+    }
+
+  /*  public MemberDTO(String member_id, String member_pw, String member_name
             , String member_nick, String member_gender, String member_tel, String member_email) {
         this.member_id = member_id;
         this.member_pw = member_pw;
@@ -14,6 +50,10 @@ public class MemberDTO  {
         this.member_tel = member_tel;
         this.member_email = member_email;
     }
+
+    public MemberDTO() {
+
+    }*/
 
     public String getMember_id() {
         return member_id;

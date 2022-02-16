@@ -37,10 +37,10 @@ public class PlanInfo02Fragment extends Fragment {
         // @@@@@@@@ 안드 더미데이터 @@@@@@@@@@@
         for (int i = 0; i < 10; i++) {
             PlanInfoDTO dto = new PlanInfoDTO("Day0"+i, "0910", 0101, "호텔 체크인", "짐풀러 체크인 기타메모입니다기타메모입니다기타메모입니다기타메모입니다기타메모입니다 ");
-            ArrayList subList = new ArrayList();
+            ArrayList<PlanInfoDTO> subList = new ArrayList();
 
             for (int j = 0; j < 5; j++) {
-                subList.add(" 계획 계획 j="+j);
+                subList.add(new PlanInfoDTO("Day0"+i, "0910", 0101, "호텔 체크인", " geh " + j));
             }
             dto.setSubList(subList);
 

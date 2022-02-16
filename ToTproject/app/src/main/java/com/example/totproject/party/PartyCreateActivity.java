@@ -267,15 +267,30 @@ public class PartyCreateActivity extends Activity {
 
 
 
-    public PartyListDTO insertParty(PartyListDTO dto) {
+    public void insertParty(PartyListDTO dto) {
         commonAsk = new CommonAsk("android/party/insertParty");
         commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
         Toast.makeText(PartyCreateActivity.this, "파티 생성완료 ( 임시)", Toast.LENGTH_SHORT).show();
-
-        return dto;
     }
+
+
+    // db connect test method
+    public void insertPartytest(PartyListDTO dto, String mapping, String param_mapping ) {
+        CommonAsk commonAsk;
+        Gson gson = new Gson();
+        commonAsk = new CommonAsk(mapping);
+        commonAsk.params.add(new CommonAskParam(param_mapping,gson.toJson(dto)));
+
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        Toast.makeText(PartyCreateActivity.this, "파티 생성완료 ( 임시)", Toast.LENGTH_SHORT).show();
+
+
+        //try catch list = ???
+    }
+
+
 
 
 

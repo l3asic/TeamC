@@ -36,7 +36,7 @@ public class OpenpartyListFragment extends Fragment {
     Button btn_party_search;
     EditText edt_search_keyword;
     PartyMainActivity partyMainActivity = new PartyMainActivity();
-    TextView tv_openparty_tag1,tv_openparty_tag2,tv_openparty_tag3,tv_openparty_tag4,tv_openparty_tag5,tv_openparty_tag6;   //@@@@@@ 6개 해시태그클릭검색 추가할것
+    TextView tv_openparty_tag1, tv_openparty_tag2, tv_openparty_tag3, tv_openparty_tag4, tv_openparty_tag5, tv_openparty_tag6;
 
     public OpenpartyListFragment(Context context) {
         this.context = context;
@@ -64,12 +64,6 @@ public class OpenpartyListFragment extends Fragment {
             openpartylist_item.setLayoutManager(layoutManager);
             openpartylist_item.setAdapter(partyListAdapter);
         }
-
-
-
-
-
-
 
 
         //검색 버튼

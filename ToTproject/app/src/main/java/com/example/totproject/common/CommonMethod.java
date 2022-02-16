@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
+import android.view.View;
 
 
 import com.example.totproject.main.MainActivity;
@@ -26,6 +27,9 @@ public class CommonMethod {
 
         return in;
     }
+
+
+
 
 
 

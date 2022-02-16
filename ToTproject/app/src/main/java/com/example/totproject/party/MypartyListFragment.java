@@ -46,9 +46,7 @@ public class MypartyListFragment extends Fragment {
 
         mypartylist_item = view.findViewById(R.id.mypartylist_item);
 
-
-
-
+        // 내파티리스트 보여주기
         showMyPartylist();
 
 
@@ -64,11 +62,6 @@ public class MypartyListFragment extends Fragment {
         }else{
             Toast.makeText(getActivity(), "가입된 파티가 없습니다 (임시)", Toast.LENGTH_SHORT).show();
         }
-
-
-
-
-
 
 
         return view;

@@ -10,13 +10,13 @@ public class PlanInfoDTO implements Serializable {
     private int plan_sn;
     private String plandetail_content;
     private String plandetail_content_detail;
-    private ArrayList<String> subList ;
+    private ArrayList<PlanInfoDTO> subList ;
 
-    public ArrayList<String> getSubList() {
+    public ArrayList<PlanInfoDTO> getSubList() {
         return subList;
     }
 
-    public void setSubList(ArrayList<String> subList) {
+    public void setSubList(ArrayList<PlanInfoDTO> subList) {
         this.subList = subList;
     }
 

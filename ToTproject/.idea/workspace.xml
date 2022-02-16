@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Temp/MyExpandableListView" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -121,27 +121,27 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanInfoAdapter.java</url>
-          <line>40</line>
+          <line>37</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanInfoAdapter.java</url>
-          <line>47</line>
+          <line>44</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanInfo02Fragment.java</url>
-          <line>32</line>
+          <line>31</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanInfoAdapter.java</url>
-          <line>23</line>
+          <line>21</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanInfo02Fragment.java</url>
-          <line>56</line>
+          <line>65</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>

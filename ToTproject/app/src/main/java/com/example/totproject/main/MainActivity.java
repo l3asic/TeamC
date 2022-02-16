@@ -179,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
         if (isLogined.isLogined == true) {
-            main_burger_tv_login.setText("스태틱클래스.저장된이름");
+           // main_burger_tv_login.setText("스태틱클래스.저장된이름");
+            main_burger_tv_login.setText(isLogined.member_id);
         }
         main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
             @Override

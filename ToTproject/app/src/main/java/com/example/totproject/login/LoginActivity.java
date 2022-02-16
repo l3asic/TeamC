@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
@@ -104,8 +105,8 @@ public class LoginActivity extends AppCompatActivity {
                     dto = loginTry(dto);
                     if(dto != null){
                         Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                        new Intent().putExtra("dto",dto);
-                        goSplash();
+
+                        goSplash(dto);
                     }else{
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
                         dialog = builder1.setMessage("아이디나 비번을 확인하세요").setPositiveButton("확인", null).create();
@@ -207,10 +208,16 @@ public class LoginActivity extends AppCompatActivity {
             return  null;
         }) ;
     } //getKakaoinfo()
-    Intent intent = new Intent(LoginActivity.this,SplashActivity.class);
 
     public void goSplash() {
+        Intent intent = new Intent(LoginActivity.this,SplashActivity.class);
 
+        startActivity(intent);
+        finish();
+    } //
+    public void goSplash(MemberDTO dto) {
+        Intent intent = new Intent(LoginActivity.this,SplashActivity.class);
+intent.putExtra("dto",dto);
         startActivity(intent);
         finish();
     } //

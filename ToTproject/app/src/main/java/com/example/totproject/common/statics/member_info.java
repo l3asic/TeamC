@@ -11,7 +11,7 @@ public class member_info {
         private String member_email;
         private String member_grade;
         private String member_is_kakao;
-        private String member_ia_naver;
+        private String member_is_naver;
 
         public String getMember_id() {
             return member_id;
@@ -85,14 +85,12 @@ public class member_info {
             this.member_is_kakao = member_is_kakao;
         }
 
-        public String getMember_ia_naver() {
-            return member_ia_naver;
+        public String getMember_is_naver() {
+            return member_is_naver;
         }
 
-        public void setMember_ia_naver(String member_ia_naver) {
-            this.member_ia_naver = member_ia_naver;
+        public void setMember_is_naver(String member_is_naver) {
+            this.member_is_naver = member_is_naver;
         }
-
-
     }
 }

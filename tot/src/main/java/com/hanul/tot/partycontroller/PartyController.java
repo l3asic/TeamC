@@ -24,6 +24,7 @@ import android.mainburger.MainBurgerNoticeVO;
 import android.partydao.PartyDAO;
 import android.partyvo.PartyListVO;
 import android.partyvo.PartyPlanListVO;
+import android.partyvo.PlanInfoVO;
 import android.partyvo.ZZMemberVO;
 
 @Controller
@@ -323,11 +324,111 @@ public class PartyController {
 	
 	
 	
+	@ResponseBody
+	@RequestMapping("/android/party/showplaninfo")
+	public void showPlanInfo(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("showPlanInfo() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//		
+		int plan_sn = Integer.parseInt(req.getParameter("plan_sn"));
+		
+		try {
+			
+			List<PlanInfoVO> list = new ArrayList<PlanInfoVO>();
+			list = pDAO.showPlanInfo(plan_sn);
+			System.out.println("plan_sn = "+ plan_sn);
+			writer.print(gson.toJson(list));
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//showPlanInfo()
+	
+	@ResponseBody
+	@RequestMapping("/android/party/planinfodetail")
+	public void planInfoDetail(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("planInfoDetail() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();			
+		
+		String from_and_dto =req.getParameter("planInfoDTO");	
+		PlanInfoVO vo = new PlanInfoVO();
+		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
+		
+		try {
+			
+			List<PlanInfoVO> list = new ArrayList<PlanInfoVO>();
+			list = pDAO.planInfoDetail(vo);
+			
+			writer.print(gson.toJson(list));
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//showPlanInfo()
+	
+	@ResponseBody
+	@RequestMapping("/android/party/insertplandetail")
+	public void insertPlanDetail(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("planInfoDetail() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();			
+		
+		String from_and_dto =req.getParameter("newplanInfoDTO");	
+		PlanInfoVO vo = new PlanInfoVO();
+		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
+		pDAO.insertPlanDetail(vo);		
+
+	}//insertPlanDetail()
 	
 	
 	
 	
-	
+	@ResponseBody
+	@RequestMapping("/android/party/selectplan")
+	public void selectPlan(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("planInfoDetail() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();			
+		
+		String from_and =req.getParameter("plan_sn");		
+		
+		
+		try {
+			
+			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
+			list = pDAO.selectPlanList(Integer.parseInt(from_and));
+			
+			writer.print(gson.toJson(list));
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+
+	}//insertPlanDetail()
 	
 	
 	

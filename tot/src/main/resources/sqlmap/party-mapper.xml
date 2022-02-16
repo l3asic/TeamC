@@ -97,6 +97,28 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 </select>
 
 
+<select id="showPlanInfo" resultType="android.partyvo.PlanInfoVO">
+
+	select * from tbl_plandetail where plan_sn = #{plan_sn}
+	order by plandetail_day, plandetail_time asc
+	
+</select>
+
+<select id="planInfoDetail" resultType="android.partyvo.PlanInfoVO">
+
+	select * from tbl_plandetail where plan_sn = #{plan_sn} and plandetail_day = #{plandetail_day}
+	order by plandetail_time asc
+	
+</select>
+
+<insert id="insertPlanDetail" >
+
+	insert into tbl_plandetail (plandetail_sn, plan_sn, plandetail_day, plandetail_time ,plandetail_content, plandetail_content_detail)
+	values (seq_plan_sn.nextval, #{plan_sn}, #{plandetail_day}, #{plandetail_time}, #{plandetail_content}, #{plandetail_content_detail} )	
+	
+</insert>
+
+
 
 
 </mapper>

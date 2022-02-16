@@ -2007,6 +2007,7 @@ id browser_actions_menu_view
 id btn_checkid
 id btn_create_party
 id btn_create_party2
+id btn_create_plan_detail
 id btn_party_search
 id btn_party_tag
 id btn_plan_create
@@ -2128,6 +2129,9 @@ id edt_plan_name
 id edt_plan_startdate
 id edt_plan_startpoint
 id edt_plan_starttime
+id edt_plandetail_content
+id edt_plandetail_content_detail
+id edt_plandetail_time
 id edt_search_keyword
 id elastic
 id end
@@ -2627,7 +2631,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tv_create_party
-id tv_createplan02_title
 id tv_member_nick
 id tv_my_party_list
 id tv_open_party_list
@@ -2653,7 +2656,9 @@ id tv_partyjoin_name
 id tv_partyplan_content
 id tv_partyplan_content_detail
 id tv_partyplan_day
+id tv_partyplan_detail_day
 id tv_partyplan_time
+id tv_partyplan_title
 id tv_plan_cost
 id tv_plan_enddate
 id tv_plan_endtime

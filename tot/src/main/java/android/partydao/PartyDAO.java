@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import android.partyvo.PartyListVO;
 import android.partyvo.PartyPlanListVO;
+import android.partyvo.PlanInfoVO;
 
 @Repository
 public class PartyDAO {
@@ -76,7 +77,28 @@ public class PartyDAO {
 		
 		return sql.selectList("party.mapper.selectPlanList", party_sn);
 	}
-	
+
+
+	public List<PlanInfoVO> showPlanInfo(int plan_sn) {
+		
+		return sql.selectList("party.mapper.showPlanInfo", plan_sn);
+	}
+
+
+	public List<PlanInfoVO> planInfoDetail(PlanInfoVO vo) {
+		//sql.selectList(null, vo, null)	민환차가 하던거
+		return sql.selectList("party.mapper.planInfoDetail", vo);
+		
+	}
+
+
+	public void insertPlanDetail(PlanInfoVO vo) {
+		sql.insert("party.mapper.insertPlanDetail", vo);
+		
+	}
+
+
+		
 
 	
 	

@@ -20,6 +20,11 @@ public class PlanInfoDTO implements Serializable {
         this.subList = new ArrayList<>();
     }
 
+    public PlanInfoDTO(int plan_sn,String plandetail_day) {
+        this.plan_sn = plan_sn;
+        this.plandetail_day = plandetail_day;
+    }
+
     public PlanInfoDTO(String plandetail_date, String plandetail_time, int plan_sn, String plandetail_content, String plandetail_content_detail) {
         this.plandetail_day = plandetail_date;
         this.plandetail_time = plandetail_time;

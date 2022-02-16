@@ -49,13 +49,16 @@ public class PlanInfo02Fragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.partyplan_frag_planinfo02, container, false);
 
+        // 디비 연결 후 리스트 리턴
         showPlanInfo(planDTO.getPlan_sn());
 
         ArrayList<PlanInfoDTO> item_list = new ArrayList<>();
         String plan_dtl = "";
         String old_plan_dtl = "";
         int flag = 0 ;
-        // @@@@@@@@ to adapter data setting @@@@@@@@@@@
+
+
+        // 익스펜더블 뷰 어댑터로 세팅
         for(int i = 0 ; i < list.size(); i++){
             plan_dtl = list.get(i).getPlandetail_date();
             if(!plan_dtl.equals(old_plan_dtl)){
@@ -92,14 +95,16 @@ public class PlanInfo02Fragment extends Fragment {
 
 
 
-
-
-
         expdListView = view.findViewById(R.id.expdListView);
+        if (list != null){
+            PlanInfoAdapter adapter = new PlanInfoAdapter(getContext() , inflater, item_list);
+            expdListView.setAdapter(adapter);
+        }else{
+            Toast.makeText(getActivity(), "파티 플랜이 없습니다 (임시)", Toast.LENGTH_SHORT).show();
+        }
 
         // @@@@ 어댑터 완성후 여기 마무리 할것
-        PlanInfoAdapter adapter = new PlanInfoAdapter(getContext() , inflater, item_list);
-        expdListView.setAdapter(adapter);
+
 
 
 

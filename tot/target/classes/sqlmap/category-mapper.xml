@@ -9,7 +9,7 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
-			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
 		from tbl_board a 
 		where a.board_class = 'tour'
 	</select>
@@ -18,7 +18,7 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
-			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
 		from tbl_board a 
 		where a.board_class = 'activity'
 	</select>
@@ -27,7 +27,7 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
-			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn),0) function_like
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
 		from tbl_board a 
 		where a.board_class = 'festival'
 	</select>
@@ -71,6 +71,7 @@
 	<select id="list_reviewpath" resultType="category.CategoryVO">
 		select a.* , b.member_nick from tbl_board a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
 		where a.board_reviewpath = #{board_sn}
+		order by board_date_create desc
 	</select>
 	
 	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
@@ -78,23 +79,23 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
-			NVL((select count(b.board_sn) from tbl_board_function b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like
 		from tbl_board a 
 		where a.board_sn = #{board_sn}
 	</select>
 
 	<select id="category_like" resultType="int">
-		select NVL(COUNT(*),0) from tbl_board_function
+		select NVL(COUNT(*),0) from tbl_likes
 		where board_sn = #{board_sn}
 	</select>
 	
 	<insert id="like_insert">
-		insert into tbl_board_function(board_sn, member_id)
+		insert into tbl_likes(board_sn, member_id)
 		values (#{board_sn}, #{member_id})
 	</insert>
 	
 	<delete id="like_delete">
-		delete from tbl_board_function where board_sn = #{board_sn} and member_id = #{member_id}
+		delete from tbl_likes where board_sn = #{board_sn} and member_id = #{member_id}
 	</delete>
 	
 </mapper>

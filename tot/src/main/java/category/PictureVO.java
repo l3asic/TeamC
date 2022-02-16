@@ -1,4 +1,4 @@
-package picture;
+package category;
 
 public class PictureVO {
 	String picture_filepath;

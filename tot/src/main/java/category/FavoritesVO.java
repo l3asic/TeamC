@@ -1,4 +1,4 @@
-package favorites;
+package category;
 
 import java.io.Serializable;
 import java.util.Date;

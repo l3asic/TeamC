@@ -104,6 +104,14 @@ public class PartyDAO {
 	}
 
 
+	public void deletePlanList(PlanInfoVO vo) {
+		
+		sql.delete("party.mapper.deletePlanList", vo);
+		
+		
+	}
+
+
 		
 
 	

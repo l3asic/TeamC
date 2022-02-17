@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -67,8 +68,6 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
 
 
-
-
             lin_longclick.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -124,6 +123,24 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
                     context.startActivity(intent);
                 }
             });//setOnClickListener()
+
+            chk_planudelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    PlanUpdatePlanActivity activity = (PlanUpdatePlanActivity) context;
+                    if(isChecked){
+
+
+                        activity.delete_list.add(new PlanInfoDTO(list.get(position).getPlandetail_sn()));
+                    }else{
+                        for (int i = 0 ; i<activity.delete_list.size() ; i ++){
+                            if(activity.delete_list.get(i).getPlandetail_sn() == list.get(position).getPlandetail_sn()){
+                                activity.delete_list.remove(i);
+                            }
+                        }
+                    }
+                }
+            });
 
 
 

@@ -31,6 +31,7 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
     CommonAsk commonAsk;
     Gson gson = new Gson();
     ArrayList<PlanInfoDTO> list = new ArrayList<>();
+    ArrayList<PlanInfoDTO> delete_list = new ArrayList<>();
     ArrayList<PlanlistDTO> planlistDTO = new ArrayList<>();
     TextView tv_partyplan_title, tv_partyplan_detail_day;
     EditText edt_plandetail_time, edt_plandetail_content, edt_plandetail_content_detail;
@@ -206,17 +207,50 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
         }
 
-        // 삭제버튼시 뭐가 체크되어있는지 체크
-//        for(int i  = 0 ; i< list.size() ; i++){
-//            PlanUpdateAdapter.Viewholder viewholder = (PlanUpdateAdapter.Viewholder) plan_detail_list.findViewHolderForAdapterPosition(i);
-//
-//            if(viewholder.chk_planudelete.isChecked()){
-//                ArrayList<PlanInfoDTO> list= new ArrayList<>();
-//                list.add(new PlanInfoDTO(list.get(i).getPlandetail_sn()));
-//            }
+
+        btn_plandetailupdate_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(delete_list.size() == 0 ){
+                    return;
+                }
+                deletePlanDetailList(delete_list);
+                // 삭제버튼시 뭐가 체크되어있는지 체크
+              /*  for(int i  = 0 ; i< plan_detail_list.getChildCount() ; i++){
+                    PlanUpdateAdapter.Viewholder viewholder = (PlanUpdateAdapter.Viewholder) plan_detail_list.findViewHolderForAdapterPosition(i);
+
+                    if(viewholder.chk_planudelete.isChecked()){
+                        ArrayList<PlanInfoDTO> list= new ArrayList<>();
+                        list.add(new PlanInfoDTO(list.get(i).getPlandetail_sn()));
+                    }
+
+                    deletePlanDetailList(list);
+
+                }*/
+            }
+        });
+
+
+
+
+
+
+    }
+
+    private void deletePlanDetailList(ArrayList<PlanInfoDTO> list) {
+        commonAsk = new CommonAsk("android/party/deleteplandetaillist");// list = []  vo ={ }
+        String data = gson.toJson(list);
+        commonAsk.params.add(new CommonAskParam("list" , data));
+
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+//        try {
+//            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PlanInfoDTO>>() {
+//            }.getType());
+//        } catch (Exception e) {
+//            e.printStackTrace();
 //        }
-
-
+        //return list;
 
     }
 

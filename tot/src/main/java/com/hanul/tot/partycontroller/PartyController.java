@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import android.mainburger.MainBurgerNoticeVO;
 import android.partydao.PartyDAO;
@@ -449,6 +450,49 @@ public class PartyController {
 	}//insertPlanDetail()
 	
 	
+	@ResponseBody
+	@RequestMapping("/android/party/deleteplandetaillist")
+	public void deletePlanDetailList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("deletePlanDetailList() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		String data = req.getParameter("list");
+		PrintWriter writer = res.getWriter();			
+		
+//		String from_and_list =req.getParameter("list");
+//		System.out.println(from_and_list);
+		
+		//준호
+		ArrayList<PlanInfoVO> list = gson.fromJson(data,  new TypeToken<List<PlanInfoVO>>() {}.getType());
+		
+
+		for(int i = 0; i<list.size(); i++) {			
+			pDAO.deletePlanList(list.get(i));				
+		}
+		//준호
+		
+		
+		
+		
+		
+		
+		//ArrayList<PlanInfoVO> list = new ArrayList<PlanInfoVO>();
+		//list = (ArrayList<PlanInfoVO>) gson.fromJson(from_and_list, PlanInfoVO.class);
+				
+		
+		
+		//pDAO.deletePlanList(list);
+		
+			
+		
+		
+//		PlanInfoVO vo = new PlanInfoVO();
+//		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
+//		pDAO.insertPlanDetail(vo);		
+
+	}//insertPlanDetail()
 	
 	
 	

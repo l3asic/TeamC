@@ -126,6 +126,11 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 </update>
 
 
+<delete id="deletePlanList" >
+
+	delete from tbl_plandetail where plandetail_sn = #{plandetail_sn}
+	
+</delete>
 
 
 </mapper>

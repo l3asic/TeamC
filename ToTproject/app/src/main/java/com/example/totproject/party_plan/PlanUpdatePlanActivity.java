@@ -34,7 +34,10 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
     ArrayList<PlanlistDTO> planlistDTO = new ArrayList<>();
     TextView tv_partyplan_title, tv_partyplan_detail_day;
     EditText edt_plandetail_time, edt_plandetail_content, edt_plandetail_content_detail;
-    Button btn_create_plan_detail;
+    Button btn_create_plan_detail , btn_plandetailupdate_delete;
+    int plan_sn = 1;
+    int tabcode = 0;
+    String plandetail_day = "";
 
 
     @Override
@@ -49,19 +52,38 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
         edt_plandetail_content_detail = findViewById(R.id.edt_plandetail_content_detail);
         btn_create_plan_detail = findViewById(R.id.btn_create_plan_detail);
         tv_partyplan_title = findViewById(R.id.tv_partyplan_title);
-
-
+        btn_plandetailupdate_delete = findViewById(R.id.btn_plandetailupdate_delete);
         Intent getIntent = getIntent();
-        int plan_sn = getIntent.getIntExtra("plan_sn", -1);
-        String plandetail_day = getIntent.getStringExtra("palndetail_day");
 
-        PlanInfoDTO planInfoDTO = new PlanInfoDTO(plan_sn,plandetail_day);
+        // 수정에서 넘어옴
+        PlanInfoDTO planInfoDTO = new PlanInfoDTO();
 
+        tabcode = getIntent.getIntExtra("tabcode",-1);
+        //익스팬더블뷰 에서 넘어 왔다면 해당 디테일 보여주기
+        if (tabcode == 1){
+            plan_sn = getIntent.getIntExtra("plan_sn", -1);
+            plandetail_day = getIntent.getStringExtra("palndetail_day");
+            planInfoDTO.setPlan_sn(plan_sn);
+            planInfoDTO.setPlandetail_date(plandetail_day);
+
+        // 업데이트 어댑터에서 넘어왔다면 수정하기
+        }else if (tabcode == 2){
+            planInfoDTO = (PlanInfoDTO) getIntent.getSerializableExtra("planInfoDTO");
+            updatePlanInfo(planInfoDTO);
+        }
+
+
+
+
+
+
+
+        showPlanInfoDetail(planInfoDTO);
         // @@ 타이틀 세팅(해당플랜 이름으로) 왜작동안댐?
 //        selectPlan(plan_sn);
 //        tv_partyplan_title.setText(planlistDTO.get(0).getPlan_name());
 
-        showPlanInfoDetail(planInfoDTO);
+
         tv_partyplan_detail_day.setText(list.get(0).getPlandetail_date());
 
         if(list != null){
@@ -114,6 +136,13 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
     }//onCreate()
 
+    private void updatePlanInfo(PlanInfoDTO planInfoDTO) {
+
+        commonAsk = new CommonAsk("android/party/planinfoupdate");
+        commonAsk.params.add(new CommonAskParam("planInfoDTO",gson.toJson(planInfoDTO)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+    }//updateDetail()
 
 
     //해당하는 플랜 디테일 보여주기
@@ -166,6 +195,29 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
     }//insertPlanDetail()
 
+    public void test(){
 
+
+        // 체크박스 다나오게하는거
+        for(int i  = 0 ; i< plan_detail_list.getChildCount(); i++){
+            PlanUpdateAdapter.Viewholder viewholder = (PlanUpdateAdapter.Viewholder) plan_detail_list.findViewHolderForAdapterPosition(i);
+            viewholder.chk_planudelete.setVisibility(View.VISIBLE);
+
+
+        }
+
+        // 삭제버튼시 뭐가 체크되어있는지 체크
+//        for(int i  = 0 ; i< list.size() ; i++){
+//            PlanUpdateAdapter.Viewholder viewholder = (PlanUpdateAdapter.Viewholder) plan_detail_list.findViewHolderForAdapterPosition(i);
+//
+//            if(viewholder.chk_planudelete.isChecked()){
+//                ArrayList<PlanInfoDTO> list= new ArrayList<>();
+//                list.add(new PlanInfoDTO(list.get(i).getPlandetail_sn()));
+//            }
+//        }
+
+
+
+    }
 
 }

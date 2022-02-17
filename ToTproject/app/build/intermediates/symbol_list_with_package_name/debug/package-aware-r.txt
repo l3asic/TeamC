@@ -2014,6 +2014,7 @@ id btn_plan_create
 id btn_plan_info02
 id btn_plandetail_delete
 id btn_plandetail_update
+id btn_plandetailupdate_delete
 id btn_planmain_create
 id buttonPanel
 id cache_measures
@@ -2055,6 +2056,7 @@ id chip1
 id chip2
 id chip3
 id chip_group
+id chk_planudelete
 id chronometer
 id circle_center
 id clear_text
@@ -2217,8 +2219,8 @@ id left
 id leftToRight
 id legacy
 id lin_click_content
-id lin_click_update_content
 id lin_display_tags
+id lin_longclick
 id lin_party_click
 id lin_partyjoin_btn
 id lin_plan_click

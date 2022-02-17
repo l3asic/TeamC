@@ -431,7 +431,22 @@ public class PartyController {
 	}//insertPlanDetail()
 	
 	
-	
+	@ResponseBody
+	@RequestMapping("/android/party/planinfoupdate")
+	public void updatePlanDetail(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("updatePlanDetail() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();			
+		
+		String from_and_dto =req.getParameter("planInfoDTO");	
+		PlanInfoVO vo = new PlanInfoVO();
+		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
+		pDAO.updatePlanDetail(vo);		
+
+	}//insertPlanDetail()
 	
 	
 	

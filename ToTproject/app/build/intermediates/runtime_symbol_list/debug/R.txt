@@ -2013,6 +2013,7 @@ int id btn_plan_create 0x7f090076
 int id btn_plan_info02 0x7f090077
 int id btn_plandetail_delete 0x7f090078
 int id btn_plandetail_update 0x7f090079
+int id btn_plandetailupdate_delete 0x7f090326
 int id btn_planmain_create 0x7f09007a
 int id buttonPanel 0x7f09007b
 int id cache_measures 0x7f09007c
@@ -2054,6 +2055,7 @@ int id chip1 0x7f09009f
 int id chip2 0x7f0900a0
 int id chip3 0x7f0900a1
 int id chip_group 0x7f0900a2
+int id chk_planudelete 0x7f090327
 int id chronometer 0x7f0900a3
 int id circle_center 0x7f0900a4
 int id clear_text 0x7f0900a5
@@ -2216,8 +2218,8 @@ int id left 0x7f09013e
 int id leftToRight 0x7f09013f
 int id legacy 0x7f090140
 int id lin_click_content 0x7f090141
-int id lin_click_update_content 0x7f090142
 int id lin_display_tags 0x7f090143
+int id lin_longclick 0x7f090325
 int id lin_party_click 0x7f090144
 int id lin_partyjoin_btn 0x7f090145
 int id lin_plan_click 0x7f090146

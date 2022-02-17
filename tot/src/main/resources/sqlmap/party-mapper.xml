@@ -118,6 +118,13 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 	
 </insert>
 
+<update id="updatePlanDetail" >
+
+	update tbl_plandetail set plandetail_time = #{plandetail_time} , plandetail_content = #{plandetail_content}, plandetail_content_detail = #{plandetail_content_detail}
+	where plandetail_sn = #{plandetail_sn}
+	
+</update>
+
 
 
 

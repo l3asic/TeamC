@@ -98,6 +98,12 @@ public class PartyDAO {
 	}
 
 
+	public void updatePlanDetail(PlanInfoVO vo) {
+		sql.update("party.mapper.updatePlanDetail", vo);
+		
+	}
+
+
 		
 
 	

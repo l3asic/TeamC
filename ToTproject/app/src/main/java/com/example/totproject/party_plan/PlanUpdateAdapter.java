@@ -1,12 +1,17 @@
 package com.example.totproject.party_plan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,8 +23,7 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
     Context context;
     ArrayList<PlanInfoDTO> list;
     LayoutInflater inflater;
-
-
+    boolean is_visible_rdo = false;
     public PlanUpdateAdapter(Context context, ArrayList<PlanInfoDTO> list) {
         this.context = context;
         this.list = list;
@@ -37,6 +41,9 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         holder.bind(holder,position);
+        if(is_visible_rdo){
+            holder.chk_planudelete.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -46,13 +53,45 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
     public class Viewholder extends RecyclerView.ViewHolder{
         EditText edt_partyplan_time, edt_partyplan_content, edt_partyplan_content_detail;
-        LinearLayout lin_click_update_content;
+        Button btn_plandetail_update, btn_plandetailupdate_delete;
+        LinearLayout lin_longclick;
+        CheckBox chk_planudelete;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            lin_click_update_content = itemView.findViewById(R.id.lin_click_update_content);
+            btn_plandetail_update = itemView.findViewById(R.id.btn_plandetail_update);
             edt_partyplan_time = itemView.findViewById(R.id.edt_partyplan_time);
             edt_partyplan_content = itemView.findViewById(R.id.edt_partyplan_content);
             edt_partyplan_content_detail = itemView.findViewById(R.id.edt_partyplan_content_detail);
+            lin_longclick = itemView.findViewById(R.id.lin_longclick);
+            chk_planudelete = itemView.findViewById(R.id.chk_planudelete);
+
+
+
+
+
+            lin_longclick.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Toast.makeText(context, "꾹눌림", Toast.LENGTH_SHORT).show();
+                    PlanUpdatePlanActivity activity = (PlanUpdatePlanActivity) context;
+                    activity.btn_plandetailupdate_delete.setVisibility(View.VISIBLE);
+                    activity.test();
+                    is_visible_rdo=true;
+                 //   Intent intent = new Intent(context,PlanUpdatePlanActivity.class);
+                 //   intent.putExtra("tabcode",1);
+                 //   intent.putExtra("plan_sn",);    //@@인텐트이동 한다면 plan_sn 넘겨주기
+                 //   intent.putExtra("palndetail_day",);     //@@ + plandetail_day도
+               //     context.startActivity(intent);
+
+                    chk_planudelete.setVisibility(View.VISIBLE);
+                    //@@@btn_plandetailupdate_delete.setVisibility(View.VISIBLE);
+                    return false;
+                }
+            });
+
+
+
+
 
         }
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
@@ -65,17 +104,28 @@ public class PlanUpdateAdapter extends RecyclerView.Adapter<PlanUpdateAdapter.Vi
 
 
 
-//            holder.lin_click_update_content.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-////                    Intent intent = new Intent(context, PlanMainActivity.class);
-////                    intent.putExtra("dto" , list.get(position));
-////                    intent.putExtra("tabcode",2);
-////                    // intent.putExtra("id" , list.get(position).getId());
-////                    context.startActivity(intent);
-//                }
-//            });
+            // 플랜디테일 아이템 수정
+            holder.btn_plandetail_update.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PlanInfoDTO planInfoDTO = new PlanInfoDTO(
+                            list.get(position).getPlandetail_date(),
+                            holder.edt_partyplan_time.getText()+"",
+                            list.get(position).getPlan_sn(),
+                            holder.edt_partyplan_content.getText()+"",
+                            holder.edt_partyplan_content_detail.getText()+""
+                            );
+                    planInfoDTO.setPlandetail_sn(list.get(position).getPlandetail_sn());
+
+                    Intent intent = new Intent(context, PlanUpdatePlanActivity.class);
+                    intent.putExtra("tabcode" ,2);
+                    intent.putExtra("planInfoDTO" ,planInfoDTO);
+
+                    context.startActivity(intent);
+                }
+            });//setOnClickListener()
+
+
 
         }
 

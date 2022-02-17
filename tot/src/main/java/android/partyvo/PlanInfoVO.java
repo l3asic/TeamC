@@ -1,12 +1,21 @@
 package android.partyvo;
 
 public class PlanInfoVO {
+	private int plandetail_sn;
 	private String plandetail_day;
     private String plandetail_time;
     private int plan_sn;
     private String plandetail_content;
     private String plandetail_content_detail;
     
+    
+    
+	public int getPlandetail_sn() {
+		return plandetail_sn;
+	}
+	public void setPlandetail_sn(int plandetail_sn) {
+		this.plandetail_sn = plandetail_sn;
+	}
 	public String getPlandetail_date() {
 		return plandetail_day;
 	}

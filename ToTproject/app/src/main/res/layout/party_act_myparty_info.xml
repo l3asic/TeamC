@@ -39,7 +39,7 @@
 
                     android:layout_gravity="center"
                     android:text="유동"
-                    android:textSize="50dp" />
+                    android:textSize="40dp" />
 
                 <Button
 

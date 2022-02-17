@@ -139,6 +139,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
                 public void onClick(View v) {
                     //@@@@@@@@@@@ 해당 날짜플랜 수정하는 액티비티 이동 만들어주기 @@@@@@@@@
                     Intent intent = new Intent(context, PlanUpdatePlanActivity.class);
+                    intent.putExtra("tabcode",1);
                     intent.putExtra("plan_sn",list.get(i).getPlan_sn());
                     intent.putExtra("palndetail_day",list.get(i).getPlandetail_date());
                     context.startActivity(intent);

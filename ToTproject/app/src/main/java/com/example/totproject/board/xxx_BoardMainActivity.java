@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.example.totproject.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class BoardMainActivity extends AppCompatActivity {
+public class xxx_BoardMainActivity extends AppCompatActivity {
 
     private FloatingActionButton board_fab_main, board_fab1, board_fab2, board_fab3;
     private Animation fab_open, fab_close, rotate_clockwise, rotate_anticlockwise;
@@ -22,7 +22,7 @@ public class BoardMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.board00_act_main);
+        setContentView(R.layout.xxx_board00_act_main);
 
         board_fab_main = findViewById(R.id.board_fab_main);
         board_fab1 = findViewById(R.id.board_fab1);
@@ -47,7 +47,7 @@ public class BoardMainActivity extends AppCompatActivity {
         board_fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BoardMainActivity.this, Activity03BoardDetail.class);
+                Intent intent = new Intent(xxx_BoardMainActivity.this, Activity03BoardDetail.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class BoardMainActivity extends AppCompatActivity {
         board_fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BoardMainActivity.this, BoardNewActivity.class);
+                Intent intent = new Intent(xxx_BoardMainActivity.this, BoardNewActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,9 +74,9 @@ public class BoardMainActivity extends AppCompatActivity {
 
    private void showfabMenu() {
         isFabOpen = true;
-        board_fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-        board_fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-        board_fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
+        board_fab1.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
+        board_fab2.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
+        board_fab3.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
    }
 
    private void closefabMenu() {

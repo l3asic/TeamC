@@ -2,7 +2,7 @@ package com.example.totproject.main.VO;
 
 import java.io.Serializable;
 
-public class MainTabVO implements Serializable {
+public class xxx_MainTabVO implements Serializable {
     private int board_sn,board_read_cnt, board_reviewepath;
     private String board_title, board_content, board_is_updated,board_private, board_replly_able,board_class, member_id;
     private String board_date_create;

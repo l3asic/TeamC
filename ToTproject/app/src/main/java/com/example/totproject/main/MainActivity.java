@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totproject.R;
-import com.example.totproject.board.BoardMainActivity;
 import com.example.totproject.common.statics.isLogined;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
@@ -66,33 +64,31 @@ public class MainActivity extends AppCompatActivity {
         main_container = R.id.main_container;
         Fragment01HomeTab mainTab_frag = new Fragment01HomeTab(MainActivity.this, manager);
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
-        Fragment03BoardTab boardTab_frag = new Fragment03BoardTab();
+        Fragment03BoardTab boardTab_frag = new Fragment03BoardTab(MainActivity.this, manager);
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab loginTab_frag = new Fragment05IotTab();
         Fragment00Empty empty_frag = new Fragment00Empty();
         //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         /* =================================== 바텀메뉴 =================================== */
         main_tv_acttitle = findViewById(R.id.main_tv_acttitle);
-        ChangeFrament(main_container, mainTab_frag, main_tv_acttitle, "맞춤 추천");
+        ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.bot_home) {
                     //ChangeFrament(main_container, mainTab_frag);
-                    ChangeFrament(main_container, mainTab_frag, main_tv_acttitle, "맞춤 추천");
+                    ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
                     return true;
                 } else if (item.getItemId() == R.id.bot_category) {
-                    ChangeFrament(main_container, categoryTab_frag, main_tv_acttitle, "여행지 분류");
+                    ChangeFrament(main_container, categoryTab_frag, "여행지 분류");
                     return true;
                 } else if (item.getItemId() == R.id.bot_board) {
                     //   ChangeFrament(main_container, boardTab_frag);
-                    titleTextChange(main_tv_acttitle,"빈 화면");
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_container, empty_frag).addToBackStack(null).commit();
-                    Intent intent = new Intent(MainActivity.this, BoardMainActivity.class);
-                    startActivity(intent);
+                    ChangeFrament(main_container, boardTab_frag, "자유게시판");
+
                     return true;
                 } else if (item.getItemId() == R.id.bot_party) {
-                    ChangeFrament(main_container, partyTab_frag, main_tv_acttitle, "파티");
+                    ChangeFrament(main_container, partyTab_frag, "파티");
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
                     ChangeActivity(TendencyActivity01.class);
@@ -177,7 +173,8 @@ public class MainActivity extends AppCompatActivity {
                 goSplash();
             }
         });
-        ImageView main_burger_imgv_circle = nav_headerview.findViewById(R.id.main_burger_imgv_circle);
+        ImageView main_burger_imgv_circle;
+        main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
         /* ========== = ===================================================== 로그아웃 ========== */
 
@@ -275,9 +272,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* =================================== view변경 + 상단텍스트 변경 ===========-------======================== */
-    public void ChangeFrament(int container, Fragment fragment, TextView textView, String titleText) {
-        getSupportFragmentManager().beginTransaction().replace(container, fragment).commit();
-        textView.setText(titleText);
+    public void ChangeFrament(int container, Fragment fragment, String titleText) {
+        getSupportFragmentManager().beginTransaction().replace(container,fragment).addToBackStack(titleText).commit();
+        main_tv_acttitle.setText(titleText);
 
     }
 
@@ -310,19 +307,24 @@ public class MainActivity extends AppCompatActivity {
     /* ============================== 뒤로가기 누번눌러 종료 ============---================== */
     private long backKeyPressedTime = 0;
     private Toast toast;
-
     @Override
     public void onBackPressed() {
-
-        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-            backKeyPressedTime = System.currentTimeMillis();
-            toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-            finish();
-            toast.cancel();
+        Fragment a = getSupportFragmentManager().getFragments().get(0);
+        Object ac = a.getClass();
+        if (ac.equals( Fragment01HomeTab.class) || ac.equals(Fragment02CategoryTab.class) ||
+         ac.equals( Fragment03BoardTab.class) || ac.equals(Fragment04PartyTab.class) || ac.equals(Fragment05IotTab.class)) {
+            if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                backKeyPressedTime = System.currentTimeMillis();
+                toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+                toast.show();
+                return;
+            }
+            if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                finish();
+                toast.cancel();
+            }
+        }else {
+            manager.popBackStack();
         }
     }
     /* ======================================================================== */

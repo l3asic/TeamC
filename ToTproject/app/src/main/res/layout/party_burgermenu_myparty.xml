@@ -112,14 +112,12 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:src="@drawable/ic_launcher_foreground" />
 
                     <TextView
 
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="20dp"
                         android:gravity="center"
                         android:text="멤버초대" />
 
@@ -137,13 +135,11 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:src="@drawable/ic_launcher_foreground" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="20dp"
                         android:gravity="center"
                         android:text="멤버관리" />
 
@@ -169,13 +165,11 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:src="@drawable/ic_launcher_foreground" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="20dp"
                         android:gravity="center"
                         android:paddingBottom="10dp"
                         android:text="파티정보수정" />
@@ -193,13 +187,11 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:src="@drawable/ic_launcher_foreground" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="20dp"
                         android:gravity="center"
                         android:text="파티해산" />
 

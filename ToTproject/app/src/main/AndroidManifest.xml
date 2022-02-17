@@ -87,7 +87,7 @@
             android:name=".zzchaminhwan.MainBurger00Activity"
             android:exported="false" />
         <activity
-            android:name=".board.BoardMainActivity"
+            android:name=".board.xxx_BoardMainActivity"
             android:exported="false" />
         <activity
             android:name=".board.BoardNewActivity"

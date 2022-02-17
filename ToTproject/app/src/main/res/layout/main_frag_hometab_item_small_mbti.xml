@@ -61,7 +61,7 @@
                     android:id="@+id/hometab_small_img_like"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_bell" />
+                    android:src="@drawable/like" />
 
                 <TextView
                     android:gravity="center"
@@ -83,7 +83,7 @@
                     android:id="@+id/hometab_small_img_comment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_guild" />
+                    android:src="@drawable/icon_text" />
 
                 <TextView
                     android:gravity="center"

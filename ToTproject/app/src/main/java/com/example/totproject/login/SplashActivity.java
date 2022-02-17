@@ -35,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
 
         /* ============================== get Intent 유무 판별 ============================== */
         Intent getIntent = new Intent(getIntent());
-        MemberDTO memberDTO = (MemberDTO) getIntent.getSerializableExtra("dto");
+        MemberDTO dtoFromLoginAct = (MemberDTO) getIntent.getSerializableExtra("dto");
         /* ====================================================================================== */
 
         /* ============================== 기기저장 객체화 ============================== */
@@ -48,27 +48,61 @@ public class SplashActivity extends AppCompatActivity {
         loginPw = auto.getString("inputPw", null);
         /* ====================================================================================== */
 
-        Toast.makeText(SplashActivity.this, "로그인 : " + loginId, Toast.LENGTH_SHORT).show();
         MemberDTO dto = new MemberDTO();                     //memberDTO 사용시 어플 꺼져서 새로선언
 
         /* ============================== 로그인시도 ============================== */
-        if (memberDTO != null) {
-            isLogined.isLogined = true;
-            spEditor.putString("inputId", memberDTO.getMember_id());
-            spEditor.putString("inputPw", memberDTO.getMember_pw());
+/*        if (dtoFromLoginAct != null) {
+            spEditor.putString("inputId", dtoFromLoginAct.getMember_id());
+            spEditor.putString("inputPw", dtoFromLoginAct.getMember_pw());
             spEditor.commit();
+            isLogined.isLogined = true;
+             *//*=============여기 쫌더 예쁘게 만들수있음 =======================================*//*
+        loginId = auto.getString("inputId", null);
+        loginPw = auto.getString("inputPw", null);
+        dto.setMember_id(loginId);
+        dto.setMember_pw(loginPw);
+        LoginActivity loginActivity = new LoginActivity();
+        dto = loginActivity.loginTry(dto);
         } else {
-            if (loginId != null && loginPw != null) {    //기기저장정보가 있으면
+            if (loginId != null && loginPw != null) {
                 dto.setMember_id(loginId);
                 dto.setMember_pw(loginPw);
                 LoginActivity loginActivity = new LoginActivity();
-                if (loginActivity.loginTry(dto) != null) {
+                  dto = loginActivity.loginTry(dto);
+                if (dto != null) {
                     isLogined.isLogined = true;
                 } else {
                     isLogined.isLogined = false;
                 }
             } else {
                 isLogined.isLogined = false;
+            }
+        }*/
+        if (loginId == null && loginPw == null) {
+            if (dtoFromLoginAct == null) {
+                isLogined.isLogined = false;
+            } else {
+                spEditor.putString("inputId", dtoFromLoginAct.getMember_id());
+                spEditor.putString("inputPw", dtoFromLoginAct.getMember_pw());
+                spEditor.commit();
+                isLogined.isLogined = true;
+                /*=============여기 쫌더 예쁘게 만들수있음 =======================================*/
+                loginId = auto.getString("inputId", null);
+                loginPw = auto.getString("inputPw", null);
+                dto.setMember_id(loginId);
+                dto.setMember_pw(loginPw);
+                LoginActivity loginActivity = new LoginActivity();
+                dto = loginActivity.loginTry(dto);
+            }
+        } else {
+            dto.setMember_id(loginId);
+            dto.setMember_pw(loginPw);
+            LoginActivity loginActivity = new LoginActivity();
+            dto = loginActivity.loginTry(dto);
+            if (dto == null) {
+                isLogined.isLogined = false;
+            } else {
+                isLogined.isLogined = true;
             }
         }
         /* ====================================================================================== */
@@ -89,6 +123,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Toast.makeText(SplashActivity.this, "로그인 : " + loginId, Toast.LENGTH_SHORT).show();
                 /* ==================== 스플래시 종료, 액티비티 초기화 ==================== */
                 Common.goMain(SplashActivity.this);
                 ActivityCompat.finishAffinity(SplashActivity.this);

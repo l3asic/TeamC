@@ -26,13 +26,20 @@
                 android:background="@color/white"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
-
+                <Button
+                    android:id="@+id/main_btn_reload"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/ic_scrap" />
                 <TextView
+                    android:id="@+id/main_tv_acttitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
 
                     android:layout_gravity="center"
-                    android:text="유동"
+                    android:text="main act"
                     android:textSize="50dp" />
 
                 <Button

@@ -14,50 +14,46 @@
 
         <ImageView
             android:id="@+id/mainburger_btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/icon_cancel" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true">
 
             <ImageView
                 android:id="@+id/nav_home"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:src="@drawable/ic_launcher_foreground" />
 
             <ImageView
                 android:id="@+id/nav_bell"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:src="@drawable/icon_bell" />
+
 
             <ImageView
                 android:id="@+id/nav_setting"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:src="@drawable/icon_setting" />
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/main_burger_imgv_circle"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/mainburger_btn_cancel"
             android:layout_alignParentEnd="true"
-
-            android:layout_marginTop="35dp"
-            android:padding="8dp"
+            android:layout_marginVertical="10dp"
             android:src="@drawable/ic_launcher_foreground"
             app:civ_border_color="#ffffff"
             app:civ_border_overlay="true"
@@ -66,9 +62,10 @@
         <TextView
             android:id="@+id/main_burger_tv_login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_below="@+id/mainburger_btn_cancel"
-            android:layout_marginTop="10dp"
+            android:layout_marginVertical="20dp"
+            android:gravity="center_vertical"
             android:text="로그인 (유저이름)"
             android:textColor="#ffffff"
             android:textSize="20dp"
@@ -76,10 +73,11 @@
 
         <TextView
             android:id="@+id/main_burger_tv_join"
+
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mainburger_btn_cancel"
-            android:layout_marginTop="35dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/main_burger_tv_login"
+            android:gravity="center_vertical"
             android:text="회원가입 (공백)"
             android:textColor="#ffffff"
             android:textSize="20dp"
@@ -89,8 +87,8 @@
             android:id="@+id/main_burger_afterlogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/main_burger_tv_login"
-            android:layout_marginTop="30dp"
+            android:layout_below="@+id/main_burger_tv_join"
+            android:layout_marginVertical="20dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -108,7 +106,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
                     android:text="내가 쓴 글"
                     android:textColor="@color/item" />
             </LinearLayout>
@@ -129,7 +126,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
                     android:text="내 스크랩"
                     android:textColor="@color/item" />
             </LinearLayout>
@@ -150,11 +146,31 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
                     android:text="내 파티"
                     android:textColor="@color/item" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/main_burger_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="로그아웃"
+                    android:textColor="@color/item" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

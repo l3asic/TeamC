@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="100"
-    tools:context=".board.Activity03BoardDetail">
+    tools:context=".board.Board_">
 
     <!--상단바-->
     <LinearLayout
-
+        android:id="@+id/board_userprofile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"

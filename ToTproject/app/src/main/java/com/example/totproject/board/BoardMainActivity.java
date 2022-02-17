@@ -22,7 +22,7 @@ public class BoardMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.board_act_main);
+        setContentView(R.layout.board00_act_main);
 
         board_fab_main = findViewById(R.id.board_fab_main);
         board_fab1 = findViewById(R.id.board_fab1);

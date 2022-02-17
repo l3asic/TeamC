@@ -198,6 +198,7 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_mylist.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_act_new.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_boardlist_item.xml" value="0.18931159420289856" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_complete.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_detail.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_detail_item_reply.xml" value="0.5" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_mylist.xml" value="0.33" />
@@ -206,8 +207,10 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/board_frag_searchlist.xml" value="0.2" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_act_main.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_act_main_new.xml" value="0.1875" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_act_reply_img_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_detail.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_detail_item_review.xml" value="0.22" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_detail_pager_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_gridlist.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_gridlist_item_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.1875" />
@@ -252,7 +255,7 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab.xml" value="0.2" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item.xml" value="0.17806484295845998" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_small.xml" value="0.18" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_small_mbti.xml" value="0.21822916666666667" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_small_mbti.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_hometab_item_small_xy.xml" value="0.21822916666666667" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/main_frag_partytab.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburger00_activity.xml" value="0.21822916666666667" />
@@ -261,7 +264,8 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburger01_notice_fg_item.xml" value="0.22" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburger02_service_fg_01_qna.xml" value="0.21822916666666667" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburger02_service_fg_01_qna_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburgermenu.xml" value="0.21822916666666667" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mainburgermenu.xml" value="0.33" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/mypage_act_main.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_headermain.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_party_main.xml" value="0.17" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/nav_party_main_old.xml" value="0.25" />
@@ -303,6 +307,7 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/partyplan_frag_planning_item.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/plan_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/plan_member_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/zz_frag_empty.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/zzz_main_burger00_activity.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/zzz_main_burger01_notice_fg.xml" value="0.19972826086956522" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/zzz_main_burger01_notice_fg_detail_act.xml" value="0.25" />

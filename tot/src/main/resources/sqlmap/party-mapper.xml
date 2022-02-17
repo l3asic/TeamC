@@ -3,19 +3,6 @@
 
 <mapper namespace="party.mapper">
 
-<!-- <select id="noticelist" resultType="android.mainburger.MainBurgerNoticeVO">
-select board_sn, board_title, board_content from tbl_board where board_class = 'notice'
-</select>
-
-<select id="notice_detail" resultType="android.mainburger.MainBurgerNoticeVO">
-select * from tbl_board where board_sn = #{paramSn}
-</select>
-
-<select id="selectThisVs" resultType="android.mainburger.OneOneEmailVO">
-select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
-</select> -->
-
-
 <!-- @@ 파티 추가 연습 (파티 sn, 멤버(기본키라 임시), 사진, 빠짐)  -->
 <insert id="insertParty">	
 	
@@ -32,7 +19,7 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 
 <select id="selectOpenpartyList" resultType="android.partyvo.PartyListVO">
 
-	select * from tbl_party where party_private = 'y'
+	select distinct * from tbl_party where party_private = 'y' order by party_sn
 	
 </select>
 
@@ -132,12 +119,20 @@ select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_tit
 	
 </delete>
 
+
 <insert id="invitePartyMember" >
 
 	insert into tbl_party (party_sn, member_id, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader )
 	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )		
 	
 </insert>
+
+
+<delete id="deleteParty" >
+
+	delete from tbl_party where party_sn = #{party_sn}
+	
+</delete>
 
 
 

@@ -2,8 +2,10 @@ package com.example.totproject.party;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,24 +18,33 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.totproject.R;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.main.MainActivity;
 import com.example.totproject.party_plan.PlanMainActivity;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
 
+import java.io.InputStream;
 import java.util.Date;
 
 public class MyPartyInfoActivity extends AppCompatActivity {
     Toolbar toolbar;
     Button partyinfo_btn_burger;
     PartyListDTO plDTO;
+
+    CommonAsk commonAsk;
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +117,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_delete = nav_headerview.findViewById(R.id.lin_mypartyburger_delete);        
         
 
+        // 버거메뉴 멤버 초대 클릭시
         lin_mypartyburger_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,11 +140,14 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Toast.makeText(MyPartyInfoActivity.this, "이미지 눌렸음 ", Toast.LENGTH_SHORT).show();
             }
         });
+        // 버거메뉴 파티 해산 클릭시
         lin_mypartyburger_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
                 //@@ 파티삭제 알럿창과 삭제 기능 추가할 것
+
+                showCustomDialog(); // alert 다이얼로그 확인창
 
 
             }
@@ -197,6 +212,63 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
     }
 
+    public void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MyPartyInfoActivity.this,
+                R.style.AlertDialogTheme);
+
+        View view= LayoutInflater.from(MyPartyInfoActivity.this).inflate(
+            R.layout.common_alert_yes_or_no_item,
+                (LinearLayout)findViewById(R.id.layout_alert)
+        );
+
+        //다이얼로그 텍스트 설정
+        builder.setView(view);
+        ((TextView)view.findViewById(R.id.texttitle)).setText("※ 주의");
+        ((TextView)view.findViewById(R.id.textmessage)).setText("정말 파티를 해산 하시겠어요?");
+        ((TextView)view.findViewById(R.id.btn_dialog_yes)).setText("네");
+        ((TextView)view.findViewById(R.id.btn_dialog_no)).setText("아니요");
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCancelable(false);   //화면밖 터치시 다이얼로그 종료방지
+
+        //네 클릭시
+        view.findViewById(R.id.btn_dialog_yes).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteParty(plDTO); //파티 해산 기능
+                alertDialog.dismiss();  //알럿창 닫기
+                Intent intent = new Intent(MyPartyInfoActivity.this, PartyMainActivity.class);
+                intent.putExtra("tabcode",3);
+                startActivity(intent);
+            }
+        });
+
+        //아니요 클릭시
+        view.findViewById(R.id.btn_dialog_no).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();  //알럿창 닫기
+            }
+        });
+
+        //다이얼로그 형태 지우기
+        if(alertDialog.getWindow() != null){
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+
+        alertDialog.show();
+
+
+
+    }//showCustomDialog()
+
+    private void deleteParty(PartyListDTO plDTO) {
+        commonAsk = new CommonAsk("android/party/deleteparty");
+        commonAsk.params.add(new CommonAskParam("plDTO", gson.toJson(plDTO)) );
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+    }
+
     public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextAct);
         intent.putExtra("tabcode", tabcode);
@@ -208,4 +280,8 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextClass);
         startActivity(intent);
     }
+
+
+
+
 }

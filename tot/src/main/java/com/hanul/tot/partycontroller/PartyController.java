@@ -278,6 +278,30 @@ public class PartyController {
 	}//invitePartyMember()
 	
 	
+	@ResponseBody
+	@RequestMapping("/android/party/deleteparty")
+	public void deleteParty(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("deleteParty() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		String from_and_dto = req.getParameter("plDTO");
+		PrintWriter writer = res.getWriter();	
+		
+		PartyListVO vo = (PartyListVO) gson.fromJson(from_and_dto, PartyListVO.class);
+		
+					
+		pDAO.deleteParty(vo);				
+		
+		
+		
+	}//deleteParty()
+	
+	
+	
+	
+	
 	
 	
 	
@@ -491,7 +515,7 @@ public class PartyController {
 		}
 		
 		
-	}//insertPlanDetail()
+	}//deletePlanDetailList()
 	
 	
 	

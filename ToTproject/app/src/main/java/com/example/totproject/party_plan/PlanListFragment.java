@@ -48,8 +48,6 @@ public class PlanListFragment extends Fragment {
         planlist_item = view.findViewById(R.id.planlist_item);
 
 
-        //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
-
         showPlanList();
 
 

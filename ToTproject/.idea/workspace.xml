@@ -176,17 +176,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>
-          <line>240</line>
+          <line>239</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>
-          <line>218</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdateAdapter.java</url>
-          <line>133</line>
+          <line>126</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>

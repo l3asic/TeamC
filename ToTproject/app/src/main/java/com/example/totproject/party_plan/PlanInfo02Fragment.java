@@ -8,50 +8,129 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class PlanInfo02Fragment extends Fragment {
 
     ExpandableListView expdListView;
-
+    PlanlistDTO planDTO;
     Context context;
+    CommonAsk commonAsk;
+    Gson gson = new Gson();
+    ArrayList<PlanInfoDTO> list = new ArrayList<>();
+
 
     public PlanInfo02Fragment(Context context) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
     }
 
+    public PlanInfo02Fragment(Context context, PlanlistDTO planDTO) { //컨텍슽르르 메인에서부터 가져옴
+        this.context = context;
+        this.planDTO = planDTO;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.partyplan_frag_planinfo02, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.partyplan_frag_planinfo02, container, false);
 
-        ArrayList<PlanInfoDTO> list = new ArrayList<>();
+        // 디비 연결 후 리스트 리턴
+        showPlanInfo(planDTO.getPlan_sn());
 
-        for (int i = 0; i < 10; i++) {
-            PlanInfoDTO dto = new PlanInfoDTO("Day01", "0910", 0101, "호텔 체크인", "짐풀러 체크인 기타메모입니다기타메모입니다기타메모입니다기타메모입니다기타메모입니다 ");
-            ArrayList subList = new ArrayList();
+        ArrayList<PlanInfoDTO> item_list = new ArrayList<>();
+        String plan_dtl = "";
+        String old_plan_dtl = "";
+        int flag = 0 ;
 
-            for (int j = 0; j < 5; j++) {
-                subList.add(" 계획 계획 ");
+
+        // 익스펜더블 뷰 어댑터로 세팅
+        for(int i = 0 ; i < list.size(); i++){
+            plan_dtl = list.get(i).getPlandetail_date();
+            if(!plan_dtl.equals(old_plan_dtl)){
+                old_plan_dtl = plan_dtl;
+                item_list.add(list.get(i));
+                item_list.get(flag).setSubList();
+
+                for(int j = 0 ; j < list.size(); j++){
+                    if(item_list.get(flag).getPlandetail_date().equals(list.get(j).getPlandetail_date())){
+                        try{
+                            item_list.get(flag).getSubList().add(list.get(j));
+
+                        }catch (Exception e){
+                            String aaa = "";
+                        }
+
+                    }
+                }
+                flag ++ ;
+
             }
-            dto.setSubList(subList);
 
-            list.add(dto);
         }
 
+
+
+
+
+
+
+
+        // @@@@@@@@ to adapter data setting @@@@@@@@@@@
+
+
+
+
         expdListView = view.findViewById(R.id.expdListView);
+        if (list != null){
+            PlanInfoAdapter adapter = new PlanInfoAdapter(getContext() , inflater, item_list);
+            expdListView.setAdapter(adapter);
+        }else{
+            Toast.makeText(getActivity(), "파티 플랜이 없습니다 (임시)", Toast.LENGTH_SHORT).show();
+        }
 
         // @@@@ 어댑터 완성후 여기 마무리 할것
-        PlanInfoAdapter adapter = new PlanInfoAdapter(getActivity(),(LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE), list);
-        expdListView.setAdapter(adapter);
+
+
 
 
         return view;
+    }//onCreateView()
+
+    private ArrayList<PlanInfoDTO> showPlanInfo(int plan_sn) {
+        commonAsk = new CommonAsk("android/party/showplaninfo");
+        commonAsk.params.add(new CommonAskParam("plan_sn", plan_sn+""));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PlanInfoDTO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
+
+
+
+
+
+
+
+
+
 }

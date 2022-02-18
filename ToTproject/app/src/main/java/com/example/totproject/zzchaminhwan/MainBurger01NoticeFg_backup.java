@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.category.Fragment02CategoryDetail;
+import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
-import com.example.totproject.zzchaminhwan.VO.NoticeVO;
+
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MainBurger01NoticeFg_backup extends Fragment {
 
@@ -28,7 +28,7 @@ public class MainBurger01NoticeFg_backup extends Fragment {
     public View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            NoticeVO vo = new NoticeVO();
+            BoardCommonVO vo = new BoardCommonVO();
 
             Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
             getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).commit();
@@ -49,12 +49,12 @@ public class MainBurger01NoticeFg_backup extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup v = (ViewGroup)
-                inflater.inflate(R.layout.zzz_main_burger01_notice_fg, container, false);
+                inflater.inflate(R.layout.mainburger01_notice_fg, container, false);
 
-        ArrayList<NoticeVO> list = new ArrayList<>();
+        ArrayList<BoardCommonVO> list = new ArrayList<>();
 
         for (int i = 0; i < 500; i++) {
-            NoticeVO vo = new NoticeVO();
+            BoardCommonVO vo = new BoardCommonVO();
             vo.setBoard_title(i + 1 + "번째 공지사항 제목");
             vo.setBoard_date_create("data");
 
@@ -65,7 +65,7 @@ public class MainBurger01NoticeFg_backup extends Fragment {
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, listener, manager);
+        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
 
         notice_rc_view.setLayoutManager(lmanager);
         notice_rc_view.setAdapter(adapter);

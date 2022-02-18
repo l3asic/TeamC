@@ -18,6 +18,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/edt_search_keyword"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
@@ -26,12 +27,14 @@
                 android:hint="공개 파티 검색"
                 android:paddingLeft="10dp"></EditText>
 
-            <ImageView
+            <Button
+                android:id="@+id/btn_party_search"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher"></ImageView>
+                android:text="검색"
+                android:background="@drawable/party_tab_button"></Button>
 
         </LinearLayout>
 
@@ -50,6 +53,15 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_openparty_tag1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="15dp"
+                    android:text="#해시태그01"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tv_openparty_tag2"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_margin="15dp"
@@ -57,13 +69,7 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_margin="15dp"
-                    android:text="#해시태그"
-                    android:textSize="20dp" />
-
-                <TextView
+                    android:id="@+id/tv_openparty_tag3"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_margin="15dp"
@@ -72,12 +78,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/tv_openparty_tag4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_openparty_tag5"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_margin="15dp"
@@ -85,6 +93,7 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/tv_openparty_tag6"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_margin="15dp"

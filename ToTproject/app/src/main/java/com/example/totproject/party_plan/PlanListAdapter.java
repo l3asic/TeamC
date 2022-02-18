@@ -68,18 +68,14 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
             holder.tv_startdate.setText( list.get(position).getPlan_startdate() +"" );
             holder.tv_starttime.setText( list.get(position).getPlan_starttime() +"" );
 
-
+            // 해당 플랜 클릭시
             holder.lin_plan_click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     PlanMainActivity activity = (PlanMainActivity) context;
-                    activity.changePlanFrag(2,"test");
-                    //Detail로 이동 , Detail에서 추가 수정 삭제.                 @@클릭시 이동 참조용
-                   // Intent intent = new Intent(context, PlanMainActivity.class);
-                  //  intent.putExtra("dto" , list.get(position));
-                   // intent.putExtra("tabcode",2);
-                    // intent.putExtra("id" , list.get(position).getId());
-                  //  context.startActivity(intent);
+                    PlanlistDTO planDTO = (PlanlistDTO) list.get(position);
+                    activity.changePlanFrag(planDTO);
+
                 }
             });
 

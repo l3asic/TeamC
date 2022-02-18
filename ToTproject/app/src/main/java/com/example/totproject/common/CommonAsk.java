@@ -26,7 +26,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     HttpResponse httpResponse;
     HttpEntity httpEntity;
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
-    final String HTTPIP = "http://192.168.0.58";//IP
+    final String HTTPIP = "http://192.168.0.35";//IP
     final String SVRPATH = "/tot/"; //
     String mapping ;
     private String postUrl ;//
@@ -60,7 +60,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
             builder.addPart(fileParams.get(i).getKey(),
                              new FileBody(new File(fileParams.get(i).getValue() )));
         }
-
+        {String test = postUrl;}
         httpClient = AndroidHttpClient.newInstance("Android");
         httpPost = new HttpPost(postUrl);
         httpPost.setEntity(builder.build());//파라메터를 추가할수있는부분.

@@ -11,25 +11,27 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
-import com.example.totproject.zzchaminhwan.VO.NoticeVO;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder> {
     //xml로 만들어놓은 아이템을 붙이기위한 LayoutInfler <- Context
     Context context;
-    ArrayList<NoticeVO> list;
+    List<BoardCommonVO> list;
     LayoutInflater inflater;
     View.OnClickListener listener;
     FragmentManager manager;
-    public NoticeAdapter(Context context, ArrayList<NoticeVO> list) {
+    public NoticeAdapter(Context context, ArrayList<BoardCommonVO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }//NoticeAdapter
-    public NoticeAdapter(Context context, ArrayList<NoticeVO> list, View.OnClickListener listener, FragmentManager manager) {
+    public NoticeAdapter(Context context, List<BoardCommonVO> list, FragmentManager manager) {
         this.manager = manager;
         this.context = context;
         this.list = list;
@@ -44,7 +46,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.zzz_main_burger01_notice_fg_item, parent, false);
+        View itemView = inflater.inflate(R.layout.mainburger01_notice_fg_item, parent, false);
         //1. ViewHolder holder = new ViewHolder(itemview);
         // return holder;
         return new Viewholder(itemView);
@@ -79,8 +81,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.Viewholder
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
-            holder.title.setText(list.get(position).getBoard_title() + "어댑터에서 추가된 문자열" );
-            holder.writedate.setText(list.get(position).getBoard_date_create() + "어댑터에서 추가된 문자열");
+            holder.title.setText(list.get(position).getBoard_title() + "" );
+            holder.writedate.setText(list.get(position).getBoard_date_create() + "");
             holder.board_sn = list.get(position).getBoard_sn();
 
             holder.title.setOnClickListener(new View.OnClickListener() {

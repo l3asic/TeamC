@@ -17,7 +17,7 @@ public class MainBurger00Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zzz_main_burger00_activity);
+        setContentView(R.layout.mainburger00_activity);
         mainburger_menu_maintext = findViewById(R.id.mainburger_menu_maintext);
         Intent getIntent = getIntent();
 

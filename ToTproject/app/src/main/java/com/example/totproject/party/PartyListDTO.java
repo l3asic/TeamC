@@ -12,8 +12,12 @@ public class PartyListDTO implements Serializable {
     private String party_tag1;
     private String party_tag2;
     private String party_tag3;
+    private String member_id;
 
-    public PartyListDTO(int party_sn, int picture_filepath, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3) {
+    public PartyListDTO() {
+    }
+
+    public PartyListDTO(int party_sn, int picture_filepath, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3, String member) {
         this.party_sn = party_sn;
         this.picture_filepath = picture_filepath;
         this.party_private = party_private;
@@ -23,6 +27,7 @@ public class PartyListDTO implements Serializable {
         this.party_tag1 = party_tag1;
         this.party_tag2 = party_tag2;
         this.party_tag3 = party_tag3;
+        this.member_id = member;
     }
 
     public int getParty_sn() {
@@ -95,5 +100,13 @@ public class PartyListDTO implements Serializable {
 
     public void setParty_tag3(String party_tag3) {
         this.party_tag3 = party_tag3;
+    }
+
+    public String getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
     }
 }

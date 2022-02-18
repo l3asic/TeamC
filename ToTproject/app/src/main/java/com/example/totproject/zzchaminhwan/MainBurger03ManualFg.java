@@ -33,7 +33,7 @@ public class MainBurger03ManualFg extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.zzz_main_burger03_manual_fg, container, false);
+        View v = inflater.inflate(R.layout.mainburger03_manual_fg, container, false);
         manualNav = v.findViewById(R.id.nav_manualnav);
 
         title = v.findViewById(R.id.manual_tv_title);

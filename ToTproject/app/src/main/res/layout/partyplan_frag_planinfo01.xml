@@ -42,6 +42,7 @@
                             android:id="@+id/tv_plan_startdate"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:background="@drawable/bottom_line"
                             android:gravity="center"
                             android:text="22/01/22" />
 
@@ -49,6 +50,7 @@
                             android:id="@+id/tv_plan_starttime"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:background="@drawable/bottom_line"
                             android:gravity="center"
                             android:text="am 07:00" />
                     </LinearLayout>
@@ -77,6 +79,7 @@
                             android:id="@+id/tv_plan_enddate"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:background="@drawable/bottom_line"
                             android:gravity="center"
                             android:text="22/01/25" />
 
@@ -85,6 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:gravity="center"
+                            android:background="@drawable/bottom_line"
                             android:text="am 07:00" />
                     </LinearLayout>
                 </LinearLayout>

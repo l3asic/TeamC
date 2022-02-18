@@ -95,13 +95,10 @@
             android:name=".zzchaminhwan.MainBurger00Activity"
             android:exported="false" />
         <activity
-            android:name=".board.xxx_BoardMainActivity"
+            android:name=".board.zzz_Board00Activity"
             android:exported="false" />
         <activity
             android:name=".board.BoardNewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".board.Activity03BoardDetail"
             android:exported="false" />
         <activity
             android:name=".main.MainActivity"

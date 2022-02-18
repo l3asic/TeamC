@@ -14,8 +14,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.MemberDTO;
-import com.example.totproject.common.statics.isLogined;
+import com.example.totproject.common.statics.Logined;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -98,7 +97,7 @@ public class PartyJoinActivity extends AppCompatActivity {
                         list.get(0).getParty_tag1(),
                         list.get(0).getParty_tag2(),
                         list.get(0).getParty_tag3(),
-                        isLogined.member_id
+                        Logined.member_id
                         );
                 partyJoin(dto);
 

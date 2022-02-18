@@ -14,11 +14,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.totproject.R;
 import com.example.totproject.common.Common;
 import com.example.totproject.common.VO.MemberDTO;
-import com.example.totproject.common.statics.isLogined;
-import com.example.totproject.common.statics.member_info;
-import com.google.gson.Gson;
-
-import java.lang.reflect.Member;
+import com.example.totproject.common.statics.Logined;
 
 public class SplashActivity extends AppCompatActivity {
     String loginId, loginPw;
@@ -80,12 +76,12 @@ public class SplashActivity extends AppCompatActivity {
         }*/
         if (loginId == null && loginPw == null) {
             if (dtoFromLoginAct == null) {
-                isLogined.isLogined = false;
+                Logined.isLogined = false;
             } else {
                 spEditor.putString("inputId", dtoFromLoginAct.getMember_id());
                 spEditor.putString("inputPw", dtoFromLoginAct.getMember_pw());
                 spEditor.commit();
-                isLogined.isLogined = true;
+                Logined.isLogined = true;
                 /*=============여기 쫌더 예쁘게 만들수있음 =======================================*/
                 dto = dtoFromLoginAct;
             }
@@ -95,32 +91,32 @@ public class SplashActivity extends AppCompatActivity {
             LoginActivity loginActivity = new LoginActivity();
             dto = loginActivity.loginTry(dto);
             if (dto == null) {
-                isLogined.isLogined = false;
+                Logined.isLogined = false;
             } else {
-                isLogined.isLogined = true;
+                Logined.isLogined = true;
             }
         }
         /* ====================================================================================== */
 
         /* =============================== 기기에 로그인 정보 옮김 =============================== */
-        isLogined.member_id = dto.getMember_id();
-        isLogined.member_pw = dto.getMember_pw();
-        isLogined.member_name = dto.getMember_name();
-        isLogined.member_nick = dto.getMember_nick();
-        isLogined.member_gender = dto.getMember_gender();
-        isLogined.member_tel = dto.getMember_tel();
-        isLogined.member_email = dto.getMember_email();
+        Logined.member_id = dto.getMember_id();
+        Logined.member_pw = dto.getMember_pw();
+        Logined.member_name = dto.getMember_name();
+        Logined.member_nick = dto.getMember_nick();
+        Logined.member_gender = dto.getMember_gender();
+        Logined.member_tel = dto.getMember_tel();
+        Logined.member_email = dto.getMember_email();
 //isLogined.member_grade = dto.getMember_gender(); // 필드에 Grade(등급) 없음
-        isLogined.member_is_kakao = dto.getKakao();
-        isLogined.member_is_naver = dto.getNaver();
+        Logined.member_is_kakao = dto.getKakao();
+        Logined.member_is_naver = dto.getNaver();
         /* ====================================================================================== */
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* ============================== 로그인확인 안내 ============================== */
-                if (isLogined.member_id != null) {
-                    Toast.makeText(SplashActivity.this, "로그인 : " + isLogined.member_id, Toast.LENGTH_SHORT).show();
+                if (Logined.member_id != null) {
+                    Toast.makeText(SplashActivity.this, "로그인 : " + Logined.member_id, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(SplashActivity.this , "Trip Or Trap", Toast.LENGTH_SHORT).show();
                 }

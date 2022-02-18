@@ -53,13 +53,7 @@ public class MainBurger01NoticeFg extends Fragment {
         vo.setBoard_class("notice");
         vo.setList_cnt_many(999);
         selectBoardList(vo);
-/*        for (int i = 0; i < 10; i++) {
-              BoardCommonVO vo = new   BoardCommonVO();
-            vo.setBoard_title(i + 1 + "번째 공지사항 제목");
-            vo.setBoard_date_create(date);
 
-            list.add(vo);
-        }*/
         notice_rc_view = v.findViewById(R.id.notice_list);
 
 
@@ -70,7 +64,6 @@ public class MainBurger01NoticeFg extends Fragment {
         notice_rc_view.setLayoutManager(lmanager);
         notice_rc_view.setAdapter(adapter);
 
-        //manager.setOrientation(LinearLayoutManager.VERTICAL);
 
 
         return v;
@@ -78,20 +71,7 @@ public class MainBurger01NoticeFg extends Fragment {
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
-/*
-    public List<BoardCommonVO> list123() {
 
-        commonAsk = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-
-        try {
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
-            }.getType());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }*/
 
     public ArrayList<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
         commonAsk = new CommonAsk("android/cmh/board_list");

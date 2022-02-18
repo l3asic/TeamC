@@ -16,7 +16,6 @@ import com.example.totproject.R;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.main.Fragment03BoardTab_Detail_Act;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewholder> {
@@ -43,7 +42,7 @@ public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewho
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.main_frag_boardtab_item_boardlist, parent, false);
+        View itemView = inflater.inflate(R.layout.aaa_common_frag_main_frag_boardtab_item_boardlist_board_list_item, parent, false);
         //1. ViewHolder holder = new ViewHolder(itemview);
         // return holder;
         return new Viewholder(itemView);

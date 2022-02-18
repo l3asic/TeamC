@@ -13,17 +13,13 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.MemberDTO;
-import com.example.totproject.common.statics.isLogined;
-import com.example.totproject.party.PartyCreateActivity;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.party.PartyListDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlanCreatePlanActivity extends AppCompatActivity {
     EditText edt_plan_name, edt_plan_startdate, edt_plan_enddate, edt_plan_location, edt_plan_startpoint, edt_plan_hotel, edt_plan_cost,edt_plan_starttime, edt_plan_endtime;
@@ -72,14 +68,14 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
                         001,
                         party_sn,
                         edt_plan_name.getText()+"",
-                        isLogined.member_id,
+                        Logined.member_id,
                         edt_plan_startdate.getText()+"",
                         edt_plan_enddate.getText()+"",
                         edt_plan_location.getText()+"",
                         edt_plan_startpoint.getText()+"",
                         edt_plan_hotel.getText()+"",
                         edt_plan_cost.getText()+"",
-                        isLogined.member_id,      //@@@@ 파티 멤버 한해서만 추가?할수 있도록 수정
+                        Logined.member_id,      //@@@@ 파티 멤버 한해서만 추가?할수 있도록 수정
                         edt_plan_starttime.getText()+"",
                         edt_plan_endtime+""
                 );

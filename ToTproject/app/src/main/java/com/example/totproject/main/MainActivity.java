@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import com.example.totproject.WhosePage00Activity;
 import com.example.totproject.R;
-import com.example.totproject.common.statics.isLogined;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
 import com.example.totproject.login.SplashActivity;
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         /* ============================== 버거메뉴 내부 ========================================= */
         /* ========== 로그아웃 ===================================================== = ========== */
         main_burger_logout = nav_headerview.findViewById(R.id.main_burger_logout);
-        if (isLogined.member_id == null) {
+        if (Logined.member_id == null) {
             main_burger_logout.setVisibility(View.GONE);
         }
         main_burger_logout.setOnClickListener(new View.OnClickListener() {
@@ -215,9 +215,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
-        if (isLogined.isLogined == true) {
+        if (Logined.isLogined == true) {
             // main_burger_tv_login.setText("스태틱클래스.저장된이름");
-            main_burger_tv_login.setText(isLogined.member_id);
+            main_burger_tv_login.setText(Logined.member_id);
         }
         main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
             @Override

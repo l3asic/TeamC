@@ -53,8 +53,10 @@ public class BoardController {
 		List<ReplyVO> list = new ArrayList<ReplyVO>();
 		list = sql.selectList("board.mapper.board_reply_list", paramSn);
 
+		System.out.println(list);
+		
 		writer.print(gson.toJson(list));
-		model.addAttribute("andJson",gson.toJson(list));
+		//model.addAttribute("andJson",gson.toJson(list));
 		
 		
 //		model.addAttribute("andJson",list);

@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
-import com.example.totproject.board.Activity03BoardDetail;
+import com.example.totproject.WhosePage00Activity;
 import com.example.totproject.board.BoardNewActivity;
+import com.example.totproject.board.zzz_Board00Activity;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.statics.ChangeView;
 import com.example.totproject.main.Adapter.BoardTabAdapter;
-import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
-import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,7 +36,7 @@ import java.util.List;
 
 public class Fragment03BoardTab extends Fragment {
 
-    private FloatingActionButton boardtab_fab_main, boardtab_fab_mylist, boardtab_fab_write, boardtab_fab_search;
+    private FloatingActionButton boardtab_fab_main, boardtab_fab_mypage, boardtab_fab_write, boardtab_fab_search;
     private Animation fab_open, fab_close, rotate_clockwise, rotate_anticlockwise;
     private Boolean isFabOpen = false;
     private Object FragmentBoardSearch;
@@ -51,6 +51,7 @@ public class Fragment03BoardTab extends Fragment {
         this.context = mainActivity;
         this.manager = manager;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,14 +75,39 @@ public class Fragment03BoardTab extends Fragment {
 
 
         /* ===================================== fab 버튼 ============================================ */
-        boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
-        boardtab_fab_mylist = v.findViewById(R.id.boardtab_fab_mylist);
-        boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
         boardtab_fab_search = v.findViewById(R.id.boardtab_fab_search);
+        boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
+        boardtab_fab_mypage = v.findViewById(R.id.boardtab_fab_mypage);
+        boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
 
         fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
 
+        boardtab_fab_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "팹 1", Toast.LENGTH_SHORT).show();
+                ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "write");
+            }
+        });
+        boardtab_fab_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "팹 2", Toast.LENGTH_SHORT).show();
+                ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "search");
+            }
+        });
+        boardtab_fab_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "팹 3", Toast.LENGTH_SHORT).show();
+                ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, "whereFrom", "BoardTab");
+            }
+        });
+
+
+
+        /* ============================ + 버튼ㄴ ====================================== */
         boardtab_fab_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,57 +118,35 @@ public class Fragment03BoardTab extends Fragment {
                 }
             }
         });
-        boardtab_fab_mylist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 눌림", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), Activity03BoardDetail.class);
-                startActivity(intent);
-            }
-        });
-
-        boardtab_fab_write.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 눌림", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), BoardNewActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        boardtab_fab_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 눌림", Toast.LENGTH_SHORT).show();
-                //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                //transaction.replace(R.id.board_container, (Fragment) Board_frag_search).commit();
-                //    getSupportFragmentManager().beginTransaction().replace(R.id.board_container, (Fragment) FragmentBoardSearch).addToBackStack(null).commit();
-
-            }
-        });
         /* ========================================================================================= */
 
         return v;
     }//oncreate()
 
     /* ========================================메소드============================================ */
+
+
     /* ===================================== fab 버튼 ============================================ */
     private void showfabMenu() {
         isFabOpen = true;
-        boardtab_fab_mylist.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
-        boardtab_fab_write.animate().translationY(-getResources().getDimension(R.dimen.up_2state));
-        boardtab_fab_search.animate().translationY(-getResources().getDimension(R.dimen.up_3state));
+        boardtab_fab_mypage.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
+        boardtab_fab_search.animate().translationY(-getResources().getDimension(R.dimen.up_2state));
+        boardtab_fab_write.animate().translationY(-getResources().getDimension(R.dimen.up_3state));
+
     }
 
     private void closefabMenu() {
         isFabOpen = false;
-        boardtab_fab_mylist.animate().translationY(0);
-        boardtab_fab_write.animate().translationY(0);
+        boardtab_fab_mypage.animate().translationY(0);
         boardtab_fab_search.animate().translationY(0);
+        boardtab_fab_write.animate().translationY(0);
+
     }
+
     /* ===================================== db조회ㅜ============================================ */
     CommonAsk commonAsk;
     Gson gson = new Gson();
+
     public List<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
         commonAsk = new CommonAsk("android/cmh/board_list");
         commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));

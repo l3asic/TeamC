@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,17 +47,17 @@ public class Fragment02CategoryDetail extends Fragment {
     ImageView like_ico;
     int boardSN;      // 추가
     BoardCommonVO vo = new BoardCommonVO();
- //   Context dCOmtext;
+    //   Context dCOmtext;
 
     ArrayList<BoardCommonVO> list = new ArrayList<>();
 
 
-//    Context context; ;FragmentManager manager; int getParamSn;
+    //    Context context; ;FragmentManager manager; int getParamSn;
 //    public Fragment02CategoryDetail(Context context, FragmentManager manager, int getParamSn) { //컨텍슽르르 메인에서부터 가져옴
 //        this.context = context;
 //        this.manager = manager;
- //       this.getParamSn = getParamSn;
- //   }
+    //       this.getParamSn = getParamSn;
+    //   }
    /* @Override
     public void onAttach(Context context){
         super.onAttach(context);
@@ -66,8 +67,8 @@ public class Fragment02CategoryDetail extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView  = (ViewGroup)
-                inflater.inflate(R.layout.category_frag_detail , container , false);
+        ViewGroup rootView = (ViewGroup)
+                inflater.inflate(R.layout.category_frag_detail, container, false);
 
         pager2 = rootView.findViewById(R.id.category_detail_pager);
         like_ico = rootView.findViewById(R.id.like_ico);
@@ -83,19 +84,25 @@ public class Fragment02CategoryDetail extends Fragment {
         category_detail_tv_reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),CategoryReplyActivity.class);
-                intent.putExtra("sn",boardSN);
+                Intent intent = new Intent(getActivity(), CategoryReplyActivity.class);
+                intent.putExtra("sn", boardSN);
                 startActivity(intent);
             }
         });
-
+        LinearLayout category_detail_linear_likes;
+        category_detail_linear_likes = rootView.findViewById(R.id.category_detail_linear_likes);
+        category_detail_linear_likes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLike();
+            }
+        });
         like_ico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setLike();
             }
         });
-
 
 
         recyclerView = rootView.findViewById(R.id.category_detail_recview);
@@ -119,38 +126,7 @@ public class Fragment02CategoryDetail extends Fragment {
         });
     }
 
-
-    //CategoryVO vo = new CategoryVO();
-
-    /*public CategoryVO reply_insert() {
-        CategoryVO requestVO = new CategoryVO();
-        CategoryVO responseVO = null;
-
-        String category_reply_edt_text = category_reply_edt.getText().toString();
-        requestVO.setBoard_content(category_reply_edt_text);
-        requestVO.setPicture_file_count(replyAdapter.getItemCount());
-        requestVO.setBoard_title("title");
-        requestVO.setBoard_class("category");
-        requestVO.setMember_id("1111");
-        commonAsk = new CommonAsk("category_reply");
-
-        commonAsk.params.add(new CommonAskParam("category", gson.toJson(requestVO)));
-        for (int i = 0; i < replyAdapter.getItemCount();i ++ ){
-            commonAsk.fileParams.add(new CommonAskParam("file"+i, replyAdapter.getList().get(i)));
-        }
-
-        //파일은 안주므로 주석  commonAsk.fileParams.add(new CommonAskParam("file", img_filepath));
-        InputStream in =  CommonMethod.excuteAsk(commonAsk);
-
-        String result = gson.fromJson(new InputStreamReader(in) , String.class);
-        try {
-            responseVO = gson.fromJson(new InputStreamReader(in), new TypeToken<List<CategoryVO>>() {
-            }.getType());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return responseVO;
-    }*/
+    /* =============================================================== */
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
@@ -161,72 +137,23 @@ public class Fragment02CategoryDetail extends Fragment {
         commonAsk = new CommonAsk("detail_categoryBoard");
         commonAsk.params.add(new CommonAskParam("category", gson.toJson(pvo)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
-
         try {
             this.vo = gson.fromJson(new InputStreamReader(in), BoardCommonVO.class);
             category_detail_tv_content.setText(vo.getBoard_content());
-            seLikeIcon();
+            setLikeIcon();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public void contentPictureList() {
-        commonAsk = new CommonAsk("list_picture");
-        commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-
-        try {
-            ArrayList<PictureVO> getList = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PictureVO>>(){}.getType());
-            PagerAdapter adapter2 = new PagerAdapter(getActivity(),getList);
-            pager2.setAdapter(adapter2);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void getLikeCount(){
-        commonAsk = new CommonAsk("category_like");
-        commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-        String result = getStringFromInputStream(in);
-
-        try {
-            category_detail_like_count.setText(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setLike(){
-
-        BoardCommonVO pvo = new BoardCommonVO();
-        pvo.setBoard_sn(boardSN);
-        pvo.setFunction_like(vo.getFunction_like());
-        pvo.setMember_id("1111");
-
-        commonAsk = new CommonAsk("set_like");
-        commonAsk.params.add(new CommonAskParam("category", gson.toJson(pvo)));
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-        String result = getStringFromInputStream(in);
-
-        if(vo.getFunction_like() > 0){
-            vo.setFunction_like(0);
-        }else{
-            vo.setFunction_like(1);
-        }
-
-        seLikeIcon();
-    }
-
-    public void getReplyList(){
+    /* =============================================================== */
+    public void getReplyList() {
         commonAsk = new CommonAsk("list_reviewpath");
         commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
-        ArrayList<BoardCommonVO> getList = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>(){}.getType());
-
+        ArrayList<BoardCommonVO> getList = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+        }.getType());
         try {
-            RecAdapter adapter = new RecAdapter(getContext(),getList);
+            RecAdapter adapter = new RecAdapter(getContext(), getList);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(layoutManager);
@@ -235,24 +162,67 @@ public class Fragment02CategoryDetail extends Fragment {
             e.printStackTrace();
         }
     }
+    /* =============================================================== */
+    public void contentPictureList() {
+        commonAsk = new CommonAsk("list_picture");
+        commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        try {
+            ArrayList<PictureVO> getList = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PictureVO>>() {
+            }.getType());
+            PagerAdapter adapter2 = new PagerAdapter(getActivity(), getList);
+            pager2.setAdapter(adapter2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /* =============================================================== */
+    public void getLikeCount() {
+        commonAsk = new CommonAsk("category_like");
+        commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        String result = getStringFromInputStream(in);
+        try {
+            category_detail_like_count.setText(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-    public void seLikeIcon(){
-        if(vo.getFunction_like() > 0){
+    /* =============================================================== */
+    public void setLike() {
+        BoardCommonVO pvo = new BoardCommonVO();
+        pvo.setBoard_sn(boardSN);
+        pvo.setFunction_like(vo.getFunction_like());
+        pvo.setMember_id("1111");
+        commonAsk = new CommonAsk("set_like");
+        commonAsk.params.add(new CommonAskParam("category", gson.toJson(pvo)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        String result = getStringFromInputStream(in);
+
+        if (vo.getFunction_like() > 0) {
+            vo.setFunction_like(0);
+        } else {
+            vo.setFunction_like(1);
+        }
+        setLikeIcon();
+    }
+
+    /* =============================================================== */
+    public void setLikeIcon() {
+        if (vo.getFunction_like() > 0) {
             Glide.with(getContext()).load(R.drawable.like).into(like_ico);
-        }else{
+        } else {
             Glide.with(getContext()).load(R.drawable.like_gray).into(like_ico);
         }
         getLikeCount();
     }
-
+    /* =============================================================== */
     private String getStringFromInputStream(InputStream is) {
-
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
-
         String line;
         try {
-
             br = new BufferedReader(new InputStreamReader(is));
             while ((line = br.readLine()) != null) {
                 sb.append(line);
@@ -269,8 +239,7 @@ public class Fragment02CategoryDetail extends Fragment {
                 }
             }
         }
-
         return sb.toString();
     }
-
+    /* =============================================================== */
 }

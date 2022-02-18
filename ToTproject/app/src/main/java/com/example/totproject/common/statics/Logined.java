@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import java.util.Map;
 import java.util.Set;
 
-public class isLogined {
+public class Logined {
     public static boolean isLogined = false;
     public static String member_id;
     public static String member_pw;

@@ -5,9 +5,22 @@
 
 <!-- board_class 조회 -->
 <select id="board_list" resultType="android.mainburger.BoardCommonVO">
-select rownum, tbl.* 
+select rownum, tbl.* ,(select COUNT (*)
+FROM
+    tbl_board board,
+    tbl_likes likes
+WHERE
+        board.board_sn = likes.board_sn
+    AND likes.function_like IS NOT NULL
+    AND likes.board_sn = tbl.board_sn) function_like,
+(select count(*)
+FROM
+    tbl_board board,
+    tbl_reply reply
+WHERE
+        board.board_sn = reply.board_sn and reply.board_sn = tbl.board_sn) board_cnt_reply
 	from (select * from tbl_board 
-	where board_class = #{board_class}
+	where board_class =#{board_class}
 	order by board_sn desc ) tbl  
 where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>

@@ -1,26 +1,20 @@
 package com.example.totproject.main;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.preference.Preference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.totproject.R;
 import com.example.totproject.category.CategoryMainActivity;
-import com.example.totproject.category.Fragment02CategoryGridView;
-import com.example.totproject.common.Common;
 
 
 public class Fragment02CategoryTab extends Fragment {
-    Button category_btn_tour, category_btn_activity, category_btn_festival;
+Button category_btn_tour, category_btn_activity, category_btn_festival;
 
 
     @Override

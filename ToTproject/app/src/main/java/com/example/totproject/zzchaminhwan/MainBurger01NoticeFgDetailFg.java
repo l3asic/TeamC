@@ -14,23 +14,19 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.zzchaminhwan.VO.NoticeVO;
+import com.example.totproject.common.VO.BoardCommonVO;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 
 public class MainBurger01NoticeFgDetailFg extends Fragment {
 
     TextView notice_detail_title, notice_detail_content;
     TextView notice_detail_writedate;
-
-    NoticeVO vo = new NoticeVO();
+    
+      BoardCommonVO vo = new   BoardCommonVO();
 
     Context context;
     FragmentManager manager;
@@ -46,7 +42,7 @@ public class MainBurger01NoticeFgDetailFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.zzz_main_burger01_notice_fg_detail_fg, container, false);
+        View v = inflater.inflate(R.layout.mainburger01_notice_fg_detail_fg, container, false);
 
         notice_detail_title = v.findViewById(R.id.notice_detail_title);
         notice_detail_content = v.findViewById(R.id.notice_detail_content);
@@ -69,14 +65,13 @@ notice_detail_title.setText(vo.getBoard_title());
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
-    public NoticeVO detail(int paramSn) {
-        commonAsk = new CommonAsk("android/cmh/notice_detail");
+    public   BoardCommonVO detail(int paramSn) {
+        commonAsk = new CommonAsk("android/cmh/board_detail@notice/");
         commonAsk.params.add(new CommonAskParam("paramSn", paramSn+""));
-        commonAsk.params.add(new CommonAskParam("paramSn", gson.toJson(paramSn)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
-            vo = gson.fromJson(new InputStreamReader(in), NoticeVO.class);
+            vo = gson.fromJson(new InputStreamReader(in),   BoardCommonVO.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

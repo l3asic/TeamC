@@ -16,8 +16,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.MemberDTO;
-import com.example.totproject.zzchaminhwan.VO.NoticeVO;
+import com.example.totproject.common.statics.Logined;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -237,7 +236,7 @@ public class PartyCreateActivity extends Activity {
         party_tag3 = tv_party_tag3.getText()+"";
 
 
-        PartyListDTO dto = new PartyListDTO(0,party_pic,party_private,MemberDTO.id,party_name,party_detail,party_tag1,party_tag2,party_tag3, MemberDTO.id);
+        PartyListDTO dto = new PartyListDTO(0,party_pic,party_private, Logined.member_id,party_name,party_detail,party_tag1,party_tag2,party_tag3, Logined.member_id);
         insertParty(dto);
 
         Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);

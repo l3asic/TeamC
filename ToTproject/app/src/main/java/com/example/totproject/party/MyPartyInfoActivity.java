@@ -79,11 +79,9 @@ public class MyPartyInfoActivity extends AppCompatActivity {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.END)) {
-                    drawer.closeDrawer(Gravity.END);
-                } else {
+
                     drawer.openDrawer(Gravity.END);
-                }
+
             }
         });
         NavigationView nav_view = findViewById(R.id.partyinfo_burger_view);
@@ -128,10 +126,15 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
             }
         });
+
+        // 버거메뉴 멤버 관리 클릭시
         partyinfo_burger_membermanage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MyPartyInfoActivity.this, "멤버관리 눌렸음 ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyPartyInfoActivity.this, "멤버 관리 누름 ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivity(intent);
             }
         });
         partyinfo_burger_infomanage.setOnClickListener(new View.OnClickListener() {

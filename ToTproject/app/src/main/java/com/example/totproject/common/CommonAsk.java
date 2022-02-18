@@ -60,7 +60,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
             builder.addPart(fileParams.get(i).getKey(),
                              new FileBody(new File(fileParams.get(i).getValue() )));
         }
-
+        {String test = postUrl;}
         httpClient = AndroidHttpClient.newInstance("Android");
         httpPost = new HttpPost(postUrl);
         httpPost.setEntity(builder.build());//파라메터를 추가할수있는부분.

@@ -15,7 +15,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.MemberDTO;
+import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.party.PartyListDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

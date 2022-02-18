@@ -2,6 +2,7 @@ package com.hanul.tot.partycontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,12 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import android.mainburger.MainBurgerNoticeVO;
+import android.kwk.MemberVO;
 import android.partydao.PartyDAO;
 import android.partyvo.PartyListVO;
 import android.partyvo.PartyPlanListVO;
 import android.partyvo.PlanInfoVO;
-import android.partyvo.ZZMemberVO;
 
 @Controller
 public class PartyController {
@@ -114,15 +114,6 @@ public class PartyController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
-		
-//		String from_and_party_private = req.getParameter("party_private");
-//		//vo = (ZZMemberVO) gson.fromJson(from_and_dto, ZZMemberVO.class);
-//
-//		System.out.println(from_and_party_private);	//안드 값 받아왔는지 찍을려고 테스트
-		
-		
-				
-		
 		
 		
 		try {
@@ -297,6 +288,38 @@ public class PartyController {
 		
 		
 	}//deleteParty()
+	
+	@ResponseBody
+	@RequestMapping("/android/party/showpartymember")
+	public void showPartyMember(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("showPartyMember() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//		
+		String from_and_dto = req.getParameter("plDTO");
+		PartyListVO vo = (PartyListVO) gson.fromJson(from_and_dto, PartyListVO.class);
+		System.out.println(vo.getMember_id());
+		System.out.println(vo.getParty_sn());
+		
+		try {
+			
+			List<MemberVO> list = new ArrayList<MemberVO>();
+			list = pDAO.showPartyMember(vo);					
+
+		
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+
+	}//showPartyMember()
 	
 	
 	

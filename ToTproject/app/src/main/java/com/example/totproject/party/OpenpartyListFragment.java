@@ -50,7 +50,12 @@ public class OpenpartyListFragment extends Fragment {
         openpartylist_item = view.findViewById(R.id.openpartylist_item);
         btn_party_search = view.findViewById(R.id.btn_party_search);
         edt_search_keyword = view.findViewById(R.id.edt_search_keyword);
-
+        tv_openparty_tag1 = view.findViewById(R.id.tv_openparty_tag1);
+        tv_openparty_tag2 = view.findViewById(R.id.tv_openparty_tag2);
+        tv_openparty_tag3 = view.findViewById(R.id.tv_openparty_tag3);
+        tv_openparty_tag4 = view.findViewById(R.id.tv_openparty_tag4);
+        tv_openparty_tag5 = view.findViewById(R.id.tv_openparty_tag5);
+        tv_openparty_tag6 = view.findViewById(R.id.tv_openparty_tag6);
 
         partyMainActivity = (PartyMainActivity) getActivity();
 
@@ -65,13 +70,52 @@ public class OpenpartyListFragment extends Fragment {
             openpartylist_item.setAdapter(partyListAdapter);
         }
 
+        // 해쉬태그 검색
+        tv_openparty_tag1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag1.getText()+"");
+            }
+        });
+        tv_openparty_tag2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag2.getText()+"");
+            }
+        });
+        tv_openparty_tag3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag3.getText()+"");
+            }
+        });
+        tv_openparty_tag4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag4.getText()+"");
+            }
+        });
+        tv_openparty_tag5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag5.getText()+"");
+            }
+        });
+        tv_openparty_tag6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword(partyMainActivity,tv_openparty_tag6.getText()+"");
+            }
+        });
+
+
+
 
         //검색 버튼
         btn_party_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SearchPartyFragment searchPartyFrag= new SearchPartyFragment(getActivity(),edt_search_keyword.getText()+"");
-                partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
+                searchKeyword(partyMainActivity,edt_search_keyword.getText()+"");
             }
         });
 
@@ -84,6 +128,11 @@ public class OpenpartyListFragment extends Fragment {
 
         return view;
     }//onCreateView()
+
+    private void searchKeyword(PartyMainActivity partyMainActivity, String search_keyword) {
+        SearchPartyFragment searchPartyFrag= new SearchPartyFragment(getActivity(),search_keyword);
+        partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
+    }
 
 
     private ArrayList<PartyListDTO> showOpenPartylist() {

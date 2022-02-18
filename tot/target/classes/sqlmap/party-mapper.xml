@@ -19,7 +19,9 @@
 
 <select id="selectOpenpartyList" resultType="android.partyvo.PartyListVO">
 
-	select distinct * from tbl_party where party_private = 'y' order by party_sn
+	<!-- select distinct * from tbl_party where party_private = 'y' order by party_sn -->
+	select distinct party_sn, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader
+	from tbl_party where party_private = 'y' order by party_sn
 	
 </select>
 
@@ -58,6 +60,13 @@
 <select id="selectcheckPartyname" resultType="string">
 
 	select count(*) from tbl_party where party_name = #{party_name}
+	
+</select>
+
+<select id="showPartyMember" resultType="android.kwk.MemberVO">
+
+	select member.* from tbl_member_info member
+	where member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 	
 </select>
 

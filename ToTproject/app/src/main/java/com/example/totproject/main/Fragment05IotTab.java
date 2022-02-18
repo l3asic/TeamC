@@ -17,7 +17,7 @@ public class Fragment05IotTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.zzz_main_burger01_notice_fg_detail_fg, container, false);
+        return inflater.inflate(R.layout.mainburger01_notice_fg_detail_fg, container, false);
 
 
     }

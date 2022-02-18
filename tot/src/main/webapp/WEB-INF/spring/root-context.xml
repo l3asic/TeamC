@@ -7,12 +7,13 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-<context:component-scan
-      base-package="android.*" />
-         <import resource="classpath:data/default.xml" />
-         
-      <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<context:component-scan
+		base-package="android.*, category,common" />
+			<import resource="classpath:data/default.xml" />
+		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     <property name="maxUploadSize" value="200000000" />
     <property name="maxInMemorySize" value="200000000" />
 </bean>
+		
+		
 </beans>

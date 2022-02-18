@@ -9,8 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="match_parent"
@@ -41,49 +40,67 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tend2_radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="친구(2~3인)여행 선호여부"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
-            android:id="@+id/tend2_rg1"
+            android:id="@+id/mbti_buddy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/tend2_rg1_radio1"
+                android:id="@+id/mbti_buddy_rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg1_radio2"
+                android:id="@+id/mbti_buddy_rad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg1_radio3"
+                android:id="@+id/mbti_buddy_rad3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg1_radio4"
-                android:layout_width="77dp"
+                android:id="@+id/mbti_buddy_rad4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"
                 android:text="4" />
 
             <RadioButton
-                android:id="@+id/tend2_rg1_radio5"
+                android:id="@+id/mbti_buddy_rad5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -91,50 +108,68 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/tend2_radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="4인이상 여행 선호 여부"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
-            android:id="@+id/tend2_rg2"
+            android:id="@+id/mbti_family"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/tend2_rg2_radio1"
+                android:id="@+id/mbti_family_rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg2_radio2"
+                android:id="@+id/mbti_family_rad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg2_radio3"
+                android:id="@+id/mbti_family_rad3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tebd2_rg2_radio4"
+                android:id="@+id/mbti_family_rad4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tebd2_rg2_radio5"
+                android:id="@+id/mbti_family_rad5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -142,50 +177,68 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/tend2_radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="선호비용 (1-저비용, 5-고비용)"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
-            android:id="@+id/tend_rg3"
+            android:id="@+id/mbti_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/tend2_rg3_radio1"
+                android:id="@+id/mbti_price_rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg3_radio2"
+                android:id="@+id/mbti_price_rad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg3_radio3"
+                android:id="@+id/mbti_price_rad3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg3_radio4"
+                android:id="@+id/mbti_price_rad4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg3_radio5"
+                android:id="@+id/mbti_price_rad5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -193,51 +246,68 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/tend2_radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="정적/동적 여행 선호여부(1- 정적, 5-동적)"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
-            android:id="@+id/tend2_rg4"
+            android:id="@+id/mbti_sd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/tend2_rg4_radio1"
+                android:id="@+id/mbti_sd_rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg4_radio2"
+                android:id="@+id/mbti_sd_rad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg4_radio3"
+                android:id="@+id/mbti_sd_rad3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg4_radio4"
+                android:id="@+id/mbti_sd_rad4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg4_radio5"
+                android:id="@+id/mbti_sd_rad5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
@@ -245,56 +315,74 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/tend2_radio6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="인/아웃 선호 여부(1-인도어, 5-아웃도어)"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
-            android:id="@+id/tend2_rg6"
+            android:id="@+id/mbti_io"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/tend2_rg6_radio1"
+                android:id="@+id/mbti_io_rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="1"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg6_radio2"
+                android:id="@+id/mbti_io_rad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="2"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg6_radio3"
+                android:id="@+id/mbti_io_rad3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="3"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg6_radio4"
+                android:id="@+id/mbti_io_rad4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="4"
+                android:layout_marginRight="5dp"
                 android:padding="15dp"/>
 
             <RadioButton
-                android:id="@+id/tend2_rg6_radio5"
+                android:id="@+id/mbti_io_rad5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_button"
+                android:textColor="@drawable/selector_radio_text"
+                android:button="@null"
                 android:text="5"
                 android:padding="15dp"/>
 
 
         </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout
@@ -302,7 +390,7 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend2_btn1_skip"
+            android:id="@+id/tend2_btn_skip"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -317,7 +405,7 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend2_btn2_next"
+            android:id="@+id/tend2_btn_join"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

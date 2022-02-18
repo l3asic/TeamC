@@ -70,7 +70,7 @@ public class PlanMainActivity extends AppCompatActivity {
 
     // 플랜 체인지 프레그
     public void changePlanFrag(Fragment frag, String title_name ){
-        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, frag).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, frag).addToBackStack(null).commit();
         tv_planmain_title.setText(title_name);
 
     }
@@ -93,7 +93,7 @@ public class PlanMainActivity extends AppCompatActivity {
     // 해당하는 플랜 보여주기 (이동)
     public void changePlanFrag(PlanlistDTO planDTO){
         PlanInfo01Fragment plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this, planDTO);
-        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).addToBackStack(null).commit();
 
         tv_planmain_title.setText(planDTO.getPlan_name());
 

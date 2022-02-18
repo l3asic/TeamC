@@ -16,7 +16,6 @@
     <style name="BigText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">20dp</item>
     </style>
-
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>

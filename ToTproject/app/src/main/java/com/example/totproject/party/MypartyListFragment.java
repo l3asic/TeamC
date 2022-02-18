@@ -15,8 +15,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.MemberDTO;
-import com.example.totproject.zzchaminhwan.VO.NoticeVO;
+import com.example.totproject.common.statics.Logined;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -70,7 +69,7 @@ public class MypartyListFragment extends Fragment {
 
     public ArrayList<PartyListDTO> showMyPartylist(){
         commonAsk = new CommonAsk("android/party/mypartylist");
-        commonAsk.params.add(new CommonAskParam("member_id",MemberDTO.id));
+        commonAsk.params.add(new CommonAskParam("member_id", Logined.member_id));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {

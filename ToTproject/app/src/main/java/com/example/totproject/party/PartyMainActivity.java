@@ -45,7 +45,7 @@ public class PartyMainActivity extends AppCompatActivity {
     }//onCreate()
 
     public void changeFrag(Fragment frag, String title){
-        getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, frag).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.party_main_container, frag).addToBackStack(null).commit();
         party_title.setText(title);
     }
 

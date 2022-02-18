@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import android.kwk.MemberVO;
 import android.partyvo.PartyListVO;
 import android.partyvo.PartyPlanListVO;
 import android.partyvo.PlanInfoVO;
@@ -122,6 +123,12 @@ public class PartyDAO {
 	public void deleteParty(PartyListVO vo) {
 		sql.delete("party.mapper.deleteParty", vo);
 		
+	}
+
+
+	public List<MemberVO> showPartyMember(PartyListVO vo) {
+
+		return  sql.selectList("party.mapper.showPartyMember", vo);
 	}
 
 

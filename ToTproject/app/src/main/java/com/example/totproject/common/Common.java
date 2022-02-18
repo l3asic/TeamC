@@ -12,7 +12,6 @@ public class Common {
     public static void goMain(Context context){
         Intent intent = new Intent(context , MainActivity.class);
         context.startActivity(intent);
-
     }//goMain()
 
 

@@ -2,12 +2,12 @@
 <FrameLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".main.Fragment03BoardTab">
+    tools:context=".board.BoardMainActivity">
 
 
     <LinearLayout
@@ -16,15 +16,18 @@
         android:orientation="vertical">
 
 
+
+
         <!-- ↓ plan_list_item 출력 공간-->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/boardtab_list_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/main_frag_boardtab_item_boardlist">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
 
         </androidx.recyclerview.widget.RecyclerView>
+
+
+
 
 
     </LinearLayout>
@@ -32,40 +35,43 @@
 
     <!-- Floating Action Button 사용하기-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/boardtab_fab_search"
+        android:id="@+id/board_fab3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:fabSize="mini"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="#C98671"
         android:src="@drawable/ic_baseline_edit_24"
-        app:fabSize="mini" />
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/boardtab_fab_write"
+        android:id="@+id/board_fab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:fabSize="mini"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="#DEC063"
         android:src="@drawable/ic_baseline_format_list_numbered_24"
-        app:fabSize="mini" />
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/boardtab_fab_mylist"
+        android:id="@+id/board_fab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:fabSize="mini"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="#65C5D2"
         android:src="@drawable/ic_baseline_playlist_add_24"
-        app:fabSize="mini" />
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/boardtab_fab_main"
+        android:id="@+id/board_fab_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

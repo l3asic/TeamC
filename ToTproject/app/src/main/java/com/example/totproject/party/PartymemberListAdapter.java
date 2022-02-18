@@ -59,7 +59,7 @@ public class PartymemberListAdapter  extends BaseAdapter {
             viewHolder = (GridViewHolder) convertView.getTag();
         }
         //if(list.get(position).getImgresId() == 1)
-        viewHolder.tv_member_nick.setText(list.get(position).getMemberid());
+        viewHolder.tv_member_nick.setText(list.get(position).getMember_nick());
         //viewHolder.imgv1.setImageResource(list.get(position).getImgresId());
 
 

@@ -13,11 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totproject.R;
+import com.example.totproject.category.Fragment02CategoryDetail;
 import com.example.totproject.common.CommonAsk;
-import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.zzchaminhwan.Adapter.NoticeAdapter;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,9 +31,22 @@ public class MainBurger01NoticeFg extends Fragment {
 
 
     RecyclerView notice_rc_view;
-    ArrayList<BoardCommonVO> list = new ArrayList<>();
-    BoardCommonVO vo = new BoardCommonVO();
+    Date date = new Date();
+    ArrayList<NoticeVO> list = new ArrayList<>();
+    public View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            NoticeVO vo = new NoticeVO();
 
+            Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
+            getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).commit();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("sn", vo.getBoard_sn() + "");
+            getParentFragmentManager().setFragmentResult("sn", bundle);
+
+        }
+    };
 
     Context context;
     FragmentManager manager;
@@ -48,13 +61,12 @@ public class MainBurger01NoticeFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup v = (ViewGroup)
-                inflater.inflate(R.layout.mainburger01_notice_fg, container, false);
+                inflater.inflate(R.layout.zzz_main_burger01_notice_fg, container, false);
 
-        vo.setBoard_class("notice");
-        vo.setList_cnt_many(999);
-        selectBoardList(vo);
+
+        list();
 /*        for (int i = 0; i < 10; i++) {
-              BoardCommonVO vo = new   BoardCommonVO();
+            NoticeVO vo = new NoticeVO();
             vo.setBoard_title(i + 1 + "번째 공지사항 제목");
             vo.setBoard_date_create(date);
 
@@ -65,7 +77,7 @@ public class MainBurger01NoticeFg extends Fragment {
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
+        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, listener, manager);
 
         notice_rc_view.setLayoutManager(lmanager);
         notice_rc_view.setAdapter(adapter);
@@ -76,35 +88,20 @@ public class MainBurger01NoticeFg extends Fragment {
         return v;
     }
 
-    CommonAsk commonAsk;
+    CommonAsk service;
     Gson gson = new Gson();
-/*
-    public List<BoardCommonVO> list123() {
 
-        commonAsk = new CommonAsk("android/cmh/board_list@board_class=notice/view_cnt=50/");
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
+    public ArrayList<NoticeVO> list() {
+        service = new CommonAsk("android/cmh/notice");
+        InputStream in = CommonMethod.excuteAsk(service);
 
         try {
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<NoticeVO>>() {
             }.getType());
         } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
-    }*/
-
-    public ArrayList<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
-        commonAsk = new CommonAsk("android/cmh/board_list");
-
-        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-        try {
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
-            }.getType());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return  list;
     }
 
 }

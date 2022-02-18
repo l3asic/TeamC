@@ -68,7 +68,7 @@
 
 
                 <EditText
-                    android:id="@+id/edt_party_namet"
+                    android:id="@+id/edt_party_name"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
 

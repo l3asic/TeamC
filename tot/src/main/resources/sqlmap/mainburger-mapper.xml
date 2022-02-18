@@ -3,25 +3,18 @@
 
 <mapper namespace="mainburger.mapper">
 
-<!-- board_class 조회 -->
-<select id="board_list" resultType="android.mainburger.BoardCommonVO">
-select rownum, tbl.* 
-	from (select * from tbl_board 
-	where board_class = #{board_class}
-	order by board_sn desc ) tbl  
-where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
+<select id="noticelist" resultType="android.mainburger.MainBurgerNoticeVO">
+select board_sn, board_title, board_content from tbl_board where board_class = 'notice'
 </select>
 
-
-
-<select id="board_detail" resultType="android.mainburger.BoardCommonVO">
+<select id="notice_detail" resultType="android.mainburger.MainBurgerNoticeVO">
 select * from tbl_board where board_sn = #{paramSn}
 </select>
 
 <insert id="insertVs">
 insert into tbl_board (member_id, board_title, board_content, board_class) values (#{name, jdbcType=VARCHAR}, #{title}, #{content}, 'vs')
 </insert>
-<select id="selectThisVs" resultType="android.mainburger.BoardCommonVO">
+<select id="selectThisVs" resultType="android.mainburger.OneOneEmailVO">
 select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
 </select>
 

@@ -1,7 +1,9 @@
 package com.example.totproject.login;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,18 +13,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.MemberDTO;
+import com.example.totproject.common.kwkCommonAsk;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.KakaoSdk;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.Profile;
+import com.navercorp.nid.oauth.NidOAuthLogin;
 import com.navercorp.nid.oauth.OAuthLoginCallback;
 import com.navercorp.nid.oauth.view.NidOAuthLoginButton;
 import com.nhn.android.naverlogin.OAuthLogin;
@@ -69,8 +72,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess() {
                 String accesToken = authLogin.getAccessToken(LoginActivity.this);
                 String refreshToken = authLogin.getRefreshToken(LoginActivity.this);
+
                 Toast.makeText(LoginActivity.this, "네이버로그인 성공", Toast.LENGTH_SHORT).show();
-                goSplash();
+                //goSplash();
 
             }
 
@@ -103,10 +107,10 @@ public class LoginActivity extends AppCompatActivity {
                     dialog.show();
                 }else {
                     dto = loginTry(dto);
-                    if(dto != null){
+                    if(vo != null){
                         Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-
-                        goSplash(dto);
+                        goSplash();
+                      //  finish();
                     }else{
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
                         dialog = builder1.setMessage("아이디나 비번을 확인하세요").setPositiveButton("확인", null).create();
@@ -119,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-/*        // 아이디 찾기
+        // 아이디 찾기
         search_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,14 +140,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });*/
+        });
 
 
         // 회원가입
         text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, TendencyActivity01.class);
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(intent);
             }
         });
@@ -193,37 +197,40 @@ public class LoginActivity extends AppCompatActivity {
             if(throwable != null){
                 //오류가 났을때 어떤 오류인지 알아볼수가 있음 . KOE + 숫자
             }else{
-                // [ {  }  ] json 구조처럼 바로 데이터가 있는게 아니라 Account라는 키로 한칸을 들어가고
-                //여기안에서 또 profile이라는 칸으로 또 이동 .
                 Account kakaoAcount = user.getKakaoAccount();
-                if(kakaoAcount != null){
-                    Profile profile = kakaoAcount.getProfile();
-                    if(profile != null){
-                        Toast.makeText(LoginActivity.this, profile.getNickname()+"님 환영", Toast.LENGTH_SHORT).show();
-                        goSplash();
+                Log.d("kakaoinfo", "getkakaoinfo: " + kakaoAcount.getEmail() + "");
+                //MemberDTO dto = new MemberDTO();
+                String id = kakaoAcount.getEmail();
+
+                if(id != null){
+
+                    CommonMethod commonMethod = new CommonMethod();
+                    CommonAsk conn = new CommonAsk("kakao_login");
+                    conn.addParams("id", gson.toJson(id));
+                    Gson gson = new Gson();
+                    try {
+                        InputStream in = commonMethod.excuteAsk(conn);
+                        //dto = gson.fromJson(new InputStreamReader(in), MemberDTO.class);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+                    Profile profile = kakaoAcount.getProfile();
+                    Toast.makeText(LoginActivity.this, profile.getNickname()+"님 환영", Toast.LENGTH_SHORT).show();
+                    goSplash();
                 }
             }
 
             return  null;
-        }) ;
+        });
     } //getKakaoinfo()
 
     public void goSplash() {
-        Intent intent = new Intent(LoginActivity.this,SplashActivity.class);
-
-        startActivity(intent);
-        finish();
-    } //
-    public void goSplash(MemberDTO dto) {
-        Intent intent = new Intent(LoginActivity.this,SplashActivity.class);
-intent.putExtra("dto",dto);
-        startActivity(intent);
-        finish();
+        startActivity(new Intent(LoginActivity.this, SplashActivity.class));
     } //
 
     CommonAsk service;
     Gson gson = new Gson();
+    MemberDTO vo = new MemberDTO();
     public MemberDTO loginTry(MemberDTO dto) {
         service = new CommonAsk("login");
         service.addParams("dto" , gson.toJson(dto));
@@ -231,12 +238,11 @@ intent.putExtra("dto",dto);
         InputStream in = CommonMethod.excuteAsk(service);
         try {
 
-            dto = gson.fromJson(new InputStreamReader(in), MemberDTO.class);
+            vo = gson.fromJson(new InputStreamReader(in), MemberDTO.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return dto;
+        return vo;
     }//loginTry()
-
 
 }

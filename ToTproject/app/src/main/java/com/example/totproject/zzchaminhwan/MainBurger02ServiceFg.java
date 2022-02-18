@@ -30,7 +30,7 @@ public class MainBurger02ServiceFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.mainburger02_service_fg, container, false);
+        View v = inflater.inflate(R.layout.zzz_main_burger02_service_fg, container, false);
 
         btn1 = v.findViewById(R.id.service_btn1);
         btn1.setOnClickListener(new View.OnClickListener() {

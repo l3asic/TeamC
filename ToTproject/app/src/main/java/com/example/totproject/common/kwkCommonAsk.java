@@ -3,8 +3,7 @@ package com.example.totproject.common;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 
-
-import com.example.totproject.common.VO.MemberDTO;
+import com.example.totproject.login.MemberDTO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/partyinfo_burger_cancel"
+            android:id="@+id/nav_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -51,12 +51,12 @@
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/partyinfo_burger_imgv_circle"
+            android:id="@+id/nav_image"
             android:layout_width="70dp"
             android:layout_height="70dp"
-
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="35dp"
+            android:layout_below="@+id/nav_cancel"
+            android:layout_alignEnd="@+id/nav_nickname"
+            android:layout_marginTop="10dp"
             android:padding="8dp"
             android:src="@drawable/ic_launcher_foreground"
             app:civ_border_color="#ffffff"
@@ -64,30 +64,29 @@
             app:civ_border_width="3dp" />
 
         <TextView
-            android:id="@+id/partyinfo_burger_tv_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/nav_nickname"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/partyinfo_burger_cancel"
+            android:layout_below="@+id/nav_cancel"
             android:layout_marginTop="10dp"
-            android:text=" 차 민 환 "
+            android:text="닉네임"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/partyinfo_burger_tv_grade"
-            android:layout_width="wrap_content"
+            android:id="@+id/nav_nickname2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/partyinfo_burger_cancel"
+            android:layout_below="@+id/nav_cancel"
             android:layout_marginTop="40dp"
-            android:text="등급 : 테스트"
+            android:text="ㅌㅌㅌ테스트ㅌㅌㅌ"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />
 
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -101,7 +100,6 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/lin_mypartyburger_invite"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -109,18 +107,20 @@
 
 
                     <ImageView
-                        android:id="@+id/partyinfo_burger_invite"
+
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_launcher_background" />
 
                     <TextView
-
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:text="멤버초대" />
+                        android:paddingBottom="10dp"
+                        android:text="테스트텍스트" />
 
                 </LinearLayout>
 
@@ -132,17 +132,20 @@
 
 
                     <ImageView
-                        android:id="@+id/partyinfo_burger_membermanage"
+
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_launcher_background" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:text="멤버관리" />
+                        android:paddingBottom="10dp"
+                        android:text="테스트텍스트" />
 
                 </LinearLayout>
 
@@ -162,22 +165,23 @@
 
 
                     <ImageView
-                        android:id="@+id/partyinfo_burger_infomanage"
+
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_launcher_background" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center"
-
-                        android:text="파티정보수정" />
+                        android:paddingBottom="10dp"
+                        android:text="테스트텍스트" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lin_mypartyburger_delete"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -185,16 +189,20 @@
 
 
                     <ImageView
+
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_launcher_background" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:text="파티해산" />
+                        android:paddingBottom="10dp"
+                        android:text="테스트텍스트" />
 
                 </LinearLayout>
 

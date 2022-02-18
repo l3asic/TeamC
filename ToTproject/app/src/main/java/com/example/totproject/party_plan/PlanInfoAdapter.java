@@ -51,7 +51,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
     // return 받게 해둠. )
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return list.get(groupPosition).getSubList().get(childPosition);
+        return list.get(groupPosition).getPlandetail_content();
     }
 
 
@@ -106,7 +106,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
         }else{
             viewHolder = (ChildViewHolder) convertView.getTag();
         }
-        viewHolder.bind(groupPosition , childPosition);
+        viewHolder.bind(groupPosition);
         return convertView;
     }
 
@@ -139,9 +139,6 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
                 public void onClick(View v) {
                     //@@@@@@@@@@@ 해당 날짜플랜 수정하는 액티비티 이동 만들어주기 @@@@@@@@@
                     Intent intent = new Intent(context, PlanUpdatePlanActivity.class);
-                    intent.putExtra("tabcode",1);
-                    intent.putExtra("plan_sn",list.get(i).getPlan_sn());
-                    intent.putExtra("palndetail_day",list.get(i).getPlandetail_date());
                     context.startActivity(intent);
 
                 }
@@ -165,10 +162,10 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
             tv_partyplan_content= itemview.findViewById(R.id.tv_partyplan_content);
             tv_partyplan_content_detail= itemview.findViewById(R.id.tv_partyplan_content_detail);
         }
-        public void bind(int i , int j) {
-            tv_partyplan_time.setText(list.get(i).getSubList().get(j).getPlandetail_time());
-            tv_partyplan_content.setText(list.get(i).getSubList().get(j).getPlandetail_content());
-            tv_partyplan_content_detail.setText(list.get(i).getSubList().get(j).getPlandetail_content_detail());
+        public void bind(int i) {
+            tv_partyplan_time.setText(list.get(i).getPlandetail_time());
+            tv_partyplan_content.setText(list.get(i).getPlandetail_content());
+            tv_partyplan_content_detail.setText(list.get(i).getPlandetail_content_detail());
 
 
         }

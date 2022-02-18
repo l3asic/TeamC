@@ -6,34 +6,18 @@ package com.example.totproject.category;
 // Imageview , TextView <-묶어놓은 클래스를 반드시 만들고 이벤트 핸들링을 여기서해라.
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.example.totproject.R;
-import com.example.totproject.common.CommonAsk;
-import com.example.totproject.common.CommonAskParam;
-import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.common.VO.PictureVO;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
@@ -46,26 +30,18 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
 
     //메인에서 넘겨 받을 필드
     Context context;
-    ArrayList<BoardCommonVO> list;
+    ArrayList<DetailDTO> list;
     LayoutInflater inflater;
-
-    CommonAsk commonAsk;
-    Gson gson = new Gson();
-
     //생성자 메소드를 만듬 ↑ 세개를 입력받거나 또는 두개를 입력받아서 LayoutInflater까지 null이 아니게 ..
     //생성자 메소드 호출해보기 . ( RecyclerActivity )
 
 
-    public RecAdapter(Context context, ArrayList<BoardCommonVO> list) {
+    public RecAdapter(Context context, ArrayList<DetailDTO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //액티비티의 소스 줄을 조금 줄일수가있음.
         //context 자체를 받아왔기때문에 context를 이용하는것이 메모리에 더 효율적이다.
-    }
-
-    public RecAdapter(Context context) {
-        this.context = context;
     }
 
 
@@ -82,13 +58,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
     //4. 아이템이 ↑ 세팅되고 나서의 처리를 의미함↓
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        /*BoardCommonVO vo = new BoardCommonVO();
-        holder.tv_username.setText(vo.getMember_id());
-        holder.tv_content.setText(vo.getBoard_content());*/
-        holder.tv_content.setText(list.get(position).getBoard_content());
-        holder.tv_username.setText(list.get(position).getMember_nick());
 
-        holder.getImageURL(position);
     }
     //5.↓ 총 아이템의 갯수를 지정함.
     @Override
@@ -98,73 +68,15 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
 
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView category_detail_img1, category_detail_img2 , category_detail_img3;
+        ImageView img_userimg, img_content;
         TextView tv_username, tv_content; //xml에 있는 위젯들을 전역변수로 선언.
-        LinearLayout image_parent;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            category_detail_img1 = itemView.findViewById(R.id.category_detail_img1);
-            category_detail_img2 = itemView.findViewById(R.id.category_detail_img2);
-            category_detail_img3 = itemView.findViewById(R.id.category_detail_img3);
+            img_userimg = itemView.findViewById(R.id.category_detail_img_userimg);
+            img_content = itemView.findViewById(R.id.category_detail_img_contentimg);
             tv_username = itemView.findViewById(R.id.category_detail_tv_username);
             tv_content = itemView.findViewById(R.id.category_detail_tv_contenttv);
-            category_detail_img1.setScaleType(ImageView.ScaleType.FIT_XY);
-            category_detail_img2.setScaleType(ImageView.ScaleType.FIT_XY);
-            category_detail_img3.setScaleType(ImageView.ScaleType.FIT_XY);
 
-            image_parent = itemView.findViewById(R.id.image_parent);
-        }
-
-        public void getImageURL(int position){
-            commonAsk = new CommonAsk("list_picture");
-            commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(list.get(position).getBoard_sn())));
-            InputStream in = CommonMethod.excuteAsk(commonAsk);
-            ArrayList<PictureVO> getList = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PictureVO>>(){}.getType());
-
-            Log.i("asdasd??",getList.size()+"");
-            try {
-                int size = getList.size();
-                switch (size){
-                    case 0:
-                        image_parent.setVisibility(View.GONE);
-                        break;
-                    case 1:
-                        category_detail_img2.setVisibility(View.INVISIBLE);
-                        category_detail_img3.setVisibility(View.INVISIBLE);
-                        break;
-                    case 2:
-                        category_detail_img3.setVisibility(View.INVISIBLE);
-                        break;
-                }
-                for (int i = 0; i < getList.size();i++){
-                    switch (i){
-                        case 0:
-                            Glide.with(context)
-                                    .load(getList.get(i).getPicture_filepath())
-                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                                    .skipMemoryCache(true)
-                                    .into(category_detail_img1);
-                            break;
-                        case 1:
-                            Glide.with(context)
-                                    .load(getList.get(i).getPicture_filepath())
-                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                                    .skipMemoryCache(true)
-                                    .into(category_detail_img2);
-                            break;
-                        case 2:
-                            Glide.with(context)
-                                    .load(getList.get(i).getPicture_filepath())
-                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                                    .skipMemoryCache(true)
-                                    .into(category_detail_img3);
-                            break;
-                    }
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 }

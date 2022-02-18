@@ -19,11 +19,16 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.main.MainActivity;
+import com.example.totproject.zzchaminhwan.VO.NoticeVO;
 import com.example.totproject.zzchaminhwan.VO.OneOneEmailVO;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Timer;
 
 public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
 
@@ -46,7 +51,7 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.mainburger02_service_fg_0203_oneoneemail, container, false);
+        View v = inflater.inflate(R.layout.zzz_main_burger02_service_fg_0203_oneoneemail, container, false);
 
         name = v.findViewById(R.id.main_burger_service_oneoneemail_edt_name);
         email = v.findViewById(R.id.main_burger_service_oneoneemail_edt_email);
@@ -73,6 +78,12 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         }
 
 
+        vo.setName(getText(name, getname));
+        vo.setEmail(getText(email, getemail));
+        vo.setTel(getText(tel, gettel));
+        vo.setTitle(getText(title, gettitle));
+        vo.setContent(getText(content, getcontent));
+        vo.setPassword(getText(password, getpassword));
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -85,23 +96,9 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 vo.setName(getText(name, getname));
-                vo.setEmail(getText(email, getemail));
-                vo.setTel(getText(tel, gettel));
-
-                vo.setTitle(getText(title, null ) );
-                vo.setContent(getText(content, null ) );
-
-                vo.setPassword(getText(password, getpassword));
-
+                Toast.makeText(context, "확인버튼 눌림 - DB연동 해야함", Toast.LENGTH_SHORT).show();
                 ;//db연결(vo);
-                if(insertVs(vo)==null){
-                    Toast.makeText(context, "확인버튼 눌림 - DB연동 해야함", Toast.LENGTH_SHORT).show();
-
-
-                }else{{
-                    manager.popBackStack();
-                }}
+insertVs(vo);
 
             }
         });

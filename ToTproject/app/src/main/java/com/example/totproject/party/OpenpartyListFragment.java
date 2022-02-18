@@ -5,38 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
-import com.example.totproject.common.CommonAsk;
-import com.example.totproject.common.CommonAskParam;
-import com.example.totproject.common.CommonMethod;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class OpenpartyListFragment extends Fragment {
     RecyclerView openpartylist_item;
     Context context;
-    ArrayList<PartyListDTO> list = new ArrayList<>();
-    CommonAsk commonAsk;
-    Gson gson = new Gson();
-    Button btn_party_search;
-    EditText edt_search_keyword;
-    PartyMainActivity partyMainActivity = new PartyMainActivity();
-    TextView tv_openparty_tag1, tv_openparty_tag2, tv_openparty_tag3, tv_openparty_tag4, tv_openparty_tag5, tv_openparty_tag6;
 
     public OpenpartyListFragment(Context context) {
         this.context = context;
@@ -48,33 +29,32 @@ public class OpenpartyListFragment extends Fragment {
         View view = inflater.inflate(R.layout.party_frag_openpartylist, container, false);
 
         openpartylist_item = view.findViewById(R.id.openpartylist_item);
-        btn_party_search = view.findViewById(R.id.btn_party_search);
-        edt_search_keyword = view.findViewById(R.id.edt_search_keyword);
+        ArrayList<PartyListDTO> list = new ArrayList<>();
 
-
-        partyMainActivity = (PartyMainActivity) getActivity();
-
-
-        showOpenPartylist();
-        if(list != null){
-            PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(
-                    context , RecyclerView.VERTICAL , false
+        //@@@@@@@@@@@@ 안드 더미데이터 넣기  ~
+        for (int i=0; i<10;i++){
+            list.add(new PartyListDTO(
+                    001+i,
+                    R.drawable.ic_launcher_background,
+                    "n",
+                    "파티리더명",
+                    "partyname01",
+                    "파티 설명입니다  블라블라",
+                    "#partyhashtag1",
+                    "#partyhashtag2",
+                    "#partyhashtag3"
+                    )
             );
-            openpartylist_item.setLayoutManager(layoutManager);
-            openpartylist_item.setAdapter(partyListAdapter);
         }
+        // ~ @@@@@@@@@@@@ 안드 더미데이터 넣기
 
+        PartyListAdapter partyListAdapter = new PartyListAdapter(context,list,1);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                context , RecyclerView.VERTICAL , false
+        );
 
-        //검색 버튼
-        btn_party_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SearchPartyFragment searchPartyFrag= new SearchPartyFragment(getActivity(),edt_search_keyword.getText()+"");
-                partyMainActivity.changeFrag(searchPartyFrag,"검색 결과");
-            }
-        });
-
+        openpartylist_item.setLayoutManager(layoutManager);
+        openpartylist_item.setAdapter(partyListAdapter);
 
 
 
@@ -83,27 +63,5 @@ public class OpenpartyListFragment extends Fragment {
 
 
         return view;
-    }//onCreateView()
-
-
-    private ArrayList<PartyListDTO> showOpenPartylist() {
-        commonAsk = new CommonAsk("android/party/openpartylist");
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-
-        try {
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
-            }.getType());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-
-    }//showOpenPartylist()
-
-
-
-
-
-
-
+    }
 }

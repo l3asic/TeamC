@@ -9,4 +9,49 @@ from tbl_reply reply where board_sn = #{paramSn}
 
 </select>
 
+<!-- 특정 사용자 게시물 조회 -->
+<select id="whose_board_list" resultType="android.mainburger.BoardCommonVO">
+SELECT
+    board.*,
+    (SELECT COUNT(*)
+        FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = board.board_sn) "function_like",
+    (SELECT COUNT(*)
+        FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = board.board_sn) "board_cnt_reply"
+FROM tbl_board board, tbl_likes likes
+WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
+</select>
+
+<!-- 특정 사용자 좋아요 게시물 조회 -->
+<select id="whose_board_likes">
+SELECT
+    board.*,
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_likes likes
+        WHERE
+                board.board_sn = likes.board_sn
+            AND likes.function_like IS NOT NULL
+            AND likes.board_sn = board.board_sn
+    ) "function_like",
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_reply reply
+        WHERE
+                board.board_sn = reply.board_sn
+            AND reply.board_sn = board.board_sn
+    ) "board_cnt_reply"
+FROM
+    tbl_board board
+WHERE
+    member_id = #{member_id}
+</select>
+
 </mapper>

@@ -54,18 +54,8 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
 
-
         <activity
-            android:name=".main.Fragment03BoardTab_Detail_Act"
-            android:exported="false" />
-        <activity
-            android:name=".WhosePage00Activity"
-            android:exported="false" />
-        <activity
-            android:name=".category.CategoryMainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".category.CategoryReplyActivity"
+            android:name=".party.InviteMemberActivity"
             android:exported="false" />
         <activity
             android:name=".party_plan.PlanCreatePlanActivity"
@@ -87,6 +77,19 @@
             android:exported="false" />
         <activity
             android:name=".party.PartyMainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".main.Fragment03BoardTab_Detail_Act"
+            android:exported="false" />
+        <activity
+            android:name=".WhosePage00Activity"
+            android:exported="false" />
+        <activity
+            android:name=".category.CategoryMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".category.CategoryReplyActivity"
             android:exported="false" />
         <activity
             android:name=".zzchaminhwan.MainBurger00Activity"

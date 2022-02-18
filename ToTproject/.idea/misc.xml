@@ -159,7 +159,10 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable-v24/bottom_line.xml" value="0.1955" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable-v24/selector_radio_button.xml" value="0.1955" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/bottom_line.xml" value="0.38229166666666664" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/button_theme_background.xml" value="0.1145" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/dialog_background.xml" value="0.1145" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/ic_baseline_format_list_numbered_24.xml" value="0.225" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/drawable/title_theme_background.xml" value="0.1145" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_join.xml" value="0.25" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_login.xml" value="0.33" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/activity_00_splash.xml" value="0.36614583333333334" />
@@ -219,6 +222,7 @@
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_gridlist_item_list.xml" value="0.36614583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/category_frag_grildlist_item_list.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/check_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/common_alert_yes_or_no_item.xml" value="0.18489583333333334" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_01_main.xml" value="0.1875" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_02_category.xml" value="0.22" />
         <entry key="..\:/study_project/ToTproject/app/src/main/res/layout/fragment_02_category_detail.xml" value="0.22" />

@@ -12,12 +12,6 @@ select rownum, tbl.*
 where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>
 
-<!-- 특정 사용자 게시물 조회 -->
-<select id="whose_board_list" resultType="android.mainburger.BoardCommonVO">
-select * 
-from tbl_board
-where member_id = #{member_id}
-</select>
 
 
 <select id="board_detail" resultType="android.mainburger.BoardCommonVO">

@@ -3,8 +3,6 @@ package com.example.totproject.common;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 
-import com.google.gson.Gson;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -32,22 +30,14 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     final String SVRPATH = "/tot/"; //
     String mapping ;
     private String postUrl ;//
-    private MemberDTO dto; // join
-
 
     public ArrayList<CommonAskParam> params ;
     public ArrayList<CommonAskParam> fileParams;
-    public ArrayList<String> list = new ArrayList<>();
 
-    public CommonAsk(String mapping) {
-        list = new ArrayList<>(); //
+    public CommonAsk(String mapping ) {
         this.mapping = mapping;
         params =new ArrayList<>();
         fileParams = new ArrayList<>();
-    }
-
-    public void addItem(String data) {
-        list.add(data);  //<-
     }
 
     public void addParams(String key , String value){
@@ -57,19 +47,9 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     @Override
     protected InputStream doInBackground(String... strings) {
         postUrl = HTTPIP + SVRPATH + mapping ;
+
         builder = MultipartEntityBuilder.create();
-
-        // join
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        builder.addTextBody("size" , list.size()+"" ,
-                ContentType.create("Multipart/related", "utf-8"));
-
-        for(int i =0; i < list.size(); i++) {
-            builder.addTextBody("param"+(i+1) , list.get(i) ,
-                    ContentType.create("Multipart/related", "utf-8"));
-        }
-
-        //
         builder.addTextBody("idx" , params.size()+"" ,
                 ContentType.create("Multipart/related" , "UTF-8"));
         for(int i = 0; i < params.size() ; i ++){
@@ -84,9 +64,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         httpClient = AndroidHttpClient.newInstance("Android");
         httpPost = new HttpPost(postUrl);
         httpPost.setEntity(builder.build());//파라메터를 추가할수있는부분.
-
         InputStream   in = null;
-
         try {
             in = httpClient.execute(httpPost).getEntity().getContent();
 
@@ -94,7 +72,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //rtnString(in);
+
         return in;
     }
 

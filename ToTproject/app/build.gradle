@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.example.totproject"
@@ -47,7 +47,6 @@ dependencies {
 
     // naver
     implementation 'com.navercorp.nid:oauth:5.0.0'
-
 
     /* circleimageview 사용하기 위한 버전 */
     implementation 'de.hdodenhof:circleimageview:3.1.0'

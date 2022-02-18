@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,10 @@ import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.apache.http.util.VersionInfo;
+
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottom_nav;
@@ -42,6 +47,8 @@ LinearLayout afterLogin;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_act_main);
+        if(android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy);}
 
         bottom_nav = findViewById(R.id.main_nav);
         main_container = R.id.main_container;
@@ -61,15 +68,16 @@ LinearLayout afterLogin;
                     ChangeFrament(main_container, categoryTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_board) {
-                    //ChangeFrament(main_container, boardTab_frag);
+                 //   ChangeFrament(main_container, boardTab_frag);
                     Intent intent = new Intent(MainActivity.this, BoardMainActivity.class);
                     startActivity(intent);
+                    return true;
                 } else if (item.getItemId() == R.id.bot_party) {
                     ChangeFrament(main_container, partyTab_frag);
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
-                    return true;
+
+
                 }
                 //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 //fking i can't typing Korean;;;
@@ -137,6 +145,7 @@ LinearLayout afterLogin;
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
+
                 if (drawer.isDrawerOpen(Gravity.END)) {
                     drawer.closeDrawer(Gravity.END);
                 } else {
@@ -164,7 +173,8 @@ LinearLayout afterLogin;
                 } else if (id == R.id.mainnav_policy) {
                     ChangeActivity(MainBurger00Activity.class, 3, tabText);
                 } else if (id == R.id.mainnav_version) {
-                    Toast.makeText(MainActivity.this, "버전정보 확인", Toast.LENGTH_SHORT).show();
+                    Date date = new Date();
+                    Toast.makeText(MainActivity.this, "버전정보 확인 : "+date, Toast.LENGTH_LONG).show();
                 }
 
 

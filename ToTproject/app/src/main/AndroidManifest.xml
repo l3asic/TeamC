@@ -12,36 +12,53 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
-
         <activity
-            android:name=".zzchaminhwan.MainBurger00Activity"
+            android:name=".login.FindPwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.FindIdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party_plan.PlanCreatePlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party_plan.PlanMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party_plan.PlanUpdatePlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party.MyPartyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party.PartyCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".party.PartyJoinActivity"
             android:exported="false" />
         <activity
             android:name=".party.PartyMainActivity"
             android:exported="false" />
         <activity
-            android:name=".category.CategoryMainActivity"
+            android:name=".zzchaminhwan.MainBurger00Activity"
             android:exported="false" />
         <activity
-            android:name=".board.BoardNewActivity"
+            android:name=".category.CategoryMainActivity"
             android:exported="false" />
         <activity
             android:name=".board.BoardMainActivity"
             android:exported="false" />
         <activity
-            android:name=".board.Activity03BoardDetail"
+            android:name=".board.BoardNewActivity"
             android:exported="false" />
         <activity
-            android:name=".party_plan.Party04Planning"
+            android:name=".board.Activity03BoardDetail"
             android:exported="false" />
         <activity
             android:name=".login.TendencyActivity01"
             android:exported="false" />
         <activity
             android:name=".login.TendencyActivity02"
-            android:exported="false" />
-        <activity
-            android:name=".party.PartyCreateActivity"
             android:exported="false" />
         <activity
             android:name=".login.JoinActivity"
@@ -60,9 +77,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!--Kakao -->
+        </activity> <!-- Kakao -->
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -78,6 +93,7 @@
                     android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
             </intent-filter>
         </activity>
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

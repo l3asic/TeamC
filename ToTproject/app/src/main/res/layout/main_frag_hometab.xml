@@ -2,8 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment01Main">
+    android:layout_height="wrap_content"
+    tools:context=".main.Fragment01MainTab">
+
+
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/main_seach"
@@ -38,6 +40,7 @@
                 android:id="@+id/rec_recommend"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"></androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -88,13 +91,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/main_local"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="?attr/actionBarSize"
+                android:text="가고싶은 여행지를 고르세요"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

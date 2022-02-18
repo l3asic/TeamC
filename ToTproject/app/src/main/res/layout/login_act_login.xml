@@ -65,6 +65,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:hint="비밀번호를  입력하세요"
+                android:inputType="textPassword"
                 android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>

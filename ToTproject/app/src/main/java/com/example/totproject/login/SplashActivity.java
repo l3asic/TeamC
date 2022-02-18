@@ -1,10 +1,10 @@
 package com.example.totproject.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 import com.example.totproject.common.Common;

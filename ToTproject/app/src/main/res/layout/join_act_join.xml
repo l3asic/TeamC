@@ -111,7 +111,6 @@
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:hint="비밀번호입력(영대/소문, 숫자포함 4글자이상) "
-                    android:inputType="textPassword"
                     android:textSize="15dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -145,7 +144,6 @@
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:hint="비밀번호를 한번 더 입력하세요"
-                    android:inputType="textPassword"
                     android:textSize="15dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -202,19 +200,30 @@
                     android:gravity="bottom"
                     android:text="닉네임"
                     android:textSize="20dp"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/join_nick"
-                    android:layout_width="300dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="4"
                     android:hint="닉네임을 입력하세요"
-                    android:inputType="textPassword"
+                    android:textSize="15dp"/>
+
+                <Button
+                    android:id="@+id/join_nick_confirm"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="닉네임중복"
                     android:textSize="15dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -224,12 +233,13 @@
             android:layout_height="wrap_content"
             android:text="성별"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
-        <RadioGroup
+        <LinearLayout
+            android:id="@+id/join_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/join_gender_f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -240,8 +250,8 @@
                 android:layout_marginRight="5dp"
                 android:padding="5dp"/>
 
-            <RadioButton
-                android:id="@+id/join_gender"
+            <CheckBox
+                android:id="@+id/join_gender_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
@@ -253,7 +263,7 @@
 
 
 
-        </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -292,7 +302,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="인증번호입력"
+                    android:text="인증번호요청"
                     android:textSize="14dp"/>
             </LinearLayout>
 

@@ -177,7 +177,6 @@
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:hint="이름을 입력하세요"
-                    android:inputType="textPassword"
                     android:textSize="15dp"/>
             </LinearLayout>
 
@@ -233,13 +232,13 @@
             android:layout_height="wrap_content"
             android:text="성별"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
-        <LinearLayout
+        <RadioGroup
             android:id="@+id/join_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <CheckBox
+            <RadioButton
                 android:id="@+id/join_gender_f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -250,7 +249,7 @@
                 android:layout_marginRight="5dp"
                 android:padding="5dp"/>
 
-            <CheckBox
+            <RadioButton
                 android:id="@+id/join_gender_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -261,9 +260,7 @@
                 android:layout_marginRight="5dp"
                 android:padding="5dp"/>
 
-
-
-        </LinearLayout>
+         </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -380,7 +377,6 @@
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:hint="이메일을 입력하세요"
-                    android:inputType="textPassword"
                     android:textSize="15dp"/>
             </LinearLayout>
         </LinearLayout>

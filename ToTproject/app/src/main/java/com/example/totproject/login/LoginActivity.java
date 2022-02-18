@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+                Intent intent = new Intent(LoginActivity.this, TendencyActivity01.class);
                 startActivity(intent);
             }
         });

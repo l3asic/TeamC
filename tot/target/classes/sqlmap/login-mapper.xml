@@ -11,12 +11,12 @@
 
 	<!-- 성향분석 -->
 	<insert id="tend_insert">
-		insert into tbl_mbti ( mbti_loacal, member_id, board_sn, mbti_x, mbti_y
+		insert into tbl_mbti (mbti_loacal, member_id, board_sn, mbti_addr, mbti_x, mbti_y
 					, mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
-					, mbti_buddy, mbti_family, mbti_price, mbti_sd, mbti_io)
-		values ( '임시local위치', #{member_id}, null, 21, 32
+					, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io)
+		values ( '임시local위치', #{member_id}, 2, #{mbti_addr}, null, 21, 32
 					, #{mbti_activity}, #{mbti_festival}, #{mbti_tour}, #{mbti_solo}, #{mbti_couple}
-					, #{mbti_buddy}, #{mbti_family}, #{mbti_price}, #{mbti_sd}, #{mbti_io})
+					, #{mbti_buddys}, #{mbti_family}, #{mbti_price}, #{mbti_sd}, #{mbti_io})
 	</insert>
 	
 	<!-- 로그인 -->

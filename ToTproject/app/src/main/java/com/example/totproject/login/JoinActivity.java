@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -30,8 +32,8 @@ public class JoinActivity extends AppCompatActivity {
 
     EditText join_id, join_pw, join_pw_confirm, join_name, join_nick, join_email, join_tel;
     TextView join_next;
-    LinearLayout join_gender;
-    CheckBox join_gender_f, join_gender_m;
+    RadioGroup join_gender;
+    RadioButton join_gender_f, join_gender_m;
     Button join_id_confirm, join_nick_confirm;
     AlertDialog dialog;
     boolean validate = false;
@@ -49,9 +51,13 @@ public class JoinActivity extends AppCompatActivity {
         join_name = findViewById(R.id.join_name);
         join_nick = findViewById(R.id.join_nick);
         join_nick_confirm = findViewById(R.id.join_nick_confirm);
+
         join_gender = findViewById(R.id.join_gender);
         join_gender_m = findViewById(R.id.join_gender_m);
         join_gender_f = findViewById(R.id.join_gender_f);
+        join_gender_f.setTag(1);
+        join_gender_m.setTag(2);
+
         join_email = findViewById(R.id.join_email);
         join_next = findViewById(R.id.join_next);
 
@@ -190,6 +196,7 @@ public class JoinActivity extends AppCompatActivity {
                 } else {
 
                     MemberDTO dto = new MemberDTO();
+                    //join_gender.setOnCheckedChangeListener(this);
 
                     dto.setMember_id(join_id.getText() + "");
                     dto.setMember_pw(join_pw.getText() + "");
@@ -238,7 +245,7 @@ public class JoinActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return id_chk;
-    }
+    }// joinIdConfirm()
 
     private int joinNickConfirm(String member_nick) {
         commonAsk = new kwkCommonAsk("nick_check");
@@ -252,5 +259,6 @@ public class JoinActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return nick_chk;
-    }
+    }//joinNickConfirm ()
+
 }

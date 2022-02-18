@@ -38,10 +38,6 @@ public class TendencyActivity01 extends AppCompatActivity implements RadioGroup.
         mbti_solo = findViewById(R.id.mbti_solo);
         mbti_couple = findViewById(R.id.mbti_couple);
 
-//        RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = null;
-//        mbti_tour.setOnCheckedChangeListener(radioGroupButtonChangeListener);
-//        mbti_activity.setOnCheckedChangeListener(radioGroupButtonChangeListener);
-
         mbti_tour_rad1 = findViewById(R.id.mbti_tour_rad1);
         mbti_tour_rad2 = findViewById(R.id.mbti_tour_rad2);
         mbti_tour_rad3 = findViewById(R.id.mbti_tour_rad3);

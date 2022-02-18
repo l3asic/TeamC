@@ -3,57 +3,10 @@ package com.example.totproject.login;
 import java.io.Serializable;
 
 public class TendDTO implements Serializable {
-    int mbti_tour, mbti_activity, mbti_festival, mbti_solo, mbti_couple
-            , mbti_buddy, mbti_family, mbti_price, mbti_sd, mbti_io
-            , member_sn, member_local, member_x, member_y, member_id;
 
-    public int getMember_sn() {
-        return member_sn;
-    }
-
-    public void setMember_sn(int member_sn) {
-        this.member_sn = member_sn;
-    }
-
-    public int getMember_local() {
-        return member_local;
-    }
-
-    public void setMember_local(int member_local) {
-        this.member_local = member_local;
-    }
-
-    public int getMember_x() {
-        return member_x;
-    }
-
-    public void setMember_x(int member_x) {
-        this.member_x = member_x;
-    }
-
-    public int getMember_y() {
-        return member_y;
-    }
-
-    public void setMember_y(int member_y) {
-        this.member_y = member_y;
-    }
-
-    public int getMember_id() {
-        return member_id;
-    }
-
-    public void setMember_id(int member_id) {
-        this.member_id = member_id;
-    }
-
-    public int getMbti_tour() {
-        return mbti_tour;
-    }
-
-    public void setMbti_tour(int mbti_tour) {
-        this.mbti_tour = mbti_tour;
-    }
+    int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
+            , mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io
+            , mbti_sn, mbti_local, member_id, board_sn, mbti_addr , mbti_x, mbti_y;
 
     public int getMbti_activity() {
         return mbti_activity;
@@ -69,6 +22,14 @@ public class TendDTO implements Serializable {
 
     public void setMbti_festival(int mbti_festival) {
         this.mbti_festival = mbti_festival;
+    }
+
+    public int getMbti_tour() {
+        return mbti_tour;
+    }
+
+    public void setMbti_tour(int mbti_tour) {
+        this.mbti_tour = mbti_tour;
     }
 
     public int getMbti_solo() {
@@ -87,12 +48,12 @@ public class TendDTO implements Serializable {
         this.mbti_couple = mbti_couple;
     }
 
-    public int getMbti_buddy() {
-        return mbti_buddy;
+    public int getMbti_buddys() {
+        return mbti_buddys;
     }
 
-    public void setMbti_buddy(int mbti_buddy) {
-        this.mbti_buddy = mbti_buddy;
+    public void setMbti_buddys(int mbti_buddys) {
+        this.mbti_buddys = mbti_buddys;
     }
 
     public int getMbti_family() {
@@ -126,4 +87,61 @@ public class TendDTO implements Serializable {
     public void setMbti_io(int mbti_io) {
         this.mbti_io = mbti_io;
     }
+
+    public int getMbti_sn() {
+        return mbti_sn;
+    }
+
+    public void setMbti_sn(int mbti_sn) {
+        this.mbti_sn = mbti_sn;
+    }
+
+    public int getMbti_local() {
+        return mbti_local;
+    }
+
+    public void setMbti_local(int mbti_local) {
+        this.mbti_local = mbti_local;
+    }
+
+    public int getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(int member_id) {
+        this.member_id = member_id;
+    }
+
+    public int getBoard_sn() {
+        return board_sn;
+    }
+
+    public void setBoard_sn(int board_sn) {
+        this.board_sn = board_sn;
+    }
+
+    public int getMbti_addr() {
+        return mbti_addr;
+    }
+
+    public void setMbti_addr(int mbti_addr) {
+        this.mbti_addr = mbti_addr;
+    }
+
+    public int getMbti_x() {
+        return mbti_x;
+    }
+
+    public void setMbti_x(int mbti_x) {
+        this.mbti_x = mbti_x;
+    }
+
+    public int getMbti_y() {
+        return mbti_y;
+    }
+
+    public void setMbti_y(int mbti_y) {
+        this.mbti_y = mbti_y;
+    }
+
 }

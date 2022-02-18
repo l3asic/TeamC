@@ -62,6 +62,7 @@ public class JoinController {
 		 String temp = req.getParameter("vo"); 
 		 vo = gson.fromJson(temp, MemberVO.class);
 		 sql.insert("login.mapper.join_insert", vo);
+		
 		 writer.print(gson.toJson(vo));
 	}
 	

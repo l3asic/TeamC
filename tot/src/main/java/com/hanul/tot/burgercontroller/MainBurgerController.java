@@ -41,7 +41,7 @@ public class MainBurgerController {
 //http://localhost/tot/android/cmh/board_list@board_class=notice/view_cnt=10/
 //notice recommand where tour
 // * : /로 분리가능 읭 정렬기준 추가 가능.
-	@RequestMapping("/android/cmh/board_select")
+	@RequestMapping("/android/cmh/board_list")
 	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
@@ -78,7 +78,9 @@ public class MainBurgerController {
 	public void noticeList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
 		String path = req.getServletPath();
-
+System.out.println("\n\n board_list@*/*/ \n\n");
+System.out.println("\n\n board_list@*/*/ \n\n");
+System.out.println("\n\n board_list@*/*/ \n\n");
 		System.out.println("\n 테스트 : " + i + "\n" + "localhost/tot" + path);
 		System.out.println("getServletPath : " + path);
 

@@ -13,9 +13,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.google.gson.Gson;
 
 import android.chaminhwan.ReplyVO;
@@ -35,10 +37,10 @@ public class BoardController {
 	
 	
 	@RequestMapping("/android/cmh/reply_*/")
-	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session , Model model) throws IOException {
 		i++;
 		String path = req.getServletPath();
-		System.out.println("\n 테스트 : " + i + "\n" + "localhost/tot" + path);
+		System.out.println("\n 보드컨트롤러 : " + i + "\n" + "localhost/tot" + path);
 		System.out.println("getServletPath : " + path);
 
 		int paramSn = Integer.parseInt(req.getParameter("paramSn"));
@@ -52,6 +54,14 @@ public class BoardController {
 		list = sql.selectList("board.mapper.board_reply_list", paramSn);
 
 		writer.print(gson.toJson(list));
+		model.addAttribute("andJson",gson.toJson(list));
+		
+		
+//		model.addAttribute("andJson",list);
+		
+//		model.addAttribute("list",list);
+		
+//		return "android/print_Json";
 		
 	}
 }

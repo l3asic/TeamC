@@ -338,3 +338,4 @@ public class MainActivity extends AppCompatActivity {
     public void toastCheck(){
         Toast.makeText(this, "toastCheck", Toast.LENGTH_SHORT).show();
     }
+}

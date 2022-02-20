@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    >
+    android:layout_margin="5dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/board_user_reply_imgv_profile"
@@ -37,15 +36,21 @@
             android:layout_marginBottom="5dp"
             android:text="member_id" />
 
-        <TextView
+        <EditText
             android:id="@+id/board_user_reply_reply_content"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/board_user_reply_member_id"
             android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
 
-            android:layout_margin="5dp"
-            android:text="reply_content" />
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="reply_content"
+            android:minHeight="20dp"
+            android:text="reply_content"
+            android:textSize="10dp" />
 
         <TextView
             android:id="@+id/board_user_reply_writedate"
@@ -56,6 +61,32 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="5dp"
             android:text="0000/00/00" />
+
+        <TextView
+            android:id="@+id/board_user_reply_tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/board_user_reply_writedate"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="#708090"
+            android:gravity="center"
+            android:text="삭제" />
+
+        <TextView
+            android:id="@+id/board_user_reply_tv_update"
+
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/board_user_reply_writedate"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/board_user_reply_tv_delete"
+            android:background="#708090"
+            android:gravity="center"
+            android:text="수정" />
     </RelativeLayout>
 
 </RelativeLayout>

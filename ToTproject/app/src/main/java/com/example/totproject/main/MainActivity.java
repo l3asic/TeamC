@@ -195,14 +195,14 @@ public class MainActivity extends AppCompatActivity {
         main_burger_myboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goWhosePage();
+                goWhosePage(1);
                  toastCheck();
             }
         });
         main_burger_myscrap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goWhosePage();
+                goWhosePage(2);
                  toastCheck();
             }
         });
@@ -332,8 +332,9 @@ public class MainActivity extends AppCompatActivity {
     }
     /* ======================================================================== */
 
-    public void goWhosePage(){
+    public void goWhosePage(int tabCode){
     Intent intent = new Intent(MainActivity.this, WhosePage00Activity.class);
+    intent.putExtra("tabCode",tabCode);
     startActivity(intent);}
     public void toastCheck(){
         Toast.makeText(this, "toastCheck", Toast.LENGTH_SHORT).show();

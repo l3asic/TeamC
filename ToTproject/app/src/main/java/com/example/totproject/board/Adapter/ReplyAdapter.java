@@ -1,19 +1,30 @@
-package com.example.totproject.main.Adapter;
+package com.example.totproject.board.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
-import com.example.totproject.main.VO.ReplyVO;
+import com.example.totproject.board.VO.ReplyVO;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.statics.Logined;
+import com.example.totproject.party.MyPartyInfoActivity;
+import com.example.totproject.party.PartyMainActivity;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +53,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
             this.listener = listener;
 
     }//NoticeAdapter
+
     public ReplyAdapter(Context context, List<ReplyVO> list) {
         //       this.manager = manager;
         this.context = context;
@@ -78,12 +90,13 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
 
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class Viewholder extends RecyclerView.ViewHolder {
-        TextView  board_user_reply_member_id, board_user_reply_reply_content, board_user_reply_writedate;
+        TextView board_user_reply_member_id, board_user_reply_writedate;
+        EditText board_user_reply_reply_content;
         ImageView board_user_reply_img_profile;
         int board_sn;
-                LinearLayout board_user_list_item;
+        LinearLayout board_user_list_item;
 
-                ;
+        ;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -105,15 +118,80 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
 
             /* ============================== TextView 세팅 ============================== */
 
-           // holder.board_user_reply_img_profile.setText(list.get(position).getPicture_filepath() + "");
-            holder.board_user_reply_member_id.setText(list.get(position).getMember_id()+ "");
+            // holder.board_user_reply_img_profile.setText(list.get(position).getPicture_filepath() + "");
+            holder.board_user_reply_member_id.setText(list.get(position).getMember_id() + "");
             holder.board_user_reply_reply_content.setText(list.get(position).getReply_content() + "");
-            holder.board_user_reply_writedate.setText(list.get(position).getReply_writedate()+ "");
+            holder.board_user_reply_writedate.setText(list.get(position).getReply_writedate() + "");
+
+            if (list.get(position).getPicture_filepath() != null) {
+                Glide.with(context).load(R.drawable.like).into(board_user_reply_img_profile);
+                //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
+
+            }
             /* ====================================================================== */
 
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    showCustomDialog();
 
-
+                    return false;
+                }
+            });
 
         }
+
+        public void showCustomDialog() { //if(list.get(position).getMember_id == Logined.member_id){}
+            AlertDialog.Builder builder = new AlertDialog.Builder(context,
+                    R.style.AlertDialogTheme);
+
+            View view = LayoutInflater.from(context).inflate(
+                    R.layout.common_alert_yes_or_no_item,
+                    (LinearLayout) itemView.findViewById(R.id.layout_alert)
+            );
+            //다이얼로그 텍스트 설정
+            builder.setView(view);
+            ((TextView) view.findViewById(R.id.texttitle)).setText("※ 주의");
+            ((TextView) view.findViewById(R.id.textmessage)).setText("정말 파티를 해산 하시겠어요?");
+            ((TextView) view.findViewById(R.id.btn_dialog_yes)).setText("수정");
+            ((TextView) view.findViewById(R.id.btn_dialog_no)).setText("삭제");
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setCancelable(true);   //화면밖 터치시 다이얼로그 종료
+
+            view.findViewById(R.id.btn_dialog_yes).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateReply(); //댓글수정
+                    alertDialog.dismiss();  //알럿창 닫기
+                    Toast.makeText(context, "새로고침해야함", Toast.LENGTH_SHORT).show();
+                }
+            });
+            view.findViewById(R.id.btn_dialog_no).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteReply(); //댓글삭제
+                    alertDialog.dismiss();  //알럿창 닫기
+                    Toast.makeText(context, "새로고침해야함", Toast.LENGTH_SHORT).show();
+                }
+            });
+            //다이얼로그 형태 지우기
+            if (alertDialog.getWindow() != null) {
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+            alertDialog.show();
+        }//showCustomDialog()
     }//ViewHolder
+
+    CommonAsk CommonAsk;
+    Gson gson = new Gson();
+
+    public void updateReply() {
+
+    }
+
+    public void deleteReply() {
+
+    }
+
 }

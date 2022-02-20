@@ -13,8 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.board.zzz_Board00Activity;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.main.Fragment03BoardTab_Detail_Act;
 
 import java.util.List;
 
@@ -101,8 +101,9 @@ public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewho
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(context, Fragment03BoardTab_Detail_Act.class);
+                    Intent intent = new Intent(context, zzz_Board00Activity.class);
                     intent.putExtra("vo", list.get(position));
+                    intent.putExtra("tabText","detail");
                     context.startActivity(intent);
 
 

@@ -138,10 +138,8 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
         if (vo != null) {
             Toast.makeText(context, "db insert 성공", Toast.LENGTH_SHORT).show();
             manager.popBackStack();
-
         } else {
             Toast.makeText(context, "오류발생 ", Toast.LENGTH_SHORT).show();
-
         }
         return vo;
     }

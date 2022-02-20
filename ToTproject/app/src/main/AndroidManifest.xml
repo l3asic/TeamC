@@ -80,7 +80,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".main.Fragment03BoardTab_Detail_Act"
+            android:name=".board.Board00DetailFg"
             android:exported="false" />
         <activity
             android:name=".WhosePage00Activity"
@@ -96,9 +96,6 @@
             android:exported="false" />
         <activity
             android:name=".board.zzz_Board00Activity"
-            android:exported="false" />
-        <activity
-            android:name=".board.BoardNewActivity"
             android:exported="false" />
         <activity
             android:name=".main.MainActivity"

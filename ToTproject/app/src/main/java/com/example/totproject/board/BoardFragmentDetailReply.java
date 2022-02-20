@@ -1,25 +1,24 @@
 package com.example.totproject.board;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
-
 import com.example.totproject.R;
 
 
-public class Board01WriteFg extends Fragment {
-
+public class BoardFragmentDetailReply extends Fragment {
+    public BoardFragmentDetailReply() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.board_frag_search, container, false);
-
-
-
-        return rootview;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.zzz_board_fg_detail_reply, container, false);
     }
 }

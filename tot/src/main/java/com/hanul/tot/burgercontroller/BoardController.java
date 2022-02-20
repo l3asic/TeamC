@@ -33,11 +33,9 @@ public class BoardController {
 
 	int i = 0;
 
-
-	
-	
 	@RequestMapping("/android/cmh/reply_*/")
-	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session , Model model) throws IOException {
+	public void selectList(HttpServletRequest req, HttpServletResponse res, HttpSession session, Model model)
+			throws IOException {
 		i++;
 		String path = req.getServletPath();
 		System.out.println("\n 보드컨트롤러 : " + i + "\n" + "localhost/tot" + path);
@@ -54,16 +52,40 @@ public class BoardController {
 		list = sql.selectList("board.mapper.board_reply_list", paramSn);
 
 		System.out.println(list);
-		
+
 		writer.print(gson.toJson(list));
-		//model.addAttribute("andJson",gson.toJson(list));
-		
-		
+		// model.addAttribute("andJson",gson.toJson(list));
+
 //		model.addAttribute("andJson",list);
-		
+
 //		model.addAttribute("list",list);
-		
+
 //		return "android/print_Json";
-		
+
+	}
+
+	@RequestMapping("/android/cmh/whosePage_*/")
+	public void selectWhoseList(HttpServletRequest req, HttpServletResponse res, HttpSession session, Model model)
+			throws IOException {
+		i++;
+		String path = req.getServletPath();
+		System.out.println("\n 보드컨트롤러 : " + i + "\n" + "localhost/tot" + path);
+		System.out.println("getServletPath : " + path);
+
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		BoardCommonVO vo = gson.fromJson(req.getParameter("vo"), BoardCommonVO.class);
+		String abc = "temp";
+
+		if (path.equals("/android/cmh/whosePage_write")) {
+			abc = "write";
+		} else if (path.equals("/android/cmh/whosePage_likes")) {
+			abc = "likes";
+		}
+		List<BoardCommonVO> list = sql.selectList("board.mapper.whose_board_" + abc, vo);
+		writer.print(gson.toJson(list));
 	}
 }

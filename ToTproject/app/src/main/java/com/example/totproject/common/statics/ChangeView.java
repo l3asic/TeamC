@@ -14,11 +14,20 @@ public class ChangeView {
         Intent intent = new Intent(context, nextClass);
         context.startActivity(intent);
     }
+
     public static void changeActivity(Context context, Class nextClass, String name, String fromWhere) {
         Intent intent = new Intent(context, nextClass);
         intent.putExtra(name, fromWhere);
         context.startActivity(intent);
     }
+    /* ================================================================= */
+
+    /* ========================= 새로고침 ======================== */
+/*    public static void Reload(Context context) {
+        Intent getIntent = new Intent(context.getIntent());
+        context.startActivity(getIntent);
+        context.finish();
+    }*/
     /* ================================================================= */
 
     /* ===================== ChangeFragment ====================== */

@@ -30,7 +30,7 @@
 
 
         <TextView
-            android:id="@+id/mypage_tv_member_id"
+            android:id="@+id/whosepage_tv_member_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -40,25 +40,25 @@
             android:textSize="50dp" />
 
         <TextView
-            android:id="@+id/mypage_tv_text"
+            android:id="@+id/whosepage_tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:text="count(*) tbl_board member_id=" />
+            android:text="게시물 수 : " />
 
         <TextView
-            android:id="@+id/mypage_tv_tv_cntboard"
+            android:id="@+id/whosepage_tv_board_cnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginHorizontal="5dp"
-            android:layout_toRightOf="@+id/mypage_tv_text"
+            android:layout_toRightOf="@+id/whosepage_tv_text"
             android:text="000" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/mypage_imgv_profile"
+            android:id="@+id/whosepage_imgv_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
@@ -73,8 +73,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/mypage_container"
+        android:id="@+id/whosepage_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"></FrameLayout>
+        android:layout_weight="9"/>
 </LinearLayout>

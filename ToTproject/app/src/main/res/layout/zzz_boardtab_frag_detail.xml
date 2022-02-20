@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="main.Fragment03BoardTab_Detail_Act">
+    tools:context=".board.Board00DetailFg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +53,8 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal" />
 
-            <TextView
-                android:id="@+id/board_user_detail_tv_board_title"
+            <EditText
+                android:id="@+id/board_user_detail_edt_board_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -121,6 +121,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/board_user_detail_layout_function"
                 android:layout_width="match_parent"
                 android:layout_height="25dp">
 
@@ -168,8 +169,8 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/board_user_detail_tv_board_content"
+            <EditText
+                android:id="@+id/board_user_detail_edt_board_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="100dp"
@@ -213,13 +214,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:maxHeight="100dp"
-        android:minHeight="50dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#708090">
-
+        android:background="#708090"
+        android:maxHeight="100dp"
+        android:minHeight="50dp">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <RelativeLayout
+            android:id="@+id/board_user_detail_view_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
@@ -268,8 +272,10 @@
                     android:layout_width="0dp"
                     android:layout_height="37.5dp"
                     android:layout_weight="2"
+                    android:text="000"
                     android:gravity="center"
-                    android:text="000" />
+                    android:paddingLeft="25dp"
+                     />
 
                 <ImageView
                     android:id="@+id/board_user_detail_img_like"
@@ -284,6 +290,30 @@
             </LinearLayout>
 
         </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/board_user_detail_view_write"
+        android:visibility="invisible"
+        android:layout_marginHorizontal="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/board_user_detail_btn_cancel"
+            android:layout_weight="1"
+            android:text="취소"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            />
+        <Button
+            android:id="@+id/board_user_detail_btn_submit"
+            android:layout_weight="1"
+            android:text="확인"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            />
+
+    </LinearLayout>
+</FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

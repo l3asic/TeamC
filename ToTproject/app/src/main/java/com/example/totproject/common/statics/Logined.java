@@ -19,6 +19,7 @@ public class Logined {
     public static String member_grade;
     public static String member_is_kakao;
     public static String member_is_naver;
+    public static String profileImg_filepath;
 
 
 

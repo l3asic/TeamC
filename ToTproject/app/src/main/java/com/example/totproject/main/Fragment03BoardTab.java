@@ -1,7 +1,6 @@
 package com.example.totproject.main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.WhosePage00Activity;
-import com.example.totproject.board.BoardNewActivity;
 import com.example.totproject.board.zzz_Board00Activity;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.statics.ChangeView;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.BoardTabAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -43,13 +43,21 @@ public class Fragment03BoardTab extends Fragment {
     List<BoardCommonVO> list = new ArrayList<>();
     BoardCommonVO vo = new BoardCommonVO();
     RecyclerView Board_User_RcView;
-
+    MemberDTO memberDTO;
     Context context;
     FragmentManager manager;
 
     public Fragment03BoardTab(MainActivity mainActivity, FragmentManager manager) {
         this.context = mainActivity;
         this.manager = manager;
+    }
+
+    String isCase;
+
+    public Fragment03BoardTab(String isCase) {
+
+
+        this.isCase = isCase;
     }
 
     @Override
@@ -62,7 +70,16 @@ public class Fragment03BoardTab extends Fragment {
         vo.setBoard_class("notice");
         vo.setList_cnt_many(999);
         /* ====================================================================================== */
-        selectBoardList(vo);
+        if (isCase == null) {
+            selectBoardList(vo);
+        } else {
+            vo.setMember_id(Logined.member_id);
+            whoseList(vo, isCase); //whosePage 재활용
+            WhosePage00Activity whosePage00Activity = new WhosePage00Activity(memberDTO, vo.getList_cnt_many());
+            whosePage00Activity.setActTexts();
+        }
+
+
         Board_User_RcView = v.findViewById(R.id.boardtab_list_recycler);
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
@@ -74,50 +91,52 @@ public class Fragment03BoardTab extends Fragment {
         /* ====================================================================================== */
 
 
-        /* ===================================== fab 버튼 ============================================ */
-        boardtab_fab_search = v.findViewById(R.id.boardtab_fab_search);
-        boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
-        boardtab_fab_mypage = v.findViewById(R.id.boardtab_fab_mypage);
-        boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
+        if (isCase == null) {  // 재사용할려고 if()만듬
+            /* ===================================== fab 버튼 ============================================ */
+            boardtab_fab_search = v.findViewById(R.id.boardtab_fab_search);
+            boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
+            boardtab_fab_mypage = v.findViewById(R.id.boardtab_fab_mypage);
+            boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
 
-        fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
-        fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
+            fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
+            fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
 
-        boardtab_fab_write.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 1", Toast.LENGTH_SHORT).show();
-                ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "write");
-            }
-        });
-        boardtab_fab_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 2", Toast.LENGTH_SHORT).show();
-                ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "search");
-            }
-        });
-        boardtab_fab_mypage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "팹 3", Toast.LENGTH_SHORT).show();
-                ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, "whereFrom", "BoardTab");
-            }
-        });
-
-
-
-        /* ============================ + 버튼ㄴ ====================================== */
-        boardtab_fab_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isFabOpen) {
-                    showfabMenu();
-                } else {
-                    closefabMenu();
+            boardtab_fab_write.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "팹 1", Toast.LENGTH_SHORT).show();
+                    ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "write");
                 }
-            }
-        });
+            });
+            boardtab_fab_search.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "팹 2", Toast.LENGTH_SHORT).show();
+                    ChangeView.changeActivity(getActivity(), zzz_Board00Activity.class, "tabText", "search");
+                }
+            });
+            boardtab_fab_mypage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "팹 3", Toast.LENGTH_SHORT).show();
+                    ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, "whereFrom", "BoardTab");
+                }
+            });
+
+
+
+            /* ============================ + 버튼ㄴ ====================================== */
+            boardtab_fab_main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!isFabOpen) {
+                        showfabMenu();
+                    } else {
+                        closefabMenu();
+                    }
+                }
+            });
+        }
         /* ========================================================================================= */
 
         return v;
@@ -149,6 +168,19 @@ public class Fragment03BoardTab extends Fragment {
 
     public List<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
         commonAsk = new CommonAsk("android/cmh/board_list");
+        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<BoardCommonVO> whoseList(BoardCommonVO vo, String isCase) {
+        commonAsk = new CommonAsk("android/cmh/" + isCase + "/");
         commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
         try {

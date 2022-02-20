@@ -1,4 +1,4 @@
-package com.example.totproject.main.VO;
+package com.example.totproject.board.VO;
 
 public class ReplyVO {
 

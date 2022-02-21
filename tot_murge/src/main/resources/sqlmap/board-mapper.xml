@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board.mapper">
+
+<select id="board_reply_list" resultType="android.chaminhwan.ReplyVO">
+select reply.* , (select picture.picture_filepath from tbl_board_picture picture where picture.member_id = reply.member_id) piciture_filepath
+from tbl_reply reply where board_sn = #{paramSn} order by reply_sn desc
+
+</select>
+
+<insert id="reply_insert" >
+insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
+</insert>
+
+<delete id="reply_delete">
+delete tbl tbl_reply where reply_sn = #{reply_sn}
+</delete>
+
+<!-- 특정 사용자의 작성 게시물 조회 -->
+<select id="whose_board_write" resultType="android.mainburger.BoardCommonVO">
+select a.* ,   (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_likes likes
+        WHERE
+                board.board_sn = likes.board_sn
+            AND likes.function_like IS NOT NULL
+            AND likes.board_sn = a.board_sn
+    ) "function_like",
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_reply reply
+        WHERE
+                board.board_sn = reply.board_sn
+            AND reply.board_sn = a.board_sn
+    ) "board_cnt_reply"
+from(SELECT  * 
+FROM tbl_board board
+WHERE  member_id = #{member_id}
+order by board.board_sn desc) a
+</select>
+
+
+<!-- 특정 사용자의 좋아요 게시물 조회 -->
+<select id="whose_board_likes" resultType="android.mainburger.BoardCommonVO">
+SELECT
+    a.*,
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_likes likes
+        WHERE
+                board.board_sn = likes.board_sn
+            AND likes.board_sn = a.board_sn
+    ) function_like,
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            tbl_board board,
+            tbl_reply reply
+        WHERE
+                board.board_sn = reply.board_sn
+            AND reply.board_sn = a.board_sn
+    ) board_cnt_reply
+FROM
+    (
+        SELECT
+            board.*
+        FROM
+            tbl_board board,
+            tbl_likes likes
+        WHERE
+                board.board_sn = likes.board_sn
+            AND likes.member_id = #{member_id}
+        order by board.board_sn desc
+    ) a
+</select>
+
+</mapper>

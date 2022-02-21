@@ -7,33 +7,6 @@
     android:orientation="vertical"
     tools:context=".board.Board00DetailFg">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#708090">
-
-
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="게시물 상세보기"
-            android:textSize="30dp" />
-
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,11 +27,13 @@
                 android:orientation="horizontal" />
 
             <EditText
+
                 android:id="@+id/board_user_detail_edt_board_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="board_title"
+                android:enabled="false"
+                android:text="제목"
                 android:textSize="25dp" />
 
             <RelativeLayout
@@ -97,14 +72,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="member_id" />
 
-                    <TextView
-                        android:id="@+id/board_user_detail_tv_board_reply_cnt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_below="@id/board_user_detail_tv_member_id"
-                        android:layout_alignParentStart="true"
-                        android:layout_margin="5dp"
-                        android:text="reply_content" />
+
 
                     <TextView
                         android:id="@+id/board_user_detail_tv_board_date_create"
@@ -173,8 +141,9 @@
                 android:id="@+id/board_user_detail_edt_board_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:minHeight="100dp"
-                android:text="board_content \nboard_content \nboard_content \nboard_content \nboard_content" />
+                android:text="내용" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -184,18 +153,18 @@
 
                 <TextView
                     android:id="@+id/board_user_detail_tv_reply"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="댓글" />
 
                 <TextView
                     android:id="@+id/board_user_detail_tv_replycnt"
-                    android:layout_width="50dp"
+                    android:layout_width="25dp"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/board_user_detail_tv_reply"
-                    android:gravity="center_vertical"
-                    android:text="000" />
+                    android:text="000"
+                    android:textAlignment="textEnd" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -203,117 +172,98 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/black"
-            android:backgroundTint="@color/black">
+            android:backgroundTint="@color/black"
+            android:minHeight="300dp">
 
             <androidx.recyclerview.widget.RecyclerView
+
                 android:id="@+id/board_useR_detail_recycler_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/zzz_boardtab_frag_detail_item_reply"></androidx.recyclerview.widget.RecyclerView>
+                tools:listitem="@layout/zzz_boardtab_frag_detail_item_reply" />
         </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.000001"
         android:background="#708090"
         android:maxHeight="100dp"
         android:minHeight="50dp">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-        <RelativeLayout
-            android:id="@+id/board_user_detail_view_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
 
-            <LinearLayout
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/board_user_detail_view_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/board_user_detail_linear_like"
+                android:padding="10dp">
 
-                android:background="@drawable/radius"
-                android:gravity="center">
-
-
-                <EditText
-                    android:id="@+id/board_user_detail_edt_reply_input"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:hint="댓글입력"
+                    android:layout_toLeftOf="@+id/board_user_detail_linear_like"
 
-                    android:padding="5dp"
-                    android:textSize="15dp" />
-
-
-                <ImageView
-                    android:id="@+id/board_user_detail_img_reply_submit"
-                    android:layout_width="0dp"
-
-                    android:layout_height="37.5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:src="@mipmap/ic_logo_tot" />
-            </LinearLayout>
+                    android:background="@drawable/radius"
+                    android:gravity="center">
 
 
-            <LinearLayout
-                android:id="@+id/board_user_detail_linear_like"
+                    <EditText
+                        android:id="@+id/board_user_detail_edt_reply_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:hint="댓글입력"
 
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/board_user_detail_tv_like_cnt"
-                    android:layout_width="0dp"
-                    android:layout_height="37.5dp"
-                    android:layout_weight="2"
-                    android:text="000"
-                    android:gravity="center"
-                    android:paddingLeft="25dp"
-                     />
-
-                <ImageView
-                    android:id="@+id/board_user_detail_img_like"
-                    android:layout_width="0dp"
-
-                    android:layout_height="37.5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:src="@mipmap/ic_logo_tot" />
+                        android:padding="5dp"
+                        android:textSize="15dp" />
 
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/board_user_detail_img_reply_submit"
+                        android:layout_width="0dp"
+                        android:layout_height="37.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@mipmap/ic_logo_tot" />
+                </LinearLayout>
 
-        </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/board_user_detail_view_write"
-        android:visibility="invisible"
-        android:layout_marginHorizontal="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/board_user_detail_btn_cancel"
-            android:layout_weight="1"
-            android:text="취소"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            />
-        <Button
-            android:id="@+id/board_user_detail_btn_submit"
-            android:layout_weight="1"
-            android:text="확인"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            />
+                <LinearLayout
+                    android:id="@+id/board_user_detail_linear_like"
 
-    </LinearLayout>
-</FrameLayout>
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/board_user_detail_tv_like_cnt"
+                        android:layout_width="0dp"
+                        android:layout_height="37.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="000" />
+
+                    <ImageView
+                        android:id="@+id/board_user_detail_img_like"
+                        android:layout_width="0dp"
+
+                        android:layout_height="37.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@mipmap/ic_logo_tot" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

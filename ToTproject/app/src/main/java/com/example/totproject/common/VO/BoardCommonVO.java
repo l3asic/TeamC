@@ -22,7 +22,6 @@ public class BoardCommonVO implements Serializable {
     }
 
 
-
     public int getList_cnt_many() {
         return list_cnt_many;
     }

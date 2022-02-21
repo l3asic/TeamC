@@ -14,9 +14,10 @@
         android:background="#708090">
 
         <Button
-            android:id="@+id/boarc_act_btn_left"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:visibility="visible"
+            android:id="@+id/board_act_btn_left"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_margin="20dp" />
 
@@ -31,9 +32,10 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/boarc_act_btn_right"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:visibility="visible"
+            android:id="@+id/board_act_btn_right"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_margin="20dp" />
     </LinearLayout>

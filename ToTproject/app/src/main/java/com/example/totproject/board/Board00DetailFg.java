@@ -25,6 +25,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.statics.ChangeView;
 import com.example.totproject.common.statics.Logined;
 import com.example.totproject.board.Adapter.ReplyAdapter;
 import com.example.totproject.board.VO.ReplyVO;
@@ -41,7 +42,7 @@ import java.util.List;
 
 public class Board00DetailFg extends Fragment {
 
-    TextView board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt;
+    TextView board_user_detail_tv_member_id, board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt;
     LinearLayout board_user_detail_linear_update, board_user_detail_linear_delete, board_user_detail_linear_like;
     ImageView board_user_detail_img_reply_submit, board_user_detail_img_like;
     EditText board_user_detail_edt_board_title, board_user_detail_edt_board_content;
@@ -59,22 +60,24 @@ public class Board00DetailFg extends Fragment {
     Context context;
     FragmentManager manager;
     int paramSn;
-    String tabText;
+    String whatCase;
 
     /* ==================================== * from tbl_board ===================================== */
-    public Board00DetailFg(Context context, FragmentManager manager, BoardCommonVO vo) { //컨텍슽르르 메인에서부터 가져옴
+    public Board00DetailFg() {
+    }
+
+    public Board00DetailFg(Context context, FragmentManager manager, BoardCommonVO vo) {
         this.context = context;
         this.manager = manager;
         this.vo = vo;
     }
 
-    public Board00DetailFg(Context context, FragmentManager manager, String tabText) { //컨텍슽르르 메인에서부터 가져옴
+    public Board00DetailFg(Context context, FragmentManager manager, String whatCase) {
         this.context = context;
         this.manager = manager;
-        this.tabText = tabText;
+        this.whatCase = whatCase;
         vo.setMember_id(Logined.member_id);
         vo.setBoard_class("user");
-
     }
     /* =========================================================================================== */
 
@@ -92,9 +95,9 @@ public class Board00DetailFg extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.zzz_boardtab_frag_detail, container, false);
         String pageMode = null;
-        if (tabText == null) {
-            pageMode = "detilView";
-        } else if (tabText.equals("write")) {
+        if (whatCase == null) {
+            pageMode = "detailView";
+        } else if (whatCase.equals("write")) {
             pageMode = "write";
         }
 
@@ -117,9 +120,10 @@ public class Board00DetailFg extends Fragment {
         board_user_detail_edt_board_title = v.findViewById(R.id.board_user_detail_edt_board_title);
         board_user_detail_edt_board_content = v.findViewById(R.id.board_user_detail_edt_board_content);
         board_user_detail_tv_replycnt = v.findViewById(R.id.board_user_detail_tv_replycnt);
+        board_user_detail_tv_member_id = v.findViewById(R.id.board_user_detail_tv_member_id);
+        board_user_detail_tv_member_id.setText(vo.getMember_id());
 
-
-        if (pageMode.equals("detailView")) {
+        if (pageMode.equals("detailView")) {/* ================= 디테일뷰모드 ================= */
             /* ================================= board_content 세팅 ========================================= */
             board_user_detail_edt_board_title.isEnabled();
             board_user_detail_edt_board_content.isEnabled();
@@ -132,16 +136,9 @@ public class Board00DetailFg extends Fragment {
             /* ====================================================================================== */
 
             /* ===================================== DB댓글조회 및 어댑터 ============================== */
-            selectReply(boardSN);
             Board_User_Reply_RcView = v.findViewById(R.id.board_useR_detail_recycler_detail);
 
-            LinearLayoutManager lmanager = new LinearLayoutManager(
-                    getActivity(), RecyclerView.VERTICAL, false);
-            ReplyAdapter adapter = new ReplyAdapter(getActivity(), list);
-
-            Board_User_Reply_RcView.setLayoutManager(lmanager);
-            Board_User_Reply_RcView.setAdapter(adapter);
-
+            selectReplys();
             /* ====================================================================================== */
 
 
@@ -164,12 +161,12 @@ public class Board00DetailFg extends Fragment {
 
                     succ = insertReply(replyVO);
                     if (succ > 0) {
-                        Toast.makeText(getActivity(), "댓글등록 성공 댓글목록 새로고침 해야함", Toast.LENGTH_SHORT).show();
-                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.detach(null).attach(null).commit();
+                        Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
+                        board_user_detail_edt_reply_input.setText("");
                     } else {
                         Toast.makeText(getActivity(), "댓글등록 실패", Toast.LENGTH_SHORT).show();
                     }
+                    selectReplys();
                 }
             });
             board_user_detail_tv_like_cnt = v.findViewById(R.id.board_user_detail_tv_like_cnt);//좋아요 cnt
@@ -181,31 +178,28 @@ public class Board00DetailFg extends Fragment {
                 public void onClick(View view) {
                     int likes = Integer.parseInt(board_user_detail_tv_like_cnt.getText() + "");
                     setLike();
-                    // tbl_likes 연동
                 }
             });
             setLikeIcon();
 
             /* ====================================================================================== */
-        } else if (pageMode.equals("write")) { 
+        } else if (pageMode.equals("write")) { /* ================= 글쓰기모드 ================= */
                 /*        a01.setVisibility(View.GONE);          // view 삭제
         a01.setVisibility(View.INVISIBLE);   // view 그대로 숨기기
         a01.setVisibility(View.VISIBLE);      // view 보이기*/
-            LinearLayout board_user_detail_view_write;
-            board_user_detail_view_write = v.findViewById(R.id.board_user_detail_view_write);
-            RelativeLayout board_user_detail_view_detail;
-            board_user_detail_view_detail = v.findViewById(R.id.board_user_detail_view_detail);
-            board_user_detail_view_write.setVisibility(View.INVISIBLE);
+            /* ========================== 프레임 레이아웃 교체 ============================= */
+            RelativeLayout board_user_detail_view_detail;   //레이아웃선언
+            Button board_user_detail_btn_submit, board_user_detail_btn_cancel;  //버튼선언
+
+            board_user_detail_btn_submit = v.findViewById(R.id.board_act_btn_right);//확인 보이기
+            //   board_user_detail_btn_submit.setVisibility(View.VISIBLE);
+
+            board_user_detail_btn_cancel = v.findViewById(R.id.board_act_btn_left); //캔슬 보이기
+            //  board_user_detail_btn_cancel.setVisibility(View.VISIBLE);
+
+            board_user_detail_view_detail = v.findViewById(R.id.board_user_detail_view_detail);//레이아웃 숨기기
             board_user_detail_view_detail.setVisibility(View.GONE);
-            Button board_user_detail_btn_cancel, board_user_detail_btn_submit;
-            board_user_detail_btn_cancel = v.findViewById(R.id.board_user_detail_btn_cancel);
-            board_user_detail_btn_cancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(getActivity(), "취소눌림", Toast.LENGTH_SHORT).show();
-                }
-            });
-            board_user_detail_btn_submit = v.findViewById(R.id.board_user_detail_btn_submit);
+            /* ========================================================================== */
             board_user_detail_btn_submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -215,16 +209,28 @@ public class Board00DetailFg extends Fragment {
                     int succ = board_insert(vo);
                     if (succ > 0) {
                         Toast.makeText(getActivity(), "등록성공", Toast.LENGTH_SHORT).show();
+                        manager.popBackStack();
                     } else {
                         Toast.makeText(getActivity(), "등록실패", Toast.LENGTH_SHORT).show();
-
                     }
                 }
             });
+            board_user_detail_btn_cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getActivity(), "취소눌림", Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
         }
         return v;
     }//onCreateView
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     /* ===================================== db조회============================================ */
     CommonAsk commonAsk;
@@ -346,8 +352,8 @@ public class Board00DetailFg extends Fragment {
     /* =============================== 댓글 insert ======================= */
     public int insertReply(ReplyVO replyVO) { //insert into tbl_reply
         succ = 0;
-        commonAsk = new CommonAsk("insert_reply");
-        commonAsk.params.add(new CommonAskParam("board_sn", gson.toJson(replyVO)));
+        commonAsk = new CommonAsk("android/cmh/reply_insert/");
+        commonAsk.params.add(new CommonAskParam("replyVO", gson.toJson(replyVO)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
         try {
             succ = gson.fromJson(new InputStreamReader(in), Integer.class);
@@ -357,4 +363,13 @@ public class Board00DetailFg extends Fragment {
         return succ;
     }
     /* =============================================================== */
+
+    public void selectReplys() {
+        selectReply(boardSN);
+        LinearLayoutManager lmanager = new LinearLayoutManager(
+                getActivity(), RecyclerView.VERTICAL, false);
+        ReplyAdapter adapter = new ReplyAdapter(getActivity(), list);
+        Board_User_Reply_RcView.setLayoutManager(lmanager);
+        Board_User_Reply_RcView.setAdapter(adapter);
+    }
 }

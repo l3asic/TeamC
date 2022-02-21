@@ -53,7 +53,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".party.InviteMemberActivity"
             android:exported="false" />
@@ -77,10 +76,6 @@
             android:exported="false" />
         <activity
             android:name=".party.PartyMainActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".board.Board00DetailFg"
             android:exported="false" />
         <activity
             android:name=".WhosePage00Activity"

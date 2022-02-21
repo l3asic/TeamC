@@ -33,13 +33,13 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
     FragmentManager manager;
 
     String getname, getemail, gettel, gettitle, getcontent, getpassword;
-    String isCase;
+    String whatCase;
     LinearLayout ifHide01, ifHide02;
 
-    public MainBurger02ServiceFg0203OneOneEmailFg(Context context, FragmentManager manager, String isCase) { //컨텍슽르르 메인에서부터 가져옴
+    public MainBurger02ServiceFg0203OneOneEmailFg(Context context, FragmentManager manager, String whatCase) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
         this.manager = manager;
-        this.isCase = isCase;
+        this.whatCase = whatCase;
     }
 
     @Override
@@ -60,15 +60,15 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
 
         ifHide01 = v.findViewById(R.id.main_burger_service_oneoneemail_ifhide01);
         ifHide02 = v.findViewById(R.id.main_burger_service_oneoneemail_ifhide02);
-        if ("OneOne".equals(isCase)) {
+        if ("OneOne".equals(whatCase)) {
             Toast.makeText(context, "로그인정보 자동입력 + ( 입력불가 or 아예숨겨버리기 )", Toast.LENGTH_SHORT).show();
-            isCaseText(name);
-            isCaseText(email);
-            isCaseText(tel);
-            isCaseText(password);
-            //isCaseHide(ifHide01);
-            //isCaseHide(ifHide02);
-        } else if ("Email".equals(isCase)) {
+            whatCaseText(name);
+            whatCaseText(email);
+            whatCaseText(tel);
+            whatCaseText(password);
+            //whatCaseHide(ifHide01);
+            //whatCaseHide(ifHide02);
+        } else if ("Email".equals(whatCase)) {
             Toast.makeText(context, "수동입력", Toast.LENGTH_SHORT).show();
         }
 
@@ -145,14 +145,14 @@ public class MainBurger02ServiceFg0203OneOneEmailFg extends Fragment {
     }
     /**/
 
-    public void isCaseText(TextView textView) {
+    public void whatCaseText(TextView textView) {
         textView.setEnabled(true);
         textView.setText("ChaMinHwan");
         //textView.setText(logInvo.get.(append(textView) )); <ㅡ 이런거 안되면 이상한 고집부리지말고 걍 하드코딩하면됨 민환쨩 화이팅 간바레~ 앙 기모링~!
         textView.setBackgroundColor(Color.GRAY);
     }
 
-    public void isCaseHide(LinearLayout linearLayout) {
+    public void whatCaseHide(LinearLayout linearLayout) {
         linearLayout.setVisibility(View.INVISIBLE);
     }
 

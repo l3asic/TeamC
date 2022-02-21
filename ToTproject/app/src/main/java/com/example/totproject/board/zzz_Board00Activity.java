@@ -1,5 +1,7 @@
 package com.example.totproject.board;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -28,18 +30,19 @@ public class zzz_Board00Activity extends AppCompatActivity {
             Board00DetailFg board00_detail_fg = new Board00DetailFg(zzz_Board00Activity.this, getSupportFragmentManager(), "write");
 
            // Board01WriteFg board01WriteFg = new Board01WriteFg();
-            ChangeView.changeFrament(board_container_top, board00_detail_fg, getSupportFragmentManager());
+            ChangeView.viewFrament(board_container_top, board00_detail_fg, getSupportFragmentManager());
         } else if ("search".equals(tabText)) {
             Board01WriteFg board01SearchFg = new Board01WriteFg();
-            ChangeView.changeFrament(board_container_top, board01SearchFg, getSupportFragmentManager());
+            ChangeView.viewFrament(board_container_top, board01SearchFg, getSupportFragmentManager());
         } else if ("detail".equals(tabText)) {
             BoardCommonVO vo = (BoardCommonVO) getIntent.getSerializableExtra("vo");
             Board00DetailFg board00_detail_fg = new Board00DetailFg(zzz_Board00Activity.this, getSupportFragmentManager(), vo);
-            ChangeView.changeFrament(board_container_top, board00_detail_fg, getSupportFragmentManager());
+            ChangeView.viewFrament(board_container_top, board00_detail_fg, getSupportFragmentManager());
 
         }
 
     }//oncreate()
+
 
     /* =================================== view변경 + 상단텍스트 변경 ===========-------======================== */
 

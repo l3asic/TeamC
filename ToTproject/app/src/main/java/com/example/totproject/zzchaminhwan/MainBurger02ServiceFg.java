@@ -19,7 +19,7 @@ public class MainBurger02ServiceFg extends Fragment {
     Button btn1, btn2, btn3, btn4;
     Context context;
     FragmentManager manager;
-    String isCase;
+    String whatCase;
 
     public MainBurger02ServiceFg(Context context, FragmentManager manager) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
@@ -46,8 +46,8 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                isCase = "OneOne";
-                changeFragment(new MainBurger02ServiceFg0203OneOneEmailFg(context,manager,isCase));
+                whatCase = "OneOne";
+                changeFragment(new MainBurger02ServiceFg0203OneOneEmailFg(context,manager,whatCase));
             }
         });
 
@@ -56,8 +56,8 @@ public class MainBurger02ServiceFg extends Fragment {
             @Override
             public void onClick(View v) {
                 testToast();
-                isCase = "Email";
-                changeFragment(new MainBurger02ServiceFg0203OneOneEmailFg(context,manager,isCase));
+                whatCase = "Email";
+                changeFragment(new MainBurger02ServiceFg0203OneOneEmailFg(context,manager,whatCase));
             }
         });
 

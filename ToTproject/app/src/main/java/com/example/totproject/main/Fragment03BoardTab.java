@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -23,8 +24,7 @@ import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.statics.ChangeView;
-import com.example.totproject.common.statics.Logined;
-import com.example.totproject.main.Adapter.BoardTabAdapter;
+import com.example.totproject.main.Adapter.BoardListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -43,21 +43,23 @@ public class Fragment03BoardTab extends Fragment {
     List<BoardCommonVO> list = new ArrayList<>();
     BoardCommonVO vo = new BoardCommonVO();
     RecyclerView Board_User_RcView;
-    MemberDTO memberDTO;
+    MemberDTO memberDTO = new MemberDTO();
     Context context;
     FragmentManager manager;
-
-    public Fragment03BoardTab(MainActivity mainActivity, FragmentManager manager) {
-        this.context = mainActivity;
+    TextView whosepage_tv_member_id;
+String whose_member_id;
+    public Fragment03BoardTab(Context context, FragmentManager manager) {
+        this.context = context;
         this.manager = manager;
     }
 
-    String isCase;
+    String whatCase;
 
-    public Fragment03BoardTab(String isCase) {
-
-
-        this.isCase = isCase;
+    public Fragment03BoardTab(Context context, FragmentManager manager, String whatCase,String whose_member_id) {
+        this.context = context;
+        this.manager = manager;
+        this.whatCase = whatCase;
+        this.whose_member_id = whose_member_id;
     }
 
     @Override
@@ -66,37 +68,46 @@ public class Fragment03BoardTab extends Fragment {
         super.onCreate(savedInstanceState);
         View v = inflater.inflate(R.layout.main_frag_boardtab, container, false);
 
+
+
         /* ====================================================================================== */
         vo.setBoard_class("notice");
         vo.setList_cnt_many(999);
         /* ====================================================================================== */
-        if (isCase == null) {
-            selectBoardList(vo);
+        if (whatCase == null) {
+            list = selectBoardList(vo);
         } else {
-            vo.setMember_id(Logined.member_id);
-            whoseList(vo, isCase); //whosePage 재활용
-            WhosePage00Activity whosePage00Activity = new WhosePage00Activity(memberDTO, vo.getList_cnt_many());
-            whosePage00Activity.setActTexts();
+            WhosePage00Activity AT = (WhosePage00Activity) context;
+            memberDTO.setMember_id(whose_member_id);
+            if (whatCase.equals("whosePage_write")) {
+                list = whoseList(memberDTO, whatCase);
+            } else if (whatCase.equals("whosePage_likes")) {
+                list = whoseList(memberDTO, whatCase);
+            }
+            AT.setActTexts(whose_member_id, list);
         }
-
 
         Board_User_RcView = v.findViewById(R.id.boardtab_list_recycler);
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);
-        BoardTabAdapter adapter = new BoardTabAdapter(context, list, manager);
+        BoardListAdapter adapter = new BoardListAdapter(context, list, manager);
 
         Board_User_RcView.setLayoutManager(lmanager);
         Board_User_RcView.setAdapter(adapter);
         /* ====================================================================================== */
 
 
-        if (isCase == null) {  // 재사용할려고 if()만듬
+        if (whatCase == null) {  // 재사용할려고 if()만듬
             /* ===================================== fab 버튼 ============================================ */
             boardtab_fab_search = v.findViewById(R.id.boardtab_fab_search);
             boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
             boardtab_fab_mypage = v.findViewById(R.id.boardtab_fab_mypage);
             boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
+            boardtab_fab_search.setVisibility(View.VISIBLE);
+            boardtab_fab_write.setVisibility(View.VISIBLE);
+            boardtab_fab_mypage.setVisibility(View.VISIBLE);
+            boardtab_fab_main.setVisibility(View.VISIBLE);
 
             fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
             fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
@@ -119,7 +130,7 @@ public class Fragment03BoardTab extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getActivity(), "팹 3", Toast.LENGTH_SHORT).show();
-                    ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, "whereFrom", "BoardTab");
+                    ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, 1);
                 }
             });
 
@@ -179,9 +190,10 @@ public class Fragment03BoardTab extends Fragment {
         return list;
     }
 
-    public List<BoardCommonVO> whoseList(BoardCommonVO vo, String isCase) {
-        commonAsk = new CommonAsk("android/cmh/" + isCase + "/");
-        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
+    public List<BoardCommonVO> whoseList(MemberDTO memberDTO, String whatCase) {
+        list = new ArrayList<>();
+        commonAsk = new CommonAsk("android/cmh/" + whatCase + "/");
+        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(memberDTO)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
         try {
             list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {

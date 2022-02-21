@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.totproject.R;
+import com.example.totproject.board.Board00DetailFg;
 import com.example.totproject.board.VO.ReplyVO;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.statics.Logined;
@@ -107,7 +108,6 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
 
 
             board_user_list_item = itemView.findViewById(R.id.board_user_list_item);
-
         }
 
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
@@ -123,18 +123,24 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
             holder.board_user_reply_reply_content.setText(list.get(position).getReply_content() + "");
             holder.board_user_reply_writedate.setText(list.get(position).getReply_writedate() + "");
 
+
+
             if (list.get(position).getPicture_filepath() != null) {
                 Glide.with(context).load(R.drawable.like).into(board_user_reply_img_profile);
                 //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
-
+            }else {
+                Glide.with(context).load(R.drawable.like_gray).into(board_user_reply_img_profile);
             }
             /* ====================================================================== */
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    showCustomDialog();
-
+                    if (Logined.member_id.equals(list.get(position).getMember_id())) {
+                        showCustomDialog();
+                    }else{
+                        Toast.makeText(context, "권한없음", Toast.LENGTH_SHORT).show();
+                    }
                     return false;
                 }
             });
@@ -151,8 +157,8 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
             );
             //다이얼로그 텍스트 설정
             builder.setView(view);
-            ((TextView) view.findViewById(R.id.texttitle)).setText("※ 주의");
-            ((TextView) view.findViewById(R.id.textmessage)).setText("정말 파티를 해산 하시겠어요?");
+            ((TextView) view.findViewById(R.id.texttitle)).setText(" 댓글 수정 ");
+            ((TextView) view.findViewById(R.id.textmessage)).setText("댓글 수정");
             ((TextView) view.findViewById(R.id.btn_dialog_yes)).setText("수정");
             ((TextView) view.findViewById(R.id.btn_dialog_no)).setText("삭제");
 
@@ -162,17 +168,19 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
             view.findViewById(R.id.btn_dialog_yes).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    updateReply(); //댓글수정
-                    alertDialog.dismiss();  //알럿창 닫기
+                    alertDialog.dismiss();
                     Toast.makeText(context, "새로고침해야함", Toast.LENGTH_SHORT).show();
+                    succ = updateReply(); //댓글수정
+                    succCheck(succ, "수정");
                 }
             });
             view.findViewById(R.id.btn_dialog_no).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteReply(); //댓글삭제
-                    alertDialog.dismiss();  //알럿창 닫기
+                    alertDialog.dismiss();
                     Toast.makeText(context, "새로고침해야함", Toast.LENGTH_SHORT).show();
+                    succ = deleteReply(); //댓글삭제
+                    succCheck(succ, "삭제");
                 }
             });
             //다이얼로그 형태 지우기
@@ -183,15 +191,28 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
         }//showCustomDialog()
     }//ViewHolder
 
+    int succ;
+
     CommonAsk CommonAsk;
     Gson gson = new Gson();
 
-    public void updateReply() {
+    public int updateReply() {
+        int succ = 0;
 
+        return succ;
     }
 
-    public void deleteReply() {
+    public int deleteReply() {
+        int succ = 0;
 
+        return succ;
     }
 
+    public void succCheck(int succ, String whatCase) {
+        if (succ > 0) {
+            Toast.makeText(context, whatCase + " 되었습니다.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "잠시후 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

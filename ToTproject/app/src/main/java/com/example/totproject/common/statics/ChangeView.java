@@ -20,6 +20,11 @@ public class ChangeView {
         intent.putExtra(name, fromWhere);
         context.startActivity(intent);
     }
+    public static void changeActivity(Context context, Class nextClass, int tabCode) {
+        Intent intent = new Intent(context, nextClass);
+        intent.putExtra("tabCode", tabCode);
+        context.startActivity(intent);
+    }
     /* ================================================================= */
 
     /* ========================= 새로고침 ======================== */
@@ -31,6 +36,9 @@ public class ChangeView {
     /* ================================================================= */
 
     /* ===================== ChangeFragment ====================== */
+    public static void viewFrament(int container, Fragment fragment, FragmentManager manager) {
+        manager.beginTransaction().replace(container, fragment).commit();
+    }
     public static void changeFrament(int container, Fragment fragment, FragmentManager manager) {
         manager.beginTransaction().replace(container, fragment).addToBackStack(null).commit();
     }

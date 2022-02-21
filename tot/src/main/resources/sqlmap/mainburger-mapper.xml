@@ -5,24 +5,22 @@
 
 <!-- board_class 조회 -->
 <select id="board_list" resultType="android.mainburger.BoardCommonVO">
-select rownum, tbl.* ,(select COUNT (*)
+SELECT ROWNUM, tbl.*,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = tbl.board_sn
+    ) function_like,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
+    ) board_cnt_reply,
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = tbl.member_id
+    ) picture_filepath
 FROM
-    tbl_board board,
-    tbl_likes likes
-WHERE
-        board.board_sn = likes.board_sn
-    AND likes.function_like IS NOT NULL
-    AND likes.board_sn = tbl.board_sn) function_like,
-(select count(*)
-FROM
-    tbl_board board,
-    tbl_reply reply
-WHERE
-        board.board_sn = reply.board_sn and reply.board_sn = tbl.board_sn) board_cnt_reply
-	from (select * from tbl_board 
-	where board_class =#{board_class}
-	order by board_sn desc ) tbl  
-where rownum  <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
+    ( SELECT * FROM tbl_board
+        where board_class =#{board_class}
+        ORDER BY board_sn DESC
+    ) tbl
+WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>
 
 

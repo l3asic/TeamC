@@ -1,7 +1,6 @@
 package android.mainburger;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class BoardCommonVO implements Serializable {
 	private int board_sn, board_read_cnt, board_reviewepath;
@@ -9,7 +8,8 @@ public class BoardCommonVO implements Serializable {
 			member_id;
 	private String board_date_create, picture_filepath, member_nick;
 	private int picture_file_count;
-	private int board_cnt_reply, function_like;
+	private int board_cnt_reply;
+	private int function_like;
 	private int list_cnt_many;
 	private int matchScore;
 

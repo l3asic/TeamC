@@ -2,13 +2,16 @@ package com.example.totproject.main.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +21,7 @@ import com.example.totproject.common.VO.BoardCommonVO;
 
 import java.util.List;
 
-public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewholder> {
+public class BoardListAdapter extends RecyclerView.Adapter<BoardListAdapter.Viewholder> {
     //xml로 만들어놓은 아이템을 붙이기위한 LayoutInfler <- Context
     Context context;
     List<BoardCommonVO> list;
@@ -27,7 +30,7 @@ public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewho
     FragmentManager manager;
 
 
-    public BoardTabAdapter(Context context, List<BoardCommonVO> list, FragmentManager manager) {
+    public BoardListAdapter(Context context, List<BoardCommonVO> list, FragmentManager manager) {
         this.context = context;
         this.list = list;
         this.manager = manager;
@@ -103,7 +106,7 @@ public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewho
 
                     Intent intent = new Intent(context, zzz_Board00Activity.class);
                     intent.putExtra("vo", list.get(position));
-                    intent.putExtra("tabText","detail");
+                    intent.putExtra("tabText", "detail");
                     context.startActivity(intent);
 
 
@@ -116,7 +119,60 @@ public class BoardTabAdapter extends RecyclerView.Adapter<BoardTabAdapter.Viewho
             });
             /* ====================================================================== */
 
+            /* ============================== 아이템 길게누르면 ============================== */
+            holder.board_user_list_item.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    showCustomDialog();
+                    Toast.makeText(context, "길게눌렸음", Toast.LENGTH_SHORT).show();
+                    return false;
+
+                }
+            });
+            /* ====================================================================== */
 
         }
+
+        /* ===================== 롱클릭시 팝업창 =================== */
+        public void showCustomDialog() { //if(list.get(position).getMember_id == Logined.member_id){}
+            AlertDialog.Builder builder = new AlertDialog.Builder(context,
+                    R.style.AlertDialogTheme);
+
+            View view = LayoutInflater.from(context).inflate(
+                    R.layout.common_alert_yes_or_no_item,
+                    (LinearLayout) itemView.findViewById(R.id.layout_alert)
+            );
+            //다이얼로그 텍스트 설정
+            builder.setView(view);
+            ((TextView) view.findViewById(R.id.texttitle)).setText("작성자 : " +list.get(getAdapterPosition()).getMember_id()+"");
+            ((TextView) view.findViewById(R.id.textmessage)).setText("내용 미리보기\n"+list.get(getAdapterPosition()).getBoard_content()+"");
+            ((TextView) view.findViewById(R.id.btn_dialog_yes)).setText("갤로그");
+            ((TextView) view.findViewById(R.id.btn_dialog_no)).setText("삭제");
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setCancelable(true);   //화면밖 터치시 다이얼로그 종료
+
+            view.findViewById(R.id.btn_dialog_yes).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                    Toast.makeText(context, "갤로그", Toast.LENGTH_SHORT).show();
+                }
+            });
+            view.findViewById(R.id.btn_dialog_no).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                    Toast.makeText(context, "삭제삭제", Toast.LENGTH_SHORT).show();
+                }
+            });
+            //다이얼로그 형태 지우기
+            if (alertDialog.getWindow() != null) {
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+            alertDialog.show();
+        }//showCustomDialog()
+        /* =============================================================== */
+
     }//ViewHolder
 }

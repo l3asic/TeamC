@@ -4,10 +4,18 @@
 <mapper namespace="board.mapper">
 
 <select id="board_reply_list" resultType="android.chaminhwan.ReplyVO">
-select reply.* , (select picture.picture_filepath from tbl_board_picture picture where picture.member_id = reply.member_id) piciture_filepath
+select reply.* , (select picture.picture_filepath from tbl_board_picture picture where picture.member_id = reply.member_id) picture_filepath
 from tbl_reply reply where board_sn = #{paramSn} order by reply_sn desc
 
 </select>
+
+<insert id="reply_insert" >
+insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
+</insert>
+
+<delete id="reply_delete">
+delete tbl tbl_reply where reply_sn = #{reply_sn}
+</delete>
 
 <!-- 특정 사용자의 작성 게시물 조회 -->
 <select id="whose_board_write" resultType="android.mainburger.BoardCommonVO">

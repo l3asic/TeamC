@@ -37,6 +37,7 @@
             android:text="member_id" />
 
         <EditText
+            android:enabled="false"
             android:id="@+id/board_user_reply_reply_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,31 +63,7 @@
             android:layout_margin="5dp"
             android:text="0000/00/00" />
 
-        <TextView
-            android:id="@+id/board_user_reply_tv_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_below="@id/board_user_reply_writedate"
-            android:layout_alignParentRight="true"
-            android:layout_margin="5dp"
-            android:background="#708090"
-            android:gravity="center"
-            android:text="삭제" />
 
-        <TextView
-            android:id="@+id/board_user_reply_tv_update"
-
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_below="@id/board_user_reply_writedate"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_toLeftOf="@+id/board_user_reply_tv_delete"
-            android:background="#708090"
-            android:gravity="center"
-            android:text="수정" />
     </RelativeLayout>
 
 </RelativeLayout>

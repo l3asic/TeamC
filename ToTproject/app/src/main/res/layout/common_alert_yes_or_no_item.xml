@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout_alert"
+    android:layout_margin="20dp"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical"
+        android:id="@+id/dialog_backgound">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_theme_background">
+
+            <TextView
+                android:id="@+id/texttitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="샘플 제목입니다."
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/textmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="샘플 메세지 입니다."
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp">
+
+            <Button
+                android:id="@+id/btn_dialog_yes"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:text="네"
+                android:background="@drawable/button_theme_background"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/btn_dialog_no"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:textSize="14dp"
+                android:text="아니요"
+                android:background="@drawable/button_theme_background"
+                android:textColor="@color/black"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

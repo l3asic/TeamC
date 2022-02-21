@@ -25,6 +25,7 @@ import category.CategoryDAO;
 import category.CategoryVO;
 import common.CommonService;
 import category.PictureVO;
+import category.ReplyVO;
 
 @Controller
 public class CategoryController {
@@ -56,7 +57,7 @@ public class CategoryController {
 	public void reply_insert(HttpServletRequest req, HttpServletResponse res,HttpSession session) throws IOException {
 		
 		String tempVo = req.getParameter("category");
-		CategoryVO vo = gson.fromJson(tempVo, CategoryVO.class);
+		ReplyVO vo = gson.fromJson(tempVo, ReplyVO.class);
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -86,13 +87,9 @@ public class CategoryController {
 		}
 		
 		System.out.println(vo.getBoard_sn());
-		System.out.println(vo.getBoard_title());
-		System.out.println(vo.getBoard_class());
-		System.out.println(vo.getMember_id());
 		
-		System.out.println(vo.getBoard_content());
-		
-		System.out.println(dao.reply_insert(vo) + "asdasdasd");
+		ReplyVO revo = new ReplyVO();
+		revo.setReply_sn(dao.reply_insert(vo));
 		
 		if(pictureCount != 0) {
 			ArrayList<PictureVO> pictureVOs = new ArrayList<PictureVO>();
@@ -101,11 +98,13 @@ public class CategoryController {
 				pVO.setPicture_filepath(path);
 				pVO.setMember_id(vo.getMember_id());
 				pVO.setBoard_sn(vo.getBoard_sn());
+				pVO.setReply_sn(vo.getReply_sn());
 				pictureVOs.add(pVO);
 			}
 			if(pictureVOs.size() != 0)
 				dao.reply_picture_insert(pictureVOs);
 		}
+		
 		
 	}
 	
@@ -184,6 +183,27 @@ public class CategoryController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("/replyList_picture")		// ★★org.springframework.web.util.NestedServletException: 
+											//Request processing failed; nested exception is java.lang.NumberFormatException: null
+	public void replyList_picture(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("replyList_picture 확인");
+		
+//		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
+		int reply_sn = Integer.parseInt(req.getParameter("reply_sn"));
+		
+		List<PictureVO> list = dao.replyList_picture(reply_sn);
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	
+	
+	@ResponseBody
 	@RequestMapping("/detail_categoryBoard")		// ★★org.springframework.web.util.NestedServletException: 
 													// Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: 
 													// nested exception is org.apache.ibatis.type.TypeException: 
@@ -212,7 +232,7 @@ public class CategoryController {
 		
 		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
 		
-		List<CategoryVO> list = dao.list_reviewpath(board_sn);
+		List<ReplyVO> list = dao.list_reviewpath(board_sn);
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -253,6 +273,19 @@ public class CategoryController {
 		}else {	//좋아요 추가
 			dao.like_insert(vo);
 		}
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/detailDelete")
+	public void detailDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detailDelete 확인");
+		
+		int reply_sn = Integer.parseInt(req.getParameter("reply_sn"));
+		
+		dao.deliteReply(reply_sn);
+		
+		
 		
 	}
 	

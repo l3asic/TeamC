@@ -34,16 +34,16 @@
 	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
 
 	<insert id="reply_insert" useGeneratedKeys="false">
-		insert into tbl_board(board_sn,board_title, board_content, board_class, member_id,board_reviewpath)
-		values (seq_board_sn.NEXTVAL, #{board_title}, #{board_content}, #{board_class}, #{member_id},#{board_sn})
+		insert into tbl_reply(reply_sn,reply_content, board_sn, member_id)
+		values (seq_reply_sn.NEXTVAL, #{reply_content}, #{board_sn}, #{member_id})
 		
-		<selectKey keyProperty="board_sn" resultType="int" order="AFTER"> SELECT seq_board_sn.CURRVAL FROM DUAL </selectKey>
+		<selectKey keyProperty="reply_sn" resultType="int" order="AFTER"> SELECT seq_reply_sn.CURRVAL FROM DUAL </selectKey>
 		
 	</insert>
 	<insert id="reply_picture"  parameterType="java.util.List">
 	
 		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
-		    INTO tbl_board_picture (picture_filepath,board_sn,member_id) VALUES (#{item.picture_filepath}, #{item.board_sn}, #{item.member_id})
+		    INTO tbl_board_picture (picture_filepath,reply_sn,member_id) VALUES (#{item.picture_filepath}, #{item.reply_sn}, #{item.member_id})
 		</foreach>
 		
 	</insert>
@@ -63,15 +63,20 @@
 	</select>
 	
 	
-	<select id="list_picture" resultType="picture.PictureVO">
+	<select id="list_picture" resultType="category.PictureVO">
 		select * from tbl_board_picture
 		where board_sn = #{board_sn}
 	</select>
 	
-	<select id="list_reviewpath" resultType="category.CategoryVO">
-		select a.* , b.member_nick from tbl_board a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
-		where a.board_reviewpath = #{board_sn}
-		order by board_date_create desc
+	<select id="replyList_picture" resultType="category.PictureVO">
+		select * from tbl_board_picture
+		where reply_sn = #{reply_sn}
+	</select>
+	
+	<select id="list_reviewpath" resultType="category.ReplyVO">
+		select a.* , b.member_nick from tbl_reply a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
+		where a.board_sn = #{board_sn}
+		order by a.reply_writedate desc
 	</select>
 	
 	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
@@ -96,6 +101,11 @@
 	
 	<delete id="like_delete">
 		delete from tbl_likes where board_sn = #{board_sn} and member_id = #{member_id}
+	</delete>
+	
+	<delete id="deliteReply">
+		delete from tbl_reply
+		where reply_sn = #{reply_sn}
 	</delete>
 	
 </mapper>

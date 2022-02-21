@@ -71,6 +71,52 @@
 </select>
 
 
+<insert id="invitePartyMember" >
+
+	insert into tbl_party (party_sn, member_id, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader )
+	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )		
+	
+</insert>
+
+
+<delete id="deleteParty" >
+
+	delete from tbl_party where party_sn = #{party_sn}
+	
+</delete>
+
+
+<delete id="deletePartyMember" >
+
+	delete from tbl_party where member_id = #{member_id} and party_sn = #{party_sn}
+	
+</delete>
+
+
+<update id="updateParty" >
+
+	update tbl_party 
+set party_private = #{party_private}, 
+party_detail = #{party_detail},
+party_tag1 = #{party_tag1},
+party_tag2 = #{party_tag2},
+party_tag3 = #{party_tag3}
+where party_sn = #{party_sn}
+
+	
+</update>
+
+
+<!-- @@@ 확인필요, 해당파티의 멤버아이디와 사진경로를 가져가야함  -->
+<select id="partyMemberList" resultType="android.kwk.MemberVO">
+
+	select member.member_id, pic.picture_filepath  from tbl_member_info member, tbl_board_picture pic
+where member.member_id = pic.member_id
+and member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
+	
+</select>
+
+
 
 <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 파티 플랜 영역 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->
 
@@ -85,10 +131,21 @@
 	
 </insert>
 
+<insert id="insertPartyPlanMembers">	
+	
+	insert into tbl_plan (plan_sn, party_sn, plan_name, plan_startdate, plan_enddate, 
+	plan_location, plan_startpoint, plan_hotel, plan_cost, member_id, plan_writer, plan_starttime)
+	values( #{plan_sn}, #{party_sn}, #{plan_name}, #{plan_startdate}, #{plan_enddate}, 
+	#{plan_location}, #{plan_startpoint}, #{plan_hotel}, #{plan_cost}, #{member_id}, #{plan_writer}, #{plan_starttime}) 
+	
+</insert>
+
 
 <select id="selectPlanList" resultType="android.partyvo.PartyPlanListVO">
 
-	select * from tbl_plan where party_sn = #{party_sn}
+	select DISTINCT plan_sn, member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
+plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime
+from tbl_plan  where party_sn = #{party_sn}
 	
 </select>
 
@@ -129,22 +186,23 @@
 </delete>
 
 
-<insert id="invitePartyMember" >
+<!-- @@@ 확인필요, 해당파티의 멤버아이디와 사진경로를 가져가야함  -->
+<select id="planMemberList" resultType="android.partyvo.PartyMemberListVO">
 
-	insert into tbl_party (party_sn, member_id, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader )
-	values( #{party_sn}, #{member_id}, #{party_private, jdbcType=VARCHAR}, #{party_name, jdbcType=VARCHAR}, #{party_detail}, #{party_tag1}, #{party_tag2}, #{party_tag3}, #{party_leader}  )		
+	select member.member_id, pic.picture_filepath  from tbl_member_info member, tbl_board_picture pic
+where member.member_id = pic.member_id
+and member.member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 	
-</insert>
+</select>
 
 
-<delete id="deleteParty" >
+<select id="selectPlanSn" resultType="android.partyvo.PartyPlanListVO">
 
-	delete from tbl_party where party_sn = #{party_sn}
+	select * from tbl_plan
+where member_id = #{member_id}
+order by plan_sn desc
 	
-</delete>
-
-
-
+</select>
 
 
 

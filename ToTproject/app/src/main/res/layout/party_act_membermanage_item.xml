@@ -8,6 +8,7 @@
     android:weightSum="100">
 
     <LinearLayout
+        android:id="@+id/lin_membermanage_click"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="center"
@@ -59,6 +60,12 @@
                     android:gravity="center"
                     android:text="파티원"
                     android:textSize="16dp" />
+                <CheckBox
+                    android:id="@+id/chk_member_delete"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:visibility="gone"/>
+
 
             </LinearLayout>
 

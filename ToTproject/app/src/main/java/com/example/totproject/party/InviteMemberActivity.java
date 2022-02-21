@@ -43,6 +43,8 @@ public class InviteMemberActivity extends AppCompatActivity {
                 plDTO.setMember_id(edt_member_id.getText() + "");
                 invitePartyMember(plDTO);
                 plDTO.setMember_id(temp);
+                
+                //성공시 초대로만 처리
                 Intent intent = new Intent(InviteMemberActivity.this,MyPartyInfoActivity.class);
                 intent.putExtra("party_dto",plDTO);
                 startActivity(intent);

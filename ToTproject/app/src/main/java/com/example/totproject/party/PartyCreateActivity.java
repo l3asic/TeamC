@@ -39,9 +39,7 @@ public class PartyCreateActivity extends Activity {
 
     int can_pass = 2;   //2일시 중복체크상태, 1일시 이름 중복된 상태, 0일시 이름 (중복아님 파티가입가능)
 
-
-    int party_sn;
-    int party_pic = 0001;   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 , DTO 세팅도 다시해야함@@@@@@@@@@@@@@@
+    String party_pic = "0001";   //@@@@@@@@@@@@@@@@@@@@@사진 처리 다시 해보기 , DTO 세팅도 다시해야함@@@@@@@@@@@@@@@
     String party_name, party_detail, party_private, party_tag1, party_tag2, party_tag3;
     ArrayList tags = new ArrayList();
 
@@ -159,7 +157,7 @@ public class PartyCreateActivity extends Activity {
         btn_create_party.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inserCreateparty();
+                insertCreateparty();
             }
         });
 
@@ -167,7 +165,7 @@ public class PartyCreateActivity extends Activity {
         btn_create_party2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inserCreateparty();
+                insertCreateparty();
             }
         });
 
@@ -222,7 +220,7 @@ public class PartyCreateActivity extends Activity {
         setTags();
     }
 
-    public void inserCreateparty(){
+    public void insertCreateparty(){
         party_name = edt_party_name.getText()+"";
         party_detail = edt_party_detail.getText()+"";
 
@@ -275,19 +273,8 @@ public class PartyCreateActivity extends Activity {
     }
 
 
-    // db connect test method
-    public void insertPartytest(PartyListDTO dto, String mapping, String param_mapping ) {
-        CommonAsk commonAsk;
-        Gson gson = new Gson();
-        commonAsk = new CommonAsk(mapping);
-        commonAsk.params.add(new CommonAskParam(param_mapping,gson.toJson(dto)));
-
-        InputStream in = CommonMethod.excuteAsk(commonAsk);
-        Toast.makeText(PartyCreateActivity.this, "파티 생성완료 ( 임시)", Toast.LENGTH_SHORT).show();
 
 
-        //try catch list = ???
-    }
 
 
 

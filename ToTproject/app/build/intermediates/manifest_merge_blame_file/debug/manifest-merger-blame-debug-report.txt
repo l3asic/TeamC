@@ -133,7 +133,7 @@
 69-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:10:22-76
 70
 71    <application
-71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:5-150:19
+71-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:48:5-153:19
 72        android:allowBackup="true"
 72-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:49:9-35
 73        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -154,284 +154,290 @@
 81-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:55:9-44
 82        <activity
 82-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:56:9-58:40
-83            android:name="com.example.totproject.party.PartyMemberManageActivity"
-83-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-60
+83            android:name="com.example.totproject.party.UpdateMyPartyActivity"
+83-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:57:13-56
 84            android:exported="false" />
 84-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:58:13-37
 85        <activity
 85-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:59:9-61:40
-86            android:name="com.example.totproject.party.InviteMemberActivity"
-86-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:13-55
+86            android:name="com.example.totproject.party.PartyMemberManageActivity"
+86-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:60:13-60
 87            android:exported="false" />
 87-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:61:13-37
 88        <activity
 88-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:62:9-64:40
-89            android:name="com.example.totproject.party_plan.PlanCreatePlanActivity"
-89-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:63:13-62
+89            android:name="com.example.totproject.party.InviteMemberActivity"
+89-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:63:13-55
 90            android:exported="false" />
 90-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:64:13-37
 91        <activity
 91-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:65:9-67:40
-92            android:name="com.example.totproject.party_plan.PlanMainActivity"
-92-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:66:13-56
+92            android:name="com.example.totproject.party_plan.PlanCreatePlanActivity"
+92-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:66:13-62
 93            android:exported="false" />
 93-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:67:13-37
 94        <activity
 94-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:68:9-70:40
-95            android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
-95-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:69:13-62
+95            android:name="com.example.totproject.party_plan.PlanMainActivity"
+95-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:69:13-56
 96            android:exported="false" />
 96-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:70:13-37
 97        <activity
 97-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:71:9-73:40
-98            android:name="com.example.totproject.party.MyPartyInfoActivity"
-98-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:72:13-54
+98            android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
+98-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:72:13-62
 99            android:exported="false" />
 99-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:73:13-37
 100        <activity
 100-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:74:9-76:40
-101            android:name="com.example.totproject.party.PartyCreateActivity"
+101            android:name="com.example.totproject.party.MyPartyInfoActivity"
 101-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:75:13-54
 102            android:exported="false" />
 102-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:76:13-37
 103        <activity
 103-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:77:9-79:40
-104            android:name="com.example.totproject.party.PartyJoinActivity"
-104-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:78:13-52
+104            android:name="com.example.totproject.party.PartyCreateActivity"
+104-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:78:13-54
 105            android:exported="false" />
 105-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:79:13-37
 106        <activity
 106-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:80:9-82:40
-107            android:name="com.example.totproject.party.PartyMainActivity"
+107            android:name="com.example.totproject.party.PartyJoinActivity"
 107-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:81:13-52
 108            android:exported="false" />
 108-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:82:13-37
 109        <activity
 109-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:83:9-85:40
-110            android:name="com.example.totproject.main.Fragment03BoardTab_Detail_Act"
-110-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:84:13-63
+110            android:name="com.example.totproject.party.PartyMainActivity"
+110-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:84:13-52
 111            android:exported="false" />
 111-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:85:13-37
 112        <activity
 112-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:86:9-88:40
-113            android:name="com.example.totproject.WhosePage00Activity"
-113-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:87:13-48
+113            android:name="com.example.totproject.main.Fragment03BoardTab_Detail_Act"
+113-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:87:13-63
 114            android:exported="false" />
 114-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:88:13-37
 115        <activity
 115-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:89:9-91:40
-116            android:name="com.example.totproject.category.CategoryMainActivity"
-116-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:90:13-58
+116            android:name="com.example.totproject.WhosePage00Activity"
+116-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:90:13-48
 117            android:exported="false" />
 117-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:91:13-37
 118        <activity
 118-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:92:9-94:40
-119            android:name="com.example.totproject.category.CategoryReplyActivity"
-119-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:93:13-59
+119            android:name="com.example.totproject.category.CategoryMainActivity"
+119-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:93:13-58
 120            android:exported="false" />
 120-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:94:13-37
 121        <activity
 121-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:95:9-97:40
-122            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
-122-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:96:13-62
+122            android:name="com.example.totproject.category.CategoryReplyActivity"
+122-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:96:13-59
 123            android:exported="false" />
 123-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:97:13-37
 124        <activity
 124-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:98:9-100:40
-125            android:name="com.example.totproject.board.xxx_BoardMainActivity"
-125-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:99:13-56
+125            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
+125-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:99:13-62
 126            android:exported="false" />
 126-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:100:13-37
 127        <activity
 127-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:101:9-103:40
-128            android:name="com.example.totproject.board.BoardNewActivity"
-128-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:102:13-51
+128            android:name="com.example.totproject.board.xxx_BoardMainActivity"
+128-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:102:13-56
 129            android:exported="false" />
 129-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:103:13-37
 130        <activity
 130-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:104:9-106:40
-131            android:name="com.example.totproject.board.Activity03BoardDetail"
-131-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:105:13-56
+131            android:name="com.example.totproject.board.BoardNewActivity"
+131-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:105:13-51
 132            android:exported="false" />
 132-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:106:13-37
 133        <activity
 133-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:107:9-109:40
-134            android:name="com.example.totproject.main.MainActivity"
-134-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:108:13-46
+134            android:name="com.example.totproject.board.Activity03BoardDetail"
+134-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:108:13-56
 135            android:exported="false" />
 135-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:109:13-37
 136        <activity
 136-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:110:9-112:40
-137            android:name="com.example.totproject.login.TendencyActivity01"
-137-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:111:13-53
+137            android:name="com.example.totproject.main.MainActivity"
+137-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:111:13-46
 138            android:exported="false" />
 138-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:112:13-37
 139        <activity
 139-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:113:9-115:40
-140            android:name="com.example.totproject.login.TendencyActivity02"
+140            android:name="com.example.totproject.login.TendencyActivity01"
 140-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:114:13-53
 141            android:exported="false" />
 141-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:115:13-37
 142        <activity
 142-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:116:9-118:40
-143            android:name="com.example.totproject.login.JoinActivity"
-143-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:117:13-47
+143            android:name="com.example.totproject.login.TendencyActivity02"
+143-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:117:13-53
 144            android:exported="false" />
 144-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:118:13-37
 145        <activity
 145-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:119:9-121:40
-146            android:name="com.example.totproject.login.LoginActivity"
-146-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:120:13-48
+146            android:name="com.example.totproject.login.JoinActivity"
+146-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:120:13-47
 147            android:exported="false" />
 147-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:121:13-37
 148        <activity
-148-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:122:9-130:20
-149            android:name="com.example.totproject.login.SplashActivity"
-149-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:123:13-49
-150            android:exported="true" >
-150-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:124:13-36
-151            <intent-filter>
-151-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:125:13-129:29
-152                <action android:name="android.intent.action.MAIN" />
-152-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:126:17-69
-152-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:126:25-66
-153
-154                <category android:name="android.intent.category.LAUNCHER" />
-154-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:128:17-77
-154-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:128:27-74
-155            </intent-filter>
-156        </activity> <!-- Kakao -->
-157        <activity
-157-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:131:9-145:20
-158            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
-158-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:132:13-70
-159            android:exported="true"
-159-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:133:13-36
-160            android:launchMode="singleTask"
-160-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
-161            android:theme="@style/TransparentCompat" >
-161-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
-162            -
-163            <intent-filter>
-163-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:135:13-144:29
-164                <action android:name="android.intent.action.VIEW" />
-164-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-65
-164-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:21-62
-165
-166                <category android:name="android.intent.category.DEFAULT" />
-166-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:138:17-76
-166-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:138:27-73
-167                <category android:name="android.intent.category.BROWSABLE" />
-167-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-74
-167-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:23-71
-168                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
-169                <data
-169-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-43
-170                    android:host="oauth"
-170-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:142:21-41
-171                    android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
-171-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:19-40
-172            </intent-filter>
-173        </activity>
-174
-175        <uses-library
-175-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:147:9-149:40
-176            android:name="org.apache.http.legacy"
-176-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:148:13-50
-177            android:required="false" />
-177-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:149:13-37
-178        <!-- <activity -->
-179        <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
-180        <!-- android:configChanges="orientation|screenSize" -->
-181        <!-- android:theme="@style/Theme.AppCompat.Light.Dialog" /> -->
-182        <activity
-182-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:32:9-35:78
-183            android:name="com.navercorp.nid.oauth.NidOAuthBridgeActivity"
-183-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:33:13-74
-184            android:configChanges="orientation|screenSize"
-184-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:34:13-59
-185            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
-185-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:35:13-75
-186        <activity
-186-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:36:9-40:50
-187            android:name="com.navercorp.nid.oauth.activity.NidOAuthWebViewActivity"
-187-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:37:13-84
-188            android:configChanges="orientation|screenSize"
-188-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:38:13-59
-189            android:label="OAuth2.0 by WebView"
-189-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:39:13-48
-190            android:screenOrientation="behind" />
-190-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:40:13-47
-191        <activity
-191-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:41:9-60:20
-192            android:name="com.navercorp.nid.oauth.activity.NidOAuthCustomTabActivity"
-192-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:42:13-86
-193            android:configChanges="orientation|screenSize"
-193-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:43:13-59
-194            android:exported="true"
-194-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:44:13-36
-195            android:label="OAuth2.0 by Custom tabs"
-195-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:45:13-52
-196            android:launchMode="singleTask"
-196-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:46:13-44
-197            android:screenOrientation="behind"
-197-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:47:13-47
-198            android:theme="@style/Theme.AppCompat.NoActionBar" >
-198-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:48:13-63
-199            <intent-filter>
-199-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:49:13-59:29
-200                <action android:name="android.intent.action.VIEW" />
-200-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-65
-200-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:21-62
-201
-202                <category android:name="android.intent.category.DEFAULT" />
-202-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:138:17-76
-202-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:138:27-73
-203                <category android:name="android.intent.category.BROWSABLE" />
-203-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-74
-203-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:23-71
-204                <!-- Intent URL 에서 로그인 액티비티를 실행하기 위해 설정 -->
-205                <data
-205-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-43
-206                    android:host="authorize"
-206-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:142:21-41
-207                    android:path="/"
-208                    android:scheme="naver3rdpartylogin" />
-208-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:19-40
-209            </intent-filter>
-210        </activity>
-211        <activity
-211-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
-212            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
-212-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
-213            android:exported="false"
-213-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
-214            android:launchMode="singleTask"
-214-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
-215            android:theme="@style/TransparentCompat" />
-215-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
-216
-217        <provider
-217-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-218            android:name="androidx.startup.InitializationProvider"
-218-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
-219            android:authorities="com.example.totproject.androidx-startup"
-219-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
-220            android:exported="false" >
-220-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
-221            <meta-data
-221-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-222                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-222-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-223                android:value="androidx.startup" />
-223-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+148-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:122:9-124:40
+149            android:name="com.example.totproject.login.LoginActivity"
+149-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:123:13-48
+150            android:exported="false" />
+150-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:124:13-37
+151        <activity
+151-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:125:9-133:20
+152            android:name="com.example.totproject.login.SplashActivity"
+152-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:126:13-49
+153            android:exported="true" >
+153-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:127:13-36
+154            <intent-filter>
+154-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:128:13-132:29
+155                <action android:name="android.intent.action.MAIN" />
+155-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:129:17-69
+155-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:129:25-66
+156
+157                <category android:name="android.intent.category.LAUNCHER" />
+157-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:131:17-77
+157-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:131:27-74
+158            </intent-filter>
+159        </activity> <!-- Kakao -->
+160        <activity
+160-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:134:9-148:20
+161            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+161-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:135:13-70
+162            android:exported="true"
+162-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:136:13-36
+163            android:launchMode="singleTask"
+163-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
+164            android:theme="@style/TransparentCompat" >
+164-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
+165            -
+166            <intent-filter>
+166-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:138:13-147:29
+167                <action android:name="android.intent.action.VIEW" />
+167-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-65
+167-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:21-62
+168
+169                <category android:name="android.intent.category.DEFAULT" />
+169-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:141:17-76
+169-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:141:27-73
+170                <category android:name="android.intent.category.BROWSABLE" />
+170-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-74
+170-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:23-71
+171                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+172                <data
+172-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-43
+173                    android:host="oauth"
+173-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:145:21-41
+174                    android:scheme="kakao77f34c0e0e72631cebb2c001a7e0257a" />
+174-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:19-40
+175            </intent-filter>
+176        </activity>
+177
+178        <uses-library
+178-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:150:9-152:40
+179            android:name="org.apache.http.legacy"
+179-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:151:13-50
+180            android:required="false" />
+180-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:152:13-37
+181        <!-- <activity -->
+182        <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
+183        <!-- android:configChanges="orientation|screenSize" -->
+184        <!-- android:theme="@style/Theme.AppCompat.Light.Dialog" /> -->
+185        <activity
+185-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:32:9-35:78
+186            android:name="com.navercorp.nid.oauth.NidOAuthBridgeActivity"
+186-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:33:13-74
+187            android:configChanges="orientation|screenSize"
+187-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:34:13-59
+188            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
+188-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:35:13-75
+189        <activity
+189-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:36:9-40:50
+190            android:name="com.navercorp.nid.oauth.activity.NidOAuthWebViewActivity"
+190-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:37:13-84
+191            android:configChanges="orientation|screenSize"
+191-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:38:13-59
+192            android:label="OAuth2.0 by WebView"
+192-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:39:13-48
+193            android:screenOrientation="behind" />
+193-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:40:13-47
+194        <activity
+194-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:41:9-60:20
+195            android:name="com.navercorp.nid.oauth.activity.NidOAuthCustomTabActivity"
+195-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:42:13-86
+196            android:configChanges="orientation|screenSize"
+196-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:43:13-59
+197            android:exported="true"
+197-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:44:13-36
+198            android:label="OAuth2.0 by Custom tabs"
+198-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:45:13-52
+199            android:launchMode="singleTask"
+199-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:46:13-44
+200            android:screenOrientation="behind"
+200-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:47:13-47
+201            android:theme="@style/Theme.AppCompat.NoActionBar" >
+201-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:48:13-63
+202            <intent-filter>
+202-->[com.navercorp.nid:oauth:5.0.0] C:\Users\hanul\.gradle\caches\transforms-3\fbeb892bc12228ccaa98c923203e1b5b\transformed\jetified-oauth-5.0.0\AndroidManifest.xml:49:13-59:29
+203                <action android:name="android.intent.action.VIEW" />
+203-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:13-65
+203-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:18:21-62
+204
+205                <category android:name="android.intent.category.DEFAULT" />
+205-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:141:17-76
+205-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:141:27-73
+206                <category android:name="android.intent.category.BROWSABLE" />
+206-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:13-74
+206-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:20:23-71
+207                <!-- Intent URL 에서 로그인 액티비티를 실행하기 위해 설정 -->
+208                <data
+208-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:13-43
+209                    android:host="authorize"
+209-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:145:21-41
+210                    android:path="/"
+211                    android:scheme="naver3rdpartylogin" />
+211-->D:\Study_project\ToTproject\app\src\main\AndroidManifest.xml:22:19-40
+212            </intent-filter>
+213        </activity>
+214        <activity
+214-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
+215            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
+215-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
+216            android:exported="false"
+216-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
+217            android:launchMode="singleTask"
+217-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
+218            android:theme="@style/TransparentCompat" />
+218-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\hanul\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
+219
+220        <provider
+220-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+221            android:name="androidx.startup.InitializationProvider"
+221-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+222            android:authorities="com.example.totproject.androidx-startup"
+222-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+223            android:exported="false" >
+223-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
 224            <meta-data
-224-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-225                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-225-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+224-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+225                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+225-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
 226                android:value="androidx.startup" />
-226-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-227        </provider>
-228    </application>
-229
-230</manifest>
+226-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hanul\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+227            <meta-data
+227-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+228                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+228-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+229                android:value="androidx.startup" />
+229-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hanul\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+230        </provider>
+231    </application>
+232
+233</manifest>

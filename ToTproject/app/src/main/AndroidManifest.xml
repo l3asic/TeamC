@@ -54,6 +54,9 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".party.UpdateMyPartyActivity"
+            android:exported="false" />
+        <activity
             android:name=".party.PartyMemberManageActivity"
             android:exported="false" />
         <activity

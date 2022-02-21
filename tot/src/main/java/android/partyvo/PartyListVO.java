@@ -2,7 +2,7 @@ package android.partyvo;
 
 public class PartyListVO {
 	private int party_sn;
-    private int picture_filepath;
+    private String picture_filepath;
     private String party_private;
     private String party_leader;
     private String party_name;
@@ -11,16 +11,36 @@ public class PartyListVO {
     private String party_tag2;
     private String party_tag3;
     private String member_id;
+    
+    
+    
+    
+	public PartyListVO() {
+		super();
+	}
+	
+	
+	
+	
+	public PartyListVO(int party_sn, String member_id) {
+		super();
+		this.party_sn = party_sn;
+		this.member_id = member_id;
+	}
+
+
+
+
 	public int getParty_sn() {
 		return party_sn;
 	}
 	public void setParty_sn(int party_sn) {
 		this.party_sn = party_sn;
 	}
-	public int getPicture_filepath() {
+	public String getPicture_filepath() {
 		return picture_filepath;
 	}
-	public void setPicture_filepath(int picture_filepath) {
+	public void setPicture_filepath(String picture_filepath) {
 		this.picture_filepath = picture_filepath;
 	}
 	public String getParty_private() {

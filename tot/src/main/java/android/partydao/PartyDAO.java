@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import android.kwk.MemberVO;
 import android.partyvo.PartyListVO;
+import android.partyvo.PartyMemberListVO;
 import android.partyvo.PartyPlanListVO;
 import android.partyvo.PlanInfoVO;
 
@@ -72,6 +73,11 @@ public class PartyDAO {
 			
 		return	sql.insert("party.mapper.insertPartyPlan", vo);
 	}
+	
+	public int insertPartyPlanMembers(PartyPlanListVO vo) {		
+		
+		return	sql.insert("party.mapper.insertPartyPlanMembers", vo);
+	}
 
 
 	public List<PartyPlanListVO> selectPlanList(int party_sn) {
@@ -132,7 +138,31 @@ public class PartyDAO {
 	}
 
 
+	public void deletePartyMember(PartyListVO vo) {
 		
+		sql.delete("party.mapper.deletePartyMember", vo);
+		
+	}
+
+
+	public void updateParty(PartyListVO vo) {
+		sql.update("party.mapper.updateParty", vo);
+		
+	}
+
+
+	public List<PartyMemberListVO> planMemberList(int party_sn) {
+		
+		return sql.selectList("party.mapper.planMemberList", party_sn);
+	}
+	
+	public List<PartyPlanListVO> selectPlanSn(String member_id) {
+		
+		return sql.selectList("party.mapper.selectPlanSn", member_id);
+	}
+
+
+	
 
 	
 	

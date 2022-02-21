@@ -87,7 +87,8 @@
 
 
         <LinearLayout
-
+            android:id="@+id/lin_leader_option"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -125,6 +126,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lin_mypartyburger_membermanage"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -132,7 +134,6 @@
 
 
                     <ImageView
-                        android:id="@+id/partyinfo_burger_membermanage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
@@ -155,6 +156,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/lin_mypartyburger_update"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -162,7 +164,6 @@
 
 
                     <ImageView
-                        android:id="@+id/partyinfo_burger_infomanage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
@@ -195,6 +196,121 @@
                         android:layout_height="20dp"
                         android:gravity="center"
                         android:text="파티해산" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_member_option"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="125dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_mypartyburger_invite2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="멤버초대" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_mypartyburger_membermanage2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="멤버목록" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_mypartyburger_update2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+
+                        android:text="파티정보보기" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_mypartyburger_delete2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="파티탈퇴" />
 
                 </LinearLayout>
 

@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import android.kwk.MemberVO;
 import android.partydao.PartyDAO;
 import android.partyvo.PartyListVO;
+import android.partyvo.PartyMemberListVO;
 import android.partyvo.PartyPlanListVO;
 import android.partyvo.PlanInfoVO;
 
@@ -291,6 +292,7 @@ public class PartyController {
 	
 	@ResponseBody
 	@RequestMapping("/android/party/showpartymember")
+	
 	public void showPartyMember(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		
 		System.out.println("showPartyMember() 에 접근함");
@@ -322,6 +324,75 @@ public class PartyController {
 	}//showPartyMember()
 	
 	
+	@ResponseBody
+	@RequestMapping("/android/party/deletepartymember")
+	public void deletePartyMember(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("deletePartyMember() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		String data = req.getParameter("list");
+		int party_sn = Integer.parseInt(req.getParameter("party_sn")+"");
+		PrintWriter writer = res.getWriter();			
+		
+
+		ArrayList<MemberVO> member_list = gson.fromJson(data,  new TypeToken<List<MemberVO>>() {}.getType());
+		ArrayList<PartyListVO> list = new ArrayList<PartyListVO>();
+		
+		
+
+		for(int i = 0; i<member_list.size(); i++) {
+			String member_id = member_list.get(i).getMember_id();
+			list.add(new PartyListVO(party_sn,member_id));
+			
+			pDAO.deletePartyMember(list.get(i));				
+		}	
+		
+	}//deletePlanDetailList()
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/deleteParty2")
+	public void deleteParty2(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("deleteParty2() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		String from_and_dto = req.getParameter("plDTO");		
+		PrintWriter writer = res.getWriter();	
+		
+		PartyListVO vo = (PartyListVO) gson.fromJson(from_and_dto, PartyListVO.class);		
+		
+			
+		pDAO.deletePartyMember(vo);				
+			
+		
+	}//deleteParty2
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/updateparty")
+	public void updateParty(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("updateParty() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		String from_and_dto = req.getParameter("dto");
+		
+		PrintWriter writer = res.getWriter();			
+		
+		PartyListVO vo = (PartyListVO) gson.fromJson(from_and_dto, PartyListVO.class);
+		
+		pDAO.updateParty(vo);				
+		
+		
+	}//updateParty()
+	
+	
 	
 	
 	
@@ -337,7 +408,7 @@ public class PartyController {
 	@ResponseBody
 	@RequestMapping("/android/party/insertplan")	
 	public void insertPartyPlan(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-		int succ = 0 ;
+		
 		System.out.println("insertPartyPlan 메소드 접근");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
@@ -347,13 +418,27 @@ public class PartyController {
 		PartyPlanListVO vo = new PartyPlanListVO();
 		String from_and_dto = req.getParameter("dto");
 		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);	
+		
+		String data = req.getParameter("invite_list"); 
+		ArrayList<PartyMemberListVO> invite_list = gson.fromJson(data,  new TypeToken<List<PartyMemberListVO>>() {}.getType());
+		
 
 		try {
+			vo.setMember_id(invite_list.get(0).getMemberid());				
+			pDAO.insertPartyPlan(vo);
+			
+			ArrayList<PartyPlanListVO> select_list = (ArrayList<PartyPlanListVO>) pDAO.selectPlanSn(invite_list.get(0).getMemberid());
+			
+			vo = (PartyPlanListVO) select_list.get(0);
 
-			succ = pDAO.insertPartyPlan(vo);
-			System.out.println(succ);
-
-			writer.print(succ);
+			for(int i = 1; i<invite_list.size(); i++) {
+				vo.setMember_id(invite_list.get(i).getMemberid());				
+			
+				pDAO.insertPartyPlanMembers(vo);		
+				
+				
+			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -542,7 +627,32 @@ public class PartyController {
 	
 	
 	
+	@ResponseBody
+	@RequestMapping("/android/party/planmemberlist")
 	
+	public void planMemberList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		
+		System.out.println("planMemberList() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//		
+		int party_sn = Integer.parseInt(req.getParameter("party_sn"));		
+				
+		try {
+			
+			List<PartyMemberListVO> list = new ArrayList<PartyMemberListVO>();
+			list = pDAO.planMemberList(party_sn);					
+
+		
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}//planMemberList()
 	
 	
 	

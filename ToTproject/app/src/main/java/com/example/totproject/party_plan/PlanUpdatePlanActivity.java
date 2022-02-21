@@ -177,10 +177,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
     }//partyJoin()
 
 
-
-
-
-
     //플랜 디테일 추가
     public void insertPlanDetail(PlanInfoDTO newplanInfoDTO) {
         commonAsk = new CommonAsk("android/party/insertplandetail");
@@ -226,9 +222,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
 
 

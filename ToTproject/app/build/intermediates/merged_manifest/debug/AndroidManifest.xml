@@ -80,6 +80,9 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.example.totproject.party.UpdateMyPartyActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.totproject.party.PartyMemberManageActivity"
             android:exported="false" />
         <activity

@@ -40,7 +40,13 @@ public class MemberDTO implements Serializable {
         this.social_email = social_email;
     }
 
-  /*  public MemberDTO(String member_id, String member_pw, String member_name
+    public MemberDTO() {
+    }
+
+    public MemberDTO(String member_id) {
+        this.member_id = member_id;
+    }
+    /*  public MemberDTO(String member_id, String member_pw, String member_name
             , String member_nick, String member_gender, String member_tel, String member_email) {
         this.member_id = member_id;
         this.member_pw = member_pw;

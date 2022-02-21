@@ -1,6 +1,8 @@
 package android.kwk;
 
-public class MemberVO {
+import java.io.Serializable;
+
+public class MemberVO implements Serializable{
 	   private String member_id, member_pw, member_name,
        member_nick, member_gender, member_tel, member_email;
 private String naver, kakao;

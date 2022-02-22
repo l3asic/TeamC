@@ -97,18 +97,19 @@
                     android:src="@drawable/ic_launcher_foreground" />
 
                 <EditText
+                    android:id="@+id/edt_chat"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:layout_weight="4"
                     android:hint="채팅 내용을 입력하세요" />
 
-                <ImageView
+                <Button
+                    android:id="@+id/btn_chat_push"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@color/black"
                     android:src="@drawable/ic_launcher_foreground" />
             </LinearLayout>
         </LinearLayout>

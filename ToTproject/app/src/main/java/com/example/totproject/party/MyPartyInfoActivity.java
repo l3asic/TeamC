@@ -35,28 +35,62 @@ import com.example.totproject.main.MainActivity;
 import com.example.totproject.party_plan.PlanMainActivity;
 import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MyPartyInfoActivity extends AppCompatActivity {
     Toolbar toolbar;
-    Button partyinfo_btn_burger;
+    Button partyinfo_btn_burger, btn_chat_push;
+    EditText edt_chat;
     PartyListDTO plDTO;
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //채팅할 액티비티에 추가 할 1
+    private DatabaseReference databaseReference; //채팅할 액티비티에 추가 할 2     // a = 채팅방, b = 채팅내용
     public int updateParty = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.party_act_myparty_info);
 
+        databaseReference = firebaseDatabase.getReference(plDTO.getParty_sn()+"");
+
+        btn_chat_push.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg = edt_chat.getText()+"";
+
+                if (msg != null) {
+                    ChatRoomDTO dto = new ChatRoomDTO();
+                    dto.setNickname(Logined.member_id); //로그인 한 회원 아이디(이름)
+                    dto.setMsg(msg);
+                    long now = System.currentTimeMillis();
+                    Date mDate = new Date(now);
+                    SimpleDateFormat simpleDate = new SimpleDateFormat("hh:mm:aa");
+                    String getTime = simpleDate.format(mDate);
+                    dto.setDate(getTime);
+                    databaseReference.push().setValue(dto);
+                    edt_chat.setText("");
+
+                }
+            }
+        });
+
+
+
+
 
         TextView party_title;
-        party_title = findViewById(R.id.partyinfo_tv_title);        
+        party_title = findViewById(R.id.partyinfo_tv_title);
+        edt_chat = findViewById(R.id.edt_chat);
+        btn_chat_push = findViewById(R.id.btn_chat_push);
 
         Intent my_party_info_intent = getIntent();
         plDTO = (PartyListDTO) my_party_info_intent.getSerializableExtra("party_dto");

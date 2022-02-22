@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.kakao.sdk:v2-common:2.8.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/AndroidManifest.xml" />
       <root url="jar://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/AndroidManifest.xml" />
       <root url="file://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/9d519263e757ec8933722d563e336d31/transformed/jetified-v2-common-2.8.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5e841e876285dd0d4d4d46f72d5ace14/transformed/jetified-v2-common-2.8.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5e841e876285dd0d4d4d46f72d5ace14/transformed/jetified-v2-common-2.8.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5e841e876285dd0d4d4d46f72d5ace14/transformed/jetified-v2-common-2.8.4/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

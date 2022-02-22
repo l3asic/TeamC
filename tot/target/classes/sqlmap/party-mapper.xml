@@ -13,15 +13,21 @@
 
 <select id="selectMypartyList" resultType="android.partyvo.PartyListVO">
 
-	select * from tbl_party where member_id = #{member_id}
+	<!-- select party.* ,(select pic.picture_filepath from tbl_board_picture pic where pic.party_sn = party.party_sn) picture_filepath
+from tbl_party party where party.member_id = #{member_id} -->
+select party.* ,(select pic.picture_filepath from tbl_board_picture pic where pic.party_sn = party.party_sn and rownum=1) picture_filepath
+from tbl_party party where party.member_id = #{member_id}
+
+
 	
 </select>
 
 <select id="selectOpenpartyList" resultType="android.partyvo.PartyListVO">
-
-	<!-- select distinct * from tbl_party where party_private = 'y' order by party_sn -->
-	select distinct party_sn, party_private, party_name, party_detail, party_tag1, party_tag2, party_tag3, party_leader
-	from tbl_party where party_private = 'y' order by party_sn
+	
+	select distinct party.party_sn, party.party_private, party.party_name, party.party_detail, 
+party.party_tag1, party.party_tag2, party.party_tag3, party.party_leader,
+(select pic.picture_filepath from tbl_board_picture pic where pic.party_sn = party.party_sn and rownum=1) picture_filepath
+	from tbl_party party where party_private = 'y' order by party_sn
 	
 </select>
 
@@ -63,10 +69,13 @@
 	
 </select>
 
-<select id="showPartyMember" resultType="android.kwk.MemberVO">
+<select id="showPartyMember" resultType="android.partyvo.PartyMemberListVO">
 
-	select member.* from tbl_member_info member
-	where member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
+	select party.member_id,
+(select picture_filepath from tbl_board_picture pic where party.member_id = pic.member_id) picture_filepath
+
+from tbl_party party
+where party.party_sn = #{party_sn}
 	
 </select>
 
@@ -203,6 +212,32 @@ where member_id = #{member_id}
 order by plan_sn desc
 	
 </select>
+
+
+
+<insert id="insertPartyPic" >
+
+	insert into tbl_board_picture (picture_filepath, party_sn)
+	values (#{picture_filepath}, #{party_sn})
+	
+</insert>
+
+
+
+<select id="selectPartySn" resultType="android.partyvo.PartyListVO">
+
+	select * from tbl_party
+where member_id = #{member_id}
+order by party_sn desc
+	
+</select>
+
+<update id="updatePartyPic" >
+
+	update tbl_board_picture
+set picture_filepath = #{picture_filepath}
+where party_sn = #{party_sn}
+</update>
 
 
 

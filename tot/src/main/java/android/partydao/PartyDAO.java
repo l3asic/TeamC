@@ -132,7 +132,7 @@ public class PartyDAO {
 	}
 
 
-	public List<MemberVO> showPartyMember(PartyListVO vo) {
+	public List<PartyMemberListVO> showPartyMember(PartyListVO vo) {
 
 		return  sql.selectList("party.mapper.showPartyMember", vo);
 	}
@@ -159,6 +159,23 @@ public class PartyDAO {
 	public List<PartyPlanListVO> selectPlanSn(String member_id) {
 		
 		return sql.selectList("party.mapper.selectPlanSn", member_id);
+	}
+
+
+	public void insertPartyPic(PartyListVO vo) {
+		sql.insert("party.mapper.insertPartyPic", vo);		
+	}
+
+
+	public List<PartyListVO> selectPartySn(PartyListVO vo) {
+		return sql.selectList("party.mapper.selectPartySn", vo);
+		
+	}
+
+
+	public void updatePartyPic(PartyListVO vo) {
+		sql.update("party.mapper.updatePartyPic", vo);
+		
 	}
 
 

@@ -110,12 +110,17 @@
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_manual.xml" value="0.19114583333333332" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_menu.xml" value="0.19375" />
         <entry key="..\:/Computer/study_project/ToTproject/app/src/main/res/menu/nav_service.xml" value="0.20520833333333333" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_00_splash.xml" value="0.16304347826086957" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_find_id.xml" value="0.25" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_find_pw.xml" value="0.33" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_tendency_activity_01.xml" value="0.25" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/activity_tendency_activity_02.xml" value="0.25" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_act_main.xml" value="0.16271442986881937" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/board_frag_search.xml" value="0.25" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/category_act_main.xml" value="0.16271442986881937" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/fragment_join_complete.xml" value="0.34010416666666665" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/join_act_join.xml" value="0.33" />
+        <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/join_frag_complete.xml" value="0.1" />
         <entry key="..\:/Study_Android/ToTproject/app/src/main/res/layout/login_act_login.xml" value="0.25" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable-anydpi/main_burger.xml" value="0.21666666666666667" />
         <entry key="..\:/Study_Android/WorkSpace/ToTproject/app/src/main/res/drawable/main_search.xml" value="0.3723076923076923" />

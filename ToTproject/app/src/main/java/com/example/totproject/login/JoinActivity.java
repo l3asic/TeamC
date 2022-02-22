@@ -1,5 +1,6 @@
 package com.example.totproject.login;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -28,7 +30,7 @@ import com.google.gson.Gson;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class JoinActivity extends AppCompatActivity {
+public class JoinActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     EditText join_id, join_pw, join_pw_confirm, join_name, join_nick, join_email, join_tel;
     TextView join_next;
@@ -71,11 +73,11 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = s.toString();
-                if(text.length() < 5) {
+                if (text.length() < 5) {
                     join_id.setTextColor(Color.RED);
-                }else if(text.contains("!,@,#,%,&,*")) {
+                } else if (text.contains("!,@,#,%,&,*")) {
                     join_id.setTextColor(Color.RED);
-                }else {
+                } else {
                     join_id.setTextColor(Color.GREEN);
                 }
             }
@@ -93,17 +95,17 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int id_chk = -1;
-                String member_id = join_id.getText().toString() +"";
+                String member_id = join_id.getText().toString() + "";
                 id_chk = joinIdConfirm(member_id);
 
-                if(id_chk >=1) {
-                   AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
-                   dialog = builder.setMessage("사용할 수 없는 이이디입니다").setPositiveButton("확인", null).create();
-                   dialog.show();
-                } else if(id_chk == 0) {
-                   AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
-                   dialog = builder.setMessage("사용 가능한 아이디입니다").setPositiveButton("확인", null).create();
-                   dialog.show();
+                if (id_chk >= 1) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                    dialog = builder.setMessage("사용할 수 없는 이이디입니다").setPositiveButton("확인", null).create();
+                    dialog.show();
+                } else if (id_chk == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                    dialog = builder.setMessage("사용 가능한 아이디입니다").setPositiveButton("확인", null).create();
+                    dialog.show();
                 }
 
             }
@@ -115,14 +117,14 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int nick_chk = -1;
-                String member_nick = join_nick.getText().toString()+ "";
+                String member_nick = join_nick.getText().toString() + "";
                 nick_chk = joinNickConfirm(member_nick);
 
-                if(nick_chk >=1) {
+                if (nick_chk >= 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
                     dialog = builder.setMessage("사용할 수 없는 닉네임입니다").setPositiveButton("확인", null).create();
                     dialog.show();
-                } else if(nick_chk == 0) {
+                } else if (nick_chk == 0) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
                     dialog = builder.setMessage("사용 가능한 닉네임입니다").setPositiveButton("확인", null).create();
                     dialog.show();
@@ -141,9 +143,9 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = s.toString();
-                if(text.length() > 4) {
+                if (text.length() > 4) {
                     join_pw.setTextColor(Color.GREEN);
-                }else {
+                } else {
                     join_pw.setTextColor(Color.RED);
                 }
             }
@@ -156,7 +158,6 @@ public class JoinActivity extends AppCompatActivity {
         });
 
 
-
         // 비밀번호 확인
         join_pw_confirm.addTextChangedListener(new TextWatcher() {
             @Override
@@ -166,12 +167,12 @@ public class JoinActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                 if(join_pw_confirm.getText().toString().equals(join_pw.getText().toString())) {
+                if (join_pw_confirm.getText().toString().equals(join_pw.getText().toString())) {
                     join_pw_confirm.setTextColor(Color.GREEN);
-                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
-                     dialog = builder.setMessage("비밀번호가 일치합니다").setPositiveButton("확인", null).create();
-                     dialog.show();
-                }else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
+                    dialog = builder.setMessage("비밀번호가 일치합니다").setPositiveButton("확인", null).create();
+                    dialog.show();
+                } else {
                     join_pw_confirm.setTextColor(Color.RED);
                 }
             }
@@ -182,12 +183,14 @@ public class JoinActivity extends AppCompatActivity {
             }
         });
 
+        join_gender.setOnCheckedChangeListener(this);
 
         join_next.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-                if(join_id.getText().length() < 1 || join_pw.getText().length() < 1
-                        || join_name.getText().length() <1 || join_nick.getText().length() <1
+                if (join_id.getText().length() < 1 || join_pw.getText().length() < 1
+                        || join_name.getText().length() < 1 || join_nick.getText().length() < 1
                         || join_tel.getText().length() < 1 || join_pw_confirm.getText().length() < 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this);
                     dialog = builder.setMessage("아이디, 비번, 이름, 닉네임,전화번호는  필수 입력값압니다").setPositiveButton("확인", null).create();
@@ -196,13 +199,17 @@ public class JoinActivity extends AppCompatActivity {
                 } else {
 
                     MemberDTO dto = new MemberDTO();
-                    //join_gender.setOnCheckedChangeListener(this);
+
 
                     dto.setMember_id(join_id.getText() + "");
                     dto.setMember_pw(join_pw.getText() + "");
                     dto.setMember_name(join_name.getText() + "");
                     dto.setMember_nick(join_nick.getText() + "");
-                    dto.setMember_gender(join_gender.getTransitionName() + "");
+                    if(join_gender.getCheckedRadioButtonId() == 2131296572) {
+                        dto.setMember_gender("여성");
+                    }else if (join_gender.getCheckedRadioButtonId() == 2131296573) {
+                        dto.setMember_gender("남성");
+                    }
                     dto.setMember_tel(join_tel.getText() + "");
                     dto.setMember_email(join_email.getText() + "");
 
@@ -241,7 +248,7 @@ public class JoinActivity extends AppCompatActivity {
         try {
             InputStream in = CommonMethod.excuteAsk(commonAsk);
             id_chk = gson.fromJson(new InputStreamReader(in), Integer.class);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return id_chk;
@@ -261,4 +268,15 @@ public class JoinActivity extends AppCompatActivity {
         return nick_chk;
     }//joinNickConfirm ()
 
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        //int id = radioGroup.getCheckedRadioButtonId();
+        RadioButton rdo_btn = findViewById(radioGroup.getCheckedRadioButtonId());
+        MemberDTO dto = new MemberDTO();
+
+        if (radioGroup.getId() == R.id.mbti_tour) {
+            dto.setMember_gender((String) rdo_btn.getTag());
+            Toast.makeText(JoinActivity.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

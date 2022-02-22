@@ -5,13 +5,12 @@
 
 <html>
 <head>
-
 <title>Home</title>
 </head>
 <body style="background: #BDEDFF;">
-	<h1>Hello world!</h1>
-
-	<P>The time on the server is ${serverTime}.</P>
-	<P>로빈계란블루 #BDEDFF</P>
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+		<h1>welcome ToT !</h1>
+		<img src="imgs/car.jpg" style="width:98%"/>
+	<jsp:include page="/WEB-INF/views/include/footer.jsp" />	
 </body>
 </html>

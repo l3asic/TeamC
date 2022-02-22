@@ -38,7 +38,7 @@
             android:id="@+id/btn_cancel"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="취소" />
+            android:text="뒤로" />
 
     </LinearLayout>
 

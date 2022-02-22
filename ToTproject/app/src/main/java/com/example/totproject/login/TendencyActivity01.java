@@ -140,10 +140,7 @@ public class TendencyActivity01 extends AppCompatActivity implements RadioGroup.
             Toast.makeText(TendencyActivity01.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
         } else if (radioGroup.getId() == R.id.mbti_couple) {
             dto.setMbti_couple((Integer) rdo_btn.getTag());
-
             Toast.makeText(TendencyActivity01.this, rdo_btn.getTag() + "", Toast.LENGTH_SHORT).show();
-
-
         }
     }
 }

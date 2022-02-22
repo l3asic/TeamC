@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 String refreshToken = authLogin.getRefreshToken(LoginActivity.this);
 
                 Toast.makeText(LoginActivity.this, "네이버로그인 성공", Toast.LENGTH_SHORT).show();
-                //goSplash();
+                goSplash();
 
             }
 
@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, TendencyActivity01.class);
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(intent);
             }
         });
@@ -204,16 +204,23 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(id != null){
 
+                    MemberDTO dto = new MemberDTO();
+                    String social_type = "kakao";
+                    dto.setMember_id(id);
+                    dto.setSocial_type(social_type);
+
                     CommonMethod commonMethod = new CommonMethod();
+                    Gson gson = new Gson();
                     CommonAsk conn = new CommonAsk("kakao_login");
                     conn.addParams("id", gson.toJson(id));
-                    Gson gson = new Gson();
+
                     try {
                         InputStream in = commonMethod.excuteAsk(conn);
                         //dto = gson.fromJson(new InputStreamReader(in), MemberDTO.class);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                     Profile profile = kakaoAcount.getProfile();
                     Toast.makeText(LoginActivity.this, profile.getNickname()+"님 환영", Toast.LENGTH_SHORT).show();
                     goSplash();

@@ -126,17 +126,17 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.Viewholder> 
 
 
             if (list.get(position).getPicture_filepath() != null) {
-                Glide.with(context).load(R.drawable.like).into(board_user_reply_img_profile);
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
                 //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
             }else {
-                Glide.with(context).load(R.drawable.like_gray).into(board_user_reply_img_profile);
+                Glide.with(context).load(R.drawable.logo_tot).into(board_user_reply_img_profile);
             }
             /* ====================================================================== */
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    if (Logined.member_id.equals(list.get(position).getMember_id())) {
+                    if (Logined.member_id.equals(list.get(position).getMember_id()) || Logined.member_grade.equals("master")) {
                         showCustomDialog();
                     }else{
                         Toast.makeText(context, "권한없음", Toast.LENGTH_SHORT).show();

@@ -4,7 +4,10 @@
 <mapper namespace="login.mapper">
 
 	<select id="login" resultType="android.kwk.MemberVO">
-		select * from tbl_member_info
+		select member.* , (select pic.picture_filepath 
+							from tbl_board_picture pic
+							where pic.member_id = member.member_id) picture_filepath
+		from tbl_member_info member
 		where member_id = #{member_id} and member_pw = #{member_pw}
 	</select>
 

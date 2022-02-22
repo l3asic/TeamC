@@ -5,7 +5,6 @@
     android:id="@+id/board_user_list_item"
     android:layout_width="match_parent"
     android:layout_height="75dp"
-    android:background="@drawable/radius"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
@@ -78,8 +77,19 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/ic_launcher_foreground" />
+            android:layout_alignParentBottom="true" />
+        <ImageView
+            android:id="@+id/boardlist_item_imgv_icon02"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@+id/boardlist_item_imgv_icon"
+            android:layout_alignParentBottom="true" />
+        <ImageView
+            android:id="@+id/boardlist_item_imgv_icon03"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@+id/boardlist_item_imgv_icon02"
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
 

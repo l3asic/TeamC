@@ -42,25 +42,25 @@ import java.util.List;
 
 public class Board00DetailFg extends Fragment {
 
-    TextView board_user_detail_tv_member_id, board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt;
     LinearLayout board_user_detail_linear_update, board_user_detail_linear_delete, board_user_detail_linear_like;
-    ImageView board_user_detail_img_reply_submit, board_user_detail_img_like;
+    ImageView board_user_detail_imgv_profile,board_user_detail_img_reply_submit, board_user_detail_img_like;
+    TextView board_user_detail_tv_member_id, board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt;
     EditText board_user_detail_edt_board_title, board_user_detail_edt_board_content;
-
+    Button board_user_detail_btn_submit, board_user_detail_btn_cancel;
     EditText board_user_detail_edt_reply_input;
 
+    String whatCase;
     int succ;
+    int boardSN;
+    int paramSn;
 
     RecyclerView Board_User_Reply_RcView;
     BoardCommonVO vo = new BoardCommonVO();
     ReplyVO replyVO = new ReplyVO();
     List<ReplyVO> list = new ArrayList<>();
-    int boardSN;
 
     Context context;
     FragmentManager manager;
-    int paramSn;
-    String whatCase;
 
     /* ==================================== * from tbl_board ===================================== */
     public Board00DetailFg() {
@@ -76,8 +76,10 @@ public class Board00DetailFg extends Fragment {
         this.context = context;
         this.manager = manager;
         this.whatCase = whatCase;
-        vo.setMember_id(Logined.member_id);
-        vo.setBoard_class("user");
+        if (whatCase.equals("write")) {
+            this.vo.setMember_id(Logined.member_id);
+            this.vo.setBoard_class("user");
+        }
     }
     /* =========================================================================================== */
 
@@ -95,10 +97,15 @@ public class Board00DetailFg extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.zzz_boardtab_frag_detail, container, false);
         String pageMode = null;
+        /* ================ 페이지모드 구분 ( 글상세보기 / 글쓰기 / 수정) ================= */
         if (whatCase == null) {
             pageMode = "detailView";
         } else if (whatCase.equals("write")) {
             pageMode = "write";
+        } else if (whatCase.equals("update")) {
+            pageMode = "update";
+        } else {
+            pageMode = whatCase;
         }
 
         board_user_detail_linear_update = v.findViewById(R.id.board_user_detail_linear_update);
@@ -117,6 +124,7 @@ public class Board00DetailFg extends Fragment {
             }
         });
         /* ================================= board_detail 기능세팅 ========================================= */
+        board_user_detail_imgv_profile = v.findViewById(R.id.board_user_detail_imgv_profile);
         board_user_detail_edt_board_title = v.findViewById(R.id.board_user_detail_edt_board_title);
         board_user_detail_edt_board_content = v.findViewById(R.id.board_user_detail_edt_board_content);
         board_user_detail_tv_replycnt = v.findViewById(R.id.board_user_detail_tv_replycnt);
@@ -125,6 +133,7 @@ public class Board00DetailFg extends Fragment {
 
         if (pageMode.equals("detailView")) {/* ================= 디테일뷰모드 ================= */
             /* ================================= board_content 세팅 ========================================= */
+            Glide.with(Board00DetailFg.this).load(vo.getPicture_filepath()).into(board_user_detail_imgv_profile);
             board_user_detail_edt_board_title.isEnabled();
             board_user_detail_edt_board_content.isEnabled();
 
@@ -184,18 +193,19 @@ public class Board00DetailFg extends Fragment {
 
             /* ====================================================================================== */
         } else if (pageMode.equals("write")) { /* ================= 글쓰기모드 ================= */
+            Glide.with(Board00DetailFg.this).load(Logined.picture_filepath).into(board_user_detail_imgv_profile);
                 /*        a01.setVisibility(View.GONE);          // view 삭제
         a01.setVisibility(View.INVISIBLE);   // view 그대로 숨기기
         a01.setVisibility(View.VISIBLE);      // view 보이기*/
             /* ========================== 프레임 레이아웃 교체 ============================= */
             RelativeLayout board_user_detail_view_detail;   //레이아웃선언
-            Button board_user_detail_btn_submit, board_user_detail_btn_cancel;  //버튼선언
+            //버튼선언
 
             board_user_detail_btn_submit = v.findViewById(R.id.board_act_btn_right);//확인 보이기
-            //   board_user_detail_btn_submit.setVisibility(View.VISIBLE);
+            board_user_detail_btn_submit.setVisibility(View.VISIBLE);
 
             board_user_detail_btn_cancel = v.findViewById(R.id.board_act_btn_left); //캔슬 보이기
-            //  board_user_detail_btn_cancel.setVisibility(View.VISIBLE);
+            board_user_detail_btn_cancel.setVisibility(View.VISIBLE);
 
             board_user_detail_view_detail = v.findViewById(R.id.board_user_detail_view_detail);//레이아웃 숨기기
             board_user_detail_view_detail.setVisibility(View.GONE);

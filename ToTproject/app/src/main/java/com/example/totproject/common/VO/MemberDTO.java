@@ -3,11 +3,10 @@ package com.example.totproject.common.VO;
 import java.io.Serializable;
 
 public class MemberDTO implements Serializable {
-    private String member_id, member_pw, member_name,
-            member_nick, member_gender, member_tel, member_email;
-    private String naver, kakao;
+    private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email, member_grade;
+    private String member_is_naver, member_is_kakao;
     private String social_type, social_email;
-    private String profileImg_filepath;
+    private String picture_filepath;
 
     public String getMember_id() {
         return member_id;
@@ -65,20 +64,28 @@ public class MemberDTO implements Serializable {
         this.member_email = member_email;
     }
 
-    public String getNaver() {
-        return naver;
+    public String getMember_grade() {
+        return member_grade;
     }
 
-    public void setNaver(String naver) {
-        this.naver = naver;
+    public void setMember_grade(String member_grade) {
+        this.member_grade = member_grade;
     }
 
-    public String getKakao() {
-        return kakao;
+    public String getMember_is_naver() {
+        return member_is_naver;
     }
 
-    public void setKakao(String kakao) {
-        this.kakao = kakao;
+    public void setMember_is_naver(String member_is_naver) {
+        this.member_is_naver = member_is_naver;
+    }
+
+    public String getMember_is_kakao() {
+        return member_is_kakao;
+    }
+
+    public void setMember_is_kakao(String member_is_kakao) {
+        this.member_is_kakao = member_is_kakao;
     }
 
     public String getSocial_type() {
@@ -97,11 +104,11 @@ public class MemberDTO implements Serializable {
         this.social_email = social_email;
     }
 
-    public String getProfileImg_filepath() {
-        return profileImg_filepath;
+    public String getPicture_filepath() {
+        return picture_filepath;
     }
 
-    public void setProfileImg_filepath(String profileImg_filepath) {
-        this.profileImg_filepath = profileImg_filepath;
+    public void setPicture_filepath(String picture_filepath) {
+        this.picture_filepath = picture_filepath;
     }
 }

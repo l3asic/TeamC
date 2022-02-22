@@ -25,8 +25,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.WhosePage00Activity;
 import com.example.totproject.R;
+import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.statics.Logined;
 import com.example.totproject.login.JoinActivity;
 import com.example.totproject.login.LoginActivity;
@@ -160,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
 
         /* ============================== 버거메뉴 내부 ========================================= */
         /* ========== 로그아웃 ===================================================== = ========== */
+
+
         main_burger_logout = nav_headerview.findViewById(R.id.main_burger_logout);
         if (Logined.member_id == null) {
             main_burger_logout.setVisibility(View.GONE);
@@ -177,17 +181,30 @@ public class MainActivity extends AppCompatActivity {
         ImageView main_burger_imgv_circle;
         main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
+        if (Logined.picture_filepath != null) {
+            Glide.with(MainActivity.this).load(Logined.picture_filepath).into(main_burger_imgv_circle);
+            //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
+        }else {
+            Glide.with(MainActivity.this).load(R.drawable.logo_tot).into(main_burger_imgv_circle);
+        }
         /* ========== = ===================================================== 로그아웃 ========== */
 
         main_burger_imgv_circle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastCheck();
+                toastCheck("프로필사진 바꾸기");
+                if(Logined.picture_filepath == null){
+                    Toast.makeText(MainActivity.this, "null임", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "filepath 있음", Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });
+        //android:visibility="invisible"
 
-        afterLogin = nav_headerview.findViewById(R.id.main_burger_afterlogin);
+
         main_burger_myboard = nav_headerview.findViewById(R.id.main_burger_myboard);
         main_burger_myscrap = nav_headerview.findViewById(R.id.main_burger_myscrap);
         main_burger_myparty = nav_headerview.findViewById(R.id.main_burger_myparty);
@@ -235,6 +252,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        afterLogin = nav_headerview.findViewById(R.id.main_burger_afterlogin);
+        if(Logined.isLogined==true){
+            afterLogin.setVisibility(View.VISIBLE);
+            main_burger_tv_join.setVisibility(View.INVISIBLE);
+        }
         /* ===================================================================================== */
 
 
@@ -276,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* =================================== view변경 + 상단텍스트 변경 ===========-------======================== */
     public void ChangeFrament(int container, Fragment fragment, String titleText) {
-        getSupportFragmentManager().beginTransaction().replace(container,fragment).addToBackStack(titleText).commit();
+        getSupportFragmentManager().beginTransaction().replace(container,fragment).addToBackStack(null).commit();
         main_tv_acttitle.setText(titleText);
 
     }
@@ -309,22 +331,21 @@ public class MainActivity extends AppCompatActivity {
 
     /* ============================== 뒤로가기 누번눌러 종료 ============---================== */
     private long backKeyPressedTime = 0;
-    private Toast toast;
+
     @Override
     public void onBackPressed() {
-        Fragment a = getSupportFragmentManager().getFragments().get(0);
-        Object ac = a.getClass();
+
+        Object ac = getSupportFragmentManager().getFragments().get(0).getClass();
         if (ac.equals( Fragment01HomeTab.class) || ac.equals(Fragment02CategoryTab.class) ||
          ac.equals( Fragment03BoardTab.class) || ac.equals(Fragment04PartyTab.class) || ac.equals(Fragment05IotTab.class)) {
             if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
                 backKeyPressedTime = System.currentTimeMillis();
-                toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+
                 return;
             }
             if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
                 finish();
-                toast.cancel();
             }
         }else {
             manager.popBackStack();
@@ -335,8 +356,15 @@ public class MainActivity extends AppCompatActivity {
     public void goWhosePage(int tabCode){
     Intent intent = new Intent(MainActivity.this, WhosePage00Activity.class);
     intent.putExtra("tabCode",tabCode);
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMember_id(Logined.member_id);
+        memberDTO.setPicture_filepath(Logined.picture_filepath);
+    intent.putExtra("memberDTO",memberDTO);
     startActivity(intent);}
     public void toastCheck(){
         Toast.makeText(this, "toastCheck", Toast.LENGTH_SHORT).show();
+    }
+    public void toastCheck(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }

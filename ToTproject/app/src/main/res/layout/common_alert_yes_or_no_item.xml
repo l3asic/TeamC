@@ -11,7 +11,7 @@
         android:id="@+id/dialog_backgound"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#ffffff"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -32,9 +32,17 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="100dp">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_margin="3dp"
+                android:id="@+id/dialog_imgv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                />
 
             <TextView
                 android:id="@+id/textmessage"
@@ -45,9 +53,10 @@
                 android:text="샘플 메세지 입니다."
                 android:textColor="@color/black"
                 android:textSize="16dp" />
-        </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

@@ -80,9 +80,10 @@ public class SplashActivity extends AppCompatActivity {
         Logined.member_gender = dto.getMember_gender();
         Logined.member_tel = dto.getMember_tel();
         Logined.member_email = dto.getMember_email();
-//isLogined.member_grade = dto.getMember_gender(); // 필드에 Grade(등급) 없음
-        Logined.member_is_kakao = dto.getKakao();
-        Logined.member_is_naver = dto.getNaver();
+        Logined.member_grade = dto.getMember_gender(); // 필드에 Grade(등급) 없음
+        Logined.member_is_kakao = dto.getMember_is_kakao();
+        Logined.member_is_naver = dto.getMember_is_naver();
+        Logined.picture_filepath = dto.getPicture_filepath();
         /* ====================================================================================== */
 
         new Handler().postDelayed(new Runnable() {
@@ -91,8 +92,8 @@ public class SplashActivity extends AppCompatActivity {
                 /* ============================== 로그인확인 안내 ============================== */
                 if (Logined.member_id != null) {
                     Toast.makeText(SplashActivity.this, "로그인 : " + Logined.member_id, Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(SplashActivity.this , "Trip Or Trap", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SplashActivity.this, "Trip or Traver\n비회원으로 진행합니다.", Toast.LENGTH_SHORT).show();
                 }
                 /* ============================================================================== */
 

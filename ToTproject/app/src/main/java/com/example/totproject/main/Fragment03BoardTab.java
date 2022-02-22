@@ -1,6 +1,7 @@
 package com.example.totproject.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
 import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.statics.ChangeView;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.BoardListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -55,11 +57,11 @@ String whose_member_id;
 
     String whatCase;
 
-    public Fragment03BoardTab(Context context, FragmentManager manager, String whatCase,String whose_member_id) {
+    public Fragment03BoardTab(Context context, FragmentManager manager, String whatCase,MemberDTO memberDTO) {
         this.context = context;
         this.manager = manager;
         this.whatCase = whatCase;
-        this.whose_member_id = whose_member_id;
+        this.memberDTO = memberDTO;
     }
 
     @Override
@@ -78,13 +80,13 @@ String whose_member_id;
             list = selectBoardList(vo);
         } else {
             WhosePage00Activity AT = (WhosePage00Activity) context;
-            memberDTO.setMember_id(whose_member_id);
+
             if (whatCase.equals("whosePage_write")) {
                 list = whoseList(memberDTO, whatCase);
             } else if (whatCase.equals("whosePage_likes")) {
                 list = whoseList(memberDTO, whatCase);
             }
-            AT.setActTexts(whose_member_id, list);
+            AT.setActTexts(memberDTO, list);
         }
 
         Board_User_RcView = v.findViewById(R.id.boardtab_list_recycler);
@@ -130,7 +132,12 @@ String whose_member_id;
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getActivity(), "팹 3", Toast.LENGTH_SHORT).show();
-                    ChangeView.changeActivity(getActivity(), WhosePage00Activity.class, 1);
+                    memberDTO.setMember_id(Logined.member_id);
+                    memberDTO.setPicture_filepath(Logined.picture_filepath);
+                    Intent intent = new Intent(context, WhosePage00Activity.class);
+                    intent.putExtra("memberDTO", memberDTO);
+                    intent.putExtra("tabCode", 1);
+                    context.startActivity(intent);
                 }
             });
 

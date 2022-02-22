@@ -14,11 +14,15 @@ SELECT ROWNUM, tbl.*,
     ) board_cnt_reply,
     ( SELECT picture.picture_filepath FROM tbl_board_picture picture
         WHERE picture.member_id = tbl.member_id
-    ) picture_filepath
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes where likes.member_id = tbl.member_id
+    ) function_like
 FROM
     ( SELECT * FROM tbl_board
         where board_class =#{board_class}
-        ORDER BY board_sn DESC
+        ORDER BY board_sn
     ) tbl
 WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>

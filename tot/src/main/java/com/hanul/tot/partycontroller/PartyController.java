@@ -377,11 +377,9 @@ public class PartyController {
 		PrintWriter writer = res.getWriter();
 
 		PartyListVO vo = (PartyListVO) gson.fromJson(from_and_dto, PartyListVO.class);
-		
-		
-		// 새로 추가한 사진이 있고,  기존 사진이 없다면
-		if(new_pic.equals("y") && vo.getPicture_filepath() == null) {
-			System.out.println("새로 추가한 사진이 있고,  기존 사진이 없다면");
+
+		if (new_pic.equals("y")) {
+			System.out.println("새로 추가한 사진이 있고");
 			MultipartRequest mulReq = (MultipartRequest) req;
 			MultipartFile party_pic = mulReq.getFile("party_pic");
 
@@ -391,66 +389,24 @@ public class PartyController {
 				String server_path = "http://" + req.getLocalAddr() + ":" + req.getLocalPort() + req.getContextPath()
 						+ "/resources/";
 				System.out.println(server_path + path);
-				vo.setPicture_filepath(server_path + path);
-				
-				pDAO.insertPartyPic(vo);	// 파티 신규 사진 추가
-				
-			}
-			
-		// 신규 사진 있고 기존 사진도 있다면	
-		}else if(new_pic.equals("y") && vo.getPicture_filepath() != null){
-			System.out.println("신규 사진 있고 기존 사진도 있다면");
-			MultipartRequest mulReq = (MultipartRequest) req;
-			MultipartFile party_pic = mulReq.getFile("party_pic");
 
-			if (party_pic != null) {
-				System.out.println("Null 아님 파일 들어옴");
-				String path = service.fileupload("and", party_pic, session);
-				String server_path = "http://" + req.getLocalAddr() + ":" + req.getLocalPort() + req.getContextPath()
-						+ "/resources/";
-				System.out.println(server_path + path);
-				vo.setPicture_filepath(server_path + path);
-				
-				pDAO.updatePartyPic(vo);	// 파티 신규 사진 업데이트
-				
+				if (vo.getPicture_filepath() == null) {
+					System.out.println("기존 사진이 없다면");
+					vo.setPicture_filepath(server_path + path);
+					pDAO.insertPartyPic(vo); // 파티 신규 사진 추가
+
+				} else {
+					System.out.println("기존 사진이 있다면 ");
+					vo.setPicture_filepath(server_path + path);
+					pDAO.updatePartyPic(vo); // 파티 신규 사진 업데이트
+				}
 			}
 
-		// 신규 사진 없다면	
-		}else {
+		} else {
 			System.out.println("신규 사진 없음");
 		}
-		
 
-		pDAO.updateParty(vo);		// 파티정보 업데이트
-		
-		// 
-		
-		
-//		
-//		MultipartRequest mulReq = (MultipartRequest) req;
-//		MultipartFile party_pic = mulReq.getFile("party_pic");
-//		
-//
-//		if (party_pic != null) {
-//			System.out.println("Null 아님 파일 들어옴");
-//			String path = service.fileupload("and", party_pic, session);
-//			String server_path = "http://" + req.getLocalAddr() + ":" + req.getLocalPort() + req.getContextPath()
-//					+ "/resources/";
-//			System.out.println(server_path + path);
-//			vo.setPicture_filepath(server_path + path);
-//		}
-//
-//		// 새로 추가한 사진이 있고, 기존 사진이 없다면
-//		if (vo.getPicture_filepath() != null && old_party_pic == null) {
-//			pDAO.insertPartyPic(vo);
-//
-//			// 새로 추가한 사진 있고, 기존 사진이 있다면
-//		} else if (vo.getPicture_filepath() != null && old_party_pic != null) {
-//			pDAO.updatePartyPic(vo);
-//			
-//		} else {
-//			System.out.println("새로 추가한 사진없음");
-//		}
+		pDAO.updateParty(vo); // 파티정보 업데이트
 
 	}// updateParty()
 

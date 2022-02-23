@@ -73,11 +73,12 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="9">-->
 
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_party_chat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp"
-                    android:text="파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n"></TextView>
+                    android:text="파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n파티채팅이 붙는 화면입니다.\n"></androidx.recyclerview.widget.RecyclerView>
                 <!--      </ScrollView>-->
             </FrameLayout>
 

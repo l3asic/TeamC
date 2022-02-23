@@ -23,31 +23,49 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.chat.ChatRoomAdpter;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.statics.Logined;
-import com.example.totproject.login.JoinActivity;
-import com.example.totproject.login.LoginActivity;
-import com.example.totproject.main.MainActivity;
 import com.example.totproject.party_plan.PlanMainActivity;
-import com.example.totproject.zzchaminhwan.MainBurger00Activity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import com.example.totproject.chat.ChatRoomDTO;
+import com.google.gson.reflect.TypeToken;
 
 public class MyPartyInfoActivity extends AppCompatActivity {
+    RecyclerView rec_party_chat;
     Toolbar toolbar;
     Button partyinfo_btn_burger, btn_chat_push;
     EditText edt_chat;
     PartyListDTO plDTO;
+    TextView party_title;
+
+    ArrayList<PartyListDTO> partyListDTOS = new ArrayList<>();
+
+
+    //채팅 방 리스트
+    List<ChatRoomDTO> chatRoomDTOS;
+    private RecyclerView.LayoutManager mLayoutManager;  //이거 두개 뭔지 모르겠음
+    private RecyclerView.Adapter chatMsgAdapter;    //이거 두개 뭔지 모르겠음
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
@@ -60,7 +78,30 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.party_act_myparty_info);
 
+        party_title = findViewById(R.id.partyinfo_tv_title);
+        edt_chat = findViewById(R.id.edt_chat);
+        btn_chat_push = findViewById(R.id.btn_chat_push);
+
+        Intent my_party_info_intent = getIntent();
+        plDTO = (PartyListDTO) my_party_info_intent.getSerializableExtra("party_dto");
+        selectPartyList(plDTO.getParty_sn());       // 파티멤버리스트 조회해오기
+        party_title.setText(plDTO.getParty_name());
+        partyinfo_btn_burger = findViewById(R.id.partyinfo_btn_burger);
+
+        // 채팅방을 구분할수 있는 세팅?
         databaseReference = firebaseDatabase.getReference(plDTO.getParty_sn()+"");
+
+        rec_party_chat = findViewById(R.id.rec_party_chat);
+        rec_party_chat.setHasFixedSize(true);             // @@@@@@@이게 뭐하는 코드??
+        mLayoutManager = new LinearLayoutManager(MyPartyInfoActivity.this);
+        rec_party_chat.setLayoutManager(mLayoutManager);
+
+        // 채팅 어댑터 세팅영역
+        chatRoomDTOS = new ArrayList<>();
+        chatMsgAdapter = new ChatRoomAdpter(chatRoomDTOS , MyPartyInfoActivity.this , "me_id");
+        rec_party_chat.setAdapter(chatMsgAdapter);
+
+
 
         btn_chat_push.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,26 +119,48 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                     dto.setDate(getTime);
                     databaseReference.push().setValue(dto);
                     edt_chat.setText("");
-
                 }
             }
         });
 
+        databaseReference.addChildEventListener(new ChildEventListener() {      //~126 채팅 보내기했을때 추가된내용을 어댑터에 더해서 다시 채팅목록출력
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                ChatRoomDTO dto = snapshot.getValue(ChatRoomDTO.class);
+                ((ChatRoomAdpter) chatMsgAdapter).addChat(dto);
+              //  rec_party_chat.setAdapter(chatMsgAdapter);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        //@@@ 채팅방 멤버 불러오기 할것 ???
+
+//        chatroom_no_nen_lin.setVisibility(View.GONE);
+//        chatroom_mem_lin.setVisibility(View.VISIBLE);
 
 
 
 
-        TextView party_title;
-        party_title = findViewById(R.id.partyinfo_tv_title);
-        edt_chat = findViewById(R.id.edt_chat);
-        btn_chat_push = findViewById(R.id.btn_chat_push);
-
-        Intent my_party_info_intent = getIntent();
-        plDTO = (PartyListDTO) my_party_info_intent.getSerializableExtra("party_dto");
-        party_title.setText(plDTO.getParty_name());
-
-
-        partyinfo_btn_burger = findViewById(R.id.partyinfo_btn_burger);
 
 
         toolbar = (Toolbar) findViewById(R.id.partyinfo_toolbar);
@@ -398,6 +461,30 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
     }
 
+
+    // party_sn으로 일단 파티멤버리스트 가져오기
+    public ArrayList<PartyListDTO> selectPartyList(int party_sn){
+        commonAsk = new CommonAsk("android/party/selectPartyList");
+        commonAsk.params.add(new CommonAskParam("party_sn", party_sn+""));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            partyListDTOS = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return partyListDTOS;
+
+    }//selectPartyList()
+
+
+
+
+
+
+
     public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextAct);
         intent.putExtra("tabcode", tabcode);
@@ -418,4 +505,11 @@ public class MyPartyInfoActivity extends AppCompatActivity {
             String aaaa = "";
         }
     }
+
+
+
+
+
+
+
 }

@@ -409,6 +409,40 @@ public class PartyController {
 		pDAO.updateParty(vo); // 파티정보 업데이트
 
 	}// updateParty()
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/selectPartyList")
+	public void selectPartyList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+
+		System.out.println("mypartylist() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//
+		int party_sn = Integer.parseInt(req.getParameter("party_sn"));
+
+		try {
+
+			List<PartyListVO> list = new ArrayList<PartyListVO>();
+			list = pDAO.selectPartyList(party_sn);
+
+			
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}// mypartylist()
+
+	
+	
+	
+	
 
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 파티 플랜 영역 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 	// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 파티 플랜 영역 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ

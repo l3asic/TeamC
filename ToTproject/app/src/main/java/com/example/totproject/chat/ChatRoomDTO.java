@@ -1,4 +1,4 @@
-package com.example.totproject.party;
+package com.example.totproject.chat;
 
 import java.io.Serializable;
 

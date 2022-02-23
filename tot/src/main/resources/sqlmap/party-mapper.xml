@@ -240,5 +240,14 @@ where party_sn = #{party_sn}
 </update>
 
 
+<select id="selectPartyList" resultType="android.partyvo.PartyListVO">
+
+	select * from tbl_party
+where party_sn = #{party_sn}
+
+	
+</select>
+
+
 
 </mapper>

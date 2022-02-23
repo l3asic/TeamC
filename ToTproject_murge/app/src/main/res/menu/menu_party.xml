@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/partyinfo_burger_home"
+        android:enabled="true"
+        android:title="파티 홈"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/partyinfo_burger_notice"
+        android:enabled="true"
+        android:title="파티 공지"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/partyinfo_burger_board"
+        android:enabled="true"
+        android:title="파티 게시판"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/partyinfo_burger_plan"
+        android:enabled="true"
+        android:title="파티 계획"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/partyinfo_burger_member"
+        android:enabled="true"
+        android:title="파티 멤버"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/partyinfo_burger_chat"
+        android:enabled="true"
+        android:title="파티 채팅"
+        app:showAsAction="ifRoom" />
+</menu>
+
+

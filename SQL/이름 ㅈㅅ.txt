@@ -1,0 +1,56 @@
+select  top100.*
+from (
+   select rownum, mbti.*
+   from(
+    select  board.*, abs(a.mbti_activity - b.mbti_activity) +
+    abs(a.mbti_festival- b.mbti_festival)+
+    abs(a.mbti_tour- b.mbti_tour)+
+    abs(a.mbti_solo- b.mbti_solo)+
+    abs(a.mbti_couple- b.mbti_couple)+
+    abs(a.mbti_buddys- b.mbti_buddys)+
+    abs(a.mbti_family- b.mbti_family)+
+    abs(a.mbti_price- b.mbti_price)+
+    abs(a.mbti_sd- b.mbti_sd)+
+    abs(a.mbti_io- b.mbti_io) as matchscore
+    from (select * from tbl_mbti where member_id='ChaMinHwan') a ,(select * from tbl_mbti where member_id is null) b ,tbl_board board
+ where  board.board_sn = b.board_sn and board.board_sn = 1001
+    order by matchscore asc
+    ) mbti
+    where rownum <= 100
+    order by DBMS_RANDOM.VALUE(1,1000 )
+      ) top100 
+      where rownum  <=  10;
+      
+      
+      
+      
+      select count(*) from tbl_board board, tbl_reply reply where board.board_sn = reply.board_sn and reply.board_sn = 377;
+      
+      
+ --377번 게시물 좋아요수, 댓글 수 가져오기    
+     select * from   
+(select COUNT (*)
+FROM
+    tbl_board board,
+    tbl_likes likes
+WHERE
+        board.board_sn = likes.board_sn
+    AND likes.function_like IS NOT NULL
+    AND likes.board_sn = 377),
+(select count(*)
+FROM
+    tbl_board board,
+    tbl_reply reply
+WHERE
+        board.board_sn = reply.board_sn and reply.board_sn = 377);
+
+    
+      
+      
+      select count(*) from tbl_board board, tbl_member_info member where member.member_id = board.member_id and board.member_id = 'ChaMinHwan';
+      
+      alter table tbl_like renameto tbl_likes;
+      
+      select * from tbl_likes;
+      
+      commit;

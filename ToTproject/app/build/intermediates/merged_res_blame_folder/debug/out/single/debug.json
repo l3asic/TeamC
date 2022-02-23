@@ -1,0 +1,770 @@
+[
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tendency_activity_01.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_tendency_activity_01.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_common_alert_yes_or_no_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\common_alert_yes_or_no_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_logo.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planinfo01.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planinfo01.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_logo.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_logo.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_logo.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_detail.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_detail.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_act_reply.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_act_reply.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_00_splash.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_00_splash.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\menu_nav_manual.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\menu\\nav_manual.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_burgermenu.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_burgermenu.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_mypartylist_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_mypartylist_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_partyjoin.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_partyjoin.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board_frag_boardlist_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board_frag_boardlist_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planlist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planlist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_wide.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_large_wide.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_nav_select.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\nav_select.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger02_service_fg_04_tel.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger02_service_fg_04_tel.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_selector_radio_text.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\selector_radio_text.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_scrap.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_scrap.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_less_than.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\less_than.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_main.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_act_main.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_newresult.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_newresult.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_frag_detail_item_reply.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_frag_detail_item_reply.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_openpartylist_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_openpartylist_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board_frag_search.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board_frag_search.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_login_act_login.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\login_act_login.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburgermenu.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburgermenu.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_24.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_party.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\menu\\menu_party.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_boardtab.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_boardtab.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_top_line.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\top_line.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_board00_act_main.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_board00_act_main.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_board.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_board.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\menu_nav_menu.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\menu\\nav_menu.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab_item_big.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab_item_big.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_selector_radio_button.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\selector_radio_button.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tendency_activity_02.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\activity_tendency_activity_02.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_white.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\white.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_whosepage00_act.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_whosepage00_act.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_search.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_search.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_like.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\like.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planinfo02_item_dayitem.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planinfo02_item_dayitem.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planlist_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planlist_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_aaa_common_frag_main_frag_boardtab_item_boardlist_board_list_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\aaa_common_frag_main_frag_boardtab_item_boardlist_board_list_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger01_notice_fg.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger01_notice_fg.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_bottom_line.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\bottom_line.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_partytab.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_partytab.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_logo.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_boardtab_frag_detail.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_boardtab_frag_detail.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger02_service_fg_0203_oneoneemail.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger02_service_fg_0203_oneoneemail.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_star.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_star.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_boardtab_frag_detail_item_reply.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_boardtab_frag_detail_item_reply.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_membermanage.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_membermanage.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_logo_round.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_logo_round.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_heart_fill.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_heart_fill.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_categorytab.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_categorytab.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_both_line.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\both_line.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_createplan.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_act_createplan.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger02_service_fg_01_qna.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger02_service_fg_01_qna.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_heart2.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\heart2.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_act_new.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_act_new.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_burgermenu_partylist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_burgermenu_partylist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_playlist_add_24.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_baseline_playlist_add_24.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board_frag_mylist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board_frag_mylist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_frag_detail.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_frag_detail.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_partyjoin.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_partyjoin.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planinfo02_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planinfo02_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_text.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_text.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\menu_bottomnav_menu.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\menu\\bottomnav_menu.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_cancel_red.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\cancel_red.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_exercise.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_exercise.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_logo_tot_old.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\logo_tot_old.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_home.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_home.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_both_line_gray.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\both_line_gray.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_planinfo02.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_planinfo02.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_both_line.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\both_line.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_main.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_main.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_party.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_party.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_heart.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\heart.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_gridlist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_gridlist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_radius.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\radius.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_bottom_line.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\bottom_line.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_party_tab_button.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\party_tab_button.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_crown.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_crown.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_ox_x.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_ox_x.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_search_24.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_baseline_search_24.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_main_search.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\main_search.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_updateplan.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_act_updateplan.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_logo_round.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-mdpi\\ic_logo_round.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_board_fg_detail_content.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_board_fg_detail_content.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab_item_small_mbti.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab_item_small_mbti.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_partyjoin_member_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_partyjoin_member_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_mypartylist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_mypartylist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_setting.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_setting.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_grildlist_item_list.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_grildlist_item_list.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_img_login_naver.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\img_login_naver.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_detail_pager_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_detail_pager_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_burgermenu_myparty.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_burgermenu_myparty.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_act_main_new.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_act_main_new.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_membermanage_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_membermanage_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_logo.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\anim_fab_close.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\anim\\fab_close.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_burgermenu_partylist_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_burgermenu_partylist_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_gridlist_item_list.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_gridlist_item_list.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_frag_search.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_frag_search.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\anim_fab_open.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\anim\\fab_open.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_createplan_item_user.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_act_createplan_item_user.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_x_mas_splash.jpg.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\x_mas_splash.jpg"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_wide.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_medium_wide.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_no_image.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\no_image.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_act_main.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_act_main.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\comment.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_guild.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_guild.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_selector_radio_button.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\selector_radio_button.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zzz_board_fg_detail_reply.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zzz_board_fg_detail_reply.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_category.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_category.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_search3.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\search3.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_category_background.jpg.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\category_background.jpg"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_act_updateplan_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_act_updateplan_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_bell.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_bell.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger02_service_fg_01_qna_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger02_service_fg_01_qna_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_logo_round.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_logo_round.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_act_main.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_act_main.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_act_reply_img_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_act_reply_img_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_dialog_background.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\dialog_background.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_img_login_kakao.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\img_login_kakao.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_like_gray.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\like_gray.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board00_frag_list.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board00_frag_list.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_openpartylist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_openpartylist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_large_narrow.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_large_narrow.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger01_notice_fg_detail_fg.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger01_notice_fg_detail_fg.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_frag_mylist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_frag_mylist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_category_background.jpg.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\category_background.jpg"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyplan_frag_plandetail_item_checklist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyplan_frag_plandetail_item_checklist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_logo.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger03_manual_fg.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger03_manual_fg.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_logo_round.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_logo_round.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_memberinvite.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_memberinvite.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_kakao_login_medium_narrow.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\kakao_login_medium_narrow.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board_frag_complete.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board_frag_complete.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_logo_tot.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_logo_tot.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_ox_o.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_ox_o.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger02_service_fg.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger02_service_fg.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_selector_radio_text.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\selector_radio_text.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_format_list_numbered_24.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_baseline_format_list_numbered_24.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_title_theme_background.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\title_theme_background.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_button_theme_background.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\button_theme_background.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_cancel.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_cancel.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_board_frag_searchlist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\board_frag_searchlist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger00_activity.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger00_activity.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_logo_round.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_logo_round.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_frag_partyjoin_hashtag_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_frag_partyjoin_hashtag_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_icon_main_burger.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\icon_main_burger.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_cancel_red.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable-v24\\cancel_red.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_partyboard_frag_searchlist.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\partyboard_frag_searchlist.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_welcome.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\welcome.png"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_myparty_info.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_myparty_info.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_category_frag_detail_item_review.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\category_frag_detail_item_review.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_mainburger01_notice_fg_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\mainburger01_notice_fg_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_edit_24.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\drawable\\ic_baseline_edit_24.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_join_act_join.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\join_act_join.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_createparty.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_createparty.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_party_act_memberinvite_item.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\party_act_memberinvite_item.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_main_frag_hometab_item_small_xy.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\main_frag_hometab_item_small_xy.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\layout_zz_frag_empty.xml.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\layout\\zz_frag_empty.xml"
+    },
+    {
+        "merged": "D:\\study_project\\ToTproject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_logo_round.png.flat",
+        "source": "D:\\study_project\\ToTproject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_logo_round.png"
+    }
+]

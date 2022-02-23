@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login.mapper">
+
+	<select id="login" resultType="android.kwk.MemberVO">
+		select member.* , (select pic.picture_filepath 
+							from tbl_board_picture pic
+							where pic.member_id = member.member_id) picture_filepath
+		from tbl_member_info member
+		where member_id = #{member_id} and member_pw = #{member_pw}
+	</select>
+
+</mapper>

@@ -7,7 +7,7 @@ public class BoardVO {
 	private int board_sn, board_read_cnt, board_reviewepath;
 	private String board_title, board_content, board_is_updated, board_private, board_replly_able, board_class,
 			member_id;
-	private String board_date_create, picture_filepath, member_nick;
+	private String board_date_create, member_filepath, member_nick;
 	private int picture_file_count;
 	private int board_cnt_reply;
 	private int function_like;
@@ -15,8 +15,19 @@ public class BoardVO {
 	private int matchScore;
     private String member_grade; //글쓴이등급
     private int whose_cnt_like;
+    
+    private String cmh;
 
-    public int getWhose_cnt_like() {
+    
+    public String getCmh() {
+		return cmh;
+	}
+
+	public void setCmh(String cmh) {
+		this.cmh = cmh;
+	}
+
+	public int getWhose_cnt_like() {
         return whose_cnt_like;
     }
 
@@ -137,12 +148,12 @@ public class BoardVO {
 		this.board_date_create = board_date_create;
 	}
 
-	public String getPicture_filepath() {
-		return picture_filepath;
+	public String getMember_filepath() {
+		return member_filepath;
 	}
 
-	public void setPicture_filepath(String picture_filepath) {
-		this.picture_filepath = picture_filepath;
+	public void setMember_filepath(String member_filepath) {
+		this.member_filepath = member_filepath;
 	}
 
 	public int getPicture_file_count() {

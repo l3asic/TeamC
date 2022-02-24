@@ -184,8 +184,8 @@ p {
 	height: 64px;
 	text-align: center;
 	line-height: 40px;
-	color: yellow;
-	background: #888888;
+	color: #708090;
+	background: #BDEDFF;
 	cursor: pointer;
 	border: 0;
 	border-radius: 100px;
@@ -876,7 +876,7 @@ ul.cart-list>li.total>.btn:hover {
 }
 /*------------------------------------------------------------------ Slider -------------------------------------------------------------------*/
 .cover-slides {
-	height: 100vh;
+	height: 50vh;
 }
 
 .slides-navigation a {
@@ -2743,7 +2743,7 @@ translateY
 /*------------------------------------------------------------------ Footer Main -------------------------------------------------------------------*/
 .footer-main {
 	padding: 70px 0px;
-	background: #cecece;
+	background: #708090;
 }
 
 .footer-main hr {
@@ -2990,7 +2990,7 @@ translateY
 }
 /*------------------------------------------------------------------ Copyright -------------------------------------------------------------------*/
 .footer-copyright {
-	background: #060606;
+	background: #708090;
 	padding: 20px 0px;
 	position: relative;
 }
@@ -3360,7 +3360,7 @@ translateY
 }
 
 .list-group-item {
-	border: none;
+	border: ;
 	padding: 5px 20px;
 	font-size: 14px;
 }

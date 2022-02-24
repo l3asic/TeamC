@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>홈 메인화면</title>
+<title>#BDEDFF</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -44,7 +44,7 @@
 	<%@include file="include/header.jsp"%>
 	<!-- End header  -->
 
-<%-- 	<!-- side left  -->
+	<%-- 	<!-- side left  -->
 	<%@include file="include/side_left.jsp"%>
 	<!--    -->
 
@@ -56,7 +56,7 @@
 	<%@include file="zzchaminhwan/main_01_top_search.jsp"%>
 	<!-- End Top Search -->
 
-	<div class="wrapcontent">
+	<div class="wrapcontent-60">
 		<!-- Start Slider (지역축제정보 뷰페이저)--><%@include
 			file="zzchaminhwan/main_02_slider.jsp"%>
 		<!-- End Slider -->

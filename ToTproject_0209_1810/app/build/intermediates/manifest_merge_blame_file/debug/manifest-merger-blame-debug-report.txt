@@ -1,0 +1,280 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.totproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml
+10
+11    <!-- 인터넷 권한 -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:6:5-67
+12-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:8:5-76
+14-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:8:22-73
+15
+16    <!-- 저장소와 카메라 권한 별도의 동의가 메소드로 필요함※ -->
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:11:22-78
+18    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+18-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:12:5-80
+18-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:12:22-77
+19    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+19-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:13:5-80
+19-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:13:22-77
+20    <uses-permission android:name="android.permission.CAMERA" />
+20-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:14:5-65
+20-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:14:22-62
+21
+22    <uses-feature
+22-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:16:5-17:34
+23        android:name="android.hardware.camera2"
+23-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:16:19-58
+24        android:required="true" />
+24-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:17:9-32
+25
+26    <!-- API30이상부터는 queries라는 권한부여를 받는 처리가 한번 더 생김 -->
+27    <queries>
+27-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:21:5-48:15
+28
+29        <!-- WebView -->
+30        <intent>
+30-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:23:9-27:18
+31            <action android:name="android.intent.action.VIEW" />
+31-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:24:13-65
+31-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:24:21-62
+32
+33            <category android:name="android.intent.category.BROWSABLE" />
+33-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:25:13-74
+33-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:25:23-71
+34
+35            <data android:scheme="http" />
+35-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:26:13-43
+35-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:26:19-40
+36        </intent>
+37        <intent>
+37-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:28:9-32:18
+38            <action android:name="android.intent.action.VIEW" />
+38-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:24:13-65
+38-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:24:21-62
+39
+40            <category android:name="android.intent.category.BROWSABLE" />
+40-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:25:13-74
+40-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:25:23-71
+41
+42            <data android:scheme="https" />
+42-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:26:13-43
+42-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:26:19-40
+43        </intent>
+44
+45        <!-- Camera -->
+46        <intent>
+46-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:35:9-37:18
+47            <action android:name="android.media.action.IMAGE_CAPTURE" />
+47-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:36:13-73
+47-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:36:21-70
+48        </intent>
+49
+50        <!-- Gallery -->
+51        <intent>
+51-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:40:9-42:18
+52            <action android:name="android.intent.action.GET_CONTENT" />
+52-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:41:13-72
+52-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:41:21-69
+53        </intent>
+54
+55        <!-- Youtube -->
+56        <intent>
+56-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:45:9-47:18
+57            <action android:name="android.media.browse.MediaBrowserService" />
+57-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:46:13-79
+57-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:46:21-76
+58        </intent>
+59
+60        <package android:name="com.locnall.KimGiSa" />
+60-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:12:9-55
+60-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:12:18-52
+61        <package android:name="com.lguplus.navi" />
+61-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:13:9-52
+61-->[com.kakao.sdk:v2-navi:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\d0c595e02d1afcb088f5bf5e9ecbdfed\transformed\jetified-v2-navi-2.8.4\AndroidManifest.xml:13:18-49
+62        <package android:name="com.kakao.talk" />
+62-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:12:9-50
+62-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:12:18-47
+63        <package android:name="com.kakao.talk.alpha" />
+63-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:13:9-56
+63-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:13:18-53
+64        <package android:name="com.kakao.talk.sandbox" />
+64-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:14:9-58
+64-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:14:18-55
+65        <package android:name="com.kakao.onetalk" />
+65-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:15:9-53
+65-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:15:18-50
+66        <package android:name="com.android.chrome" />
+66-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:16:9-54
+66-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:16:18-51
+67        <package android:name="com.chrome.beta" />
+67-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:17:9-51
+67-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:17:18-48
+68        <package android:name="com.chrome.dev" />
+68-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:18:9-50
+68-->[com.kakao.sdk:v2-common:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\9d519263e757ec8933722d563e336d31\transformed\jetified-v2-common-2.8.4\AndroidManifest.xml:18:18-47
+69    </queries>
+70
+71    <application
+71-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:50:5-102:19
+72        android:allowBackup="true"
+72-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:51:9-35
+73        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+73-->[androidx.core:core:1.7.0] C:\Users\a0105\.gradle\caches\transforms-3\21249a56641fb0309777a5ae16ce99ff\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+74        android:debuggable="true"
+75        android:icon="@mipmap/ic_launcher"
+75-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:52:9-43
+76        android:label="@string/app_name"
+76-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:53:9-41
+77        android:requestLegacyExternalStorage="true"
+77-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:56:9-52
+78        android:roundIcon="@mipmap/ic_launcher_round"
+78-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:54:9-54
+79        android:supportsRtl="true"
+79-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:55:9-35
+80        android:testOnly="true"
+81        android:theme="@style/Theme.ToTproject"
+81-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:57:9-48
+82        android:usesCleartextTraffic="true" >
+82-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:58:9-44
+83        <uses-library
+83-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:59:9-61:40
+84            android:name="org.apache.http.legacy"
+84-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:60:13-50
+85            android:required="false" />
+85-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:61:13-37
+86
+87        <activity
+87-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:62:9-64:40
+88            android:name="com.example.totproject.category.CategoryReplyActivity"
+88-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:63:13-59
+89            android:exported="false" />
+89-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:64:13-37
+90        <activity
+90-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:65:9-67:40
+91            android:name="com.example.totproject.category.CategoryMainActivity"
+91-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:66:13-58
+92            android:exported="false" />
+92-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:67:13-37
+93        <activity
+93-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:68:9-70:40
+94            android:name="com.example.totproject.board.Activity03BoardDetail"
+94-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:69:13-56
+95            android:exported="false" />
+95-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:70:13-37
+96        <activity
+96-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:71:9-73:40
+97            android:name="com.example.totproject.party_plan.Party04Planning"
+97-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:72:13-55
+98            android:exported="false" />
+98-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:73:13-37
+99        <activity
+99-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:74:9-76:40
+100            android:name="com.example.totproject.login.TendencyActivity01"
+100-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:75:13-53
+101            android:exported="false" />
+101-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:76:13-37
+102        <activity
+102-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:77:9-79:40
+103            android:name="com.example.totproject.login.TendencyActivity02"
+103-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:78:13-53
+104            android:exported="false" />
+104-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:79:13-37
+105        <activity
+105-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:80:9-82:40
+106            android:name="com.example.totproject.party.PartyCreateActivity"
+106-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:81:13-54
+107            android:exported="false" />
+107-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:82:13-37
+108        <activity
+108-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:83:9-85:40
+109            android:name="com.example.totproject.login.JoinActivity"
+109-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:84:13-47
+110            android:exported="false" />
+110-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:85:13-37
+111        <activity
+111-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:86:9-88:40
+112            android:name="com.example.totproject.main.MainActivity"
+112-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:87:13-46
+113            android:exported="false" />
+113-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:88:13-37
+114        <activity
+114-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:89:9-91:40
+115            android:name="com.example.totproject.login.LoginActivity"
+115-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:90:13-48
+116            android:exported="false" />
+116-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:91:13-37
+117        <activity
+117-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:92:9-100:20
+118            android:name="com.example.totproject.login.SplashActivity"
+118-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:93:13-49
+119            android:exported="true" >
+119-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:94:13-36
+120            <intent-filter>
+120-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:95:13-99:29
+121                <action android:name="android.intent.action.MAIN" />
+121-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:96:17-69
+121-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:96:25-66
+122
+123                <category android:name="android.intent.category.LAUNCHER" />
+123-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:98:17-77
+123-->C:\Users\a0105\Study_Android\WorkSpace\ToTproject_0209_1810\app\src\main\AndroidManifest.xml:98:27-74
+124            </intent-filter>
+125        </activity>
+126        <activity
+126-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:12:9-16:56
+127            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
+127-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:13:13-67
+128            android:exported="false"
+128-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:14:13-37
+129            android:launchMode="singleTask"
+129-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:15:13-44
+130            android:theme="@style/TransparentCompat" />
+130-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:16:13-53
+131        <activity
+131-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:17:9-20:56
+132            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+132-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:18:13-70
+133            android:launchMode="singleTask"
+133-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:19:13-44
+134            android:theme="@style/TransparentCompat" />
+134-->[com.kakao.sdk:v2-auth:2.8.4] C:\Users\a0105\.gradle\caches\transforms-3\fad20bf7d26fcd496b4a5d0d35ec1a9f\transformed\jetified-v2-auth-2.8.4\AndroidManifest.xml:20:13-53
+135
+136        <provider
+136-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+137            android:name="androidx.startup.InitializationProvider"
+137-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+138            android:authorities="com.example.totproject.androidx-startup"
+138-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+139            android:exported="false" >
+139-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+140            <meta-data
+140-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+141                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+141-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+142                android:value="androidx.startup" />
+142-->[androidx.emoji2:emoji2:1.0.0] C:\Users\a0105\.gradle\caches\transforms-3\beb1e8c1d1724370afa1be71eb324942\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+143            <meta-data
+143-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\a0105\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+144                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+144-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\a0105\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+145                android:value="androidx.startup" />
+145-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\a0105\.gradle\caches\transforms-3\4d87c3e3b70abeed5e61faf08f3b9b5b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+146        </provider>
+147    </application>
+148
+149</manifest>

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class PartyListDTO implements Serializable {
     private int party_sn;
-    private int picture_filepath;
+    private String picture_filepath;
     private String party_private;
     private String party_leader;
     private String party_name;
@@ -17,7 +17,7 @@ public class PartyListDTO implements Serializable {
     public PartyListDTO() {
     }
 
-    public PartyListDTO(int party_sn, int picture_filepath, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3, String member) {
+    public PartyListDTO(int party_sn, String picture_filepath, String party_private, String party_leader, String party_name, String party_detail, String party_tag1, String party_tag2, String party_tag3, String member) {
         this.party_sn = party_sn;
         this.picture_filepath = picture_filepath;
         this.party_private = party_private;
@@ -30,6 +30,8 @@ public class PartyListDTO implements Serializable {
         this.member_id = member;
     }
 
+
+
     public int getParty_sn() {
         return party_sn;
     }
@@ -38,11 +40,11 @@ public class PartyListDTO implements Serializable {
         this.party_sn = party_sn;
     }
 
-    public int getPicture_filepath() {
+    public String getPicture_filepath() {
         return picture_filepath;
     }
 
-    public void setPicture_filepath(int picture_filepath) {
+    public void setPicture_filepath(String picture_filepath) {
         this.picture_filepath = picture_filepath;
     }
 

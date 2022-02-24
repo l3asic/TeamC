@@ -2,7 +2,7 @@ package android.partyvo;
 
 public class PartyPlanListVO {
 	private int plan_sn;
-    private int picture_filepath;
+    private String picture_filepath;
     private int party_sn;
     private String plan_name;
     private String plan_writer;
@@ -26,11 +26,11 @@ public class PartyPlanListVO {
         this.plan_sn = plan_sn;
     }
 
-    public int getPicture_filepath() {
+    public String getPicture_filepath() {
         return picture_filepath;
     }
 
-    public void setPicture_filepath(int picture_filepath) {
+    public void setPicture_filepath(String picture_filepath) {
         this.picture_filepath = picture_filepath;
     }
 

@@ -17,16 +17,16 @@ public class PartymemberListAdapter  extends BaseAdapter {
     //private static final String TAG = "tv1";
     Context context; // <- foreGround  == frontGround
     // ,  ↑ BackGround ( Context )==생성자
-    ArrayList<PartymemberListDTO> list;
+    ArrayList<PartyMemberListDTO> list;
     LayoutInflater inflater;
+    int code = 0;       // 1이라면 플랜 계획시 멤버 리스트 보여주기
     //GridAdapter <= FragmentGrid.Class(java) 생성해보기
-    public PartymemberListAdapter(Context context, ArrayList<PartymemberListDTO> list) {
+    public PartymemberListAdapter(Context context, ArrayList<PartyMemberListDTO> list) {
         this.context = context;
         this.list = list;
-        //this.inflater = inflater;←만들어서 넘겨준거 세팅, ↓직접 만들기
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-    public void addItem(ArrayList<PartymemberListDTO> list){
+    public void addItem(ArrayList<PartyMemberListDTO> list){
         this.list = list;
     }
     @Override

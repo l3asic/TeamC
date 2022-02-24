@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
         LinearLayout lin_party_click;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            //imgv_party = itemView.findViewById(R.id.imgv_party);
+            imgv_party = itemView.findViewById(R.id.imgv_party);
             tv_party_name = itemView.findViewById(R.id.tv_party_name);
             tv_party_detail = itemView.findViewById(R.id.tv_party_detail);
             lin_party_click =itemView.findViewById(R.id.lin_party_click);
@@ -65,7 +66,9 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
-            //holder.imgv_party.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
+            if ( list.get(position).getPicture_filepath() != null){
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(imgv_party);
+            }
             holder.tv_party_name.setText( list.get(position).getParty_name() +"" );
             holder.tv_party_detail.setText( list.get(position).getParty_detail() +"" );
             holder.tv_party_tag1.setText( list.get(position).getParty_tag1() +"" );

@@ -34,7 +34,7 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_weight="9"
         android:layout_width="match_parent"
         android:layout_height="0dp">
@@ -221,27 +221,23 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text=" * 참여 멤버    : " />
+                    android:text=" * 참여 멤버" />
 
-                <Spinner
 
-                    android:id="@+id/join_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
                 <!-- ↓ plan_member_list 출력 공간-->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+                    android:id="@+id/rec_memberlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -322,6 +318,6 @@
                 android:text="플랜 저장하기" />
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

@@ -7,7 +7,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<context:component-scan base-package="category,common" />
+	<context:component-scan base-package="category,common, chaminhwan.*" />
 	
 	<import resource="classpath:data/default.xml" />
 	<bean id="multipartResolver"

@@ -71,7 +71,6 @@
                     android:id="@+id/edt_party_namet"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-
                     android:layout_weight="8"
                     android:gravity="center_vertical"
                     android:hint="파티 이름을 입력" />
@@ -96,17 +95,12 @@
                 <EditText
                     android:id="@+id/edt_party_detail"
                     android:layout_width="match_parent"
-
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="40dp"
                     android:layout_marginBottom="30dp"
                     android:background="#999999"
                     android:gravity="center"
-                    android:hint="간단한 파티소개를 입력해주세요
-    \n\n
-    디자인적 마진은 전부 빼놨습니다
-    \n
-    양옆에 짜를곳은 20dp씩 넣으면 될것같음" />
+                    android:hint="간단한 파티소개를 입력해주세요" />
 
             </LinearLayout>
 
@@ -235,10 +229,6 @@
             android:background="#000000" />
 
 
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -277,6 +267,7 @@
                     android:gravity="center_vertical"
                     android:text="사진이름.png" />
                 <Button
+                    android:id="@+id/btn_create_party_add"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

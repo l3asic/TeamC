@@ -92,7 +92,7 @@
 							<li><a href="my-account.html">My Account</a></li>
 							<li><a href="wishlist.html">Wishlist</a></li>
 						</ul></li>
-					<li class="nav-item"><a class="nav-link" href="/board_list">유저게시판</a></li>
+					<li class="nav-item"><a class="nav-link" href="/tot/board_list">유저게시판</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="contact-us.html">Contact Us</a></li>
 				</ul>

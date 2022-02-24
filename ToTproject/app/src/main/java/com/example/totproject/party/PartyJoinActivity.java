@@ -31,7 +31,7 @@ public class PartyJoinActivity extends AppCompatActivity {
 
     GridView gridView;
     LinearLayout lin_partyjoin_btn;
-    ArrayList<PartymemberListDTO> partymemberList = new ArrayList<>();
+    ArrayList<PartyMemberListDTO> partymemberList = new ArrayList<>();
 
     ArrayList<PartyListDTO> list = new ArrayList<>();
     CommonAsk commonAsk;
@@ -65,7 +65,8 @@ public class PartyJoinActivity extends AppCompatActivity {
 
 
         for (int i =0 ; i<list.size(); i++){
-            partymemberList.add(new PartymemberListDTO(list.get(i).getMember_id(),0));
+            // @@@@@@@@@ 사진처리 다시해줄것@@@@@@@@@
+            partymemberList.add(new PartyMemberListDTO(list.get(i).getMember_id(),"001"));
         }
 
         tv_partyjoin_name.setText(list.get(0).getParty_name());

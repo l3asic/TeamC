@@ -10,51 +10,157 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
+import com.example.totproject.chat.ChatRoomAdpter;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.party_plan.PlanMainActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.example.totproject.chat.ChatRoomDTO;
+import com.google.gson.reflect.TypeToken;
 
 public class MyPartyInfoActivity extends AppCompatActivity {
+    RecyclerView rec_party_chat;
     Toolbar toolbar;
-    Button partyinfo_btn_burger;
+    Button partyinfo_btn_burger, btn_chat_push;
+    EditText edt_chat;
     PartyListDTO plDTO;
+    TextView party_title;
+
+    ArrayList<PartyListDTO> partyListDTOS = new ArrayList<>();
+
+
+    //채팅 방 리스트
+    List<ChatRoomDTO> chatRoomDTOS;
+    private RecyclerView.LayoutManager mLayoutManager;  //이거 두개 뭔지 모르겠음
+    private RecyclerView.Adapter chatMsgAdapter;    //이거 두개 뭔지 모르겠음
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //채팅할 액티비티에 추가 할 1
+    private DatabaseReference databaseReference; //채팅할 액티비티에 추가 할 2     // a = 채팅방, b = 채팅내용
+    public int updateParty = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.party_act_myparty_info);
 
-
-        TextView party_title;
-        party_title = findViewById(R.id.partyinfo_tv_title);        
+        party_title = findViewById(R.id.partyinfo_tv_title);
+        edt_chat = findViewById(R.id.edt_chat);
+        btn_chat_push = findViewById(R.id.btn_chat_push);
 
         Intent my_party_info_intent = getIntent();
         plDTO = (PartyListDTO) my_party_info_intent.getSerializableExtra("party_dto");
+        selectPartyList(plDTO.getParty_sn());       // 파티멤버리스트 조회해오기
         party_title.setText(plDTO.getParty_name());
-
-
         partyinfo_btn_burger = findViewById(R.id.partyinfo_btn_burger);
+
+        // 채팅방을 구분할수 있는 세팅?
+        databaseReference = firebaseDatabase.getReference(plDTO.getParty_sn()+"");
+
+        rec_party_chat = findViewById(R.id.rec_party_chat);
+        rec_party_chat.setHasFixedSize(true);             // @@@@@@@이게 뭐하는 코드??
+        mLayoutManager = new LinearLayoutManager(MyPartyInfoActivity.this);
+        rec_party_chat.setLayoutManager(mLayoutManager);
+
+        // 채팅 어댑터 세팅영역
+        chatRoomDTOS = new ArrayList<>();
+        chatMsgAdapter = new ChatRoomAdpter(chatRoomDTOS , MyPartyInfoActivity.this , "me_id");
+        rec_party_chat.setAdapter(chatMsgAdapter);
+
+
+
+        btn_chat_push.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg = edt_chat.getText()+"";
+
+                if (msg != null) {
+                    ChatRoomDTO dto = new ChatRoomDTO();
+                    dto.setNickname(Logined.member_id); //로그인 한 회원 아이디(이름)
+                    dto.setMsg(msg);
+                    long now = System.currentTimeMillis();
+                    Date mDate = new Date(now);
+                    SimpleDateFormat simpleDate = new SimpleDateFormat("hh:mm:aa");
+                    String getTime = simpleDate.format(mDate);
+                    dto.setDate(getTime);
+                    databaseReference.push().setValue(dto);
+                    edt_chat.setText("");
+                }
+            }
+        });
+
+        databaseReference.addChildEventListener(new ChildEventListener() {      //~126 채팅 보내기했을때 추가된내용을 어댑터에 더해서 다시 채팅목록출력
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                ChatRoomDTO dto = snapshot.getValue(ChatRoomDTO.class);
+                ((ChatRoomAdpter) chatMsgAdapter).addChat(dto);
+              //  rec_party_chat.setAdapter(chatMsgAdapter);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        //@@@ 채팅방 멤버 불러오기 할것 ???
+
+//        chatroom_no_nen_lin.setVisibility(View.GONE);
+//        chatroom_mem_lin.setVisibility(View.VISIBLE);
+
+
+
+
 
 
         toolbar = (Toolbar) findViewById(R.id.partyinfo_toolbar);
@@ -74,11 +180,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (drawer.isDrawerOpen(Gravity.END)) {
-                    drawer.closeDrawer(Gravity.END);
-                } else {
                     drawer.openDrawer(Gravity.END);
-                }
 
             }
         });
@@ -103,15 +205,37 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
         // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ      버거 세팅영역     ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-        ImageView partyinfo_burger_membermanage, partyinfo_burger_infomanage, partyinfo_burger_patydelete;
+        LinearLayout lin_leader_option, lin_member_option;
 
-        LinearLayout lin_mypartyburger_invite, lin_mypartyburger_delete;
+        LinearLayout lin_mypartyburger_invite, lin_mypartyburger_delete, lin_mypartyburger_membermanage, lin_mypartyburger_update;
+        LinearLayout lin_mypartyburger_invite2, lin_mypartyburger_delete2, lin_mypartyburger_membermanage2, lin_mypartyburger_update2;
+
+        lin_leader_option = nav_headerview.findViewById(R.id.lin_leader_option);
+        lin_member_option = nav_headerview.findViewById(R.id.lin_member_option);
 
         lin_mypartyburger_invite = nav_headerview.findViewById(R.id.lin_mypartyburger_invite);
-        partyinfo_burger_membermanage = nav_headerview.findViewById(R.id.partyinfo_burger_membermanage);
-        partyinfo_burger_infomanage = nav_headerview.findViewById(R.id.partyinfo_burger_infomanage);
-        lin_mypartyburger_delete = nav_headerview.findViewById(R.id.lin_mypartyburger_delete);        
-        
+        lin_mypartyburger_membermanage = nav_headerview.findViewById(R.id.lin_mypartyburger_membermanage);
+        lin_mypartyburger_update = nav_headerview.findViewById(R.id.lin_mypartyburger_update);
+        lin_mypartyburger_delete = nav_headerview.findViewById(R.id.lin_mypartyburger_delete);
+
+        lin_mypartyburger_invite2 = nav_headerview.findViewById(R.id.lin_mypartyburger_invite2);
+        lin_mypartyburger_membermanage2 = nav_headerview.findViewById(R.id.lin_mypartyburger_membermanage2);
+        lin_mypartyburger_update2 = nav_headerview.findViewById(R.id.lin_mypartyburger_update2);
+        lin_mypartyburger_delete2 = nav_headerview.findViewById(R.id.lin_mypartyburger_delete2);
+
+
+        // 로그인한 사람이 파티 리더 아이디와 같다면
+        if(Logined.member_id.equals(plDTO.getParty_leader())){
+            lin_leader_option.setVisibility(View.VISIBLE);
+            lin_member_option.setVisibility(View.INVISIBLE);
+        }else{
+            lin_leader_option.setVisibility(View.INVISIBLE);
+            lin_member_option.setVisibility(View.VISIBLE);
+        }
+
+
+
+        // 파티 리더 옵션
 
         // 버거메뉴 멤버 초대 클릭시
         lin_mypartyburger_invite.setOnClickListener(new View.OnClickListener() {
@@ -124,26 +248,85 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
             }
         });
-        partyinfo_burger_membermanage.setOnClickListener(new View.OnClickListener() {
+
+        // 버거메뉴 멤버 관리 클릭시
+        lin_mypartyburger_membermanage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MyPartyInfoActivity.this, "멤버관리 눌렸음 ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyPartyInfoActivity.this, "멤버 관리 누름 ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivity(intent);
             }
         });
-        partyinfo_burger_infomanage.setOnClickListener(new View.OnClickListener() {
+
+        // 파티 정보 수정 클릭시
+        lin_mypartyburger_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MyPartyInfoActivity.this, "이미지 눌렸음 ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MyPartyInfoActivity.this, UpdateMyPartyActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivityForResult(intent , updateParty);
+
             }
         });
+
         // 버거메뉴 파티 해산 클릭시
         lin_mypartyburger_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
-                //@@ 파티삭제 알럿창과 삭제 기능 추가할 것
 
-                showCustomDialog(); // alert 다이얼로그 확인창
+                showCustomDialog("정말 파티를 해산 하시겠어요?"); // alert 다이얼로그 확인창
+
+
+            }
+        });
+
+
+
+        // 파티 멤버 옵션
+
+        // 버거메뉴 멤버 초대 클릭시
+        lin_mypartyburger_invite2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버초대 누름 ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivity(intent);
+
+            }
+        });
+
+        // 버거메뉴 멤버 목록 클릭시
+        lin_mypartyburger_membermanage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버 목록 누름 ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivity(intent);
+            }
+        });
+
+        // 파티 정보 보기 클릭시
+        lin_mypartyburger_update2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyPartyInfoActivity.this, PartyJoinActivity.class);
+                intent.putExtra("party_sn",plDTO.getParty_sn());
+                startActivity(intent);
+            }
+        });
+
+        // 버거메뉴 파티 탈퇴 클릭시
+        lin_mypartyburger_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
+
+                showCustomDialog("정말 파티를 탈퇴하시겠어요?"); // alert 다이얼로그 확인창
 
 
             }
@@ -208,7 +391,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
     }
 
-    public void showCustomDialog() {
+    public void showCustomDialog(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MyPartyInfoActivity.this,
                 R.style.AlertDialogTheme);
 
@@ -220,7 +403,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         //다이얼로그 텍스트 설정
         builder.setView(view);
         ((TextView)view.findViewById(R.id.texttitle)).setText("※ 주의");
-        ((TextView)view.findViewById(R.id.textmessage)).setText("정말 파티를 해산 하시겠어요?");
+        ((TextView)view.findViewById(R.id.textmessage)).setText(msg);
         ((TextView)view.findViewById(R.id.btn_dialog_yes)).setText("네");
         ((TextView)view.findViewById(R.id.btn_dialog_no)).setText("아니요");
 
@@ -231,7 +414,13 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         view.findViewById(R.id.btn_dialog_yes).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteParty(plDTO); //파티 해산 기능
+                if(Logined.member_id.equals(plDTO.getParty_leader())){
+                    deleteParty(plDTO); //파티 해산 기능
+                }else{
+                    deleteParty2(plDTO); //파티 탈퇴 기능
+                }
+
+
                 alertDialog.dismiss();  //알럿창 닫기
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMainActivity.class);
                 intent.putExtra("tabcode",3);
@@ -265,6 +454,37 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
     }
 
+    private void deleteParty2(PartyListDTO plDTO) {
+        commonAsk = new CommonAsk("android/party/deleteParty2");
+        commonAsk.params.add(new CommonAskParam("plDTO", gson.toJson(plDTO)) );
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+    }
+
+
+    // party_sn으로 일단 파티멤버리스트 가져오기
+    public ArrayList<PartyListDTO> selectPartyList(int party_sn){
+        commonAsk = new CommonAsk("android/party/selectPartyList");
+        commonAsk.params.add(new CommonAskParam("party_sn", party_sn+""));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            partyListDTOS = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return partyListDTOS;
+
+    }//selectPartyList()
+
+
+
+
+
+
+
     public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextAct);
         intent.putExtra("tabcode", tabcode);
@@ -276,6 +496,18 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextClass);
         startActivity(intent);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000 && resultCode == RESULT_OK){
+            plDTO = (PartyListDTO) data.getSerializableExtra("party_dto");
+            String aaaa = "";
+        }
+    }
+
+
+
 
 
 

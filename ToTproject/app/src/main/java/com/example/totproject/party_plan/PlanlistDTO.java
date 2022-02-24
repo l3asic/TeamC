@@ -4,7 +4,7 @@ import java.io.Serializable;
 
     public class PlanlistDTO implements Serializable {
         private int plan_sn;
-        private int picture_filepath;
+        private String picture_filepath;
         private int party_sn;
         private String plan_name;
         private String plan_writer;
@@ -18,7 +18,7 @@ import java.io.Serializable;
         private String plan_starttime;
         private String plan_endtime;
 
-        public PlanlistDTO(int plan_sn, int picture_filepath, int party_sn, String plan_name, String plan_writer, String plan_startdate, String plan_enddate, String plan_location, String plan_startpoint, String plan_hotel, String plan_cost, String member_id, String plan_starttime, String plan_endtime) {
+        public PlanlistDTO(int plan_sn, String picture_filepath, int party_sn, String plan_name, String plan_writer, String plan_startdate, String plan_enddate, String plan_location, String plan_startpoint, String plan_hotel, String plan_cost, String member_id, String plan_starttime, String plan_endtime) {
             this.plan_sn = plan_sn;
             this.picture_filepath = picture_filepath;
             this.party_sn = party_sn;
@@ -43,11 +43,11 @@ import java.io.Serializable;
             this.plan_sn = plan_sn;
         }
 
-        public int getPicture_filepath() {
+        public String getPicture_filepath() {
             return picture_filepath;
         }
 
-        public void setPicture_filepath(int picture_filepath) {
+        public void setPicture_filepath(String picture_filepath) {
             this.picture_filepath = picture_filepath;
         }
 

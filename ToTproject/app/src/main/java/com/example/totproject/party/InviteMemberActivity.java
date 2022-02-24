@@ -12,7 +12,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.party_plan.PlanInfoDTO;
+
 import com.google.gson.Gson;
 
 import java.io.InputStream;
@@ -43,6 +43,8 @@ public class InviteMemberActivity extends AppCompatActivity {
                 plDTO.setMember_id(edt_member_id.getText() + "");
                 invitePartyMember(plDTO);
                 plDTO.setMember_id(temp);
+                
+                //성공시 초대로만 처리
                 Intent intent = new Intent(InviteMemberActivity.this,MyPartyInfoActivity.class);
                 intent.putExtra("party_dto",plDTO);
                 startActivity(intent);

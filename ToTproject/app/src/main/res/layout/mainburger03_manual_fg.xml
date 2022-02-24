@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".zzchaminhwan.MainBurger03ManualFg">
+    tools:context=".mainburgeractivity.MainBurger03ManualFg">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
 

@@ -6,6 +6,16 @@ public class ChatRoomDTO implements Serializable {
     private String msg;
     private String nickname;
     private String date;
+    private String picture_filepath;
+
+    public String getPicture_filepath() {
+        return picture_filepath;
+    }
+
+    public void setPicture_filepath(String picture_filepath) {
+        this.picture_filepath = picture_filepath;
+    }
+
     public String getMsg() {
         return msg;
     }

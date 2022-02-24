@@ -67,6 +67,7 @@ public class Fragment04PartyTab extends Fragment {
         intent.putExtra("tabcode",tabcode);
         startActivity(intent);
 
+
     }
 
 

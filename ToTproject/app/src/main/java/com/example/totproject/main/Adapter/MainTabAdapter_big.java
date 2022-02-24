@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.zzchaminhwan.MainBurger01NoticeFgDetailFg;
+import com.example.totproject.mainburgeractivity.MainBurger01NoticeFgDetailFg;
 
 import java.util.ArrayList;
 
@@ -99,7 +99,6 @@ public class MainTabAdapter_big extends RecyclerView.Adapter<MainTabAdapter_big.
 
              /*       Intent intent = new Intent(context, MainBurger01NoticeFgDetailAct.class);
                     intent.putExtra("vo", list.get(position));
-
                     context.startActivity(intent);*/
                     MainBurger01NoticeFgDetailFg MainBurger01NoticeFgDetailAct = new MainBurger01NoticeFgDetailFg(context, manager, holder.board_sn);
                     manager.beginTransaction().replace(R.id.mainburger_container, MainBurger01NoticeFgDetailAct).addToBackStack(null).commit();

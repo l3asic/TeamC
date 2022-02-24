@@ -56,7 +56,7 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
         View v = inflater.inflate(R.layout.main_frag_hometab, container, false);
 
         /* ==================== 표시할항목수 ====================*/
-        int cnt = 5;
+        int cnt = 10;
         vo.setList_cnt_many(cnt);
         /* ======================================================*/
 

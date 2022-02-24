@@ -414,9 +414,9 @@ public class PartyController {
 	
 	@ResponseBody
 	@RequestMapping("/android/party/selectPartyList")
-	public void selectPartyList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+	public void selectPartyList(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {	// 이거 쓰는 메소드인가?
 
-		System.out.println("mypartylist() 에 접근함");
+		System.out.println("selectPartyList() 에 접근함");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -437,7 +437,34 @@ public class PartyController {
 			e.printStackTrace();
 		}
 
-	}// mypartylist()
+	}// selectPartyList()
+	
+//	@ResponseBody
+//	@RequestMapping("/android/party/selectPartyMemberList")
+//
+//	public void selectPartyMemberList(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+//			throws IOException {
+//
+//		System.out.println("selectPartyList() 에 접근함");
+//		req.setCharacterEncoding("UTF-8");
+//		res.setCharacterEncoding("UTF-8");
+//		res.setContentType("text/html");
+//		PrintWriter writer = res.getWriter();
+//
+//		//
+//		int party_sn = Integer.parseInt(req.getParameter("party_sn"));
+//
+//		try {
+//
+//			List<PartyMemberListVO> list = new ArrayList<PartyMemberListVO>();
+//			list = pDAO.selectPartyMemberList(party_sn);
+//
+//			writer.print(gson.toJson(list));
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}// selectPartyList()
 
 	
 	

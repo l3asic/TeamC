@@ -195,6 +195,7 @@ public class PartyMemberManageActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);//인텐트 효과 없애기
                 Intent intent = getIntent(); //인텐트
                 startActivity(intent); //액티비티 열기
+                finish();
                 overridePendingTransition(0, 0);//인텐트 효과 없애기
 
             }

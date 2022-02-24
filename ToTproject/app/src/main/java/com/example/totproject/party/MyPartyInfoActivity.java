@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,7 +61,8 @@ public class MyPartyInfoActivity extends AppCompatActivity {
     PartyListDTO plDTO;
     TextView party_title;
 
-    ArrayList<PartyListDTO> partyListDTOS = new ArrayList<>();
+
+    ArrayList<PartyMemberListDTO> party_member_list = new ArrayList<>();
 
 
     //채팅 방 리스트
@@ -82,9 +85,15 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         edt_chat = findViewById(R.id.edt_chat);
         btn_chat_push = findViewById(R.id.btn_chat_push);
 
+
         Intent my_party_info_intent = getIntent();
         plDTO = (PartyListDTO) my_party_info_intent.getSerializableExtra("party_dto");
-        selectPartyList(plDTO.getParty_sn());       // 파티멤버리스트 조회해오기
+        selectPartyMemberList(plDTO.getParty_sn());       // 파티멤버리스트 조회해오기
+
+        // 파티멤버 프사 세팅해주기
+
+
+
         party_title.setText(plDTO.getParty_name());
         partyinfo_btn_burger = findViewById(R.id.partyinfo_btn_burger);
 
@@ -98,9 +107,10 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
         // 채팅 어댑터 세팅영역
         chatRoomDTOS = new ArrayList<>();
-        chatMsgAdapter = new ChatRoomAdpter(chatRoomDTOS , MyPartyInfoActivity.this , "me_id");
+        chatMsgAdapter = new ChatRoomAdpter(chatRoomDTOS , party_member_list, MyPartyInfoActivity.this );
         rec_party_chat.setAdapter(chatMsgAdapter);
 
+        rec_party_chat.smoothScrollToPosition(chatRoomDTOS.size());
 
 
         btn_chat_push.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +129,9 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                     dto.setDate(getTime);
                     databaseReference.push().setValue(dto);
                     edt_chat.setText("");
+                    rec_party_chat.smoothScrollToPosition(chatRoomDTOS.size());
+
+
                 }
             }
         });
@@ -245,6 +258,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -257,6 +271,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -295,6 +310,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -307,6 +323,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -317,6 +334,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyJoinActivity.class);
                 intent.putExtra("party_sn",plDTO.getParty_sn());
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -375,6 +393,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                     Intent intent = new Intent(MyPartyInfoActivity.this, PlanMainActivity.class);
                     intent.putExtra("plDTO",plDTO);
                     startActivity(intent);
+                    finish();
                     //ChangeActivity(PlanMainActivity.class);
                     Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
                 } else if (id == R.id.partyinfo_burger_member) {
@@ -425,6 +444,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMainActivity.class);
                 intent.putExtra("tabcode",3);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -463,19 +483,19 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
 
     // party_sn으로 일단 파티멤버리스트 가져오기
-    public ArrayList<PartyListDTO> selectPartyList(int party_sn){
-        commonAsk = new CommonAsk("android/party/selectPartyList");
+    public ArrayList<PartyMemberListDTO> selectPartyMemberList(int party_sn){
+        commonAsk = new CommonAsk("android/party/planmemberlist");
         commonAsk.params.add(new CommonAskParam("party_sn", party_sn+""));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
-            partyListDTOS = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
+            party_member_list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyMemberListDTO>>() {
             }.getType());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return partyListDTOS;
+        return party_member_list;
 
     }//selectPartyList()
 
@@ -490,11 +510,13 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         intent.putExtra("tabText", tabText);
         startActivity(intent);
+        finish();
     }
 
     public void ChangeActivity(Class nextClass) {
         Intent intent = new Intent(MyPartyInfoActivity.this, nextClass);
         startActivity(intent);
+        finish();
     }
 
     @Override

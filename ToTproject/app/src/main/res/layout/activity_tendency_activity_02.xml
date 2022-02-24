@@ -390,21 +390,6 @@
         android:layout_height="0dp"
         android:layout_weight="4">
         <Button
-            android:id="@+id/tend2_btn_skip"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="건너뛰기"
-            android:backgroundTint="#DCCCCC"
-            android:textSize="20dp"/>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
-        <Button
             android:id="@+id/tend2_btn_join"
             android:layout_width="350dp"
             android:layout_height="wrap_content"

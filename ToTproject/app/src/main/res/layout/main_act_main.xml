@@ -85,7 +85,6 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-
         android:id="@+id/main_burger_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -93,7 +92,6 @@
         android:layout_marginTop="30dp"
         android:background="@color/white"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/mainburgermenu"
+        app:headerLayout="@layout/main_burgermenu"
         app:menu="@menu/nav_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>

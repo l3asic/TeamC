@@ -68,6 +68,7 @@ public class MainBurgerController {
 		list = sql.selectList("mainburger.mapper.board_list", vo);
 
 //		이걸 안드로이드에서 가져감
+		
 		writer.print(gson.toJson(list));
 		// sql.close(); 여기 오류
 		System.out.println();

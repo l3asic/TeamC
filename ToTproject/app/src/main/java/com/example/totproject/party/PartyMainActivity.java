@@ -52,6 +52,7 @@ public class PartyMainActivity extends AppCompatActivity {
     public void moveAct(Context context, Class classs){
         Intent intent = new Intent(context,classs);
         startActivity(intent);
+        finish();
     }
 
 

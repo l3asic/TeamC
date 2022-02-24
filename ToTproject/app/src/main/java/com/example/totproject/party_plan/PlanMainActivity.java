@@ -60,6 +60,7 @@ public class PlanMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(PlanMainActivity.this, PlanCreatePlanActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
             }
         });
 

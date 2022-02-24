@@ -18,8 +18,8 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.main.Adapter.ReplyAdapter;
-import com.example.totproject.main.VO.ReplyVO;
+import com.example.totproject.board.Adapter.ReplyAdapter;
+import com.example.totproject.board.VO.ReplyVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -61,7 +61,7 @@ public class Fragment03BoardTab_Detail_backup extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.zzz_boardtab_frag_detail, container, false);
+        View v = inflater.inflate(R.layout.boardtab_frag_detail, container, false);
 
         board_user_detail_linear_update = v.findViewById(R.id.board_user_detail_linear_update);
         board_user_detail_linear_delete = v.findViewById(R.id.board_user_detail_linear_delete);
@@ -79,8 +79,8 @@ public class Fragment03BoardTab_Detail_backup extends Fragment {
             }
         });
         /* ================================= board_detail 기능세팅 ========================================= */
-        board_user_detail_tv_board_title = v.findViewById(R.id.board_user_detail_tv_board_title);
-        board_user_detail_tv_board_content = v.findViewById(R.id.board_user_detail_tv_board_content);
+        board_user_detail_tv_board_title = v.findViewById(R.id.board_user_detail_edt_board_title);
+        board_user_detail_tv_board_content = v.findViewById(R.id.board_user_detail_edt_board_content);
         board_user_detail_tv_replycnt = v.findViewById(R.id.board_user_detail_tv_replycnt);
         /* ================================= board_content 세팅 ========================================= */
         board_user_detail_tv_board_title.setText(vo.getBoard_title() + "");

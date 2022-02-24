@@ -39,41 +39,15 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences.Editor spEditor = auto.edit();
         /* ====================================================================================== */
 
-        /* ============================== 저장 정보 기입 ============================== */
+        /* ============================== 저장된 기기정보 선언 ============================== */
         loginId = auto.getString("inputId", null);
         loginPw = auto.getString("inputPw", null);
         /* ====================================================================================== */
 
         MemberDTO dto = new MemberDTO();                     //memberDTO 사용시 어플 꺼져서 새로선언
 
-        /* ============================== 로그인시도 ============================== */
-/*        if (dtoFromLoginAct != null) {
-            spEditor.putString("inputId", dtoFromLoginAct.getMember_id());
-            spEditor.putString("inputPw", dtoFromLoginAct.getMember_pw());
-            spEditor.commit();
-            isLogined.isLogined = true;
-             *//*=============여기 쫌더 예쁘게 만들수있음 =======================================*//*
-        loginId = auto.getString("inputId", null);
-        loginPw = auto.getString("inputPw", null);
-        dto.setMember_id(loginId);
-        dto.setMember_pw(loginPw);
-        LoginActivity loginActivity = new LoginActivity();
-        dto = loginActivity.loginTry(dto);
-        } else {
-            if (loginId != null && loginPw != null) {
-                dto.setMember_id(loginId);
-                dto.setMember_pw(loginPw);
-                LoginActivity loginActivity = new LoginActivity();
-                  dto = loginActivity.loginTry(dto);
-                if (dto != null) {
-                    isLogined.isLogined = true;
-                } else {
-                    isLogined.isLogined = false;
-                }
-            } else {
-                isLogined.isLogined = false;
-            }
-        }*/
+        /*어플 처음켰는지 아닌지 판단 -> 처음켰다면 저장정보확인 -> 로그인 or 비로그인*/
+        /*로그인화면에서 넘어왔다면 id pw 기기저장 -> 로그인*/
         if (loginId == null && loginPw == null) {
             if (dtoFromLoginAct == null) {
                 Logined.isLogined = false;
@@ -82,7 +56,7 @@ public class SplashActivity extends AppCompatActivity {
                 spEditor.putString("inputPw", dtoFromLoginAct.getMember_pw());
                 spEditor.commit();
                 Logined.isLogined = true;
-                /*=============여기 쫌더 예쁘게 만들수있음 =======================================*/
+                /*============= 실제 사용값인 dto에 담기 =======================================*/
                 dto = dtoFromLoginAct;
             }
         } else {    /* ========= 로그인정보로 재로그인 (유저정보변경 확인) ========== */
@@ -106,9 +80,10 @@ public class SplashActivity extends AppCompatActivity {
         Logined.member_gender = dto.getMember_gender();
         Logined.member_tel = dto.getMember_tel();
         Logined.member_email = dto.getMember_email();
-//isLogined.member_grade = dto.getMember_gender(); // 필드에 Grade(등급) 없음
-        Logined.member_is_kakao = dto.getKakao();
-        Logined.member_is_naver = dto.getNaver();
+        Logined.member_grade = dto.getMember_gender(); // 필드에 Grade(등급) 없음
+        Logined.member_is_kakao = dto.getMember_is_kakao();
+        Logined.member_is_naver = dto.getMember_is_naver();
+        Logined.picture_filepath = dto.getPicture_filepath();
         /* ====================================================================================== */
 
         new Handler().postDelayed(new Runnable() {
@@ -117,8 +92,8 @@ public class SplashActivity extends AppCompatActivity {
                 /* ============================== 로그인확인 안내 ============================== */
                 if (Logined.member_id != null) {
                     Toast.makeText(SplashActivity.this, "로그인 : " + Logined.member_id, Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(SplashActivity.this , "Trip Or Trap", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SplashActivity.this, "Trip or Traver\n비회원으로 진행합니다.", Toast.LENGTH_SHORT).show();
                 }
                 /* ============================================================================== */
 
@@ -127,7 +102,7 @@ public class SplashActivity extends AppCompatActivity {
                 ActivityCompat.finishAffinity(SplashActivity.this);
                 /* ============================================================================== */
             }
-        }, 300);//Handler()
+        }, 3000);//Handler()
     }//onCreate
 }
 

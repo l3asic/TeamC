@@ -205,6 +205,7 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
                 intent.putExtra("tabcode",1);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
+                finish();
 
 
 

@@ -16,7 +16,7 @@ public class FragmentBoardSearch extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.board_frag_search, container, false);
-        return rootview;
+        View rootview = inflater.inflate(R.layout.aaa_common_frag_main_frag_boardtab_item_boardlist_board_list_item, container, false);
+       return rootview;
     }
 }

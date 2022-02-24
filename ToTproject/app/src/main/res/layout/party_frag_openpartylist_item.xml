@@ -19,12 +19,13 @@
     
         <ImageView
             android:id="@+id/imgv_party"
-            android:layout_width="0dp"
-            android:layout_weight="20"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
             android:scaleType="fitXY"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_launcher_foreground">        
+            android:src="@drawable/ic_launcher_foreground"
+            android:background="@drawable/radius">
         </ImageView>
         <LinearLayout
             android:layout_width="0dp"

@@ -66,6 +66,8 @@
         <package android:name="com.chrome.dev" />
     </queries>
 
+    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+    <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Include required permissions for Advertising Id -->
@@ -82,82 +84,98 @@
         android:testOnly="true"
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true" >
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
-
         <activity
             android:name="com.example.totproject.party.UpdateMyPartyActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.PartyMemberManageActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.InviteMemberActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party_plan.PlanCreatePlanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party_plan.PlanMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.MyPartyInfoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.PartyCreateActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.PartyJoinActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.party.PartyMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.example.totproject.main.Fragment03BoardTab_Detail_Act"
-            android:exported="false" />
-        <activity
-            android:name="com.example.totproject.WhosePage00Activity"
-            android:exported="false" />
+            android:name="com.example.totproject.whosepageactivity.WhosePage00Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.category.CategoryMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.category.CategoryReplyActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.example.totproject.zzchaminhwan.MainBurger00Activity"
-            android:exported="false" />
+            android:name="com.example.totproject.mainburgeractivity.MainBurger00Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.example.totproject.board.xxx_BoardMainActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.totproject.board.BoardNewActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.totproject.board.Activity03BoardDetail"
-            android:exported="false" />
+            android:name="com.example.totproject.board.Board00Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.main.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.example.totproject.login.FindPwActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.example.totproject.login.FindIdActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.login.TendencyActivity01"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.login.TendencyActivity02"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.login.JoinActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.totproject.login.SplashActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -182,7 +200,24 @@
             </intent-filter>
         </activity>
 
-        <!-- <activity -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service> <!-- <activity -->
         <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
         <!-- android:configChanges="orientation|screenSize" -->
         <!-- android:theme="@style/Theme.AppCompat.Light.Dialog" /> -->
@@ -220,21 +255,6 @@
             android:exported="false"
             android:launchMode="singleTask"
             android:theme="@style/TransparentCompat" />
-
-        <service
-            android:name="com.google.firebase.components.ComponentDiscoveryService"
-            android:directBootAware="true"
-            android:exported="false" >
-            <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-        </service>
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"

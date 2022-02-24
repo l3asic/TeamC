@@ -11,7 +11,24 @@ public class BoardCommonVO implements Serializable {
     private int function_like;
     private int list_cnt_many;
     private int matchScore;
+    private String member_grade; //글쓴이등급
+    private int whose_cnt_like;
 
+    public int getWhose_cnt_like() {
+        return whose_cnt_like;
+    }
+
+    public void setWhose_cnt_like(int whose_cnt_like) {
+        this.whose_cnt_like = whose_cnt_like;
+    }
+
+    public String getMember_grade() {
+        return member_grade;
+    }
+
+    public void setMember_grade(String member_grade) {
+        this.member_grade = member_grade;
+    }
 
     public int getMatchScore() {
         return matchScore;
@@ -20,7 +37,6 @@ public class BoardCommonVO implements Serializable {
     public void setMatchScore(int matchScore) {
         this.matchScore = matchScore;
     }
-
 
 
     public int getList_cnt_many() {

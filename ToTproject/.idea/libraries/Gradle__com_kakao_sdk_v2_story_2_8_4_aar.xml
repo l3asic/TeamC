@@ -1,18 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.kakao.sdk:v2-story:2.8.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/113fe6e0e2cb1b96cf2d117848fb5608/transformed/jetified-v2-story-2.8.4/res" />
-      <root url="file://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/113fe6e0e2cb1b96cf2d117848fb5608/transformed/jetified-v2-story-2.8.4/AndroidManifest.xml" />
-      <root url="file://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/113fe6e0e2cb1b96cf2d117848fb5608/transformed/jetified-v2-story-2.8.4/res" />
-      <root url="jar://$PROJECT_DIR$/../../Study_Android/caches/transforms-3/113fe6e0e2cb1b96cf2d117848fb5608/transformed/jetified-v2-story-2.8.4/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5a575d4cbe11b5e27f18b8585131838c/transformed/jetified-v2-story-2.8.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5a575d4cbe11b5e27f18b8585131838c/transformed/jetified-v2-story-2.8.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5a575d4cbe11b5e27f18b8585131838c/transformed/jetified-v2-story-2.8.4/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5a575d4cbe11b5e27f18b8585131838c/transformed/jetified-v2-story-2.8.4/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kakao.sdk/v2-story/2.8.4/84e663b195df7d41d4f5fd9be2b1fac38bac062/v2-story-2.8.4-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../Study_Android/caches/modules-2/files-2.1/com.kakao.sdk/v2-story/2.8.4/84e663b195df7d41d4f5fd9be2b1fac38bac062/v2-story-2.8.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

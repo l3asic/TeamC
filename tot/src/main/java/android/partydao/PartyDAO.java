@@ -185,6 +185,12 @@ public class PartyDAO {
 	}
 
 
+//	public List<PartyMemberListVO> selectPartyMemberList(int party_sn) {
+//		
+//		return sql.selectList("party.mapper.selectPartyMemberList", party_sn);
+//	}
+
+
 	
 
 	

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_foreground"
     android:orientation="vertical"
-    tools:context=".zzchaminhwan.MainBurger01NoticeFgDetailFg">
+    tools:context=".mainburgeractivity.MainBurger01NoticeFgDetailFg">
 
     <LinearLayout
         android:layout_width="match_parent"

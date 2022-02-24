@@ -3,63 +3,10 @@ package com.example.totproject.common.VO;
 import java.io.Serializable;
 
 public class MemberDTO implements Serializable {
-    private String member_id, member_pw, member_name,
-            member_nick, member_gender, member_tel, member_email;
-    private String naver, kakao;
+    private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email, member_grade;
+    private String member_is_naver, member_is_kakao;
     private String social_type, social_email;
-
-    public String getNaver() {
-        return naver;
-    }
-
-    public void setNaver(String naver) {
-        this.naver = naver;
-    }
-
-    public String getKakao() {
-        return kakao;
-    }
-
-    public void setKakao(String kakao) {
-        this.kakao = kakao;
-    }
-
-    public String getSocial_type() {
-        return social_type;
-    }
-
-    public void setSocial_type(String social_type) {
-        this.social_type = social_type;
-    }
-
-    public String getSocial_email() {
-        return social_email;
-    }
-
-    public void setSocial_email(String social_email) {
-        this.social_email = social_email;
-    }
-
-    public MemberDTO() {
-    }
-
-    public MemberDTO(String member_id) {
-        this.member_id = member_id;
-    }
-    /*  public MemberDTO(String member_id, String member_pw, String member_name
-            , String member_nick, String member_gender, String member_tel, String member_email) {
-        this.member_id = member_id;
-        this.member_pw = member_pw;
-        this.member_name = member_name;
-        this.member_nick = member_nick;
-        this.member_gender = member_gender;
-        this.member_tel = member_tel;
-        this.member_email = member_email;
-    }
-
-    public MemberDTO() {
-
-    }*/
+    private String picture_filepath;
 
     public String getMember_id() {
         return member_id;
@@ -115,5 +62,53 @@ public class MemberDTO implements Serializable {
 
     public void setMember_email(String member_email) {
         this.member_email = member_email;
+    }
+
+    public String getMember_grade() {
+        return member_grade;
+    }
+
+    public void setMember_grade(String member_grade) {
+        this.member_grade = member_grade;
+    }
+
+    public String getMember_is_naver() {
+        return member_is_naver;
+    }
+
+    public void setMember_is_naver(String member_is_naver) {
+        this.member_is_naver = member_is_naver;
+    }
+
+    public String getMember_is_kakao() {
+        return member_is_kakao;
+    }
+
+    public void setMember_is_kakao(String member_is_kakao) {
+        this.member_is_kakao = member_is_kakao;
+    }
+
+    public String getSocial_type() {
+        return social_type;
+    }
+
+    public void setSocial_type(String social_type) {
+        this.social_type = social_type;
+    }
+
+    public String getSocial_email() {
+        return social_email;
+    }
+
+    public void setSocial_email(String social_email) {
+        this.social_email = social_email;
+    }
+
+    public String getPicture_filepath() {
+        return picture_filepath;
+    }
+
+    public void setPicture_filepath(String picture_filepath) {
+        this.picture_filepath = picture_filepath;
     }
 }

@@ -4,11 +4,10 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.Nullable;
 
-import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
-public class Logined implements Serializable {
+public class Logined {
     public static boolean isLogined = false;
     public static String member_id;
     public static String member_pw;
@@ -20,6 +19,7 @@ public class Logined implements Serializable {
     public static String member_grade;
     public static String member_is_kakao;
     public static String member_is_naver;
+    public static String picture_filepath;
 
 
 

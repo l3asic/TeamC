@@ -62,16 +62,13 @@ Button category_btn_tour, category_btn_activity, category_btn_festival;
 
     public void cateTab(int tabcode,String tabText){
 
-        /*SharedPreferences pref = getActivity().getSharedPreferences("Fragnebt02Tab", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("tabText", tabText);
-        editor.apply();*/
+
 
         Intent intent = new Intent(getActivity(), CategoryMainActivity.class);
         intent.putExtra("tabcode",tabcode);
         intent.putExtra("tabText",tabText);
-
         startActivity(intent);
+        getActivity().finish();
 
     }
     //Fragment02CategoryGridView categoryGridView = new Fragment02CategoryGridView();

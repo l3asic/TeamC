@@ -95,6 +95,7 @@ public class PartyCreateActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -304,6 +305,7 @@ public class PartyCreateActivity extends Activity {
         Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
         intent.putExtra("tabcode",3);
         startActivity(intent);
+        finish();
 
 
     }//saveCreateParty()

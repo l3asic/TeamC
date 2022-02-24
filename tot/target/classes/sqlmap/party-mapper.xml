@@ -198,9 +198,8 @@ from tbl_plan  where party_sn = #{party_sn}
 <!-- @@@ 확인필요, 해당파티의 멤버아이디와 사진경로를 가져가야함  -->
 <select id="planMemberList" resultType="android.partyvo.PartyMemberListVO">
 
-	select member.member_id, pic.picture_filepath  from tbl_member_info member, tbl_board_picture pic
-where member.member_id = pic.member_id
-and member.member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
+	select party.member_id member_id, (select pic.picture_filepath from tbl_board_picture pic where party.member_id = pic.member_id) picture_filepath
+	from tbl_party party where party.party_sn = #{party_sn}
 	
 </select>
 
@@ -247,6 +246,12 @@ where party_sn = #{party_sn}
 
 	
 </select>
+
+
+
+
+
+
 
 
 

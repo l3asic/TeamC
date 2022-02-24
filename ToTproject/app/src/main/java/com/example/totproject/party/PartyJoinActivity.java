@@ -108,6 +108,7 @@ public class PartyJoinActivity extends AppCompatActivity {
                 Intent intent = new Intent(PartyJoinActivity.this,PartyMainActivity.class);
                 //intent.putExtra("joindata",)
                 startActivity(intent);
+                finish();
             }
         });
 

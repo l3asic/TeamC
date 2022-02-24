@@ -76,6 +76,9 @@ public class Fragment02CategoryGridView extends Fragment {
             }else{
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
+
+
+
             }
 
         }
@@ -247,6 +250,8 @@ public class Fragment02CategoryGridView extends Fragment {
         Intent intent = new Intent(getActivity(), Fragment02CategoryDetail.class);
         intent.putExtra("sn",sn);
         startActivity(intent);
+
+finish();
 
     }*/
 

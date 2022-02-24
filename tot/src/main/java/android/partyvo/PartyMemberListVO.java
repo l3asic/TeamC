@@ -2,7 +2,7 @@ package android.partyvo;
 
 public class PartyMemberListVO {
     private String member_id;
-    private int picture_filepath;
+    private String picture_filepath;
 
     
 
@@ -14,11 +14,11 @@ public class PartyMemberListVO {
         this.member_id = memberid;
     }
 
-    public int getPicture_filepath() {
+    public String getPicture_filepath() {
         return picture_filepath;
     }
 
-    public void setPicture_filepath(int picture_filepath) {
+    public void setPicture_filepath(String picture_filepath) {
         this.picture_filepath = picture_filepath;
     }
 }

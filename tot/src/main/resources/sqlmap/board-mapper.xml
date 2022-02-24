@@ -3,55 +3,70 @@
 
 <mapper namespace="board.mapper">
 
+<delete id="board_delete">
+delete from tbl_board where board_sn=#{board_sn}
+</delete>
+
 <select id="board_reply_list" resultType="android.chaminhwan.ReplyVO">
-select reply.* , (select picture.picture_filepath from tbl_board_picture picture where picture.member_id = reply.member_id) piciture_filepath
-from tbl_reply reply where board_sn = #{paramSn}
-
+select reply.* , (select picture.picture_filepath from tbl_board_picture picture where picture.member_id = reply.member_id) picture_filepath
+from tbl_reply reply where board_sn = #{paramSn} order by reply_sn desc
 </select>
 
-<!-- 특정 사용자 게시물 조회 -->
-<select id="whose_board_list" resultType="android.mainburger.BoardCommonVO">
-SELECT
-    board.*,
-    (SELECT COUNT(*)
-        FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = board.board_sn) "function_like",
-    (SELECT COUNT(*)
+<insert id="reply_insert" >
+insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
+</insert>
+
+<delete id="reply_delete">
+delete tbl tbl_reply where reply_sn = #{reply_sn}
+</delete>
+
+<!-- 특정 사용자의 작성 게시물 조회 -->
+<select id="whose_board_write" resultType="android.mainburger.BoardCommonVO">
+select a.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) function_like,
+     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) "board_cnt_reply",
+     ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade
+from(SELECT * FROM tbl_board board
+    WHERE  member_id = #{member_id}
+    order by board.board_sn desc) a
+</select>
+
+
+<!-- 특정 사용자의 좋아요 게시물 조회 -->
+<select id="whose_board_likes" resultType="android.mainburger.BoardCommonVO">
+SELECT a.*,
+    <!-- (SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) whose_cnt_like,  -->
+    ( SELECT COUNT(*)
         FROM tbl_board board, tbl_reply reply
-        WHERE board.board_sn = reply.board_sn AND reply.board_sn = board.board_sn) "board_cnt_reply"
-FROM tbl_board board, tbl_likes likes
-WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
-</select>
-
-<!-- 특정 사용자 좋아요 게시물 조회 -->
-<select id="whose_board_likes">
-SELECT
-    board.*,
-    (
-        SELECT
-            COUNT(*)
-        FROM
-            tbl_board board,
-            tbl_likes likes
-        WHERE
-                board.board_sn = likes.board_sn
-            AND likes.function_like IS NOT NULL
-            AND likes.board_sn = board.board_sn
-    ) "function_like",
-    (
-        SELECT
-            COUNT(*)
-        FROM
-            tbl_board board,
-            tbl_reply reply
-        WHERE
-                board.board_sn = reply.board_sn
-            AND reply.board_sn = board.board_sn
-    ) "board_cnt_reply"
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) board_cnt_reply,
+    
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes 
+        where likes.member_id = a.member_id
+    ) function_like <!-- 특정 사용자의 좋아요 게시물 수 -->
+    
 FROM
-    tbl_board board
-WHERE
-    member_id = #{member_id}
+    ( SELECT board.* FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
+        order by board.board_sn desc
+    ) a
 </select>
 
 </mapper>

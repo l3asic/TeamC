@@ -46,7 +46,10 @@ public class MypartyListFragment extends Fragment {
         mypartylist_item = view.findViewById(R.id.mypartylist_item);
 
         // 내파티리스트 보여주기
-        showMyPartylist();
+        if(Logined.member_id != null){
+            showMyPartylist();
+        }
+
 
 
 

@@ -104,6 +104,12 @@
             android:name=".main.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".login.FindPwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.FindIdActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.TendencyActivity01"
             android:exported="false" />
         <activity

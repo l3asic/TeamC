@@ -520,7 +520,7 @@ public class PartyController {
 	public void selectPlanList(HttpServletRequest req, HttpServletResponse res, HttpSession session)
 			throws IOException {
 
-		System.out.println("planlist() 에 접근함");
+		System.out.println("selectPlanList() 에 접근함");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -533,6 +533,17 @@ public class PartyController {
 
 			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
 			list = pDAO.selectPlanList(party_sn);
+			
+			
+			// 중복된 plan_sn 제거하는 로직
+			for(int i =0; i<list.size()-1; i++) {				
+				
+				if(list.get(i).getPlan_sn() == list.get(i+1).getPlan_sn()) {
+					list.remove(i);
+				}
+			}
+			
+			
 
 			writer.print(gson.toJson(list));
 
@@ -540,7 +551,7 @@ public class PartyController {
 			e.printStackTrace();
 		}
 
-	}// mypartylist()
+	}// selectPlanList()
 
 	@ResponseBody
 	@RequestMapping("/android/party/showplaninfo")

@@ -152,7 +152,7 @@ and member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 
 <select id="selectPlanList" resultType="android.partyvo.PartyPlanListVO">
 
-	select DISTINCT plan_sn, member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
+	select plan_sn, member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
 plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime
 from tbl_plan  where party_sn = #{party_sn}
 	

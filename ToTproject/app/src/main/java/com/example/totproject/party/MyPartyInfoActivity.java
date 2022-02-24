@@ -258,7 +258,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
-                finish();
+
 
             }
         });
@@ -271,7 +271,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -310,7 +310,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
-                finish();
+
 
             }
         });
@@ -323,7 +323,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -334,7 +334,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyJoinActivity.class);
                 intent.putExtra("party_sn",plDTO.getParty_sn());
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -393,7 +393,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                     Intent intent = new Intent(MyPartyInfoActivity.this, PlanMainActivity.class);
                     intent.putExtra("plDTO",plDTO);
                     startActivity(intent);
-                    finish();
+
                     //ChangeActivity(PlanMainActivity.class);
                     Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
                 } else if (id == R.id.partyinfo_burger_member) {
@@ -444,7 +444,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMainActivity.class);
                 intent.putExtra("tabcode",3);
                 startActivity(intent);
-                finish();
+
             }
         });
 

@@ -99,11 +99,11 @@ public class PlanInfo02Fragment extends Fragment {
         if (list != null){
             PlanInfoAdapter adapter = new PlanInfoAdapter(getContext() , inflater, item_list);
             expdListView.setAdapter(adapter);
-        }else{
+        }else if(list.size() == 0){
             Toast.makeText(getActivity(), "파티 플랜이 없습니다 (임시)", Toast.LENGTH_SHORT).show();
         }
 
-        // @@@@ 어댑터 완성후 여기 마무리 할것
+
 
 
 

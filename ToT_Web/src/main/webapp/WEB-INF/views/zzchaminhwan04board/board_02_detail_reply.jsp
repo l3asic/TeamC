@@ -26,10 +26,10 @@
 		</c:if>
 		<!-- 에이잭스 안에다가 댓글수를 넣어놔야 실시간반영됨 ;; -->
 		<div id='reply_list'></div>
-		<input type="hidden" id='stacks' value="5"></input>
+		<input type="hidden" id='stacks' value="10"></input>
 		<c:if test="${boardVO.board_cnt_reply} ge 5  ">
 		</c:if>
-			<div id='btn_stacks' onclick="stacks_more()">5개 더보기</div>
+			<div id='btn_stacks' onclick="stacks_more()">더보기</div>
 	</div>
 
 	<script type="text/javascript" src='js/file_check.js'></script>
@@ -65,7 +65,7 @@ function comment_regist() {
 }
 
 function stacks_more(){
-	 $('#stacks').val(  Number($('#stacks').val())+5 );
+	 $('#stacks').val(  Number($('#stacks').val())+10 );
 	reply_list();
 }
 // 댓글조회

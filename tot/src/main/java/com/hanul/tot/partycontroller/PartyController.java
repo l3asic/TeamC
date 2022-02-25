@@ -608,6 +608,32 @@ public class PartyController {
 	}// showPlanInfo()
 
 	@ResponseBody
+	@RequestMapping("/android/party/insertPlanDays")
+	public void insertPlanDays(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("insertPlanDays() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		String from_and_dto = req.getParameter("dto");
+		int diffDayss = Integer.parseInt(req.getParameter("diffDayss"));
+		
+		PartyPlanListVO vo = new PartyPlanListVO();
+		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
+		
+		for (int i = 0; i < diffDayss; i++) {
+			pDAO.insertPlanDays(vo);			
+		}
+		
+		
+		
+
+	}// insertPlanDetail()
+	
+	@ResponseBody
 	@RequestMapping("/android/party/insertplandetail")
 	public void insertPlanDetail(HttpServletRequest req, HttpServletResponse res, HttpSession session)
 			throws IOException {

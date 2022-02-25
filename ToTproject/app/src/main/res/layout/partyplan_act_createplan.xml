@@ -64,12 +64,14 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edt_plan_startdate"
+                    <TextView
+                        android:id="@+id/tv_createplan_startdate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:hint="ex) 20220318"/>
+
+
 
 
                 </LinearLayout>
@@ -123,8 +125,8 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edt_plan_enddate"
+                    <TextView
+                        android:id="@+id/tv_plan_enddate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -316,7 +318,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/radius"
                 android:text="플랜 저장하기" />
+
         </LinearLayout>
+
+
 
     </androidx.core.widget.NestedScrollView>
 

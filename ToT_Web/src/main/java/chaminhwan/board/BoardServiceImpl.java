@@ -40,10 +40,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.board_delete(board_sn);
 	}
 //
-//	@Override
-//	public int board_comment_insert(BoardCommentVO vo) {
-//		return dao.board_comment_insert(vo);
-//	}
+	@Override
+	public int board_comment_insert(ReplyVO replyVO) {
+		return dao.board_comment_insert(replyVO);
+	}
 //
 //	@Override
 //	public int board_comment_update(BoardCommentVO vo) {
@@ -57,10 +57,10 @@ public class BoardServiceImpl implements BoardService {
 //		return dao.board_comment_delete(id);
 //	}
 //
-//	@Override
-//	public List<BoardCommentVO> board_comment_list(int pid) {
-//		// TODO Auto-generated method stub
-//		return dao.board_comment_list(pid);
-//	}
+	@Override
+	public List<ReplyVO> reply_list(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		return dao.reply_list(replyVO);
+	}
 
 }

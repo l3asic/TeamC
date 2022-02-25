@@ -63,10 +63,10 @@ public class BoardDAO implements BoardService {
 		return sql.delete("board.mapper.delete", board_sn);
 	}
 //
-//	@Override
-//	public int board_comment_insert(BoardCommentVO vo) {
-//		return sql.insert("board.mapper.comment_insert", vo);
-//	}
+	@Override
+	public int board_comment_insert(ReplyVO replyVO) {
+		return sql.insert("board.mapper.reply_insert", replyVO);
+	}
 //
 //	@Override
 //	public int board_comment_update(BoardCommentVO vo) {
@@ -80,10 +80,10 @@ public class BoardDAO implements BoardService {
 //		return sql.delete("board.mapper.comment_delete",id);
 //	}
 //
-//	@Override
-//	public List<BoardCommentVO> board_comment_list(int pid) {
-//		// TODO Auto-generated method stub
-//		return sql.selectList("board.mapper.comment_list", pid);
-//	}
+	@Override
+	public List<ReplyVO> reply_list(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.reply_list", replyVO);
+	}
 
 }

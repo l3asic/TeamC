@@ -3,8 +3,15 @@ package member;
 public class MemberVO {
 	private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email;
 	private String member_is_naver, member_is_kakao, social_type, social_email;
+	private String member_grade;
 	
 	
+	public String getMember_grade() {
+		return member_grade;
+	}
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
+	}
 	public String getMember_id() {
 		return member_id;
 	}

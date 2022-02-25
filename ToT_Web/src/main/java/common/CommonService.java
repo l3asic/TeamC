@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONTokener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,6 +41,16 @@ public class CommonService {
 			}
 		
 		return folder.substring(resources.length() + 1) + "/" + uuid;
+	}
+
+	public JSONTokener requestAPI(StringBuffer url, String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public JSONTokener requstAPI(StringBuffer url) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	
 }

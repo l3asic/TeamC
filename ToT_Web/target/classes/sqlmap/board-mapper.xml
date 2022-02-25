@@ -14,15 +14,17 @@ delete from comment_board where id =#{id}
 		
 	</update>
 
-	<!-- 댓글 목록 조회 -->
-	<select id="comment_list" resultType="chaminhwan.board.BoardCommentVO">
-		select c.*, (select name
-		from member where id = c.writer) name
-		from board_comment c
-		where pid =
-		#{pid}
-		order by id desc
-	</select>
+	<!-- 댓글 목록 조회 --> 
+<!-- 	<select id="comment_list" -->
+<!-- 		resultType="chaminhwan.board.BoardCommentVO"> -->
+<!-- 		select c.*, (select name -->
+<!-- 		from member where id = c.writer) -->
+<!-- 		name -->
+<!-- 		from board_comment c -->
+<!-- 		where pid = -->
+<!-- 		#{pid} -->
+<!-- 		order by id desc -->
+<!-- 	</select> -->
 
 
 	<!-- 댓글 저장 처리 -->
@@ -80,7 +82,23 @@ delete from comment_board where id =#{id}
 	</select>
 
 <!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
-
+<!-- 댓글 목록 조회 -->
+	<select id="reply_list"
+		resultType="chaminhwan.board.ReplyVO">
+		SELECT ROWNUM, a.*
+  FROM ( SELECT reply.*, ( SELECT picture.picture_filepath 
+                          FROM tbl_board_picture picture 
+                          WHERE picture.member_id = reply.member_id) picture_filepath
+        FROM tbl_reply reply
+        WHERE board_sn = #{board_sn}
+        ORDER BY reply_sn DESC ) a
+  WHERE ROWNUM <![CDATA[ <= ]]> #{stack}
+	</select>
+	
+	<!-- 댓글 insert -->
+	<insert id="reply_insert" >
+insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
+</insert>
 
 	<!-- 해당 글 삭제 처리 -->
 	<delete id="delete">
@@ -89,7 +107,28 @@ delete from comment_board where id =#{id}
 	</delete>
 	<!-- 해당 글의 상세 정보 조회 -->
 	<select id="detail" resultType="chaminhwan.board.BoardVO">
-		select * from tbl_board where board_sn = #{board_sn}
+		<!-- select * from tbl_board where board_sn = #{board_sn} -->
+		
+		SELECT ROWNUM, tbl.*,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = tbl.board_sn
+    ) function_like,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
+    ) board_cnt_reply,
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = tbl.member_id
+    ) member_filepath,
+    ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes where likes.member_id = tbl.member_id
+    ) function_like
+FROM
+    ( SELECT * FROM tbl_board
+        where board_sn =#{board_sn}
+        ORDER BY board_sn
+    ) tbl
+WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 		<!-- <include refid="read"></include> -->
 	</select>
 		<!-- 해당 글의 조회수 증가 -->

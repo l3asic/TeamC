@@ -149,7 +149,7 @@ public class MemberController {
 	@RequestMapping ("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginInfo");
-		return "redirect:/"; // 로그아웃시 루트(home.jsp)로 이동
+		return "home"; // 로그아웃시 루트(home.jsp)로 이동
 	}
 	
 	// 로그인 화면 요청

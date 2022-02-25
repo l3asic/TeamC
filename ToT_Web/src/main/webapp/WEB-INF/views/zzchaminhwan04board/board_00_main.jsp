@@ -39,10 +39,10 @@
 	<%@include file="../include/header.jsp"%>
 	<!-- End header  -->
 
-	<div class="">
-		<a href="board_new">글쓰기</a>
+	<div class="" style="background: #708090; width: 500px;">
+		<h> <a href="board_new">글쓰기</a> </h>
 	</div>
-	
+
 	<div class="wrapcontent-60">
 		<!-- Start list -->
 		<c:if test="${path eq '/board_list' }">
@@ -56,6 +56,29 @@
 		</c:if>
 		<!-- End list -->
 	</div>
+
+<%-- 	<div class="wrapcontent-60">
+		<c:choose>
+			<c:when test="${path eq '/board_list' }">
+				<%@include file="../zzchaminhwan04board/board_01_list.jsp"%>
+			</c:when>
+
+			<c:when test="${path eq '/board_new' }">
+				<%@include file="../zzchaminhwan04board/board_01_new.jsp"%>
+			</c:when>
+
+			<c:when test="${path eq '/board_detail' }">
+				<%@include file="../zzchaminhwan04board/board_02_detail.jsp"%>
+			</c:when>
+
+			<c:otherwise>
+				<h1>404</h1>
+			</c:otherwise>
+
+		</c:choose>
+	</div> --%>
+
+
 
 
 

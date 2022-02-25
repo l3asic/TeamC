@@ -10,20 +10,20 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired private BoardDAO dao;
 
-//	@Override
-//	public int board_insert(BoardVO vo) {
-//		return dao.board_insert(vo);
-//	}
+	@Override
+	public int board_insert(BoardVO vo) {
+		return dao.board_insert(vo);
+	}
 
 	@Override
 	public List<BoardVO> board_list(BoardVO boardVO) {
 		return dao.board_list(boardVO);
 	}
-//
-//	@Override
-//	public BoardVO board_detail(int id) {
-//		return dao.board_detail(id);
-//	}
+
+	@Override
+	public BoardVO board_detail(int board_sn) {
+		return dao.board_detail(board_sn);
+	}
 //
 //	@Override
 //	public int board_read(int id) {
@@ -35,10 +35,10 @@ public class BoardServiceImpl implements BoardService {
 //		return dao.board_update(vo);
 //	}
 //
-//	@Override
-//	public int board_delete(int id) {
-//		return dao.board_delete(id);
-//	}
+	@Override
+	public int board_delete(int board_sn) {
+		return dao.board_delete(board_sn);
+	}
 //
 //	@Override
 //	public int board_comment_insert(BoardCommentVO vo) {

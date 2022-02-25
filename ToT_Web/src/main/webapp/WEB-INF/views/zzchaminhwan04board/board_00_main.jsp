@@ -31,25 +31,37 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
 
+
 </head>
 <body>
 
-<!-- Start header  -->
-<%@include file="../include/header.jsp"%>
-<!-- End header  -->
+	<!-- Start header  -->
+	<%@include file="../include/header.jsp"%>
+	<!-- End header  -->
+
+	<div class="">
+		<a href="board_new">글쓰기</a>
+	</div>
+	
+	<div class="wrapcontent-60">
+		<!-- Start list -->
+		<c:if test="${path eq '/board_list' }">
+			<%@include file="../zzchaminhwan04board/board_01_list.jsp"%>
+		</c:if>
+		<c:if test="${path eq '/board_new' }">
+			<%@include file="../zzchaminhwan04board/board_01_new.jsp"%>
+		</c:if>
+		<c:if test="${path eq '/board_detail' }">
+			<%@include file="../zzchaminhwan04board/board_02_detail.jsp"%>
+		</c:if>
+		<!-- End list -->
+	</div>
 
 
-<div class = "wrapcontent-60">
-	<!-- Start list --><%@include
-		file="../zzchaminhwan04board/board_01_list.jsp"%>
-	<!-- End list -->
-</div>
 
-
-
-<!-- Start copyright  -->
-<%@include file="../include/copyright.jsp"%>
-<!-- End copyright  -->
+	<!-- Start copyright  -->
+	<%@include file="../include/copyright.jsp"%>
+	<!-- End copyright  -->
 
 
 	<!-- ALL JS FILES -->

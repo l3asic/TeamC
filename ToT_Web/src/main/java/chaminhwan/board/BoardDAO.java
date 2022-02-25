@@ -14,10 +14,10 @@ public class BoardDAO implements BoardService {
 	@Qualifier("cteam")
 	SqlSession sql;
 
-//	@Override
-//	public int board_insert(BoardVO vo) {
-//		return sql.insert("board.mapper.insert", vo);
-//	}
+	@Override
+	public int board_insert(BoardVO vo) {
+		return sql.insert("board.mapper.insert", vo);
+	}
 
 	@Override
 	public List<BoardVO> board_list(BoardVO boardVO) {
@@ -41,11 +41,12 @@ public class BoardDAO implements BoardService {
 		
 		return list;
 	}
-
-//	@Override
-//	public BoardVO board_detail(int id) {
-//		return sql.selectOne("board.mapper.detail", id);
-//	}
+//
+	@Override
+	public BoardVO board_detail(int board_sn) {
+		sql.update("board.mapper.read", board_sn);
+		return sql.selectOne("board.mapper.detail", board_sn);
+	}
 //
 //	@Override
 //	public int board_read(int id) {
@@ -57,10 +58,10 @@ public class BoardDAO implements BoardService {
 //		return sql.update("board.mapper.update", vo);
 //	}
 //
-//	@Override
-//	public int board_delete(int id) {
-//		return sql.delete("board.mapper.delete", id);
-//	}
+	@Override
+	public int board_delete(int board_sn) {
+		return sql.delete("board.mapper.delete", board_sn);
+	}
 //
 //	@Override
 //	public int board_comment_insert(BoardCommentVO vo) {

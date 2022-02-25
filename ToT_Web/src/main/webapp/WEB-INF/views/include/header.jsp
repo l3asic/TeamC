@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -62,9 +62,21 @@
 				<div class="navbar-float"
 					style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
 					<ol style="font-size: 13px">
-						<li style="list-style-type: none; float: left;"><a href="#">로그인</a></li>
-						<li style="list-style-type: none; float: left;">｜</li>
-						<li style="list-style-type: none; float: left;"><a href="#">회원가입</a></li>
+						<!-- 로그인하지 않은 상태 -->
+						<c:if test="${ empty loginInfo }">
+							<li style="list-style-type: none; float: left;"><a
+								href="login">로그인</a></li>
+							<li style="list-style-type: none; float: left;">｜</li>
+							<li style="list-style-type: none; float: left;"><a
+								href="member">회원가입</a></li>
+						</c:if>
+						<!-- 로그인한 상태 -->
+						<c:if test="${ !empty loginInfo }">
+							<li style="list-style-type: none; float: left;"><strong>${loginInfo.member_id}</strong></li>
+							<li style="list-style-type: none; float: left;">｜</li>
+							<li style="list-style-type: none; float: left;"><a
+								href="logout">로그아웃</a></li>
+						</c:if>
 					</ol>
 				</div>
 			</div>
@@ -92,7 +104,8 @@
 							<li><a href="my-account.html">My Account</a></li>
 							<li><a href="wishlist.html">Wishlist</a></li>
 						</ul></li>
-					<li class="nav-item"><a class="nav-link" href="/tot/board_list">유저게시판</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/tot/board_list">유저게시판</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="contact-us.html">Contact Us</a></li>
 				</ul>

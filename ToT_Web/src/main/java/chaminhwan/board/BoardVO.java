@@ -1,8 +1,9 @@
 package chaminhwan.board;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class BoardVO {
+public class BoardVO implements Serializable{
 
 	private int board_sn, board_read_cnt, board_reviewepath;
 	private String board_title, board_content, board_is_updated, board_private, board_replly_able, board_class,

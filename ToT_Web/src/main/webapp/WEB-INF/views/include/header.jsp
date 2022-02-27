@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="text-slid-box"
 				"right" style="width: 60%; margin: 0 auto;">
-				<a href="home">Trip Or Travel 링크 바로가기</a>
+				<a href="<c:url value='/' />">Trip Or Travel 링크 바로가기</a>
 			</div>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 					aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand" href="home"><img
+				<a class="navbar-brand" href="<c:url value='/' />"><img
 					src="images/main_logo.png" class="logo" alt=""></a>
 				<div class="navbar-float"
 					style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
@@ -86,7 +86,7 @@
 			<div class="collapse navbar-collapse" id="navbar-menu">
 				<ul class="nav navbar-nav ml-auto" data-in="fadeInDown"
 					data-out="fadeOutUp">
-					<li class="nav-item"><a class="nav-link" href="home">홈</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
 					<li class="dropdown active"><a href="#"
 						class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 						<ul class="dropdown-menu">

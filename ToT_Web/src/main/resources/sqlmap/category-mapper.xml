@@ -161,4 +161,13 @@
 		delete from tbl_likes where board_sn = #{board_sn} and member_id = #{member_id}
 	</delete>
 	
+	<select id="categoryLike_sn_member" resultType="int">
+		select count(*) 
+		from tbl_likes 
+		where board_sn = #{board_sn} 
+		and member_id = #{member_id}
+	</select>
+	
+	
+	
 </mapper>

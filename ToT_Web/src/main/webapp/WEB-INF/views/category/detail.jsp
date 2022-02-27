@@ -55,7 +55,7 @@
 						aria-expanded="false" aria-label="Toggle navigation">
 						<i class="fa fa-bars"></i>
 					</button>
-					<a class="navbar-brand" href="home"><img src="images/main_logo.png" class="logo" alt=""></a>
+					<a class="navbar-brand" href="<c:url value='/' />"><img src="images/main_logo.png" class="logo" alt=""></a>
 				<div class="navbar-float" style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
 					<ol style="font-size: 13px">
 						<li style="list-style-type: none; float: left;"><a href="#">로그인</a></li>
@@ -69,7 +69,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link" href="home">홈</a></li>
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 							<ul class="dropdown-menu">
 								<li><a href="tour.ca">관광지</a></li>
@@ -243,9 +243,14 @@
 									
 									</c:choose> --%>
 						<!-- 		<img src="images/like.png" alt="" style="margin-right: 5px"> -->
-						<a onclick="like_regist();"><img src="images/like_gray.png" alt="" style="margin-right: 5px" id="like_img"></a>
-								좋아요${likeCount }<li>
-								<li><img src="images/comment.png" alt="" style="margin-right: 5px">댓글${vo.board_cnt_reply }<li>
+						<a onclick="like_regist();">
+							
+							<c:choose>
+								<c:when test="${likeCheck eq 1 }"><img src="images/like.png" alt="" style="margin-right: 5px" id="like_img"></c:when>
+								<c:otherwise><img src="images/like_gray.png" alt="" style="margin-right: 5px" id="like_img"></c:otherwise>
+							</c:choose>
+						</a> 좋아요 <strong id="like_count">${likeCount }</strong><li>
+								<li><img src="images/comment.png" alt="" style="margin-right: 5px" id="like_img"> 댓글 <strong>${vo.board_cnt_reply }</strong><li>
 							</ul>
 							
 						</div>
@@ -383,6 +388,7 @@
 	
 <script type="text/javascript">
 // 좋아요 클릭하기
+
 function like_regist() {
 
 		$.ajax ({
@@ -392,11 +398,13 @@ function like_regist() {
 		, dataType : 'json'
 			/* 원 글의 id, 입력한 댓글을 데이터로 보냄 */
 		, success : function( response ) {
-			alert(response.isLike);
-			alert(response.count);
 			if ( response ) {	// true
-				alert('접속 성공 !')			// 댓글 목록 조회 요청
-				document.getElementById("like_img").src = "images/like.png";
+				if(response.isLike){
+					document.getElementById("like_img").src = "images/like.png";
+				}else{
+					document.getElementById("like_img").src = "images/like_gray.png";
+				}
+				$('#like_count').text(response.count);
 			} else	// false
 				alert('좋아요 실패 등록 실패!');
 		}, error : function (req, text) {

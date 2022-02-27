@@ -30,7 +30,7 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpSession session, Locale locale, Model model) {
 		logger.info((chaminhwan.cnt++)+ " =>=> " +"Welcome home! The client locale is {}.", locale);
 		

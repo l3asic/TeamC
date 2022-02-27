@@ -325,22 +325,32 @@ public class CategoryController {
 		vo.setBoard_sn(Integer.parseInt(req.getParameter("board_sn")));
 		vo.setFunction_like(Integer.parseInt(req.getParameter("like_fn")));
 
-		int likeCount = vo.getLike_cnt();
-
+		int likeCount = 0;
+		boolean isCheckYN = false;
 		System.out.println(vo.getBoard_sn() + "\t"+vo.getMember_id());
 		/*
 		 * String tempVo = req.getParameter("category"); CategoryVO vo =
 		 * gson.fromJson(tempVo, CategoryVO.class);
 		 */
+	
 		try {
 			System.out.println(vo.getFunction_like());
-			if (vo.getFunction_like() > 0) { // 좋아요 삭제
+			int likeCheck = dao.categoryLike_sn_member(vo);
+			
+			
+			if (likeCheck > 0) { // 좋아요 삭제
 				dao.like_delete(vo);
+				isCheckYN = false;
 			} else { // 좋아요 추가
 				dao.like_insert(vo);
-				likeCount = dao.category_like(vo.getBoard_sn());
+				isCheckYN = true;
+				
 				//model.addAttribute("likeCount", likeCount);
 			}
+			
+			
+			
+			likeCount = dao.category_like(vo.getBoard_sn());
 			
 			req.setCharacterEncoding("UTF-8");
 			res.setCharacterEncoding("UTF-8");
@@ -348,9 +358,23 @@ public class CategoryController {
 			PrintWriter writer = res.getWriter();
 			
 			JsonObject jb = new JsonObject();
-			jb.addProperty("isLike", true); // or false
+			jb.addProperty("isLike", isCheckYN); // or false
 			jb.addProperty("count", likeCount);
-			writer.println(likeCount);
+			writer.println(jb);
+			
+//			int likes = dao.isLike(vo);
+	//		
+	//		if(likes == 1) {
+	//			dao.like_delete(vo);
+	//		}
+	//		if(likes == 0) {
+	//			dao.like_insert(vo);
+	//		}
+			
+			
+			
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -390,18 +414,11 @@ public class CategoryController {
 
 		List<CategoryVO> reviewList = dao.list_reviewpath(board_sn);
 //		List<PictureVO> replyPic = dao.list_repicture(revo);
-		CategoryVO cvo = new CategoryVO();
-		int ilike_result = vo.getFunction_like();
-		cvo.setFunction_like(ilike_result);
 
-		if (ilike_result == 0) { // 좋아요 삭제
-			dao.like_delete(vo);
-			vo.setFunction_like(0);
-		} else { // 좋아요 추가
-			dao.like_insert(vo);
-			vo.setFunction_like(1);
-		}
 
+		int likeCheck = dao.categoryLike_sn_member(vo);
+		
+		model.addAttribute("likeCheck", likeCheck);
 		model.addAttribute("vo", dao.detail_categoryBoard(vo));
 		model.addAttribute("picture", list);
 		model.addAttribute("likeCount", count);

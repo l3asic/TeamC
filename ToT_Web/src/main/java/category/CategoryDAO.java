@@ -107,6 +107,10 @@ public class CategoryDAO {
 	 * return sql.selectOne("category.mapper.detail_categoryBoards",vo); }
 	 */
 	
+	public int categoryLike_sn_member(CategoryVO categoryVO) {
+		return sql.selectOne("category.mapper.categoryLike_sn_member",categoryVO);
+	}
+	
 }
 	
 

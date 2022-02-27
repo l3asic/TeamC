@@ -52,7 +52,7 @@
 						aria-expanded="false" aria-label="Toggle navigation">
 						<i class="fa fa-bars"></i>
 					</button>
-					<a class="navbar-brand" href="home"><img src="images/main_logo.png" class="logo" alt=""></a>
+					<a class="navbar-brand" href="<c:url value='/' />"><img src="images/main_logo.png" class="logo" alt=""></a>
 				<div class="navbar-float" style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
 					<ol style="font-size: 13px">
 						<li style="list-style-type: none; float: left;"><a href="#">로그인</a></li>
@@ -66,7 +66,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link" href="home">홈</a></li>
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 							<ul class="dropdown-menu">
 								<li><a href="tour.ca">관광지</a></li>

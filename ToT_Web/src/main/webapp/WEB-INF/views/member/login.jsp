@@ -25,7 +25,7 @@ img.social { width : 200px; height: 45px; }
 <div style="width: 700px; border: 1px solid #ccc;" class='center'>
 	<div id='login'>
 		<div style='height: 70px;'>
-			<a href='<c:url value="home" />'><img src="images/logo_60.png"></a>
+			<a href='<c:url value="/" />'><img src="images/logo_60.png"></a>
 		</div>
 		<div>
 			<input type="text" placeholder="아이디" id='userid' autofocus /><br/>
@@ -64,7 +64,7 @@ function go_login() {
 		, data : {member_id:$('#userid').val(), member_pw:$('#userpw').val()}
 		, success: function( response ) {
 			if (response) {
-				location = '<c:url value="home" />';
+				location = '<c:url value="/" />';
 			} else {
 				alert('아이디나 비밀번호가 일치하지 않습니다.');
 			}

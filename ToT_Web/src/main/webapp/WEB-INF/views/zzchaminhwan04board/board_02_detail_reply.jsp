@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +16,37 @@
 			<div id='comment_regist'>
 				<input type="hidden" id='board_sn' value="${boardVO.board_sn}"></input>
 
-				<!-- ===== 글을 작성할 부분 ====================================== -->
-				<textarea id='reply_content'></textarea>
-				<span class='left'><strong>댓글작성</strong></span> <span class='right'><a
-					class='btn-fill-s' onclick='comment_regist()'>댓글등록</a></span>
-				<!-- ====================================== 글을 작성할 부분 ===== -->
+
+				<div class="col-md-12">
+					<div class="form-group has-error">
+						<textarea class="form-control" id="reply_content"
+							placeholder="Your Message" rows="4"
+							data-error="Write your message" required="" style="height: 75px;"></textarea>
+						<div class="help-block with-errors">
+							<ul class="list-unstyled">
+								<li>댓글작성</li>
+							</ul>
+						</div>
+					</div>
+					<div class="submit-button text-center">
+						<button class="btn hvr-hover disabled" onclick='comment_regist()'
+							style="pointer-events: all; cursor: pointer;"> 등록</button>
+						<div id="msgSubmit" class="h3 text-center hidden"></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+			
+
 
 			</div>
 		</c:if>
 		<!-- 에이잭스 안에다가 댓글수를 넣어놔야 실시간반영됨 ;; -->
-		<div id='reply_list'></div>
+		<div id='reply_list'>뫄뫄뫄</div>
+<!-- 		<div id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover">더보기</div> -->
 		<input type="hidden" id='stacks' value="10"></input>
 		<c:if test="${boardVO.board_cnt_reply} ge 5  ">
 		</c:if>
-			<div id='btn_stacks' onclick="stacks_more()">더보기</div>
 	</div>
 
 	<script type="text/javascript" src='js/file_check.js'></script>
@@ -75,7 +92,7 @@ function reply_list() {
 		url : 'board/comment/list'
 		 , data : { board_sn :${boardVO.board_sn} , stack:  $('#stacks').val()  }
 		, success : function ( response ) {
-			(stacks)+5
+// 			(stacks)+5
 			$('#reply_list').html( response );
 		// 성공한 결과를 #reply_list 영역에 출력하는데
 		// 결과는 html 코드로 작성된 text 이므로

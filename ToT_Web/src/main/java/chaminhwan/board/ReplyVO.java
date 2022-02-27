@@ -9,7 +9,16 @@ public class ReplyVO implements Serializable {
 	private String member_id;
 	private String member_filepath;
 	private String reply_writedate;
-	int stack;
+	private int stack;
+	private int reply_cnt;
+
+	public int getReply_cnt() {
+		return reply_cnt;
+	}
+
+	public void setReply_cnt(int reply_cnt) {
+		this.reply_cnt = reply_cnt;
+	}
 
 	public int getStack() {
 		return stack;

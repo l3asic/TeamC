@@ -1,7 +1,7 @@
 <%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,9 @@
 	<!-- End header  -->
 
 	<div class="" style="background: #708090; width: 500px;">
-		<h> <a href="board_new">글쓰기</a> </h>
+		<c:if test="${! empty loginInfo}">
+			<h> <a href="board_new">글쓰기</a> </h>
+		</c:if>
 	</div>
 
 	<div class="wrapcontent-60">
@@ -55,28 +57,13 @@
 			<%@include file="../zzchaminhwan04board/board_02_detail.jsp"%>
 		</c:if>
 		<!-- End list -->
+		<c:if test="${path eq '/mypage_' }">
+			<%@include file="../zzchaminhwan00mypage/mypage_00_main.jsp"%>
+		</c:if>
 	</div>
 
-<%-- 	<div class="wrapcontent-60">
-		<c:choose>
-			<c:when test="${path eq '/board_list' }">
-				<%@include file="../zzchaminhwan04board/board_01_list.jsp"%>
-			</c:when>
 
-			<c:when test="${path eq '/board_new' }">
-				<%@include file="../zzchaminhwan04board/board_01_new.jsp"%>
-			</c:when>
 
-			<c:when test="${path eq '/board_detail' }">
-				<%@include file="../zzchaminhwan04board/board_02_detail.jsp"%>
-			</c:when>
-
-			<c:otherwise>
-				<h1>404</h1>
-			</c:otherwise>
-
-		</c:choose>
-	</div> --%>
 
 
 
@@ -86,7 +73,20 @@
 	<%@include file="../include/copyright.jsp"%>
 	<!-- End copyright  -->
 
+	<!-- Start copyright  -->
+	<%@include file="../include/copyright.jsp"%>
+	<!-- End copyright  -->
+	<!-- Start copyright  -->
+	<%@include file="../include/copyright.jsp"%>
+	<!-- End copyright  -->
 
+	<script type="text/javascript">
+		function go_detail(board_sn) {
+			$('[name = board_sn]').val(board_sn);
+			$('form').attr('action', 'board_detail');
+			$('form').submit();
+		}
+	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
@@ -103,6 +103,15 @@
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+
+
+	<script type="text/javascript">
+		function go_mypage(str) {
+			location.href = "mypage_" + str;
+		}
+	</script>
+
+
 </body>
 </html>
 

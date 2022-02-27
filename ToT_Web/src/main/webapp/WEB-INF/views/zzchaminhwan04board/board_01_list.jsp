@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,49 +8,41 @@
 <title>Insert title here</title>
 </head>
 <body class="">
-	<h3>방명록</h3>
-	<div id='list-top'>
-		<form action="board_detail" method="post">
-		<input type="hidden" name="board_sn"></input>
-			<table border="1" class="container">
-				<tbody>
-					<!-- 조회된 목록이 없을 경우 정보 표시 -->
-					<c:if test="${ empty boardVO }">
-						<tr>
-							<td colspan="6">방명록 정보가 없습니다.</td>
-						</tr>
-					</c:if>
-					<!-- 조회된 목록이 있을 경우 정보 표시 -->
-					<c:forEach items="${boardVO }" var="vo">
-						<div class="list-group">
-							<a onclick='go_detail(${vo.board_sn})'
-								class="list-group-item list-group-item-action d-flex gap-3 py-3"
-								aria-current="true"> <img src="${vo.member_filepath}"
-								alt="twbs" width="32" height="32"
-								class="rounded-circle flex-shrink-0">
-								<div class="d-flex gap-2 w-100 justify-content-between">
-									<div>
-										<p class="mb-0">${empty vo.member_filepath ? '사진없음' : '외않됌'  }</p>
-									</div>
-									<div>
-										<h3 class="mb-0">글제목 : ${vo.board_title }</h3>
-										<p class="mb-0 opacity-75">작성 : ${vo.member_id}</p>
-									</div>
-									<div>
-										<p class="mb-0 opacity-75">게시판 : ${vo.board_class}</p>
-										<p class="mb-0">조회수 : ${vo.board_read_cnt }</p>
-									</div>
-									<small class="opacity-50 text-nowrap">${vo.board_date_create }</small>
 
-								</div>
-							</a>
-						</div>
-					</c:forEach>
-				</tbody>
-			</table>
-		</form>
-	</div>
+
 	<div class='btnSet'></div>
+	<input type="hidden" id='stacks' value="10"></input>
+
+	<div id='board_list'></div>
+	<!-- ================================================================ -->
+	<script type="text/javascript" src='js/file_check.js'></script>
+	<!-- ================================================================ -->
+	<script type="text/javascript">
+		function stacks_more() {
+			$('#stacks').val(Number($('#stacks').val()) + 10);
+			board_list();
+		}
+		// 게시물 조회
+		function board_list() {
+			$.ajax({
+				url : 'board_list_stack',
+				data : {
+					board_class : 'user',
+					list_cnt_many : $('#stacks').val()
+				},
+				success : function(response) {
+					$('#board_list').html(response);
+					// 성공한 결과를 #board_list 영역에 출력하는데
+					// 결과는 html 코드로 작성된 text 이므로
+					// .html( response ); 형태로 값을 출력할수 있도록 지정
+				},
+				error : function(req, text) {
+					alert(text + ':' + req.status);
+				}
+			});
+		}
+	</script>
+	<!-- ================================================================ -->
 	<script type="text/javascript">
 		function go_detail(board_sn) {
 			$('[name = board_sn]').val(board_sn);
@@ -58,4 +50,12 @@
 			$('form').submit();
 		}
 	</script>
+	<!-- ================================================================ -->
+	<script type="text/javascript">
+		$(function() { // $(document).ready() 와 같은 의미
+			// 첨부된 파일이 이미지 파일인 경우 미리보기 함.
+			board_list(); // 댓글 목록 조회 함수 호출
+		});
+	</script>
+	<!-- ================================================================ -->
 </body>

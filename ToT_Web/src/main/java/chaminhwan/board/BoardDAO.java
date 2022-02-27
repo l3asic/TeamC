@@ -53,10 +53,10 @@ public class BoardDAO implements BoardService {
 //		return sql.update("board.mapper.read", id);
 //	}
 //
-//	@Override
-//	public int board_update(BoardVO vo) {
-//		return sql.update("board.mapper.update", vo);
-//	}
+	@Override
+	public int board_update(BoardVO boardVO) {
+		return sql.update("board.mapper.update", boardVO);
+	}
 //
 	@Override
 	public int board_delete(int board_sn) {
@@ -68,17 +68,17 @@ public class BoardDAO implements BoardService {
 		return sql.insert("board.mapper.reply_insert", replyVO);
 	}
 //
-//	@Override
-//	public int board_comment_update(BoardCommentVO vo) {
-//		// TODO Auto-generated method stub
-//		return sql.update("board.mapper.comment_update", vo);
-//	}
+	@Override
+	public int reply_update(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		return sql.update("board.mapper.comment_update", replyVO);
+	}
 //
-//	@Override
-//	public int board_comment_delete(int id) {
-//		// TODO Auto-generated method stub
-//		return sql.delete("board.mapper.comment_delete",id);
-//	}
+	@Override
+	public int reply_delete(int reply_sn) {
+		// TODO Auto-generated method stub
+		return sql.delete("board.mapper.comment_delete",reply_sn);
+	}
 //
 	@Override
 	public List<ReplyVO> reply_list(ReplyVO replyVO) {

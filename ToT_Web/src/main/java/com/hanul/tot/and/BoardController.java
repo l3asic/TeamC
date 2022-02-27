@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -56,17 +57,23 @@ public class BoardController {
 			printPath(path);
 			// ====================
 			BoardVO boardVO = new BoardVO();
-			boardVO.setBoard_class("notice");
+			boardVO.setBoard_class("user");
 			boardVO.setList_cnt_many(999);
 			List<BoardVO> list = boardServiceImpl.board_list(boardVO);
 
 			model.addAttribute("boardVO", list);
+		} else if (path.equals("/board_list_stack")) {
+			printPath(path);
+			List<BoardVO> list = boardServiceImpl.board_list(vo);
+			model.addAttribute("boardVO", list);
+			return "zzchaminhwan04board/board_01_list_stack";
 		} else if (path.equals("/board_detail")) {// ==================== board_detail ====================
 			printPath(path);
 			// ====================
 			vo = boardServiceImpl.board_detail(vo.getBoard_sn());
 
 			model.addAttribute("boardVO", vo);
+			model.addAttribute("crlf", "\r\n");
 			model.addAttribute("jsonVO", gson.toJson(vo));
 		} else if (path.equals("/board_new")) {// ==================== board_new ====================
 			printPath(path);
@@ -76,10 +83,11 @@ public class BoardController {
 			printPath(path);
 			// ====================
 			vo.setBoard_class("user");
-			vo.setMember_id("ChaMinHwan");
+			MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
+			vo.setMember_id(memberVO.getMember_id());
 			boardServiceImpl.board_insert(vo);
 			return "redirect:board_list";
-		} else if (path.equals("/board_delete")) {
+		} else if (path.equals("/board_delete")) {// ==================== board_delete ====================
 			printPath(path);
 			// ====================
 			if (boardServiceImpl.board_delete(vo.getBoard_sn()) > 0) {
@@ -92,11 +100,27 @@ public class BoardController {
 				model.addAttribute("path", "/board_detail");
 				return "zzchaminhwan04board/board_00_main";
 			}
+		} else if (path.equals("/board_update")) {
+			printPath(path);
+			if (boardServiceImpl.board_update(vo) > 0) {
+				System.out.println("글수정 성공ㅎ");
+
+			} else {
+				System.out.println("글수정 실패ㅠ");
+			}
+			model.addAttribute("boardVO", vo);
+			model.addAttribute("jsonVO", gson.toJson(vo));
+			model.addAttribute("path", "/board_detail");
+			return "redirect:board_detail";
 		} else {
 			return "home";
 		}
 		model.addAttribute("path", path);
 		return "zzchaminhwan04board/board_00_main";
+	}
+
+	public void printPath(String path) {
+		System.out.println("path : " + path);
 	}
 
 	// ========================================================방명록 글에 대한 댓글 저장처리 요청
@@ -114,11 +138,6 @@ public class BoardController {
 		return "zzchaminhwan04board/comment/comment_list";
 	}
 
-	public void printPath(String path) {
-
-		System.out.println("path : " + path);
-	}
-
 	// ====================================================방명록 글에 대한 댓글 저장처리 요청
 	@ResponseBody
 	@RequestMapping("/board/comment/regist")
@@ -131,5 +150,18 @@ public class BoardController {
 		return boardServiceImpl.board_comment_insert(replyVO) == 1 ? true : false;
 	}
 
+	@ResponseBody
+	@RequestMapping("/board/comment/delete/")
+	public boolean reply_delete(int reply_sn, HttpSession session) {
+
+		return boardServiceImpl.reply_delete(reply_sn) == 1 ? true : false;
+	}
+
+	@ResponseBody
+	@RequestMapping("/board/comment/update")
+	public boolean reply_update(ReplyVO replyVO, HttpSession session) {
+
+		return boardServiceImpl.reply_update(replyVO) == 1 ? true : false;
+	}
 //======================================================================================================================
 }

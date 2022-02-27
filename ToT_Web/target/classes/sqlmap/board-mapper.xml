@@ -5,13 +5,12 @@
 
 <!-- 해당 댓글의 삭제 처리 -->
 <delete id="comment_delete">
-delete from comment_board where id =#{id}
+delete from tbl_reply where reply_sn = #{reply_sn}
 </delete>
 
 	<!-- 해당 댓글의 수정처리 -->
 	<update id="comment_update">
-		update board_comment set content=#{content} where id=#{id}
-		
+		update tbl_reply set reply_content=#{reply_content} where reply_sn=#{reply_sn}
 	</update>
 
 	<!-- 댓글 목록 조회 --> 
@@ -34,15 +33,7 @@ delete from comment_board where id =#{id}
 	</insert>
 
 
-	<!-- 방명록 글 수정 저장 처리 -->
-	<update id="update">
-		update board set title=#{title}, content=#{content}
-		,
-		filename = #{filename, jdbcType=VARCHAR}
-		, filepath = #{filepath,
-		jdbcType=VARCHAR}
-		where id = #{id}
-	</update>
+
 
 
 
@@ -85,7 +76,7 @@ delete from comment_board where id =#{id}
 <!-- 댓글 목록 조회 -->
 	<select id="reply_list"
 		resultType="chaminhwan.board.ReplyVO">
-		SELECT ROWNUM, a.*
+		SELECT ROWNUM, a.* , (select count(*) from tbl_reply where board_sn = a.board_sn) reply_cnt
   FROM ( SELECT reply.*, ( SELECT picture.picture_filepath 
                           FROM tbl_board_picture picture 
                           WHERE picture.member_id = reply.member_id) picture_filepath
@@ -99,6 +90,12 @@ delete from comment_board where id =#{id}
 	<insert id="reply_insert" >
 insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
 </insert>
+
+	<!-- 방명록 글 수정 저장 처리 -->
+	<update id="update">
+		update board set board_title=#{board_title}, board_content=#{board_content}
+		where board_sn = #{board_sn}
+	</update>
 
 	<!-- 해당 글 삭제 처리 -->
 	<delete id="delete">
@@ -162,7 +159,7 @@ SELECT ROWNUM, tbl.*,
 FROM
     ( SELECT * FROM tbl_board
         where board_class =#{board_class}
-        ORDER BY board_sn
+        ORDER BY board_sn desc
     ) tbl
 WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 	</select>

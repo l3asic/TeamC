@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,11 +44,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	</script>
 	<!-- ================================================================ -->
 	<script type="text/javascript">
-		function go_detail(board_sn) {
-			$('[name = board_sn]').val(board_sn);
-			$('form').attr('action', 'board_detail');
-			$('form').submit();
-		}
+// 		function go_detail(board_sn) {
+// 			$('[name = board_sn]').val(board_sn);
+// 			$('form').attr('action', 'board_detail');
+// 			$('form').submit();
+// 		}
 	</script>
 	<!-- ================================================================ -->
 	<script type="text/javascript">

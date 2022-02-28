@@ -1,7 +1,7 @@
 <%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,9 +102,13 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	<script src="js/baguetteBox.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
-	<script src="js/custom.js"></script>
+	<!-- 	<script src="js/custom.js"></script> -->
 
-
+	<!-- 	========================== board_sn =========================== -->
+	<form action="board_detail" method="post">
+		<input type="text" name='board_sn' value=""></input>
+	</form>
+	<!-- 	============================================================ -->
 	<script type="text/javascript">
 		function go_mypage(str) {
 			location.href = "mypage_" + str;

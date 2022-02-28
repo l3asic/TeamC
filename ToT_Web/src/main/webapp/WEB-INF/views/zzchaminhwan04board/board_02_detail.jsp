@@ -1,6 +1,7 @@
-<%@page import="com.google.gson.Gson"%> <%@ page language="java"
-contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
-prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.google.gson.Gson"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,43 +15,90 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 			<a href="https://jsonlint.com/">정렬사이트</a>
 			<p>${jsonVO}</p>
 		</c:if>
-		<div class="col">
-			<div class="col-xl-7 col-lg-7 col-md-6">
-				<div class="single-product-details">
-					<h2>${boardVO.board_title}</h2>
-					<h5>							<img class="d-block w-100" src="${boardVO.member_filepath}"
-								alt="프로필사진 안나옴">  ${boardVO.member_id}</h5>
-				</div>
-				<p class="available-stock">
-					<span>작성일 : </span> <span> ${boardVO.board_date_create}</span> <span>댓글수
-						: </span> <span> ${boardVO.board_cnt_reply}</span> <span>조회수 : </span> <span>
-						${boardVO.board_read_cnt}</span>
-				</p>
-			</div>
-			<div class="col-xl-5 col-lg-5 col-md-6">
-				<div id="carousel-example-1"
-					class="single-product-slider carousel slide" data-ride="carousel">
-					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active">
-							<img class="d-block w-100" src="${boardVO.member_filepath}"
-								alt="member_filepath">
+
+		<div class="wishlist-box-main">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="table-main table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+
+										<th class="thumbnail-img"><img class="img-fluid"
+											src="${boardVO.member_filepath}" alt="프사" /></th>
+
+										<th class="   name-pr">
+											<div>
+												<a class=" list-group-item-action"
+													onclick='go_detail(${boardVO.board_sn})'>${boardVO.board_title }
+												</a>
+											</div>
+										</th>
+										<th class="price-pr"><a class="btn hvr-hover"
+											id='member_id' name='member_id'
+											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a>
+											<p>${boardVO.member_grade}</p></th>
+										<th class="quantity-box">${vo.board_class}</th>
+										<th class="add-pr">
+											<p>조회수 : ${boardVO.board_read_cnt}</p>
+											<p>댓글수 : ${boardVO.board_cnt_reply}</p>
+										</th>
+										<th class="remove-pr">${boardVO.board_date_create }</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>${boardVO.board_content}</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-
 				</div>
 			</div>
+		</div>
+
+		<div class="col">
+			<!-- 			<div class="col-xl-7 col-lg-7 col-md-6"> -->
+			<!-- 				<div class="single-product-details"> -->
+			<%-- 					<h2>${boardVO.board_title}</h2> --%>
+			<!-- 					<h5> -->
+			<%-- 						<img class="d-block w-100" src="${boardVO.member_filepath}" --%>
+			<%-- 							alt="프로필사진 안나옴"> ${boardVO.member_id} --%>
+			<!-- 					</h5> -->
+			<!-- 				</div> -->
+			<!-- 				<p class="available-stock"> -->
+			<%-- 					<span>작성일 : </span> <span> ${boardVO.board_date_create}</span> <span>댓글수 --%>
+			<%-- 						: </span> <span> ${boardVO.board_cnt_reply}</span> <span>조회수 : </span> <span> --%>
+			<%-- 						${boardVO.board_read_cnt}</span> --%>
+			<!-- 				</p> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="col-xl-5 col-lg-5 col-md-6"> -->
+			<!-- 				<div id="carousel-example-1" -->
+			<!-- 					class="single-product-slider carousel slide" data-ride="carousel"> -->
+			<!-- 					<div class="carousel-inner" role="listbox"> -->
+			<!-- 						<div class="carousel-item active"> -->
+			<%-- 							<img class="d-block w-100" src="${boardVO.member_filepath}" --%>
+			<!-- 								alt="member_filepath"> -->
+			<!-- 						</div> -->
+			<!-- 					</div> -->
+
+			<!-- 				</div> -->
+			<!-- 			</div> -->
 			<div class="col-xl-7 col-lg-7 col-md-6">
 				<div class="single-product-details">
-<!-- 					<div class="single-product-details"> -->
-<!-- 						<h2>${boardVO.board_title}</h2> -->
-<!-- 						<h5>${boardVO.member_id}</h5> -->
-<!-- 					</div> -->
-<!-- 					<p class="available-stock"> -->
-<!-- 						<span>작성일 : </span> <span> ${boardVO.board_date_create}</span> <span>댓글수 -->
-<!-- 							: </span> <span> ${boardVO.board_cnt_reply}</span> <span>조회수 : </span> <span> -->
-<!-- 							${boardVO.board_read_cnt}</span> -->
-<!-- 					</p> -->
-					<p>${boardVO.board_content}</p>
+					<!-- 					<div class="single-product-details"> -->
+					<!-- 						<h2>${boardVO.board_title}</h2> -->
+					<!-- 						<h5>${boardVO.member_id}</h5> -->
+					<!-- 					</div> -->
+					<!-- 					<p class="available-stock"> -->
+					<!-- 						<span>작성일 : </span> <span> ${boardVO.board_date_create}</span> <span>댓글수 -->
+					<!-- 							: </span> <span> ${boardVO.board_cnt_reply}</span> <span>조회수 : </span> <span> -->
+					<!-- 							${boardVO.board_read_cnt}</span> -->
+					<!-- 					</p> -->
+
 
 					<div class="price-box-bar">
 						<div class="cart-and-bay-btn">
@@ -94,15 +142,16 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 			</c:if>
 		</div>
 
-<!-- 목록 요청에 필요한 데이터를 post 방식으로 전달하는 방법 -->
-<form action="board_list" method="post">
-	<input type="hidden" name="board_sn" value="${boardVO.board_sn }" />	<!-- 해당 글의 id  -->
-<!-- 	<input type="hidden" name="search" value="${page.search }" /> 검색조건 -->
-<!-- 	<input type="hidden" name="keyword" value="${page.keyword }" /> 검색어 -->
-<!-- 	<input type="hidden" name="curPage" value="${page.curPage }" /> 현재 페이지 -->
-<!-- 	<input type="hidden" name="pageList" value="${page.pageList }" /> 한 페이지당 보여질 목록 수 -->
-<!-- 	<input type="hidden" name="viewType" value="${page.viewType }" /> 게시판 형태 -->
-</form>
+		<!-- 목록 요청에 필요한 데이터를 post 방식으로 전달하는 방법 -->
+		<form action="board_list" method="post">
+			<input type="hidden" name="board_sn" value="${boardVO.board_sn }" />
+			<!-- 해당 글의 id  -->
+			<!-- 	<input type="hidden" name="search" value="${page.search }" /> 검색조건 -->
+			<!-- 	<input type="hidden" name="keyword" value="${page.keyword }" /> 검색어 -->
+			<!-- 	<input type="hidden" name="curPage" value="${page.curPage }" /> 현재 페이지 -->
+			<!-- 	<input type="hidden" name="pageList" value="${page.pageList }" /> 한 페이지당 보여질 목록 수 -->
+			<!-- 	<input type="hidden" name="viewType" value="${page.viewType }" /> 게시판 형태 -->
+		</form>
 		<!-- Start 댓글  -->
 
 		<%@include file="../zzchaminhwan04board/board_02_detail_reply.jsp"%>

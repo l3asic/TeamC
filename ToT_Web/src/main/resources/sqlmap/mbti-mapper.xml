@@ -4,7 +4,7 @@
 <mapper namespace="mbti.mapper">
 
 <!--  -->
-<select id="mbtimbti" resultType="chaminhwan.board.BoardVO">
+<select id="/mbti_mbti" resultType="chaminhwan.board.BoardVO">
 SELECT top100.* , (
         SELECT COUNT(*)
         FROM tbl_board board,tbl_likes likes    <!-- ========== 좋아요 null 이어도 됨 ========== -->
@@ -26,7 +26,7 @@ FROM
             FROM
                     ( SELECT *
                         FROM tbl_mbti
-                        WHERE member_id = 'ChaMinHwan'
+                        WHERE member_id = #{member_id}
                     ) a,
                     ( SELECT *
                         FROM tbl_mbti
@@ -44,7 +44,7 @@ ORDER BY matchscore
 </select>
 
 
-<select id="mbtixy" resultType="chaminhwan.board.BoardVO">
+<select id="/mbti_xy" resultType="chaminhwan.board.BoardVO">
 SELECT top100.* , (
         SELECT COUNT(*)
         FROM tbl_board board,tbl_likes likes 	 <!-- ========== 좋아요 null 이어도 됨 ========== -->
@@ -64,7 +64,7 @@ FROM
             FROM
                     ( SELECT *
                         FROM tbl_mbti
-                        WHERE member_id = 'ChaMinHwan'
+                        WHERE member_id = #{member_id}
                     ) a,
                     ( SELECT *
                         FROM tbl_mbti

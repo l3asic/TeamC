@@ -44,11 +44,12 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 		}
 		//목록조회
 		function mypage_board_list() {
+// 			alert(" 스크립트 실행 테스트ㅁㅁ ");
 			$.ajax({
 				url : 'mypage_list_write',
 				data : {
 					member_id : $('#member_id').val(),
-					list_cnt_many : $('#stacks').val()
+					stack : $('#stacks').val()
 				},
 				// 				url : 'board_list_stack',
 				// 				data : {
@@ -67,7 +68,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	<!-- ================================================================ -->
 	<script type="text/javascript">
 		$(function() { // $document).ready() 와 같은 의미
-			// 			alert(" 스크립트 실행 테스트 ");
+					
 			mypage_board_list(); // 목록 조회 함수 호출
 		});
 	</script>
@@ -98,10 +99,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	<!-- ========================= 게시물 수 ========================= -->
 	<input type="text" id='stacks' value="10"></input>
 	<!-- =========================================================== -->
-
-	<!-- ========================== board_sn =========================== -->
-	<input type="text" name='board_sn' value=""></input>
-	<!-- ============================================================ -->
 
 	<!-- ========================= 게시물 목록 ========================= -->
 	<div id='mypage_board_list'>뫄뫄뫄</div>

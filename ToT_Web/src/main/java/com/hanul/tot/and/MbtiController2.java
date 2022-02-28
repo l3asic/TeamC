@@ -26,9 +26,9 @@ import common.CommonService;
 import common.chaminhwan;
 
 @Controller
-public class MyPageController {
+public class MbtiController2 {
 
-	private static final Logger logger = LoggerFactory.getLogger(MyPageController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MbtiController2.class);
 //
 //	@Autowired(required = true)
 //	private BoardServiceImpl boardServiceImpl;
@@ -46,31 +46,25 @@ public class MyPageController {
 	@Qualifier("cteam")
 	SqlSession sql;
 
-	@RequestMapping("/mypage_{member_id}")
-	public String myPage(@PathVariable String member_id, Locale locale, HttpSession session, Model model,
-			HttpServletRequest req) throws IOException {
-		String path = req.getServletPath();
-
-		model.addAttribute("path", "/mypage_");
-		model.addAttribute("member_id", member_id);
-		return "zzchaminhwan04board/board_00_main";
-		// return "zzchaminhwan00mypage/mypage_00_main";
-	}
-
-	@RequestMapping("/mypage_list_*")
+	@RequestMapping("/mbti_*")
 	public String list(BoardVO vo, Locale locale, HttpSession session, Model model, HttpServletRequest req)
 			throws IOException {
 		String path = req.getServletPath();
 //		int succ = sql.selectOne("member.mapper.login", vo.getMember_id());
 //		if( succ > 0 ) {
-		List<BoardVO> list = sql.selectList("mypage.mapper." + path, vo);
-		model.addAttribute("boardVO", list);
-
+		if (vo.getMember_id() == null || vo.getMember_id().equals("")) {
+			System.out.println("에러페이지 연결");
+			return "errorPage";
+		} else {
+			System.out.println(path);
+			List<BoardVO> list = sql.selectList("mbti.mapper." + path, vo);
+			model.addAttribute("boardVO", list);
+		}
 //		}else {
 //		model.addAttribute("board")	
 //		}
 
-		return "zzchaminhwan00mypage/mypage_00_list_stack";
+		return "zzchaminhwan/main_07_instagram_feed_list";
 	}
 //======================================================================================================================
 }

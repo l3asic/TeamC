@@ -1,6 +1,7 @@
 package com.hanul.tot.and;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,6 +34,7 @@ public class MbtiController2 {
 //	@Autowired(required = true)
 //	private BoardServiceImpl boardServiceImpl;
 //
+
 //	@Autowired(required = true)
 //	private BoardPage page;
 
@@ -47,7 +49,7 @@ public class MbtiController2 {
 	SqlSession sql;
 
 	@RequestMapping("/mbti_*")
-	public String list(BoardVO vo, Locale locale, HttpSession session, Model model, HttpServletRequest req)
+	public String mbtiList(BoardVO vo, Locale locale, HttpSession session, Model model, HttpServletRequest req)
 			throws IOException {
 		String path = req.getServletPath();
 //		int succ = sql.selectOne("member.mapper.login", vo.getMember_id());
@@ -57,7 +59,9 @@ public class MbtiController2 {
 			return "errorPage";
 		} else {
 			System.out.println(path);
-			List<BoardVO> list = sql.selectList("mbti.mapper." + path, vo);
+
+			List<BoardVO> list = new ArrayList<BoardVO>();
+			list = sql.selectList("mbti.mapper." + path, vo);
 			model.addAttribute("boardVO", list);
 		}
 //		}else {

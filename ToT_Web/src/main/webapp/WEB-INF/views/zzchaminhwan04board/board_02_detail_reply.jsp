@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +11,10 @@ pageEncoding="UTF-8"%>
 
 	<div>
 
+
+		<!-- 댓글목록 영역 -->
+		<div id='reply_list'></div>
+		<!-- ============= -->
 		<!-- 댓글 등록 부분 -->
 		<c:if test="${! empty loginInfo}">
 			<div id='comment_regist'>
@@ -30,20 +34,19 @@ pageEncoding="UTF-8"%>
 					</div>
 					<div class="submit-button text-center">
 						<button class="btn hvr-hover disabled" onclick='comment_regist()'
-							style="pointer-events: all; cursor: pointer;"> 등록</button>
+							style="pointer-events: all; cursor: pointer;">등록</button>
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>
 					</div>
 				</div>
 
-			
+
 
 
 			</div>
 		</c:if>
-		<!-- 에이잭스 안에다가 댓글수를 넣어놔야 실시간반영됨 ;; -->
-		<div id='reply_list'>뫄뫄뫄</div>
-<!-- 		<div id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover">더보기</div> -->
+
+		<!-- 		<div id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover">더보기</div> -->
 		<input type="hidden" id='stacks' value="10"></input>
 		<c:if test="${boardVO.board_cnt_reply} ge 5  ">
 		</c:if>

@@ -61,10 +61,10 @@
 			file="zzchaminhwan/main_02_slider.jsp"%>
 		<!-- End Slider -->
 
-	<!-- Start Instagram Feed  -->
+		<!-- Start Instagram Feed  -->
 		<%@include file="zzchaminhwan/main_07_instagram_feed.jsp"%>
 		<!-- End Instagram Feed  -->
-		
+
 		<!-- Start Categories  -->
 		<%@include file="zzchaminhwan/main_03_categories.jsp"%>
 		<!-- End Categories -->
@@ -82,7 +82,7 @@
 		<!-- End Blog  -->
 
 
-	
+
 	</div>
 
 
@@ -90,12 +90,6 @@
 	<%@include file="include/footer.jsp"%>
 	<!-- End Footer  -->
 
-	<!-- Start copyright  -->
-	<%@include file="include/copyright.jsp"%>
-	<!-- End copyright  -->
-	<!-- Start copyright  -->
-	<%@include file="include/copyright.jsp"%>
-	<!-- End copyright  -->
 	<!-- Start copyright  -->
 	<%@include file="include/copyright.jsp"%>
 	<!-- End copyright  -->

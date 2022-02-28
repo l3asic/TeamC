@@ -22,7 +22,7 @@
 				// 					member_id : ${loginInfo.member_id}
 				},
 				success : function(response) {
-					$('#recommand_mbti').html(response);
+					$('.recommand_mbti').html(response);
 				},
 				error : function(req, text) {
 					alert(text + ':' + req.status);
@@ -40,13 +40,13 @@
 	<!-- ================================================================ -->
 	<!-- 	========================== board_sn =========================== -->
 	<!-- 	<form action="board_detail" method="post"> -->
-	<input type="text" id='loginIngo_member_id'
+	<input type="hidden" id='loginIngo_member_id'
 		value="${loginInfo.member_id}"></input>
 	<!-- 	</form> -->
 	<!-- 	============================================================ -->
-	<h3>나와 어울리는 여행지 추천</h3>
+	<h3>${loginInfo.member_id}님의추천 여행지</h3>
 
-	<div id='recommand_mbti'></div>
+	<div id='recommand_mbti' class="recommand_mbti"></div>
 
 </body>
 </html>

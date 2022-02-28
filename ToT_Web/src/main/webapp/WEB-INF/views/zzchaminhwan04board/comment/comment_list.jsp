@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="fn"
-uri="http://java.sun.com/jsp/jstl/functions" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <div class="row my-5">
 	<div class="card card-outline-secondary my-4" style="width: 100%;">
 		<div class="card-header">
 			<h2>댓글 : ${replyList[0].reply_cnt}</h2>
-																				
+
 		</div>
 		<div class="card-body">
 			<c:forEach items="${replyList }" var="vo" varStatus="status">
@@ -20,27 +20,25 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 						<input type="hidden" id="reply_sn" value="${vo.reply_sn}"></input>
 					</div>
 					<div2 class="media-body">
-						<p class="original"> ${fn:replace( fn:replace( vo.reply_content, lf, '<br>') , crlf, '<br>' )}</p>
-						<div class='modify'></div>
-						<small class="text-muted" style="float: right;">
-							${vo.reply_writedate}</small>
-						<c:if
-							test="${loginInfo.member_id eq vo.member_id ||loginInfo.member_id eq 'master' }">
-							<div class="share-bar">
-								<a class='btn hvr-hover btn-modify-save'>수정</a> <a
-									class='btn hvr-hover btn-delete-cancel'>삭제</a>
+					<p class="original">${fn:replace( fn:replace( vo.reply_content, lf, '<br>') , crlf, '<br>' )}</p>
+					<div class='modify'></div>
+					<small class="text-muted" style="float: right;">
+						${vo.reply_writedate}</small> <c:if
+						test="${loginInfo.member_id eq vo.member_id ||loginInfo.member_id eq 'master' }">
+						<div class="share-bar">
+							<a class='btn hvr-hover btn-modify-save' style="padding: 0px;">수정</a>
+							<a class='btn hvr-hover btn-delete-cancel' style="padding: 0px;">삭제</a>
 
-							</div>
-						</c:if>
-						
-					</div2>
+						</div>
+					</c:if> </div2>
 				</div>
 				<hr>
 			</c:forEach>
 			<a id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover">더보기</a>
-			<a href="#" class="btn hvr-hover">목록으로</a>
+			<a href="javascript:history.back(-1)" class="btn hvr-hover">목록으로</a>
 		</div>
 	</div>
+
 </div>
 
 

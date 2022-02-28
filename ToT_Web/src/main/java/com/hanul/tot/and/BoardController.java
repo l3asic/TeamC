@@ -62,7 +62,7 @@ public class BoardController {
 			List<BoardVO> list = boardServiceImpl.board_list(boardVO);
 
 			model.addAttribute("boardVO", list);
-		} else if (path.equals("/board_list_stack")) {
+		} else if (path.equals("/board_list_stack")) {// ==================== bpard_list_stack ====================
 			printPath(path);
 			List<BoardVO> list = boardServiceImpl.board_list(vo);
 			model.addAttribute("boardVO", list);
@@ -100,7 +100,10 @@ public class BoardController {
 				model.addAttribute("path", "/board_detail");
 				return "zzchaminhwan04board/board_00_main";
 			}
-		} else if (path.equals("/board_update")) {
+		} else if (path.equals("/board_go_update")) {// ==================== board_go_update 수정화면====================
+			model.addAttribute("boardVO", vo);
+			return "zzchaminhwan04board/board_01_update";
+		} else if (path.equals("/board_update")) {// ==================== board_update 수정처리====================
 			printPath(path);
 			if (boardServiceImpl.board_update(vo) > 0) {
 				System.out.println("글수정 성공ㅎ");
@@ -111,7 +114,7 @@ public class BoardController {
 			model.addAttribute("boardVO", vo);
 			model.addAttribute("jsonVO", gson.toJson(vo));
 			model.addAttribute("path", "/board_detail");
-			return "redirect:board_detail";
+			return "zzchaminhwan04board/board_00_main";
 		} else {
 			return "home";
 		}

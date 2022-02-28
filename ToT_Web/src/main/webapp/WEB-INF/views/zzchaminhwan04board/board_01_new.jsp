@@ -75,10 +75,10 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="submit-button text-center">
-											<button class="btn hvr-hover disabled" id="submit"
+											<button class="btn hvr-hover " id="submit"
 												type="submit" style="pointer-events: all; cursor: pointer;">작성</button>
-											<button class="btn hvr-hover disabled" id="submit"
-												type="submit" style="pointer-events: all; cursor: pointer;">취소</button>
+										<button class="btn hvr-hover " id="cancel"
+												 style="pointer-events: all; cursor: pointer;" onclick="history.back(-1)">취소</button>
 											<div id="msgSubmit" class="h3 text-center hidden"></div>
 											<div class="clearfix"></div>
 										</div>

@@ -5,6 +5,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+
+</style>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -79,6 +82,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
+<%-- 				<img alt="프사" src="${vo.member_filepath }"> --%>
 					<h2>${member_id}</h2>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#">작성한 게시물</a></li>
@@ -93,11 +97,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 	<!-- ========================= 페이지 주인 ========================= -->
-	<input type="text" id='member_id' value="${member_id}"></input>
+	<input type="hidden" id='member_id' value="${member_id}"></input>
 	<!-- =========================================================== -->
 
 	<!-- ========================= 게시물 수 ========================= -->
-	<input type="text" id='stacks' value="10"></input>
+	<input type="hidden" id='stacks' value="10"></input>
 	<!-- =========================================================== -->
 
 	<!-- ========================= 게시물 목록 ========================= -->

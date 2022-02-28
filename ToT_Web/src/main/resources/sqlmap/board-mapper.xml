@@ -79,7 +79,7 @@ delete from tbl_reply where reply_sn = #{reply_sn}
 		SELECT ROWNUM, a.* , (select count(*) from tbl_reply where board_sn = a.board_sn) reply_cnt
   FROM ( SELECT reply.*, ( SELECT picture.picture_filepath 
                           FROM tbl_board_picture picture 
-                          WHERE picture.member_id = reply.member_id) picture_filepath
+                          WHERE picture.member_id = reply.member_id) member_filepath
         FROM tbl_reply reply
         WHERE board_sn = #{board_sn}
         ORDER BY reply_sn DESC ) a
@@ -93,7 +93,7 @@ insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_cont
 
 	<!-- 방명록 글 수정 저장 처리 -->
 	<update id="update">
-		update board set board_title=#{board_title}, board_content=#{board_content}
+		update tbl_board set board_title=#{board_title}, board_content=#{board_content}
 		where board_sn = #{board_sn}
 	</update>
 

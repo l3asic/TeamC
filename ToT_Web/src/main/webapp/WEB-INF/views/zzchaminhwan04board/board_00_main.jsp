@@ -73,12 +73,6 @@
 	<%@include file="../include/copyright.jsp"%>
 	<!-- End copyright  -->
 
-	<!-- Start copyright  -->
-	<%@include file="../include/copyright.jsp"%>
-	<!-- End copyright  -->
-	<!-- Start copyright  -->
-	<%@include file="../include/copyright.jsp"%>
-	<!-- End copyright  -->
 
 	<script type="text/javascript">
 		function go_detail(board_sn) {

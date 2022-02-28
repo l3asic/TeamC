@@ -22,7 +22,7 @@ public class BoardDAO implements BoardService {
 	@Override
 	public List<BoardVO> board_list(BoardVO boardVO) {
 		// 전체 게시글 수 조회3
-//		
+		
 //		int pagecnt = sql.selectOne("notice.mapper.totalList", page);
 //		page.setTotalList(pagecnt);
 		

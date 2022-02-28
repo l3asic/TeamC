@@ -6,6 +6,20 @@
     tools:context=".party.PartyJoinActivity"
     android:orientation="vertical"
     android:weightSum="10">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -118,6 +132,7 @@
                     android:listSelector="#75A2CF"
                     android:horizontalSpacing="8dp"
                     android:verticalSpacing="8dp"
+                    android:nestedScrollingEnabled="false"
                     />
 
 
@@ -173,9 +188,10 @@
 
 
 
+        </LinearLayout>
 
 
-
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

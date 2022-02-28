@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
@@ -36,6 +37,7 @@ import java.util.List;
 public class PlanUpdatePlanActivity extends AppCompatActivity {
     RecyclerView rec_memberlist;
     ArrayList<PartyMemberListDTO> plan_member_list = new ArrayList<>();
+    ArrayList<PartyMemberListDTO> insert_member_list = new ArrayList<>();
     ArrayList<PartyListDTO> list = new ArrayList<>();
     PartyListDTO plDTO = new PartyListDTO();
     PlanlistDTO planlistDTO ;
@@ -44,9 +46,9 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
     final int DIALOG_REQ = 1000;
     final int DIALOG_REQ2 = 1001;
-    EditText edt_plan_name, edt_plan_location, edt_plan_startpoint, edt_plan_hotel, edt_plan_cost,edt_plan_starttime, edt_plan_endtime;
+    EditText edt_invite_member, edt_plan_name, edt_plan_location, edt_plan_startpoint, edt_plan_hotel, edt_plan_cost,edt_plan_starttime, edt_plan_endtime;
     TextView tv_plan_startdate, tv_plan_enddate;
-    Button btn_plan_update;
+    Button btn_plan_update, btn_plan_invite;
 
     String leader_pic = null;
 
@@ -80,6 +82,9 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
         btn_plan_update = findViewById(R.id.btn_plan_update);
         edt_plan_starttime =findViewById(R.id.edt_plan_starttime);
         edt_plan_endtime =findViewById(R.id.edt_plan_endtime);
+
+        edt_invite_member =findViewById(R.id.edt_invite_member);
+        btn_plan_invite =findViewById(R.id.btn_plan_invite);
 
         Intent get_intent = getIntent();
         planlistDTO = (PlanlistDTO) get_intent.getSerializableExtra("planlistDTO");
@@ -122,7 +127,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
 
         // datepicker 영역
-
         // 출발날짜 데이트피커로 세팅
         tv_plan_startdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +144,33 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
                 startActivityForResult(intent ,DIALOG_REQ2 );
             }
         });
+
+
+        // 멤버 초대 버튼클릭시 해당파티 멤버에서 조회해서 멤버리스트에 추가
+        btn_plan_invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String invite_id = edt_invite_member.getText()+"";
+                if(addInviteMember(invite_id) == 1){
+                    Toast.makeText(PlanUpdatePlanActivity.this, "멤버를 추가하였습니다.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PlanUpdatePlanActivity.this, "파티내 해당하는 멤버가 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+
+                // 어댑터 새로고침
+                PlanMemberListAdpater adapter = new PlanMemberListAdpater(PlanUpdatePlanActivity.this,plan_member_list,plDTO,2);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(
+                        PlanUpdatePlanActivity.this , RecyclerView.VERTICAL , false
+                );
+                rec_memberlist.setLayoutManager(layoutManager);
+                rec_memberlist.setAdapter(adapter);
+                
+            }
+        });
+
+
+
+
 
 
 
@@ -167,8 +198,14 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
                         edt_plan_starttime.getText()+"",
                         edt_plan_endtime.getText()+""
                 );
+                
+                // 추가된 멤버 플랜에 추가
+                if (insert_member_list != null){
+                    insertPlanMember();
+                }
 
-                // 플랜 수정 저장
+
+                // 플랜 수정 저장 (업데이트, 추가된 멤버도 포함)
                 updatePlan(planDTO);
 
 
@@ -216,8 +253,32 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
     }//onCreate()
 
+    // 플랜에 멤버 추가 메소드
+    private void insertPlanMember() {
+        commonAsk = new CommonAsk("android/party/insertPlanMember");
+        String data = gson.toJson(insert_member_list);
+        commonAsk.params.add(new CommonAskParam("insert_member_list" , data));
+
+        String data2 = gson.toJson(planlistDTO);
+        commonAsk.params.add(new CommonAskParam("planlistDTO" , data2));
 
 
+
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+    }
+
+    // 초대 멤버이름 추가
+    private int addInviteMember(String invite_id) {
+        int succ = 0;
+        for (int i = 0; i<list.size(); i++){
+            if(invite_id.equals(list.get(i).getMember_id() ) ){
+                plan_member_list.add(new PartyMemberListDTO(list.get(i).getMember_id(), null));
+                insert_member_list.add(new PartyMemberListDTO(list.get(i).getMember_id(), null));
+                succ = 1;
+            }
+        }
+        return succ;
+    }
 
 
     private void insertPlanDays2(int diffDayss) {
@@ -227,6 +288,7 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
     }
+
 
 
 

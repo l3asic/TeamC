@@ -3,9 +3,11 @@ package com.example.totproject.party;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,6 +85,7 @@ public class PartyJoinActivity extends AppCompatActivity {
         PartymemberListAdapter adapter = new PartymemberListAdapter(PartyJoinActivity.this, member_list);
         gridView = findViewById(R.id.grid_memberlist);
         gridView.setAdapter(adapter);
+        setDynamicHeight(gridView);
 
         lin_partyjoin_btn = findViewById(R.id.lin_partyjoin_btn);
 
@@ -108,7 +111,7 @@ public class PartyJoinActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(PartyJoinActivity.this,PartyMainActivity.class);
-                //intent.putExtra("joindata",)
+                intent.putExtra("tabcode",3);
                 startActivity(intent);
                 finish();
             }
@@ -157,6 +160,34 @@ public class PartyJoinActivity extends AppCompatActivity {
         return member_list;
 
     }//showMyPartylist()
+
+    // 그리드뷰 나오게하는 메소드
+    private void setDynamicHeight(GridView gridView) {
+        ListAdapter gridViewAdapter = gridView.getAdapter();
+        if (gridViewAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        int items = gridViewAdapter.getCount();
+        int rows = 0;
+
+        View listItem = gridViewAdapter.getView(0, null, gridView);
+        listItem.measure(0, 0);
+        totalHeight = listItem.getMeasuredHeight();
+
+        float x = 1;
+        if( items > 2 ){
+            x = items/2;
+            rows = (int) (x + 1);
+            totalHeight *= rows;
+        }
+
+        ViewGroup.LayoutParams params = gridView.getLayoutParams();
+        params.height = totalHeight ;
+        gridView.setLayoutParams(params);
+    }
 
 
 }

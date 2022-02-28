@@ -729,7 +729,7 @@ public class PartyController {
 		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
 		pDAO.updatePlanDetail(vo);
 
-	}// insertPlanDetail()
+	}// updatePlanDetail()
 
 	@ResponseBody
 	@RequestMapping("/android/party/deleteplandetaillist")
@@ -763,8 +763,7 @@ public class PartyController {
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
-
-		//
+		
 		int party_sn = Integer.parseInt(req.getParameter("party_sn"));
 
 		try {
@@ -778,6 +777,33 @@ public class PartyController {
 			e.printStackTrace();
 		}
 	}// planMemberList()
+	
+	@ResponseBody
+	@RequestMapping("/android/party/planMemberListNew")
+
+	public void planMemberListNew(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("planMemberListNew() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		// planInfo01 에서 플랜에 속한 멤버 가져오는 처리 
+		int plan_sn = Integer.parseInt(req.getParameter("plan_sn"));
+
+		try {
+
+			List<PartyMemberListVO> list = new ArrayList<PartyMemberListVO>();
+			list = pDAO.planMemberListNew(plan_sn);
+
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}// planMemberListNew()
 	
 	
 	@ResponseBody
@@ -830,7 +856,36 @@ public class PartyController {
 	
 	
 	
-	
+	@ResponseBody
+	@RequestMapping("/android/party/insertPlanMember")
+	public void insertPlanMember(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("insertPlanMember() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		String from_and_dto = req.getParameter("planlistDTO");
+		PartyPlanListVO vo = new PartyPlanListVO();
+		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
+		
+		String from_and_list = req.getParameter("insert_member_list");		
+		ArrayList<PartyMemberListVO> member_list = gson.fromJson(from_and_list, new TypeToken<List<PartyMemberListVO>>() {
+		}.getType());
+		
+		for (int i = 0; i < member_list.size(); i++) {
+			vo.setMember_id(member_list.get(i).getMemberid());
+			pDAO.insertPartyPlanMembers(vo);
+		}
+		
+		
+		
+		
+		
+
+	}// insertPlanMember()
 	
 	
 	

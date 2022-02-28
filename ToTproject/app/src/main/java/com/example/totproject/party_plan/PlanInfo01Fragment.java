@@ -83,7 +83,7 @@ public class PlanInfo01Fragment extends Fragment {
         btn_planmain_create.setVisibility(View.GONE);
         btn_planmain_update.setVisibility(View.VISIBLE);
 
-        planMemberList(planlistDTO.getParty_sn());
+        planMemberListNew(planlistDTO.getPlan_sn());
 
 
 
@@ -131,10 +131,10 @@ public class PlanInfo01Fragment extends Fragment {
     }//onCreateView()
 
 
-    //파티 멤버리스트 조회
-    public ArrayList<PartyMemberListDTO> planMemberList(int party_sn) {
-        commonAsk = new CommonAsk("android/party/planmemberlist");
-        commonAsk.params.add(new CommonAskParam("party_sn",party_sn+""));
+    //파티 멤버리스트 조회 (엮여있는게 있을까봐 메소드 새로팜)
+    public ArrayList<PartyMemberListDTO> planMemberListNew(int plan_sn) {
+        commonAsk = new CommonAsk("android/party/planMemberListNew");
+        commonAsk.params.add(new CommonAskParam("plan_sn",plan_sn+""));
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
@@ -174,7 +174,7 @@ public class PlanInfo01Fragment extends Fragment {
         }
 
         ViewGroup.LayoutParams params = gridView.getLayoutParams();
-        params.height = totalHeight -100;
+        params.height = totalHeight -50;
         gridView.setLayoutParams(params);
     }
 

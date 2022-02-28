@@ -224,9 +224,33 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:layout_weight="1"
+                    android:layout_weight="4"
                     android:gravity="center"
                     android:text=" * 참여 멤버" />
+
+                <EditText
+                    android:id="@+id/edt_invite_member"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="60dp"
+                    android:textAlignment="center"
+                    android:hint="초대 멤버입력"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/btn_plan_invite"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black"
+                        />
+
+
+                </LinearLayout>
 
 
             </LinearLayout>

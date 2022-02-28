@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category.mapper">
+
+	<!-- 원소스 -->
+	<!-- <select id="categoryList_tour" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a , (select rownum no, .... )
+		where a.board_class = 'tour'
+	</select> -->
+	<!-- 
+	<select id="totalList" resultType="integer">
+		select count(*) from tbl_board
+	</select> -->
+		
+	<!-- 전체 게시글 수 조회 2022/02/26 추가-->
+	<select id="categoryList_tour_totalList" resultType="integer">
+		select count(*) from tbl_board
+		where board_class = 'tour'
+	</select>
+
+	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
+	<!-- 2022/02/26 수정 -->
+	<select id="categoryList_tour" resultType="category.CategoryVO">
+		select *
+		from (select rownum no, a.*
+		    from (select a.*, NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+		            NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn), 0) board_cnt_reply,
+		            NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		            from (select * from tbl_board
+		                  order by board_sn) a) a
+		where board_class = 'tour'
+		order by no desc)
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	
+	
+<!-- 원소스 -->
+ <!-- <select id="categoryList_activity" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a 
+		where a.board_class = 'activity'
+	</select> -->
+	
+	<!-- 전체 게시글 수 조회 2022/02/26 추가-->
+	<select id="categoryList_activity_totalList" resultType="integer">
+		select count(*) from tbl_board
+		where board_class = 'activity'
+	</select>
+
+	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
+	<!-- 2022/02/26 수정 -->
+	<select id="categoryList_activity" resultType="category.CategoryVO">
+		select *
+		from (select rownum no, a.*
+		    from (select a.*, NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+		            NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn), 0) board_cnt_reply,
+		            NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		            from (select * from tbl_board
+		                  order by board_sn) a) a
+		where board_class = 'activity'
+		order by no desc)
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	
+	
+	
+	<!-- 원소스 -->
+<!-- 	<select id="categoryList_festival" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		from tbl_board a 
+		where a.board_class = 'festival'
+	</select> -->
+		<!-- 전체 게시글 수 조회 2022/02/26 추가-->
+	<select id="categoryList_festival_totalList" resultType="integer">
+		select count(*) from tbl_board
+		where board_class = 'festival'
+	</select>
+
+	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
+	<!-- 2022/02/26 수정 -->
+	<select id="categoryList_festival" resultType="category.CategoryVO">
+		select *
+		from (select rownum no, a.*
+		    from (select a.*, NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+		            NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn), 0) board_cnt_reply,
+		            NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+		            from (select * from tbl_board
+		                  order by board_sn) a) a
+		where board_class = 'festival'
+		order by no desc)
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
+
+	<!-- <insert id="reply_insert" useGeneratedKeys="false">
+		insert into tbl_board(board_sn,board_title, board_content, board_class, member_id,board_reviewpath)
+		values (seq_board_sn.NEXTVAL, #{board_title}, #{board_content}, #{board_class}, #{member_id},#{board_sn})
+		
+		<selectKey keyProperty="board_sn" resultType="int" order="AFTER"> SELECT seq_board_sn.CURRVAL FROM DUAL </selectKey>
+		
+	</insert>
+	<insert id="reply_picture"  parameterType="java.util.List">
+	
+		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
+		    INTO tbl_board_picture (picture_filepath,board_sn,member_id) VALUES (#{item.picture_filepath}, #{item.board_sn}, #{item.member_id})
+		</foreach>
+		
+	</insert>
+ -->	
+<!-- 	<insert id="replyInsert" useGeneratedKeys="false">
+		insert into tbl_reply(reply_sn,reply_content, board_sn, member_id)
+		values (seq_reply_sn.NEXTVAL, #{reply_content}, #{board_sn}, #{member_id})
+		
+		<selectKey keyProperty="reply_sn" resultType="int" order="AFTER"> SELECT seq_reply_sn.CURRVAL FROM DUAL </selectKey>
+		
+	</insert>
+	<insert id="reply_picture"  parameterType="java.util.List">
+	
+		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
+		    INTO tbl_board_picture (picture_filepath,reply_sn,member_id) VALUES (#{item.picture_filepath}, #{item.reply_sn}, #{item.member_id})
+		</foreach>
+		
+	</insert>
+	 -->
+	 
+	 	<insert id="replyInsert">
+		insert into tbl_reply ( reply_sn, reply_content, board_sn, member_id)
+		values (seq_reply_sn.NEXTVAL, #{reply_content}, #{board_sn}, #{member_id})	
+		</insert>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- <insert id="reply_picture">
+		insert into tbl_board_picture (picture_filepath)
+		values (#{picture_filepath})
+	</insert> -->
+	
+	<!-- <select id="detail_List" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_sn = #{board_sn}
+	</select> -->
+	
+	<select id="detail_categoryBoard" resultType="category.CategoryVO">
+		select * from tbl_board
+		where board_sn = #{board_sn}
+	</select>
+	
+	
+	<select id="list_picture" resultType="category.PictureVO">
+		select * from tbl_board_picture
+		where board_sn = #{board_sn}
+	</select>
+	
+	<!-- 리뷰사진 리스트 -->
+	<select id="list_repicture" resultType="category.PictureVO">
+		select * from tbl_board_picture
+		where board_sn = #{board_sn}
+	</select>
+	
+	<select id="list_reviewpath" resultType="category.CategoryVO">
+		select a.* , b.member_nick from tbl_reply a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
+		where a.board_sn = #{board_sn}
+		order by reply_writedate desc
+	</select>
+	
+	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like
+		from tbl_board a 
+		where a.board_sn = #{board_sn}
+	</select>
+	
+	<select id="detail_categoryBoards" resultType="category.CategoryVO">
+		select 
+			a.*,
+			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
+			NVL((select count(b.reply_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id =#{member_id}),0) function_like
+		from tbl_board a 
+		where a.board_sn = #{board_sn}
+	</select>
+
+	<select id="category_like" resultType="int">
+		select NVL(COUNT(*),0) from tbl_likes
+		where board_sn = #{board_sn}
+	</select>
+	
+	<insert id="like_insert">
+		insert into tbl_likes(board_sn, member_id)
+		values (#{board_sn}, #{member_id})
+	</insert>
+	
+	<delete id="like_delete">
+		delete from tbl_likes where board_sn = #{board_sn} and member_id = #{member_id}
+	</delete>
+	
+	<select id="categoryLike_sn_member" resultType="int">
+		select count(*) 
+		from tbl_likes 
+		where board_sn = #{board_sn} 
+		and member_id = #{member_id}
+	</select>
+	
+	<delete id="reply_delete">
+		delete from tbl_reply where reply_sn = #{reply_sn} and member_id = #{member_id}
+	</delete>
+	
+	
+	
+</mapper>

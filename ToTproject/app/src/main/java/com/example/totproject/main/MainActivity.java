@@ -5,16 +5,22 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +32,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
 import com.example.totproject.R;
 import com.example.totproject.common.VO.MemberDTO;
@@ -37,7 +47,11 @@ import com.example.totproject.login.TendencyActivity01;
 import com.example.totproject.mainburgeractivity.MainBurger00Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,11 +61,17 @@ public class MainActivity extends AppCompatActivity {
     Button main_btn_burger, main_btn_reload;
     Toolbar toolbar;
     ImageView cancel;
+    ImageView main_burger_imgv_circle;  // 버거메뉴 프사
     TextView main_tv_acttitle;
 
     LinearLayout afterLogin, main_burger_myboard, main_burger_myscrap, main_burger_myparty;
     LinearLayout main_burger_logout;
     FragmentManager manager = getSupportFragmentManager();
+
+    public int reqGcode = 1004;
+
+    CommonAsk commonAsk;
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         /* =================================== 바텀메뉴 =================================== */
         main_tv_acttitle = findViewById(R.id.main_tv_acttitle);
         ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
+        
+        // 바텀네비 조작영역
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -179,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 goSplash();
             }
         });
-        ImageView main_burger_imgv_circle;
+        
         main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
         if (Logined.picture_filepath != null) {
@@ -193,13 +215,11 @@ public class MainActivity extends AppCompatActivity {
         main_burger_imgv_circle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastCheck("프로필사진 바꾸기");
-                if(Logined.picture_filepath == null){
-                    Toast.makeText(MainActivity.this, "null임", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this, "filepath 있음", Toast.LENGTH_SHORT).show();
-
-                }
+                checkDangerousPermissions();
+                Intent imageIntent = new Intent();
+                imageIntent.setType("image/*");
+                imageIntent.setAction(Intent.ACTION_PICK);
+                startActivityForResult(Intent.createChooser(imageIntent,"사용할 앱 선택"), reqGcode);
 
             }
         });
@@ -292,7 +312,94 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate()
 
+
     /* =================================== 메소드 ======================= */
+
+
+    // 사진 픽업 메소드
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1004){
+            Toast.makeText(MainActivity.this, "이미지 가져오기 성공.", Toast.LENGTH_SHORT).show();
+            Uri galleryUri = data.getData();
+            Logined.picture_filepath = getPathFromURI(galleryUri);
+            changeUserPic();
+            Glide.with(MainActivity.this).load(galleryUri).into(main_burger_imgv_circle);
+
+        }
+    }
+
+    // 유저 프사 변경
+    private void changeUserPic() {
+        commonAsk = new CommonAsk("android/cmh/changeUserPic");
+        commonAsk.params.add(new CommonAskParam("member_id",Logined.member_id));
+        commonAsk.fileParams.add(new CommonAskParam("picture_filepath",Logined.picture_filepath));
+
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+
+    }
+
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cusor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cusor.moveToFirst()) {
+            int column_index = cusor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cusor.getString(column_index);
+        }
+        return res;
+    }
+
+
+
+    private void checkDangerousPermissions() {
+        String[] permissions = {
+                Manifest.permission.CAMERA,
+                Manifest.permission.ACCESS_MEDIA_LOCATION,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        };
+
+        int permissionCheck = PackageManager.PERMISSION_GRANTED;
+        for (int i = 0; i < permissions.length; i++) {
+            permissionCheck = ContextCompat.checkSelfPermission(this, permissions[i]);
+            if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+                break;
+            }
+        }
+
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
+                Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(this, permissions, 1);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);   //빨간줄 뜨길래 자동완성함
+        if (requestCode == 1) {
+            for (int i = 0; i < permissions.length; i++) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, permissions[i] + " 권한이 승인됨.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, permissions[i] + " 권한이 승인되지 않음.", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
+
+
+
 
     /* =================================== 상단 텍스트변경 =================================== */
     public void titleTextChange(TextView textView, String titleText) {

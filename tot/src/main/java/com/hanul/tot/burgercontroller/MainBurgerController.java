@@ -23,14 +23,24 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
 
+import android.kwk.MemberVO;
 import android.mainburger.BoardCommonVO;
+import android.partyvo.PartyListVO;
+import common.CommonService;
+import picture.PictureVO;
 
 @Controller
 public class MainBurgerController {
 	Gson gson = new Gson();
+	
+	@Autowired
+	CommonService service;
 
 	@Autowired
 	@Qualifier("cteam")
@@ -176,5 +186,71 @@ System.out.println("\n\n board_list@*/*/ \n\n");
 		}
 
 	}
+	
+	//@ResponseBody
+	@RequestMapping("/android/cmh/changeUserPic")
+	public void changeUserPic(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		System.out.println("changeUserPic() 메소드 접근");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		
+		String member_id = req.getParameter("member_id");
+
+		MultipartRequest mulReq = (MultipartRequest) req;
+		MultipartFile picture_filepath = mulReq.getFile("picture_filepath");
+		MemberVO vo = new MemberVO();
+		vo.setMember_id(member_id);
+		
+
+		try {
+			PictureVO pic_vo = new PictureVO();
+			pic_vo = sql.selectOne("mainburger.mapper.selectUserPic", vo);
+
+			// 안드에서 변경한 사진이 왔다면 :  사진세팅
+			if (picture_filepath != null) {
+				System.out.println("Null 아님 파일 들어옴");
+				String path = service.fileupload("and", picture_filepath, session);
+				String server_path = "http://" + req.getLocalAddr() + ":" + req.getLocalPort() + req.getContextPath()
+						+ "/resources/";
+				System.out.println(server_path + path);
+				vo.setPicture_filepath(server_path + path);
+				
+				// 기존 유저 프사가 없다면 insert
+				if(pic_vo == null) {					
+					sql.insert("mainburger.mapper.insertUserPic", vo);
+					
+				//없다면 update
+				}else {
+					sql.update("mainburger.mapper.updateUserPic", vo);
+				}
+				
+				
+
+				
+
+			} else {
+				System.out.println("Null임 파일 안들어옴..");
+
+			}
+
+			writer.print(gson.toJson(vo));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}// insertParty
+	
+	
 
 }
+
+
+
+
+
+
+

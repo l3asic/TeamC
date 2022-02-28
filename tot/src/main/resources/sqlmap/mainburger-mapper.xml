@@ -40,4 +40,26 @@ insert into tbl_board (member_id, board_title, board_content, board_class) value
 select * from tbl_board where member_id=#{name, jdbcType=VARCHAR}} and board_title=#{title} and board_content = #{content}
 </select>
 
+<select id="selectUserPic" resultType="picture.PictureVO">
+
+	select picture_filepath, member_id from tbl_board_picture where member_id = #{member_id}
+	
+</select>
+
+
+<insert id="insertUserPic">
+	insert into tbl_board_picture (picture_filepath, member_id) 
+	values (#{picture_filepath}, #{member_id})
+</insert>
+
+
+<update id="updateUserPic">
+	update tbl_board_picture
+	set 
+	picture_filepath = #{picture_filepath}		
+	where member_id = #{member_id}
+</update>
+
+
+
 </mapper>

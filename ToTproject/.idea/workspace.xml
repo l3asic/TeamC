@@ -253,20 +253,35 @@
           <line>91</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+        <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>
           <line>149</line>
           <option name="timeStamp" value="148" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+        <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>
           <line>257</line>
           <option name="timeStamp" value="155" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+        <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>
           <line>266</line>
           <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/main/MainActivity.java</url>
+          <line>321</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/main/MainActivity.java</url>
+          <line>334</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/main/MainActivity.java</url>
+          <line>344</line>
+          <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/totproject/party_plan/PlanUpdatePlanActivity.java</url>

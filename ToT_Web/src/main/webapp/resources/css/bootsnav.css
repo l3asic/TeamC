@@ -35,7 +35,7 @@ nav.navbar.bootsnav{
     -webkit-border-radius: 0px;
     -o-border-radius: 0px;
     border-radius: 0px;
-    background-color: #BDEDFF;
+    background-color: #fff;
     border: none;
     z-index: 9;
 }
@@ -359,7 +359,7 @@ body.on-side{
     width: 280px;
     padding: 25px 15px;
     height: 100%;
-   
+    display: block;
     background-color: #010101;
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;

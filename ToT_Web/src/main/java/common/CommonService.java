@@ -43,12 +43,12 @@ public class CommonService {
 		return folder.substring(resources.length() + 1) + "/" + uuid;
 	}
 
-	public JSONTokener requestAPI(StringBuffer url, String string) {
+	public JSONTokener requstAPI(StringBuffer url) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public JSONTokener requstAPI(StringBuffer url) {
+	public JSONTokener requestAPI(StringBuffer url, String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}	

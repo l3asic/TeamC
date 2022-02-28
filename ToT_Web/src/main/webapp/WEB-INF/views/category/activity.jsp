@@ -39,40 +39,61 @@
 
 <body>
 
+	<!-- ★★★☆ 페이지 넘어가기위해서 필요함 -->
+	<form action="activity.ca" method="post">
 
-	<!-- Start Main Top -->
-	<header class="main-header">
-		<!-- Start Navigation -->
-		<nav
-			class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-			<div class="container" style="position: relative;">
-				<!-- Start Header Navigation -->
-				<div class="navbar-header">
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#navbar-menu" aria-controls="navbars-rs-food"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<i class="fa fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="home"><img src="images/main_logo.png" class="logo" alt=""></a>
-				<div class="navbar-float" style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
-					<ol style="font-size: 13px">
-						<li style="list-style-type: none; float: left;"><a href="#">로그인</a></li>
-						<li style="list-style-type: none; float: left;"> ｜ </li>
-						<li style="list-style-type: none; float: left;"><a href="#">회원가입</a></li>
-					</ol>
-				</div>
-				</div>
-				<!-- End Header Navigation -->
+	<input type="hidden" name="curPage" value="1"    />    <!-- 여기서 1은 현재페이지 -->
+	</form>
+<!-- 페이지처리 여기까지 -->
+
+
+<!-- Start Main Top -->
+<header class="main-header">
+   <!-- Start Navigation -->
+   <nav
+      class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+      <div class="container" style="position: relative;">
+         <!-- Start Header Navigation -->
+         <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+               data-target="#navbar-menu" aria-controls="navbars-rs-food"
+               aria-expanded="false" aria-label="Toggle navigation">
+               <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="<c:url value='/' />"><img
+               src="images/main_logo.png" class="logo" alt=""></a>
+            <div class="navbar-float"
+               style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
+               <ol style="font-size: 13px">
+                  <!-- 로그인하지 않은 상태 -->
+                  <c:if test="${ empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a
+                        href="login">로그인</a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="member">회원가입</a></li>
+                  </c:if>
+                  <!-- 로그인한 상태 -->
+                  <c:if test="${ !empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a href="whosepage"><strong>${loginInfo.member_id}</strong></a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="logout">로그아웃</a></li>
+                  </c:if>
+               </ol>
+            </div>
+         </div>
+         <!-- End Header Navigation -->
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link" href="home">홈</a></li>
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 							<ul class="dropdown-menu">
-								<li><a href="categoryList_tour">관광지</a></li>
-								<li><a href="categoryList_activity">액티비티</a></li>
-								<li><a href="categoryList_festival">지역축제</a></li>
+								<li><a href="tour.ca">관광지</a></li>
+								<li><a href="activity.ca">액티비티</a></li>
+								<li><a href="festival.ca">지역축제</a></li>
 							</ul>
 						</li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
@@ -91,16 +112,58 @@
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
-
-				<!-- End Atribute Navigation -->
 			</div>
 			<!-- Start Side Menu -->
+			<div class="side">
+				<a href="#" class="close-side"><i class="fa fa-times"></i></a>
+				<li class="cart-box">
+					<ul class="cart-list">
+						<li><a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+							<h6>
+								<a href="#">Delica omtantur </a>
+							</h6>
+							<p>
+								1x - <span class="price">$80.00</span>
+							</p></li>
+						<li><a href="#" class="photo"><img
+								src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+							<h6>
+								<a href="#">Omnes ocurreret</a>
+							</h6>
+							<p>
+								1x - <span class="price">$60.00</span>
+							</p></li>
+						<li><a href="#" class="photo"><img
+								src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+							<h6>
+								<a href="#">Agam facilisis</a>
+							</h6>
+							<p>
+								1x - <span class="price">$40.00</span>
+							</p></li>
+						<li class="total"><a href="#"
+							class="btn btn-default hvr-hover btn-cart">VIEW CART</a> <span
+							class="float-right"><strong>Total</strong>: $180.00</span></li>
+					</ul>
+				</li>
+			</div>
 			<!-- End Side Menu -->
 		</nav>
 		<!-- End Navigation -->
 	</header>
 	<!-- End Main Top -->
 
+	<!-- Start Top Search -->
+	<div class="top-search">
+		<div class="container">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-search"></i></span>
+				<input type="text" class="form-control" placeholder="Search">
+				<span class="input-group-addon close-search"><i
+					class="fa fa-times"></i></span>
+			</div>
+		</div>
+	</div>
 	<!-- End Top Search -->
 
 	<!-- Start All Title Box -->
@@ -123,17 +186,48 @@
 					<div class="right-product-box">
 						<div class="product-item-filter row categoryValue">
 							액티비티
+							<!-- <div class="col-12 col-sm-4 text-center text-sm-right">
+								<ul class="nav nav-tabs ml-auto">
+									<li><a class="nav-link active" href="#grid-view"
+										data-toggle="tab"> <i class="fa fa-th"></i>
+									</a></li>
+									<li><a class="nav-link" href="#list-view"
+										data-toggle="tab"> <i class="fa fa-list-ul"></i>
+									</a></li>
+								</ul>
+							</div> -->
 						</div>
 						<div class="product-categorie-box">
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane fade show active" id="grid-view" style="align-content: center;">
 									<div class="row">
-
-										<c:forEach var="vo" items="${vo }">
+										<%-- <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+											<div class="products-single fix">
+												<div class="box-img-hover">
+													<img src="${vo.picture_filepath }" class="img-fluid" alt="Image">
+												</div>
+												<div class="why-text">
+													<h4>${vo.board_title }</h4>
+													<div class="list-sub">
+														<ul>
+															<li><img src="images/like.png" alt="">
+																<h5>좋아요</h5>
+																<h5>${vo.function_like }</h5></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+ --%>
+										<c:forEach var="vo" items="${page.list }">
 											<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
 												<div class="products-single fix">
 													<div class="box-img-hover">
-														<a href="#">
+													<a href="detail.ca?board_sn=${vo.board_sn }">
+														<%-- <img src="${vo.picture_filepath }" class="img-fluid">
+															<c:if test="${empty vo.picture_filepath }">
+																<img src="images/no_image.png" class="img-fluid" alt="NO IMAGE">
+															</c:if> --%>
 															
 														<c:choose>
 															<c:when test="${ !empty vo.picture_filepath }">
@@ -157,7 +251,7 @@
 														</ul>
 														<ul class="inline-align">
 															<li><img src="images/comment.png" alt="">
-																<h5>${vo.function_like }</h5></li>
+																<h5>${vo.board_cnt_reply }</h5></li>
 														</ul>
 													</div>
 													</div>
@@ -176,8 +270,141 @@
 				
 		</div>
 
+	<!-- End Shop Page -->
 
+	<!-- Start Instagram Feed  -->
+	<!-- <div class="instagram-box">
+		<div class="main-instagram owl-carousel owl-theme">
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-01.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-02.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-03.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-04.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-05.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-06.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-07.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-08.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-09.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ins-inner-box">
+					<img src="images/instagram-img-05.jpg" alt="" />
+					<div class="hov-in">
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- End Instagram Feed  -->
+
+
+	<!-- Start Footer  -->
+<!-- 	<footer>
+		<div class="footer-main">
+			<div class="container">
+				<div class="row">
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-link-contact">
+							<h4>Contact Us</h4>
+							<ul>
+								<li>
+									<p>
+										<i class="fas fa-map-marker-alt"></i>Address: Michael I. Days
+										3756 <br>Preston Street Wichita,<br> KS 67213
+									</p>
+								</li>
+								<li>
+									<p>
+										<i class="fas fa-phone-square"></i>Phone: <a
+											href="tel:+1-888705770">+1-888 705 770</a>
+									</p>
+								</li>
+								<li>
+									<p>
+										<i class="fas fa-envelope"></i>Email: <a
+											href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer> -->
 	<!-- End Footer  -->
+	
+	
+	<!-- ★★★☆ 페이지 넘어가기위해서 필요함 -->
+	<jsp:include page="/WEB-INF/views/include/page.jsp"/>
+	<!-- 여기까지 -->
+	
+	
 
 		<!-- Start copyright  -->
 	<footer>
@@ -192,6 +419,10 @@
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 	
 	</footer>
+	
+	
+	
+	
 	
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>

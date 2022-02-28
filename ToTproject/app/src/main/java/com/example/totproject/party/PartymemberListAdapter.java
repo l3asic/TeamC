@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 
 import java.util.ArrayList;
@@ -60,11 +61,18 @@ public class PartymemberListAdapter  extends BaseAdapter {
         }
         //if(list.get(position).getImgresId() == 1)
         viewHolder.tv_member_nick.setText(list.get(position).getMemberid());
+        
+        // @@@ 사진 세팅 중
+        if ( list.get(position).getPicture_filepath() != null){
+            Glide.with(context).load(list.get(position).getPicture_filepath()).into(viewHolder.imgv_member_pic);
+        }
+
         //viewHolder.imgv1.setImageResource(list.get(position).getImgresId());
 
 
         return convertView;
     }
+
     //ViewHolder <- 위젯들을 하나로 묶은 클래스를 만들고 사용.
     //Imagev1 , tv1 , tv2 (Class)
     public class GridViewHolder{

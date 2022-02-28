@@ -185,6 +185,27 @@ public class PartyDAO {
 	}
 
 
+	public void insertPlanDays(PlanInfoVO vo) {
+		sql.insert("party.mapper.insertPlanDays", vo);
+		
+	}
+
+
+	public List<PartyMemberListVO> planJoinMemberList(int plan_sn) {
+		
+		return sql.selectList("party.mapper.planJoinMemberList", plan_sn);	
+	}
+
+
+	public void updatePlan(PartyPlanListVO vo) {
+		sql.update("party.mapper.updatePlan", vo);
+		
+	}
+
+
+	
+
+
 //	public List<PartyMemberListVO> selectPartyMemberList(int party_sn) {
 //		
 //		return sql.selectList("party.mapper.selectPartyMemberList", party_sn);

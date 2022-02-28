@@ -38,19 +38,12 @@ public class DatePickerActivity extends AppCompatActivity {
 
 
         // 데이트 피커로 정보 date에 담음
-//        year = new Date().getYear();
-//        month = new Date().getMonth();
-//        day = new Date().getDay();
-//
-//        SimpleDateFormat this_yer = new SimpleDateFormat("yyyy-MM-dd");
-//        SimpleDateFormat this_year = new SimpleDateFormat("yyyy");
-
         SimpleDateFormat sdf_year = new SimpleDateFormat("yyyy");
         SimpleDateFormat sdf_month = new SimpleDateFormat("MM");
         SimpleDateFormat sdf_day = new SimpleDateFormat("dd");
         Date now = new Date();
         now_year = Integer.parseInt(sdf_year.format(now));
-        now_month = Integer.parseInt(sdf_month.format(now));
+        now_month = Integer.parseInt(sdf_month.format(now)) -1;     // 한달 마이너스 되는 버그있음 (코드로 수정해논 것)
         now_day = Integer.parseInt(sdf_day.format(now));
 
 
@@ -59,13 +52,33 @@ public class DatePickerActivity extends AppCompatActivity {
         datePicker.init(now_year, now_month, now_day, new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                String date = year + "/" + monthOfYear + "/" + dayOfMonth;
+                String str_monthOfYear = "";
+                String str_dayOfMonth = "";
+                if (monthOfYear <= 9){
+                    monthOfYear++;
+                    str_monthOfYear = "0"+monthOfYear;
+                }else{
+                    monthOfYear++;
+                    str_monthOfYear = ""+monthOfYear;
+                }
+
+                if (dayOfMonth <= 9){
+                    str_dayOfMonth = "0"+dayOfMonth;
+                }else{
+                    str_dayOfMonth = ""+dayOfMonth;
+                }
+
+
+                String date = year + "-" + str_monthOfYear + "-" + str_dayOfMonth;
                 Toast.makeText(DatePickerActivity.this, date, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent();
-                intent.putExtra("date", date);
-                setResult(RESULT_OK);
+                Intent intent = new Intent(DatePickerActivity.this , PlanCreatePlanActivity.class);//
+                intent.putExtra("date", date+"");
+
+                setResult(RESULT_OK,intent);
                 finish();
+
+
 
 
             }

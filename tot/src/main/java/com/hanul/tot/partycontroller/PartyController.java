@@ -532,15 +532,15 @@ public class PartyController {
 		try {
 
 			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
-			list = pDAO.selectPlanList(party_sn);
+			list = pDAO.selectPlanList(party_sn);		
 			
-			
-			// 중복된 plan_sn 제거하는 로직
-			for(int i =0; i<list.size()-1; i++) {				
-				
-				if(list.get(i).getPlan_sn() == list.get(i+1).getPlan_sn()) {
-					list.remove(i);
-				}
+			for(int i =0; i<list.size(); i++) {	
+				for(int j=0; j<list.size(); j++){
+					if(list.get(i).getPlan_sn() == list.get(j).getPlan_sn() ) {
+						list.remove(i);
+					}
+					
+				}				
 			}
 			
 			
@@ -618,13 +618,21 @@ public class PartyController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
-		String from_and_dto = req.getParameter("dto");
+		String member_id = req.getParameter("member_id");
 		int diffDayss = Integer.parseInt(req.getParameter("diffDayss"));
 		
-		PartyPlanListVO vo = new PartyPlanListVO();
-		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
 		
-		for (int i = 0; i < diffDayss; i++) {
+		List<PartyPlanListVO> pvo = new ArrayList<PartyPlanListVO>();
+		pvo = pDAO.selectPlanSn(member_id);
+		
+		
+		PlanInfoVO vo = new PlanInfoVO();
+		vo.setPlan_sn(pvo.get(0).getPlan_sn());
+		
+		
+		// 계획 날짜 만큼 플랜인포에 데이터 행 넣어줌
+		for (int i = 1; i <= diffDayss; i++) {
+			vo.setPlandetail_date("Day "+i);
 			pDAO.insertPlanDays(vo);			
 		}
 		
@@ -632,6 +640,35 @@ public class PartyController {
 		
 
 	}// insertPlanDetail()
+	
+	@ResponseBody
+	@RequestMapping("/android/party/insertPlanDays2")
+	public void insertPlanDays2(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("insertPlanDays2() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		int plan_sn = Integer.parseInt(req.getParameter("plan_sn"));
+		int diffDayss = Integer.parseInt(req.getParameter("diffDayss"));		
+		
+		PlanInfoVO vo = new PlanInfoVO();
+		vo.setPlan_sn(plan_sn);
+		
+		
+		// 계획 날짜 만큼 플랜인포에 데이터 행 넣어줌
+		for (int i = 1; i <= diffDayss; i++) {
+			vo.setPlandetail_date("Day "+i);
+			pDAO.insertPlanDays(vo);			
+		}
+		
+		
+		
+
+	}// insertPlanDetail2()
 	
 	@ResponseBody
 	@RequestMapping("/android/party/insertplandetail")
@@ -741,5 +778,70 @@ public class PartyController {
 			e.printStackTrace();
 		}
 	}// planMemberList()
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/planJoinMemberList")
+
+	public void planJoinMemberList(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("planJoinMemberList() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		//
+		int plan_sn = Integer.parseInt(req.getParameter("plan_sn"));
+
+		try {
+
+			List<PartyMemberListVO> list = new ArrayList<PartyMemberListVO>();
+			list = pDAO.planJoinMemberList(plan_sn);
+
+			writer.print(gson.toJson(list));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}// planJoinMemberList()
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/android/party/updatePlan")
+	public void updatePlan(HttpServletRequest req, HttpServletResponse res, HttpSession session)
+			throws IOException {
+
+		System.out.println("updatePlan() 에 접근함");
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+
+		String from_and_dto = req.getParameter("dto");		
+		PartyPlanListVO vo = new PartyPlanListVO();
+		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
+		pDAO.updatePlan(vo);
+		
+		
+	}// updatePlan()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }// PartyController()

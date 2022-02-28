@@ -57,41 +57,29 @@ public class PlanInfo02Fragment extends Fragment {
         String old_plan_dtl = "";
         int flag = 0 ;
 
+        // @@@ 아마도 익스펜더블 뷰 세팅 + 추가 작업?
+        if(list != null){
+            for(int i = 0 ; i < list.size(); i++){
+                plan_dtl = list.get(i).getPlandetail_date();
+                if(!plan_dtl.equals(old_plan_dtl)){
+                    old_plan_dtl = plan_dtl;
+                    item_list.add(list.get(i));
+                    item_list.get(flag).setSubList();
 
-        // 익스펜더블 뷰 어댑터로 세팅
-        for(int i = 0 ; i < list.size(); i++){
-            plan_dtl = list.get(i).getPlandetail_date();
-            if(!plan_dtl.equals(old_plan_dtl)){
-                old_plan_dtl = plan_dtl;
-                item_list.add(list.get(i));
-                item_list.get(flag).setSubList();
+                    for(int j = 0 ; j < list.size(); j++){
+                        if(item_list.get(flag).getPlandetail_date().equals(list.get(j).getPlandetail_date())){
+                            try{
+                                item_list.get(flag).getSubList().add(list.get(j));
 
-                for(int j = 0 ; j < list.size(); j++){
-                    if(item_list.get(flag).getPlandetail_date().equals(list.get(j).getPlandetail_date())){
-                        try{
-                            item_list.get(flag).getSubList().add(list.get(j));
-
-                        }catch (Exception e){
-                            String aaa = "";
+                            }catch (Exception e){
+                                String aaa = "";
+                            }
                         }
-
                     }
+                    flag ++ ;
                 }
-                flag ++ ;
-
             }
-
         }
-
-
-
-
-
-
-
-
-        // @@@@@@@@ to adapter data setting @@@@@@@@@@@
-
 
 
 

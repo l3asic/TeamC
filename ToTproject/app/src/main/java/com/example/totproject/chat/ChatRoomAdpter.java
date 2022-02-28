@@ -81,12 +81,10 @@ public class ChatRoomAdpter extends RecyclerView.Adapter<ChatRoomAdpter.MyViewHo
                 dto.setPicture_filepath(party_member_list.get(i).getPicture_filepath());
             }
 
-
-
         }
 
 
-        //
+        // 내채팅이라면
         if(dto.getNickname().equals(Logined.member_id)){
 
             holder.lin_mychat.setVisibility(View.VISIBLE);
@@ -94,17 +92,18 @@ public class ChatRoomAdpter extends RecyclerView.Adapter<ChatRoomAdpter.MyViewHo
             holder.tv_my_msg.setText(dto.getMsg());
             holder.tv_my_date.setText(dto.getDate());
 
-
-
+            //남의 채팅이라면
         }else{
             holder.lin_mychat.setVisibility(View.GONE);
             holder.lin_yourchat.setVisibility(View.VISIBLE);
             holder.tv_your_msg.setText(dto.getMsg());
             holder.tv_your_date.setText(dto.getDate());
 
-            if (dto.getNickname().equals(mDataset.get(position-1).getNickname())){
+            // 이전채팅한사람이 같다면 말풍선만 뜨도록 (프사생략)
+            if (position != 0 && dto.getNickname().equals(mDataset.get(position-1).getNickname())){
                 holder.lin_your_profile.setVisibility(View.GONE);
 
+                // 이전채팅이 같지않다면 프사도 다시 뜨도록
             }else{
                 holder.lin_your_profile.setVisibility(View.VISIBLE);
                 if ( dto.getPicture_filepath() != null){
@@ -114,68 +113,9 @@ public class ChatRoomAdpter extends RecyclerView.Adapter<ChatRoomAdpter.MyViewHo
             }
 
 
-
-
-
-
-
-
         }
 
 
-
-
-
-
-        // @@@@@@@ updating
-
-//        holder.txt_nickName.setText(dto.getNickname());
-//        holder.txt_msg.setText(dto.getMsg());
-//        holder.txt_date.setText(dto.getDate());
-//        holder.txt_msg2.setText(dto.getMsg());
-//        holder.txt_date2.setText(dto.getDate());
-//
-//
-//
-//
-//
-//
-//
-//
-//        if(dto.getNickname().equals(Logined.member_id)){    // 내아이디라면 우측표시
-//            holder.txt_msg.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
-//            holder.txt_nickName.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
-//            holder.txt_date.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
-//            LinearLayout ln11 =  (LinearLayout) holder.ln1.getParent();
-//            LinearLayout ln12 =  (LinearLayout) holder.ln1;
-//            ln11.setGravity(Gravity.RIGHT);
-//            //holder.txt_msg.setBackgroundColor(Color.WHITE);
-//
-//            if ( dto.getPicture_filepath() != null){
-//                Glide.with(context).load(dto.getPicture_filepath()).into(holder.down_arrow);    //@@@@애로우 와 애로우2번차이?
-//                Glide.with(context).load(dto.getPicture_filepath()).into(holder.down_arrow2);    //@@@@애로우 와 애로우2번차이?
-//            }
-
-//        }else{
-//            holder.txt_msg.setVisibility(View.GONE);
-//            holder.txt_date.setVisibility(View.GONE);
-//            holder.down_arrow.setVisibility(View.GONE);
-//            holder.txt_msg2.setVisibility(View.VISIBLE);
-//            holder.txt_date2.setVisibility(View.VISIBLE);
-//            holder.down_arrow2.setVisibility(View.VISIBLE);
-//            holder.txt_nickName.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//            holder.txt_msg2.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//            holder.txt_date2.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//            LinearLayout ln11 =  (LinearLayout) holder.ln1.getParent();
-//            LinearLayout ln12 =  (LinearLayout) holder.ln1;
-//            ln11. setGravity(Gravity.LEFT);
-//            //holder.txt_msg2.setBackgroundColor(Color.YELLOW);
-//
-//            if ( dto.getPicture_filepath() != null){
-//                Glide.with(context).load(dto.getPicture_filepath()).into(holder.down_arrow);    //@@@@애로우 와 애로우2번차이?
-//                Glide.with(context).load(dto.getPicture_filepath()).into(holder.down_arrow2);    //@@@@애로우 와 애로우2번차이?
-//            }
-//        }
     }//onBindViewHolder()
 
     @Override

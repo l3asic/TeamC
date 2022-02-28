@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 
 import java.util.ArrayList;
@@ -46,12 +47,12 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
     }
 
     public class Viewholder extends RecyclerView.ViewHolder{
-        ImageView imgv_plan;
+        ImageView leader_pic;
         TextView tv_plan_writer, tv_plan_name, tv_startdate, tv_starttime;
         LinearLayout lin_plan_click;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            //imgv_plan = itemView.findViewById(R.id.imgv_party);
+            leader_pic = itemView.findViewById(R.id.leader_pic);
             lin_plan_click = itemView.findViewById(R.id.lin_plan_click);
             tv_plan_writer = itemView.findViewById(R.id.tv_plan_writer);
             tv_plan_name = itemView.findViewById(R.id.tv_plan_name);
@@ -62,7 +63,10 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
-            //holder.imgv_plan.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
+
+            if ( list.get(position).getPicture_filepath() != null){
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(leader_pic);
+            }
             holder.tv_plan_writer.setText( list.get(position).getPlan_writer() +"" );
             holder.tv_plan_name.setText( list.get(position).getPlan_name() +"" );
             holder.tv_startdate.setText( list.get(position).getPlan_startdate() +"" );

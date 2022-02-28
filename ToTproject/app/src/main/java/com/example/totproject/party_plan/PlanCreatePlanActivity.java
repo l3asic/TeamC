@@ -45,20 +45,25 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
     ArrayList<PartyMemberListDTO> invite_list = new ArrayList<>();
 
     final int DIALOG_REQ = 1000;
+    final int DIALOG_REQ2 = 1001;
     EditText edt_plan_name, edt_plan_location, edt_plan_startpoint, edt_plan_hotel, edt_plan_cost,edt_plan_starttime, edt_plan_endtime;
     TextView tv_plan_startdate, tv_plan_enddate;
     Button btn_plan_create;
 
+    String leader_pic = null;
+
     String start_date;
     String end_date;
 
-    int year, month, day;
+    int diffDayss = -1;
+
+
     int party_sn;
 //    ArrayList<PlanlistDTO> list = new ArrayList<>();
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
-    
+
 
 
 
@@ -89,7 +94,7 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
         planMemberList(party_sn);
 
         // 어댑터 세팅영역
-        PlanMemberListAdpater adapter = new PlanMemberListAdpater(PlanCreatePlanActivity.this,plan_member_list,plDTO);
+        PlanMemberListAdpater adapter = new PlanMemberListAdpater(PlanCreatePlanActivity.this,plan_member_list,plDTO,1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 PlanCreatePlanActivity.this , RecyclerView.VERTICAL , false
         );
@@ -100,32 +105,23 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
         // @@@@@@@@@@@@ datepicker 영역
 
 
+        // 출발날짜 데이트피커로 세팅
         tv_plan_startdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PlanCreatePlanActivity.this, DatePickerActivity.class);
                 startActivityForResult(intent ,DIALOG_REQ );
-
-
-
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // 도착날짜 데이트피커로 세팅
+        tv_plan_enddate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanCreatePlanActivity.this, DatePickerActivity.class);
+                startActivityForResult(intent ,DIALOG_REQ2 );
+            }
+        });
 
 
 
@@ -141,10 +137,24 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // 출발 날짜 세팅
         if (requestCode == DIALOG_REQ && resultCode == RESULT_OK) {
-            start_date = data.getExtras().getString("date");
-            Toast.makeText(PlanCreatePlanActivity.this, "값 잘넘어옴 시작날짜" + start_date, Toast.LENGTH_SHORT).show();
+            try {
+                start_date = data.getStringExtra("date");
+                tv_plan_startdate.setText(start_date);
 
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            //도착 날짜 세팅
+        }else if(requestCode == DIALOG_REQ2 && resultCode == RESULT_OK){
+            try {
+                end_date = (data.getStringExtra("date"));
+                tv_plan_enddate.setText(end_date);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -165,7 +175,7 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
 
 
 
-
+    // 플랜정보 저장
     public void insertPlan(PlanlistDTO dto) {
 
         commonAsk = new CommonAsk("android/party/insertplan");
@@ -176,9 +186,10 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
 
     }
 
-    private void insertPlanDays(PlanlistDTO dto, int diffDayss) {
+    // 플랜에 출발날짜 도착날짜 차이 구해서 플랜 디테일에 days 세팅해주기
+    private void insertPlanDays(int diffDayss) {
         commonAsk = new CommonAsk("android/party/insertPlanDays");
-        commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
+        commonAsk.params.add(new CommonAskParam("member_id",Logined.member_id));
         commonAsk.params.add(new CommonAskParam("diffDayss" ,  diffDayss+"" ));
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
@@ -207,72 +218,72 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
 
     public void test(PartyListDTO plDTO) {
 
-        start_date = "2022-03-01";  //@@ 임시 출발날짜 세팅
-        end_date = "2022-03-03";  //@@ 임시 도착날짜 세팅
-
-        // 두 날짜간 차이 (플랜 Days 세팅위해)  diffDayss <= 최종 날짜 차이
-
-        int diffDayss = 0;
-        if(start_date != null && end_date != null){
-            Date start_date2 = null;
-            Date end_date2 = null;
-            try {
-                start_date2 = new SimpleDateFormat("yyyy-MM-dd").parse(start_date);
-                end_date2 = new SimpleDateFormat("yyyy-MM-dd").parse(end_date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            Calendar start_date3 = Calendar.getInstance();
-            Calendar end_date3 = Calendar.getInstance();
-            start_date3.setTime(start_date2); //특정 일자
-            end_date3.setTime(end_date2); //특정 일자
-
-            long diffSec = (end_date3.getTimeInMillis() - start_date3.getTimeInMillis()) / 1000;
-            long diffDays = diffSec / (24*60*60); //일자수 차이
-
-
-            diffDayss = (int) (diffDays+1);
-
-        }
-
-
 
         // 플랜 최종 저장 버튼 클릭시
         btn_plan_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 초대멤버가 없을시
                 if(invite_list.size() == 0 ){
                     return;
                 }
 
+                for (int i = 0; i<plan_member_list.size(); i++){
+                    if(plan_member_list.get(i).getMemberid().equals(Logined.member_id) && plan_member_list.get(i).getPicture_filepath() != null){
+                       leader_pic =  plan_member_list.get(i).getPicture_filepath();
+                    }
+                }
+
+
+
 
                 PlanlistDTO planlistDTO = new PlanlistDTO(
                         00,
-                        null,
+                        leader_pic,
                         party_sn,
                         edt_plan_name.getText()+"",
                         Logined.member_id,
-                        tv_plan_startdate.getText()+"",
-                        tv_plan_enddate.getText()+"",
+                        start_date,
+                        end_date,
                         edt_plan_location.getText()+"",
                         edt_plan_startpoint.getText()+"",
                         edt_plan_hotel.getText()+"",
                         edt_plan_cost.getText()+"",
                         Logined.member_id,
                         edt_plan_starttime.getText()+"",
-                        edt_plan_endtime+""
+                        edt_plan_endtime.getText()+""
                 );
 
+                // 플랜 추가
                 insertPlan(planlistDTO);
 
-                // @@@ 여기 왜 오류남
-                if (diffDayss != 0){
-                    insertPlanDays(planlistDTO, diffDayss);
+                // 두 날짜간 차이 (플랜 Days 세팅위해)  diffDayss <= 최종 날짜 차이
+                if(start_date != null && end_date != null){
+                    Date start_date2 = null;
+                    Date end_date2= null;
+                    try {
+                        start_date2 = new SimpleDateFormat("yyyy-MM-dd").parse(start_date);
+                        end_date2 = new SimpleDateFormat("yyyy-MM-dd").parse(end_date);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    Calendar start_date3 = Calendar.getInstance();
+                    Calendar end_date3 = Calendar.getInstance();
+                    start_date3.setTime(start_date2); //특정 일자
+                    end_date3.setTime(end_date2); //특정 일자
+
+                    long diffSec = (end_date3.getTimeInMillis() - start_date3.getTimeInMillis()) / 1000;
+                    long diffDays = diffSec / (24*60*60); //일자수 차이
+
+
+                    diffDayss = (int) (diffDays+1); // +1 시켜줘서 Days를 세팅
+
                 }
 
-
-
+                if (start_date != null && end_date != null){
+                    insertPlanDays(diffDayss);
+                }
 
 
 
@@ -284,13 +295,6 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
                 finish();
 
 
-
-//                //새로고침 영역
-//                finish();//인텐트 종료
-//                overridePendingTransition(0, 0);//인텐트 효과 없애기
-//                Intent intent = getIntent(); //인텐트
-//                startActivity(intent); //액티비티 열기
-//                overridePendingTransition(0, 0);//인텐트 효과 없애기
 
 
             }

@@ -152,9 +152,11 @@ and member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 
 <select id="selectPlanList" resultType="android.partyvo.PartyPlanListVO">
 
-	select plan_sn, member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
-plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime
-from tbl_plan  where party_sn = #{party_sn}
+	
+select plan_sn, plan.member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
+plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime, (select pic.picture_filepath from tbl_board_picture pic where pic.member_id = plan.plan_writer) picture_filepath
+from tbl_plan plan where party_sn = #{party_sn} 
+
 	
 </select>
 
@@ -247,8 +249,35 @@ where party_sn = #{party_sn}
 	
 </select>
 
+<insert id="insertPlanDays" >
+
+	insert into tbl_plandetail (plandetail_sn, plan_sn, plandetail_day)
+	values (seq_plan_sn.nextval, #{plan_sn}, #{plandetail_day})	
+	
+</insert>
 
 
+<select id="planJoinMemberList" resultType="android.partyvo.PartyMemberListVO">
+
+	select plan.member_id member_id, (select pic.picture_filepath from tbl_board_picture pic where plan.member_id = pic.member_id) picture_filepath
+	from tbl_plan plan where plan.plan_sn = #{plan_sn}
+	
+</select>
+
+<update id="updatePlan" >
+	update tbl_plan 
+set 
+plan_name = #{plan_name,jdbcType=VARCHAR},
+plan_startdate = #{plan_startdate,jdbcType=VARCHAR},
+plan_enddate = #{plan_enddate,jdbcType=VARCHAR},
+plan_location = #{plan_location,jdbcType=VARCHAR},
+plan_startpoint = #{plan_startpoint,jdbcType=VARCHAR},
+plan_hotel = #{plan_hotel,jdbcType=VARCHAR},
+plan_cost = #{plan_cost,jdbcType=VARCHAR},
+plan_starttime = #{plan_starttime,jdbcType=VARCHAR},
+plan_endtime = #{plan_endtime,jdbcType=VARCHAR}
+where plan_sn = #{plan_sn}
+</update>
 
 
 

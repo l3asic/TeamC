@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 import com.example.totproject.party.PartyListDTO;
 import com.example.totproject.party.PartyMemberListDTO;
@@ -24,15 +25,16 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
     ArrayList<PartyMemberListDTO> list;
     LayoutInflater inflater;
     PartyListDTO plDTO;
+    int tabcode;
 
 
 
-    public PlanMemberListAdpater(Context context, ArrayList<PartyMemberListDTO> list, PartyListDTO plDTO) {
+    public PlanMemberListAdpater(Context context, ArrayList<PartyMemberListDTO> list, PartyListDTO plDTO, int tabcode) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.plDTO = plDTO;
-
+        this.tabcode = tabcode;
     }
 
     @NonNull
@@ -58,37 +60,50 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
         CheckBox chk_member_invite;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            //imgv_member_pic = itemView.findViewById(R.id.imgv_member_pic);
+            imgv_member_pic = itemView.findViewById(R.id.imgv_member_pic);
             tv_member_nick = itemView.findViewById(R.id.tv_member_nick);
             chk_member_invite = itemView.findViewById(R.id.chk_member_delete);
-            chk_member_invite.setVisibility(View.VISIBLE);
 
-            PlanCreatePlanActivity activity = (PlanCreatePlanActivity) context;
-            activity.test(plDTO);
+            // 플랜 생성에서 사용 (멤버 리스트 선택해서 초대할때 사용)
+            if (tabcode ==1 ){
+                chk_member_invite.setVisibility(View.VISIBLE);
+
+                PlanCreatePlanActivity activity = (PlanCreatePlanActivity) context;
+                activity.test(plDTO);
+            }
+
 
 
         }
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
-            //holder.imgv_plan.setImage    //@@@@@@@@@@@이미지 어캐바꾸더라??
+            if ( list.get(position).getPicture_filepath() != null){
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(imgv_member_pic);
+            }
+
             holder.tv_member_nick.setText( list.get(position).getMemberid() +"" );
 
-            chk_member_invite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    PlanCreatePlanActivity activity = (PlanCreatePlanActivity) context;
-                    if(isChecked){
-                        activity.invite_list.add(new PartyMemberListDTO(list.get(position).getMemberid()));
-                    }else{
-                        for (int i = 0 ; i<activity.invite_list.size() ; i ++){
-                            if(activity.invite_list.get(i).getMemberid().equals(list.get(position).getMemberid())){
-                                activity.invite_list.remove(i);
+            // 플랜 생성에서 사용 (멤버 리스트 선택해서 초대할때 사용)
+            if (tabcode == 1){
+                chk_member_invite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        PlanCreatePlanActivity activity = (PlanCreatePlanActivity) context;
+                        if(isChecked){
+                            activity.invite_list.add(new PartyMemberListDTO(list.get(position).getMemberid()));
+                        }else{
+                            for (int i = 0 ; i<activity.invite_list.size() ; i ++){
+                                if(activity.invite_list.get(i).getMemberid().equals(list.get(position).getMemberid())){
+                                    activity.invite_list.remove(i);
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
+
+
 
         }
 

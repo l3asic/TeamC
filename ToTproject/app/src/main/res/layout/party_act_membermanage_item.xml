@@ -47,7 +47,7 @@
                     android:id="@+id/tv_member_nick"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:gravity="center"
                     android:text="유저이름"
                     android:textSize="16dp" />

@@ -31,7 +31,7 @@ public class PartyJoinActivity extends AppCompatActivity {
 
     GridView gridView;
     LinearLayout lin_partyjoin_btn;
-    ArrayList<PartyMemberListDTO> partymemberList = new ArrayList<>();
+    ArrayList<PartyMemberListDTO> member_list = new ArrayList<>();
 
     ArrayList<PartyListDTO> list = new ArrayList<>();
     CommonAsk commonAsk;
@@ -61,13 +61,15 @@ public class PartyJoinActivity extends AppCompatActivity {
         int party_sn = intent.getIntExtra("party_sn",0);
         partyDetail(party_sn);
 
+        PartyListDTO plDTO = list.get(0);
+
+        showPartyMember(plDTO);
 
 
-
-        for (int i =0 ; i<list.size(); i++){
-            // @@@@@@@@@ 사진처리 다시해줄것@@@@@@@@@
-            partymemberList.add(new PartyMemberListDTO(list.get(i).getMember_id(),"001"));
-        }
+//        for (int i =0 ; i<list.size(); i++){
+//            // @@@@@@@@@ 사진처리 다시해줄것@@@@@@@@@
+//            partymemberList.add(new PartyMemberListDTO(list.get(i).getMember_id(),"001"));
+//        }
 
         tv_partyjoin_name.setText(list.get(0).getParty_name());
         //imgv_partyjoin_partyimg.setImageResource(list.get(0).getPicture_filepath());      //@@@@@@ 파티 대표 사진처리
@@ -78,7 +80,7 @@ public class PartyJoinActivity extends AppCompatActivity {
         tv_partyjoin_cntmember.setText("가입된 멤버" + "("+list.size() +")");
 
 
-        PartymemberListAdapter adapter = new PartymemberListAdapter(PartyJoinActivity.this, partymemberList);
+        PartymemberListAdapter adapter = new PartymemberListAdapter(PartyJoinActivity.this, member_list);
         gridView = findViewById(R.id.grid_memberlist);
         gridView.setAdapter(adapter);
 
@@ -115,6 +117,7 @@ public class PartyJoinActivity extends AppCompatActivity {
 
     }//onCreate()
 
+    // 해당파티 정보 조회
     public ArrayList<PartyListDTO> partyDetail(int party_sn){
         commonAsk = new CommonAsk("android/party/partydetail");
         commonAsk.params.add(new CommonAskParam("party_sn",party_sn+""));
@@ -130,21 +133,30 @@ public class PartyJoinActivity extends AppCompatActivity {
 
     }//partyJoin()
 
+    // 파티 최종 가입
     public void partyJoin(PartyListDTO dto){
         commonAsk = new CommonAsk("android/party/partyJoin");
         commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
-//        try {
-//            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyListDTO>>() {
-//            }.getType());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
 
     }//partyJoin()
 
+    public ArrayList<PartyMemberListDTO> showPartyMember(PartyListDTO plDTO){
+        commonAsk = new CommonAsk("android/party/showpartymember");
+        commonAsk.params.add(new CommonAskParam("plDTO",gson.toJson(plDTO)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            member_list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<PartyMemberListDTO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return member_list;
+
+    }//showMyPartylist()
 
 
 }

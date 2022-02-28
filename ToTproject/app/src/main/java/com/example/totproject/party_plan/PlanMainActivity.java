@@ -16,15 +16,11 @@ import com.example.totproject.party.PartyListDTO;
 public class PlanMainActivity extends AppCompatActivity {
     int tabcode = 0;
     TextView tv_planmain_title;
-    Button btn_planmain_create;
+    Button btn_planmain_create,btn_planmain_update;
     String title_name;
 
     PlanListFragment   plan_list_frag     ;
     PlanInfo02Fragment plan_info_frag02 ;
-
-
-
-
 
 
     @Override
@@ -34,6 +30,12 @@ public class PlanMainActivity extends AppCompatActivity {
 
         tv_planmain_title = findViewById(R.id.tv_planmain_title);
         btn_planmain_create = findViewById(R.id.btn_planmain_create);
+        btn_planmain_update = findViewById(R.id.btn_planmain_update);
+
+        btn_planmain_create.setVisibility(View.VISIBLE);
+        btn_planmain_update.setVisibility(View.GONE);
+
+
         
         // 내파티 INFO에서 넘어옴 (파티정보)
         Intent get_intent = getIntent();

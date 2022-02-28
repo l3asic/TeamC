@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,10 +22,6 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.VO.MemberDTO;
-import com.example.totproject.common.statics.Logined;
-import com.example.totproject.party_plan.PlanInfoDTO;
-import com.example.totproject.party_plan.PlanUpdateAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

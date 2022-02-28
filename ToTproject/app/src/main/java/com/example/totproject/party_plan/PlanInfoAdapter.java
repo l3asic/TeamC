@@ -121,13 +121,12 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
     //위젯을 다시 찾는게아니라 미리 클래스를 지정해놓고 저장해놓고 사용하기 위함.
     public class GroupViewHolder {
         public TextView tv_partyplan_day;
-        public Button btn_plandetail_update, btn_plandetail_delete;
-
+        public Button btn_plandetail_update;
 
         public GroupViewHolder(View itemview) {
             tv_partyplan_day = itemview.findViewById(R.id.tv_partyplan_day);
             btn_plandetail_update = itemview.findViewById(R.id.btn_plandetail_update);
-            btn_plandetail_delete = itemview.findViewById(R.id.btn_plandetail_delete);
+
 
         }
 
@@ -138,7 +137,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
                 @Override
                 public void onClick(View v) {
                     //@@@@@@@@@@@ 해당 날짜플랜 수정하는 액티비티 이동 만들어주기 @@@@@@@@@
-                    Intent intent = new Intent(context, PlanUpdatePlanActivity.class);
+                    Intent intent = new Intent(context, PlanUpdatePlanDetailActivity.class);
                     intent.putExtra("tabcode",1);
                     intent.putExtra("plan_sn",list.get(i).getPlan_sn());
                     intent.putExtra("palndetail_day",list.get(i).getPlandetail_date());
@@ -147,13 +146,7 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
                 }
             });
 
-            btn_plandetail_delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //@@@@@@@@ 해당 플랜디테일 삭제처리 할것
 
-                }
-            });
 
         }//bind()
     }

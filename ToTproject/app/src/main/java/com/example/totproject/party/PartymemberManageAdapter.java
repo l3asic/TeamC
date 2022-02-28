@@ -1,11 +1,9 @@
 package com.example.totproject.party;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -17,10 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.totproject.R;
-import com.example.totproject.common.VO.MemberDTO;
 import com.example.totproject.common.statics.Logined;
-import com.example.totproject.party_plan.PlanInfoDTO;
-import com.example.totproject.party_plan.PlanUpdatePlanActivity;
 
 import java.util.ArrayList;
 

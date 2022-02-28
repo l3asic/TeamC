@@ -54,9 +54,11 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".party_plan.PlanUpdatePlanActivity"
+            android:exported="false" />
+        <activity
             android:name=".common.DatePickerActivity"
             android:theme="@style/Theme.AppCompat.transparent" />
-            android:exported="false" />
         <activity
             android:name=".party.UpdateMyPartyActivity"
             android:exported="false"
@@ -78,7 +80,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".party_plan.PlanUpdatePlanActivity"
+            android:name=".party_plan.PlanUpdatePlanDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity

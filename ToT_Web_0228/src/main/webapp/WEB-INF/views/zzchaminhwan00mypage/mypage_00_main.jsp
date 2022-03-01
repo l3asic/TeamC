@@ -1,7 +1,7 @@
 <%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,14 +42,15 @@
 	<script type="text/javascript">
 		function stacks_more() {
 			$('#stacks').val(Number($('#stacks').val()) + 10);
-			mypage_board_list();
+			mypage_board_list(viewMode);
 		}
-		//목록조회
-		function mypage_board_list() {
+		// 목록조회 합친거 mypage_board_list("mypage_board_list_write")
+		function mypage_board_list(url) {
 			$.ajax({
-				url : 'mypage_list_write',
+				url : "mypage_list_" + url,
 				data : {
 					member_id : $('#member_id').val(),
+// 					board_class : 'user',
 					stack : $('#stacks').val()
 				},
 				success : function(response) {
@@ -60,15 +61,45 @@
 				}
 			});
 		}
-	</script>
+
 	<!-- ================================================================ -->
-	<script type="text/javascript">
-	var now_selected = 'tempVar';
-	
+		var viewMode = "" ;
 		$(function() { // $document).ready() 와 같은 의미
-			$('input[name=now_selected]').attr('value', now_selected);
-			mypage_board_list(); // 목록 조회 함수 호출
+			$('input[name=now_selected_list]').attr('value', "write");
+			viewMode = $('input[name=now_selected_list]').val() ;			
+				mypage_board_list(viewMode);
+				
+// 				alert("마이페이지 입니다.");
 		});
+	<!-- ================================================================ -->
+		function changeView(text){
+			$('#stacks').val(Number(10));
+			$('input[name=now_selected_list]').attr('value', text);
+			 viewMode = $('input[name=now_selected_list]').val() ;
+			mypage_board_list( viewMode ) ;
+		}
+	</script>
+	<!-- =========================== 유효한 회원인지 체크 ============================= -->
+	<script type="text/javascript">
+// 	$(function() { // $document).ready() 와 같은 의미
+// 		$.ajax({
+// 			url : "id_check",
+// 			data : {
+// 				id : $('#member_id').val()
+// 			},
+// 			success : function(response) {
+// 				if(response == true){
+// 					alert('존재하지 않는 사용자입니다.');
+// 				}else{
+// 					alert('마이페이지 입니다.');
+// 				}
+// 			},
+// 			error : function(req, text) {
+		
+// 				alert(text + ':' + req.status);
+// 			}
+// 		});
+// 	});
 	</script>
 	<!-- ================================================================ -->
 
@@ -77,14 +108,31 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<%-- 				<img alt="프사" src="${vo.member_filepath }"> --%>
-					<h2>${member_id}</h2>
-					<ul class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">작성한 게시물</a></li>
-						<li class="breadcrumb-item active"><a href="#">좋아한 게시물</a></li>
+					<h2 style="cursor: pointer;"><img 	class="rounded-circle border p-1" style=" width: 128px" alt="프사"
+						src="${memberVO.member_filepath }"> <br>
+					${memberVO.member_id}</h2>
+					<ul class="breadcrumb" style="cursor: pointer;">
+						<li class="breadcrumb-item"><a onclick='changeView("write")'>작성한
+								게시물</a></li>
+						<li class="breadcrumb-item active"><a
+							onclick='changeView("likes")'>좋아한 게시물</a></li>
 					</ul>
 					<ul>
-						<input type="text" name='now_selected_list' value=''></input>
+						<!-- ========================= 페이지 모드 ========================= -->
+						<li><input type="text" name='now_selected_list' value=''></input></li>
+						<!-- =========================================================== -->
+
+						<!-- ========================= 페이지 주인 ========================= -->
+						<li><input type="text" id='member_id' value="${member_id}"></input></li>
+						<!-- =========================================================== -->
+
+						<!-- ========================= 현재 표시 게시물 수 ========================= -->
+						<li><input type="text" id='stacks' value="10"></input></li>
+						<!-- =========================================================== -->
+
+						<!-- ========================= 총 게시물 수 ========================= -->
+						<li><input type="text" id='max_stack' value="0"></input></li>
+						<!-- =========================================================== -->
 					</ul>
 				</div>
 			</div>
@@ -94,62 +142,12 @@
 
 
 
-	<!-- ========================= 페이지 주인 ========================= -->
-	<input type="hidden" id='member_id' value="${member_id}"></input>
-	<!-- =========================================================== -->
 
-	<!-- ========================= 게시물 수 ========================= -->
-	<input type="hidden" id='stacks' value="10"></input>
-	<!-- =========================================================== -->
 
 	<!-- ========================= 게시물 목록 ========================= -->
-	<div id='mypage_board_list'>뫄뫄뫄</div>
+	<div id='mypage_board_list'></div>
 	<!-- ============================================================ -->
 
-
-	<!-- Start Wishlist  -->
-	<!-- 	<div class="wishlist-box-main"> -->
-	<!-- 		<div class="container"> -->
-	<!-- 			<div class="row"> -->
-	<!-- 				<div class="col-lg-12"> -->
-	<!-- 					<div class="table-main table-responsive"> -->
-	<!-- 						<table class="table"> -->
-	<!-- 							<thead> -->
-	<!-- 								<tr> -->
-	<!-- 									<th>Images</th> -->
-	<!-- 									<th>Product Name</th> -->
-	<!-- 									<th>Unit Price</th> -->
-	<!-- 									<th>Stock</th> -->
-	<!-- 									<th>Add Item</th> -->
-	<!-- 									<th>Remove</th> -->
-	<!-- 								</tr> -->
-	<!-- 							</thead> -->
-	<!-- 							<tbody> -->
-	<!-- 								<tr> -->
-	<!-- 									<td class="thumbnail-img"><a href="#"> <img -->
-	<!-- 											class="img-fluid" src="images/img-pro-01.jpg" alt="" /> -->
-	<!-- 									</a></td> -->
-	<!-- 									<td class="name-pr"><a href="#"> Lorem ipsum dolor sit -->
-	<!-- 											amet </a></td> -->
-	<!-- 									<td class="price-pr"> -->
-	<!-- 										<p>$ 80.0</p> -->
-	<!-- 									</td> -->
-	<!-- 									<td class="quantity-box">In Stock</td> -->
-	<!-- 									<td class="add-pr"><a class="btn hvr-hover" href="#">Add -->
-	<!-- 											to Cart</a></td> -->
-	<!-- 									<td class="remove-pr"><a href="#"> <i -->
-	<!-- 											class="fas fa-times"></i> -->
-	<!-- 									</a></td> -->
-	<!-- 								</tr> -->
-
-	<!-- 							</tbody> -->
-	<!-- 						</table> -->
-	<!-- 					</div> -->
-	<!-- 				</div> -->
-	<!-- 			</div> -->
-	<!-- 		</div> -->
-	<!-- 	</div> -->
-	<!-- End Wishlist -->
 
 	<!-- Start Instagram Feed  -->
 	<%@ include file="../zzchaminhwan/main_07_instagram_feed.jsp"%>

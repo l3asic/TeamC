@@ -14,8 +14,8 @@
 			<c:forEach items="${replyList }" var="vo" varStatus="status">
 				<div class="media mb-3">
 					<div class="mr-2">
-						<img class="rounded-circle border p-1" src="${vo.member_filepath}"
-							alt="Generic placeholder image">
+						<img class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}"
+							alt="Generic placeholder image" >
 						<div>${vo.member_id}</div>
 						<input type="hidden" id="reply_sn" value="${vo.reply_sn}"></input>
 					</div>

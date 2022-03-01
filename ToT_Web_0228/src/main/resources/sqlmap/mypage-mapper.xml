@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mypage.mapper">
+<!-- 특정 사용자의 VO 조회 -->
+<select id="selectvo" resultType="member.MemberVO">
+select member.* , (select picture_filepath from tbl_board_picture picture where picture.member_id = member.member_id) member_filepath
+from tbl_member_info member
+where member.member_id = #{member_id}
+</select>
 
 <!-- 특정 사용자의 작성 게시물 조회 -->
 <select id="/mypage_list_write" resultType="chaminhwan.board.BoardVO">
@@ -48,7 +54,7 @@ SELECT a.*,
     
 FROM
     ( SELECT board.* FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
+        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
         order by board.board_sn desc
     ) a
 </select>

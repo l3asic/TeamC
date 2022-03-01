@@ -30,17 +30,17 @@
 
 <!--  Responsive C -->
 <!-- ★ Start Main Top -->
-<div class="main-top">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="text-slid-box"
-				"right" style="width: 60%; margin: 0 auto;">
-				<a href="home">Trip Or Travel 링크 바로가기</a>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End Main Top ★-->
+<!-- <div class="main-top"> -->
+<!-- 	<div class="container-fluid"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="text-slid-box" -->
+<!-- 				"right" style="width: 60%; margin: 0 auto;"> -->
+<!-- 				<a href="home">Trip Or Travel 링크 바로가기</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <!-- End Main Top ★--> 
 
 
 

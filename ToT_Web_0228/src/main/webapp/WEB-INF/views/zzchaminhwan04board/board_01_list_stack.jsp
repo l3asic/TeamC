@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,21 +20,14 @@
 					<div class="table-main table-responsive">
 						<table class="table">
 							<!-- 							========================== board_sn =========================== -->
-							<!-- 							<form action="board_detail" method="post"> -->
-							<!-- 								<input type="text" name='board_sn' value=""></input> -->
-							<!-- 							</form> -->
+
 							<!-- 							============================================================ -->
 							<thead>
 								<tr>
-									<th></th>
-									<th>제목</th>
-									<th>작성자</th>
-									<th>게시판</th>
-									<th></th>
-									<c:if test="${! empty loginInfo}">
-										<td class="price-pr"><a class="btn hvr-hover"
-											href="board_new"> 글쓰기 </a></td>
-									</c:if>
+									<th> 유저게시판 </th>
+									<td class="price-pr"><c:if test="${! empty loginInfo}">
+											<a class="btn hvr-hover" href="board_new" style="float: right;"> 글쓰기 </a>
+										</c:if></td>
 									<!-- 									<th style="text-align: center;"><a class="btn hvr-hover" href="board_new">ㅁ글쓰기ㅁ</a></th> -->
 
 
@@ -45,30 +38,32 @@
 								<c:forEach items="${boardVO }" var="vo">
 
 									<tr>
+									<tr>
+										<th class="thumbnail-img"><img
+											class="rounded-circle border p-1 picture_member_profile"
+											src="${vo.member_filepath}" alt="프사" /> <a
+											class="btn hvr-hover" id='member_id' name='member_id'
+											onclick=" go_mypage( '${vo.member_id}' ) "
+											style="background: none;">${vo.member_id} <br>
+												[${vo.member_grade}]
+										</a> <a onclick="go_detail( '${vo.board_sn}' )"
+											style="cursor: pointer"> ${vo.board_title } &nbsp [조회 :
+												${vo.board_read_cnt} 댓글 : ${vo.board_cnt_reply}]</a></th>
 
-										<td class="thumbnail-img"><img class="img-fluid"
-											src="${vo.member_filepath}" alt="프사" /></td>
 
-										<td class="   name-pr">
-											<div>
-												<a class=" list-group-item-action"
-													onclick='go_detail(${vo.board_sn})'>${vo.board_title }
-												</a>
-											</div>
-										</td>
-										<td class="price-pr"><a class="btn hvr-hover"
-											id='member_id' name='member_id'
-											onclick=" go_mypage( '${vo.member_id}' ) ">${vo.member_id}</a>
-											<p>${vo.member_grade}</p></td>
-										<td class="quantity-box">${vo.board_class}</td>
-										<td class="add-pr">
-											<p>조회수 : ${vo.board_read_cnt}</p>
-											<p>댓글수 : ${vo.board_cnt_reply}</p>
-										</td>
-										<td class="remove-pr">${vo.board_date_create }</td>
+							
 
+
+
+										<th class="">
+											<p style="float: right;">${vo.board_class}&nbsp | &nbsp ${vo.board_date_create }</p>
+										</th>
 									</tr>
+									
+									
+								
 								</c:forEach>
+
 								<tr style="text-align: center;">
 									<input type="hidden" id='stacks' value="10"></input>
 									<td colspan="6"><a id='btn_stacks' onclick="stacks_more()"

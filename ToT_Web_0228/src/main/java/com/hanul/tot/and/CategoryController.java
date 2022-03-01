@@ -455,9 +455,7 @@ public class CategoryController {
 			 * writer.println("<script>alert('로그인 후 사용해주세요')");
 			 * writer.println("href='/login'</script>"); //
 			 * writer.println("</body></html>");
-			 */ } else {
-
-		}
+			 */ } 
 		vo.setMember_id(mvo.getMember_id());
 
 		List<PictureVO> list = dao.list_picture(board_sn);
@@ -552,23 +550,22 @@ public class CategoryController {
 	@RequestMapping("/delete.ca")
 	public String delete(ReplyVO vo, HttpServletRequest req, HttpSession session, Model model) {
 		// 첨부 파일이 있는 글에 대해서는 해당 파일을 서버의 물리적 영역에서 삭제
-		
-		
+
 		int board_sn = vo.getBoard_sn();
-		
+
 		int reply_sn = Integer.parseInt(req.getParameter("reply_sn"));
 		MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
 		vo.setMember_id(mvo.getMember_id());
 		vo.setReply_sn(reply_sn);
-		
+
 		int reply_del = dao.reply_delete(vo);
-	
+
 		// 해당 방명록 글을 DB에서 삭제한 후 목록화면으로 연결
-	//	return "redirect:list.bo";
+		// return "redirect:list.bo";
 		model.addAttribute("replyDel", reply_del);
 		model.addAttribute("reply_sn", vo.getReply_sn());
-		model.addAttribute("member_id",vo.getMember_id());
-		model.addAttribute("board_sn",board_sn);
+		model.addAttribute("member_id", vo.getMember_id());
+		model.addAttribute("board_sn", board_sn);
 //		model.addAttribute("page", page);
 		return "redirect:detail.ca?board_sn={board_sn}";
 	}

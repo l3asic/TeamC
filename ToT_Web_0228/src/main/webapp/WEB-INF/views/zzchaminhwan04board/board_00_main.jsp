@@ -69,13 +69,17 @@
 	<%@include file="../include/copyright.jsp"%>
 	<!-- End copyright  -->
 
-
+				<form action="board_detail" method="post">
+								<input type="hidden" name='board_sn' value=""></input>
+							</form>
+							
 	<script type="text/javascript">
 		function go_detail(board_sn) {
 			$('[name = board_sn]').val(board_sn);
 			$('form').attr('action', 'board_detail');
 			$('form').submit();
 		}
+		
 	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>

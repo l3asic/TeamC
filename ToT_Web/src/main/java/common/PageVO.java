@@ -5,8 +5,8 @@ public class PageVO {
 	int	totalList;			// 총 글의 건수 (DB에서 조회해 온 전체 글수)
 	int totalPage;			// 총 페이지 수
 	int totalBlock;			// 총 블럭 수
-	int pageList = 10;		// 페이지당 보여질 목록의 수
-	int blockPage = 10;		// 블럭당 보여질 페이지 수
+	int pageList = 9;		// 페이지당 보여질 목록의 수
+	int blockPage = 5;		// 블럭당 보여질 페이지 수
 	int curPage;			// 현재 페이지
 	int beginList, endList;	// 각 페이지에 보여질 시작 목록번호, 끝 목록번호
 	int curBlock;			// 현재 블럭

@@ -45,38 +45,25 @@ public class MyPageController {
 		String path = req.getServletPath();
 
 		int memberCheck = sql.selectOne("member.mapper.memberid_check", member_id);
-		if (memberCheck > 0) {
+//		if (memberCheck > 0) {
 
 			MemberVO memberVO = new MemberVO();
 			memberVO = sql.selectOne("mypage.mapper.selectvo", member_id);
 
 			model.addAttribute("path", "/mypage_");
-			model.addAttribute("member_id", member_id);
 			model.addAttribute("memberVO", memberVO);
-		} else {
-//			req.setCharacterEncoding("UTF-8");
-//			res.setCharacterEncoding("UTF-8");
-//			res.setContentType("text/html");
-//			PrintWriter writer = res.getWriter();
-////			writer.println("<html><body>");
-////			writer.println("<script>alert('존재하지 않는 사용자입니다')");
-////			writer.println("</body></html>");
-//
-//			writer.println("<script>");
-//			writer.println("<script>alert('존재하지 않는 사용자입니다')");
-//			writer.println("history.back()");
-//			writer.println("</script>");
-//			writer.flush();
+	/*	} else {
 			
 			req.setCharacterEncoding("UTF-8");
 			res.setCharacterEncoding("UTF-8");
 			res.setContentType("text/html");
 			PrintWriter writer = res.getWriter();
 			writer.println("<html><body>");
-			writer.println("<script>alert('존재하지 않는 사용자입니다.')");
-			writer.println("history.back()</script>");
-			writer.println("</body></html>");
-		}
+			writer.println("<script>");
+			writer.println("alert('존재하지 않는 사용자입니다.');");
+			writer.println("</script>");
+			writer.println("</body></html>");*/
+//		}
 		return "zzchaminhwan04board/board_00_main";
 	}
 

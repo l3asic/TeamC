@@ -14,9 +14,14 @@
 			<c:forEach items="${replyList }" var="vo" varStatus="status">
 				<div class="media mb-3">
 					<div class="mr-2">
-						<img class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}"
-							alt="Generic placeholder image" >
-						<div>${vo.member_id}</div>
+					<c:if test="${vo.member_filepath ne null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}" alt="프사" /> 
+										</c:if>
+										<c:if test="${vo.member_filepath eq null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />
+										</c:if>
+						<div class="btn hvr-hover" onclick=" go_mypage( '${vo.member_id}' ) ">${vo.member_id} <br>
+												[${vo.member_grade}]</div>
 						<input type="hidden" id="reply_sn" value="${vo.reply_sn}"></input>
 					</div>
 					<div2 class="media-body">

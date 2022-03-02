@@ -105,6 +105,7 @@
 	<!-- 	============================================================ -->
 	<script type="text/javascript">
 		function go_mypage(str) {
+		
 			location.href = "mypage_" + str;
 		}
 	</script>

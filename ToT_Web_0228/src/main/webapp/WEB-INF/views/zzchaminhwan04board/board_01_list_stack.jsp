@@ -39,9 +39,15 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
 									<tr>
 									<tr>
-										<th class="thumbnail-img"><img
-											class="rounded-circle border p-1 picture_member_profile"
-											src="${vo.member_filepath}" alt="프사" /> <a
+										<th class="thumbnail-img">
+										
+										<c:if test="${vo.member_filepath ne null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}" alt="프사" /> 
+										</c:if>
+										<c:if test="${vo.member_filepath eq null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />
+										</c:if>
+											 <a
 											class="btn hvr-hover" id='member_id' name='member_id'
 											onclick=" go_mypage( '${vo.member_id}' ) "
 											style="background: none;">${vo.member_id} <br>

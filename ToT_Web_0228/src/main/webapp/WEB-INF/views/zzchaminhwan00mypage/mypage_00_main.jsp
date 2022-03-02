@@ -1,7 +1,7 @@
 <%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,10 +65,16 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	<!-- ================================================================ -->
 		var viewMode = "" ;
 		$(function() { // $document).ready() 와 같은 의미
+		var aaa = "${memberVO.member_id}";
+			if(aaa.length < 1){
+				alert('잘못된 접근입니다.');
+				location.href=history.back();
+			}else{
+		
 			$('input[name=now_selected_list]').attr('value', "write");
 			viewMode = $('input[name=now_selected_list]').val() ;			
 				mypage_board_list(viewMode);
-				
+			}		
 // 				alert("마이페이지 입니다.");
 		});
 	<!-- ================================================================ -->
@@ -108,9 +114,18 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 style="cursor: pointer;"><img 	class="rounded-circle border p-1" style=" width: 128px" alt="프사"
-						src="${memberVO.member_filepath }"> <br>
-					${memberVO.member_id}</h2>
+					<h2 style="cursor: pointer;">
+						<c:if test="${vo.member_filepath ne null}">
+							<img class="rounded-circle border p-1 picture_member_profile"
+								src="${vo.member_filepath}" alt="프사" />
+						</c:if>
+						<c:if test="${vo.member_filepath eq null}">
+							<img class="rounded-circle border p-1 picture_member_profile"
+								src="images/tot_icon_profile_none.png" alt="프사" />
+						</c:if>
+
+						<br> ${memberVO.member_id}
+					</h2>
 					<ul class="breadcrumb" style="cursor: pointer;">
 						<li class="breadcrumb-item"><a onclick='changeView("write")'>작성한
 								게시물</a></li>

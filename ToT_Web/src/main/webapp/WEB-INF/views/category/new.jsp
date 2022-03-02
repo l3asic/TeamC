@@ -39,19 +39,81 @@
 
 <body>
 
-	<!-- ★★★☆ 페이지 넘어가기위해서 필요함 -->
-	<form action="activity.ca" method="post">
 
-	<input type="hidden" name="curPage" value="1"    />    <!-- 여기서 1은 현재페이지 -->
-	</form>
-<!-- 페이지처리 여기까지 -->
+<!-- Start Main Top -->
+<header class="main-header">
+   <!-- Start Navigation -->
+   <nav
+      class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+      <div class="container" style="position: relative;">
+         <!-- Start Header Navigation -->
+         <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+               data-target="#navbar-menu" aria-controls="navbars-rs-food"
+               aria-expanded="false" aria-label="Toggle navigation">
+               <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="<c:url value='/' />"><img
+               src="images/main_logo.png" class="logo" alt=""></a>
+            <div class="navbar-float"
+               style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
+               <ol style="font-size: 13px">
+                  <!-- 로그인하지 않은 상태 -->
+                  <c:if test="${ empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a
+                        href="login">로그인</a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="member">회원가입</a></li>
+                  </c:if>
+                  <!-- 로그인한 상태 -->
+                  <c:if test="${not empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a href="whosepage"><strong>${loginInfo.member_id}</strong></a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="logout">로그아웃</a></li>
+                  </c:if>
+               </ol>
+            </div>
+         </div>
+         <!-- End Header Navigation -->
 
-	
-	<!-- ★★★☆ 페이지 넘어가기위해서 필요함 -->
-	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-	<!-- 여기까지 -->
-	
-	
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
+						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
+							<ul class="dropdown-menu">
+								<li><a href="tour.ca">관광지</a></li>
+								<li><a href="activity.ca">액티비티</a></li>
+								<li><a href="festival.ca">지역축제</a></li>
+							</ul>
+						</li>
+						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
+							<ul class="dropdown-menu">
+								<li><a href="shop.html">Sidebar Shop</a></li>
+								<li><a href="shop-detail.html">Shop Detail</a></li>
+								<li><a href="cart.html">Cart</a></li>
+								<li><a href="checkout.html">Checkout</a></li>
+								<li><a href="my-account.html">My Account</a></li>
+								<li><a href="wishlist.html">Wishlist</a></li>
+							</ul>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="contact-us.html">Contact Us</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+
+				<!-- End Atribute Navigation -->
+			</div>
+			<!-- Start Side Menu -->
+			<!-- End Side Menu -->
+		</nav>
+		<!-- End Navigation -->
+	</header>
+	<!-- End Main Top -->
 		<!-- Start All Title Box -->
 	<div class="all-title-box">
 		<div class="container">

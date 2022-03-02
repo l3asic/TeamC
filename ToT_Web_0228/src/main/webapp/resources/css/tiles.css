@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.tot_wrap{
+	width: 100%;
+}
+
+.tot_Header, .tot_content, .tot_Footer{
+	width: 100%;
+	float: left;
+}
+
+.tot_Header, .tot_Footer{
+	height: 8em;
+}
+
+.tot_SideBar{
+	width: 10%;
+	height: 600px;
+	background-color: #FFBB00;
+	float: left;
+}
+
+.tot_page_content{
+	width: 90%;
+	height: 600px;
+	background-color: #EAEAEA;
+	float: left;
+}
+
+.tot_Header{
+	background-color: #ABF200;
+}
+
+.tot_Footer{
+	background-color: #FF00DD;
+}

@@ -200,7 +200,7 @@
 								<c:when test="${likeCheck eq 1 }"><img src="images/like.png" alt="" style="margin-right: 5px" id="like_img"></c:when>
 								<c:otherwise><img src="images/like_gray.png" alt="" style="margin-right: 5px" id="like_img"></c:otherwise>
 							</c:choose>
-						</a> 좋아요 <strong id="like_count">${likeCount }</strong><li>
+						</a> 좋아요<strong id="like_count">${likeCount }</strong><li>
 								<li><img src="images/comment.png" alt="" style="margin-right: 5px" id="like_img"> 댓글 <strong>${vo.board_cnt_reply }</strong><li>
 							</ul>
 							
@@ -221,7 +221,10 @@
 				<div class="card card-outline-secondary my-4">
 					<div class="card-header d-flex justify-content-between align-items-baseline">
 						<h2>댓글 보기</h2>
-						<a href="newreply.ca?board_sn=${vo.board_sn }"><h6>댓글 쓰기</h6></a>
+						<c:if test="${ !empty loginInfo }">
+							<a href="newreply.ca?board_sn=${vo.board_sn }"><h6>댓글 쓰기</h6></a>
+						</c:if>
+						
 					</div>
 					
 					<!-- ★★★★★ -->
@@ -366,7 +369,14 @@
 	
 <script type="text/javascript">
 // 좋아요 클릭하기
+$( document ).ready(function(){
+	
+});
 
+
+$document.ready(function(){
+	alert("aa");
+})
 function like_regist() {
 
 		$.ajax ({
@@ -377,12 +387,17 @@ function like_regist() {
 			/* 원 글의 id, 입력한 댓글을 데이터로 보냄 */
 		, success : function( response ) {
 			if ( response ) {	// true
-				if(response.isLike){
-					document.getElementById("like_img").src = "images/like.png";
+				if(response.isLogin == true){
+					if(response.isLike){
+						document.getElementById("like_img").src = "images/like.png";
+					}else{
+						document.getElementById("like_img").src = "images/like_gray.png";
+					}
+					$('#like_count').text(response.count);
 				}else{
-					document.getElementById("like_img").src = "images/like_gray.png";
+					alert("로그인 후 사용 할 수 있습니다.")
 				}
-				$('#like_count').text(response.count);
+				
 			} else	// false
 				alert('좋아요 실패 등록 실패!');
 		}, error : function (req, text) {

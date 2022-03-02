@@ -8,14 +8,14 @@
 		<div class="main-instagram owl-carousel owl-theme">
 
 			<c:forEach items="${boardVO}" var="vo" varStatus="status">
-				<div class="item"  >
+				<div class="item">
 					<div class="ins-inner-box">
-						<p style="background: #ffffff"> ${status.index +1} 순위  </p>
+						<p style="background: #ffffff"> 좋아요 수 ${status.index +1} 순위  </p>
 						<img src="images/instagram-img-01.jpg" alt="" />
 						<div class="hov-in">
-							<a href="detail.ca?board_sn=${vo.board_sn }"><i class="fab fa-instagram"></i></a>
+							<a href="detail.ca?board_sn=${vo.board_sn }" ><i class="fab fa-instagram"></i></a>
 						</div>
-						<p style="background: #ffffff">|| ${vo.matchScore } 점짜리 추천여행지 || => ${vo.board_title } </p>
+						<p style="background: #ffffff"> 로그인 회원은 성향추천 가능 </p>
 						<p style="background: #ffffff">댓글 : ${vo.function_like } || ♥ ${vo.board_cnt_reply }</p>
 					</div>
 				</div>

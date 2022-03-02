@@ -358,75 +358,57 @@ public class CategoryController {
 			Model model) throws IOException {
 		System.out.println("set_like 확인");
 
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		
-		
-		JsonObject jb = new JsonObject();
-		
-		boolean isLogin = false;
-		
 		MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
-		if (mvo != null) {
+		vo.setMember_id(mvo.getMember_id());
+		vo.setBoard_sn(Integer.parseInt(req.getParameter("board_sn")));
+		vo.setFunction_like(Integer.parseInt(req.getParameter("like_fn")));
 
-			isLogin = true;
-			vo.setMember_id(mvo.getMember_id());
-			vo.setBoard_sn(Integer.parseInt(req.getParameter("board_sn")));
-			vo.setFunction_like(Integer.parseInt(req.getParameter("like_fn")));
-			
-			int likeCount = 0;
-			boolean isCheckYN = false;
-			System.out.println(vo.getBoard_sn() + "\t" + vo.getMember_id());
-			/*
-			* String tempVo = req.getParameter("category"); CategoryVO vo =
-			* gson.fromJson(tempVo, CategoryVO.class);
-			*/
-			
-			try {
-				System.out.println(vo.getFunction_like());
-				int likeCk = dao.categoryLike_sn_member(vo);
-				
-				if (likeCk > 0) { // 좋아요 삭제
+		int likeCount = 0;
+		boolean isCheckYN = false;
+		System.out.println(vo.getBoard_sn() + "\t" + vo.getMember_id());
+		/*
+		 * String tempVo = req.getParameter("category"); CategoryVO vo =
+		 * gson.fromJson(tempVo, CategoryVO.class);
+		 */
+
+		try {
+			System.out.println(vo.getFunction_like());
+			int likeCheck = dao.categoryLike_sn_member(vo);
+
+			if (likeCheck > 0) { // 좋아요 삭제
 				dao.like_delete(vo);
 				isCheckYN = false;
-				} else { // 좋아요 추가
+			} else { // 좋아요 추가
 				dao.like_insert(vo);
 				isCheckYN = true;
-				
+
 				// model.addAttribute("likeCount", likeCount);
-				}
-				
-				likeCount = dao.category_like(vo.getBoard_sn());
-				
-				
-				
-				
-				
-				int likeCheck = dao.categoryLike_sn_member(vo);
-				
-				jb.addProperty("isLike", isCheckYN); // or false
-				jb.addProperty("count", likeCount);
-				jb.addProperty("likeCheck", likeCheck);
-				
-				//int likes = dao.isLike(vo);
-				//
-				// if(likes == 1) {
-				// dao.like_delete(vo);
-				// }
-				// if(likes == 0) {
-				// dao.like_insert(vo);
-				// }
-			
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 
-		}
-		jb.addProperty("isLogin", isLogin);
-		writer.println(jb);
+			likeCount = dao.category_like(vo.getBoard_sn());
 
+			req.setCharacterEncoding("UTF-8");
+			res.setCharacterEncoding("UTF-8");
+			res.setContentType("text/html");
+			PrintWriter writer = res.getWriter();
+
+			JsonObject jb = new JsonObject();
+			jb.addProperty("isLike", isCheckYN); // or false
+			jb.addProperty("count", likeCount);
+			writer.println(jb);
+
+//			int likes = dao.isLike(vo);
+			//
+			// if(likes == 1) {
+			// dao.like_delete(vo);
+			// }
+			// if(likes == 0) {
+			// dao.like_insert(vo);
+			// }
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -454,36 +436,27 @@ public class CategoryController {
 //		  CategoryVO vo= dao.detail_categoryBoard(board_sn);
 
 		int board_sn = vo.getBoard_sn();
-		int likeCheck = 0;
-	
 		MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
-		
-		if(null != mvo) {
-			vo.setMember_id(mvo.getMember_id());
-			likeCheck = dao.categoryLike_sn_member(vo);
-		}
-		
-		/*
-		 * MemberVO mvo = (MemberVO) session.getAttribute("loginInfo"); if (mvo == null)
-		 * {
-		 * 
-		 * req.setCharacterEncoding("UTF-8"); res.setCharacterEncoding("UTF-8");
-		 * res.setContentType("text/html"); PrintWriter writer = res.getWriter();
-		 * writer.println("<html><body>");
-		 * writer.println("<script>alert('로그인 후 사용해주세요')");
-		 * writer.println("location.href='/tot/login'</script>");
-		 * writer.println("</body></html>");
-		 * 
-		 * 
-		 * req.setCharacterEncoding("UTF-8"); res.setCharacterEncoding("UTF-8");
-		 * res.setContentType("text/html"); PrintWriter writer = res.getWriter(); //
-		 * writer.println("<html><body>");
-		 * writer.println("<script>alert('로그인 후 사용해주세요')");
-		 * writer.println("href='/login'</script>"); //
-		 * writer.println("</body></html>"); } else {
-		 * 
-		 * } vo.setMember_id(mvo.getMember_id());
-		 */
+		if (mvo == null) {
+
+			req.setCharacterEncoding("UTF-8");
+			res.setCharacterEncoding("UTF-8");
+			res.setContentType("text/html");
+			PrintWriter writer = res.getWriter();
+			writer.println("<html><body>");
+			writer.println("<script>alert('로그인 후 사용해주세요')");
+			writer.println("location.href='/tot/login'</script>");
+			writer.println("</body></html>");
+
+			/*
+			 * req.setCharacterEncoding("UTF-8"); res.setCharacterEncoding("UTF-8");
+			 * res.setContentType("text/html"); PrintWriter writer = res.getWriter(); //
+			 * writer.println("<html><body>");
+			 * writer.println("<script>alert('로그인 후 사용해주세요')");
+			 * writer.println("href='/login'</script>"); //
+			 * writer.println("</body></html>");
+			 */ } 
+		vo.setMember_id(mvo.getMember_id());
 
 		List<PictureVO> list = dao.list_picture(board_sn);
 
@@ -492,11 +465,8 @@ public class CategoryController {
 		List<CategoryVO> reviewList = dao.list_reviewpath(board_sn);
 //		List<PictureVO> replyPic = dao.list_repicture(revo);
 
-		/*
-		 * int likeCheck = dao.categoryLike_sn_member(vo);
-		 * 
-		 * model.addAttribute("likeCheck", likeCheck);
-		 */
+		int likeCheck = dao.categoryLike_sn_member(vo);
+
 		model.addAttribute("likeCheck", likeCheck);
 		model.addAttribute("vo", dao.detail_categoryBoard(vo));
 		model.addAttribute("picture", list);

@@ -43,13 +43,7 @@
 		}
 	</script>
 	<!-- ================================================================ -->
-	<script type="text/javascript">
-// 		function go_detail(board_sn) {
-// 			$('[name = board_sn]').val(board_sn);
-// 			$('form').attr('action', 'board_detail');
-// 			$('form').submit();
-// 		}
-	</script>
+
 	<!-- ================================================================ -->
 	<script type="text/javascript">
 		$(function() { // $(document).ready() 와 같은 의미

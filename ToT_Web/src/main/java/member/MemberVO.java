@@ -4,8 +4,12 @@ public class MemberVO {
 	private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email;
 	private String member_is_naver, member_is_kakao, social_type, social_email;
 	private String member_grade;
+	private String member_filepath;
 	
 	
+	public String getMember_filepath() {
+		return member_filepath;
+	}
 	public String getMember_grade() {
 		return member_grade;
 	}

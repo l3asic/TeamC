@@ -21,15 +21,6 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(HttpSession session, Locale locale, Model model) {
 		logger.info((chaminhwan.cnt++)+ " =>=> " +"Welcome home! The client locale is {}.", locale);
@@ -42,6 +33,11 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "./././home";
+	}
+	
+	@RequestMapping("/empty")
+	public String emty() {
+		return "empty";
 	}
 	
 }

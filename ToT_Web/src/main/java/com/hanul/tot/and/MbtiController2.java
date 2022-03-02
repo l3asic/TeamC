@@ -52,23 +52,22 @@ public class MbtiController2 {
 	public String mbtiList(BoardVO vo, Locale locale, HttpSession session, Model model, HttpServletRequest req)
 			throws IOException {
 		String path = req.getServletPath();
-//		int succ = sql.selectOne("member.mapper.login", vo.getMember_id());
-//		if( succ > 0 ) {
 		if (vo.getMember_id() == null || vo.getMember_id().equals("")) {
-			System.out.println("에러페이지 연결");
-			return "errorPage";
+			System.out.println("mbti컨트롤러 : 비로그인");
+
+			List<BoardVO> list = new ArrayList<BoardVO>();
+			list = sql.selectList("mbti.mapper.recommend_likes", vo);
+			model.addAttribute("boardVO", list);
+			return "zzchaminhwan/main_07_instagram_feed_list_recommend_likes";
 		} else {
 			System.out.println(path);
 
 			List<BoardVO> list = new ArrayList<BoardVO>();
 			list = sql.selectList("mbti.mapper." + path, vo);
 			model.addAttribute("boardVO", list);
+			return "zzchaminhwan/main_07_instagram_feed_list";
 		}
-//		}else {
-//		model.addAttribute("board")	
-//		}
 
-		return "zzchaminhwan/main_07_instagram_feed_list";
 	}
 //======================================================================================================================
 }

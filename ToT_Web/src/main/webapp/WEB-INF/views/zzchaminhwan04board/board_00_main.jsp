@@ -39,11 +39,7 @@
 	<%@include file="../include/header.jsp"%>
 	<!-- End header  -->
 
-	<div class="" style="background: #708090; width: 500px;">
-		<c:if test="${! empty loginInfo}">
-			<h> <a href="board_new">글쓰기</a> </h>
-		</c:if>
-	</div>
+	
 
 	<div class="wrapcontent-60">
 		<!-- Start list -->
@@ -73,13 +69,17 @@
 	<%@include file="../include/copyright.jsp"%>
 	<!-- End copyright  -->
 
-
+				<form action="board_detail" method="post">
+								<input type="hidden" name='board_sn' value=""></input>
+							</form>
+							
 	<script type="text/javascript">
 		function go_detail(board_sn) {
 			$('[name = board_sn]').val(board_sn);
 			$('form').attr('action', 'board_detail');
 			$('form').submit();
 		}
+		
 	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -99,12 +99,13 @@
 	<!-- 	<script src="js/custom.js"></script> -->
 
 	<!-- 	========================== board_sn =========================== -->
-	<form action="board_detail" method="post">
-		<input type="text" name='board_sn' value=""></input>
-	</form>
+<!-- 	<form action="board_detail" method="post"> -->
+<!-- 		<input type="hidden" name='board_sn' value=""></input> -->
+<!-- 	</form> -->
 	<!-- 	============================================================ -->
 	<script type="text/javascript">
 		function go_mypage(str) {
+		
 			location.href = "mypage_" + str;
 		}
 	</script>

@@ -40,81 +40,9 @@
 </head>
 
 <body>
-
-<!-- Start Main Top -->
-<header class="main-header">
-   <!-- Start Navigation -->
-   <nav
-      class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-      <div class="container" style="position: relative;">
-         <!-- Start Header Navigation -->
-         <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-               data-target="#navbar-menu" aria-controls="navbars-rs-food"
-               aria-expanded="false" aria-label="Toggle navigation">
-               <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="<c:url value='/' />"><img
-               src="images/main_logo.png" class="logo" alt=""></a>
-            <div class="navbar-float"
-               style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
-               <ol style="font-size: 13px">
-                  <!-- 로그인하지 않은 상태 -->
-                  <c:if test="${ empty loginInfo }">
-                     <li style="list-style-type: none; float: left;"><a
-                        href="login">로그인</a></li>
-                     <li style="list-style-type: none; float: left;">｜</li>
-                     <li style="list-style-type: none; float: left;"><a
-                        href="member">회원가입</a></li>
-                  </c:if>
-                  <!-- 로그인한 상태 -->
-                  <c:if test="${ !empty loginInfo }">
-                     <li style="list-style-type: none; float: left;"><a href="whosepage"><strong>${loginInfo.member_id}</strong></a></li>
-                     <li style="list-style-type: none; float: left;">｜</li>
-                     <li style="list-style-type: none; float: left;"><a
-                        href="logout">로그아웃</a></li>
-                  </c:if>
-               </ol>
-            </div>
-         </div>
-         <!-- End Header Navigation -->
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="navbar-menu">
-					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
-						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
-							<ul class="dropdown-menu">
-								<li><a href="tour.ca">관광지</a></li>
-								<li><a href="activity.ca">액티비티</a></li>
-								<li><a href="festival.ca">지역축제</a></li>
-							</ul>
-						</li>
-						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
-							<ul class="dropdown-menu">
-								<li><a href="shop.html">Sidebar Shop</a></li>
-								<li><a href="shop-detail.html">Shop Detail</a></li>
-								<li><a href="cart.html">Cart</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-								<li><a href="my-account.html">My Account</a></li>
-								<li><a href="wishlist.html">Wishlist</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="contact-us.html">Contact Us</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-
-				<!-- End Atribute Navigation -->
-			</div>
-			<!-- Start Side Menu -->
-			<!-- End Side Menu -->
-		</nav>
-		<!-- End Navigation -->
-	</header>
-	<!-- End Main Top -->
+	<!-- ★★★☆ 페이지 넘어가기위해서 필요함 -->
+	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+	<!-- 여기까지 -->
 		<!-- Start All Title Box -->
 	<div class="all-title-box">
 		<div class="container">
@@ -272,7 +200,7 @@
 								<c:when test="${likeCheck eq 1 }"><img src="images/like.png" alt="" style="margin-right: 5px" id="like_img"></c:when>
 								<c:otherwise><img src="images/like_gray.png" alt="" style="margin-right: 5px" id="like_img"></c:otherwise>
 							</c:choose>
-						</a> 좋아요<strong id="like_count">${likeCount }</strong><li>
+						</a> 좋아요 <strong id="like_count">${likeCount }</strong><li>
 								<li><img src="images/comment.png" alt="" style="margin-right: 5px" id="like_img"> 댓글 <strong>${vo.board_cnt_reply }</strong><li>
 							</ul>
 							
@@ -293,10 +221,7 @@
 				<div class="card card-outline-secondary my-4">
 					<div class="card-header d-flex justify-content-between align-items-baseline">
 						<h2>댓글 보기</h2>
-						<c:if test="${ !empty loginInfo }">
-							<a href="newreply.ca?board_sn=${vo.board_sn }"><h6>댓글 쓰기</h6></a>
-						</c:if>
-						
+						<a href="newreply.ca?board_sn=${vo.board_sn }"><h6>댓글 쓰기</h6></a>
 					</div>
 					
 					<!-- ★★★★★ -->
@@ -441,14 +366,7 @@
 	
 <script type="text/javascript">
 // 좋아요 클릭하기
-$( document ).ready(function(){
-	
-});
 
-
-$document.ready(function(){
-	alert("aa");
-})
 function like_regist() {
 
 		$.ajax ({
@@ -459,17 +377,12 @@ function like_regist() {
 			/* 원 글의 id, 입력한 댓글을 데이터로 보냄 */
 		, success : function( response ) {
 			if ( response ) {	// true
-				if(response.isLogin == true){
-					if(response.isLike){
-						document.getElementById("like_img").src = "images/like.png";
-					}else{
-						document.getElementById("like_img").src = "images/like_gray.png";
-					}
-					$('#like_count').text(response.count);
+				if(response.isLike){
+					document.getElementById("like_img").src = "images/like.png";
 				}else{
-					alert("로그인 후 사용 할 수 있습니다.")
+					document.getElementById("like_img").src = "images/like_gray.png";
 				}
-				
+				$('#like_count').text(response.count);
 			} else	// false
 				alert('좋아요 실패 등록 실패!');
 		}, error : function (req, text) {

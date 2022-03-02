@@ -200,7 +200,7 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.reply_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
-			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
+			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id =#{member_id}),0) function_like
 		from tbl_board a 
 		where a.board_sn = #{board_sn}
 	</select>

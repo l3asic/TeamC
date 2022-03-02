@@ -1,8 +1,7 @@
-<%@page import="com.google.gson.Gson"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="com.google.gson.Gson"%> <%@ page language="java"
+contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
+prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib
+prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +10,9 @@
 </head>
 <body>
 	<form action="board_list" method="post" name="updateForm">
-		<input type="hidden" name="board_sn" value='${boardVO.board_sn}' />
-		<input type="hidden" name="board_title" value='${boardVO.board_title}' />
-		<input type="hidden" name="board_content" value='${boardVO.board_content}' />
+		<input type="hidden" name="board_sn" value='${boardVO.board_sn}' /> <input
+			type="hidden" name="board_title" value='${boardVO.board_title}' /> <input
+			type="hidden" name="board_content" value='${boardVO.board_content}' />
 		<!-- 	<input type="hidden" name="search" value="${page.search }" /> 검색조건 -->
 		<!-- 	<input type="hidden" name="keyword" value="${page.keyword }" /> 검색어 -->
 		<!-- 	<input type="hidden" name="curPage" value="${page.curPage }" /> 현재 페이지 -->
@@ -33,30 +32,68 @@
 						<div class="table-main table-responsive">
 							<table class="table">
 								<thead>
+									<!-- 									<tr> -->
+									<!-- 										<th class="thumbnail-img"><img -->
+									<!-- 											class="rounded-circle border p-1 picture_member_profile" -->
+									<!-- 											src="${boardVO.member_filepath}" alt="프사" /> <a -->
+									<!-- 											class="btn hvr-hover" id='member_id' name='member_id' -->
+									<!-- 											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a><p>${boardVO.member_grade}</p> -->
+									<!-- 										</th> -->
+									<!-- 										<th class="   name-pr"> -->
+									<!-- 											<div> -->
+									<!-- 												<a>${boardVO.board_title } </a> -->
+									<!-- 											</div> -->
+									<!-- 										</th> -->
+									<!-- 										<th class="price-pr"><a class="btn hvr-hover" -->
+									<!-- 											id='member_id' name='member_id' -->
+									<!-- 											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a> -->
+									<!-- 											<p>${boardVO.member_grade}</p></th> -->
+									<!-- 										<th class="quantity-box">${vo.board_class}</th> -->
+									<!-- 										<th class="add-pr"> -->
+									<!-- 											<p>조회 : ${boardVO.board_read_cnt}</p> -->
+									<!-- 											<p>댓글 : ${boardVO.board_cnt_reply}</p> -->
+									<!-- 										</th> -->
+									<!-- 										<th class="remove-pr">${boardVO.board_date_create }</th> -->
+									<!-- 									</tr> -->
+
 									<tr>
 
-										<th class="thumbnail-img"><img class="img-fluid"
-											src="${boardVO.member_filepath}" alt="프사" /></th>
+										<th class="thumbnail-img">
+										
+									<c:if test="${boardVO.member_filepath ne null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="${boardVO.member_filepath}" alt="프사" /> 
+										</c:if>
+										<c:if test="${boardVO.member_filepath eq null}">
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />
+										</c:if>
+											
+											<a
+											class="btn hvr-hover" id='member_id' name='member_id'
+											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}
+												<br> ${boardVO.member_grade}
+										</a> <a>${boardVO.board_title } </a>
+									
+									
+									 <a 
+											style="cursor: pointer"> ${boardVO.board_title } &nbsp [조회 :
+												${boardVO.board_read_cnt} 댓글 : ${boardVO.board_cnt_reply}]</a>
+									
+										</th>
 
-										<th class="   name-pr">
-											<div>
-												<a class=" list-group-item-action"
-													onclick='go_detail(${boardVO.board_sn})'>${boardVO.board_title }
-												</a>
-											</div>
+										<!-- 										<th class="price-pr"> -->
+										<!-- 										</th> -->
+										<!-- 										<th class="price-pr"> -->
+										<!-- 										</th> -->
+
+
+									<th class="">
+											<p style="float: right;">${boardVO.board_class}&nbsp | &nbsp
+												${boardVO.board_date_create }</p>
 										</th>
-										<th class="price-pr"><a class="btn hvr-hover"
-											id='member_id' name='member_id'
-											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a>
-											<p>${boardVO.member_grade}</p></th>
-										<th class="quantity-box">${vo.board_class}</th>
-										<th class="add-pr">
-											<p>조회수 : ${boardVO.board_read_cnt}</p>
-											<p>댓글수 : ${boardVO.board_cnt_reply}</p>
-										</th>
-										<th class="remove-pr">${boardVO.board_date_create }</th>
 
 									</tr>
+
+
 									<c:if
 										test="${boardVO.member_id eq loginInfo.member_id or loginInfo.member_grade eq 'master'}">
 										<tbody>
@@ -77,7 +114,9 @@
 									</c:if>
 								<tbody>
 									<tr>
-										<td>${fn:replace( fn:replace( boardVO.board_content, lf, '<br>') , crlf, '<br>' )}</td>
+										<td>${fn:replace( fn:replace( boardVO.board_content, lf,
+											'<br>') , crlf, '<br>' )}
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -116,11 +155,11 @@
 	</div>
 	<!-- ========================= -->
 	<script type="text/javascript">
-	function goUpdate() {
-		
-		   $('form[name="updateForm"]').attr("action", "board_go_update"); 
-		   $('form[name="updateForm"]').submit();
-	}
+		function goUpdate() {
+
+			$('form[name="updateForm"]').attr("action", "board_go_update");
+			$('form[name="updateForm"]').submit();
+		}
 	</script>
 	<!-- ========================= -->
 

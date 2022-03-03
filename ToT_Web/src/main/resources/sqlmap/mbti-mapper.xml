@@ -42,7 +42,7 @@ FROM
         ORDER BY dbms_random.value( 1, 1000 )
     ) top100
  WHERE ROWNUM <![CDATA[ <= ]]> 10
-ORDER BY matchscore
+ORDER BY matchscore desc
 </select>
 
 
@@ -80,7 +80,7 @@ FROM
         ORDER BY dbms_random.value( 1, 1000 )
     ) top100
  WHERE ROWNUM <![CDATA[ <= ]]> 10
-ORDER BY matchscore
+ORDER BY matchscore desc
 </select>
 
 <!-- ================================================== 랜덤 ================================================== -->

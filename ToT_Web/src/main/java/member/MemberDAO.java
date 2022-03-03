@@ -16,27 +16,19 @@ public class MemberDAO implements MemberService {
 		return sql.insert("member.mapper.memberjoin", vo) == 1 ? true : false;
 	}
 
+	@Override
+	public boolean tend_join(TendVO vo) {
+		return sql.insert("member.mapper.tendjoin", vo) == 1 ? true : false;
+	}
 	
-
-	@Override
-	public boolean member_update(MemberVO vo) {
-		return false;
-	}
-
-	@Override
-	public boolean member_delete(String id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean member_nick_check(String nick) {
-		return (Integer) sql.selectOne("member.mapper.membernick_check", nick) == 0 ? true : false;
+	public boolean member_nick_check(String member_nick) {
+		return (Integer) sql.selectOne("member.mapper.membernick_check", member_nick) == 0 ? true : false;
 	}
 
 	
 	@Override
-	public boolean member_id_check(String id) {
-		return (Integer) sql.selectOne("member.mapper.memberid_check", id) == 0 ? true : false;
+	public boolean member_id_check(String member_id) {
+		return (Integer) sql.selectOne("member.mapper.memberid_check", member_id) == 0 ? true : false;
 	}
 
 	@Override
@@ -45,27 +37,40 @@ public class MemberDAO implements MemberService {
 	}
 
 
-
-	@Override
-	public boolean member_social_email(MemberVO vo) {
-		return (Integer) sql.selectOne("member.mapper.social_email", vo) == 0 ? false : true;
+	public String member_find_id(String member_tel) {
+		
+		return sql.selectOne("member.mapper.find_member_id", member_tel);
 	}
 
-
-
-	@Override
-	public boolean member_social_insert(MemberVO vo) {
-		return sql.insert("member.mapper.social_insert", vo) == 0 ? false : true;
+	
+	public MemberVO member_find_pw(MemberVO vo) {
+		
+		return sql.selectOne("member.mapper.find_member_pw", vo);
 	}
 
-
-
 	@Override
-	public boolean member_social_update(MemberVO vo) {
-		return sql.update("member.mapper.social_update", vo) == 0 ? false : true;
+	public boolean naver_insert(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
+	@Override
+	public boolean social_login(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
+	@Override
+	public boolean findid(String member_tel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean findpw(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	
 }

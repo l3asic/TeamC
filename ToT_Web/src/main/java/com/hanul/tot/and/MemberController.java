@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import common.CommonService;
 import member.MemberServiceImpl;
 import member.MemberVO;
+import member.TendVO;
 
 @Controller
 public class MemberController {
@@ -25,97 +26,115 @@ public class MemberController {
 	private String naver_client_id = "uGpmI5HP4456GOdaotwq"; 
 	//Client ID :  uGpmI5HP4456GOdaotwq  Client Secret : ElhUyTFWhH
 	
-	// 네이버 로그인 요청
-	@RequestMapping ("/naverLogin")
-	public String naverLogin(HttpSession session) {
-		
-		// 3.4.2 네아로 연동 URL 생성하기
+	private String kakao_client_id = "f8a0db15411522871b73701bf6e16b7b";
+	
+	
+	// 카카오 로그인
+	@RequestMapping("/kakaoLogin")
+	public String kakaoLogin(HttpSession session) {
 		String state = UUID.randomUUID().toString();
-		
+
 		session.setAttribute("state", state);
-
-		// https://nid.naver.com/oauth2.0/authorize?response_type=code
-		// &client_id=CLIENT_ID
-		// &state=STATE_STRING
-		// &redirect_uri=CALLBACK_URL
-
-		StringBuffer url = new StringBuffer("https://nid.naver.com/oauth2.0/authorize?response_type=code");
-		url.append("&client_id=").append(naver_client_id);
+		//https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}
+		StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/authorize?response_type=code");
+		url.append("&client_id=").append(kakao_client_id);
 		url.append("&state=").append(state);
-		url.append("&redirect_uri=http://localhost/iot/navercallback");
+		url.append("&redirect_uri=").append("http://localhost/tot/kakaocallback");
+
 		return "redirect:" + url.toString();
 	}
+
 	
-	// 동의하기 버튼 클릭시 데이터를 가져오는 처리를 해야 하는데 
-	// redirect 에 의해 주소가 변경됨.
 	
-	// 네이버 콜백 메소드 선언
-	// 3.4.3 네이버 로그인 연동 결과 Callback 정보
-	// API 요청 성공시 : http://콜백URL/redirect?code={code값}&state={state값}
-	// API 요청 실패시 : http://콜백URL/redirect?state={state값}&error={에러코드값}
-	//									&error_description={에러메시지}
-//	@RequestMapping("/navercallback")
-//	public String navercallback(@RequestParam(required = false) String code, 
-//					HttpSession session, String state, 
-//					@RequestParam(required = false) String error) {
-//		
-//		// 상태 토큰이 일치하지 않거나 콜백 실패시 
-//		// 오류가 발생시 토큰 발급 불가 (정상처리 되지 않음)
-//		
-//		if ( ! state.equals(session.getAttribute("state")) || error != null ) {
-//			// state 값이 맞지 않거나 error가 발생해도 토큰 발급 불가
-//			return "redi rect:/";
-//		}
-//		
-//		// 3.4.4 접근 토큰 발급 요청
-//		// https://nid.naver.com/oauth2.0/token?grant_type=authorization_code
-//		// &client_id=jyvqXeaVOVmV
-//		// &client_secret=527300A0_COq1_XV33cf
-//		// &code=EIc5bFrl4RibFls1
-//		// &state=9kgsGTfH4j7IyAkg  
-//
-//		StringBuffer url = new StringBuffer("https://nid.naver.com/oauth2.0/token?grant_type=authorization_code");
-//		url.append("&client_id=").append(naver_client_id);
-//		url.append("&client_secret=ElhUyTFWhH");
-//		url.append("&code=").append(code);
-//		url.append("&state=").append(state);
-//		
-//		// 3.4.5 접근 토큰을 이용하여 프로필 API 호출하기
-//		JSONObject json = new JSONObject(common.requstAPI(url));
-//		String token = json.getString("access_token");
-//		String type = json.getString("token_type");
-//		
-//		// curl  -XGET "https://openapi.naver.com/v1/nid/me" \
-//	    // -H "Authorization: Bearer AAAAPIuf0L+qfDkMABQ3IJ8heq2mlw71DojBj3oc2Z6OxMQESVSrtR0dbvsiQbPbP1/cxva23n7mQShtfK4pchdk/rc="
-//		
-//		url = new StringBuffer("https://openapi.naver.com/v1/nid/me");
-//		json = new JSONObject( common.requestAPI(url, type + " " + token) );
-//		
-//		if (json.getString("resultcode").equals("00")) {
-//			json = json.getJSONObject("response");
-//			
-//			// 회원 정보 DB에 값을 담아서 관리 : MemberVO
-//			MemberVO vo = new MemberVO();
-//			vo.setSocial_type("naver");
-//			vo.setSocial_email(json.getString("email"));
-//			vo.setMember_id(type);
-//			vo.setMember_name(json.getString("name"));
-//			vo.setMember_gender(json.has("gender") && json.getString("gender").equals("F") ? "여" : "남");
-//			
-//			// 네이버 최초 로그인인 경우 회원정보 저장(insert)
-//			// 네이버 로그인 이력이 있어 회원정보가 있다면 변경 저장
-//			if (service.member_social_email(vo))
-//				service.member_social_update(vo);
-//			else 
-//				service.member_social_insert(vo);
-//			
-//			session.setAttribute("loginInfo", vo);
-//		}
-//		
-//		return "redirect:/"; // 로그인 시 루트(home.jsp)로 이동
-//	}
-//		
+	// 네이버 로그인 요청
+		@RequestMapping ("/naverLogin")
+		public String naverLogin(HttpSession session) {
+			
+			String state = UUID.randomUUID().toString();
+			
+			session.setAttribute("state", state);
+
+			StringBuffer url = new StringBuffer("https://nid.naver.com/oauth2.0/authorize?response_type=code");
+			url.append("&client_id=").append(naver_client_id);
+			url.append("&state=").append(state);
+			url.append("&redirect_uri=http://localhost/tot/navercallback");
+			return "redirect:" + url.toString();
+		}
+		
+		
+	@RequestMapping("/navercallback")
+	public String navercallback(@RequestParam(required = false) String code, 
+					HttpSession session, String state, 
+					@RequestParam(required = false) String error) {
+		
+		if ( ! state.equals(session.getAttribute("state")) || error != null ) {
+			// state 값이 맞지 않거나 error가 발생해도 토큰 발급 불가
+			return "redi rect:/";
+		}
+
+		StringBuffer url = new StringBuffer("https://nid.naver.com/oauth2.0/token?grant_type=authorization_code");
+		url.append("&client_id=").append(naver_client_id);
+		url.append("&client_secret=ElhUyTFWhH");
+		url.append("&code=").append(code);
+		url.append("&state=").append(state);
+		
+		JSONObject json = new JSONObject(common.requstAPI(url));
+		String token = json.getString("access_token");
+		String type = json.getString("token_type");
+		
+		url = new StringBuffer("https://openapi.naver.com/v1/nid/me");
+		json = new JSONObject( common.requestAPI(url, type + " " + token) );		
 	
+		if (json.getString("resultcode").equals("00")) {
+			json = json.getJSONObject("response");
+			
+			// 회원 정보 DB에 값을 담아서 관리 : MemberVO
+			MemberVO vo = new MemberVO();
+			vo.setMember_is_naver("naver");
+			vo.setMember_name(json.getString("name"));
+			vo.setMember_gender(json.has("gender") && json.getString("gender").equals("F") ? "여" : "남");
+			
+			// 네이버 최초 로그인인 경우 회원정보 저장(insert)
+			// 네이버 로그인 이력이 있으면 ..
+			if (service.naver_insert(vo));
+			else 
+				service.social_login(vo);
+			
+			session.setAttribute("loginInfo", vo);
+		}
+		return "home"; // 로그인 시 루트(home.jsp)로 이동
+	}
+		
+	//welcome 화면 요청
+	@RequestMapping ("/welcome")
+	public String welcome(HttpSession session) {
+		session.setAttribute("category", "welcome");
+		return "member/welcome";
+	}
+	
+	//성향분석 값 입력 요청
+	@RequestMapping ("/tend_join")
+	public String tend (TendVO vo) {
+		
+		service.tend_join(vo);
+		
+		return "member/welcome";
+	}
+	
+	//성향분석 화면 요청
+	@RequestMapping ("/tend")
+	public String tend(HttpSession session) {
+		session.setAttribute("category", "tend");
+		return "member/tend";
+	}
+	
+	//비밀번호 찾기 처리 요청
+	@ResponseBody
+	@RequestMapping ("/find_member_pw")
+	public MemberVO find_member_pw(MemberVO vo) {
+		return service.find_member_pw(vo);
+		
+	}
 	
 	//비밀번호 찾기 화면
 	@RequestMapping ("/findpw")
@@ -124,11 +143,26 @@ public class MemberController {
 		return "member/findpw";
 	}
 	
+	//아이디 찾기 처리 요청
+	@ResponseBody
+	@RequestMapping ("/find_member_id")
+	public String find_member_id(String member_tel) {
+		return service.find_member_id(member_tel);
+		
+	}
+	
 	//아이디 찾기 화면
 	@RequestMapping ("/findid")
 	public String findid(HttpSession session) {
 		session.setAttribute("category", "findid");
 		return "member/findid";
+	}
+	
+	// 로그아웃 처리 요청
+	@RequestMapping ("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginInfo");
+		return "home"; // 로그아웃시 루트(home.jsp)로 이동
 	}
 	
 	// 로그인 처리 요청
@@ -145,12 +179,6 @@ public class MemberController {
 		return vo == null ? false : true;
 		// 결과값이 null 이면 false / null 이 아니면 true
 		}
-	// 로그아웃 처리 요청
-	@RequestMapping ("/logout")
-	public String logout(HttpSession session) {
-		session.removeAttribute("loginInfo");
-		return "home"; // 로그아웃시 루트(home.jsp)로 이동
-	}
 	
 	// 로그인 화면 요청
 	@RequestMapping ("/login")
@@ -165,21 +193,21 @@ public class MemberController {
 		
 		service.member_join(vo);
 		
-		return "redirect:/member/tend";
+		return "/member/tend";
 	}
 	
 	// 닉네임 중복확인 요청(not)
 	@ResponseBody
 	@RequestMapping("/nick_check")
-	public boolean nick_check(String nick) {
-		return service.member_nick_check(nick);
+	public boolean nick_check(String member_nick) {
+		return service.member_nick_check(member_nick);
 	}
 	
 	// 아이디 중복확인 요청
 	@ResponseBody
 	@RequestMapping("/id_check")
-	public boolean id_check(String id) {
-		return service.member_id_check(id);
+	public boolean id_check(String member_id) {
+		return service.member_id_check(member_id);
 	}
 	
 	// 회원 가입 페이지 요청

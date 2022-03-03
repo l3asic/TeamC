@@ -36,6 +36,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.party.PartyCreateActivity;
+import com.example.totproject.party.PartyMainActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
 import com.example.totproject.R;
 import com.example.totproject.common.VO.MemberDTO;
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
     TextView main_tv_acttitle;
 
     LinearLayout afterLogin, main_burger_myboard, main_burger_myscrap, main_burger_myparty;
-    LinearLayout main_burger_logout;
     FragmentManager manager = getSupportFragmentManager();
 
     public int reqGcode = 1004;
@@ -116,8 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     ChangeFrament(main_container, partyTab_frag, "파티");
                     return true;
                 } else if (item.getItemId() == R.id.bot_iot) {
-                    ChangeActivity(TendencyActivity01.class);
-                    main_tv_acttitle.setText("내꺼 가방ㅎ");
+                    main_tv_acttitle.setText("iot 탭입니다.");
                     // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
                     return true;
                 }
@@ -185,13 +184,11 @@ public class MainActivity extends AppCompatActivity {
 
         /* ============================== 버거메뉴 내부 ========================================= */
         /* ========== 로그아웃 ===================================================== = ========== */
+        LinearLayout main_burger_mbti;
+        TextView main_burger_tv_logout = nav_headerview.findViewById(R.id.main_burger_tv_logout);
 
 
-        main_burger_logout = nav_headerview.findViewById(R.id.main_burger_logout);
-        if (Logined.member_id == null) {
-            main_burger_logout.setVisibility(View.GONE);
-        }
-        main_burger_logout.setOnClickListener(new View.OnClickListener() {
+        main_burger_tv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
@@ -201,6 +198,21 @@ public class MainActivity extends AppCompatActivity {
                 goSplash();
             }
         });
+
+        // mbti 성향 입력창으로 이동
+        main_burger_mbti = nav_headerview.findViewById(R.id.main_burger_mbti);
+        if (Logined.member_id == null) {
+            main_burger_mbti.setVisibility(View.GONE);
+        }
+        main_burger_mbti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChangeActivity(TendencyActivity01.class);
+            }
+        });
+
+
+
         
         main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
@@ -247,26 +259,37 @@ public class MainActivity extends AppCompatActivity {
         main_burger_myparty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 toastCheck();
+                 Intent intent = new Intent(MainActivity.this, PartyMainActivity.class);
+                 intent.putExtra("tabcode",3);
+                 startActivity(intent);
             }
         });
 
 
         TextView main_burger_tv_login = nav_headerview.findViewById(R.id.main_burger_tv_login);
-        if (Logined.isLogined == true) {
+        if (Logined.isLogined == true) { //로그인이 된 상태라면
             // main_burger_tv_login.setText("스태틱클래스.저장된이름");
             main_burger_tv_login.setText(Logined.member_id);
         }
-        main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
+
+
+        main_burger_tv_login.setOnClickListener(new View.OnClickListener() {    // 로그인 클릭했을떄
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                if (Logined.isLogined != true) {    // 로그인 클릭시 로그인이 안된 상태라면
+                    /* =================================== 로그인하러가기 =================== */
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else { //로그인 된 상태라면
+                    /* =================================== 이름누르는데 뭘함? =================== */
+                }
+
             }
         });
 
         TextView main_burger_tv_join = nav_headerview.findViewById(R.id.main_burger_tv_join);
+
         main_burger_tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,9 +299,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         afterLogin = nav_headerview.findViewById(R.id.main_burger_afterlogin);
-        if(Logined.isLogined==true){
+        if(Logined.isLogined==true){    //로그인 된상태
+            /* =================================== 버튼4개on 회원가입off 로그아웃on =================== */
             afterLogin.setVisibility(View.VISIBLE);
-            main_burger_tv_join.setVisibility(View.INVISIBLE);
+            main_burger_tv_join.setVisibility(View.GONE);
+            main_burger_tv_logout.setVisibility(View.VISIBLE);
+        }else{  //
+            /* =================================== 로그인하러가기 =================== */
+
         }
         /* ===================================================================================== */
 

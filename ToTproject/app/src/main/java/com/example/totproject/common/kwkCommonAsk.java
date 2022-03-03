@@ -29,7 +29,7 @@ public class kwkCommonAsk extends AsyncTask<String,String,InputStream> {
     HttpResponse httpResponse;
     HttpEntity httpEntity;
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
-    final String HTTPIP = "http://192.168.0.58";//IP
+    final String HTTPIP = "http://192.168.0.26";//IP
     final String SVRPATH = "/tot/"; //
     String mapping ;
     private String postUrl ;//
@@ -77,7 +77,7 @@ public class kwkCommonAsk extends AsyncTask<String,String,InputStream> {
             builder.addTextBody(params.get(i).getKey() , params.get(i).getValue() ,
                     ContentType.create("Multipart/related" , "UTF-8"));
         }
-        for(int i = 0 ; i < fileParams.size() ; i++){
+            for(int i = 0 ; i < fileParams.size() ; i++){
             builder.addPart(fileParams.get(i).getKey(),
                              new FileBody(new File(fileParams.get(i).getValue() )));
         }

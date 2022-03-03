@@ -394,7 +394,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="회원가입"
+            android:text="저장완료"
             android:backgroundTint="#AB71CEE0"
             android:textSize="20dp"/>
 

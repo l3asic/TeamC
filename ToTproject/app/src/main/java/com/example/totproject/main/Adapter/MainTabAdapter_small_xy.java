@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 import com.example.totproject.category.CategoryMainActivity;
 import com.example.totproject.common.VO.BoardCommonVO;
@@ -90,6 +91,9 @@ public class MainTabAdapter_small_xy extends RecyclerView.Adapter<MainTabAdapter
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
+            if ( list.get(position).getPicture_filepath() != null){
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(hometab_small_img);
+            }
             holder.hometab_small_tv_title.setText(list.get(position).getBoard_title() + "");
             holder.hometab_small_tv_like.setText(list.get(position).getFunction_like()+"");
             holder.hometab_small_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");

@@ -3,14 +3,24 @@ package com.example.totproject.login;
 import java.io.Serializable;
 
 public class MbtiVO implements Serializable {
+
     String mbti_local;
     String member_id;
     int board_sn;
     String mbti_addr;
     int mbti_x, mbti_y;
-    int mbti_tour, mbti_activity, mbti_festival, mbti_solo, mbti_couple
-            , mbti_buddy, mbti_family, mbti_price, mbti_sd, mbti_io;
+    int mbti_tour,
+            mbti_activity,
+            mbti_festival,
+            mbti_solo,
+            mbti_couple,
+            mbti_buddy,
+            mbti_family,
+            mbti_price,
+            mbti_sd,
+            mbti_io;
     int matchScore;
+
 
     public int getMatchScore() {
         return matchScore;
@@ -67,8 +77,6 @@ public class MbtiVO implements Serializable {
     public void setMbti_y(int mbti_y) {
         this.mbti_y = mbti_y;
     }
-
-
 
 
 

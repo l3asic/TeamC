@@ -41,17 +41,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="관광 여부"
+            android:text="관광 "
+            android:layout_gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
             android:id="@+id/mbti_tour"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/mbti_tour_rad1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
                 android:textColor="@drawable/selector_radio_text"
@@ -62,7 +65,8 @@
 
             <RadioButton
                 android:id="@+id/mbti_tour_rad2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
                 android:textColor="@drawable/selector_radio_text"
@@ -73,7 +77,8 @@
 
             <RadioButton
                 android:id="@+id/mbti_tour_rad3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
                 android:textColor="@drawable/selector_radio_text"
@@ -84,7 +89,8 @@
 
             <RadioButton
                 android:id="@+id/mbti_tour_rad4"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
                 android:textColor="@drawable/selector_radio_text"
@@ -95,7 +101,8 @@
 
             <RadioButton
                 android:id="@+id/mbti_tour_rad5"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_radio_button"
                 android:textColor="@drawable/selector_radio_text"

@@ -196,6 +196,12 @@ from tbl_plan plan where party_sn = #{party_sn}
 	
 </delete>
 
+<delete id="deletePlanDays" >
+
+	delete from tbl_plandetail where plan_sn = #{plan_sn}
+	
+</delete>
+
 
 <!-- @@@ 확인필요, 해당파티의 멤버아이디와 사진경로를 가져가야함  -->
 <select id="planMemberList" resultType="android.partyvo.PartyMemberListVO">

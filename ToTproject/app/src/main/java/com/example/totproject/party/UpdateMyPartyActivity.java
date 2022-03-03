@@ -131,7 +131,10 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
         tv_party_tag1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteTags(0);
+                if (tv_party_tag1.getText()+"" != null){
+                    deleteTags(0);
+                }
+
             }
         });
 
@@ -139,7 +142,9 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
         tv_party_tag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteTags(1);
+                if (tv_party_tag2.getText()+"" != null){
+                    deleteTags(1);
+                }
             }
         });
 
@@ -147,7 +152,9 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
         tv_party_tag3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteTags(2);
+                if (tv_party_tag3.getText()+"" != null){
+                    deleteTags(2);
+                }
             }
         });
 

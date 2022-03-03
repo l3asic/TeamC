@@ -1,10 +1,13 @@
 package login;
 
-public class TendVO {
+import java.io.Serializable;
+
+public class TendVO implements Serializable{
 
 	 int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
      , mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io
-     , mbti_sn, mbti_local, member_id, board_sn, mbti_addr , mbti_x, mbti_y;
+     , mbti_sn, mbti_local, board_sn, mbti_addr , mbti_x, mbti_y;
+	 String member_id;
 
 	public int getMbti_activity() {
 		return mbti_activity;
@@ -102,11 +105,11 @@ public class TendVO {
 		this.mbti_local = mbti_local;
 	}
 
-	public int getMember_id() {
+	public String getMember_id() {
 		return member_id;
 	}
 
-	public void setMember_id(int member_id) {
+	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
 

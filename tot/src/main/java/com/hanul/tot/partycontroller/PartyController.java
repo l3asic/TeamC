@@ -645,6 +645,7 @@ public class PartyController {
 	@RequestMapping("/android/party/insertPlanDays2")
 	public void insertPlanDays2(HttpServletRequest req, HttpServletResponse res, HttpSession session)
 			throws IOException {
+		int delete_code = 0;
 
 		System.out.println("insertPlanDays2() 에 접근함");
 		req.setCharacterEncoding("UTF-8");
@@ -653,7 +654,11 @@ public class PartyController {
 		PrintWriter writer = res.getWriter();
 
 		int plan_sn = Integer.parseInt(req.getParameter("plan_sn"));
-		int diffDayss = Integer.parseInt(req.getParameter("diffDayss"));		
+		int diffDayss = Integer.parseInt(req.getParameter("diffDayss"));
+		delete_code = Integer.parseInt(req.getParameter("delete_code"));
+		if(delete_code == 1) {
+			pDAO.deletePlanDays(plan_sn);
+		}
 		
 		PlanInfoVO vo = new PlanInfoVO();
 		vo.setPlan_sn(plan_sn);

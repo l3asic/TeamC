@@ -65,6 +65,8 @@ public class JoinController {
 		 writer.print(gson.toJson(vo));
 	}
 	
+	
+	// @@@ 찾았다 넣는곳 성향 넣는곳
 	@ResponseBody
 	@RequestMapping("/tend_insert")
 	public void tend(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
@@ -73,14 +75,26 @@ public class JoinController {
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
-		System.out.println("성향분석 값 ");
-		
+		System.out.println("성향분석 값 ");		
 		TendVO vo = new TendVO();
 		String temp =  req.getParameter("vo");
 		System.out.println(temp);
+		int succ = 0;
 		vo = gson.fromJson(temp, TendVO.class);
 		
-		int succ = sql.insert("login.mapper.tend_insert", vo);
+		//succ = sql.selectOne("login.mapper.tend_check", vo);
+		
+		
+		
+		//이미 성향정보가 있다면 update
+		if(sql.selectOne("login.mapper.tend_check", vo) != null) {
+			succ = sql.update("login.mapper.tend_update", vo);
+			
+		//성향정보가 없다면 insert	
+		}else {			
+			succ = sql.insert("login.mapper.tend_insert", vo);
+		}
+				
 		
 		writer.print(gson.toJson(succ));
 	}

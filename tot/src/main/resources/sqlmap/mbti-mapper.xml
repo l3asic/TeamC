@@ -55,7 +55,7 @@ SELECT top100.* , (
         WHERE board.board_sn = reply.board_sn AND reply.board_sn = top100.board_sn
     ) "board_cnt_reply" , ( SELECT picture.picture_filepath
         FROM tbl_board board, tbl_board_picture picture
-        WHERE board.board_sn = picture.board_sn AND picture.board_sn = top100.board_sn) "picture_filepath"
+        WHERE board.board_sn = picture.board_sn AND picture.board_sn = top100.board_sn and rownum=1) "picture_filepath"
 FROM
     ( SELECT ROWNUM, mbti.* 
     FROM 

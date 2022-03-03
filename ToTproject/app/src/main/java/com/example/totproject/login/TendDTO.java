@@ -4,9 +4,8 @@ import java.io.Serializable;
 
 public class TendDTO implements Serializable {
 
-    int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
-            , mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io
-            , mbti_sn, mbti_local, member_id, board_sn, mbti_addr , mbti_x, mbti_y;
+    int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io, mbti_sn, mbti_local, board_sn, mbti_addr, mbti_x, mbti_y;
+    String member_id;
 
     public int getMbti_activity() {
         return mbti_activity;
@@ -104,14 +103,6 @@ public class TendDTO implements Serializable {
         this.mbti_local = mbti_local;
     }
 
-    public int getMember_id() {
-        return member_id;
-    }
-
-    public void setMember_id(int member_id) {
-        this.member_id = member_id;
-    }
-
     public int getBoard_sn() {
         return board_sn;
     }
@@ -144,4 +135,12 @@ public class TendDTO implements Serializable {
         this.mbti_y = mbti_y;
     }
 
+    public String getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
+    }
 }
+

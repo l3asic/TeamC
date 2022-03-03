@@ -46,6 +46,16 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
         return list.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     public class Viewholder extends RecyclerView.ViewHolder{
         ImageView leader_pic;
         TextView tv_plan_writer, tv_plan_name, tv_startdate, tv_starttime;

@@ -208,6 +208,12 @@ public List<PartyMemberListVO> planMemberListNew(int plan_sn) {
 	}
 
 
+	public void deletePlanDays(int plan_sn) {
+		sql.delete("party.mapper.deletePlanDays", plan_sn);
+		
+	}
+
+
 	
 
 

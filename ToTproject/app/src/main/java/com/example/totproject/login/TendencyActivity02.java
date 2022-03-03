@@ -15,6 +15,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.kwkCommonAsk;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -120,11 +121,20 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
         });*/
 
 
+        // 저장완료 후 메인이동 ( 조인인걸 메인으로 이동으로 수정함)                //저장버튼누를시 디비에 잘들어가는지 확인
         tend2_btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dto.setMember_id(Logined.member_id);
+                int check = tendConnect(dto);
+                if(check>=1){
+                    Toast.makeText(TendencyActivity02.this, "성향 입력(수정) 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent_to_main = new Intent(TendencyActivity02.this,MainActivity.class);
+                    startActivity(intent_to_main);
+                }else{
+                    Toast.makeText(TendencyActivity02.this, "성향 입력(수정) 실패", Toast.LENGTH_SHORT).show();
+                }
 
-                tendConnect(dto);
             }
         });
     }// oncreate()
@@ -162,16 +172,18 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
     CommonMethod commonMethod = new CommonMethod();
     kwkCommonAsk commonAsk;
     Gson gson = new Gson();
-    public void tendConnect(TendDTO dto){
+    public int tendConnect(TendDTO dto){
+        int succ = 0;
         commonAsk = new kwkCommonAsk("tend_insert");
         String data = gson.toJson(dto);
         commonAsk.params.add(new CommonAskParam("vo",data));
         InputStream in = commonMethod.excuteAsk(commonAsk);
         try {
 
-         int succ   = gson.fromJson(new InputStreamReader(in), Integer.class);
+         succ   = gson.fromJson(new InputStreamReader(in), Integer.class);
         }catch (Exception e) {
             e.printStackTrace();
         }
+        return succ;
     }
 }

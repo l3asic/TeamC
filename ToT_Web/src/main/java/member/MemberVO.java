@@ -2,7 +2,7 @@ package member;
 
 public class MemberVO {
 	private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email;
-	private String member_is_naver, member_is_kakao, social_type, social_email;
+	private String member_is_naver, member_is_kakao;
 	
 	
 	public String getMember_id() {
@@ -59,18 +59,7 @@ public class MemberVO {
 	public void setMember_is_kakao(String member_is_kakao) {
 		this.member_is_kakao = member_is_kakao;
 	}
-	public String getSocial_type() {
-		return social_type;
-	}
-	public void setSocial_type(String social_type) {
-		this.social_type = social_type;
-	}
-	public String getSocial_email() {
-		return social_email;
-	}
-	public void setSocial_email(String social_email) {
-		this.social_email = social_email;
-	}
+	
 
 	
 	

@@ -23,11 +23,11 @@ table tr td {text-align: left;}
 	<table class='w-pct40'>
 		<tr>
 			<th class='w-px120'>*성명</th>
-			<td><input type='text' name='name' /> </td>
+			<td><input type='text' name='member_name' /> </td>
 		</tr>
 		<tr>
 			<th>*아이디</th>
-			<td><input type='text' name='id' class='chk' />
+			<td><input type='text' name='member_id' class='chk' />
 				<a class='btn-fill-s' id='btn-id'>아이디 중복확인</a><br/>
 				<div class='valid'>아이디를 입력하세요(영문소문자, 숫자만 입력 가능)</div>
 			</td>
@@ -35,7 +35,7 @@ table tr td {text-align: left;}
 		<tr>
 			<th>*비밀번호</th>
 			<td>
-				<input type='password' name='pw' class='chk' />
+				<input type='password' name='member_pw' class='chk' />
 				<div class='valid'>비밀번호를 입력하세요(영문대/소문자, 숫자를 모두 포함)</div>
 			</td>
 		</tr>
@@ -48,7 +48,7 @@ table tr td {text-align: left;}
 		</tr>
 		<tr>
 			<th>*닉네임</th>
-			<td><input type='text' name='nick' class='chk' />
+			<td><input type='text' name='member_nick' class='chk' />
 				<a class='btn-fill-s' id='btn-nick'>닉네임 중복확인</a><br/>
 				<div class='valid'>닉네임을 입력하세요</div>
 			</td>
@@ -56,14 +56,14 @@ table tr td {text-align: left;}
 		<tr>
 			<th>*성별</th>
 			<td>
-				<label><input type='radio' name='gender' value='남' />남</label>
-				<label><input type='radio' name='gender' value='여' checked />여</label>
+				<label><input type='radio' name='member_gender' value='남성' />남</label>
+				<label><input type='radio' name='member_gender' value='여성' checked />여</label>
 			</td>
 		</tr>
 		<tr>
 			<th>*이메일</th>
 			<td>
-				<input type='text' name='email' class='chk' />
+				<input type='text' name='member_email' class='chk' />
 				<div class='valid'>이메일을 입력하세요</div>				
 			</td>
 		</tr>
@@ -71,9 +71,9 @@ table tr td {text-align: left;}
 		<tr>
 			<th>*전화번호</th>
 			<td>
-				<input type='text' name='tel' maxlength="3" />
-				- <input type='text' name='tel' maxlength="4" />
-				- <input type='text' name='tel' maxlength="4" />
+				<input type='text' name='member_tel' maxlength="3" />
+				- <input type='text' name='member_tel' maxlength="4" />
+				- <input type='text' name='member_tel' maxlength="4" />
 			</td>
 		</tr>
 		<tr>
@@ -87,41 +87,55 @@ table tr td {text-align: left;}
 	</table>	
 	</form>
 	<div style="text-align: center; margin-top: 10px">
-		<a class='btn btn-outline-primary' onclick='go_join()'>회원가입</a>
+		<a class='btn btn-outline-primary' onclick="go_join()">회원가입</a>
 		<a class='btn btn-warning' href='<c:url value="home" />' >취소</a>
 	</div>
 	<script type="text/javascript" src="js/join_check.js"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 	
 	function go_join() {
-		if ($('[name=name]').val() == '') {
+		if ($('[name=member_name]').val() == '') {
 			// alert('성명 입력');
-			$('[name=name]').focus();
+			$('[name=member_name]').focus();
 			return;
 		}
 		
 		// 중복확인을 하여 이미 사용 중인 경우
-		if ($('[name=id]').hasClass('checked') ) {
-			if ( ($('[name=id]').siblings('div').hasClass('invalid'))  ) {
-				alert('회원 가입 불가! \n' + join.id.unUsable.desc);
-				$('[name=id]').focus();
+		if ($('[name=member_id]').hasClass('checked') ) {
+			if ( ($('[name=member_id]').siblings('div').hasClass('invalid'))  ) {
+				alert('회원 가입 불가! \n' + join.member_id.unUsable.desc);
+				$('[name=member_id]').focus();
 				return;
 			}
 		} else {
 			// 중복확인 하지 않은 경우
-			if ( ! item_check ($('[name=id]'))  ) return;
+			if ( ! item_check ($('[name=member_id]'))  ) return;
 			else {
-				alert('회원 가입 불가! \n' + join.id.valid.desc);
-				$('[name=id]').focus();
+				alert('회원 가입 불가! \n' + join.member_id.valid.desc);
+				$('[name=member_id]').focus();
+				return;
+			}
+		}
+		
+		if ($('[name=member_nick]').hasClass('checked') ) {
+			if ( ($('[name=member_nick]').siblings('div').hasClass('invalid'))  ) {
+				alert('회원 가입 불가! \n' + join.member_nick.unUsable.desc);
+				$('[name=member_nick]').focus();
+				return;
+			}
+		} else {
+			// 중복확인 하지 않은 경우
+			if ( ! item_check ($('[name=member_nick]'))  ) return;
+			else {
+				alert('회원 가입 불가! \n' + join.member_nick.valid.desc);
+				$('[name=member_nick]').focus();
 				return;
 			}
 		}
 		//if ( ! item_check ( $('[name=nick]')) ) return; 
-		if ( ! item_check ( $('[name=pw]')) ) return; 
+		if ( ! item_check ( $('[name=member_pw]')) ) return; 
 		if ( ! item_check ( $('[name=pw_ck]')) ) return; 
-		if ( ! item_check ( $('[name=email]')) ) return; 
-		//if ( ! item_check ( $('[name=]')) ) return; 
+		if ( ! item_check ( $('[name=member_email]')) ) return; 
 		
 		$('form').submit();
 		
@@ -162,7 +176,7 @@ table tr td {text-align: left;}
 	  $('.chk').on('keyup', function (e) {
 		  
 		// id 입력 후 Enter 키를 누르면 아이디 중복확인 버튼 실행
-		if ($(this).attr('name') == 'id') {
+		if ($(this).attr('name') == 'member_id') {
 			if(e.keyCode==13) id_check();
 			else $(this).removeClass('checked');
 		}
@@ -172,59 +186,31 @@ table tr td {text-align: left;}
 	});
 	  
 	  
-	  // 생일이 선택되면 기호 나타남.
-	  $('[name=birth]').change(function () {
-		$('#delete').css('display', 'inline');
-	  });
-	  
-	  // #delete 클릭시 생일 값 삭제되면서 기호가 안 나타남
-	  $('#delete').click(function () {
-		$('[name=birth]').val('');
-		$('#delete').css('display', 'none');
-	})
-	  
-	  
-	  $( function() {
-		// 나이 제한을 두기 위한 처리 (만 13세 이상만 가입을 할 수 있다면...)  
-		var today = new Date(); // 오늘 날짜 선언
-		
-		// 오늘 날짜의 연도 데이터를 뽑아 13년을 뺌. 월은 그대로 유지, 일은 오늘 날짜로부터 1일을 뺌
-		var endDay = new Date( today.getFullYear() - 13, today.getMonth(), today.getDate() -1);		
-	    $( "[name=birth]" ).datepicker({
-	    	dayNamesMin : ['일', '월', '화', '수', '목', '금', '토' ]
-	    ,monthNamesShort : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']	
-	    ,changeMonth : true 
-	    ,changeYear : true
-	    ,showMonthAfterYear : true
-	    ,dateFormat : 'yy-mm-dd'
-	    ,maxDate : endDay   		// 달력에 나타날 최대 일자 지정
-	    });
-	  } );
-	  
+	 
 	  // 아이디 중복확인 버튼 클릭시
 	  $('#btn-id').on('click', function () {
 			id_check();
 	});
 	  
 	  function id_check() {
-		var $id = $('[name=id]');
+		var $member_id = $('[name=member_id]');
 		// class 에 'checked'가 있다면 호출한 곳으로 리턴
-		if ($id.hasClass('checked')) return;
+		if ($member_id.hasClass('checked')) return;
 		
-		var data = join.tag_status($id);
+		var data = join.tag_status($member_id);
 		if ( data.code == 'invalid') {
 			alert ('아이디 중복확인 불필요\n' + data.desc);
-			$id.focus();
+			$member_id.focus();
 			return;
 		}
 		// DB에서 id 값을 가져와 중복 여부 확인
 		$.ajax({
 			url : 'id_check'
-			, data : {id:$id.val()}
+			, data : {member_id:$member_id.val()}
 			, success : function ( response ) { // true : 사용 가능 / false : 이미 사용 중
-				var data = join.id_usable( response );		// 성공시 값이 있으면
-				$id.siblings('div').text( data.desc ).removeClass().addClass( data.code );
-				$id.addClass('checked');
+				var data = join.member_id_usable( response );		// 성공시 값이 있으면
+				$member_id.siblings('div').text( data.desc ).removeClass().addClass( data.code );
+				$member_id.addClass('checked');
 			}, error : function (req, text) {
 				alert(text + ':' + req.status);
 			}
@@ -237,24 +223,24 @@ table tr td {text-align: left;}
 	});
 	  
 	  function nick_check() {
-		var $nick = $('[name=nick]');
+		var $member_nick = $('[name=member_nick]');
 		// class 에 'checked'가 있다면 호출한 곳으로 리턴
-		if ($nick.hasClass('checked')) return;
+		if ($member_nick.hasClass('checked')) return;
 		
-		var data = join.tag_status($nick);
+		var data = join.tag_status($member_nick);
 		if ( data.code == 'invalid') {
 			alert ('닉네임 중복확인 불필요\n' + data.desc);
-			$nick.focus();
+			$member_nick.focus();
 			return;
 		}
 		// DB에서 nick 값을 가져와 중복 여부 확인
 		$.ajax({
 			url : 'nick_check'
-			, data : {nick:$nick.val()}
+			, data : {member_nick:$member_nick.val()}
 			, success : function ( response ) { // true : 사용 가능 / false : 이미 사용 중
-				var data = join.nick_usable( response );		// 성공시 값이 있으면
-				$nick.siblings('div').text( data.desc ).removeClass().addClass( data.code );
-				$nick.addClass('checked');
+				var data = join.member_nick_usable( response );		// 성공시 값이 있으면
+				$member_nick.siblings('div').text( data.desc ).removeClass().addClass( data.code );
+				$member_nick.addClass('checked');
 			}, error : function (req, text) {
 				alert(text + ':' + req.status);
 			}

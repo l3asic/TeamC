@@ -21,8 +21,8 @@
 		UPDATE tbl_mbti
 SET 
 mbti_addr = '임시주소',
-mbti_x = 21,
-mbti_y = 32,
+mbti_x = #{mbti_x},
+mbti_y = #{mbti_y},
 
 mbti_activity = #{mbti_activity},
 mbti_festival = #{mbti_festival},
@@ -32,7 +32,7 @@ mbti_couple =  #{mbti_couple},
 mbti_buddys = #{mbti_buddys},
 mbti_family = #{mbti_family},
 mbti_price = #{mbti_price},
-mbti_sd = #{mbti_sd})
+mbti_sd = #{mbti_sd},
 mbti_io = #{mbti_io}
 
 WHERE
@@ -45,7 +45,7 @@ member_id = #{member_id}
 		insert into tbl_mbti (member_id ,mbti_addr, mbti_x, mbti_y 
 					, mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
 					, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io)
-		values (#{member_id},'jj', 21, 32
+		values (#{member_id},'jj', #{mbti_x}, #{mbti_y}
 					, #{mbti_activity}, #{mbti_festival}, #{mbti_tour}, #{mbti_solo}, #{mbti_couple}
 					, #{mbti_buddys}, #{mbti_family}, #{mbti_price}, #{mbti_sd}, #{mbti_io})
 	</insert>

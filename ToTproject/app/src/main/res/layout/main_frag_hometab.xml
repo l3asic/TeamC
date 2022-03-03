@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="?attr/actionBarSize"
-                    android:text="추천 여행지"
+                    android:text="추천 여행지 Top 10"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="가까운 거리 추천여행지"
+                    android:text="가까운 거리 여행지 Top 10"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 

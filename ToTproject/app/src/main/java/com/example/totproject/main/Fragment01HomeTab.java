@@ -16,6 +16,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
 
 import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
@@ -116,6 +117,18 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
 
     public ArrayList<BoardCommonVO> dbBoardCall(String mapping) {
         commonAsk = new CommonAsk(mapping);
+        String lgcode = "a";
+        if(Logined.member_id != null){
+            lgcode = Logined.member_id;
+        }
+
+
+
+
+            commonAsk.params.add(new CommonAskParam("member_id", lgcode));
+
+
+
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {

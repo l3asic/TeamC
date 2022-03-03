@@ -13,9 +13,7 @@ import com.example.totproject.common.CommonMethod;
 
 public class PartyMainActivity extends AppCompatActivity {
 
-
     TextView party_title;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

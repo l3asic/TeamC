@@ -100,7 +100,7 @@ public class MainTabAdapter_small_mbti extends RecyclerView.Adapter<MainTabAdapt
 
             holder.board_sn = list.get(position).getBoard_sn();
 
-            holder.hometab_small_tv_score.setText("추천 No." + (position + 1) + ", 성향일치" + (100 - list.get(position).getMatchScore()) + "점");
+            holder.hometab_small_tv_score.setText("성향 매칭율" + (100 - list.get(position).getMatchScore()) + "%");
 
             holder.hometab_small_img.setOnClickListener(new View.OnClickListener() {
                 @Override

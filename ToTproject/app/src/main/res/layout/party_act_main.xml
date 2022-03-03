@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="100"
     tools:context=".party.PartyMainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_height="?attr/actionBarSize"
+
         android:background="@drawable/bottom_line"
         android:orientation="horizontal"
         android:paddingVertical="10dp">
@@ -20,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/logo_tot" />
 
         <TextView
             android:id="@+id/party_title"
@@ -28,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="공개 파티 목록 유동"
+            android:text="파티 화면 타이틀 "
             android:textSize="20dp" />
 
         <Button
@@ -44,7 +43,7 @@
         android:id="@+id/party_main_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="90">
+        android:layout_weight="1">
     </FrameLayout>
 
 

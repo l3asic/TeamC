@@ -1,6 +1,7 @@
 package com.example.totproject.main;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -35,8 +36,11 @@ import com.bumptech.glide.Glide;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.DatePickerActivity;
+import com.example.totproject.common.KakaoMapActivity;
 import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
+import com.example.totproject.party_plan.PlanCreatePlanActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
 import com.example.totproject.R;
 import com.example.totproject.common.VO.MemberDTO;
@@ -59,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     //https://salix97.tistory.com/72
     BottomNavigationView bottom_nav;
     int main_container;
-    Button main_btn_burger, main_btn_reload;
+
+        Button main_btn_burger, main_btn_reload;
     Toolbar toolbar;
     ImageView cancel;
     ImageView main_burger_imgv_circle;  // 버거메뉴 프사
@@ -180,6 +185,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         /* ==================================================================================== */
+        
+        
+
+
+
+        
+        
+
+        
+        
+        
 
 
         /* ============================== 버거메뉴 내부 ========================================= */
@@ -218,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (Logined.picture_filepath != null) {
             Glide.with(MainActivity.this).load(Logined.picture_filepath).into(main_burger_imgv_circle);
+
             //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
         }else {
             Glide.with(MainActivity.this).load(R.drawable.logo_tot).into(main_burger_imgv_circle);
@@ -338,10 +355,25 @@ public class MainActivity extends AppCompatActivity {
         /* ================================================================================ */
 
 
+
+
+
+
+
+
+
+
     }//onCreate()
 
 
     /* =================================== 메소드 ======================= */
+
+
+
+
+
+
+
 
 
     // 사진 픽업 메소드

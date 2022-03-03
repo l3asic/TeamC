@@ -13,6 +13,17 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TextView
+
+            android:id="@+id/hometab_small_tv_score"
+            android:layout_marginTop="7.5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00000"
+            android:textSize="12dp"
+
+            />
+
 
         <!--<de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/category_img_tour"
@@ -97,18 +108,7 @@
 
 
     </LinearLayout>
-    <TextView
 
-        android:id="@+id/hometab_small_tv_score"
-        android:layout_marginTop="7.5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:text="00"
-        android:layout_marginLeft="40dp"
-        android:textSize="15dp"
-
-        />
 
 </FrameLayout>
 

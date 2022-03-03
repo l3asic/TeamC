@@ -43,27 +43,55 @@ public class MbtiController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
+		String member_id;
+		member_id = req.getParameter("member_id");
+		
+		if(member_id.equals("a")) {
+			member_id = null;
+		}
+
 		MbtiVO vo = new MbtiVO();
-		vo = gson.fromJson(req.getParameter("mbtiVO"), MbtiVO.class);
-		System.out.println(vo);
 
 		List<BoardCommonVO> list = new ArrayList<BoardCommonVO>();
 
 		/* ========================= if ========================= */
 		/* ==================== 성향추천 요청시 ==================== */
 		if (path.equals("/android/cmh/mbti_mbti/")) {
-			try {
-				list = sql.selectList("mbti.mapper.mbtimbti");
-			} catch (Exception e) {
-				e.printStackTrace();
+			
+			if (member_id != null) {
+				try {
+					list = sql.selectList("mbti.mapper.mbtimbti", member_id);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				//비회원일시 성향추천
+			} else {
+				try {
+					list = sql.selectList("mbti.mapper.mbtiRandom");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
 			}
-		} /* ==================== 거리추천 요청시 ==================== */
-		else if (path.equals("/android/cmh/mbti_xy/")) {
-			try {
-				list = sql.selectList("mbti.mapper.mbtixy");
-			} catch (Exception e) {
-				e.printStackTrace();
+
+			/* ==================== 거리추천 요청시 ==================== */
+		} else if (path.equals("/android/cmh/mbti_xy/")) {
+			
+			if (member_id != null) {
+				try {
+					list = sql.selectList("mbti.mapper.mbtixy", member_id);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}		
+				//비회원일시 거리기준 추천
+			}else {
+				try {
+					list = sql.selectList("mbti.mapper.mbtiRandom");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
+			
 		} else {
 			System.out.println("==========");
 			System.out.println("요청 오류");

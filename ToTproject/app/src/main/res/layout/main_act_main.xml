@@ -32,15 +32,24 @@
                     android:layout_height="30dp"
                     android:layout_gravity="start"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/ic_scrap" />
-                <TextView
-                    android:id="@+id/main_tv_acttitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:background="@drawable/logo_tot" />
 
-                    android:layout_gravity="center"
-                    android:text="main act"
-                    android:textSize="50dp" />
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/main_tv_acttitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:text="main act"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+
 
                 <Button
                     android:id="@+id/main_btn_burger"

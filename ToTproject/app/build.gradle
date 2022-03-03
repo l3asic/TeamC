@@ -77,4 +77,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
 
+    //지도 api
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs/libDaumMapAndroid.jar')
+
+
+
 }

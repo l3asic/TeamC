@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.google.gson.Gson;
 
@@ -55,22 +56,62 @@ public class BoardController {
 
 	Gson gson = new Gson();
 
+	@RequestMapping("/boardlist_*")
+	public String boardList(@PathVariable BoardVO vo, Locale locale, HttpSession session, Model model,
+			HttpServletRequest req, MultipartFile multipartFile) throws IOException {
+
+		return "empty";
+	}
+
+//	==================================================== MultipartHttpServletRequest =======
+	@RequestMapping("/multi_board_*")
+	public String multi_board(BoardVO vo, Locale locale, HttpSession session, Model model,
+			MultipartHttpServletRequest req, MultipartFile multipartFile, List<MultipartFile> multipartFileList)
+			throws IOException {
+		String path = req.getServletPath();
+		if (vo.getMember_id() == null) {
+			printPath(path);
+			// ====================
+			MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
+			vo.setMember_id(memberVO.getMember_id());
+		}
+//			 파일 정보가 있다면
+		if (!multipartFile.isEmpty()) {
+			String filepath = common.fileupload("board", multipartFile, session);
+			vo.setPicture_filepath(common.fileupload("board", multipartFile, session));
+			List<PictureVO> picList = new ArrayList<PictureVO>();
+			vo.setPicList(picList);
+
+			sql.insert("picture.mapper.insert_picture_board", vo);
+			return "redirect:board_list?board_class=" + vo.getBoard_class();
+		} else {
+
+		}
+
+		model.addAttribute("path", path);
+		return "zzchaminhwan04board/board_00_main";
+	}
+//	=========================================================================================
+
 	@RequestMapping(value = "/board_*")
 	public String board(BoardVO vo, Locale locale, HttpSession session, Model model, HttpServletRequest req,
-			MultipartFile multipartFile) throws IOException {
+			MultipartFile multipartFile, List<MultipartFile> multipartFileList) throws IOException {
 		String path = req.getServletPath();
 		logger.info((chaminhwan.cnt++) + " =>=> " + "Welcome home! The client locale is {}.", locale);
 		printPath(path);
 
+		if (vo.getMember_id() == null) {
+			vo.setMember_id("ChaMinHwan");
+		}
+
 		if (path.equals("/board_list")) {// ==================== board_list ====================
 			printPath(path);
 			// ====================
-			BoardVO boardVO = new BoardVO();
-			boardVO.setBoard_class("user");
-			boardVO.setList_cnt_many(999);
-			List<BoardVO> list = boardServiceImpl.board_list(boardVO);
+//			vo.setBoard_class("user");
+//			vo.setList_cnt_many(999);
+//			List<BoardVO> list = boardServiceImpl.board_list(vo);
 
-			model.addAttribute("boardVO", list);
+			model.addAttribute("boardVO", vo);
 		} else if (path.equals("/board_list_stack")) {// ==================== bpard_list_stack ====================
 			printPath(path);
 			List<BoardVO> list = boardServiceImpl.board_list(vo);
@@ -80,6 +121,10 @@ public class BoardController {
 			printPath(path);
 			// ====================
 			vo = boardServiceImpl.board_detail(vo.getBoard_sn());
+
+			List<PictureVO> picList = new ArrayList<PictureVO>();
+			picList = sql.selectList("picture.mapper.detail_pic_list", vo);
+			vo.setPicList(picList);
 
 			model.addAttribute("boardVO", vo);
 			model.addAttribute("crlf", "\r\n");
@@ -91,22 +136,24 @@ public class BoardController {
 		} else if (path.equals("/board_insert")) {// ==================== board_insert 글 등록 ====================
 			printPath(path);
 			// ====================
-			vo.setBoard_class("user");
-			vo.setMember_id("ChaMinHwan");
-//			MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
-//			vo.setMember_id(memberVO.getMember_id());
+			MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
+			vo.setMember_id(memberVO.getMember_id());
 
 //			 파일 정보가 있다면
 			if (!multipartFile.isEmpty()) {
+				String filepath = common.fileupload("board", multipartFile, session);
 				vo.setPicture_filepath(common.fileupload("board", multipartFile, session));
-//				List<BoardVO> list = new ArrayList<BoardVO>();
-//				list.add(vo);
+				List<PictureVO> picList = new ArrayList<PictureVO>();
+				vo.setPicList(picList);
+
 				sql.insert("picture.mapper.insert_picture_board", vo);
-				return "redirect:board_list";
+				return "redirect:board_list?board_class=" + vo.getBoard_class();
+			} else {
 			}
 
 			boardServiceImpl.board_insert(vo);
-			return "redirect:board_list";
+//			return "redirect:board_list";
+			return "redirect:board_list?board_class=" + vo.getBoard_class();
 		} else if (path.equals("/board_delete")) {// ==================== board_delete ====================
 			printPath(path);
 			// ====================

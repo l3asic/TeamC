@@ -1,7 +1,8 @@
-<%@page import="com.google.gson.Gson"%> <%@ page language="java"
-contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
-prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib
-prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="com.google.gson.Gson"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,27 +59,22 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 									<tr>
 
-										<th class="thumbnail-img">
-										
-									<c:if test="${boardVO.member_filepath ne null}">
-										<img 	class="rounded-circle border p-1 picture_member_profile" src="${boardVO.member_filepath}" alt="프사" /> 
-										</c:if>
-										<c:if test="${boardVO.member_filepath eq null}">
-										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />
-										</c:if>
-											
-											<a
-											class="btn hvr-hover" id='member_id' name='member_id'
+										<th class="thumbnail-img"><c:if
+												test="${boardVO.member_filepath ne null}">
+												<img
+													class="rounded-circle border p-1 picture_member_profile"
+													src="${boardVO.member_filepath}" alt="프사" />
+											</c:if> <c:if test="${boardVO.member_filepath eq null}">
+												<img
+													class="rounded-circle border p-1 picture_member_profile"
+													src="images/tot_icon_profile_none.png" alt="프사" />
+											</c:if> <a class="btn hvr-hover" id='member_id' name='member_id'
 											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}
 												<br> ${boardVO.member_grade}
-										</a> <a>${boardVO.board_title } </a>
-									
-									
-									 <a 
-											style="cursor: pointer"> ${boardVO.board_title } &nbsp [조회 :
-												${boardVO.board_read_cnt} 댓글 : ${boardVO.board_cnt_reply}]</a>
-									
-										</th>
+										</a> <%-- 										 <a>${boardVO.board_title } </a> --%> <a
+											style="cursor: pointer"> ${boardVO.board_title } &nbsp
+												[조회 : ${boardVO.board_read_cnt} 댓글 :
+												${boardVO.board_cnt_reply}]</a></th>
 
 										<!-- 										<th class="price-pr"> -->
 										<!-- 										</th> -->
@@ -86,9 +82,9 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 										<!-- 										</th> -->
 
 
-									<th class="">
-											<p style="float: right;">${boardVO.board_class}&nbsp | &nbsp
-												${boardVO.board_date_create }</p>
+										<th class="">
+											<p style="float: right;">${boardVO.board_class}&nbsp|
+												&nbsp ${boardVO.board_date_create }</p>
 										</th>
 
 									</tr>
@@ -114,7 +110,14 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 									</c:if>
 								<tbody>
 									<tr>
-										<td>${fn:replace( fn:replace( boardVO.board_content, lf,
+										<td>
+										<c:forEach items="${boardVO.picList }" var="picVO">
+												<img alt="pic" src="${picVO.picture_filepath}" style="width: 300px">
+												<!-- 아이템 이걸로 포이치 ㄱㄱ -->
+											</c:forEach> 
+										</td>
+										<td>
+											<br>${fn:replace( fn:replace( boardVO.board_content, lf,
 											'<br>') , crlf, '<br>' )}
 										</td>
 									</tr>

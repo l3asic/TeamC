@@ -2,6 +2,10 @@ package chaminhwan.board;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
+
+import picture.PictureVO;
+
 
 public class BoardVO implements Serializable {
 
@@ -17,6 +21,17 @@ public class BoardVO implements Serializable {
 	private String member_grade; // 글쓴이등급
 	private int whose_cnt_like;
 	private int stack;
+	List<PictureVO> picList;
+
+
+
+	public List<PictureVO> getPicList() {
+		return picList;
+	}
+
+	public void setPicList(List<PictureVO> picList) {
+		this.picList = picList;
+	}
 
 	private String  picture_filepath;
 

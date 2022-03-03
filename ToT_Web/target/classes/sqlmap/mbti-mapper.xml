@@ -9,7 +9,8 @@ SELECT top100.* , (
         SELECT COUNT(*)
         FROM tbl_board board,tbl_likes likes    <!-- ========== 좋아요 null 이어도 됨 ========== -->
         WHERE board.board_sn = likes.board_sn <!-- AND likes.function_like IS NOT NULL --> AND likes.board_sn = top100.board_sn
-    ) "function_like" ,  (
+    ) "function_like",
+          (select pic.picture_filepath from tbl_board_picture pic where pic.board_sn = top100.board_sn and rownum=1) picture_filepath ,  (
         SELECT COUNT(*)
         FROM tbl_board board, tbl_reply reply
         WHERE board.board_sn = reply.board_sn AND reply.board_sn = top100.board_sn
@@ -42,7 +43,7 @@ FROM
         ORDER BY dbms_random.value( 1, 1000 )
     ) top100
  WHERE ROWNUM <![CDATA[ <= ]]> 10
-ORDER BY matchscore
+ORDER BY matchscore desc
 </select>
 
 
@@ -97,8 +98,8 @@ from (select board.* ,(
     		from tbl_reply reply
     		where board.board_sn = reply.board_sn 
     		) "board_cnt_reply"
-from tbl_board board, tbl_mbti mbti 
-where board.board_sn = mbti.board_sn 
+from tbl_board board
+where board_class = 'tour' or board_class =   'activiti' or board_class =  'festival' 
 order by "function_like" desc ) 
 where   ROWNUM <![CDATA[ <= ]]> 10
 </select>

@@ -50,13 +50,18 @@
 	<!-- 			class='btn hvr-hover' href='board_list'>취소</a> -->
 	<!-- 	</div> -->
 
-	<form action="board_insert" method="post" enctype="multipart/form-data">
+	<form action="multi_board_insert" method="post" enctype="multipart/form-data">
 		<div class="contact-box-main">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-sm-12">
 						<div class="contact-form-right">
-							<h2>글작성</h2>
+							<h2>
+								글작성 <select name="board_class" size="1" style="float: right; font-size: medium; width: 150px;">
+									<option value="user" selected><p> 유저게시판</p></option>
+									<option value="other" ><p>다른게시판</p></option>
+								</select>
+							</h2>
 							<form id="contactForm" novalidate="true">
 								<div class="row">
 									<div class="col-md-12">
@@ -64,7 +69,7 @@
 											<input class="form-control" input type='text'
 												name="board_title" title='제목' class='chk'
 												placeholder="제목을 입력하세요" required=""
-												data-error="Please enter your Subject">
+												data-error="Please enter your Subject" style="margin: 40px 0px;">
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -91,16 +96,21 @@
 					</div>
 					<div class="col-lg-4 col-sm-12">
 						<div class="contact-info-left">
-							<h2>CONTACT INFO</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent urna diam, maximus ut ullamcorper quis, placerat id
-								eros. Duis semper justo sed condimentum rutrum. Nunc tristique
-								purus turpis. Maecenas vulputate.</p>
+						<h2>첨부파일s</h2>
+							<td class=''><label> <a> <img
+										src='imgs/select.png' class='file-img' />
+								</a> <input type="file" id='attach-file' name='multipartFile' multiple="multiple" />
+							</label>
+								<div>
+									<span id='preview' style="max-width: 256px; max-height: 256px;"></span>
+									<a id='delete-file'> <i
+										class='font-img fas fa-minus-circle'></i>
+									</a>
+								</div></td>
 							<ul>
 								<li>
 									<p>
-										<i class="fas fa-map-marker-alt"></i>Address: Michael I. Days
-										9000 <br>Preston Street Wichita,<br> KS 87213
+										<i class="fas fa-map-marker-alt"></i>TEXT <br><%=request.getRealPath("/")%>
 									</p>
 								</li>
 								<li>
@@ -117,16 +127,41 @@
 								</li>
 							</ul>
 						</div>
+						<div class="contact-info-left" style="margin-top: 50px;">
+<!-- 							<h2>첨부파일</h2> -->
+<!-- 							<td class=''><label> <a> <img -->
+<!-- 										src='imgs/select.png' class='file-img' /> -->
+<!-- 								</a> <input type="file" id='attach-file' name='multipartFile' /> -->
+<!-- 							</label> -->
+<!-- 								<div> -->
+<!-- 									<span id='preview' style="max-width: 256px; max-height: 256px;"></span> -->
+<!-- 									<a id='delete-file'> <i -->
+<!-- 										class='font-img fas fa-minus-circle'></i> -->
+<!-- 									</a> -->
+<!-- 								</div></td> -->
+<!-- 							<ul> -->
+<!-- 								<li> -->
+<!-- 									<p> -->
+<%-- 										<i class="fas fa-map-marker-alt"></i>TEXT <br><%=request.getRealPath("/")%> --%>
+<!-- 									</p> -->
+<!-- 								</li> -->
+<!-- 								<li> -->
+<!-- 									<p> -->
+<!-- 										<i class="fas fa-phone-square"></i>Phone: <a -->
+<!-- 											href="tel:+1-888705770">+1-888 705 770</a> -->
+<!-- 									</p> -->
+<!-- 								</li> -->
+<!-- 								<li> -->
+<!-- 									<p> -->
+<!-- 										<i class="fas fa-envelope"></i>Email: <a -->
+<!-- 											href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a> -->
+<!-- 									</p> -->
+<!-- 								</li> -->
+<!-- 							</ul> -->
+						</div>
 					</div>
-					<div>
-						<th>첨부파일</th>
-						<td class='left'><label> <a><img
-									src='imgs/select.png' class='file-img' /></a> <input
-								type="file" id='attach-file' name='multipartFile' />
-						</label> <span id='preview' style="max-width: 256px; max-height: 256px;"></span>
-							<a id='delete-file'><i class='font-img fas fa-minus-circle'></i></a></td>
-					</div>
-					<%=request.getRealPath("/")%>
+
+
 				</div>
 			</div>
 		</div>

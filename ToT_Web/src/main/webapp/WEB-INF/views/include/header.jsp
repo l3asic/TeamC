@@ -95,25 +95,25 @@
 							<li><a href="activity.ca">액티비티</a></li>
 							<li><a href="festival.ca">지역축제</a></li>
 						</ul></li>
-					<li class="dropdown active"><a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
-						<ul class="dropdown-menu">
-							<li><a href="shop.html">Sidebar Shop</a></li>
-							<li><a href="shop-detail.html">Shop Detail</a></li>
-							<li><a href="cart.html">Cart</a></li>
-							<li><a href="checkout.html">Checkout</a></li>
-							<li><a href="my-account.html">My Account</a></li>
-							<li><a href="wishlist.html">Wishlist</a></li>
-						</ul>
-					</li>
-					<li class="dropdown active" ><a class="nav-link" href="/tot/board_list">유저게시판</a>
+<!-- 					<li class="dropdown active"><a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a> -->
+<!-- 						<ul class="dropdown-menu"> -->
+<!-- 							<li><a href="shop.html">Sidebar Shop</a></li> -->
+<!-- 							<li><a href="shop-detail.html">Shop Detail</a></li> -->
+<!-- 							<li><a href="cart.html">Cart</a></li> -->
+<!-- 							<li><a href="checkout.html">Checkout</a></li> -->
+<!-- 							<li><a href="my-account.html">My Account</a></li> -->
+<!-- 							<li><a href="wishlist.html">Wishlist</a></li> -->
+<!-- 						</ul> -->
+<!-- 					</li> -->
+					<li class="dropdown active" ><a class="nav-link" href="/tot/board_list?board_class=user">유저게시판</a>
 						<ul class="dropdown-menu">
 					
-							<li><a href="/tot/board_list">유저게시판</a></li>
-							<li><a href="/tot/board_list">다른게시판</a></li>
+							<li><a href="/tot/board_list?board_class=user">유저게시판</a></li>
+							<li><a href="/tot/board_list?board_class=user2">다른게시판</a></li>
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="contact-us.html">Contact Us</a></li>
+						href="servicecenter.sc">Contact Us</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

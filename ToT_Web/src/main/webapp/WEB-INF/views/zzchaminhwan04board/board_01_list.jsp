@@ -27,7 +27,7 @@
 			$.ajax({
 				url : 'board_list_stack',
 				data : {
-					board_class : 'user',
+					board_class : "${boardVO.board_class}",
 					list_cnt_many : $('#stacks').val()
 				},
 				success : function(response) {
@@ -46,10 +46,17 @@
 
 	<!-- ================================================================ -->
 	<script type="text/javascript">
+		var board_class = "";
 		$(function() { // $(document).ready() 와 같은 의미
 			// 첨부된 파일이 이미지 파일인 경우 미리보기 함.
+// 			$('input[name=now_selected_list]').attr('value', 'user');
+// 			board_class = $('input[name=now_selected_list]').val();
 			board_list(); // 댓글 목록 조회 함수 호출
 		});
 	</script>
 	<!-- ================================================================ -->
+	<!-- ========================= 페이지 모드 ========================= -->
+<!-- 	<li><input type="text" name='now_selected_list' value=''></input></li> -->
+	<!-- =========================================================== -->
+
 </body>

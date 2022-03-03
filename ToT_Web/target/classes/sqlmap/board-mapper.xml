@@ -135,8 +135,8 @@ WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 
 	<!-- 방명록 신규 글 저장 -->
 	<insert id="insert">
-		insert into tbl_board ( board_title, board_content, board_class, member_id)
-		values (#{board_title}, #{board_content}, #{board_class }, #{member_id})
+		insert into tbl_board (board_sn, board_title, board_content, board_class, member_id)
+		values (seq_board_sn.nextval,#{board_title}, #{board_content}, #{board_class }, #{member_id})
 	</insert>
 	
 	<!-- 전체 게시글 조회 -->

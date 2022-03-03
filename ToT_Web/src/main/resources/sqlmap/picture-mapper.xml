@@ -21,4 +21,8 @@
 <!-- 		</foreach> -->
 	</update>
 
+
+<select id="detail_pic_list" resultType="picture.PictureVO">
+select * from tbl_board_picture where board_sn = #{board_sn}
+</select>
 </mapper>

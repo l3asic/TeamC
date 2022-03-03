@@ -80,17 +80,25 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-sm-12">
-						<div class="contact-info-left">
-							<h2>CONTACT INFO</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent urna diam, maximus ut ullamcorper quis, placerat id
-								eros. Duis semper justo sed condimentum rutrum. Nunc tristique
-								purus turpis. Maecenas vulputate.</p>
+									<div class="contact-info-left">
+						빱
+						</div>
+						<div class="contact-info-left" style="margin-top: 50px;">
+							<h2>첨부파일</h2>
+							<td class=''><label> <a> <img
+										src='imgs/select.png' class='file-img' />
+								</a> <input type="file" id='attach-file' name='multipartFile' />
+							</label>
+								<div>
+									<span id='preview' style="max-width: 256px; max-height: 256px;"></span>
+									<a id='delete-file'> <i
+										class='font-img fas fa-minus-circle'></i>
+									</a>
+								</div></td>
 							<ul>
 								<li>
 									<p>
-										<i class="fas fa-map-marker-alt"></i>Address: Michael I. Days
-										9000 <br>Preston Street Wichita,<br> KS 87213
+										<i class="fas fa-map-marker-alt"></i>TEXT <br><%=request.getRealPath("/")%>
 									</p>
 								</li>
 								<li>

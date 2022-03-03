@@ -116,11 +116,11 @@
 				<div class="col-lg-12">
 					<h2 style="cursor: pointer;">
 						<c:if test="${memberVO.member_filepath ne null}">
-							<img class="rounded-circle border p-1 picture_member_profile"
+							<img class="rounded-circle border p-1 picture_member_profile_256"
 								src="${memberVO.member_filepath}" alt="프사" />
 						</c:if>
 						<c:if test="${memberVO.member_filepath eq null}">
-							<img class="rounded-circle border p-1 picture_member_profile"
+							<img class="rounded-circle border p-1 picture_member_profile_256"
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
 

@@ -53,10 +53,11 @@ SELECT a.*,
     ) function_like <!-- 특정 사용자의 좋아요 게시물 수 -->
     
 FROM
-    ( SELECT board.* FROM tbl_board board, tbl_likes likes
+    ( SELECT likes.likes_date, board.* FROM tbl_board board, tbl_likes likes
         WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
         order by board.board_sn desc
-    ) a
+    ) a order by likes_date desc
+   
 </select>
 
 </mapper>

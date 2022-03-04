@@ -61,7 +61,7 @@
 	<!-- resultType : 조회한 결과를 반환하는 데이터타입 -->
 	<!-- 2022/02/26 수정 -->
 	<select id="categoryList_activity" resultType="category.CategoryVO">
-		select *
+		select 
 		from (select rownum no, a.*
 		    from (select a.*, NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 		            NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn), 0) board_cnt_reply,

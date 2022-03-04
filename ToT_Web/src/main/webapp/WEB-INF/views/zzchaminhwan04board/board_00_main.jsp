@@ -81,6 +81,12 @@
 		}
 		
 	</script>
+		<script type="text/javascript">
+		function go_mypage(member_id) {
+		
+			location.href = "mypage_" + member_id;
+		}
+	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
@@ -103,12 +109,7 @@
 <!-- 		<input type="hidden" name='board_sn' value=""></input> -->
 <!-- 	</form> -->
 	<!-- 	============================================================ -->
-	<script type="text/javascript">
-		function go_mypage(str) {
-		
-			location.href = "mypage_" + str;
-		}
-	</script>
+
 
 
 </body>

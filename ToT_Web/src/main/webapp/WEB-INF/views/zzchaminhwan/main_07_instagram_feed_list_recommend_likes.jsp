@@ -17,7 +17,7 @@
 						<img src="${vo.picture_filepath }" alt="여행지 대표사진" />
 					</c:if>
 					<c:if test="${vo.picture_filepath eq null}">
-						<img src="images/about-img.jpg" alt="여행지 대표사진" />
+						<img src="images/no_image.png" alt="여행지 대표사진" />
 					</c:if>
 
 					<div class="hov-in">

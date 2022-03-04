@@ -2,6 +2,7 @@ package com.hanul.tot.and;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -72,24 +73,37 @@ public class BoardController {
 		if (vo.getMember_id() == null) {
 			printPath(path);
 			// ====================
-			MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
-			vo.setMember_id(memberVO.getMember_id());
+			
+			vo.setMember_id("ChaMinHwan");
 		}
 //			 파일 정보가 있다면
 		if (!multipartFile.isEmpty()) {
-			String filepath = common.fileupload("board", multipartFile, session);
-			vo.setPicture_filepath(common.fileupload("board", multipartFile, session));
+			List<MultipartFile> mpfList = req.getFiles("multipartFile");
 			List<PictureVO> picList = new ArrayList<PictureVO>();
-			vo.setPicList(picList);
 
-			sql.insert("picture.mapper.insert_picture_board", vo);
+			for (int i = 0; i < mpfList.size(); i++) {
+				PictureVO picVO = new PictureVO();
+				String filepath = common.fileupload("board", mpfList.get(i), session);
+				picVO.setPicture_filepath(filepath);
+				try {
+					
+					picList.add(picVO);
+					System.out.println(picList.get(i).getPicture_filepath());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+//			vo.setPicture_filepath(common.fileupload("board", picList.get(i), session));
+
+//			vo.setPicList(picList);
+			}
+			vo.setPicList(picList);
 			return "redirect:board_list?board_class=" + vo.getBoard_class();
 		} else {
 
 		}
 
-		model.addAttribute("path", path);
-		return "zzchaminhwan04board/board_00_main";
+		sql.insert("board.mapper.insert", vo);
+		return "redirect:board_list?board_class=" + vo.getBoard_class();
 	}
 //	=========================================================================================
 

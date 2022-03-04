@@ -73,7 +73,7 @@
 						<!-- 로그인한 상태 -->
 						<c:if test="${ !empty loginInfo }">
 							<li style="list-style-type: none; float: left;"><a
-								href="mypage_"><strong>${loginInfo.member_id}</strong></a></li>
+								href="mypage_${loginInfo.member_id}"><strong>${loginInfo.member_id}</strong></a></li>
 							<li style="list-style-type: none; float: left;">｜</li>
 							<li style="list-style-type: none; float: left;"><a
 								href="logout">로그아웃</a></li>

@@ -107,7 +107,7 @@ insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_cont
 		
 		SELECT ROWNUM, tbl.*,
     ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = tbl.board_sn
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = tbl.board_sn
     ) function_like,
     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
         WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
@@ -143,7 +143,7 @@ WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 	<select id="list" resultType="chaminhwan.board.BoardVO">
 SELECT ROWNUM, tbl.*,
     ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = tbl.board_sn
+        WHERE board.board_sn = likes.board_sn  AND likes.board_sn = tbl.board_sn
     ) function_like,
     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
         WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn

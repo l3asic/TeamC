@@ -26,8 +26,8 @@ select a.* ,
     ) member_grade
     
 from(SELECT * FROM tbl_board board
-    WHERE  member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
-    order by board.board_sn desc) a
+    WHERE  member_id = #{member_id} 
+    order by board.board_sn desc) a where ROWNUM <![CDATA[ <= ]]> #{stack}
 </select>
 
 
@@ -54,10 +54,9 @@ SELECT a.*,
     
 FROM
     ( SELECT likes.likes_date, board.* FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
-        order by board.board_sn desc
-    ) a order by likes_date desc
-   
+        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
+        order by likes_date desc
+    ) a  where ROWNUM <![CDATA[ <= ]]> #{stack}
 </select>
 
 </mapper>

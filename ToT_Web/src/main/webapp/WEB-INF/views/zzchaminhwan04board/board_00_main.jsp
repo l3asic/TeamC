@@ -102,7 +102,7 @@
 	<script src="js/baguetteBox.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
-	<!-- 	<script src="js/custom.js"></script> -->
+		<script src="js/custom.js"></script>
 
 	<!-- 	========================== board_sn =========================== -->
 <!-- 	<form action="board_detail" method="post"> -->

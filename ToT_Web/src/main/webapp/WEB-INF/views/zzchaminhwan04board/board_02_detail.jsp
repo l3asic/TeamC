@@ -30,35 +30,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="table-main table-responsive">
+						<div class="table-main table-responsive" style="overflow:hidden;">
 							<table class="table">
-								<thead>
-									<!-- 									<tr> -->
-									<!-- 										<th class="thumbnail-img"><img -->
-									<!-- 											class="rounded-circle border p-1 picture_member_profile" -->
-									<!-- 											src="${boardVO.member_filepath}" alt="프사" /> <a -->
-									<!-- 											class="btn hvr-hover" id='member_id' name='member_id' -->
-									<!-- 											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a><p>${boardVO.member_grade}</p> -->
-									<!-- 										</th> -->
-									<!-- 										<th class="   name-pr"> -->
-									<!-- 											<div> -->
-									<!-- 												<a>${boardVO.board_title } </a> -->
-									<!-- 											</div> -->
-									<!-- 										</th> -->
-									<!-- 										<th class="price-pr"><a class="btn hvr-hover" -->
-									<!-- 											id='member_id' name='member_id' -->
-									<!-- 											onclick=" go_mypage( '${boardVO.member_id}' ) ">${boardVO.member_id}</a> -->
-									<!-- 											<p>${boardVO.member_grade}</p></th> -->
-									<!-- 										<th class="quantity-box">${vo.board_class}</th> -->
-									<!-- 										<th class="add-pr"> -->
-									<!-- 											<p>조회 : ${boardVO.board_read_cnt}</p> -->
-									<!-- 											<p>댓글 : ${boardVO.board_cnt_reply}</p> -->
-									<!-- 										</th> -->
-									<!-- 										<th class="remove-pr">${boardVO.board_date_create }</th> -->
-									<!-- 									</tr> -->
-
+								<thead style="margin-bottom: 10px;">
 									<tr>
-
 										<th class="thumbnail-img"><c:if
 												test="${boardVO.member_filepath ne null}">
 												<img
@@ -75,49 +50,45 @@
 											style="cursor: pointer"> ${boardVO.board_title } &nbsp
 												[조회 : ${boardVO.board_read_cnt} 댓글 :
 												${boardVO.board_cnt_reply}]</a></th>
-
-										<!-- 										<th class="price-pr"> -->
-										<!-- 										</th> -->
-										<!-- 										<th class="price-pr"> -->
-										<!-- 										</th> -->
-
-
 										<th class="">
 											<p style="float: right;">${boardVO.board_class}&nbsp|
 												&nbsp ${boardVO.board_date_create }</p>
 										</th>
-
 									</tr>
-
-
-									<c:if
-										test="${boardVO.member_id eq loginInfo.member_id or loginInfo.member_grade eq 'master'}">
-										<tbody>
-											<tr>
-												<td>
-													<div class="price-box-bar" style="margin-bottom: 0px;">
-														<div class="cart-and-bay-btn">
-															<a class="btn hvr-hover" data-fancybox-close=""
-																id='btn_board_update-save' onclick='goUpdate();'>수정</a>
-															<a class="btn hvr-hover" data-fancybox-close=""
-																id='btn_board_delete-cancel'
-																onclick='if ( confirm("게시물을 삭제합니다.") ) {href="board_delete?board_sn=${boardVO.board_sn}" }'>삭제</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</c:if>
+								</thead>
+							<c:if test="${boardVO.member_id eq loginInfo.member_id or loginInfo.member_grade eq 'master'}">
 								<tbody>
 									<tr>
 										<td>
-										<c:forEach items="${boardVO.picList }" var="picVO">
-												<img alt="pic" src="${picVO.picture_filepath}" style="width: 300px">
-												<!-- 아이템 이걸로 포이치 ㄱㄱ -->
-											</c:forEach> 
+											<div class="price-box-bar" style="margin-bottom: 0px;">
+												<div class="cart-and-bay-btn">
+													<a class="btn hvr-hover" data-fancybox-close=""
+														id='btn_board_update-save' onclick='goUpdate();'>수정</a>
+													<a class="btn hvr-hover" data-fancybox-close=""
+														id='btn_board_delete-cancel'
+														onclick='if ( confirm("게시물을 삭제합니다.") ) {href="board_delete?board_sn=${boardVO.board_sn}" }'>삭제</a>
+												</div>
+											</div>
 										</td>
-										<td>
-											<br>${fn:replace( fn:replace( boardVO.board_content, lf,
+									</tr>
+								</tbody>
+							</c:if>
+								<tbody>
+									<tr>
+										<c:if test="${! empty boardVO.picList}">
+										<td style="width: 100%; display: flex; flex-wrap: wrap;">
+										<!-- ================================ -->
+											<c:forEach items="${boardVO.picList }" var="picVO">
+														<div  style=" width: 300px; margin: 0 auto;">
+																<img alt="pic" src="${picVO.picture_filepath}" style="width: 300px; height: 300px; margin: 10px;">
+														</div>
+													</c:forEach>
+											<!-- ================================ -->
+										</td>
+										</c:if>
+									</tr>
+									<tr>
+										<td><br>${fn:replace( fn:replace( boardVO.board_content, lf,
 											'<br>') , crlf, '<br>' )}
 										</td>
 									</tr>
@@ -142,24 +113,17 @@
 				</div>
 			</div>
 		</div>
-
-
 		<div class='btnSet'>
 			<a class='hvr-hover' onclick='history.back(-1)'>목록으로</a>
 			<!-- 글쓴이만 수정/삭제 권한을 가짐 -->
-
 		</div>
-
-
 		<!-- Start 댓글  -->
 		<%@include file="../zzchaminhwan04board/board_02_detail_reply.jsp"%>
 		<!-- End 댓글  -->
-
 	</div>
 	<!-- ========================= -->
 	<script type="text/javascript">
 		function goUpdate() {
-
 			$('form[name="updateForm"]').attr("action", "board_go_update");
 			$('form[name="updateForm"]').submit();
 		}

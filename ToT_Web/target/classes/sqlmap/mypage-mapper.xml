@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage.mapper">
+<!-- 특정 사용자의 VO 조회 -->
+<select id="selectvo" resultType="member.MemberVO">
+select member.* , (select picture_filepath from tbl_board_picture picture where picture.member_id = member.member_id) member_filepath
+from tbl_member_info member
+where member.member_id = #{member_id}
+</select>
+
+<!-- 특정 사용자의 작성 게시물 조회 -->
+<select id="/mypage_list_write" resultType="chaminhwan.board.BoardVO">
+select a.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) function_like,
+     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) "board_cnt_reply",
+     ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) member_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade
+    
+from(SELECT * FROM tbl_board board
+    WHERE  member_id = #{member_id} and board_reviewpath is null
+    order by board.board_sn desc) a where ROWNUM <![CDATA[ <= ]]> #{stack}
+</select>
+
+
+<!-- 특정 사용자의 좋아요 게시물 조회 -->
+<select id="/mypage_list_likes" resultType="chaminhwan.board.BoardVO">
+SELECT a.*,
+    <!-- (SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) whose_cnt_like,  -->
+    ( SELECT COUNT(*)
+        FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) board_cnt_reply,
+    
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) member_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes 
+        where likes.member_id = a.member_id
+    ) function_like <!-- 특정 사용자의 좋아요 게시물 수 -->
+    
+FROM
+    ( SELECT likes.likes_date, board.* FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id}
+        order by likes_date desc
+    ) a  where ROWNUM <![CDATA[ <= ]]> #{stack}
+</select>
+
+</mapper>

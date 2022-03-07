@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Study_Project\\ToTproject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "D:\\Study_Android\\caches\\transforms-3\\b6bc223ebbe129736e77da72c29eb52f\\transformed\\jetified-oauth-5.0.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,120",
+                        "endColumns": "64,58",
+                        "endOffsets": "115,174"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "100,165",
+                        "endColumns": "64,58",
+                        "endOffsets": "160,219"
+                    }
+                },
+                {
+                    "source": "D:\\Study_Android\\caches\\transforms-3\\8a7a06036e0c4f4e613a8bbc02ac21f5\\transformed\\material-1.4.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,143,267,369,471,587,689,803,931,1047,1169,1305,1425,1559,1679,1791,1917,2041,2171,2293,2431,2565,2681",
+                        "endColumns": "87,123,101,101,115,101,113,127,115,121,135,119,133,119,111,125,123,129,121,137,133,115,119",
+                        "endOffsets": "138,262,364,466,582,684,798,926,1042,1164,1300,1420,1554,1674,1786,1912,2036,2166,2288,2426,2560,2676,2796"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,41,42,43,44,45,46,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "856,944,1068,1170,1272,1388,1490,1604,1732,1848,1970,2106,2226,2360,2480,2592,3515,3639,3769,3891,4029,4163,4279",
+                        "endColumns": "87,123,101,101,115,101,113,127,115,121,135,119,133,119,111,125,123,129,121,137,133,115,119",
+                        "endOffsets": "939,1063,1165,1267,1383,1485,1599,1727,1843,1965,2101,2221,2355,2475,2587,2713,3634,3764,3886,4024,4158,4274,4394"
+                    }
+                },
+                {
+                    "source": "D:\\Study_Android\\caches\\transforms-3\\8f8dfbea7461eb4b096b7a7771e0ff80\\transformed\\appcompat-1.4.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,8,9,10,40",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "224,294,378,462,558,660,762,3426",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "289,373,457,553,655,757,851,3510"
+                    }
+                },
+                {
+                    "source": "D:\\Study_Project\\ToTproject\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "819"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "2718",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "3421"
+                    }
+                }
+            ]
+        }
+    ]
+}

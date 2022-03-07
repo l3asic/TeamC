@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.totproject">
     <!-- 인터넷 사용 권한 설정 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 저장소와 카메라 권한 별도의 동의가 메소드로 필요함※ -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -55,9 +53,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".common.KakaoMapActivity"
-            android:exported="false" />
         <activity
             android:name=".party_plan.PlanUpdatePlanActivity"
             android:exported="false" />

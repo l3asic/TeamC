@@ -35,7 +35,7 @@ public class CategoryMainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         tabcode = intent.getIntExtra("tabcode" ,  0);
         paramSn = intent.getIntExtra("paramSn",0);
-
+       String aa = intent.getStringExtra("tabText");
         category_main_title.setText(getIntent().getStringExtra("tabText"));
 
         Fragment02CategoryGridView categoryGridView = new Fragment02CategoryGridView(tabcode);
@@ -55,7 +55,7 @@ public class CategoryMainActivity extends AppCompatActivity {
             // 지역축제시 출력연계
 
         }else if (tabcode ==4){
-            Fragment02CategoryGridView categoryGridView2 = new Fragment02CategoryGridView(tabcode,paramSn);
+            Fragment02CategoryGridView categoryGridView2 = new Fragment02CategoryGridView(tabcode,paramSn,category_main_title.getText()+"");
             getSupportFragmentManager().beginTransaction().replace(R.id.cate_container, categoryGridView2).commit();
         }
 

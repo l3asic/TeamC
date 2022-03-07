@@ -1,75 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="end"
-    android:fitsSystemWindows="true"
     tools:context=".main.MainActivity"
-    tools:openDrawer="start">
+    android:orientation="vertical">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
+                android:background="@color/main_color"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
-                app:titleTextColor="@color/black">
-                <Button
-                    android:id="@+id/main_btn_reload"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="start"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/logo_tot" />
-
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    >
-                    <TextView
-                        android:id="@+id/main_tv_acttitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="main act"
-                        android:textSize="20dp" />
-
-                </LinearLayout>
+                app:titleTextColor="@color/white"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                >
 
 
-
-                <Button
-                    android:id="@+id/main_btn_burger"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/icon_main_burger" />
 
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <com.andremion.floatingnavigationview.FloatingNavigationView
+        android:id="@+id/main_burger_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:headerLayout="@layout/main_burgermenu"
+        app:menu="@menu/nav_menu"
+        android:backgroundTint="@null"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_anchor="@id/main_toolbar"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_margin="10dp"/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-
             android:orientation="vertical">
-
 
             <FrameLayout
                 android:id="@+id/main_container"
@@ -78,29 +57,17 @@
                 android:layout_weight="1">
 
             </FrameLayout>
-
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
+            <com.ashokvarma.bottomnavigation.BottomNavigationBar
                 android:id="@+id/main_nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#DFDFDF"
-                app:itemIconTint="@drawable/nav_select"
-                app:itemTextColor="@drawable/nav_select"
-                app:menu="@menu/bottomnav_menu" />
+                app:bnbBackgroundColor="@color/white"
+                android:layout_gravity="bottom" />
+
 
         </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/main_burger_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:layout_marginTop="30dp"
-        android:background="@color/white"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/main_burgermenu"
-        app:menu="@menu/nav_menu" />
-</androidx.drawerlayout.widget.DrawerLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

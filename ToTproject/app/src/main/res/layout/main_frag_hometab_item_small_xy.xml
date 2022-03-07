@@ -12,24 +12,24 @@
         android:layout_marginHorizontal="30dp"
         android:layout_weight="1"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/hometab_small_tv_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="성향 매칭률 XX%"
-            android:layout_marginLeft="0dp"
-            android:textSize="12dp"
-
-            />
 
 
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/category_img_tour"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="8"
+            android:src="@drawable/ic_launcher_foreground"
+            app:civ_border_color="#999999"
+            app:civ_border_overlay="true"
+            app:civ_border_width="3dp" />-->
         <ImageView
             android:id="@+id/hometab_small_img"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_weight="10"
+            android:layout_weight="8"
             android:src="@color/black" />
 
         <TextView
@@ -97,7 +97,17 @@
 
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/hometab_small_tv_score"
+        android:layout_marginTop="7.5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="00"
+        android:layout_marginLeft="40dp"
+        android:textSize="30dp"
 
+        />
 
 </FrameLayout>
 

@@ -1,20 +1,25 @@
 package com.example.totproject.main;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 import com.example.totproject.party.PartyMainActivity;
 
 
 public class Fragment04PartyTab extends Fragment {
-
+    ImageView imgv_partymain;
 
 
     @Override
@@ -23,13 +28,15 @@ public class Fragment04PartyTab extends Fragment {
 
         View view = inflater.inflate(R.layout.main_frag_partytab, container, false);
 
-        TextView tv_open_party_list = view.findViewById(R.id.tv_open_party_list);
-        TextView tv_create_party = view.findViewById(R.id.tv_create_party);
-        TextView tv_my_party_list = view.findViewById(R.id.tv_my_party_list);
+        LinearLayout open_party_list = view.findViewById(R.id.open_party_list);
+        LinearLayout create_party = view.findViewById(R.id.create_party);
+        LinearLayout my_party_list = view.findViewById(R.id.my_party_list);
+        ImageView imgv_partymain = view.findViewById(R.id.imgv_partymain);
+        Glide.with(getContext()).load(R.drawable.travel_party).into(imgv_partymain);
+        imgv_partymain.setColorFilter(Color.parseColor("#BDBDBD"), PorterDuff.Mode.MULTIPLY);
 
 
-
-        tv_open_party_list.setOnClickListener(new View.OnClickListener() {
+        open_party_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 click_partytab(1);
@@ -37,14 +44,14 @@ public class Fragment04PartyTab extends Fragment {
         });
 
 
-        tv_create_party.setOnClickListener(new View.OnClickListener() {
+        create_party.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 click_partytab(2);
             }
         });
 
-        tv_my_party_list.setOnClickListener(new View.OnClickListener() {
+        my_party_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 click_partytab(3);

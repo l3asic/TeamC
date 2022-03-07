@@ -1,7 +1,6 @@
 package com.example.totproject.main;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -17,8 +17,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -26,21 +29,23 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andremion.floatingnavigationview.FloatingNavigationView;
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.bumptech.glide.Glide;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.common.DatePickerActivity;
-import com.example.totproject.common.KakaoMapActivity;
 import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
-import com.example.totproject.party_plan.PlanCreatePlanActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
 import com.example.totproject.R;
 import com.example.totproject.common.VO.MemberDTO;
@@ -61,23 +66,29 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     //https://salix97.tistory.com/72
-    BottomNavigationView bottom_nav;
+  //  BottomNavigationView bottom_nav;
+    BottomNavigationBar bottom_nav;
     int main_container;
-
-        Button main_btn_burger, main_btn_reload;
+    Button main_btn_burger;
     Toolbar toolbar;
     ImageView cancel;
     ImageView main_burger_imgv_circle;  // 버거메뉴 프사
-    TextView main_tv_acttitle;
-
+   // TextView main_tv_acttitle;
+   FloatingNavigationView nav_view;
     LinearLayout afterLogin, main_burger_myboard, main_burger_myscrap, main_burger_myparty;
     FragmentManager manager = getSupportFragmentManager();
+    String[] mainColors = {
 
+            "#2BA0DA",
+            "#885CD0",
+            "#FF2E841B",
+            "#232344",
+            "#551122"
+    };
     public int reqGcode = 1004;
 
     CommonAsk commonAsk;
     Gson gson = new Gson();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,9 +97,11 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+        toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        toolbar.setTitle("맞춤 추천");
+        setSupportActionBar(toolbar);
 
-
-        bottom_nav = findViewById(R.id.main_nav);
         main_container = R.id.main_container;
         Fragment01HomeTab mainTab_frag = new Fragment01HomeTab(MainActivity.this, manager);
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
@@ -98,104 +111,90 @@ public class MainActivity extends AppCompatActivity {
         Fragment00Empty empty_frag = new Fragment00Empty();
         //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         /* =================================== 바텀메뉴 =================================== */
-        main_tv_acttitle = findViewById(R.id.main_tv_acttitle);
+       // main_tv_acttitle = findViewById(R.id.main_tv_acttitle);
         ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
-        
-        // 바텀네비 조작영역
-        bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.bot_home) {
-                    //ChangeFrament(main_container, mainTab_frag);
-                    ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
-                    return true;
-                } else if (item.getItemId() == R.id.bot_category) {
-                    ChangeFrament(main_container, categoryTab_frag, "여행지 분류");
-                    return true;
-                } else if (item.getItemId() == R.id.bot_board) {
-                    //   ChangeFrament(main_container, boardTab_frag);
-                    ChangeFrament(main_container, boardTab_frag, "자유게시판");
 
-                    return true;
-                } else if (item.getItemId() == R.id.bot_party) {
-                    ChangeFrament(main_container, partyTab_frag, "파티");
-                    return true;
-                } else if (item.getItemId() == R.id.bot_iot) {
-                    main_tv_acttitle.setText("iot 탭입니다.");
-                    // ChangeFrament(main_container, loginTab_frag); //★★아이오티 화면나오면 수정해야함
-                    return true;
-                }
-                //One day we have to make that the IotTab@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                //fking i can't typing Korean;;;
-                return false;
+
+
+
+        /* ================================= 버거메뉴 findView ================================= */
+        nav_view = findViewById(R.id.main_burger_view);
+        nav_view.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(mainColors[0])));
+        View nav_headerview = nav_view.getHeaderView(0);
+        nav_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav_view.open();
             }
         });
+        /* ===================================================================================== */
+
+        // 바텀네비 조작영역-==========================================================
+        bottom_nav = findViewById(R.id.main_nav);
+        bottom_nav.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position) {
+                if (position == 0) {
+                    ChangeFrament(main_container, mainTab_frag, "맞춤 추천");
+                } else if (position == 1) {
+                    ChangeFrament(main_container, categoryTab_frag, "여행지 분류");
+
+                } else if (position == 2) {
+                    ChangeFrament(main_container, boardTab_frag, "자유게시판");
+                } else if (position == 3) {
+                    ChangeFrament(main_container, partyTab_frag, "파티");
+                } else if (position == 4) {
+                    toolbar.setTitle("iot 탭입니다.");
+                //    main_tv_acttitle.setText("iot 탭입니다.");
+                }
+                toolbar.setBackgroundColor(Color.parseColor(mainColors[position]));
+                nav_view.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(mainColors[position])));
+                getWindow().setStatusBarColor(Color.parseColor(mainColors[position]));
+
+            }
+
+            @Override
+            public void onTabUnselected(int position) {
+
+            }
+
+            @Override
+            public void onTabReselected(int position) {
+
+            }
+        });
+        bottom_nav.addItem(new BottomNavigationItem(R.drawable.icon_home,"Home").setActiveColor(mainColors[0]));
+        bottom_nav.addItem(new BottomNavigationItem(R.drawable.icon_category,"Category").setActiveColor(Color.parseColor(mainColors[1])));
+        bottom_nav.addItem(new BottomNavigationItem(R.drawable.icon_board,"Board").setActiveColor(Color.parseColor(mainColors[2])));
+        bottom_nav.addItem(new BottomNavigationItem(R.drawable.icon_party,"Party").setActiveColor(Color.parseColor(mainColors[3])));
+        bottom_nav.addItem(new BottomNavigationItem(R.drawable.icon_setting,"IoT").setActiveColor(Color.parseColor(mainColors[4])));
+        bottom_nav.initialise();
+        bottom_nav.setFirstSelectedPosition(0);
+        bottom_nav.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
+
+        //============================================
+
         /* ================================================================================ */
 
         /* =================================== 버거메뉴 생성 ================================================ */
-        toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
+          //   DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
+
+     //   ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+      //          this, drawer, toolbar,
+      //          R.string.navigation_drawer_open,
+       //         R.string.navigation_drawer_close
+      //  );
+      //  drawer.addDrawerListener(toggle);
         /* =================================================================================================== */
 
-        /* ================================= 버거메뉴 findView ================================= */
-        NavigationView nav_view = findViewById(R.id.main_burger_view);
-        View nav_headerview = nav_view.getHeaderView(0);
-        /* ===================================================================================== */
 
-        /* ============================== 새로고침 ============================== */
-        main_btn_reload = findViewById(R.id.main_btn_reload);
-        main_btn_reload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = getIntent();
-                startActivity(getIntent());
-                finish();
-                ActivityCompat.finishAffinity(MainActivity.this);
-            }
-        });
+
         /* ====================================================================== */
 
         /* ========================= 버거메뉴 여닫기 ========================= */
-        main_btn_burger = findViewById(R.id.main_btn_burger);
-        main_btn_burger.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("WrongConstant")
-            @Override
-            public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.END)) {
-                    drawer.closeDrawer(Gravity.END);
-                } else {
-                    drawer.openDrawer(Gravity.END);
-                }
-            }
-        });
-        cancel = nav_headerview.findViewById(R.id.mainburger_btn_cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("WrongConstant")
-            @Override
-            public void onClick(View v) {
-                drawer.closeDrawer(Gravity.END);
-            }
-        });
+
         /* ==================================================================================== */
-        
-        
-
-
-
-        
-        
-
-        
-        
-        
 
 
         /* ============================== 버거메뉴 내부 ========================================= */
@@ -234,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (Logined.picture_filepath != null) {
             Glide.with(MainActivity.this).load(Logined.picture_filepath).into(main_burger_imgv_circle);
-
             //Glide.with(context).load(list.get(position).getPicture_filepath()).into(board_user_reply_img_profile);
         }else {
             Glide.with(MainActivity.this).load(R.drawable.logo_tot).into(main_burger_imgv_circle);
@@ -330,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
 
         /* =================================== 버거메뉴 =================================== */
         Menu nav_menu = nav_view.getMenu();
-        NavigationView bottom_nav2;
+        FloatingNavigationView bottom_nav2;
         bottom_nav2 = findViewById(R.id.main_burger_view);
         bottom_nav2.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -355,25 +353,10 @@ public class MainActivity extends AppCompatActivity {
         /* ================================================================================ */
 
 
-
-
-
-
-
-
-
-
     }//onCreate()
 
 
     /* =================================== 메소드 ======================= */
-
-
-
-
-
-
-
 
 
     // 사진 픽업 메소드
@@ -469,7 +452,7 @@ public class MainActivity extends AppCompatActivity {
     /* =================================== view변경 + 상단텍스트 변경 ===========-------======================== */
     public void ChangeFrament(int container, Fragment fragment, String titleText) {
         getSupportFragmentManager().beginTransaction().replace(container,fragment).addToBackStack(null).commit();
-        main_tv_acttitle.setText(titleText);
+        toolbar.setTitle(titleText);
 
     }
 
@@ -507,21 +490,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if (nav_view.isOpened()) {
+            nav_view.close();
+        } else {
 
-        Object ac = getSupportFragmentManager().getFragments().get(0).getClass();
-        if (ac.equals( Fragment01HomeTab.class) || ac.equals(Fragment02CategoryTab.class) ||
-         ac.equals( Fragment03BoardTab.class) || ac.equals(Fragment04PartyTab.class) || ac.equals(Fragment05IotTab.class)) {
-            if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-                backKeyPressedTime = System.currentTimeMillis();
-                Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            Object ac = getSupportFragmentManager().getFragments().get(0).getClass();
+            if (ac.equals(Fragment01HomeTab.class) || ac.equals(Fragment02CategoryTab.class) ||
+                    ac.equals(Fragment03BoardTab.class) || ac.equals(Fragment04PartyTab.class) || ac.equals(Fragment05IotTab.class)) {
+                if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                    backKeyPressedTime = System.currentTimeMillis();
+                    Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
 
-                return;
+                    return;
+                }
+                if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                    finish();
+                }
+            } else {
+                manager.popBackStack();
             }
-            if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-                finish();
-            }
-        }else {
-            manager.popBackStack();
         }
     }
     /* ======================================================================== */

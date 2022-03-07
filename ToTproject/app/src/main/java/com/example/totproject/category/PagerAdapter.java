@@ -52,8 +52,11 @@ public class PagerAdapter extends RecyclerView.Adapter<PagerAdapter.ViewHolder> 
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         }
         public void bindSliderImage(String imageURL) {
+//            Glide.with(context)
+//                    .load(imageURL)
+//                    .into(imageView);
             Glide.with(context)
-                    .load(imageURL)
+                    .load(R.drawable.image_test)
                     .into(imageView);
         }
     }

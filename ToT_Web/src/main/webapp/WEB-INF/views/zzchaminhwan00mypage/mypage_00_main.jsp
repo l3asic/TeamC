@@ -132,6 +132,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 						<!-- 						로그인하면 가능 -->
 						<!-- 						</c:if> -->
 
+					<!-- 성향 일치 점수 -->
 						<c:choose>
 							<c:when test="${loginInfo eq null}"> 로그인하면 가능 </c:when>
 							<c:when test="${loginInfo.member_id eq memberVO.member_id}"> 본인임ㅎ </c:when>
@@ -142,7 +143,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 
-
+					<!-- 프로필사진 -->
 						<br> <br>
 						<c:if test="${memberVO.member_filepath ne null}">
 							<img class="rounded-circle border p-1 picture_member_profile_256"
@@ -153,7 +154,15 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 							<img class="rounded-circle border p-1 picture_member_profile_256"
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
-						<br> <br> ${memberVO.member_id}
+						
+						<!-- 아이디 -->
+						<br> <strong style="font-size: 40px; font-style: bold;">${memberVO.member_id}</strong>
+						<br>
+						
+						<!-- 정보수정 -->
+						<c:if test="${memberVO.member_id eq loginInfo.member_id }">
+						<a href="my_modify?member_id=${memberVO.member_id }" style="font-size: 12px; color: #ffffff;">내 정보 수정</a>
+						</c:if>
 					</h2>
 					<ul class="breadcrumb" style="cursor: pointer;">
 						<li class="breadcrumb-item active"><a

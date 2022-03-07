@@ -182,7 +182,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 				</div>
 				<div>
 					<c:if test="${loginInfo.member_grade eq 'master'}">
-						<a class="btn hvr-hover" href="category_write_view?board_class=tour" style="float: right;">
+						<a class="btn hvr-hover" href="category_write_view?board_class=activity" style="float: right; background-color:transparent; font-size: 15px; color: #999999;">
 							여행지 등록 </a>
 					</c:if>
 				</div>

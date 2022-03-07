@@ -42,26 +42,15 @@
 												data-error="Write your message" required=""></textarea>
 											<div class="help-block with-errors"></div>
 										</div>
-										<div class="submit-button text-center">
-											<button class="btn hvr-hover " id="submit" type="submit"
-												style="pointer-events: all; cursor: pointer;">작성</button>
-											<button class="btn hvr-hover " id="cancel"
-												style="pointer-events: all; cursor: pointer;"
-												onclick="history.back(-1)">취소</button>
-											<div id="msgSubmit" class="h3 text-center hidden"></div>
-											<div class="clearfix"></div>
-										</div>
+									
 									</div>
 								</div>
 <!-- 							</form> -->
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-12">
-						<div class="contact-info-left">
-						<h2>첨부파일s</h2>
+							<div class="col-md-12" style="margin-top: 30px; background: #ffffff; border: 1px solid #495057;">
+							<h2 style="margin-top: 5%;">첨부파일</h2>
 							<td class=''><label> <a> <img
 										src='images/select.png' class='file-img' />
-								</a> <input type="file" id='attach-file' name='multipartFile' multiple="multiple" />
+								</a> <input type="file" id='attach-file' name='multipartFile' />
 							</label>
 								<div>
 									<span id='preview' style="max-width: 256px; max-height: 256px;"></span>
@@ -89,9 +78,19 @@
 								</li>
 							</ul>
 						</div>
-						<div class="contact-info-left" style="margin-top: 50px;">
 						</div>
 					</div>
+					
+						<div class="submit-button" style="margin-left: 30%; margin-top: 5%;">
+											<button class="btn hvr-hover " id="submit" type="submit"
+												style="pointer-events: all; cursor: pointer; background: #2ba0da;">작성</button>
+											<button class="btn hvr-hover " id="cancel"
+												style="pointer-events: all; cursor: pointer; background: #2ba0da;"
+												onclick="history.back(-1)">취소</button>
+											<div id="msgSubmit" class="h3 text-center hidden"></div>
+											<div class="clearfix"></div>
+										</div>
+
 
 
 				</div>
@@ -99,8 +98,6 @@
 		</div>
 
 	</form>
-
-	<hr>
 
 
 	<script>
@@ -115,7 +112,7 @@
 		//   });
 	</script>
 
-	</div>
+
 
 
 </body>

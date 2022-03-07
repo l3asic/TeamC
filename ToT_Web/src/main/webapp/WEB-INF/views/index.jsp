@@ -204,7 +204,7 @@
 				</div></li>
 		</ul>
 		<div class="slides-navigation">
-			<a href="#" class="next"><i class="fa fa-angle-right"
+			<a href="#" class="next" style="background: #BDEDFF"><i class="fa fa-angle-right"
 				aria-hidden="true"></i></a> <a href="#" class="prev"><i
 				class="fa fa-angle-left" aria-hidden="true"></i></a>
 		</div>

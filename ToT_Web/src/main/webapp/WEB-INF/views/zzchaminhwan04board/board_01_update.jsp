@@ -65,26 +65,12 @@
 											data-error="Write your message" required="">${boardVO.board_content }</textarea>
 										<div class="help-block with-errors"></div>
 									</div>
-									<div class="submit-button text-center">
-										<button class="btn hvr-hover " id="update_submit" type="submit"
-											style="pointer-events: all; cursor: pointer;">수정완료</button>
-										<button class="btn hvr-hover " id="update_cancel"
-											style="pointer-events: all; cursor: pointer;"
-											onclick="history.back(-1)">취소</button>
-										<div id="msgSubmit" class="h3 text-center hidden"></div>
-										<div class="clearfix"></div>
-									</div>
+									
 								</div>
 							</div>
 							<!-- 							</form> -->
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-12">
-									<div class="contact-info-left">
-						빱
-						</div>
-						<div class="contact-info-left" style="margin-top: 50px;">
-							<h2>첨부파일</h2>
+							<div class="col-md-12" style="margin-top: 30px; background: #ffffff; border: 1px solid #495057;">
+							<h2 style="margin-top: 5%;">첨부파일</h2>
 							<td class=''><label> <a> <img
 										src='images/select.png' class='file-img' />
 								</a> <input type="file" id='attach-file' name='multipartFile' />
@@ -115,10 +101,31 @@
 								</li>
 							</ul>
 						</div>
+							
+							
+						</div>
+					</div>
+				<!-- 	<div class="col-lg-4 col-sm-12">
+									<div class="contact-info-left">
+						빱
+						</div> -->
+						
+						
+						<div class="submit-button" style="margin-left: 30%; margin-top: 5%;">
+										<button class="btn hvr-hover " id="update_submit" type="submit"
+											style="pointer-events: all; cursor: pointer; background: #2ba0da;">수정완료</button>
+										<button class="btn hvr-hover " id="update_cancel"
+											style="pointer-events: all; cursor: pointer; background: #2ba0da;"
+											onclick="history.back(-1)">취소</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
+									</div>
+						
 					</div>
 				</div>
-			</div>
-		</div>
+		
+		
 	</form>
 
 	<!-- Start Footer  -->

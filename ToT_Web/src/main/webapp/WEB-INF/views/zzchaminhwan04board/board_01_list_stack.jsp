@@ -24,9 +24,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 							<!-- 							============================================================ -->
 							<thead>
 								<tr>
-									<th> 유저게시판 </th>
-									<td class="price-pr"><c:if test="${! empty loginInfo}">
-											<a class="btn hvr-hover" href="board_new" style="float: right;"> 글쓰기 </a>
+									<th style="background: #BDEDFF; color: #999999;"> 유저게시판 </th>
+									<td class="price-pr" style="background: #BDEDFF; color: #999999;"><c:if test="${! empty loginInfo}">
+											<a class="btn hvr-hover" href="board_new" style="float: right; background: #BDEDFF; font-size: 15px; "> 글쓰기 </a>
 										</c:if></td>
 									<!-- 									<th style="text-align: center;"><a class="btn hvr-hover" href="board_new">ㅁ글쓰기ㅁ</a></th> -->
 

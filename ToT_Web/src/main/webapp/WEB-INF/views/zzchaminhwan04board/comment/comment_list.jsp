@@ -31,16 +31,16 @@
 						${vo.reply_writedate}</small> <c:if
 						test="${loginInfo.member_id eq vo.member_id ||loginInfo.member_id eq 'master' }">
 						<div class="share-bar">
-							<a class='btn hvr-hover btn-modify-save' style="padding: 0px;">수정</a>
-							<a class='btn hvr-hover btn-delete-cancel' style="padding: 0px;">삭제</a>
+							<a class='btn hvr-hover btn-modify-save' >수정</a>
+							<a class='btn hvr-hover btn-delete-cancel' >삭제</a>
 
 						</div>
 					</c:if> </div2>
 				</div>
 				<hr>
 			</c:forEach>
-			<a id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover">더보기</a>
-			<a href="javascript:history.back(-1)" class="btn hvr-hover">목록으로</a>
+			<a id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover" style="background: #BDEDFF;">더보기</a>
+			<a href="javascript:history.back(-1)" class="btn hvr-hover" style="background: #BDEDFF;">목록으로</a>
 		</div>
 	</div>
 

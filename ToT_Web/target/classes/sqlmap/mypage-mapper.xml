@@ -104,7 +104,8 @@ MERGE INTO TBL_BOARD_PICTURE p
 
 <update id="member_info_update">
 update tbl_member_info set 
-
+(member_pw, member_nick)
+values (#{member_pw}, #{member_nick})
 where member_id = #{member_id}
 </update>
 

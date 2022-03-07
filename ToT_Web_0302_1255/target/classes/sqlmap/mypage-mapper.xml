@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage.mapper">
+<!-- 특정 사용자의 VO 조회 -->
+<select id="selectvo" resultType="member.MemberVO">
+select member.* , (select picture_filepath from tbl_board_picture picture where picture.member_id = member.member_id) member_filepath
+from tbl_member_info member
+where member.member_id = #{member_id}
+</select>
+
+<!-- 특정 사용자의 작성 게시물 조회 -->
+<select id="/mypage_list_write" resultType="chaminhwan.board.BoardVO">
+select a.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) function_like,
+     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) "board_cnt_reply",
+     ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) member_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade
+    
+from(SELECT * FROM tbl_board board
+    WHERE  member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
+    order by board.board_sn desc) a
+</select>
+
+
+<!-- 특정 사용자의 좋아요 게시물 조회 -->
+<select id="/mypage_list_likes" resultType="chaminhwan.board.BoardVO">
+SELECT a.*,
+    <!-- (SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = a.board_sn
+    ) whose_cnt_like,  -->
+    ( SELECT COUNT(*)
+        FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = a.board_sn
+    ) board_cnt_reply,
+    
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.member_id = a.member_id
+    ) member_filepath,
+    ( select member.member_grade from tbl_member_info member 
+        where member.member_id = a.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes 
+        where likes.member_id = a.member_id
+    ) function_like <!-- 특정 사용자의 좋아요 게시물 수 -->
+    
+FROM
+    ( SELECT board.* FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn AND likes.member_id = #{member_id} and ROWNUM <![CDATA[ <= ]]> #{stack}
+        order by board.board_sn desc
+    ) a
+</select>
+
+<select id="member_info" resultType="member.MemberVO">
+	select
+		m.*,
+		NVL((select b.picture_filepath from tbl_board_picture b where m.member_id = b.member_id ),'') member_filepath
+	from tbl_member_info m
+	where member_id = #{member_id}
+</select>
+
+
+<update id="member_pic_update" >
+MERGE INTO TBL_BOARD_PICTURE p
+    USING (
+          SELECT MEMBER_ID
+         FROM TBL_MEMBER_INFO
+        WHERE MEMBER_ID = #{member_id}
+    ) m
+    ON (p.member_id = m.member_id)
+    WHEN MATCHED THEN 
+          UPDATE SET
+          p.picture_filepath = #{member_filepath}
+          where p.member_id = #{member_id}
+    WHEN NOT MATCHED THEN
+         INSERT (PICTURE_FILEPATH,  MEMBER_ID)
+         VALUES (#{member_filepath} , #{member_id} )
+</update>
+<!-- <update id="member_info_update" parameterType="java.util.List">
+	BEGIN
+	<foreach collection="list" item="item" separator=" ">
+	MERGE INTO TBL_BOARD_PICTURE p
+    USING TBL_MEMBER_INFO m
+    ON (p.MEMBER_ID = m.MEMBER_ID)
+    WHEN MATCHED THEN 
+          UPDATE SET
+          p.picture_filepath = #{item.picture_filepath},
+          m.member_pw = #{item.member_pw},
+          m.member_nick = #{item.member_nick}
+    WHEN NOT MATCHED THEN
+         INSERT (picture_filepath,  member_pw, member_nick)
+         VALUES (#{item.picture_filepath}, #{item.member_pw}, #{item.member_nick} );
+    </foreach>
+    END;     
+</update>  -->
+
+<update id="member_info_update">
+update tbl_member_info set 
+
+where member_id = #{member_id}
+</update>
+
+
+
+</mapper>

@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/main_color"
+    android:background="@color/new_main_color"
     android:orientation="vertical"
+    android:layout_marginTop="20dp"
     android:padding="20dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
@@ -14,49 +15,20 @@
 
         <ImageView
             android:id="@+id/partyinfo_burger_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/icon_cancel" />
+            android:background="@drawable/icon_cancel"
+            android:backgroundTint="@color/white"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/nav_home"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_launcher_foreground" />
-
-            <ImageView
-                android:id="@+id/nav_bell"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/icon_bell" />
-
-            <ImageView
-                android:id="@+id/nav_setting"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/icon_setting" />
-        </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/partyinfo_burger_imgv_circle"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="6dp"
             android:padding="8dp"
             android:src="@drawable/ic_launcher_foreground"
             app:civ_border_color="#ffffff"
@@ -69,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/partyinfo_burger_cancel"
             android:layout_marginTop="10dp"
-            android:text=" 차 민 환 "
+            android:text="차민환님 안녕하세요"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -79,8 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/partyinfo_burger_cancel"
-            android:layout_marginTop="40dp"
-            android:text="등급 : 테스트"
+            android:layout_marginTop="48dp"
+            android:text="등급 : 파티원"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -92,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="170dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -108,20 +80,30 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
-                        android:id="@+id/partyinfo_burger_invite"
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius">
+                        <ImageView
+                            android:id="@+id/partyinfo_burger_invite"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/plus_btn2"
+                            android:backgroundTint="@color/black"
+                            android:layout_margin="20dp"/>
+
+                    </LinearLayout>
+
+
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-                        android:text="멤버초대" />
+                        android:layout_marginTop="5dp"
+                        android:text="멤버 초대"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -132,18 +114,26 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/members_icon"
+                            android:layout_margin="15dp"/>
+                    </LinearLayout>
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-                        android:text="멤버관리" />
+                        android:layout_marginTop="5dp"
+                        android:text="멤버 관리"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -153,6 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -162,19 +153,27 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_edit"
+                            android:layout_margin="15dp"
+                            />
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-
-                        android:text="파티정보수정" />
+                        android:layout_marginTop="5dp"
+                        android:text="파티정보수정"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -184,18 +183,29 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_out"
+                            android:layout_margin="15dp"/>>
+
+                    </LinearLayout>
+
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-                        android:text="파티해산" />
+                        android:layout_marginTop="5dp"
+                        android:text="파티 해산"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -208,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="170dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -225,18 +235,29 @@
                     android:orientation="vertical">
 
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@drawable/plus_btn2"
+                            android:backgroundTint="@color/black"
+                            />
+
+                    </LinearLayout>
+
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="멤버초대" />
+                        android:text="멤버 초대"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -247,18 +268,28 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/members_icon"
+
+                            android:layout_margin="15dp"/>
+
+                    </LinearLayout>
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="멤버목록" />
+                        android:text="멤버목록"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -268,6 +299,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -277,19 +309,28 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/icon_info"
+                            android:layout_margin="20dp"/>
+
+                    </LinearLayout>
+
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-
-                        android:text="파티정보보기" />
+                        android:layout_marginTop="5dp"
+                        android:text="파티정보보기"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -300,17 +341,28 @@
                     android:orientation="vertical">
 
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:background="@drawable/radius"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_out"
+                            android:layout_margin="15dp"/>
+
+                    </LinearLayout>
+
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
-                        android:text="파티탈퇴" />
+                        android:layout_marginTop="5dp"
+                        android:text="파티 탈퇴"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 

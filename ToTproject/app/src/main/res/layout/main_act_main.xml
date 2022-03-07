@@ -43,7 +43,7 @@
                         android:id="@+id/main_tv_acttitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity=""
+                        android:gravity="center"
                         android:text="main act"
                         android:textSize="20dp" />
 

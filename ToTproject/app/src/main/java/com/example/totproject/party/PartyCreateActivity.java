@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -46,13 +47,14 @@ public class PartyCreateActivity extends Activity {
     EditText edt_party_name;
     EditText edt_party_detail;
     CheckBox checkbox_party_private;
-    LinearLayout lin_display_tags;
+    LinearLayout lin_display_tags, lin_party_back, lin_temp_checkbox;
     EditText edt_party_tag;
-    TextView tv_party_tag1,tv_party_tag2,tv_party_tag3;
-    Button btn_create_party,btn_create_party2;
+    TextView tv_party_tag1,tv_party_tag2,tv_party_tag3, tv_party_check_partyname;
+    Button btn_create_party;
     Button btn_party_tag;
     Button btn_checkid, btn_create_party_add;
-    ImageView imgv_back_btn,imgv_party_pic ;
+    ImageView imgv_party_pic ;
+
 
     int can_pass = 2;   //2일시 중복체크상태, 1일시 이름 중복된 상태, 0일시 이름 (중복아님 파티가입가능)
 
@@ -72,28 +74,32 @@ public class PartyCreateActivity extends Activity {
         setContentView(R.layout.party_act_createparty);
 
         btn_checkid = findViewById(R.id.btn_checkid);
-        edt_party_name = findViewById(R.id.edt_party_namet);
+        edt_party_name = findViewById(R.id.edt_party_name);
         edt_party_detail = findViewById(R.id.edt_party_detail);
         lin_display_tags = findViewById(R.id.lin_display_tags);
         checkbox_party_private = findViewById(R.id.checkbox_party_private);
         edt_party_tag = findViewById(R.id.edt_party_tag);
         btn_create_party = findViewById(R.id.btn_create_party);
-        btn_create_party2 = findViewById(R.id.btn_create_party2);
         btn_party_tag = findViewById(R.id.btn_party_tag);
         tv_party_tag1 = findViewById(R.id.tv_party_tag1);
         tv_party_tag2 = findViewById(R.id.tv_party_tag2);
         tv_party_tag3 = findViewById(R.id.tv_party_tag3);
-        imgv_back_btn = findViewById(R.id.imgv_back_btn);
+        lin_party_back = findViewById(R.id.lin_party_back);
         btn_create_party_add = findViewById(R.id.btn_create_party_add);
         imgv_party_pic = findViewById(R.id.imgv_party_pic);
+        tv_party_check_partyname = findViewById(R.id.tv_party_check_partyname);
+        lin_temp_checkbox = findViewById(R.id.lin_temp_checkbox);
+
+
 
 
         
         //뒤로가기 버튼
-        imgv_back_btn.setOnClickListener(new View.OnClickListener() {
+        lin_party_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PartyCreateActivity.this, PartyMainActivity.class);
+                intent.putExtra("tabcode",1);
                 startActivity(intent);
                 finish();
             }
@@ -109,10 +115,14 @@ public class PartyCreateActivity extends Activity {
                 Toast.makeText(PartyCreateActivity.this, check, Toast.LENGTH_SHORT).show();
 
                 if(check.equals("0")){
-                    Toast.makeText(PartyCreateActivity.this, "사용가능한 파티 이름입니다.", Toast.LENGTH_SHORT).show();
+                    tv_party_check_partyname.setVisibility(View.VISIBLE);
+                    tv_party_check_partyname.setText(" 사용 가능한 파티이름 입니다. ");
+                    tv_party_check_partyname.setTextColor(Color.parseColor("#00FF00"));
                     can_pass = 0;
                 }else{
-                    Toast.makeText(PartyCreateActivity.this, "중복된 파티 이름입니다.", Toast.LENGTH_SHORT).show();
+                    tv_party_check_partyname.setVisibility(View.VISIBLE);
+                    tv_party_check_partyname.setText(" 중복된 파티이름 입니다. 다시 입력해주세요.");
+                    tv_party_check_partyname.setTextColor(Color.parseColor("#FF0000"));
                     can_pass = 1;
                 }
 
@@ -125,8 +135,10 @@ public class PartyCreateActivity extends Activity {
             public void onClick(View v) {
                 if (checkbox_party_private.isChecked()){
                     lin_display_tags.setVisibility(View.VISIBLE);
+                    lin_temp_checkbox.setVisibility(View.GONE);
                 }else{
                     lin_display_tags.setVisibility(View.GONE);
+                    lin_temp_checkbox.setVisibility(View.VISIBLE);
                 }
 
             }
@@ -138,13 +150,7 @@ public class PartyCreateActivity extends Activity {
         btn_party_tag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (can_pass == 2){
-                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 해주세요", Toast.LENGTH_SHORT).show();
-                }else if(can_pass == 1){
-                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 다시 해주세요", Toast.LENGTH_SHORT).show();
-                }else{
-                    insertTags();
-                }
+                insertTags();
 
             }
         });
@@ -201,21 +207,20 @@ public class PartyCreateActivity extends Activity {
 
 
 
-        // 파티생성버튼1 (버거메뉴자리)
+        // 파티생성버튼 클릭시
         btn_create_party.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertCreateparty();
+                if (can_pass == 2){
+                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 해주세요", Toast.LENGTH_SHORT).show();
+                }else if(can_pass == 1){
+                    Toast.makeText(PartyCreateActivity.this, "파티이름 중복체크를 다시 해주세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    insertCreateparty();
+                }
             }
         });
 
-        // 파티생성버튼2 (아래버튼)
-        btn_create_party2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insertCreateparty();
-            }
-        });
 
 
 

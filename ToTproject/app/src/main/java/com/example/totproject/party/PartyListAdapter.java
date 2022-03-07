@@ -70,10 +70,29 @@ public class PartyListAdapter extends RecyclerView.Adapter<PartyListAdapter.View
                 Glide.with(context).load(list.get(position).getPicture_filepath()).into(imgv_party);
             }
             holder.tv_party_name.setText( list.get(position).getParty_name() +"" );
-            holder.tv_party_detail.setText( list.get(position).getParty_detail() +"" );
-            holder.tv_party_tag1.setText( list.get(position).getParty_tag1() +"" );
-            holder.tv_party_tag2.setText( list.get(position).getParty_tag2() +"" );
-            holder.tv_party_tag3.setText( list.get(position).getParty_tag3() +"" );
+            if(list.get(position).getParty_detail() != null){
+                holder.tv_party_detail.setText( list.get(position).getParty_detail() +"" );
+            }else{
+                holder.tv_party_detail.setText( "파티 설명이 없습니다." );
+            }
+
+
+            if(list.get(position).getParty_tag1() != null){
+                holder.tv_party_tag1.setText( list.get(position).getParty_tag1() +"" );
+            }else {
+                holder.tv_party_tag1.setVisibility(View.GONE);
+            }
+            if(list.get(position).getParty_tag2() != null){
+                holder.tv_party_tag2.setText( list.get(position).getParty_tag2() +"" );
+            }else {
+                holder.tv_party_tag2.setVisibility(View.GONE);
+            }
+
+            if(list.get(position).getParty_tag3() != null){
+                holder.tv_party_tag3.setText( list.get(position).getParty_tag3() +"" );
+            }else {
+                holder.tv_party_tag3.setVisibility(View.GONE);
+            }
 
             holder.lin_party_click.setOnClickListener(new View.OnClickListener() {
                 @Override

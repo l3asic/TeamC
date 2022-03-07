@@ -9,34 +9,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal">
 
-
         <LinearLayout
+            android:id="@+id/lin_invite_back_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/less_than"
+                android:backgroundTint="@color/black"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="4">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="멤버 초대"
-                android:textSize="30dp"
-
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 />
 
         </LinearLayout>
@@ -45,11 +48,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
         </LinearLayout>
 
 
@@ -65,40 +63,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/edt_member_id"
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_weight="7"
-                android:gravity="center"
-                android:hint="아이디를 입력" />
-
-            <Button
-                android:id="@+id/btn_party_memberinvite"
-                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:text="초대"
-                android:background="@drawable/ic_launcher_foreground" />
+                android:layout_margin="20dp" >
+                <EditText
+                    android:id="@+id/edt_member_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@drawable/bottom_line"
+                    android:hint="초대할 아이디를 입력 해주세요" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/radius"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/btn_party_memberinvite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/plus_btn2"
+                    android:backgroundTint="@color/black"/>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="8"
-            android:orientation="horizontal">
-
-
+            android:orientation="vertical">
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_invite"
+                />
 
 
         </LinearLayout>

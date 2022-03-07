@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import android.chaminhwan.MbtiVO;
 import android.mainburger.BoardCommonVO;
 import common.TempDAO;
+import login.TendVO;
 
 @Controller
 public class MbtiController {
@@ -34,9 +35,7 @@ public class MbtiController {
 	@RequestMapping("/android/cmh/mbti_*/")
 	public void mbtiMatch(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 		i++;
-		String path = req.getServletPath();
-		System.out.println("\n 테스트 : " + i + "\n" + path);
-		System.out.println("getServletPath : " + path);
+		String path = req.getServletPath();		
 
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
@@ -57,33 +56,74 @@ public class MbtiController {
 		/* ========================= if ========================= */
 		/* ==================== 성향추천 요청시 ==================== */
 		if (path.equals("/android/cmh/mbti_mbti/")) {
+			List<TendVO> mbti_check = new ArrayList<TendVO>();		
 			
+			
+			// 로그인 상태라면
 			if (member_id != null) {
 				try {
-					list = sql.selectList("mbti.mapper.mbtimbti", member_id);
+					mbti_check = sql.selectList("mbti.mapper.mbti_check", member_id);
 				} catch (Exception e) {
-					e.printStackTrace();
+					// TODO: handle exception
 				}
+				
+				// 로그인하고 성향입력했다면
+				if(mbti_check.size() != 0) {
+					try {
+						list = sql.selectList("mbti.mapper.mbtimbti", member_id);
+						System.out.println("로그인 한상태임, 성향있음");
+						
+					} catch (Exception e) {					
+						e.printStackTrace();
+					}	
+					
+					// 회원인데 성향검사를 안했다면 랜덤 추천
+				}else {
+					try {
+						list = sql.selectList("mbti.mapper.mbtiRandom");
+						System.out.println("회원임, 성향x");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+				}
+				
+				
 				//비회원일시 성향추천
 			} else {
 				try {
 					list = sql.selectList("mbti.mapper.mbtiRandom");
+					System.out.println("비회원임");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
 			}
 
+			
+			
 			/* ==================== 거리추천 요청시 ==================== */
 		} else if (path.equals("/android/cmh/mbti_xy/")) {
 			
 			if (member_id != null) {
-				try {
-					list = sql.selectList("mbti.mapper.mbtixy", member_id);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}		
-				//비회원일시 거리기준 추천
+				List<TendVO> mbti_check = new ArrayList<TendVO>();	
+				mbti_check = sql.selectList("mbti.mapper.mbti_check", member_id);
+				if(mbti_check.size() != 0 ) {
+					try {
+						list = sql.selectList("mbti.mapper.mbtixy", member_id);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}else {
+					try {
+						list = sql.selectList("mbti.mapper.mbtiRandom");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}					
+				}
+					
+				
+				//비회원일시 랜덤 추천
 			}else {
 				try {
 					list = sql.selectList("mbti.mapper.mbtiRandom");

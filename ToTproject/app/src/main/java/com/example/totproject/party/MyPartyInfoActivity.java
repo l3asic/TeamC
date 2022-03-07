@@ -28,12 +28,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
 import com.example.totproject.chat.ChatRoomAdpter;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.statics.Logined;
+import com.example.totproject.main.MainActivity;
 import com.example.totproject.party_plan.PlanMainActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.ChildEventListener;
@@ -53,6 +55,8 @@ import java.util.List;
 import com.example.totproject.chat.ChatRoomDTO;
 import com.google.gson.reflect.TypeToken;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MyPartyInfoActivity extends AppCompatActivity {
     RecyclerView rec_party_chat;
     Toolbar toolbar;
@@ -60,6 +64,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
     EditText edt_chat;
     PartyListDTO plDTO;
     TextView party_title;
+    LinearLayout lin_info_home_btn;
 
 
     ArrayList<PartyMemberListDTO> party_member_list = new ArrayList<>();
@@ -84,6 +89,8 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         party_title = findViewById(R.id.partyinfo_tv_title);
         edt_chat = findViewById(R.id.edt_chat);
         btn_chat_push = findViewById(R.id.btn_chat_push);
+        lin_info_home_btn = findViewById(R.id.lin_info_home_btn);
+
 
 
         Intent my_party_info_intent = getIntent();
@@ -96,6 +103,17 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
         party_title.setText(plDTO.getParty_name());
         partyinfo_btn_burger = findViewById(R.id.partyinfo_btn_burger);
+
+        lin_info_home_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyPartyInfoActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
         // 채팅방을 구분할수 있는 세팅?
         databaseReference = firebaseDatabase.getReference(plDTO.getParty_sn()+"");
@@ -118,7 +136,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String msg = edt_chat.getText()+"";
 
-                if (msg != null) {
+                if (msg != null && !msg.equals("")) {
                     ChatRoomDTO dto = new ChatRoomDTO();
                     dto.setNickname(Logined.member_id); //로그인 한 회원 아이디(이름)
                     dto.setMsg(msg);
@@ -130,7 +148,6 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                     databaseReference.push().setValue(dto);
                     edt_chat.setText("");
                     rec_party_chat.smoothScrollToPosition(chatRoomDTOS.size());
-
 
                 }
             }
@@ -164,15 +181,6 @@ public class MyPartyInfoActivity extends AppCompatActivity {
 
             }
         });
-
-
-        //@@@ 채팅방 멤버 불러오기 할것 ???
-
-//        chatroom_no_nen_lin.setVisibility(View.GONE);
-//        chatroom_mem_lin.setVisibility(View.VISIBLE);
-
-
-
 
 
 
@@ -339,7 +347,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         });
 
         // 버거메뉴 파티 탈퇴 클릭시
-        lin_mypartyburger_delete.setOnClickListener(new View.OnClickListener() {
+        lin_mypartyburger_delete2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
@@ -351,26 +359,30 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         });
 
 
-        TextView main_burger_tv_login = nav_headerview.findViewById(R.id.partyinfo_burger_tv_name);
-        main_burger_tv_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MyPartyInfoActivity.this, "텍스트", Toast.LENGTH_SHORT).show();
+        // 버거메뉴 이름영역(닉네임)
+        TextView partyinfo_burger_tv_name = nav_headerview.findViewById(R.id.partyinfo_burger_tv_name);
+        // 이름 닉네임으로 세팅해둠
+        partyinfo_burger_tv_name.setText(Logined.member_nick+"님 안녕하세요");
 
-            }
-        });
 
-        TextView main_burger_tv_join = nav_headerview.findViewById(R.id.partyinfo_burger_tv_grade);
-        main_burger_tv_join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MyPartyInfoActivity.this, "텍스트", Toast.LENGTH_SHORT).show();
+        TextView partyinfo_burger_tv_grade = nav_headerview.findViewById(R.id.partyinfo_burger_tv_grade);
+        // 기본 등급 : 파티원, 파티리더일시 파티리더라 표시
+        if(plDTO.getParty_leader().equals(Logined.member_id)){
+            partyinfo_burger_tv_grade.setText("등급 : 파티리더");
+        }
 
-            }
-        });
+        // 버거메뉴 프사 설정
+        CircleImageView partyinfo_burger_imgv_circle = nav_headerview.findViewById(R.id.partyinfo_burger_imgv_circle);
+        if (Logined.picture_filepath != null){
+            Glide.with(MyPartyInfoActivity.this).load(Logined.picture_filepath).into(partyinfo_burger_imgv_circle);
+        }
+
+
+
 
         Menu nav_menu = nav_view.getMenu();
 
+        // 파티버거 글자리스트 ( 홈, 계획, 내파티 리스트)
         NavigationView bottom_nav2;
         bottom_nav2 = findViewById(R.id.partyinfo_burger_view);
         bottom_nav2.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

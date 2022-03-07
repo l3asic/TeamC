@@ -3,12 +3,18 @@
 
 <mapper namespace="mbti.mapper">
 
+<select id="mbti_check" resultType="login.TendVO" >
+	select * from tbl_mbti where member_id = #{memeber_id} 
+
+</select>
+
+
 <!--  -->
 <select id="mbtimbti" resultType="android.mainburger.BoardCommonVO">
 SELECT top100.* , (
         SELECT COUNT(*)
-        FROM tbl_board board,tbl_likes likes    <!-- ========== 좋아요 null 이어도 됨 ========== -->
-        WHERE board.board_sn = likes.board_sn <!-- AND likes.function_like IS NOT NULL --> AND likes.board_sn = top100.board_sn
+        FROM tbl_board board,tbl_likes likes   
+        WHERE board.board_sn = likes.board_sn   AND likes.board_sn = top100.board_sn
     ) "function_like" ,  (
         SELECT COUNT(*)
         FROM tbl_board board, tbl_reply reply
@@ -50,8 +56,8 @@ ORDER BY matchscore desc
 <select id="mbtixy" resultType="android.mainburger.BoardCommonVO_double">
 SELECT top100.* , (
         SELECT COUNT(*)
-        FROM tbl_board board,tbl_likes likes     <!-- ========== 좋아요 null 이어도 됨 ========== -->
-        WHERE board.board_sn = likes.board_sn <!-- AND likes.function_like IS NOT NULL --> AND likes.board_sn = top100.board_sn
+        FROM tbl_board board,tbl_likes likes    
+        WHERE board.board_sn = likes.board_sn AND likes.board_sn = top100.board_sn
     ) "function_like" ,  (
         SELECT COUNT(*)
         FROM tbl_board board, tbl_reply reply

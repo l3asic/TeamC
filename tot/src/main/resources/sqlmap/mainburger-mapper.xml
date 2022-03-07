@@ -7,8 +7,8 @@
 <select id="board_list" resultType="android.mainburger.BoardCommonVO">
 SELECT ROWNUM, tbl.*,
     ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
-        WHERE board.board_sn = likes.board_sn AND likes.function_like IS NOT NULL AND likes.board_sn = tbl.board_sn
-    ) function_like,
+        WHERE board.board_sn = likes.board_sn  AND likes.board_sn = tbl.board_sn
+    ) function_like, <!-- 특정 게시물의 좋아요 수 -->
     ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
         WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
     ) board_cnt_reply,
@@ -16,9 +16,9 @@ SELECT ROWNUM, tbl.*,
         WHERE picture.member_id = tbl.member_id
     ) picture_filepath,
     ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
-    ) member_grade,
+    ) member_grade<!-- ,
     ( select count(*) from tbl_likes likes where likes.member_id = tbl.member_id
-    ) function_like
+    ) function_like -->
 FROM
     ( SELECT * FROM tbl_board
         where board_class =#{board_class}

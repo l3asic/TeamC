@@ -34,7 +34,8 @@ party.party_tag1, party.party_tag2, party.party_tag3, party.party_leader,
 
 <select id="selectPartyDetail" resultType="android.partyvo.PartyListVO">
 
-	select * from tbl_party where party_sn = #{party_sn}
+	select party.* ,(select pic.picture_filepath from tbl_board_picture pic where pic.party_sn = party.party_sn and rownum=1) picture_filepath
+from tbl_party party  where party.party_sn = #{party_sn}
 	
 </select>
 

@@ -13,14 +13,16 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/radius"
         android:orientation="horizontal">
 
 
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="@drawable/left_radius"
+            android:backgroundTint="@color/main_color"
+            >
             <ImageView
                 android:id="@+id/imgv_member_pic"
                 android:layout_width="60dp"
@@ -50,7 +52,9 @@
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="유저이름"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:background="@color/main_color"/>
 
                 <TextView
                     android:id="@+id/tv_member_grade"
@@ -59,12 +63,29 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="파티원"
-                    android:textSize="16dp" />
-                <CheckBox
-                    android:id="@+id/chk_member_delete"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/right_radius"
+                    android:backgroundTint="@color/main_color"/>
+                <LinearLayout
+                    android:id="@+id/lin_chk_box"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:visibility="gone"/>
+                    android:paddingLeft="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/right_radius"
+                    android:backgroundTint="#FFDFD6"
+                    android:visibility="gone"
+                    >
+                    <CheckBox
+                        android:id="@+id/chk_member_delete"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        />
+
+                </LinearLayout>
+
+
 
 
             </LinearLayout>

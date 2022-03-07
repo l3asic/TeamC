@@ -82,6 +82,9 @@ public class MemberVO {
 	public void setSocial_email(String social_email) {
 		this.social_email = social_email;
 	}
+	public void setMember_filepath(String member_filepath) {
+		this.member_filepath = member_filepath;
+	}
 
 	
 	

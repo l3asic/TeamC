@@ -34,6 +34,7 @@ import java.util.List;
 public class Fragment02CategoryGridView extends Fragment {
     GridView gridView;
     int tabcode, paramSn;
+    String headerText;
     ArrayList<BoardCommonVO> list = new ArrayList<>();
     int sorry_chaminhwan = 0; //메인탭으로부터 진입시 무한루프 방지
 
@@ -41,9 +42,10 @@ public class Fragment02CategoryGridView extends Fragment {
         this.tabcode = tabcode;
     }
 
-    public Fragment02CategoryGridView(int tabcode, int paramSn) {
+    public Fragment02CategoryGridView(int tabcode, int paramSn,String headerText) {
         this.tabcode = tabcode;
         this.paramSn = paramSn;
+        this.headerText = headerText;
     }
 
     @Override

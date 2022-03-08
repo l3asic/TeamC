@@ -45,7 +45,7 @@ public class MbtiController {
 		String member_id;
 		member_id = req.getParameter("member_id");
 		
-		if(member_id.equals("a")) {
+		if(member_id == null || member_id.equals("a")) {
 			member_id = null;
 		}
 

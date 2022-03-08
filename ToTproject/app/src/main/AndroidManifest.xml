@@ -56,9 +56,6 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".common.KakaoMapActivity"
-            android:exported="false" />
-        <activity
             android:name=".party_plan.PlanUpdatePlanActivity"
             android:exported="false" />
         <activity

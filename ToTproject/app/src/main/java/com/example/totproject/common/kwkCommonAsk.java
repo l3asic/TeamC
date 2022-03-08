@@ -29,7 +29,9 @@ public class kwkCommonAsk extends AsyncTask<String,String,InputStream> {
     HttpResponse httpResponse;
     HttpEntity httpEntity;
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
-    final String HTTPIP = "http://192.168.0.26";//IP
+    CommonAsk ask;
+
+    final String HTTPIP = ask.IP;//IP
     final String SVRPATH = "/tot/"; //
     String mapping ;
     private String postUrl ;//

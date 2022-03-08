@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
 import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
 import com.google.gson.Gson;
@@ -83,7 +85,6 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
         /*=================================여행지리스트=================================*/
         {
             list = dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt=" + cnt + "/");
-            list = dbBoardCall("android/cmh/board_list@board+class=tour/view_cnt=" + cnt + "/");
             maintab_rv_tour = v.findViewById(R.id.maintab_rv_tour);
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.VERTICAL, false);
@@ -102,8 +103,25 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
 
     public ArrayList<BoardCommonVO> dbBoardCall(String mapping) {
         commonAsk = new CommonAsk(mapping);
+        String lgcode = "a";
+        if (Logined.member_id != null) {
+            lgcode = Logined.member_id;
+        }
+        commonAsk.params.add(new CommonAskParam("member_id", lgcode));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
+        try {
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
+    public ArrayList<BoardCommonVO> selectBoardList(BoardCommonVO vo) {
+        commonAsk = new CommonAsk("android/cmh/board_list");
+        commonAsk.params.add(new CommonAskParam("vo", gson.toJson(vo)));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
         try {
             list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
             }.getType());

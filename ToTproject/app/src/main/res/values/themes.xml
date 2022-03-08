@@ -10,7 +10,9 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#ffffffff</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="BigText" parent="TextAppearance.AppCompat">
@@ -28,6 +30,8 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
-
+    <style name="NavigationViewStyle">
+        <item name="android:listPreferredItemHeightSmall">25dp</item><!-- menu item height-->
+    </style>
 
 </resources>

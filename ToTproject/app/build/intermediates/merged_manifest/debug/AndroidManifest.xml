@@ -87,9 +87,6 @@
         android:theme="@style/Theme.ToTproject"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.totproject.common.KakaoMapActivity"
-            android:exported="false" />
-        <activity
             android:name="com.example.totproject.party_plan.PlanUpdatePlanActivity"
             android:exported="false" />
         <activity

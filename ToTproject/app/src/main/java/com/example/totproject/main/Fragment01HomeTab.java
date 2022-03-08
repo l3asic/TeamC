@@ -1,22 +1,28 @@
 package com.example.totproject.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
-import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
 
 import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
@@ -36,8 +42,9 @@ public class Fragment01HomeTab extends Fragment {
 
 mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));	// 가로*/
 
-    RecyclerView maintab_rv_recommend, maintab_rv_where, maintab_rv_tour;
-
+    RecyclerView maintab_rv_recommend,  maintab_rv_tour;
+    ViewPager2 maintab_rv_where ;
+    SwipeRefreshLayout swipe_layout;
 
     ArrayList<BoardCommonVO> list = new ArrayList<>();
     BoardCommonVO vo = new BoardCommonVO();
@@ -55,7 +62,19 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_frag_hometab, container, false);
-
+        /* ============================== 새로고침 ============================== 기존 버튼==>스와이프로수정03/04김영문 */
+  /*      swipe_layout = v.findViewById(R.id.swipe_layout);
+        swipe_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                MainActivity activity = (MainActivity) context;
+                Intent intent = activity.getIntent();
+                startActivity(activity.getIntent());
+                activity.finish();
+                ActivityCompat.finishAffinity(activity);
+                swipe_layout.setRefreshing(false);
+            }
+        });*/
         /* ==================== 표시할항목수 ====================*/
         int cnt = 10;
         vo.setList_cnt_many(cnt);
@@ -84,12 +103,14 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
             // list = selectBoardList(vo);
             list = dbBoardCall("android/cmh/mbti_xy/");
             maintab_rv_where = v.findViewById(R.id.maintab_rv_where);
+
             LinearLayoutManager lmanager = new LinearLayoutManager(
                     context, RecyclerView.HORIZONTAL, false);
             MainTabAdapter_small_xy adapter = new MainTabAdapter_small_xy(getContext(), list, manager);
+           // maintab_rv_where.set(lmanager);
 
-            maintab_rv_where.setLayoutManager(lmanager);
             maintab_rv_where.setAdapter(adapter);
+            setSlide(maintab_rv_where);
         }
         /* ==============================================*/
 
@@ -117,18 +138,6 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
 
     public ArrayList<BoardCommonVO> dbBoardCall(String mapping) {
         commonAsk = new CommonAsk(mapping);
-        String lgcode = "a";
-        if(Logined.member_id != null){
-            lgcode = Logined.member_id;
-        }
-
-
-
-
-            commonAsk.params.add(new CommonAskParam("member_id", lgcode));
-
-
-
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 
         try {
@@ -153,4 +162,22 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
         }
         return list;
     }
+
+    public void setSlide(ViewPager2 pager2) {
+        pager2.setClipToPadding(false);
+        pager2.setClipChildren(false);
+        pager2.setOffscreenPageLimit(3);
+        pager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                float r = 1 - Math.abs(position);
+                page.setScaleY(0.85f + r * 0.15f);
+            }
+        });
+        pager2.setPageTransformer(compositePageTransformer);
+    }
+
 }

@@ -33,23 +33,25 @@ function go_page( page ) {
 }
 </script>
 <style>
+	a:hover {cursor: pointer;}
 	.page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
 		display: inline-block; line-height: 30px; margin: 0;
 	}
+	.page_list { text-align: center; margin-bottom: 30px;}
+	
 	.page_on {
-		border: 1px solid #777; background-color: #999; color: #fff; font-weight: bold;
-	}
+		color: #000; font-weight: bold; font-size: 20px;}
 	.page_on, .page_off {
 		min-width: 22px; padding: 0 5px 2px;
 	}
 	.page_prev, .page_next, .page_last, .page_first {
 		width: 30px; height: 32px; color: #666; 
-		border: 1px solid gray; text-indent: -999999999999999px;
+		 text-indent: -999999999999999px;
 	}
-	.page_next { background: url("imgs/page_next.jpg") center no-repeat;}
-	.page_last { background: url("imgs/page_last.jpg") center no-repeat;}
-	.page_first { background: url("imgs/page_first.jpg") center no-repeat;}
-	.page_prev { background: url("imgs/page_prev.jpg") center no-repeat;}
+	.page_next { background: url("images/rarrow.png") center no-repeat;}
+	.page_last { background: url("images/rrarrow.png") center no-repeat;}
+	.page_first { background: url("images/llarrow.png") center no-repeat;}
+	.page_prev { background: url("images/larrow.png") center no-repeat;}
 
 </style>
 

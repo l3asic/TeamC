@@ -1,8 +1,13 @@
 package chaminhwan.board;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
-public class BoardVO {
+import picture.PictureVO;
+
+
+public class BoardVO implements Serializable {
 
 	private int board_sn, board_read_cnt, board_reviewepath;
 	private String board_title, board_content, board_is_updated, board_private, board_replly_able, board_class,
@@ -13,52 +18,22 @@ public class BoardVO {
 	private int function_like;
 	private int list_cnt_many;
 	private int matchScore;
-    private String member_grade; //글쓴이등급
-    private int whose_cnt_like;
-    
-    private String cmh;
+	private String member_grade; // 글쓴이등급
+	private int whose_cnt_like;
+	private int stack;
+	List<PictureVO> picList;
 
-    
-    public String getCmh() {
-		return cmh;
+
+
+	public List<PictureVO> getPicList() {
+		return picList;
 	}
 
-	public void setCmh(String cmh) {
-		this.cmh = cmh;
+	public void setPicList(List<PictureVO> picList) {
+		this.picList = picList;
 	}
 
-	public int getWhose_cnt_like() {
-        return whose_cnt_like;
-    }
-
-    public void setWhose_cnt_like(int whose_cnt_like) {
-        this.whose_cnt_like = whose_cnt_like;
-    }
-
-
-    public String getMember_grade() {
-        return member_grade;
-    }
-
-    public void setMember_grade(String member_grade) {
-        this.member_grade = member_grade;
-    }
-
-	public int getMatchScore() {
-		return matchScore;
-	}
-
-	public void setMatchScore(int matchScore) {
-		this.matchScore = matchScore;
-	}
-
-	public int getList_cnt_many() {
-		return list_cnt_many;
-	}
-
-	public void setList_cnt_many(int list_cnt_many) {
-		this.list_cnt_many = list_cnt_many;
-	}
+	private String  picture_filepath;
 
 	public int getBoard_sn() {
 		return board_sn;
@@ -156,6 +131,14 @@ public class BoardVO {
 		this.member_filepath = member_filepath;
 	}
 
+	public String getMember_nick() {
+		return member_nick;
+	}
+
+	public void setMember_nick(String member_nick) {
+		this.member_nick = member_nick;
+	}
+
 	public int getPicture_file_count() {
 		return picture_file_count;
 	}
@@ -180,11 +163,54 @@ public class BoardVO {
 		this.function_like = function_like;
 	}
 
-	public String getMember_nick() {
-		return member_nick;
+	public int getList_cnt_many() {
+		return list_cnt_many;
 	}
 
-	public void setMember_nick(String member_nick) {
-		this.member_nick = member_nick;
+	public void setList_cnt_many(int list_cnt_many) {
+		this.list_cnt_many = list_cnt_many;
 	}
+
+	public int getMatchScore() {
+		return matchScore;
+	}
+
+	public void setMatchScore(int matchScore) {
+		this.matchScore = matchScore;
+	}
+
+	public String getMember_grade() {
+		return member_grade;
+	}
+
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
+	}
+
+	public int getWhose_cnt_like() {
+		return whose_cnt_like;
+	}
+
+	public void setWhose_cnt_like(int whose_cnt_like) {
+		this.whose_cnt_like = whose_cnt_like;
+	}
+
+	public int getStack() {
+		return stack;
+	}
+
+	public void setStack(int stack) {
+		this.stack = stack;
+	}
+
+	public String getPicture_filepath() {
+		return picture_filepath;
+	}
+
+	public void setPicture_filepath(String picture_filepath) {
+		this.picture_filepath = picture_filepath;
+	}
+
+
+
 }

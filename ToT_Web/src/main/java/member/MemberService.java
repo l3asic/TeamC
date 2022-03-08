@@ -23,6 +23,13 @@ public interface MemberService {
 	// 닉네임 중복확인 (R)
 	boolean member_nick_check(String nick);
 	
+	// 소셜 회원 정보 존재여부 (R)
+	int naver_check(MemberVO vo);
+
+	
+	// kakao login
+		boolean kakao_insert(MemberVO vo);
+	
 	// naver login
 	boolean naver_insert(MemberVO vo);
 	

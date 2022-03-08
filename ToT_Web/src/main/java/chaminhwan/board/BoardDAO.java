@@ -14,15 +14,15 @@ public class BoardDAO implements BoardService {
 	@Qualifier("cteam")
 	SqlSession sql;
 
-//	@Override
-//	public int board_insert(BoardVO vo) {
-//		return sql.insert("board.mapper.insert", vo);
-//	}
+	@Override
+	public int board_insert(BoardVO vo) {
+		return sql.insert("board.mapper.insert", vo);
+	}
 
 	@Override
 	public List<BoardVO> board_list(BoardVO boardVO) {
 		// 전체 게시글 수 조회3
-//		
+		
 //		int pagecnt = sql.selectOne("notice.mapper.totalList", page);
 //		page.setTotalList(pagecnt);
 		
@@ -41,48 +41,49 @@ public class BoardDAO implements BoardService {
 		
 		return list;
 	}
-
-//	@Override
-//	public BoardVO board_detail(int id) {
-//		return sql.selectOne("board.mapper.detail", id);
-//	}
+//
+	@Override
+	public BoardVO board_detail(int board_sn) {
+		sql.update("board.mapper.read", board_sn);
+		return sql.selectOne("board.mapper.detail", board_sn);
+	}
 //
 //	@Override
 //	public int board_read(int id) {
 //		return sql.update("board.mapper.read", id);
 //	}
 //
-//	@Override
-//	public int board_update(BoardVO vo) {
-//		return sql.update("board.mapper.update", vo);
-//	}
+	@Override
+	public int board_update(BoardVO boardVO) {
+		return sql.update("board.mapper.update", boardVO);
+	}
 //
-//	@Override
-//	public int board_delete(int id) {
-//		return sql.delete("board.mapper.delete", id);
-//	}
+	@Override
+	public int board_delete(int board_sn) {
+		return sql.delete("board.mapper.delete", board_sn);
+	}
 //
-//	@Override
-//	public int board_comment_insert(BoardCommentVO vo) {
-//		return sql.insert("board.mapper.comment_insert", vo);
-//	}
+	@Override
+	public int board_comment_insert(ReplyVO replyVO) {
+		return sql.insert("board.mapper.reply_insert", replyVO);
+	}
 //
-//	@Override
-//	public int board_comment_update(BoardCommentVO vo) {
-//		// TODO Auto-generated method stub
-//		return sql.update("board.mapper.comment_update", vo);
-//	}
+	@Override
+	public int reply_update(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		return sql.update("board.mapper.comment_update", replyVO);
+	}
 //
-//	@Override
-//	public int board_comment_delete(int id) {
-//		// TODO Auto-generated method stub
-//		return sql.delete("board.mapper.comment_delete",id);
-//	}
+	@Override
+	public int reply_delete(int reply_sn) {
+		// TODO Auto-generated method stub
+		return sql.delete("board.mapper.comment_delete",reply_sn);
+	}
 //
-//	@Override
-//	public List<BoardCommentVO> board_comment_list(int pid) {
-//		// TODO Auto-generated method stub
-//		return sql.selectList("board.mapper.comment_list", pid);
-//	}
+	@Override
+	public List<ReplyVO> reply_list(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.reply_list", replyVO);
+	}
 
 }

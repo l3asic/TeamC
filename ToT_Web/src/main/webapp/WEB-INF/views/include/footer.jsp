@@ -25,13 +25,13 @@
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
 							<h3>Newsletter</h3>
-							<form class="newsletter-box">
+							<div class="newsletter-box">
 								<div class="form-group">
 									<input class="" type="email" name="Email"
 										placeholder="Email Address*" /> <i class="fa fa-envelope"></i>
 								</div>
 								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-12 col-sm-12">
@@ -40,19 +40,19 @@
 							<p>사이트 바로가기</p>
 							<ul>
 								<li><a href="https://www.facebook.com/"><i
-										class="fab fa-facebook"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fab fa-facebook" target='_blank' aria-hidden="true"></i></a></li>
 								<li><a href="https://twitter.com/?lang=ko"><i
-										class="fab fa-twitter"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fab fa-twitter" target='_blank' aria-hidden="true"></i></a></li>
 								<li><a href="https://kr.linkedin.com/"><i
-										class="fab fa-linkedin"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fab fa-linkedin" target='_blank' aria-hidden="true"></i></a></li>
 								<li><a href="https://plus.google.com/"><i
-										class="fab fa-google-plus"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fab fa-google-plus" target='_blank' aria-hidden="true"></i></a></li>
 								<li><a href="https://namu.wiki/w/RSS"><i
-										class="fa fa-rss"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fa fa-rss" target='_blank' aria-hidden="true"></i></a></li>
 								<li><a href="https://www.pinterest.co.kr/"><i
 										class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
 								<li><a href="https://www.whatsapp.com/?lang=ko"><i
-										class="fab fa-whatsapp"  target='_blank' aria-hidden="true"></i></a></li>
+										class="fab fa-whatsapp" target='_blank' aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>

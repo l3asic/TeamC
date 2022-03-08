@@ -2,6 +2,7 @@ package member;
 
 import java.util.HashMap;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,10 +35,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-
+	@Override
+	public boolean kakao_insert(MemberVO vo) {
+		return dao.kakao_insert(vo);
+	}
 	@Override
 	public boolean naver_insert(MemberVO vo) {
 		return dao.naver_insert(vo);
+	}
+	@Override
+	public int naver_check(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return dao.naver_check(vo);
 	}
 	@Override
 	public boolean social_login(MemberVO vo) {
@@ -64,5 +73,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public boolean member_is_naver() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 }

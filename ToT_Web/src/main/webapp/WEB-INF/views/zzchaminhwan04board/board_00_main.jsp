@@ -31,27 +31,56 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
 
+
 </head>
 <body>
 
-<!-- Start header  -->
-<%@include file="../include/header.jsp"%>
-<!-- End header  -->
+	<!-- Start header  -->
+	<%@include file="../include/header.jsp"%>
+	<!-- End header  -->
+
+	
+
+	<div class="wrapcontent-60">
+		<!-- Start list -->
+		<c:if test="${path eq '/board_list' }">
+			<%@include file="../zzchaminhwan04board/board_01_list.jsp"%>
+		</c:if>
+		<c:if test="${path eq '/board_new' }">
+			<%@include file="../zzchaminhwan04board/board_01_new.jsp"%>
+		</c:if>
+		<c:if test="${path eq '/board_detail' }">
+			<%@include file="../zzchaminhwan04board/board_02_detail.jsp"%>
+		</c:if>
+		<!-- End list -->
+		<c:if test="${path eq '/mypage_' }">
+			<%@include file="../zzchaminhwan00mypage/mypage_00_main.jsp"%>
+		</c:if>
+	</div>
 
 
-<div class = "wrapcontent-60">
-	<!-- Start list --><%@include
-		file="../zzchaminhwan04board/board_01_list.jsp"%>
-	<!-- End list -->
-</div>
 
 
 
-<!-- Start copyright  -->
-<%@include file="../include/copyright.jsp"%>
-<!-- End copyright  -->
 
 
+
+	<!-- Start copyright  -->
+	<%@include file="../include/copyright.jsp"%>
+	<!-- End copyright  -->
+
+				<form action="board_detail" method="post">
+								<input type="hidden" name='board_sn' value=""></input>
+							</form>
+							
+	<script type="text/javascript">
+		function go_detail(board_sn) {
+			$('[name = board_sn]').val(board_sn);
+			$('form').attr('action', 'board_detail');
+			$('form').submit();
+		}
+		
+	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
@@ -67,7 +96,21 @@
 	<script src="js/baguetteBox.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
-	<script src="js/custom.js"></script>
+	<!-- 	<script src="js/custom.js"></script> -->
+
+	<!-- 	========================== board_sn =========================== -->
+<!-- 	<form action="board_detail" method="post"> -->
+<!-- 		<input type="hidden" name='board_sn' value=""></input> -->
+<!-- 	</form> -->
+	<!-- 	============================================================ -->
+	<script type="text/javascript">
+		function go_mypage(str) {
+		
+			location.href = "mypage_" + str;
+		}
+	</script>
+
+
 </body>
 </html>
 

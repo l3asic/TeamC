@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <!-- Basic -->
@@ -37,49 +38,55 @@
 </head>
 
 <body>
-	<!-- Start Main Top -->
-	<div class="main-top">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="text-slid-box">Trip Or Travel 링크 바로가기</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Main Top -->
 
-	<!-- Start Main Top -->
-	<header class="main-header">
-		<!-- Start Navigation -->
-		<nav
-			class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-			<div class="container" style="position: relative;">
-				<!-- Start Header Navigation -->
-				<div class="navbar-header">
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#navbar-menu" aria-controls="navbars-rs-food"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<i class="fa fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="home"><img src="images/main_logo.png" class="logo" alt=""></a>
-				<div class="navbar-float" style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
-					<ol style="font-size: 13px">
-						<li style="list-style-type: none; float: left;"><a href="#">로그인</a></li>
-						<li style="list-style-type: none; float: left;"> ｜ </li>
-						<li style="list-style-type: none; float: left;"><a href="#">회원가입</a></li>
-					</ol>
-				</div>
-				</div>
-				<!-- End Header Navigation -->
+
+<!-- Start Main Top -->
+<header class="main-header">
+   <!-- Start Navigation -->
+   <nav
+      class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+      <div class="container" style="position: relative;">
+         <!-- Start Header Navigation -->
+         <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+               data-target="#navbar-menu" aria-controls="navbars-rs-food"
+               aria-expanded="false" aria-label="Toggle navigation">
+               <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="<c:url value='/' />"><img
+               src="images/main_logo.png" class="logo" alt=""></a>
+            <div class="navbar-float"
+               style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
+               <ol style="font-size: 13px">
+                  <!-- 로그인하지 않은 상태 -->
+                  <c:if test="${ empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a
+                        href="login">로그인</a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="member">회원가입</a></li>
+                  </c:if>
+                  <!-- 로그인한 상태 -->
+                  <c:if test="${not empty loginInfo }">
+                     <li style="list-style-type: none; float: left;"><a href="whosepage"><strong>${loginInfo.member_id}</strong></a></li>
+                     <li style="list-style-type: none; float: left;">｜</li>
+                     <li style="list-style-type: none; float: left;"><a
+                        href="logout">로그아웃</a></li>
+                  </c:if>
+               </ol>
+            </div>
+         </div>
+         <!-- End Header Navigation -->
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link" href="home">홈</a></li>
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/' />">홈</a></li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 							<ul class="dropdown-menu">
-								<li><a href="categoryList_tour">관광지</a></li>
-								<li><a href="categoryList_activity">액티비티</a></li>
-								<li><a href="categoryList_festival">지역축제</a></li>
+								<li><a href="tour.ca">관광지</a></li>
+								<li><a href="activity.ca">액티비티</a></li>
+								<li><a href="festival.ca">지역축제</a></li>
 							</ul>
 						</li>
 						<li class="dropdown active"><a href="#"	class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
@@ -119,6 +126,8 @@
 	</div>
 	<!-- End All Title Box -->
 	
+	
+<form action="replyinsert.ca?board_sn=${board_sn }&member_id=${vo.member_id}" method="post" enctype="multipart/form-data">
     <!-- Start Contact Us  -->
     <div class="contact-box-main">
         <div class="container">
@@ -127,22 +136,22 @@
                     <div class="contact-form-right">
                         <h2>댓글작성</h2>
                         <p>댓글과 사진으로 당신의 경험을 공유해주세요</p>
-                        <form id="contactForm">
+                       <%--  <form id="contactForm" action="replyinsert.ca?board_sn=${board_sn }&member_id=${vo.member_id}"  method="post" enctype="multipart/form-data"> --%>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                    	<th>닉네임 나올곳!!!!!!</th>
-                                        <textarea class="form-control" id="message" placeholder="당신의 생각을 적어주세요" rows="4"  required style="height:400px"></textarea>
+                                    	<!-- <th>닉네임 나올곳!!!!!!</th> -->
+                                        <textarea class="form-control" id="message" name="reply_content" placeholder="당신의 생각을 적어주세요" rows="4"  required style="height:400px"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
-                                        <button class="btn hvr-hover" type="submit">Send Message</button>
+                                        <button class="btn hvr-hover" type="submit" style="background-color: #BDEDFF !important">댓글 등록하기</button>
                                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
 				<div class="col-lg-4 col-sm-12">
@@ -151,6 +160,7 @@
             </div>
         </div>
     </div>
+ </form> 
 
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>

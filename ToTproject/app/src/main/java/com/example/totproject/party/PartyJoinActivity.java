@@ -17,6 +17,7 @@ import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+
 import com.example.totproject.common.statics.Logined;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -118,32 +119,32 @@ public class PartyJoinActivity extends AppCompatActivity {
 
 
 
-//        fab_partyjoin = findViewById(R.id.fab_partyjoin);
-//
-//
-//        // 공개된 파티 가입
-//        fab_partyjoin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PartyListDTO dto = new PartyListDTO(
-//                        list.get(0).getParty_sn(),
-//                        list.get(0).getPicture_filepath(),
-//                        list.get(0).getParty_private(),
-//                        list.get(0).getParty_leader(),
-//                        list.get(0).getParty_name(),
-//                        list.get(0).getParty_detail(),
-//                        list.get(0).getParty_tag1(),
-//                        list.get(0).getParty_tag2(),
-//                        list.get(0).getParty_tag3(),
-//                        Logined.member_id
-//                        );
-//                partyJoin(dto);
-//                Intent intent = new Intent(PartyJoinActivity.this,PartyMainActivity.class);
-//                intent.putExtra("tabcode",3);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        fab_partyjoin = findViewById(R.id.fab_partyjoin);
+
+
+        // 공개된 파티 가입
+        fab_partyjoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PartyListDTO dto = new PartyListDTO(
+                        list.get(0).getParty_sn(),
+                        list.get(0).getPicture_filepath(),
+                        list.get(0).getParty_private(),
+                        list.get(0).getParty_leader(),
+                        list.get(0).getParty_name(),
+                        list.get(0).getParty_detail(),
+                        list.get(0).getParty_tag1(),
+                        list.get(0).getParty_tag2(),
+                        list.get(0).getParty_tag3(),
+                        Logined.member_id
+                        );
+                partyJoin(dto);
+                Intent intent = new Intent(PartyJoinActivity.this,PartyMainActivity.class);
+                intent.putExtra("tabcode",3);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }//onCreate()

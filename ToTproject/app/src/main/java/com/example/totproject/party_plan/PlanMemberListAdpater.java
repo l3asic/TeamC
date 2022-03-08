@@ -25,7 +25,7 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
     ArrayList<PartyMemberListDTO> list;
     LayoutInflater inflater;
     PartyListDTO plDTO;
-    int tabcode;
+    int tabcode = 0;
 
 
 

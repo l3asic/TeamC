@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 
@@ -76,6 +77,38 @@ public class MyPageController {
 		model.addAttribute("boardVO", list);
 
 		return "zzchaminhwan00mypage/mypage_00_list_stack";
+	}
+
+	
+
+	@RequestMapping("/my_modify")
+	public String mypage_modify(String member_id, Model model, HttpSession session) {
+
+		MemberVO vo = sql.selectOne("mypage.mapper.member_info", member_id);
+
+		model.addAttribute("vo", vo);
+
+		return "zzchaminhwan00mypage/my_modify";
+	}
+	
+	@RequestMapping("/my_info_update")
+	public String update(Model model, MemberVO memberVO, HttpSession session, MultipartFile multipartFile,
+			HttpServletRequest req) {
+		String path = req.getServletPath();
+		System.out.println(path);
+
+		if(file != null) {
+			System.out.println("파일들어옴");
+			
+			
+			memberVO.setMember_filepath(path);
+		}
+
+		sql.update("mypage.mapper.member_pic_update", memberVO);
+		sql.update("mypage.mapper.member_info_update",memberVO);
+
+		return "redirect:/mypage_" + memberVO.getMember_id();
+//		return "empty";
 	}
 
 //======================================================================================================================

@@ -153,7 +153,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 							<img class="rounded-circle border p-1 picture_member_profile_256"
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
-						<br> <br> ${memberVO.member_id}
+						<br> ${memberVO.member_id} <br>
+						<c:if test="${memberVO.member_id eq loginInfo.member_id }">
+							<a href="my_modify?member_id=${memberVO.member_id }"
+								style="font-size: 12px; color: #ffffff;">내 정보 수정</a>
+						</c:if>
 					</h2>
 					<ul class="breadcrumb" style="cursor: pointer;">
 						<li class="breadcrumb-item active"><a

@@ -4,10 +4,23 @@ public class MemberVO {
 	private String member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email;
 	private String member_is_naver, member_is_kakao; 
 	int naver_check;
+	private String member_filepath;
 	
 	
 	public String getMember_id() {
 		return member_id;
+	}
+	public int getNaver_check() {
+		return naver_check;
+	}
+	public void setNaver_check(int naver_check) {
+		this.naver_check = naver_check;
+	}
+	public String getMember_filepath() {
+		return member_filepath;
+	}
+	public void setMember_filepath(String member_filepath) {
+		this.member_filepath = member_filepath;
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;

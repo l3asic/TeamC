@@ -111,7 +111,7 @@ function delete_file() {
 										</c:if>
 											alt="프사" style="margin-bottom: 5px; width: 150px;"
 											name="member_filepath" /> <br> .
-										<input type="file" value="${vo.member_filepath }" 
+										<input type="file" value="${vo.member_filepath }" name="multipartFile"
 											style="display: non;" id="input_file">
 										<strong
 											style="font-size: 12px; text-decoration: underline; cursor: pointer;"

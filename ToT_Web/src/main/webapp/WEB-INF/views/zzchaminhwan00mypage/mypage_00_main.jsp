@@ -131,19 +131,19 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 						<!-- 						<c:if test="${loginInfo eq null}"> -->
 						<!-- 						로그인하면 가능 -->
 						<!-- 						</c:if> -->
-
-					<!-- 성향 일치 점수 -->
+						<img src="images/like.png" alt="하트"
+							style="width: 64px; height: 64px" />
 						<c:choose>
-							<c:when test="${loginInfo eq null}"> 로그인하면 가능 </c:when>
-							<c:when test="${loginInfo.member_id eq memberVO.member_id}"> 본인임ㅎ </c:when>
-							<c:when test="${matchingScore eq null}"> 성향분석 완료 회원끼리만 가능 </c:when>
-							<c:when test="${matchingScore ne null}">♥ ${matchingVO}  </c:when>
-							<c:otherwise> ㅁㅁㅁㅁㅁ </c:otherwise>
+							<c:when test="${loginInfo eq null}">???</c:when>
+							<c:when test="${loginInfo.member_id eq memberVO.member_id}"></c:when>
+							<c:when test="${matchingScore eq null}">???</c:when>
+							<c:when test="${matchingScore ne null}"> ${matchingScore}  </c:when>
+							<c:otherwise>TripOrTrap</c:otherwise>
 						</c:choose>
 
 
 
-					<!-- 프로필사진 -->
+
 						<br> <br>
 						<c:if test="${memberVO.member_filepath ne null}">
 							<img class="rounded-circle border p-1 picture_member_profile_256"
@@ -154,14 +154,10 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 							<img class="rounded-circle border p-1 picture_member_profile_256"
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
-						
-						<!-- 아이디 -->
-						<br> <strong style="font-size: 40px; font-style: bold;">${memberVO.member_id}</strong>
-						<br>
-						
-						<!-- 정보수정 -->
+						<br> <br> ${memberVO.member_id} <br>
 						<c:if test="${memberVO.member_id eq loginInfo.member_id }">
-						<a href="my_modify?member_id=${memberVO.member_id }" style="font-size: 12px; color: #ffffff;">내 정보 수정</a>
+							<a href="my_modify?member_id=${memberVO.member_id }"
+								style="font-size: 12px; color: #ffffff;">내 정보 수정</a>
 						</c:if>
 					</h2>
 					<ul class="breadcrumb" style="cursor: pointer;">

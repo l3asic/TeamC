@@ -99,7 +99,7 @@ function delete_file() {
 
 
 
-										<img class="rounded-circle border p-1 picture_member_profile_128"
+										<img class="rounded-circle border p-1 picture_member_profile"
 											id="preview"
 											<c:if test="${vo.member_filepath ne null}">
 												src="${vo.member_filepath}" 
@@ -109,9 +109,9 @@ function delete_file() {
 												src="images/tot_icon_profile_none.png" 
 												
 										</c:if>
-											alt="프사" style="margin-bottom: 5px; ;"
+											alt="프사" style="margin-bottom: 5px; width: 150px;"
 											name="member_filepath" /> <br> .
-										<input type="file" value="${vo.member_filepath }" name = "multipartFile" 
+										<input type="file" value="${vo.member_filepath }" name="multipartFile"
 											style="display: non;" id="input_file">
 										<strong
 											style="font-size: 12px; text-decoration: underline; cursor: pointer;"

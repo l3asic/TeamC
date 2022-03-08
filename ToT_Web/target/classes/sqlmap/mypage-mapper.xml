@@ -59,38 +59,4 @@ FROM
     ) a  where ROWNUM <![CDATA[ <= ]]> #{stack}
 </select>
 
-
-<select id="member_info" resultType="member.MemberVO">
-	select
-		m.*,
-		NVL((select b.picture_filepath from tbl_board_picture b where m.member_id = b.member_id ),'') member_filepath
-	from tbl_member_info m
-	where member_id = #{member_id}
-</select>
-
-
-<update id="member_pic_update" >
-MERGE INTO TBL_BOARD_PICTURE p
-    USING (
-          SELECT MEMBER_ID
-         FROM TBL_MEMBER_INFO
-        WHERE MEMBER_ID = #{member_id}
-    ) m
-    ON (p.member_id = m.member_id)
-    WHEN MATCHED THEN 
-          UPDATE SET
-          p.picture_filepath = #{member_filepath}
-          where p.member_id = #{member_id}
-    WHEN NOT MATCHED THEN
-         INSERT (PICTURE_FILEPATH,  MEMBER_ID)
-         VALUES (#{member_filepath} , #{member_id} )
-</update>
-
-<update id="member_info_update">
-update tbl_member_info set 
-member_pw = #{member_pw},
-member_nick = #{member_nick}
-where member_id = #{member_id}
-</update>
-
 </mapper>

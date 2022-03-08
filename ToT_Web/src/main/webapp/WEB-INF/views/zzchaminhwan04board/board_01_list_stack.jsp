@@ -73,7 +73,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 								<tr style="text-align: center;">
 									<input type="hidden" id='stacks' value="10"></input>
 									<td colspan="6"><a id='btn_stacks' onclick="stacks_more()"
-										class="btn hvr-hover">더보기</a></td>
+										class="btn hvr-hover bg_new_blue" style="background:  #2ba0da;">더보기</a></td>
 								</tr>
 							</tbody>
 						</table>

@@ -17,11 +17,7 @@
 		<input type="hidden" name="board_sn" value='${boardVO.board_sn}' /> <input
 			type="hidden" name="board_title" value='${boardVO.board_title}' /> <input
 			type="hidden" name="board_content" value='${boardVO.board_content}' />
-		<!-- 	<input type="hidden" name="search" value="${page.search }" /> 검색조건 -->
-		<!-- 	<input type="hidden" name="keyword" value="${page.keyword }" /> 검색어 -->
-		<!-- 	<input type="hidden" name="curPage" value="${page.curPage }" /> 현재 페이지 -->
-		<!-- 	<input type="hidden" name="pageList" value="${page.pageList }" /> 한 페이지당 보여질 목록 수 -->
-		<!-- 	<input type="hidden" name="viewType" value="${page.viewType }" /> 게시판 형태 -->
+
 	</form>
 	<div class="container">
 		<c:if test="${loginInfo.member_grade eq 'master' }">

@@ -7,7 +7,7 @@
 SELECT
     100 - ( abs(a.mbti_activity - b.mbti_activity) + abs(a.mbti_festival - b.mbti_festival) + abs(a.mbti_tour - b.mbti_tour) + abs(a.
     mbti_solo - b.mbti_solo) + abs(a.mbti_couple - b.mbti_couple) + abs(a.mbti_buddys - b.mbti_buddys) + abs(a.mbti_family - b.mbti_family) +
-    abs(a.mbti_price - b.mbti_price) + abs(a.mbti_sd - b.mbti_sd) + abs(a.mbti_io - b.mbti_io) * 2.5 ) AS matchscore
+    abs(a.mbti_price - b.mbti_price) + abs(a.mbti_sd - b.mbti_sd) + abs(a.mbti_io - b.mbti_io)  )* 2.5 AS matchscore
 FROM
     ( SELECT * FROM tbl_mbti WHERE member_id = #{my_member_id} ) a,
     ( SELECT * FROM tbl_mbti WHERE member_id = #{whose_member_id} ) b

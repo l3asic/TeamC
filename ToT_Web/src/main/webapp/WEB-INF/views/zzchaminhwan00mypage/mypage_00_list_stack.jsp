@@ -40,7 +40,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 										<th class="thumbnail-img">
 										
 									<c:if test="${vo.member_filepath ne null}">
-										<img 	class="rounded-circle border p-1 1 picture_member_profile" src="${vo.member_filepath}" alt="프사" /> 
+										<img 	class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}" alt="프사" /> 
 										</c:if>
 										<c:if test="${vo.member_filepath eq null}">
 										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />

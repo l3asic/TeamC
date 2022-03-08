@@ -31,7 +31,6 @@ img.social { width : 200px; height: 45px; }
 			<input type="text" placeholder="아이디" id='userid' autofocus /><br/>
 			<input type="password" placeholder="비밀번호" id='userpw'
 					onkeypress="if (event.keyCode == 13) { go_login() }" />
-					<!-- onkeypress를 통해 Enter 키를 눌렀을 때 go_login() 동작 -->
 		</div>
 			<a style="width: 25%" class='btn btn-outline-primary' onclick="go_login()">로 그 인</a>
 		<div >

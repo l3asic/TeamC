@@ -77,15 +77,12 @@ public class BoardController {
 		if (memberVO != null) {
 			vo.setMember_id(memberVO.getMember_id());
 		}
-
-		// ================= 귀찮아서 아이디 ChaMinHwan 박아놓음 =====================
 		if (vo.getMember_id() == null) {
 			printPath(path);
 			// ====================
 
 			vo.setMember_id("ChaMinHwan");
 		}
-
 //			 파일 정보가 있다면
 		if (!multipartFile.isEmpty()) {
 			List<MultipartFile> mpfList = req.getFiles("multipartFile");
@@ -155,14 +152,14 @@ public class BoardController {
 				vo.setPicList(picList);
 
 				int likeCheck = 0;
-
+				
 				MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
 				if (null != mvo) {
 					vo.setMember_id(mvo.getMember_id());
-					likeCheck = sql.selectOne("category.mapper.categoryLike_sn_member", vo);
+				likeCheck = sql.selectOne("category.mapper.categoryLike_sn_member",vo);
 				}
-				int count = sql.selectOne("category.mapper.category_like", vo.getBoard_sn());
-
+				int count = sql.selectOne("category.mapper.category_like",vo.getBoard_sn());
+				
 				model.addAttribute("likeCheck", likeCheck);
 				model.addAttribute("likeCount", count);
 				model.addAttribute("boardVO", vo);
@@ -175,24 +172,24 @@ public class BoardController {
 				int likeCheck = 0;
 
 				MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
-
-				// ======== gson 캐스팅ㅋㅋ==============
+				
+				//======== gson 캐스팅ㅋㅋ==============
 				String temp0 = gson.toJson(vo);
 				CategoryVO categoryVO = gson.fromJson(temp0, CategoryVO.class);
-				// =================================
+				//=================================
 				if (null != mvo) {
 					categoryVO.setMember_id(mvo.getMember_id());
-					likeCheck = sql.selectOne("category.mapper.categoryLike_sn_member", categoryVO);
+					likeCheck = sql.selectOne("category.mapper.categoryLike_sn_member",categoryVO);
 				}
 
-				List<category.PictureVO> list = sql.selectList("category.mapper.list_picture", board_sn);
+				List<category.PictureVO> list = sql.selectList("category.mapper.list_picture",board_sn);
 
-				int count = sql.selectOne("category.mapper.category_like", board_sn);
+				int count = sql.selectOne("category.mapper.category_like",board_sn);
 
-				List<category.CategoryVO> reviewList = sql.selectList("category.mapper.list_reviewpath", board_sn);
+				List<category.CategoryVO> reviewList =  sql.selectList("category.mapper.list_reviewpath",board_sn);
 
 				model.addAttribute("likeCheck", likeCheck);
-				model.addAttribute("vo", sql.selectOne("category.mapper.detail_categoryBoards", vo));
+				model.addAttribute("vo",  sql.selectOne("category.mapper.detail_categoryBoards",vo));
 				model.addAttribute("picture", list);
 				model.addAttribute("likeCount", count);
 				model.addAttribute("review", reviewList);

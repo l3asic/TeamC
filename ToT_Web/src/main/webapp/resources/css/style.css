@@ -32,6 +32,13 @@
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
+.bg_old_blue{
+	background: #2ba0da;
+}
+.bg_new_blue{
+	background: #2ba0da;
+}
+
 #preview-img{
 	max-width : 256px;
 	max-height : 256px;
@@ -40,10 +47,6 @@
 .picture_member_profile{
 	width: 64px;
 	height: 64px;
-}
-.picture_member_profile_128{
-	width: 128px;
-	height: 128px;
 }
 .picture_member_profile_256{
 	width: 256px;

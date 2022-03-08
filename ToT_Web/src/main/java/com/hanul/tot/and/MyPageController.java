@@ -38,8 +38,6 @@ public class MyPageController {
 
 	Gson gson = new Gson();
 	@Autowired
-	private CommonService common;
-	@Autowired
 	@Qualifier("cteam")
 	SqlSession sql;
 
@@ -59,12 +57,12 @@ public class MyPageController {
 
 		if (session.getAttribute("loginInfo") != null) {
 			MemberVO my_memberVO = (MemberVO) session.getAttribute("loginInfo");
-			if (!member_id.equals(my_memberVO.getMember_id())) {
-				MatchingVO matchingVO = new MatchingVO();
-				matchingVO.setMy_member_id(my_memberVO.getMember_id());
-				matchingVO.setWhose_member_id(member_id);
-				String matchingScore = sql.selectOne("mbti.mapper.fitMBTI_user", matchingVO);
-				model.addAttribute("matchingScore", matchingScore);
+			if(! member_id.equals(my_memberVO.getMember_id())) {
+			MatchingVO matchingVO = new MatchingVO();
+			matchingVO.setMy_member_id(my_memberVO.getMember_id());
+			matchingVO.setWhose_member_id(member_id);
+			String matchingScore = sql.selectOne("mbti.mapper.fitMBTI_user", matchingVO);
+			model.addAttribute("matchingScore",matchingScore);
 			}
 		}
 		return "zzchaminhwan04board/board_00_main";
@@ -81,6 +79,8 @@ public class MyPageController {
 		return "zzchaminhwan00mypage/mypage_00_list_stack";
 	}
 
+	
+
 	@RequestMapping("/my_modify")
 	public String mypage_modify(String member_id, Model model, HttpSession session) {
 
@@ -90,27 +90,26 @@ public class MyPageController {
 
 		return "zzchaminhwan00mypage/my_modify";
 	}
-
+	
 	@RequestMapping("/my_info_update")
 	public String update(Model model, MemberVO memberVO, HttpSession session, MultipartFile multipartFile,
-			HttpServletRequest req) throws IOException {
-		printPath(req);
+			HttpServletRequest req) {
+		String path = req.getServletPath();
+		System.out.println(path);
 
-		if (!multipartFile.isEmpty()) {
+		if(multipartFile != null) {
 			System.out.println("파일들어옴");
-			String filepath = common.fileupload("user_profile", multipartFile, session);
-			memberVO.setMember_filepath(filepath);
+			
+			
+			memberVO.setMember_filepath(path);
 		}
 
-		sql.update("mypage.mapper.member_pic_update", memberVO);// tbl_board_picture
-		sql.update("mypage.mapper.member_info_update", memberVO);// tbl_member_info
+		sql.update("mypage.mapper.member_pic_update", memberVO);
+		sql.update("mypage.mapper.member_info_update",memberVO);
 
 		return "redirect:/mypage_" + memberVO.getMember_id();
 //		return "empty";
 	}
 
 //======================================================================================================================
-	public void printPath(HttpServletRequest req) {
-		System.out.println(req.getServletPath());
-	}
 }

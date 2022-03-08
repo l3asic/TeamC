@@ -11,6 +11,8 @@ table td {text-align: center; }
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
+
+
 <jsp:include page="/WEB-INF/views/include/header.jsp" />
 	<p class='w-pct40' style = 'margin:0 auto; text-align: right; 
 				padding-top: 15px; font-size: 15px;'>(1.매우좋음, 2.좋음, 3.보통, 4.싫음, 5.매우싫음)</p>
@@ -117,14 +119,18 @@ table td {text-align: center; }
 			</td>
 		</tr>
 	</table>
+	<input type="text" name="member_id" value="${tempSession.member_id }" />
+	<input type="text" name="member_social_id" value="${loginInfo.member_id }" />
 	</form>	
 	<div style="text-align: center; margin-top: 10px">
 		<a class='btn btn-outline-primary' onclick='go_tend()'>회원가입</a>
-		<a class='btn btn-warning' href='welcome' >건너뛰기</a>
+		<a class='btn btn-outline-warning' href='welcome' >건너뛰기</a>
 	</div>	
 	
 	<script type="text/javascript">
 	function go_tend() {
+		var member_id = $('input[name=member_id]').val();
+		var member_id = $('input[name=member_social_id]').val();
 		
 		var mbti_tour = $('input[name=mbti_tour]').val();
 		var mbti_activity = $('input[name=mbti_activity]').val();

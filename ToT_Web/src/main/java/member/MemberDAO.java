@@ -48,10 +48,20 @@ public class MemberDAO implements MemberService {
 		return sql.selectOne("member.mapper.find_member_pw", vo);
 	}
 
+	
+	@Override
+	public boolean kakao_insert(MemberVO vo) {
+		return sql.insert("member.mapper.kakao_login", vo) == 1 ? true : false;
+	}
 	@Override
 	public boolean naver_insert(MemberVO vo) {
+		return sql.insert("member.mapper.naver_login", vo) == 1 ? true : false;
+	}
+	
+	@Override
+	public int naver_check(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return false;
+		return sql.selectOne("member.mapper.naver_check", vo);
 	}
 
 	@Override

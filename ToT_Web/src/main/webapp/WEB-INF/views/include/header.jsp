@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Site Icons -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -30,17 +30,17 @@
 
 <!--  Responsive C -->
 <!-- ★ Start Main Top -->
-<div class="main-top">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="text-slid-box"
-				"right" style="width: 60%; margin: 0 auto;">
-				<a href="home">Trip Or Travel 링크 바로가기</a>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End Main Top ★-->
+<!-- <div class="main-top"> -->
+<!-- 	<div class="container-fluid"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="text-slid-box" -->
+<!-- 				"right" style="width: 60%; margin: 0 auto;"> -->
+<!-- 				<a href="home">Trip Or Travel 링크 바로가기</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <!-- End Main Top ★-->
 
 
 
@@ -64,16 +64,19 @@
 					<ol style="font-size: 13px">
 						<!-- 로그인하지 않은 상태 -->
 						<c:if test="${ empty loginInfo }">
-							<li style="list-style-type: none; float: left;"><a href="login">로그인</a></li>
+							<li style="list-style-type: none; float: left;"><a
+								href="login">로그인</a></li>
 							<li style="list-style-type: none; float: left;">｜</li>
-							<li style="list-style-type: none; float: left;"><a href="member">회원가입</a></li>
+							<li style="list-style-type: none; float: left;"><a
+								href="member">회원가입</a></li>
 						</c:if>
 						<!-- 로그인한 상태 -->
 						<c:if test="${ !empty loginInfo }">
-							<li>				
-								<strong>${loginInfo.member_name }</strong> 님 |
-								<a  href='logout'>로그아웃</a>
-							</li>
+							<li style="list-style-type: none; float: left;"><a
+								href="mypage_"><strong>${loginInfo.member_id} 님</strong></a></li>
+							<li style="list-style-type: none; float: left;">｜</li>
+							<li style="list-style-type: none; float: left;"><a
+								href="logout">로그아웃</a></li>
 						</c:if>
 					</ol>
 				</div>
@@ -88,23 +91,29 @@
 					<li class="dropdown active"><a href="#"
 						class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
 						<ul class="dropdown-menu">
-							<li><a href="categoryList_tour">관광지</a></li>
-							<li><a href="categoryList_activity">액티비티</a></li>
-							<li><a href="categoryList_festival">지역축제</a></li>
+							<li><a href="tour.ca">관광지</a></li>
+							<li><a href="activity.ca">액티비티</a></li>
+							<li><a href="festival.ca">지역축제</a></li>
 						</ul></li>
-					<li class="dropdown active"><a href="#"
-						class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
+<!-- 					<li class="dropdown active"><a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a> -->
+<!-- 						<ul class="dropdown-menu"> -->
+<!-- 							<li><a href="shop.html">Sidebar Shop</a></li> -->
+<!-- 							<li><a href="shop-detail.html">Shop Detail</a></li> -->
+<!-- 							<li><a href="cart.html">Cart</a></li> -->
+<!-- 							<li><a href="checkout.html">Checkout</a></li> -->
+<!-- 							<li><a href="my-account.html">My Account</a></li> -->
+<!-- 							<li><a href="wishlist.html">Wishlist</a></li> -->
+<!-- 						</ul> -->
+<!-- 					</li> -->
+					<li class="dropdown active" ><a class="nav-link" href="/tot/board_list?board_class=user">유저게시판</a>
 						<ul class="dropdown-menu">
-							<li><a href="shop.html">Sidebar Shop</a></li>
-							<li><a href="shop-detail.html">Shop Detail</a></li>
-							<li><a href="cart.html">Cart</a></li>
-							<li><a href="checkout.html">Checkout</a></li>
-							<li><a href="my-account.html">My Account</a></li>
-							<li><a href="wishlist.html">Wishlist</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link" href="/tot/board_list">유저게시판</a></li>
+					
+							<li><a href="/tot/board_list?board_class=user">유저게시판</a></li>
+							<li><a href="/tot/board_list?board_class=user2">다른게시판</a></li>
+						</ul>
+					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="contact-us.html">Contact Us</a></li>
+						href="servicecenter.sc">Contact Us</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

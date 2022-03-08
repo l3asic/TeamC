@@ -61,6 +61,10 @@
 			file="zzchaminhwan/main_02_slider.jsp"%>
 		<!-- End Slider -->
 
+		<!-- Start Instagram Feed  -->
+		<%@include file="zzchaminhwan/main_07_instagram_feed.jsp"%>
+		<!-- End Instagram Feed  -->
+
 		<!-- Start Categories  -->
 		<%@include file="zzchaminhwan/main_03_categories.jsp"%>
 		<!-- End Categories -->
@@ -78,9 +82,7 @@
 		<!-- End Blog  -->
 
 
-		<!-- Start Instagram Feed  -->
-		<%@include file="zzchaminhwan/main_07_instagram_feed.jsp"%>
-		<!-- End Instagram Feed  -->
+
 	</div>
 
 

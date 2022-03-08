@@ -1,12 +1,13 @@
 package category;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class CategoryVO {
-	private int board_sn,board_read_cnt, board_reviewepath;
-    private String board_title, board_content, board_is_updated,board_private, board_replly_able,board_class, member_id;
-    private String board_date_create, picture_filepath , member_nick;
+	private int board_sn,board_read_cnt, board_reviewpath, reply_sn, like_cnt;
+    private String board_title, board_content, board_is_updated, board_private, board_reply_able,board_class, member_id;
+    private String picture_filepath, member_nick, reply_content;
+    private Date board_date_create, reply_writedate ;
     private int picture_file_count;
     private int board_cnt_reply, function_like;
     
@@ -22,11 +23,13 @@ public class CategoryVO {
 	public void setBoard_read_cnt(int board_read_cnt) {
 		this.board_read_cnt = board_read_cnt;
 	}
-	public int getBoard_reviewepath() {
-		return board_reviewepath;
+	
+	
+	public int getBoard_reviewpath() {
+		return board_reviewpath;
 	}
-	public void setBoard_reviewepath(int board_reviewepath) {
-		this.board_reviewepath = board_reviewepath;
+	public void setBoard_reviewpath(int board_reviewpath) {
+		this.board_reviewpath = board_reviewpath;
 	}
 	public String getBoard_title() {
 		return board_title;
@@ -52,11 +55,13 @@ public class CategoryVO {
 	public void setBoard_private(String board_private) {
 		this.board_private = board_private;
 	}
-	public String getBoard_replly_able() {
-		return board_replly_able;
+	
+	
+	public String getBoard_reply_able() {
+		return board_reply_able;
 	}
-	public void setBoard_replly_able(String board_replly_able) {
-		this.board_replly_able = board_replly_able;
+	public void setBoard_reply_able(String board_reply_able) {
+		this.board_reply_able = board_reply_able;
 	}
 	public String getBoard_class() {
 		return board_class;
@@ -70,10 +75,11 @@ public class CategoryVO {
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
-	public String getBoard_date_create() {
+	
+	public Date getBoard_date_create() {
 		return board_date_create;
 	}
-	public void setBoard_date_create(String board_date_create) {
+	public void setBoard_date_create(Date board_date_create) {
 		this.board_date_create = board_date_create;
 	}
 	public String getPicture_filepath() {
@@ -106,6 +112,34 @@ public class CategoryVO {
 	public void setMember_nick(String member_nick) {
 		this.member_nick = member_nick;
 	}
+	
+	
+	public String getReply_content() {
+		return reply_content;
+	}
+	public void setReply_content(String reply_content) {
+		this.reply_content = reply_content;
+	}
+	public Date getReply_writedate() {
+		return reply_writedate;
+	}
+	public void setReply_writedate(Date reply_writedate) {
+		this.reply_writedate = reply_writedate;
+	}
+	public int getReply_sn() {
+		return reply_sn;
+	}
+	public void setReply_sn(int reply_sn) {
+		this.reply_sn = reply_sn;
+	}
+	public int getLike_cnt() {
+		return like_cnt;
+	}
+	public void setLike_cnt(int like_cnt) {
+		this.like_cnt = like_cnt;
+	}
+	
+	
 	
 	
 	

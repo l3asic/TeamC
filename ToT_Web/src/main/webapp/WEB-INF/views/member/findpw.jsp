@@ -54,7 +54,7 @@ function go_find_pw() {
 		, success : function (response) {
 			if (response) {
 				
-				alert('당신의 비밀번호는 '+ response.member_pw+' 입니다');
+				alert('회원님의 비밀번호는 '+ response.member_pw+' 입니다');
 			}else {
 				alert('가입하신 정보와 일치하지 않습니다');
 			}

@@ -43,7 +43,7 @@ function go_find_id() {
 		, data : {member_tel:$('#usertel').val()}
 		, success : function (response) {
 			if (response) {
-				alert('당신의 아이디는 '+ response +' 입니다');
+				alert('회원님의 아이디는 '+ response +' 입니다');
 			}else {
 				alert('가입하신 전화번호가 일치하지 않습니다');
 			}

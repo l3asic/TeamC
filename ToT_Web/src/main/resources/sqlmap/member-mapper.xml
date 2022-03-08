@@ -11,10 +11,10 @@
 	
 	<!-- 성향분석 -->
 	<insert id="tendjoin">
-		insert into tbl_mbti (mbti_addr, mbti_x, mbti_y
+		insert into tbl_mbti (mbti_addr, mbti_x, mbti_y, member_id
 					, mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
 					, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io)
-		values ('jj', 22, 33
+		values ('jj', 22, 33, #{member_id}
 					, #{mbti_activity}, #{mbti_festival}, #{mbti_tour}, #{mbti_solo}, #{mbti_couple}
 					, #{mbti_buddys}, #{mbti_family}, #{mbti_price}, #{mbti_sd}, #{mbti_io})
 	</insert>
@@ -34,15 +34,18 @@
 
 	<insert id="naver_login">
 		insert into tbl_member_info (member_id, member_pw, member_name, member_nick, member_gender, member_grade, member_is_naver)
-		values (#{member_name}, 'pw', #{member_name}, 'jj', #{member_gender}, 'user', #{member_is_naver})	
+		values (#{member_name}, 'pw', #{member_name},  #{member_name}, #{member_gender}, 'user', #{member_is_naver})	
 	</insert>
 	
-	<!-- social login -->
-	<select id="social_login" resultType="integer">
-		select * from tbl_member_info
-		where member_is_naver = #{naver}
-		and member_is_kakao = #{kakao}
-		<!-- naver, kakao 확인 -->
+	<insert id="kakao_login">
+		insert into tbl_member_info (member_id, member_pw, member_name, member_nick, member_gender, member_grade, member_is_kakao)
+		values (#{member_id}, 'pw', #{member_id},  #{member_id}, #{member_gender}, 'user', #{member_is_kakao})	
+	</insert>
+	
+	<select id="naver_check" resultType="integer">
+		select count(*) from tbl_member_info
+		where member_id = #{member_name}
+		and member_is_naver = #{naver}
 	</select>
 	
 	<!-- pw 찾기 -->

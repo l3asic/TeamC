@@ -20,27 +20,28 @@ public class CommonService {
 	
 	
 	// 파일 업로드 처리
-	public String fileupload(String category, MultipartFile file,
-			HttpSession session) {
-		String resources = session.getServletContext().getRealPath("resources");
-	// D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core
-	//			\tmp0\wtpwebapps\iot\resources			
-		String folder = resources + "/upload" + category + "/"
-				+ new SimpleDateFormat("yyyy/MM/dd").format(new Date());
-	// /upload/notice/2022/01/07/00000000000saasf_123.png	
-		
-		String uuid = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-		
-		File dir = new File (folder);
-		if (! dir.exists() ) dir.mkdirs();
-			try {
-				file.transferTo(new File(folder, uuid));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		
-		return folder.substring(resources.length() + 1) + "/" + uuid;
-	}
+	   public String fileupload(String paramStr, MultipartFile file, HttpSession session) {
+	      String resources = session.getServletContext().getRealPath("resources");
+	      // D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core
+	      // \tmp0\wtpwebapps\iot\resources
+	      String folderpath = resources + "/upload/" + paramStr + "/"
+	            + new SimpleDateFormat("yyyy/MM/dd").format(new Date());
+	      // /upload/notice/2022/01/07/00000000000saasf_123.png
+
+	      String uuid = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+
+	      File directory = new File(folderpath);
+	      if (!directory.exists())
+	         directory.mkdirs();
+	      try {
+	         file.transferTo(new File(folderpath, uuid));
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+
+	      return folderpath.substring(resources.length() + 1) + "/" + uuid;
+	   }
+
 	
 	
 	// 접근 토근을 이용하여 프로필 API 호출하기 위하여 (access_token과 token_type 값을 파라미터로 전달)

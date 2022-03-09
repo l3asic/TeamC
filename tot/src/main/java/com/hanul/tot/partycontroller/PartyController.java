@@ -496,8 +496,10 @@ public class PartyController {
 		try {
 			vo.setMember_id(invite_list.get(0).getMemberid());
 			pDAO.insertPartyPlan(vo);
+			
+			List<PartyPlanListVO> select_list = new ArrayList<PartyPlanListVO>();
 
-			ArrayList<PartyPlanListVO> select_list = (ArrayList<PartyPlanListVO>) pDAO
+			select_list = (ArrayList<PartyPlanListVO>) pDAO
 					.selectPlanSn(invite_list.get(0).getMemberid());
 
 			vo = (PartyPlanListVO) select_list.get(0);
@@ -534,6 +536,7 @@ public class PartyController {
 			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
 			list = pDAO.selectPlanList(party_sn);		
 			
+			//@@ 여기로직 다시보기
 			for(int i =0; i<list.size(); i++) {	
 				for(int j=0; j<list.size(); j++){
 					if(list.get(i).getPlan_sn() == list.get(j).getPlan_sn() ) {

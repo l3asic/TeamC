@@ -133,15 +133,38 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 						<!-- 						</c:if> -->
 						<img src="images/like.png" alt="하트"
 							style="width: 64px; height: 64px" />
+
 						<c:choose>
-							<c:when test="${loginInfo eq null}">???</c:when>
-							<c:when test="${loginInfo.member_id eq memberVO.member_id}"></c:when>
-							<c:when test="${matchingScore eq null}">???</c:when>
-							<c:when test="${matchingScore ne null}"> ${matchingScore}  </c:when>
+							<c:when test="${loginInfo eq null}">
+								<p id="count"></p>
+							</c:when>
+							<c:when test="${loginInfo.member_id eq memberVO.member_id}">
+								<p id="count"></p>
+							</c:when>
+							<c:when test="${matchingScore eq null}">
+								<p id="count"></p>
+							</c:when>
+							<c:when test="${matchingScore ne null}">${matchingScore}</c:when>
 							<c:otherwise>TripOrTrap</c:otherwise>
 						</c:choose>
 
-
+						<style> #count { display: inline;} </style>
+						<script>
+        let countBox = document.querySelector('#count'),
+            count = 0;
+        max_count ="${matchingScore}";
+        if(Number(max_count) > 0 ){
+        	max_count = Number(max_count);
+        }
+        let counting = setInterval(function () {
+            if (count == 65535) {
+                clearInterval(counting);
+                return false;
+            }
+       		  	count += 1;
+				countBox.innerHTML = new Intl.NumberFormat().format(count);
+        }, 20);
+    </script>
 
 
 						<br> <br>
@@ -155,9 +178,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
 						<br> <br> ${memberVO.member_id} <br>
-						<c:if test="${memberVO.member_id eq loginInfo.member_id }">
+						<c:if test="${memberVO.member_id eq loginInfo.member_id || memberVO.member_grade eq 'master'}">
 							<a href="my_modify?member_id=${memberVO.member_id }"
-								style="font-size: 12px; color: #ffffff;">내 정보 수정</a>
+								style="font-size: 12px; color: #ffffff; text-decoration: underline;">[ 정보 수정 ]</a>
 						</c:if>
 					</h2>
 					<ul class="breadcrumb" style="cursor: pointer;">
@@ -167,23 +190,22 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 								게시물</a></li>
 						<li class="breadcrumb-item active"><a
 							onclick='changeView("likes")'>좋아한 게시물</a></li>
-
 					</ul>
 					<ul>
 						<!-- ========================= 페이지 모드 ========================= -->
-						<li><input type="text" name='now_selected_list' value=''></input></li>
+						<li><input type="hidden" name='now_selected_list' value=''></input></li>
 						<!-- =========================================================== -->
 
 						<!-- ========================= 페이지 주인 ========================= -->
-						<li><input type="text" id='member_id' value="${member_id}"></input></li>
+						<li><input type="hidden" id='member_id' value="${member_id}"></input></li>
 						<!-- =========================================================== -->
 
 						<!-- ========================= 현재 표시 게시물 수 ========================= -->
-						<li><input type="text" id='stacks' value="10"></input></li>
+						<li><input type="hidden" id='stacks' value="10"></input></li>
 						<!-- =========================================================== -->
 
 						<!-- ========================= 총 게시물 수 ========================= -->
-						<li><input type="text" id='max_stack' value="0"></input></li>
+						<li><input type="hidden" id='max_stack' value="0"></input></li>
 						<!-- =========================================================== -->
 					</ul>
 				</div>

@@ -10,9 +10,18 @@
 <body class="">
 
 
-	<div class='btnSet'></div>
 	<input type="hidden" id='stacks' value="10"></input>
-
+	<!-- ================================ Start All Title Box ================================ -->
+	<div class="all-title-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>유저 게시판</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ================================ End All Title Box ================================ -->
 	<div id='board_list'></div>
 	<!-- ================================================================ -->
 	<script type="text/javascript" src='js/file_check.js'></script>

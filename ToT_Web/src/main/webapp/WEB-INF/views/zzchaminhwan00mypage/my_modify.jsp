@@ -1,7 +1,6 @@
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.Date"%> <%@ page language="java"
+contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
+prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <!-- Basic -->
@@ -43,28 +42,85 @@
 
 <body>
 
-	<script type="text/javascript" src='js/file_check.js'></script>
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <script type="text/javascript" src='js/file_check.js'></script> -->
 	<script type="text/javascript">
-if ( ${ ! empty vo.member_filepath } ) {
-	// 첨부파일이 있는 글인 경우 삭제버튼 보이게
-	$('#delete-file').css('display', 'inline');
-	// 첨부파일이 이미지 파일인 경우 미리보기
-	if ( isImage( '${vo.member_filepath}' ) )
-		$('#preview').html("<img src='${vo.member_filepath}' id='preview-img' /> ");
-	document.getElementById("preview").src = $('#input_file').value();
-}	
+		/* ============================= 이미지 파일 여부 확인 함수 */
+		function isImage(filename) {
+			// 확장자를 통해 파일 형태를 확인
+			var ext = filename.substring(filename.lastIndexOf('.') + 1)
+					.toLowerCase();
 
+			// 확장자 jpg, png, tiff, gif 등을 이미 파일로 처리하는 배열에 담아 관리
+			var imgs = [ 'jpg', 'png', 'tiff', 'gif', 'jpeg', 'webp', 'bmp',
+					'pcx' ];
 
-function click_input_file() {
-	$("#input_file").click();
-	   
-}
-function delete_file() {
-	document.getElementById("preview").src = "images/tot_icon_profile_none.png";
-	$("#input_filepath").val("images/tot_icon_profile_none.png");
-}
-</script>
-	<input type="hidden" name="member_id" value=" ${vo.member_id }">
+			/* -1보다 크면 이미지임 (배열 내 0번지 이상이면) */
+			if (imgs.indexOf(ext) > -1)
+				return true;
+			else
+				return false;
+		}//====================================================
+		var new_img = "";
+		$(document)
+				.on(
+						'change',
+						'#attach-file',
+						function() {
+							var attached = this.files[0];
+							if (attached) {
+								if (isImage(attached.name)) {
+									new_img = attached.name;
+
+									document.getElementById("preview_yet").src = new_img; // 사진에 이거 보여주기 
+									document.getElementById("preview_yet").id = "preview_yet-img";
+
+									/* 	$('#preview_yet').html(
+												'<img src="" id="preview_yet-img" />'); */
+
+									var reader = new FileReader(); // 파일 정보를 읽기 위한 객체(FileReader)를 선언
+									reader.onload = function(e) { // 파일 읽기 처리
+										$('#preview_yet-img').attr('src',
+												e.target.result);
+									}
+									reader.readAsDataURL(attached);
+
+									$("#input_filepath").val(new_img); // input hidden값 변경
+									$('#attach-file').val(new_img); // 첨부파일 값 변경 (이건 필요없을듯 삭제1순위)
+								} else {
+									$('#preview_yet').html(''); // 이미지 파일이 아니면 미리보기 처리하지 않음.	
+								}
+							}
+						});//===============================================
+
+		function click_input_file() {
+			$("#attach-file").click();
+		}//===================================================
+
+		function delete_file() {
+			document.getElementById("preview_yet").src = "images/tot_icon_profile_none.png"; // 사진에 이거 보여주기
+			$("#input_filepath").val("images/tot_icon_profile_none.png"); // input hidden값 변경
+			$('#attach-file').val(null); //input file 비우기
+		}//===================================================
+	</script>
+	<!-- ======================================== -->
+
+	<!-- ========================= 회원탈퇴 ============================= -->
+	<script type="text/javascript">
+		function go_member_delete(member_id, member_pw) {
+			if (confirm("정말 탈퇴 하시겠습니까?")) {
+				alert("회원탈퇴 진행");
+				var userInput = prompt("비밀번호 확인");
+				if (userInput == member_pw) {
+					alert("탈퇴 되었습니다.");
+				}else{
+					alert("비밀번호 확인.");
+				}
+			}
+		}
+	</script>
+
 
 
 
@@ -92,49 +148,50 @@ function delete_file() {
 						<div class="contact-form-right">
 							<h2>정보 수정 페이지</h2>
 							<p>프로필 사진, 닉네임 및 비밀번호만 변경 가능합니다</p>
-							<%--  <form id="contactForm" action="replyinsert.ca?board_sn=${board_sn }&member_id=${vo.member_id}"  method="post" enctype="multipart/form-data"> --%>
+
+							<!-- 			<form id="contactForm"
+								action="replyinsert.ca?board_sn=${board_sn }&member_id=${vo.member_id}"
+								method="post" enctype="multipart/form-data"> -->
+
 							<div class="row">
 								<div class="col-md-12" style="text-align: center;">
 									<div class="form-group" style="margin-left: 35%;">
 
-
-
-										<img class="rounded-circle border p-1 picture_member_profile"
-											id="preview"
-											<c:if test="${vo.member_filepath ne null}">
+										<!-- <span id='file-name'>파일ㅁ네임</span> <span id='preview'>프리ㅁ뷰</span> -->
+										<img
+											class="rounded-circle border p-1 picture_member_profile_128"
+											id="preview_yet"
+										<c:if test="${vo.member_filepath ne null}">
 												src="${vo.member_filepath}" 
 												
 										</c:if>
-											<c:if test="${vo.member_filepath eq null}">
+										<c:if test="${vo.member_filepath eq null}">
 												src="images/tot_icon_profile_none.png" 
 												
 										</c:if>
-											alt="프사" style="margin-bottom: 5px; width: 150px;"
-											name="member_filepath" /> <br> .
-										<input type="file" value="${vo.member_filepath }" name="multipartFile"
-											style="display: non;" id="input_file">
-										<strong
+										alt="프사" style="margin-bottom: 5px;" name="member_filepath" />
+										<br> <input type="file" name="multipartFile"
+											style="display: none;" id="attach-file"></input> <strong
 											style="font-size: 12px; text-decoration: underline; cursor: pointer;"
-											onclick="click_input_file()"> 프로필사진 바꾸기</strong> <a
-											id='delete-file' onclick="delete_file()"> [<i
-											class='fas fa-times font-img'></i>]
-										</a>
-										</input>
-										<input type="text" value="${vo.member_filepath }" id="input_filepath" name="member_filepath">
+											onclick="click_input_file()"> 프로필사진 바꾸기</strong> <br> <a
+											id='delete-file' onclick="delete_file()"
+											style="cursor: pointer; font-size: 10px"> [ 기본 사진으로 변경 ]
+										</a> <input type="hidden" value="${vo.member_filepath }"
+											id="input_filepath" name="member_filepath">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group" style="margin-left: 45%;">
 										아이디<input type="text" class="form-control" id="member_id"
 											name="member_id" value="${vo.member_id }" placeholder="아이디"
-											rows="4" required style="width: 90%; height: 40%;" readonly /> 
+											rows="4" required style="width: 90%; height: 40%;" readonly />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group" style="margin-left: 45%;">
 										비밀번호<input type="text" class="form-control" id="member_pw"
-											name="member_pw" placeholder="비밀번호" rows="4" value="${vo.member_pw }" 
-											style="width: 90%; height: 40%;" />
+											name="member_pw" placeholder="비밀번호" rows="4"
+											value="${vo.member_pw }" style="width: 90%; height: 40%;" />
 									</div>
 								</div>
 								<div class="col-md-12">
@@ -148,12 +205,15 @@ function delete_file() {
 								<div class="col-md-12">
 									<div class="form-group" style="margin-left: 45%;">
 										별명<input type="text" class="form-control" id="member_nick"
-											name="member_nick" value="${vo.member_nick }" rows="4" required
-											style="width: 90%; height: 40%;" />
+											name="member_nick" value="${vo.member_nick }" rows="4"
+											required style="width: 90%; height: 40%;" />
 									</div>
 								</div>
-								<a href="#" style="margin-left: 83%; line-height: 1px;"><strong
-									style="text-decoration: underline;">회원 탈퇴하기</strong></a>
+								<a
+									onclick="go_member_delete('${vo.member_id}','${vo.member_pw}')"
+									style="margin-left: 83%; line-height: 1px;"><strong
+									style="text-decoration: underline; cursor: pointer;">회원
+										탈퇴하기</strong></a>
 
 
 								<div class="submit-button text-center"
@@ -181,7 +241,8 @@ function delete_file() {
 		</div>
 		</div>
 	</form>
-
+<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+<jsp:include page="/WEB-INF/views/include/copyright.jsp" />
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>

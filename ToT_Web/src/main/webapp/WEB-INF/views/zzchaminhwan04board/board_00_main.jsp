@@ -63,11 +63,11 @@
 
 
 
-
-
-	<!-- Start copyright  -->
+<!-- =================== 푸터,카피라이트 ==================== -->
+	<%@include file="../include/footer.jsp"%>
 	<%@include file="../include/copyright.jsp"%>
-	<!-- End copyright  -->
+<!-- ======================================================= -->
+
 
 				<form action="board_detail" method="post">
 								<input type="hidden" name='board_sn' value=""></input>

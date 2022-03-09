@@ -40,7 +40,9 @@ public class MyPageController {
 	@Autowired
 	@Qualifier("cteam")
 	SqlSession sql;
-
+	
+	@Autowired
+	private CommonService common;
 	@RequestMapping("/mypage_{member_id}")
 	public String myPage(@PathVariable String member_id, Locale locale, HttpSession session, Model model,
 			HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -82,7 +84,10 @@ public class MyPageController {
 	
 
 	@RequestMapping("/my_modify")
-	public String mypage_modify(String member_id, Model model, HttpSession session) {
+	public String mypage_modify(String member_id, Model model, HttpSession session ,HttpServletRequest req) {
+		if(chaminhwan.isLoginedCheck(session) == false) {
+			return "home";
+		}
 
 		MemberVO vo = sql.selectOne("mypage.mapper.member_info", member_id);
 
@@ -94,14 +99,14 @@ public class MyPageController {
 	@RequestMapping("/my_info_update")
 	public String update(Model model, MemberVO memberVO, HttpSession session, MultipartFile multipartFile,
 			HttpServletRequest req) {
-		String path = req.getServletPath();
-		System.out.println(path);
+		chaminhwan.printPath(req);
+		
 
-		if(multipartFile != null) {
+		if(! multipartFile.isEmpty()) {
 			System.out.println("파일들어옴");
 			
-			
-			memberVO.setMember_filepath(path);
+			String filepath = common.fileupload("member_profile", multipartFile, session);
+			memberVO.setMember_filepath(filepath);
 		}
 
 		sql.update("mypage.mapper.member_pic_update", memberVO);

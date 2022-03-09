@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>차민환</h3>
 	<footer>
 		<div class="footer-main">
 			<div class="container">

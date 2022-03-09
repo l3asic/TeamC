@@ -5,8 +5,15 @@ public class MemberVO {
 	private String member_is_naver, member_is_kakao; 
 	int naver_check;
 	private String member_filepath;
+	private String member_grade;
 	
 	
+	public String getMember_grade() {
+		return member_grade;
+	}
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
+	}
 	public String getMember_id() {
 		return member_id;
 	}

@@ -212,7 +212,7 @@ public class BoardController {
 //			 파일 정보가 있다면
 			if (!multipartFile.isEmpty()) {
 				String filepath = common.fileupload("board", multipartFile, session);
-				vo.setPicture_filepath(common.fileupload("board", multipartFile, session));
+				vo.setPicture_filepath(filepath);
 				List<PictureVO> picList = new ArrayList<PictureVO>();
 				vo.setPicList(picList);
 

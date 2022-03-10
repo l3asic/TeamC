@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:orientation="vertical"
-    tools:context=".party.UpdateMyPartyActivity">
+    tools:context=".party.UpdateMyPartyActivity"
+    android:background="#eeeeee">
 
 
     <androidx.core.widget.NestedScrollView
@@ -24,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:orientation="horizontal"
-                android:background="@drawable/bottom_line">
+                android:background="@drawable/bottom_line"
+                android:backgroundTint="#232344">
 
                 <LinearLayout
                     android:id="@+id/lin_party_back"
@@ -36,8 +38,9 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:src="@drawable/less_than"
-                        android:layout_margin="10dp"/>
+                        android:background="@drawable/ic_baseline_arrow_back_24"
+                        android:backgroundTint="@color/white"
+                        android:layout_margin="15dp"/>
 
                 </LinearLayout>
 
@@ -50,7 +53,7 @@
                     android:text="파티 이름"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -73,14 +76,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#FFDFD6"
+                android:background="#eeeeee"
                 >
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
-                    android:background="#FFDFD6"
+                    android:background="#eeeeee"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="140dp"
@@ -88,13 +91,14 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="40dp"
                         android:background="@drawable/top_radius"
-                        android:backgroundTint="#2ba0da">
+                        android:backgroundTint="#232344">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="파티 설명 "
                             android:textStyle="bold"
                             android:gravity="center"
+                            android:textColor="@color/white"
                             />
 
                     </LinearLayout>
@@ -126,13 +130,14 @@
                         android:layout_marginHorizontal="40dp"
                         android:orientation="horizontal"
                         android:background="@drawable/top_radius"
-                        android:backgroundTint="#2ba0da">
+                        android:backgroundTint="#232344">
                         <CheckBox
                             android:id="@+id/checkbox_party_private"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:text="파티 공개여부 ( 공개 / 비공개 )" />
+                            android:text="파티 공개여부 ( 공개 / 비공개 )"
+                            android:textColor="@color/white"/>
 
                     </LinearLayout>
 
@@ -257,12 +262,13 @@
                         android:layout_marginTop="20dp"
                         android:layout_gravity="left"
                         android:background="@drawable/top_radius"
-                        android:backgroundTint="#2ba0da">
+                        android:backgroundTint="#232344">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="파티 대표 사진"
                             android:textStyle="bold"
+                            android:textColor="@color/white"
                             android:gravity="center"
                             />
 
@@ -312,7 +318,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_margin="10dp"
                                     android:background="@drawable/plus_btn"
-                                    android:backgroundTint="#2ba0da"/>
+                                    android:backgroundTint="#232344"/>
 
                             </LinearLayout>
 
@@ -347,10 +353,11 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="100dp"
                     android:background="@drawable/radius_color"
-                    android:backgroundTint="#2ba0da"
+                    android:backgroundTint="#232344"
                     android:text="파티 정보 수정"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    android:textColor="@color/white"
                     />
 
 

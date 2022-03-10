@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class PlanUpdatePlanDetailActivity extends AppCompatActivity {
     int tabcode = 0;
     String plandetail_day = "";
 
+    LinearLayout lin_plandetail_back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,9 @@ public class PlanUpdatePlanDetailActivity extends AppCompatActivity {
         btn_create_plan_detail = findViewById(R.id.btn_create_plan_detail);
         tv_partyplan_title = findViewById(R.id.tv_partyplan_title);
         btn_plandetailupdate_delete = findViewById(R.id.btn_plandetailupdate_delete);
+        lin_plandetail_back = findViewById(R.id.lin_plandetail_back);
+
+
         Intent getIntent = getIntent();
 
         // 수정에서 넘어옴
@@ -72,21 +78,29 @@ public class PlanUpdatePlanDetailActivity extends AppCompatActivity {
             updatePlanInfo(planInfoDTO);
         }
 
+        // 뒤로가기 버튼 클릭 시
+        lin_plandetail_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
 
 
+        // 해당하는 플랜 정보조회 (부모)
+        selectPlan(plan_sn);
 
-
+        // 해당하는 day 리스트 가져오기 (자식)
         showPlanInfoDetail(planInfoDTO);
 
-        tv_partyplan_title.setText(planlistDTO.get(0).getPlan_name());
-        // @@ 타이틀 세팅(해당플랜 이름으로) 왜작동안댐?
-//        selectPlan(plan_sn);
+
+
+        // @@@@@@@@@@@@ 지금 여기 문제 널포인트 에러        어싱크로 못 받는 중
 //        tv_partyplan_title.setText(planlistDTO.get(0).getPlan_name());
-
-
-        tv_partyplan_detail_day.setText(list.get(0).getPlandetail_date());
+//
+//        tv_partyplan_detail_day.setText(list.get(0).getPlandetail_date());
 
         if(list != null){
             PlanUpdatePlanDetailAdapter planUpdateAdapter = new PlanUpdatePlanDetailAdapter(PlanUpdatePlanDetailActivity.this,list);
@@ -147,8 +161,8 @@ public class PlanUpdatePlanDetailActivity extends AppCompatActivity {
     }//updateDetail()
 
 
-    //해당하는 플랜 디테일 보여주기
-    public void showPlanInfoDetail(PlanInfoDTO planInfoDTO){
+    //해당하는 플랜 디테일 보여주기      (자식 조회)
+    public ArrayList<PlanInfoDTO> showPlanInfoDetail(PlanInfoDTO planInfoDTO){
         commonAsk = new CommonAsk("android/party/planinfodetail");
         commonAsk.params.add(new CommonAskParam("planInfoDTO",gson.toJson(planInfoDTO)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
@@ -159,11 +173,12 @@ public class PlanUpdatePlanDetailActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return list;
     }//partyJoin()
 
-    //해당하는 플랜디테일의 플랜 정보 가져오기
+    //플랜디테일의 해당하는  플랜 정보 가져오기   (부모 조회)
     public void selectPlan(int plan_sn){
-        commonAsk = new CommonAsk("android/party/selectplan");
+        commonAsk = new CommonAsk("android/party/selectPlanNew");
         commonAsk.params.add(new CommonAskParam("plan_sn",plan_sn+""));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 

@@ -65,6 +65,7 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
             chk_planudelete = itemView.findViewById(R.id.chk_planudelete);
 
 
+            btn_plandetail_update.setVisibility(View.GONE);
 
             lin_longclick.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -90,9 +91,19 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
             //holder.imgv_plan.setImage
-            holder.edt_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );
-            holder.edt_partyplan_content.setText( list.get(position).getPlandetail_content() +"" );
-            holder.edt_partyplan_content_detail.setText( list.get(position).getPlandetail_content_detail() +"" );
+            if (list.get(position).getPlandetail_time() !=null){
+                holder.edt_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );
+            }
+            if (list.get(position).getPlandetail_content() !=null){
+                holder.edt_partyplan_content.setText( list.get(position).getPlandetail_content() +" " );
+            }
+            if (list.get(position).getPlandetail_content_detail() !=null){
+                holder.edt_partyplan_content_detail.setText( list.get(position).getPlandetail_content_detail() +"" );
+            }
+
+
+
+
 
 
 

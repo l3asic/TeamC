@@ -185,6 +185,7 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
                 String invite_id = edt_invite_member.getText()+"";
                 if(addInviteMember(invite_id) == 1){
                     Toast.makeText(PlanUpdatePlanActivity.this, "멤버를 추가하였습니다.", Toast.LENGTH_SHORT).show();
+                    edt_invite_member.setText("");
                 }else{
                     Toast.makeText(PlanUpdatePlanActivity.this, "파티내 해당하는 멤버가 없습니다.", Toast.LENGTH_SHORT).show();
                 }
@@ -402,10 +403,10 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
 
     // 플랜정보 수정 저장
-    public void updatePlan(PlanlistDTO dto) {
+    public void updatePlan(PlanlistDTO planDTO) {
 
         commonAsk = new CommonAsk("android/party/updatePlan");
-        commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
+        commonAsk.params.add(new CommonAskParam("dto",gson.toJson(planDTO)));
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 

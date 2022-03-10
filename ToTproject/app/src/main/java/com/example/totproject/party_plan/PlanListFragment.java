@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -31,6 +32,8 @@ public class PlanListFragment extends Fragment {
     Context context;
     int party_sn = 0 ;           // @@@@@ 추가로 작성자 처리 생각할 것
 
+    TextView tv_planmain_title;
+
     ArrayList<PlanlistDTO> list = new ArrayList<>();
     CommonAsk commonAsk;
     Gson gson = new Gson();
@@ -46,6 +49,9 @@ public class PlanListFragment extends Fragment {
         View view = inflater.inflate(R.layout.partyplan_frag_planlist, container, false);
 
         planlist_item = view.findViewById(R.id.planlist_item);
+        tv_planmain_title=getActivity().findViewById(R.id.tv_planmain_title);
+
+        tv_planmain_title.setText("파티 플랜 목록");
 
 
 

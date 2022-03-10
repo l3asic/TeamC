@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:gravity="center"
-    android:weightSum="100"    
+    android:weightSum="100"
+    android:background="#eeeeee"
     >
 
     <LinearLayout
@@ -14,14 +15,14 @@
         android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:background="@drawable/radius">
+        android:background="@drawable/radius_clean2">
 
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:background="@drawable/left_radius"
-            android:backgroundTint="#FFDFD6"
+            android:backgroundTint="#232344"
             android:gravity="center">
 
             <androidx.cardview.widget.CardView

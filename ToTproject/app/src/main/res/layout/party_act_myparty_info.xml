@@ -23,7 +23,7 @@
                 android:id="@+id/partyinfo_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
+                android:background="#232344"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
 
@@ -40,8 +40,7 @@
                             android:id="@+id/lin_info_home_btn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/radius"
-                            android:backgroundTint="@color/old_main_color"
+
                             android:layout_marginVertical="10dp"
                             android:layout_marginRight="20dp">
                             <ImageView
@@ -73,7 +72,7 @@
                             android:text="파티 이름"
                             android:textSize="20dp"
                             android:textStyle="bold"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/white"/>
 
                     </LinearLayout>
 
@@ -87,6 +86,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/icon_main_burger"
+                            android:backgroundTint="@color/white"
                             android:layout_margin="10dp"
                             android:gravity="center"/>
 
@@ -118,7 +118,7 @@
                 android:layout_weight="95"
                 android:orientation="vertical"
                 android:background="@drawable/bottom_line"
-                android:backgroundTint="#BDEDFF">
+                android:backgroundTint="#eeeeee">
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -164,7 +164,7 @@
                     android:layout_weight="1"
                     android:layout_height="35dp"
                     android:background="@drawable/radius"
-                    android:backgroundTint="@color/main_color"
+                    android:backgroundTint="#232344"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="15dp"
                     >

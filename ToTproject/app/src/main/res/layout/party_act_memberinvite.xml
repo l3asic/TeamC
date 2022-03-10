@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".party.InviteMemberActivity">
+    tools:context=".party.InviteMemberActivity"
+    android:background="#eeeeee">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#232344">
 
         <LinearLayout
             android:id="@+id/lin_invite_back_btn"
@@ -22,8 +24,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:background="@drawable/less_than"
-                android:backgroundTint="@color/black"/>
+                android:background="@drawable/ic_baseline_arrow_back_24"
+                android:backgroundTint="@color/white"/>
 
         </LinearLayout>
 
@@ -39,7 +41,7 @@
                 android:text="멤버 초대"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
         </LinearLayout>
@@ -87,7 +89,7 @@
             <LinearLayout
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/radius"
+                android:background="@drawable/radius_clean2"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="center">
                 <Button

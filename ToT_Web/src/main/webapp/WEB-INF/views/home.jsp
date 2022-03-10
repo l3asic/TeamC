@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <!-- Basic -->
@@ -44,42 +44,92 @@
 	<%@include file="include/header.jsp"%>
 	<!-- End header  -->
 
-	<%-- 	<!-- side left  -->
-	<%@include file="include/side_left.jsp"%>
-	<!--    -->
+	
 
-	<!-- side right  -->
-	<%@include file="include/side_right.jsp"%>
-	<!--    --> --%>
 
-	<!-- Start Top Search -->
-	<%@include file="zzchaminhwan/main_01_top_search.jsp"%>
-	<!-- End Top Search -->
 
 	<div class="wrapcontent-60">
-		<!-- Start Slider (지역축제정보 뷰페이저)--><%@include
-			file="zzchaminhwan/main_02_slider.jsp"%>
+		<!-- Start Slider (지역축제정보 뷰페이저)-->
+		<%@include file="zzchaminhwan/main_02_slider.jsp"%>
 		<!-- End Slider -->
 
 		<!-- Start Instagram Feed  -->
 		<%@include file="zzchaminhwan/main_07_instagram_feed.jsp"%>
 		<!-- End Instagram Feed  -->
 
-		<!-- Start Categories  -->
-		<%@include file="zzchaminhwan/main_03_categories.jsp"%>
-		<!-- End Categories -->
+		<!-- 조회수 많은 여행지 3개 -->
+		<div class="categories-shop">
+			<div class="container">
+				<div class="row">
 
-		<!-- Start box-add-products  -->
-		<%@include file="zzchaminhwan/main_04_box_add_produts.jsp"%>
-		<!-- End asdf -->
+					<c:forEach items="${vo_readcnt}" var="vo" varStatus="status">
 
-		<!-- Start Products  -->
-		<%@include file="zzchaminhwan/main_05_products.jsp"%>
-		<!-- End Products  -->
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<p style=" font-weight: bolder;   z-index: 100;  position: absolute; background: #bdedff; color: white; top:30%;left: 45%; display: flex; font-size:30px;">  <img alt="하트" src="images/ic_cmh_eye.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo.board_read_cnt }</p>
+						<p style=" font-weight: bolder;   z-index: 100;  position: absolute; background: #bdedff; color: white; top: 61%;left: 54%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">${vo.function_like }</p>
+						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: #bdedff; color: white; top: 61%;left: 74%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">${vo.board_cnt_reply } </p>
+							<div class="shop-cat-box">
+								<c:if test="${vo.picture_filepath ne null}">
+									<img src="${vo.picture_filepath }" alt="여행지 대표사진"
+										style="width: 345px; height: 310px" />
+								</c:if>
+								<c:if test="${vo.picture_filepath eq null}">
+									<img src="images/no_image.png" alt="여행지 대표사진"
+										style="width: 345px; height: 310px" />
+								</c:if>
+								<a class="btn hvr-hover"
+									href="detail.ca?board_sn=${vo.board_sn }">${vo.board_title}</a>
+							</div>
+						</div>
+					</c:forEach>
 
-		<!-- Start Blog  -->
-		<%@include file="zzchaminhwan/main_06_blog.jsp"%>
-		<!-- End Blog  -->
+				</div>
+			</div>
+		</div>
+
+		<!-- 댓글수, 좋아요수 가장 많은 여행지 각1 -->
+		<div class="box-add-products">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12">
+					<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: ; color: white; top: 86%;left: 65%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_likes.function_like }</p>
+						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: ; color: white; top: 86%;left: 81%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_likes.board_cnt_reply } </p>
+							<a class="btn hvr-hover"
+								href="detail.ca?board_sn=${vo_likes.board_sn }">${vo_likes.board_title } :: 좋아요가 가장많음</a>
+						<div class="offer-box-products">
+							<c:if test="${vo_likes.picture_filepath ne null}">
+								<img src="${vo_likes.picture_filepath }" alt="여행지 대표사진"
+									style="width: 540px; height: 300px" />
+							</c:if>
+							<c:if test="${vo_replycnt.picture_filepath eq null}">
+								<img src="images/no_image.png" alt="여행지 대표사진"
+									style="width: 540px; height: 300px" />
+							</c:if>
+						</div>
+					</div>
+					
+					<div class="col-lg-6 col-md-6 col-sm-12">
+					<p style="font-weight: bolder;    z-index: 100;  position: absolute; background:; color: white; top: 86%;left: 65%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_replycnt.function_like }</p>
+						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background:; color: white; top: 86%;left: 81%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_replycnt.board_cnt_reply } </p>
+							<a class="btn hvr-hover"
+								href="detail.ca?board_sn=${vo_replycnt.board_sn }">${vo_replycnt.board_title} :: 댓글수가 가장많음</a>
+						<div class="offer-box-products">
+						
+							<c:if test="${vo_replycnt.picture_filepath ne null}">
+								<img src="${vo_replycnt.picture_filepath }" alt="여행지 대표사진"
+									style="width: 540px; height: 300px" />
+							</c:if>
+							<c:if test="${vo_replycnt.picture_filepath eq null}">
+								<img src="images/no_image.png" alt="여행지 대표사진"
+									style="width: 540px; height: 300px" />
+							</c:if>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 
 
 

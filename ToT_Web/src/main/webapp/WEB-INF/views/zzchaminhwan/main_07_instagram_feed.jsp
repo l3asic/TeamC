@@ -44,9 +44,9 @@
 		value="${loginInfo.member_id}"></input>
 	<!-- 	</form> -->
 	<!-- 	============================================================ -->
-	<h3>${loginInfo.member_id}님의추천 여행지</h3>
+	<h3></h3>
 
-	<div id='recommand_mbti' class="recommand_mbti"></div>
+	<div id='recommand_mbti' class="recommand_mbti" style="padding:0px 200px;"></div>
 
 </body>
 </html>

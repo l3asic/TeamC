@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>차민환 02 슬라이더</h3>
 <div id="slides-shop" class="cover-slides">	
 		<ul class="slides-container">
 			<li class="text-center"><img

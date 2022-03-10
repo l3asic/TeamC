@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="fn"
+uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <div class="row my-5">
@@ -14,33 +14,50 @@
 			<c:forEach items="${replyList }" var="vo" varStatus="status">
 				<div class="media mb-3">
 					<div class="mr-2">
-					<c:if test="${vo.member_filepath ne null}">
-										<img 	class="rounded-circle border p-1 picture_member_profile" src="${vo.member_filepath}" alt="프사" /> 
-										</c:if>
-										<c:if test="${vo.member_filepath eq null}">
-										<img 	class="rounded-circle border p-1 picture_member_profile" src="images/tot_icon_profile_none.png" alt="프사" />
-										</c:if>
-						<div class="btn hvr-hover" onclick=" go_mypage( '${vo.member_id}' ) ">${vo.member_id} <br>
-												[${vo.member_grade}]</div>
+						<c:if test="${vo.member_filepath ne null}">
+							<img class="rounded-circle border p-1 picture_member_profile"
+								src="${vo.member_filepath}" alt="프사" />
+						</c:if>
+						<c:if test="${vo.member_filepath eq null}">
+							<img class="rounded-circle border p-1 picture_member_profile"
+								src="images/tot_icon_profile_none.png" alt="프사" />
+						</c:if>
+						<div class="btn hvr-hover user_name_tag"
+							onclick=" go_mypage( '${vo.member_id}' ) "
+							style="color: #ffffff; border-radius: 100px; margin: 0px 5px;">${vo.member_id}
+							[${vo.member_grade}]</div>
 						<input type="hidden" id="reply_sn" value="${vo.reply_sn}"></input>
 					</div>
-					<div2 class="media-body">
-					<p class="original">${fn:replace( fn:replace( vo.reply_content, lf, '<br>') , crlf, '<br>' )}</p>
-					<div class='modify'></div>
-					<small class="text-muted" style="float: right;">
-						${vo.reply_writedate}</small> <c:if
-						test="${loginInfo.member_id eq vo.member_id ||loginInfo.member_id eq 'master' }">
-						<div class="share-bar">
-							<a class='btn hvr-hover btn-modify-save' >수정</a>
-							<a class='btn hvr-hover btn-delete-cancel' >삭제</a>
+					<div2 class="media-body" style="padding-top: 17px;">
 
+					<p class="original">
+						<p2 class="original">${fn:replace( fn:replace(
+						vo.reply_content, lf, '<br>
+						') , crlf, '<br>
+						' )} </p2>
+						<small class="text-muted" style="float: right; padding: 0px;">
+							${vo.reply_writedate}</small>
+					</p>
+
+					<div class='modify'></div>
+
+					<c:if
+						test="${loginInfo.member_id eq vo.member_id || loginInfo.member_grade eq 'master' }">
+						<div class="share-bar" style="margin: -5px; float: right;">
+							<a class=' hvr-hover btn-modify-save'
+								style="color: #666666; background: none; font-size: 10px; cursor: pointer; padding: 0px">수정</a>
+							<a class=' hvr-hover btn-delete-cancel'
+								style="color: #666666; background: none; font-size: 10px; cursor: pointer; padding: 0px">삭제</a>
 						</div>
-					</c:if> </div2>
+					</c:if> 
+					</div2>
 				</div>
 				<hr>
 			</c:forEach>
-			<a id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover" style="background: #BDEDFF;">더보기</a>
-			<a href="javascript:history.back(-1)" class="btn hvr-hover" style="background: #BDEDFF;">목록으로</a>
+			<a id='btn_stacks' onclick="stacks_more()" class="btn hvr-hover"
+				style="padding: 10px, 20px; font-size: 12px">더보기</a> <a
+				href="javascript:history.back(-1)" class="btn hvr-hover"
+				style="padding: 10px, 20px; font-size: 12px">목록으로</a>
 		</div>
 	</div>
 

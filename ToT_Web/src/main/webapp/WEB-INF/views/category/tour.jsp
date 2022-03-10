@@ -267,7 +267,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 														<div class="list-sub"
 															style="list-style-type: none; width: 50px;">
 															<ul class="inline-align" style="margin-right: 7px;">
-																<li><img src="images/like.png" alt="">
+																<li><img src="images/like.png" alt="" style="width: 20px; height: 20px;">
 																	<h5>${vo.function_like }</h5></li>
 															</ul>
 															<ul class="inline-align">

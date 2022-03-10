@@ -13,30 +13,12 @@ delete from tbl_reply where reply_sn = #{reply_sn}
 		update tbl_reply set reply_content=#{reply_content} where reply_sn=#{reply_sn}
 	</update>
 
-	<!-- 댓글 목록 조회 --> 
-<!-- 	<select id="comment_list" -->
-<!-- 		resultType="chaminhwan.board.BoardCommentVO"> -->
-<!-- 		select c.*, (select name -->
-<!-- 		from member where id = c.writer) -->
-<!-- 		name -->
-<!-- 		from board_comment c -->
-<!-- 		where pid = -->
-<!-- 		#{pid} -->
-<!-- 		order by id desc -->
-<!-- 	</select> -->
-
 
 	<!-- 댓글 저장 처리 -->
 	<insert id="comment_insert">
 		insert into board_comment(content, pid, writer)
 		values (#{content}, #{pid}, #{writer})
 	</insert>
-
-
-
-
-
-
 
 
 
@@ -157,7 +139,7 @@ SELECT ROWNUM, tbl.*,
     ) function_like
 FROM
     ( SELECT * FROM tbl_board
-        where board_class =#{board_class}
+        where board_class =#{board_class} and  board_reviewpath is  null
         ORDER BY board_sn desc
     ) tbl
 WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum

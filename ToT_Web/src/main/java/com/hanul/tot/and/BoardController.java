@@ -73,16 +73,8 @@ public class BoardController {
 			throws IOException {
 		String path = req.getServletPath();
 
-		MemberVO memberVO = (MemberVO) session.getAttribute("loginInfo");
-		if (memberVO != null) {
-			vo.setMember_id(memberVO.getMember_id());
-		}
-		if (vo.getMember_id() == null) {
-			printPath(path);
-			// ====================
 
-			vo.setMember_id("ChaMinHwan");
-		}
+
 //			 파일 정보가 있다면
 		if (!multipartFile.isEmpty()) {
 			List<MultipartFile> mpfList = req.getFiles("multipartFile");
@@ -122,9 +114,7 @@ public class BoardController {
 		logger.info((chaminhwan.cnt++) + " =>=> " + "Welcome home! The client locale is {}.", locale);
 		printPath(path);
 
-		if (vo.getMember_id() == null) {
-			vo.setMember_id("ChaMinHwan");
-		}
+
 
 		if (path.equals("/board_list")) {// ==================== board_list ====================
 			printPath(path);

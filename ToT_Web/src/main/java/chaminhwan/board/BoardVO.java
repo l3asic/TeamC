@@ -22,6 +22,7 @@ public class BoardVO implements Serializable {
 	private int whose_cnt_like;
 	private int stack;
 	List<PictureVO> picList;
+	private String  picture_filepath;
 
 
 
@@ -33,7 +34,6 @@ public class BoardVO implements Serializable {
 		this.picList = picList;
 	}
 
-	private String  picture_filepath;
 
 	public int getBoard_sn() {
 		return board_sn;

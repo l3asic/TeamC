@@ -33,7 +33,7 @@
 						</div>
 					</div>
 					<div class="submit-button text-center">
-						<button class="btn hvr-hover disabled" onclick='comment_regist()'
+						<button class="btn hvr-hover" onclick='comment_regist()'
 							style="pointer-events: all; cursor: pointer; background: #2ba0da; margin-bottom: 10%;">댓글 등록</button>
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>

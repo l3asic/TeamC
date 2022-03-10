@@ -278,8 +278,8 @@
                   <a onclick="like_regist();">
                      
                      <c:choose>
-                        <c:when test="${likeCheck eq 1 }"><img src="images/like.png" alt="" style="margin-right: 5px" id="like_img"></c:when>
-                        <c:otherwise><img src="images/like_gray.png" alt="" style="margin-right: 5px" id="like_img"></c:otherwise>
+                        <c:when test="${likeCheck eq 1 }"><img src="images/like.png" alt="" style="margin-right: 5px; width: 20px; height: 20px;" id="like_img"></c:when>
+                        <c:otherwise><img src="images/like_gray.png" alt="" style="margin-right: 5px ;  width: 20px; height: 20px; " id="like_img"></c:otherwise>
                      </c:choose>
                   </a> 좋아요 <strong id="like_count">${likeCount }</strong><li>
                         <li><img src="images/comment.png" alt="" style="margin-right: 5px" id="like_img"> 댓글 <strong>${vo.board_cnt_reply }</strong><li>

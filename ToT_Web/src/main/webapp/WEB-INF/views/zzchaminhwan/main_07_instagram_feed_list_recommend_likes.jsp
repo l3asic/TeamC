@@ -10,23 +10,22 @@
 		<c:forEach items="${boardVO}" var="vo" varStatus="status">
 			<div class="item">
 				<div class="ins-inner-box">
-					<p style="background: #ffffff">좋아요 수 ${status.index +1} 순위</p>
-
+					<p style="position:  fixed ; background: black; color: white;"> ${vo.board_title}  </p>
 
 					<c:if test="${vo.picture_filepath ne null}">
-						<img src="${vo.picture_filepath }" alt="여행지 대표사진" />
+						<img src="${vo.picture_filepath }" alt="여행지 대표사진"  style="width: 515x; height: 500px;"/>
 					</c:if>
 					<c:if test="${vo.picture_filepath eq null}">
-						<img src="images/no_image.png" alt="여행지 대표사진" />
+						<img src="images/no_image.png" alt="여행지 대표사진"  style="width: 515x; height: 500px;"/>
 					</c:if>
 
 					<div class="hov-in">
-						<a href="detail.ca?board_sn=${vo.board_sn }"><i
-							class="fab fa-instagram"></i></a>
+						<a href="detail.ca?board_sn=${vo.board_sn }"><i class="fab fa-instagram">
+						<a style="position: fixed; background: black; color: white; top: 200px;">회원가입 하고 추천여행지 알아보기</a>
+							<p style="position: fixed; background: ; color:white ; top: 92%;left: 60%; display: flex;font-size:30px; align-self: center;">  <img alt="하트" src="images/like_white.png" style="width: 35px; height: 35px;    align-self: center;">${vo.function_like }</p>
+						<p style="position: fixed; background: ; color:white ; top: 92%;left: 80%; display: flex;font-size:30px; align-self: center;"><img alt="하트" src="images/ic_cmh_comment_white.png" style="width: 35px; height: 35px;    align-self: center;">${vo.board_cnt_reply } </p>
+						</i></a>
 					</div>
-					<p style="background: #ffffff">로그인 회원은 성향추천 가능</p>
-					<p style="background: #ffffff">댓글 : ${vo.board_cnt_reply } || ♥
-						${vo.function_like }</p>
 				</div>
 			</div>
 		</c:forEach>

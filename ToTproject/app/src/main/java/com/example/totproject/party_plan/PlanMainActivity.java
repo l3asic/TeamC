@@ -76,6 +76,7 @@ public class PlanMainActivity extends AppCompatActivity {
         // 프레그 전환
         changePlanFrag(plan_list_frag, title_name);
 
+        // 내 파티 홈버튼 클릭시
         lin_plan_tohome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

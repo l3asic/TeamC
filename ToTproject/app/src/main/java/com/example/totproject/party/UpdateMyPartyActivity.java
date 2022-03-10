@@ -36,7 +36,7 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
     EditText edt_party_detail, edt_party_tag;
     CheckBox checkbox_party_private;
     Button btn_party_update, btn_party_tag, btn_create_party_add;
-    LinearLayout lin_display_tags, lin_temp_checkbox;
+    LinearLayout lin_display_tags, lin_temp_checkbox, lin_party_back;
     ImageView imgv_party_pic;
 
     public int reqGcode = 1004;
@@ -67,6 +67,8 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
         imgv_party_pic = findViewById(R.id.imgv_party_pic);
         btn_create_party_add = findViewById(R.id.btn_create_party_add);
         lin_temp_checkbox = findViewById(R.id.lin_temp_checkbox);
+        lin_party_back = findViewById(R.id.lin_party_back);
+
 
 
 
@@ -90,6 +92,20 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
             checkbox_party_private.setChecked(false);
             lin_display_tags.setVisibility(View.GONE);
         }
+
+
+        // 뒤로가기 버튼 클릭시
+        lin_party_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UpdateMyPartyActivity.this,MyPartyInfoActivity.class);
+                intent.putExtra("party_dto",plDTO);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
         //파티 공개여부 체크박스
         checkbox_party_private.setOnClickListener(new View.OnClickListener() {

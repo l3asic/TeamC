@@ -129,6 +129,6 @@ public class PartyPlanListVO {
     public void setPlan_endtime(String plan_endtime) {
         this.plan_endtime = plan_endtime;
     }
-	
-	
 }
+
+

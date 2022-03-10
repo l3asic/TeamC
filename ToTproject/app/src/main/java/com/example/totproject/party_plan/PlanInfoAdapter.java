@@ -159,9 +159,17 @@ public class PlanInfoAdapter extends BaseExpandableListAdapter {
             tv_partyplan_content_detail= itemview.findViewById(R.id.tv_partyplan_content_detail);
         }
         public void bind(int i , int j) {
-            tv_partyplan_time.setText(list.get(i).getSubList().get(j).getPlandetail_time());
-            tv_partyplan_content.setText(list.get(i).getSubList().get(j).getPlandetail_content());
-            tv_partyplan_content_detail.setText(list.get(i).getSubList().get(j).getPlandetail_content_detail());
+            if(list.get(i).getSubList().get(j).getPlandetail_time() != null){
+                tv_partyplan_time.setText(list.get(i).getSubList().get(j).getPlandetail_time());
+            }
+            if(list.get(i).getSubList().get(j).getPlandetail_content() != null){
+                tv_partyplan_content.setText(list.get(i).getSubList().get(j).getPlandetail_content());
+            }
+
+            if(list.get(i).getSubList().get(j).getPlandetail_content_detail() != null){
+                tv_partyplan_content_detail.setText(list.get(i).getSubList().get(j).getPlandetail_content_detail());
+            }
+
 
 
         }

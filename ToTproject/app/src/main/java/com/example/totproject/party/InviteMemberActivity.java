@@ -24,7 +24,7 @@ public class InviteMemberActivity extends AppCompatActivity {
     CommonAsk commonAsk;
     Gson gson = new Gson();
     Button btn_party_memberinvite;
-    LinearLayout lin_invite_back_btn;
+    LinearLayout lin_member_invite_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,8 @@ public class InviteMemberActivity extends AppCompatActivity {
         setContentView(R.layout.party_act_memberinvite);
         edt_member_id = findViewById(R.id.edt_member_id);
         btn_party_memberinvite = findViewById(R.id.btn_party_memberinvite);
-        lin_invite_back_btn = findViewById(R.id.lin_invite_back_btn);
+        lin_member_invite_back = findViewById(R.id.lin_member_invite_back);
+
 
 
         
@@ -41,16 +42,14 @@ public class InviteMemberActivity extends AppCompatActivity {
         String temp = plDTO.getMember_id();
 
 
-        // 뒤로가기 버튼 클릭시      @@@ 이거왜 작동안함?????
-        lin_invite_back_btn.setOnClickListener(new View.OnClickListener() {
+        // 뒤로가기 버튼 클릭시
+        lin_member_invite_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(InviteMemberActivity.this,MyPartyInfoActivity.class);
-                intent.putExtra("party_dto",plDTO);
-                startActivity(intent);
                 finish();
             }
         });
+
 
 
         // 멤버 초대 버튼 클릭시

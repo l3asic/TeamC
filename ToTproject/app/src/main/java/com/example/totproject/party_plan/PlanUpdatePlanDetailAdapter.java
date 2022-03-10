@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,20 +52,21 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
     }
 
     public class Viewholder extends RecyclerView.ViewHolder{
-        EditText edt_partyplan_time, edt_partyplan_content, edt_partyplan_content_detail;
+        TextView tv_partyplan_time, tv_partyplan_content, tv_partyplan_content_detail;
         Button btn_plandetail_update, btn_plandetailupdate_delete;
         LinearLayout lin_longclick;
         CheckBox chk_planudelete;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             btn_plandetail_update = itemView.findViewById(R.id.btn_plandetail_update);
-            edt_partyplan_time = itemView.findViewById(R.id.edt_partyplan_time);
-            edt_partyplan_content = itemView.findViewById(R.id.edt_partyplan_content);
-            edt_partyplan_content_detail = itemView.findViewById(R.id.edt_partyplan_content_detail);
+            tv_partyplan_time = itemView.findViewById(R.id.tv_partyplan_time);
+            tv_partyplan_content = itemView.findViewById(R.id.tv_partyplan_content);
+            tv_partyplan_content_detail = itemView.findViewById(R.id.tv_partyplan_content_detail);
             lin_longclick = itemView.findViewById(R.id.lin_longclick);
             chk_planudelete = itemView.findViewById(R.id.chk_planudelete);
 
 
+            btn_plandetail_update.setVisibility(View.GONE);
 
             lin_longclick.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -90,9 +92,19 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
         public void bind(@NonNull Viewholder holder, int position){
             //내용 바꾸기 처리
             //holder.imgv_plan.setImage
-            holder.edt_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );
-            holder.edt_partyplan_content.setText( list.get(position).getPlandetail_content() +"" );
-            holder.edt_partyplan_content_detail.setText( list.get(position).getPlandetail_content_detail() +"" );
+            if (list.get(position).getPlandetail_time() !=null){
+                holder.tv_partyplan_time.setText( list.get(position).getPlandetail_time() +"" );
+            }
+            if (list.get(position).getPlandetail_content() !=null){
+                holder.tv_partyplan_content.setText( list.get(position).getPlandetail_content() +"" );
+            }
+            if (list.get(position).getPlandetail_content_detail() !=null){
+                holder.tv_partyplan_content_detail.setText( list.get(position).getPlandetail_content_detail() +"" );
+            }
+
+
+
+
 
 
 
@@ -102,10 +114,10 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
                 public void onClick(View v) {
                     PlanInfoDTO planInfoDTO = new PlanInfoDTO(
                             list.get(position).getPlandetail_date(),
-                            holder.edt_partyplan_time.getText()+"",
+                            holder.tv_partyplan_time.getText()+"",
                             list.get(position).getPlan_sn(),
-                            holder.edt_partyplan_content.getText()+"",
-                            holder.edt_partyplan_content_detail.getText()+""
+                            holder.tv_partyplan_content.getText()+"",
+                            holder.tv_partyplan_content_detail.getText()+""
                             );
                     planInfoDTO.setPlandetail_sn(list.get(position).getPlandetail_sn());
 

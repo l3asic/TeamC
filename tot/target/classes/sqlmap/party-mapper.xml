@@ -157,17 +157,7 @@ and member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 select plan_sn, plan.member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
 plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime, (select pic.picture_filepath from tbl_board_picture pic where pic.member_id = plan.plan_writer) picture_filepath
 from tbl_plan plan where party_sn = #{party_sn} 
-order by plan_sn
-	
-</select>
 
-<select id="selectPlanListNew" resultType="android.partyvo.PartyPlanListVO">
-
-	
-select plan_sn, plan.member_id, party_sn, plan_name, plan_startdate, plan_enddate, 
-plan_startpoint, plan_hotel, plan_cost, plan_writer, plan_starttime,plan_endtime, (select pic.picture_filepath from tbl_board_picture pic where pic.member_id = plan.plan_writer) picture_filepath
-from tbl_plan plan where plan_sn = #{plan_sn} 
-order by plan_sn
 	
 </select>
 
@@ -189,7 +179,7 @@ order by plan_sn
 <insert id="insertPlanDetail" >
 
 	insert into tbl_plandetail (plandetail_sn, plan_sn, plandetail_day, plandetail_time ,plandetail_content, plandetail_content_detail)
-	values (seq_plan_sn.nextval, #{plan_sn}, #{plandetail_day}, #{plandetail_time,jdbcType=VARCHAR}, #{plandetail_content,jdbcType=VARCHAR}, #{plandetail_content_detail,jdbcType=VARCHAR} )	
+	values (seq_plan_sn.nextval, #{plan_sn}, #{plandetail_day}, #{plandetail_time}, #{plandetail_content}, #{plandetail_content_detail} )	
 	
 </insert>
 

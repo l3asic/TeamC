@@ -534,25 +534,21 @@ public class PartyController {
 		try {
 
 			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
-			List<PartyPlanListVO> new_list = new ArrayList<PartyPlanListVO>();
-			list = pDAO.selectPlanList(party_sn);				
+			list = pDAO.selectPlanList(party_sn);		
 			
-			// 중복제거 임시 값과 다르다면 리스트에 더함
-			int temp = 999999;
-			for(int i =0; i<list.size(); i++) {
-				if(list.get(i).getPlan_sn() != temp) {
-					temp = list.get(i).getPlan_sn();
-					new_list.add(list.get(i));
-				}
+			//@@ 여기로직 다시보기
+			for(int i =0; i<list.size(); i++) {	
+				for(int j=0; j<list.size(); j++){
+					if(list.get(i).getPlan_sn() == list.get(j).getPlan_sn() ) {
+						list.remove(i);
+					}
+					
+				}				
 			}
-						
-
-			
-			
 			
 			
 
-			writer.print(gson.toJson(new_list));
+			writer.print(gson.toJson(list));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -698,19 +694,19 @@ public class PartyController {
 		vo = (PlanInfoVO) gson.fromJson(from_and_dto, PlanInfoVO.class);
 		pDAO.insertPlanDetail(vo);
 
- 	}// insertPlanDetail()
+	}// insertPlanDetail()
 
 	@ResponseBody
 	@RequestMapping("/android/party/selectplan")
 	public void selectPlan(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
 
-		System.out.println("selectPlan() 에 접근함");
+		System.out.println("planInfoDetail() 에 접근함");
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
-		String from_and = req.getParameter("party_sn");
+		String from_and = req.getParameter("plan_sn");
 
 		try {
 
@@ -723,34 +719,7 @@ public class PartyController {
 			e.printStackTrace();
 		}
 
-	}// selectPlan()
-	
-	@ResponseBody
-	@RequestMapping("/android/party/selectPlanNew")
-	public void selectPlanNew(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
-
-		System.out.println("selectPlanNew() 에 접근함");
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-
-		String from_and = req.getParameter("plan_sn");
-
-		try {
-
-			List<PartyPlanListVO> list = new ArrayList<PartyPlanListVO>();
-			list = pDAO.selectPlanListNew(Integer.parseInt(from_and));
-
-			writer.print(gson.toJson(list));
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}// selectPlan()
-	
-	
+	}// insertPlanDetail()
 
 	@ResponseBody
 	@RequestMapping("/android/party/planinfoupdate")
@@ -906,17 +875,13 @@ public class PartyController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 
-		// DTO 정보 받아옴
 		String from_and_dto = req.getParameter("planlistDTO");
 		PartyPlanListVO vo = new PartyPlanListVO();
 		vo = (PartyPlanListVO) gson.fromJson(from_and_dto, PartyPlanListVO.class);
 		
-		// 추가할 멤버리스트 받아옴
 		String from_and_list = req.getParameter("insert_member_list");		
 		ArrayList<PartyMemberListVO> member_list = gson.fromJson(from_and_list, new TypeToken<List<PartyMemberListVO>>() {
 		}.getType());
-		
-		
 		
 		for (int i = 0; i < member_list.size(); i++) {
 			vo.setMember_id(member_list.get(i).getMemberid());

@@ -1,4 +1,0 @@
---insert 여러개
-insert into tbl_likes(board_sn, member_id, function_like)
-select board.board_sn, (select member.member_id from tbl_member_info member where member_id = 'a01'), (null)
-from tbl_board board;

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/swipe_layout"
         >-->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -39,12 +39,13 @@
                     android:textColor="@color/colorTextDark"
                     android:textSize="18dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
+                <androidx.viewpager2.widget.ViewPager2
                     android:layout_marginBottom="30dp"
                     android:id="@+id/maintab_rv_recommend"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_height="300dp"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp" />
 
             </LinearLayout>
 
@@ -79,6 +80,7 @@
             </LinearLayout>
 
             <LinearLayout
+android:visibility="gone"
                 android:layout_marginTop="10dp"
                 android:id="@+id/main_local"
                 android:layout_width="match_parent"
@@ -127,6 +129,7 @@
                     android:textSize="18dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/main_frag_hometab_item_big"
                     android:layout_marginBottom="30dp"
                     android:id="@+id/maintab_rv_tour"
                     android:layout_width="match_parent"
@@ -136,8 +139,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
- <!--   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
--->
+    </androidx.core.widget.NestedScrollView>
+
 
 </FrameLayout>

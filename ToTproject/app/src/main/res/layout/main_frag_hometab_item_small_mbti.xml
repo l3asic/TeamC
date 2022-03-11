@@ -6,6 +6,7 @@
     android:gravity="center"
     android:id="@+id/mbti_smaill_frame"
     android:layout_marginRight="10dp"
+
     android:orientation="vertical">
 
 
@@ -29,7 +30,8 @@
             android:text="여행지 이름" />
 
         <LinearLayout
-
+            android:padding="3dp"
+            android:background="@drawable/gradient_back1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
@@ -39,6 +41,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

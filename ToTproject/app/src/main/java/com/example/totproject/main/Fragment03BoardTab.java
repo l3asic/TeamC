@@ -73,7 +73,7 @@ String whose_member_id;
 
 
         /* ====================================================================================== */
-        vo.setBoard_class("notice");
+        vo.setBoard_class("user");
         vo.setList_cnt_many(999);
         /* ====================================================================================== */
         if (whatCase == null) {
@@ -143,7 +143,7 @@ String whose_member_id;
 
 
 
-            /* ============================ + 버튼ㄴ ====================================== */
+            /* ============================ + 버튼 ====================================== */
             boardtab_fab_main.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

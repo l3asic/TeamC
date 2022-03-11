@@ -2,7 +2,11 @@ package android.mainburger;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD:tot/src/main/java/android/mainburger/BoardCommonVO_double.java
 public class BoardCommonVO_double implements Serializable {
+=======
+public class BoardCommonVO implements Serializable {
+>>>>>>> ChaMinHwan:tot/src/main/java/android/mainburger/BoardCommonVO.java
 	private int board_sn, board_read_cnt, board_reviewepath;
 	private String board_title, board_content, board_is_updated, board_private, board_replly_able, board_class,
 			member_id;
@@ -14,6 +18,7 @@ public class BoardCommonVO_double implements Serializable {
 	private int matchScore;
     private String member_grade; //글쓴이등급
     private int whose_cnt_like;
+<<<<<<< HEAD:tot/src/main/java/android/mainburger/BoardCommonVO_double.java
     private double distanceScore;
 
     public double getDistanceScore() {
@@ -22,6 +27,16 @@ public class BoardCommonVO_double implements Serializable {
 
 	public void setDistanceScore(double distanceScore) {
 		this.distanceScore = distanceScore;
+=======
+    private String board_filepath;
+
+    public String getBoard_filepath() {
+		return board_filepath;
+	}
+
+	public void setBoard_filepath(String board_filepath) {
+		this.board_filepath = board_filepath;
+>>>>>>> ChaMinHwan:tot/src/main/java/android/mainburger/BoardCommonVO.java
 	}
 
 	public int getWhose_cnt_like() {

@@ -462,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         // intent.putExtra("tabText",tabText);
         startActivity(intent);
-       /* finish();*/
+        finish();
     }
 
     public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
@@ -470,12 +470,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         intent.putExtra("tabText", tabText);
         startActivity(intent);
-
+        finish();
     }
 
     public void ChangeActivity(Class nextClass) {
         Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
+        finish();
     }
 
     public void goSplash() {
@@ -504,7 +505,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-                   /* finish();*/
+                    finish();
                 }
             } else {
                 manager.popBackStack();

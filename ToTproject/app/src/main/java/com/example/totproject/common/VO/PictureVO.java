@@ -1,11 +1,11 @@
-<<<<<<< HEAD:ToTproject/app/src/main/java/com/example/totproject/common/VO/PictureVO.java
+
 package com.example.totproject.common.VO;
-=======
-package picture;
->>>>>>> KSK_NEW:tot/src/main/java/picture/PictureVO.java
+
+
 
 public class PictureVO {
-	String picture_filepath;
+
+	int reply_sn;	String picture_filepath;
 	int board_sn;
 	String member_id;
 	public String getPicture_filepath() {
@@ -31,8 +31,7 @@ public class PictureVO {
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
-<<<<<<< HEAD:ToTproject/app/src/main/java/com/example/totproject/common/VO/PictureVO.java
-=======
+
 
 	public int getReply_sn() {
 		return reply_sn;
@@ -42,7 +41,6 @@ public class PictureVO {
 		this.reply_sn = reply_sn;
 	}
 	
-	
->>>>>>> KSK_NEW:tot/src/main/java/picture/PictureVO.java
+
 	
 }

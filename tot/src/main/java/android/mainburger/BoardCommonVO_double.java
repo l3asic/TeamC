@@ -2,11 +2,7 @@ package android.mainburger;
 
 import java.io.Serializable;
 
-<<<<<<< HEAD:tot/src/main/java/android/mainburger/BoardCommonVO_double.java
 public class BoardCommonVO_double implements Serializable {
-=======
-public class BoardCommonVO implements Serializable {
->>>>>>> ChaMinHwan:tot/src/main/java/android/mainburger/BoardCommonVO.java
 	private int board_sn, board_read_cnt, board_reviewepath;
 	private String board_title, board_content, board_is_updated, board_private, board_replly_able, board_class,
 			member_id;
@@ -16,45 +12,43 @@ public class BoardCommonVO implements Serializable {
 	private int function_like;
 	private int list_cnt_many;
 	private int matchScore;
-    private String member_grade; //글쓴이등급
-    private int whose_cnt_like;
-<<<<<<< HEAD:tot/src/main/java/android/mainburger/BoardCommonVO_double.java
-    private double distanceScore;
+	private String member_grade; // 글쓴이등급
+	private int whose_cnt_like;
+	private double distanceScore;
 
-    public double getDistanceScore() {
+	public double getDistanceScore() {
 		return distanceScore;
 	}
 
 	public void setDistanceScore(double distanceScore) {
 		this.distanceScore = distanceScore;
-=======
-    private String board_filepath;
+	}
 
-    public String getBoard_filepath() {
+	private String board_filepath;
+
+	public String getBoard_filepath() {
 		return board_filepath;
 	}
 
 	public void setBoard_filepath(String board_filepath) {
 		this.board_filepath = board_filepath;
->>>>>>> ChaMinHwan:tot/src/main/java/android/mainburger/BoardCommonVO.java
 	}
 
 	public int getWhose_cnt_like() {
-        return whose_cnt_like;
-    }
+		return whose_cnt_like;
+	}
 
-    public void setWhose_cnt_like(int whose_cnt_like) {
-        this.whose_cnt_like = whose_cnt_like;
-    }
+	public void setWhose_cnt_like(int whose_cnt_like) {
+		this.whose_cnt_like = whose_cnt_like;
+	}
 
+	public String getMember_grade() {
+		return member_grade;
+	}
 
-    public String getMember_grade() {
-        return member_grade;
-    }
-
-    public void setMember_grade(String member_grade) {
-        this.member_grade = member_grade;
-    }
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
+	}
 
 	public int getMatchScore() {
 		return matchScore;

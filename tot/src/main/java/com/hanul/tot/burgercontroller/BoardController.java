@@ -104,7 +104,18 @@ printPath(req);
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 	}
-	
+	@RequestMapping("/android/cmh/board_update/")
+	public void boardUpdate(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws IOException {
+		printPath(req);
+		setHttpServlet(req,res);
+		PrintWriter writer = res.getWriter();
+		
+		BoardCommonVO vo = gson.fromJson(req.getParameter("vo"), BoardCommonVO.class);
+		
+		int succ = sql.insert("board.mapper.board_update", vo);
+
+		writer.print(succ);
+	}
 	/* =================== 게시물 삭제 ===================== */	
 	@RequestMapping("/android/cmh/board_delete/")
 	public void bonardDelete(HttpServletRequest req, HttpServletResponse res, HttpSession session, Model model)
@@ -130,5 +141,10 @@ printPath(req);
 		String path = req.getServletPath();
 		System.out.println("\n 보드컨트롤러 : " + i + "\n" + "localhost/tot" + path);
 		System.out.println("getServletPath : " + path);
+	}
+	public void setHttpServlet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
 	}
 }

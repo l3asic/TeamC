@@ -69,7 +69,7 @@ android:src="@drawable/ic_cmh_baseline_format_list_bulleted"
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
 
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/boardtab_fab_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

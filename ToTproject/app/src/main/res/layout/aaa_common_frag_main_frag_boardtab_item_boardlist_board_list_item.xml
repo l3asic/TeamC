@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/boardlist_item_tv_writer"
-            android:layout_width="100dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="member_id" />

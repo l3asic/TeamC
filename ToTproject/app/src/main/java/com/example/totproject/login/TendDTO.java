@@ -4,8 +4,28 @@ import java.io.Serializable;
 
 public class TendDTO implements Serializable {
 
-    int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io, mbti_sn, mbti_local, board_sn, mbti_addr, mbti_x, mbti_y;
+    int mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple, mbti_buddys, mbti_family, mbti_price, mbti_sd,
+            mbti_io, mbti_sn, board_sn;
+    double mbti_x, mbti_y;
     String member_id;
+    String mbti_local, mbti_addr;
+
+
+    public String getMbti_addr() {
+        return mbti_addr;
+    }
+
+    public void setMbti_addr(String mbti_addr) {
+        this.mbti_addr = mbti_addr;
+    }
+
+    public String getMbti_local() {
+        return mbti_local;
+    }
+
+    public void setMbti_local(String mbti_local) {
+        this.mbti_local = mbti_local;
+    }
 
     public int getMbti_activity() {
         return mbti_activity;
@@ -95,12 +115,12 @@ public class TendDTO implements Serializable {
         this.mbti_sn = mbti_sn;
     }
 
-    public int getMbti_local() {
-        return mbti_local;
+    public String getMember_id() {
+        return member_id;
     }
 
-    public void setMbti_local(int mbti_local) {
-        this.mbti_local = mbti_local;
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
     }
 
     public int getBoard_sn() {
@@ -111,36 +131,22 @@ public class TendDTO implements Serializable {
         this.board_sn = board_sn;
     }
 
-    public int getMbti_addr() {
-        return mbti_addr;
-    }
 
-    public void setMbti_addr(int mbti_addr) {
-        this.mbti_addr = mbti_addr;
-    }
 
-    public int getMbti_x() {
+    public double getMbti_x() {
         return mbti_x;
     }
 
-    public void setMbti_x(int mbti_x) {
+    public void setMbti_x(double mbti_x) {
         this.mbti_x = mbti_x;
     }
 
-    public int getMbti_y() {
+    public double getMbti_y() {
         return mbti_y;
     }
 
-    public void setMbti_y(int mbti_y) {
+    public void setMbti_y(double mbti_y) {
         this.mbti_y = mbti_y;
-    }
-
-    public String getMember_id() {
-        return member_id;
-    }
-
-    public void setMember_id(String member_id) {
-        this.member_id = member_id;
     }
 }
 

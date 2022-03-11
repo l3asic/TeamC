@@ -78,12 +78,12 @@ public class MainTabAdapter_big extends RecyclerView.Adapter<MainTabAdapter_big.
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             hometab_big_img = itemView.findViewById(R.id.hometab_big_img);
-   //         hometab_big_img_like = itemView.findViewById(R.id.hometab_big_img_like);
-     //       hometab_big_img_comment = itemView.findViewById(R.id.hometab_big_img_comment);
+                    hometab_big_img_like = itemView.findViewById(R.id.hometab_big_img_like);
+            hometab_big_img_comment = itemView.findViewById(R.id.hometab_big_img_comment);
 
             hometab_big_tv_title = itemView.findViewById(R.id.hometab_big_tv_title);
-//            hometab_big_tv_like = itemView.findViewById(R.id.hometab_big_tv_like);
- //           hometab_big_tv_comment = itemView.findViewById(R.id.hometab_big_tv_comment);
+           hometab_big_tv_like = itemView.findViewById(R.id.hometab_big_tv_like);
+            hometab_big_tv_comment = itemView.findViewById(R.id.hometab_big_tv_comment);
         }
 
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
@@ -94,8 +94,8 @@ public class MainTabAdapter_big extends RecyclerView.Adapter<MainTabAdapter_big.
             }
             holder.hometab_big_tv_title.setText(list.get(position).getBoard_title() + "");
 
- //           holder.hometab_big_tv_like.setText(list.get(position).getBoard_cnt_like()+"");
- //           holder.hometab_big_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
+            holder.hometab_big_tv_like.setText(list.get(position).getFunction_like()+"");
+            holder.hometab_big_tv_comment.setText(list.get(position).getBoard_cnt_reply()+"");
 
             holder.board_sn = list.get(position).getBoard_sn();
 

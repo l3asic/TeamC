@@ -270,6 +270,7 @@ android:paddingVertical="5dp"
 
 
                     <EditText
+
                         android:paddingHorizontal="10dp"
                         android:background="@null"
                         android:id="@+id/board_user_detail_edt_reply_input"
@@ -279,7 +280,9 @@ android:paddingVertical="5dp"
                         android:hint="댓글입력"
 
                         android:padding="5dp"
-                        android:textSize="15dp" />
+                        android:layout_marginLeft="15dp"
+                        android:textSize="10dp" />
+
 
 
                     <ImageView
@@ -289,7 +292,7 @@ android:paddingVertical="5dp"
                         android:layout_height="37.5dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:src="@drawable/ic_cmh_baseline_add_comment" />
+                        android:src="@drawable/icon_send" />
                 </LinearLayout>
 
 

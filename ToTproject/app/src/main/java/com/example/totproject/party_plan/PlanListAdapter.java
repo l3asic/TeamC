@@ -100,6 +100,7 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
                     PlanMainActivity activity = (PlanMainActivity) context;
                     PlanlistDTO planDTO = (PlanlistDTO) list.get(position);
                     activity.changePlanFrag(planDTO);
+
                 }
             });
 

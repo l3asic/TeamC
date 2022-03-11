@@ -84,11 +84,6 @@ public class PartyDAO {
 		
 		return sql.selectList("party.mapper.selectPlanList", party_sn);
 	}
-	
-public List<PartyPlanListVO> selectPlanListNew(int plan_sn) {
-		
-		return sql.selectList("party.mapper.selectPlanListNew", plan_sn);
-	}
 
 
 	public List<PlanInfoVO> showPlanInfo(int plan_sn) {

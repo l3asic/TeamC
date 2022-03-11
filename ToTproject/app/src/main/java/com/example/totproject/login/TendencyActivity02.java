@@ -8,12 +8,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.KakaoMapActivity;
 import com.example.totproject.common.kwkCommonAsk;
 import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.MainActivity;
@@ -27,12 +29,14 @@ import java.lang.reflect.Type;
 public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
     RadioGroup mbti_buddy, mbti_family, mbti_price, mbti_sd, mbti_io;
     RadioButton mbti_buddy_rad1, mbti_buddy_rad2, mbti_buddy_rad3, mbti_buddy_rad4, mbti_buddy_rad5
-                , mbti_family_rad1, mbti_family_rad2, mbti_family_rad3, mbti_family_rad4, mbti_family_rad5
-                , mbti_price_rad1, mbti_price_rad2, mbti_price_rad3, mbti_price_rad4, mbti_price_rad5
-                , mbti_sd_rad1, mbti_sd_rad2, mbti_sd_rad3, mbti_sd_rad4, mbti_sd_rad5
-                , mbti_io_rad1, mbti_io_rad2, mbti_io_rad3, mbti_io_rad4, mbti_io_rad5;
+            , mbti_family_rad1, mbti_family_rad2, mbti_family_rad3, mbti_family_rad4, mbti_family_rad5
+            , mbti_price_rad1, mbti_price_rad2, mbti_price_rad3, mbti_price_rad4, mbti_price_rad5
+            , mbti_sd_rad1, mbti_sd_rad2, mbti_sd_rad3, mbti_sd_rad4, mbti_sd_rad5
+            , mbti_io_rad1, mbti_io_rad2, mbti_io_rad3, mbti_io_rad4, mbti_io_rad5;
     Button tend2_btn_skip, tend2_btn_join;
     TendDTO dto = new TendDTO();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +125,13 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
         });*/
 
 
+
+
+
+
+
+
+
         // 저장완료 후 메인이동 ( 조인인걸 메인으로 이동으로 수정함)                //저장버튼누를시 디비에 잘들어가는지 확인
         tend2_btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +152,20 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
 
     /*Intent intent = getIntent();
     TendDTO dto = (TendDTO) intent.getSerializableExtra("dto");*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -180,7 +205,7 @@ public class TendencyActivity02 extends AppCompatActivity implements RadioGroup.
         InputStream in = commonMethod.excuteAsk(commonAsk);
         try {
 
-         succ   = gson.fromJson(new InputStreamReader(in), Integer.class);
+            succ   = gson.fromJson(new InputStreamReader(in), Integer.class);
         }catch (Exception e) {
             e.printStackTrace();
         }

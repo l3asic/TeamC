@@ -41,7 +41,7 @@ public class PartyMemberManageActivity extends AppCompatActivity {
     TextView tv_partyleader_name;
     Button btn_party_memberdelete;
 
-    LinearLayout lin_party_memberdelete, lin_manage_title, lin_membermanage_back;
+    LinearLayout lin_party_memberdelete, lin_manage_title;
 
 
 
@@ -56,8 +56,6 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         btn_party_memberdelete =findViewById(R.id.btn_party_memberdelete);
         lin_party_memberdelete =findViewById(R.id.lin_party_memberdelete);
         lin_manage_title =findViewById(R.id.lin_manage_title);
-        lin_membermanage_back =findViewById(R.id.lin_membermanage_back);
-
 
 
 
@@ -65,17 +63,6 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         Intent getIntent = getIntent();
         PartyListDTO plDTO = (PartyListDTO) getIntent.getSerializableExtra("plDTO");
         showPartyMember(plDTO);
-
-        // 뒤로가기 버튼 클릭시
-        lin_membermanage_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PartyMemberManageActivity.this, MyPartyInfoActivity.class);
-                intent.putExtra("party_dto",plDTO);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         if (member_list != null){
 

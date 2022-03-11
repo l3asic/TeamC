@@ -5,10 +5,8 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/tv_partyplan_day"
             android:layout_width="0dp"
@@ -16,9 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="DAY 00"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textSize="24dp"/>
 
 
        <LinearLayout
@@ -28,24 +24,17 @@
 
        </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btn_plandetail_update"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btn_plandetail_update"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/icon_fix"
-                android:backgroundTint="#232344"
-                android:focusable="false"
-                android:textAlignment="center"
-                android:layout_margin="10dp"
-                />
-
-        </LinearLayout>
-
+            android:layout_height="40dp"
+            android:background="@drawable/party_tab_button"
+            android:text="수정"
+            android:textSize="18dp"
+            android:focusable="false"
+            android:textAlignment="center"
+            android:padding="10dp" />
 
 
 

@@ -289,6 +289,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버초대 누름 ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
@@ -301,6 +302,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_membermanage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버 관리 누름 ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
@@ -323,8 +325,10 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
 
                 showCustomDialog("정말 파티를 해산 하시겠어요?"); // alert 다이얼로그 확인창
+
 
             }
         });
@@ -337,6 +341,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_invite2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버초대 누름 ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MyPartyInfoActivity.this, InviteMemberActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
@@ -349,6 +354,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_membermanage2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "멤버 목록 누름 ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MyPartyInfoActivity.this, PartyMemberManageActivity.class);
                 intent.putExtra("plDTO",plDTO);
                 startActivity(intent);
@@ -371,6 +377,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_delete2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MyPartyInfoActivity.this, "파티삭제 눌렸음 ", Toast.LENGTH_SHORT).show();
 
                 showCustomDialog("정말 파티를 탈퇴하시겠어요?"); // alert 다이얼로그 확인창
 

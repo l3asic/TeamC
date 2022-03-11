@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
@@ -36,7 +35,7 @@ public class PlanInfo02Fragment extends Fragment {
     Gson gson = new Gson();
     ArrayList<PlanInfoDTO> list = new ArrayList<>();
 
-    LinearLayout lin_no_plandetail, lin_plan_toback, lin_plan_toback2;
+    LinearLayout lin_no_plandetail;
 
 
     public PlanInfo02Fragment(Context context) { //컨텍슽르르 메인에서부터 가져옴
@@ -53,41 +52,15 @@ public class PlanInfo02Fragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.partyplan_frag_planinfo02, container, false);
 
-
-
         lin_no_plandetail = view.findViewById(R.id.lin_no_plandetail);
-
-
-        // Info 01 뒤로가기 버튼 안보이게
-        lin_plan_toback=getActivity().findViewById(R.id.lin_plan_toback);
-        lin_plan_toback.setVisibility(View.GONE);
-
-        // 뒤로가기버튼 보이게
-        lin_plan_toback2=getActivity().findViewById(R.id.lin_plan_toback2);
-        lin_plan_toback2.setVisibility(View.VISIBLE);
 
         // 디비 연결 후 리스트 리턴
         showPlanInfo(planDTO.getPlan_sn());
-
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(this).attach(this).commit();
-
-        lin_plan_toback2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PlanMainActivity activity = (PlanMainActivity) context;
-                activity.changePlanFrag(planDTO);
-
-            }
-        });
-
-
 
         ArrayList<PlanInfoDTO> item_list = new ArrayList<>();
         String plan_dtl = "";
         String old_plan_dtl = "";
         int flag = 0 ;
-
 
         // @@@ 아마도 익스펜더블 뷰 세팅 + 추가 작업?
         if(list != null){

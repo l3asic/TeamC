@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".party.OpenpartyListFragment"
-    android:background="#eeeeee">
+    tools:context=".party.OpenpartyListFragment">
 
 
     <androidx.core.widget.NestedScrollView
@@ -62,7 +61,7 @@
             android:layout_height="210dp"
             android:layout_marginVertical="20dp"
             android:background="@drawable/bottom_line"
-            android:backgroundTint="#232344"
+            android:backgroundTint="#2ba0da"
             android:orientation="vertical"
             android:paddingBottom="10dp">
             
@@ -77,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="지금 핫한 해시태그"
                     android:textSize="18dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textStyle="bold"/>
             </LinearLayout>
 

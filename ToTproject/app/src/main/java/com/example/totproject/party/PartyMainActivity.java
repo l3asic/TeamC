@@ -52,8 +52,6 @@ public class PartyMainActivity extends AppCompatActivity {
             "#232344",
             "#551122"
     };*/
-
-    LinearLayout lin_party_tomain;
     public int reqGcode = 1004;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +59,6 @@ public class PartyMainActivity extends AppCompatActivity {
         setContentView(R.layout.party_act_main); //이 엑스엠엘에서
         int tabcode = 0 ;
         tv_party_title = findViewById(R.id.tv_party_title);
-        lin_party_tomain = findViewById(R.id.lin_party_tomain);
-
-        lin_party_tomain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PartyMainActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
         OpenpartyListFragment openparty_list_frag = new OpenpartyListFragment(PartyMainActivity.this);

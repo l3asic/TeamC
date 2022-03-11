@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#232344"
+    android:background="@color/main_color"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
     android:padding="20dp"
@@ -71,6 +71,7 @@
 
         <LinearLayout
             android:id="@+id/lin_leader_option"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -113,7 +114,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="멤버 초대"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -143,7 +144,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="멤버 관리"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -183,7 +184,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티정보수정"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -203,7 +204,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/icon_out"
-                            android:layout_margin="15dp"/>
+                            android:layout_margin="15dp"/>>
 
                     </LinearLayout>
 
@@ -215,7 +216,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티 해산"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -224,7 +225,7 @@
 
         <LinearLayout
             android:id="@+id/lin_member_option"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -267,7 +268,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="멤버 초대"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -299,7 +300,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="멤버목록"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -340,7 +341,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티정보보기"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -372,7 +373,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티 탈퇴"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 

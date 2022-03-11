@@ -46,7 +46,7 @@ public class PlanInfo01Fragment extends Fragment {
 
 
 
-    LinearLayout lin_plan_tohome, lin_plan_toback, lin_plan_toback2;
+    LinearLayout lin_plan_tohome, lin_plan_toback;
 
 
     TextView tv_plan_startdate, tv_plan_starttime, tv_plan_enddate, tv_plan_endtime, tv_plan_location, tv_plan_startpoint,
@@ -93,15 +93,14 @@ public class PlanInfo01Fragment extends Fragment {
         lin_plan_tohome=getActivity().findViewById(R.id.lin_plan_tohome);
         lin_plan_tohome.setVisibility(View.GONE);
 
-        // Info 02 뒤로가기 버튼 안보이게
-        lin_plan_toback2=getActivity().findViewById(R.id.lin_plan_toback2);
-        lin_plan_toback2.setVisibility(View.GONE);
-
         // 뒤로가기버튼 보이게
         lin_plan_toback=getActivity().findViewById(R.id.lin_plan_toback);
         lin_plan_toback.setVisibility(View.VISIBLE);
 
 
+        // 계획추가 버튼사라지고, 업데이트 버튼 나오게     @@
+//        btn_planmain_create.setVisibility(View.GONE);
+//        btn_planmain_update.setVisibility(View.VISIBLE);
 
         planMemberListNew(planlistDTO.getPlan_sn());
 
@@ -133,14 +132,9 @@ public class PlanInfo01Fragment extends Fragment {
 //                PlanMainActivity activity = new PlanMainActivity();
 //                PlanListFragment list_frag = new PlanListFragment(getActivity(),planlistDTO.getParty_sn());
 //                activity.changePlanFrag(list_frag,"파티 플랜 목록");
-
-//                Intent intent = new Intent(getActivity(),PlanMainActivity.class);
-//                intent.putExtra("plDTO", plDTO);
-//                startActivity(intent);
-
-                PlanMainActivity activity = (PlanMainActivity) context;
-                PlanListFragment frag = new PlanListFragment(getActivity(),plDTO.getParty_sn());
-                activity.changePlanFrag(frag,"파티 플랜 목록");
+                Intent intent = new Intent(getActivity(),PlanMainActivity.class);
+                intent.putExtra("plDTO", plDTO);
+                startActivity(intent);
             }
         });
 

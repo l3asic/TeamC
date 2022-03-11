@@ -25,8 +25,8 @@ public class CategoryDAO {
 		return sql.selectList("category.mapper.categoryList_festival");
 	}
 	
-	public int reply_insert(CategoryVO category) {
-		return sql.insert("category.mapper.reply_insert", category);
+	public int reply_insert(ReplyVO vo) {
+		return sql.insert("category.mapper.reply_insert", vo);
 	}
 	public void reply_picture_insert(ArrayList<PictureVO> picture) {
 		sql.insert("category.mapper.reply_picture", picture );
@@ -44,12 +44,16 @@ public class CategoryDAO {
 		return sql.selectList("category.mapper.list_picture",board_sn);
 	}
 	
+	public List<PictureVO> list_picture_re(int reply_sn) {
+		return sql.selectList("category.mapper.list_picture_re",reply_sn);
+	}
+	
 	public CategoryVO detail_categoryBoard(CategoryVO categoryVO) {
 		return sql.selectOne("category.mapper.detail_categoryBoard_one",categoryVO);
 	}
 	
 	
-	public List<CategoryVO> list_reviewpath(int board_sn) {
+	public List<ReplyVO> list_reviewpath(int board_sn) {
 		return sql.selectList("category.mapper.list_reviewpath",board_sn);
 	}
 	
@@ -64,6 +68,10 @@ public class CategoryDAO {
 	
 	public void like_delete(CategoryVO categoryVO) {
 		sql.insert("category.mapper.like_delete", categoryVO );
+	}
+	
+	public void deliteReply(int reply_sn) {
+		sql.delete("category.mapper.deliteReply" , reply_sn ) ;
 	}
 	
 }

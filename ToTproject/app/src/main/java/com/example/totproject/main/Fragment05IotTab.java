@@ -1,43 +1,24 @@
 package com.example.totproject.main;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
-import com.example.totproject.iot.IotMainActivity;
 
 
 public class Fragment05IotTab extends Fragment {
 
-    Button btn_iot;
 
-
-
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_frag_iot_tab, container, false);
 
-        btn_iot = view.findViewById(R.id.btn_iot);
-
-        btn_iot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  new Intent(getActivity(), IotMainActivity.class);
-                startActivity(intent);
-
-            }
-        });
+        return inflater.inflate(R.layout.mainburger01_notice_fg_detail_fg, container, false);
 
 
-
-
-        return view;
     }
 }

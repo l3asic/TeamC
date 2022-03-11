@@ -69,7 +69,7 @@ public class Fragment02CategoryGridView extends Fragment {
             if(sorry_chaminhwan ==0) {
                 BoardCommonVO vo = new BoardCommonVO();
                 vo.setBoard_sn(paramSn);
-                Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
+                Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail(0);
                 getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).addToBackStack(null).commit();
                 Bundle bundle = new Bundle();
                 bundle.putInt("sn", vo.getBoard_sn());
@@ -227,7 +227,7 @@ public class Fragment02CategoryGridView extends Fragment {
                 public void onClick(View v) {
                     BoardCommonVO vo = new BoardCommonVO();
                     vo.setBoard_sn(list.get(position).getBoard_sn());
-                    Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail();
+                    Fragment02CategoryDetail categoryDetail = new Fragment02CategoryDetail(0);
                     getFragmentManager().beginTransaction().replace(R.id.cate_container, categoryDetail).addToBackStack(null).commit();
                     Bundle bundle = new Bundle();
                     bundle.putInt("sn", vo.getBoard_sn());

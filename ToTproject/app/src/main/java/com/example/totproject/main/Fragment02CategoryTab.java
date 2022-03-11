@@ -75,7 +75,7 @@ ImageView imgv_categorymain;
         intent.putExtra("tabcode",tabcode);
         intent.putExtra("tabText",tabText);
         startActivity(intent);
-        getActivity().finish();
+     /*   getActivity().finish();*/
 
     }
     //Fragment02CategoryGridView categoryGridView = new Fragment02CategoryGridView();

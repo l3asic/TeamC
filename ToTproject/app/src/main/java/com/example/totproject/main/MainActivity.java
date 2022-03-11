@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab(MainActivity.this, manager);
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
-        Fragment05IotTab iotTab_frag = new Fragment05IotTab();
+        Fragment05IotTab loginTab_frag = new Fragment05IotTab();
         Fragment00Empty empty_frag = new Fragment00Empty();
         //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         /* =================================== 바텀메뉴 =================================== */
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 3) {
                     ChangeFrament(main_container, partyTab_frag, "파티");
                 } else if (position == 4) {
-                    ChangeFrament(main_container, iotTab_frag, "IoT");
+                    toolbar.setTitle("iot 탭입니다.");
                 //    main_tv_acttitle.setText("iot 탭입니다.");
                 }
                 toolbar.setBackgroundColor(Color.parseColor(mainColors[position]));
@@ -462,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         // intent.putExtra("tabText",tabText);
         startActivity(intent);
-        finish();
+       /* finish();*/
     }
 
     public void ChangeActivity(Class nextAct, int tabcode, String tabText) {
@@ -470,13 +470,12 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         intent.putExtra("tabText", tabText);
         startActivity(intent);
-        finish();
+
     }
 
     public void ChangeActivity(Class nextClass) {
         Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
-        finish();
     }
 
     public void goSplash() {
@@ -505,7 +504,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-                    finish();
+                   /* finish();*/
                 }
             } else {
                 manager.popBackStack();

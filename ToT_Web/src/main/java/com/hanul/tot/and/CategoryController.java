@@ -300,7 +300,10 @@ public class CategoryController {
 		int count = dao.category_like(board_sn);
 
 		List<CategoryVO> reviewList = dao.list_reviewpath(board_sn);
-
+		
+		
+		
+		
 		model.addAttribute("likeCheck", likeCheck);
 		model.addAttribute("vo", dao.detail_categoryBoard(vo));
 		model.addAttribute("picture", list);
@@ -326,24 +329,44 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/replyinsert.ca", method = RequestMethod.POST)
-	public String reply_insert(HttpServletRequest req, ReplyVO vo, MultipartFile file, HttpSession session,
-			Model model) {
+	public String reply_insert(MultipartHttpServletRequest req, ReplyVO vo, MultipartFile multipartFile, HttpSession session,
+			Model model,List<MultipartFile> multipartFileList) {
 
 		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
 
 		MemberVO mvo = (MemberVO) session.getAttribute("loginInfo");
+		
+		//===================== 차민환 - 댓글사진 =============================
 		vo.setMember_id(mvo.getMember_id());
 		vo.setBoard_sn(board_sn);
-		/*
-		 * // 파일 정보가 있다면 if ( ! file.isEmpty() ) { vo.setPicture_filepath(
-		 * service.fileupload("category", file, session) ); } // MemberVO member =
-		 * (MemberVO) session.getAttribute("loginInfo"); // vo.setWriter( member.getId()
-		 * );
-		 */
-		// model.addAttribute("vo", dao.insert_reply(vo));
+		if (!multipartFile.isEmpty()) {
+			List<MultipartFile> mpfList = req.getFiles("multipartFile");
+			List<PictureVO> picList = new ArrayList<PictureVO>();
+
+			for (int i = 0; i < mpfList.size(); i++) {
+				PictureVO picVO = new PictureVO();
+				String filepath = service.fileupload("category", mpfList.get(i), session);
+				picVO.setPicture_filepath(filepath);
+				try {
+
+					picList.add(picVO);
+					System.out.println(picList.get(i).getPicture_filepath());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+//			vo.setPicture_filepath(common.fileupload("board", picList.get(i), session));
+
+//			vo.setPicList(picList);
+			}
+			vo.setPicList(picList);
+		}//================================================================
+		
+		
 		model.addAttribute("board_sn", vo.getBoard_sn());
 		model.addAttribute("reply_sn", vo.getReply_sn());
-		dao.insert_reply(vo);
+		sql.insert("picture.mapper.insert_picture_review", vo);
+		
+		//dao.insert_reply(vo);
 
 		return "redirect:detail.ca?board_sn={board_sn}";
 	}
@@ -454,7 +477,7 @@ public class CategoryController {
 		}
 		boardVO.setPicList(picList);
 		sql.insert("picture.mapper.insert_picture_board",boardVO);
-		return "redirect:board_list?board_class=" + boardVO.getBoard_class();
+		return "redirect:"+boardVO.getBoard_class()+".ca";
 	} else {
 
 	}
@@ -462,7 +485,7 @@ public class CategoryController {
 	sql.insert("board.mapper.insert", boardVO);
 		
 		
-		return "home";
+	return "redirect:"+boardVO.getBoard_class()+".ca";
 	}
 
 //	@RequestMapping("")

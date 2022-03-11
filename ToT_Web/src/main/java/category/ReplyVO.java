@@ -1,6 +1,8 @@
 package category;
 
 import java.io.Serializable;
+import java.util.List;
+
 
 public class ReplyVO implements Serializable {
     private int reply_sn;
@@ -10,8 +12,20 @@ public class ReplyVO implements Serializable {
     private String reply_writedate;
     private int picture_file_count;
     private String picture_filepath;
+   List<PictureVO> picList;
+   
+   
+    
+ 
+	public List<PictureVO> getPicList() {
+	return picList;
+}
 
-    public int getReply_sn() {
+public void setPicList(List<PictureVO> picList) {
+	this.picList = picList;
+}
+
+	public int getReply_sn() {
         return reply_sn;
     }
 
@@ -74,6 +88,8 @@ public class ReplyVO implements Serializable {
 	public void setPicture_filepath(String picture_filepath) {
 		this.picture_filepath = picture_filepath;
 	}
+
+
     
     
 }

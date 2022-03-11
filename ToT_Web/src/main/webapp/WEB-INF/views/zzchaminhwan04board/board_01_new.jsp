@@ -31,8 +31,9 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<input class="form-control" type="hidden" name="member_id" value="${loginInfo.member_id}">
-										<input class="form-control" type='text' name="board_title"
+										<input class="form-control" type="hidden" name="member_id"
+											value="${loginInfo.member_id}"> <input
+											class="form-control" type='text' name="board_title"
 											title='제목' class='chk' placeholder="제목을 입력하세요" required=""
 											data-error="Please enter your Subject"
 											style="margin: 40px 0px;">
@@ -43,60 +44,47 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 									<div class="form-group">
 										<textarea class="form-control" name='board_content'
 											class='chk' title='내용' placeholder="내용을 입력하세요" rows="4"
-											data-error="Write your message" required=""></textarea>
+											data-error="Write your message" required=""
+											style="height: 600px;"></textarea>
 										<div class="help-block with-errors"></div>
 									</div>
-
+									<div class="submit-button text-center">
+										<button class="btn hvr-hover " id="submit" type="submit"
+											style="pointer-events: all; cursor: pointer;">작성</button>
+										<button class="btn hvr-hover " id="cancel"
+											style="pointer-events: all; cursor: pointer;"
+											onclick="history.back(-1)">취소</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
 								</div>
 							</div>
 							<!-- 							</form> -->
-							<div class="col-md-12"
-								style="margin-top: 30px; background: #ffffff; border: 1px solid #495057;">
-								<h2 style="margin-top: 5%;">첨부파일</h2>
-								<td class=''><label> <a> <img
-											src='images/select.png' class='file-img' />
-									</a> <input type="file" id='attach-file' name='multipartFile'
-										multiple="multiple" />
-								</label>
-									<div>
-										<span id='preview'
-											style="max-width: 256px; max-height: 256px;"></span> <a
-											id='delete-file'> <i class='font-img fas fa-minus-circle'></i>
-										</a>
-									</div></td>
-								<ul>
-									<li>
-										<p>
-											<i class="fas fa-map-marker-alt"></i>TEXT <br><%=request.getRealPath("/")%>
-										</p>
-									</li>
-									<li>
-										<p>
-											<i class="fas fa-phone-square"></i>Phone: <a
-												href="tel:+1-888705770">+1-888 705 770</a>
-										</p>
-									</li>
-									<li>
-										<p>
-											<i class="fas fa-envelope"></i>Email: <a
-												href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
-										</p>
-									</li>
-								</ul>
-							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-12">
+						<div class="contact-info-left">
+							<h2>첨부파일</h2>
+							<td class=''><label> <a> <img
+										src='images/select.png' class='file-img' />
+								</a> <input type="file" id='attach-file' name='multipartFile'
+									multiple="multiple" />
+							</label>
+								</td>
+
+						</div>
+						<div class="contact-info-left" style="margin-top: 50px;">
+						<div>
+									<span id='preview' style="max-width: 256px; max-height: 256px;"></span>
+									<a id='delete-file'> <i
+										class='font-img fas fa-minus-circle'></i>
+									</a>
+								</div>
+						
 						</div>
 					</div>
 
-					<div class="submit-button"
-						style="margin-left: 30%; margin-top: 5%;">
-						<button class="btn hvr-hover " id="submit" type="submit"
-							style="pointer-events: all; cursor: pointer; background: #2ba0da;">작성</button>
-						<button class="btn hvr-hover " id="cancel"
-							style="pointer-events: all; cursor: pointer; background: #2ba0da;"
-							onclick="history.back(-1)">취소</button>
-						<div id="msgSubmit" class="h3 text-center hidden"></div>
-						<div class="clearfix"></div>
-					</div>
+
 
 
 

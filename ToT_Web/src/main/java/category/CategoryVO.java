@@ -2,6 +2,7 @@ package category;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 public class CategoryVO {
 	private int board_sn,board_read_cnt, board_reviewpath, reply_sn, like_cnt;
@@ -10,7 +11,22 @@ public class CategoryVO {
     private Date board_date_create, reply_writedate ;
     private int picture_file_count;
     private int board_cnt_reply, function_like;
+    List<PictureVO> picList;
+    private String member_filepath;
     
+    
+	public String getMember_filepath() {
+		return member_filepath;
+	}
+	public void setMember_filepath(String member_filepath) {
+		this.member_filepath = member_filepath;
+	}
+	public List<PictureVO> getPicList() {
+		return picList;
+	}
+	public void setPicList(List<PictureVO> picList) {
+		this.picList = picList;
+	}
 	public int getBoard_sn() {
 		return board_sn;
 	}

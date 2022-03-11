@@ -33,7 +33,11 @@
     SKELETON
 -------------------------------------------------------------------*/
 .user_name_tag{
-	border-radius: 100px;
+	    align-self: center;
+	margin: 0px 5px;
+    background: #2ba0da;
+    color: #ffffff;
+    border-radius: 30px;
 }
 
 .bg_old_blue{
@@ -49,6 +53,7 @@
 }
 
 .picture_member_profile{
+	    align-self: center;
 	width: 64px;
 	height: 64px;
 }
@@ -2409,8 +2414,10 @@
      padding: 70px 0px;
 }
  .contact-info-left{
+ margin-top:100px;
      padding: 20px;
-     background: url(../images/contact-bg.jpg) no-repeat center;
+     border-radius: 15px;
+    background: #bdedff;
 	 background-size: cover;
 }
  .contact-info-left h2{

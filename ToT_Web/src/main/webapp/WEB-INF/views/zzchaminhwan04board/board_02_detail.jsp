@@ -84,8 +84,8 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 								<tr>
 									<c:if test="${! empty boardVO.picList}">
 										<td style="width: 100%; display: flex; flex-wrap: wrap;">
-											<!-- ================================ --> <c:forEach
-												items="${boardVO.picList }" var="picVO">
+											<!-- ================================ --> 
+											<c:forEach items="${boardVO.picList }" var="picVO">
 												<div style="width: 300px; margin: 0 auto;">
 													<img alt="pic"
 														src="${picVO.picture_filepath}"

@@ -180,7 +180,9 @@
 	</select>
 	
 	<select id="list_reviewpath" resultType="category.CategoryVO">
-		select a.* , b.member_nick from tbl_reply a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
+		select a.* , b.member_nick , (select picture_filepath from tbl_board_picture where reply_sn = a.reply_sn and rownum=1) picture_filepath,
+			(select picture_filepath from tbl_board_picture where member_id = a.member_id and rownum=1) member_filepath
+		from tbl_reply a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
 		where a.board_sn = #{board_sn}
 		order by reply_writedate desc
 	</select>

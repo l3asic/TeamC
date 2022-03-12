@@ -13,10 +13,10 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
-							<h3>영업시간</h3>
+							<h3>고객센터</h3>
 							<ul class="list-time">
-								<li>Monday - Friday: 08.00am to 05.00pm</li>
-								<li>Saturday: 10.00am to 08.00pm</li>
+								<li>Monday - Friday: 09.00am to 06.00pm</li>
+								<li>Saturday: 09.00am to 12.00pm</li>
 								<li>Sunday: <span>Closed</span></li>
 							</ul>
 						</div>
@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-widget">
-							<h4>About Freshshop</h4>
+							<h4>USER BOARD</h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 								sed do eiusmod tempor incididunt ut labore et dolore magna
 								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -74,18 +74,18 @@
 						<div class="footer-link">
 							<h4>Information</h4>
 							<ul>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Customer Service</a></li>
-								<li><a href="#">Our Sitemap</a></li>
-								<li><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Delivery Information</a></li>
+								<li><a href="home">HOME</a></li>
+								<li><a href="tour.ca">TOUR</a></li>
+								<li><a href="activity.ca">ACTIVITY</a></li>
+								<li><a href="festival.ca">FESTIVAL</a></li>
+								<li><a href="board_list">USER BOARD</a></li>								
+								<li><a href="servicecenter.sc">CUSTOMER &nbsp; SUPPORT</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-link-contact">
-							<h4>Contact Us</h4>
+							<h4>CUSTOMER SUPPORT</h4>
 							<ul>
 								<li>
 									<p>

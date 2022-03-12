@@ -44,101 +44,10 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <body>
 
 
-	<!-- Start Main Top -->
-	<header class="main-header">
-		<!-- Start Navigation -->
-		<nav
-			class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-			<div class="container" style="position: relative;">
-				<!-- Start Header Navigation -->
-				<div class="navbar-header">
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#navbar-menu" aria-controls="navbars-rs-food"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<i class="fa fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="<c:url value='/' />"><img
-						src="images/main_logo.png" class="logo" alt=""></a>
-					<div class="navbar-float"
-						style="position: absolute; top: 0; right: 0; padding-left: 20px; padding-bottom: 5px">
-						<ol style="font-size: 13px">
-							<!-- 로그인하지 않은 상태 -->
-							<c:if test="${ empty loginInfo }">
-								<li style="list-style-type: none; float: left;"><a
-									href="login">로그인</a></li>
-								<li style="list-style-type: none; float: left;">｜</li>
-								<li style="list-style-type: none; float: left;"><a
-									href="member">회원가입</a></li>
-							</c:if>
-							<!-- 로그인한 상태 -->
-							<c:if test="${ !empty loginInfo }">
-								<li style="list-style-type: none; float: left;"><a
-									href="mypage_"><strong>${loginInfo.member_id}</strong></a></li>
-								<li style="list-style-type: none; float: left;">｜</li>
-								<li style="list-style-type: none; float: left;"><a
-									href="logout">로그아웃</a></li>
-							</c:if>
-						</ol>
-					</div>
-				</div>
-				<!-- End Header Navigation -->
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="navbar-menu">
-					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown"
-						data-out="fadeOutUp">
-						<li class="nav-item"><a class="nav-link"
-							href="<c:url value='/' />">홈</a></li>
-						<li class="dropdown active"><a href="#"
-							class="nav-link dropdown-toggle arrow" data-toggle="dropdown">카테고리</a>
-							<ul class="dropdown-menu">
-								<li><a href="tour.ca">관광지</a></li>
-								<li><a href="activity.ca">액티비티</a></li>
-								<li><a href="festival.ca">지역축제</a></li>
-							</ul></li>
-						<li class="dropdown active"><a href="#"
-							class="nav-link dropdown-toggle arrow" data-toggle="dropdown">파티</a>
-							<ul class="dropdown-menu">
-								<li><a href="shop.html">Sidebar Shop</a></li>
-								<li><a href="shop-detail.html">Shop Detail</a></li>
-								<li><a href="cart.html">Cart</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-								<li><a href="my-account.html">My Account</a></li>
-								<li><a href="wishlist.html">Wishlist</a></li>
-							</ul></li>
-						<li class="dropdown active"><a class="nav-link"
-							href="/tot/board_list">유저게시판</a>
-							<ul class="dropdown-menu">
-
-								<li><a href="/tot/board_list">유저게시판</a></li>
-								<li><a href="/tot/board_list">다른게시판</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link"
-							href="contact-us.html">Contact Us</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-
-				<!--  Start Atribute Navigation -->
-				<!-- 	<h1>돋보기랑 장바구니</h1>
-			<div class="attr-nav">
-				<ul>
-					<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-					<li class="side-menu"><a href="#"> <i
-							class="fa fa-shopping-bag"></i> <span class="badge">3</span>
-							<p>My Cart</p>
-					</a></li>
-				</ul>
-			</div> -->
-				<!-- End Atribute Navigation -->
-
-			</div>
-
-		</nav>
-		<!-- End Navigation -->
-
-	</header>
-	<!-- End Main Top -->
+	<!-- Start header  -->
+	<%@include file="../include/header.jsp"%>
+	<!-- End header  -->
+	
 	<!-- Start All Title Box -->
 	<div class="all-title-box">
 		<div class="container">
@@ -190,7 +99,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 							<td class=''><label> <a> <img
 										src='images/select.png' class='file-img' />
 								</a> <input type="file" id='attach-file' name='multipartFile' required="required"
-									multiple="multiple" />
+									/>
 							</label></td>
 
 						</div>

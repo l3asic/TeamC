@@ -243,7 +243,7 @@ public class BoardController {
 			model.addAttribute("path", "/board_detail");
 			return "zzchaminhwan04board/board_00_main";
 		} else {
-			return "home";
+			return "redirect:home";
 		}
 		model.addAttribute("path", path);
 		return "zzchaminhwan04board/board_00_main";

@@ -14,7 +14,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>Insert title here</title>
+<title>${member_id}</title>
 
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -41,7 +41,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 	<!-- ================================================================ -->
 	<script type="text/javascript">
 		function stacks_more() {
-			$('#stacks').val(Number($('#stacks').val()) + 10);
+			$('#stacks').val(Number($('#stacks').val()) + 1);
 			mypage_board_list(viewMode);
 		}
 		// 목록조회 합친거 mypage_board_list("mypage_board_list_write")
@@ -76,7 +76,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 				location.href=history.back();
 			}else{
 		
-			$('input[name=now_selected_list]').attr('value', "write");
+			$('input[name=now_selected_list]').attr('value', "timeline");
 			viewMode = $('input[name=now_selected_list]').val() ;			
 				mypage_board_list(viewMode);
 			}		
@@ -84,7 +84,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 		});
 	<!-- ================================================================ -->
 		function changeView(text){
-			$('#stacks').val(Number(10));
+			$('#stacks').val(Number(1));
 			$('input[name=now_selected_list]').attr('value', text);
 			 viewMode = $('input[name=now_selected_list]').val() ;
 			mypage_board_list( viewMode ) ;
@@ -119,21 +119,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
+
+					<!-- == 좌측 프로필 영역 == -->
 					<h2>
-
-
-						<!-- 						<c:if test="${matchingScore ne null}"> -->
-						<!-- 						♥ ${matchingVO}  -->
-						<!-- 						</c:if> -->
-						<!-- 						<c:if test="${matchingScore eq null}"> -->
-						<!-- 						성향분석 완료 회원끼리만 가능  -->
-						<!-- 						</c:if> -->
-						<!-- 						<c:if test="${loginInfo eq null}"> -->
-						<!-- 						로그인하면 가능 -->
-						<!-- 						</c:if> -->
 						<img src="images/like.png" alt="하트"
 							style="width: 64px; height: 64px" />
-
 						<c:choose>
 							<c:when test="${loginInfo eq null}">
 								<p id="count"></p>
@@ -147,8 +137,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 							<c:when test="${matchingScore ne null}">${matchingScore}</c:when>
 							<c:otherwise>TripOrTrap</c:otherwise>
 						</c:choose>
-
-						<style> #count { display: inline;} </style>
+						<style>
+#count {
+	display: inline;
+}
+</style>
 						<script>
         let countBox = document.querySelector('#count'),
             count = 0;
@@ -165,8 +158,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 				countBox.innerHTML = new Intl.NumberFormat().format(count);
         }, 20);
     </script>
-
-
 						<br> <br>
 						<c:if test="${memberVO.member_filepath ne null}">
 							<img class="rounded-circle border p-1 picture_member_profile_256"
@@ -178,12 +169,16 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
 						<br> <br> ${memberVO.member_id} <br>
-						<c:if test="${memberVO.member_id eq loginInfo.member_id || loginInfo.member_grade eq 'master'}">
+						<c:if
+							test="${memberVO.member_id eq loginInfo.member_id || loginInfo.member_grade eq 'master'}">
 							<a href="my_modify?member_id=${memberVO.member_id }"
-								style="font-size: 12px; color: #ffffff; text-decoration: underline;">[ 정보 수정 ]</a>
+								style="font-size: 12px; color: #ffffff; text-decoration: underline;">[
+								정보 수정 ]</a>
 						</c:if>
 					</h2>
-					<ul class="breadcrumb" style="cursor: pointer;">
+					<!-- ================== -->
+					<!-- == 우측 선책창 == -->
+					<ul class="breadcrumb" style="cursor: pointer; margin-top: 20px;">
 						<li class="breadcrumb-item active"><a
 							onclick='changeView("timeline")'>타임라인</a></li>
 						<li class="breadcrumb-item"><a onclick='changeView("write")'>작성한
@@ -191,33 +186,37 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 						<li class="breadcrumb-item active"><a
 							onclick='changeView("likes")'>좋아한 게시물</a></li>
 					</ul>
-					<ul>
-						<!-- ========================= 페이지 모드 ========================= -->
-						<li><input type="hidden" name='now_selected_list' value=''></input></li>
-						<!-- =========================================================== -->
-
-						<!-- ========================= 페이지 주인 ========================= -->
-						<li><input type="hidden" id='member_id' value="${member_id}"></input></li>
-						<!-- =========================================================== -->
-
-						<!-- ========================= 현재 표시 게시물 수 ========================= -->
-						<li><input type="hidden" id='stacks' value="10"></input></li>
-						<!-- =========================================================== -->
-
-						<!-- ========================= 총 게시물 수 ========================= -->
-						<li><input type="hidden" id='max_stack' value="0"></input></li>
-						<!-- =========================================================== -->
-					</ul>
+					<!-- ============== -->
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- End All Title Box -->
+	<div class="products-box" style="margin-bottom: -70px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-all text-center" style="margin-top: -600px;">
+						<h2 style="color: #ffffff;">${memberVO.member_nick}</h2>
+						<p style="color: #ffffff; padding-top: 100px;">여기에 자기소개 예쁜글씨 컬럼하나 추가하면됨</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-
-
-
-
+	<!-- ========================= 페이지 모드 ========================= -->
+	<li><input type="hidden" name='now_selected_list' value=''></input></li>
+	<!-- =========================================================== -->
+	<!-- ========================= 페이지 주인 ========================= -->
+	<li><input type="hidden" id='member_id' value="${member_id}"></input></li>
+	<!-- =========================================================== -->
+	<!-- ========================= 현재 표시 게시물 수 ========================= -->
+	<li><input type="hidden" id='stacks' value="1"></input></li>
+	<!-- =========================================================== -->
+	<!-- ========================= 총 게시물 수 ========================= -->
+	<li><input type="hidden" id='max_stack' value="0"></input></li>
+	<!-- =========================================================== -->
 	<!-- ========================= 게시물 목록 ========================= -->
 	<div id='mypage_board_list'></div>
 	<!-- ============================================================ -->

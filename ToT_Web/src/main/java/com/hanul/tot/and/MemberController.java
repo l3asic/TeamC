@@ -87,7 +87,7 @@ public class MemberController {
 
 			if (json != null) {
 				session.setAttribute("loginInfo", vo);
-				return "home";
+				return "redirect:home";
 			} else {
 				service.kakao_insert(vo);
 
@@ -151,7 +151,7 @@ public class MemberController {
 
 			if (json != null) {
 				session.setAttribute("loginInfo", vo);
-				return "home";
+				return "redirect:home";
 			} else {
 				service.naver_insert(vo);
 
@@ -229,7 +229,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginInfo");
-		return "home"; // 로그아웃시 루트(home.jsp)로 이동
+		return "redirect:home"; // 로그아웃시 루트(home.jsp)로 이동
 	}
 
 	// 로그인 처리 요청

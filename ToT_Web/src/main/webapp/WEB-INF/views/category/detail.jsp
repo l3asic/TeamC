@@ -101,6 +101,60 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 				</div>
 				<div class="col-xl-7 col-lg-7 col-md-6">
 					<div class="single-product-details">
+
+						<div style="position: absolute; left: 75%;">
+							<img src="images/like.png" alt="하트"
+								style="width: 64px; height: 64px" /> <br>
+							<c:choose>
+								<c:when test="${loginInfo eq null}">
+									<p id="count"></p>
+								</c:when>
+								<c:when test="${loginInfo.member_id eq memberVO.member_id}">
+									<p id="count"></p>
+								</c:when>
+								<c:when test="${matchingScore eq null}">
+									<p id="count"></p>
+								</c:when>
+								<c:when test="${matchingScore ne null}">
+									<p
+										style="position: absolute; left: 75px; top: -5px; font-size: 28px; font-weight: 700; color: #000000; float: left; padding: 10px 0px; display: inline;">
+										${matchingScore}</p>
+								</c:when>
+								<c:otherwise>TripOrTrap</c:otherwise>
+							</c:choose>
+						</div>
+						<style>
+#count {
+	position: absolute;
+	left: 75px;
+	top: -5px;
+	font-size: 28px;
+	font-weight: 700;
+	color: #000000;
+	float: left;
+	padding: 10px 0px;
+	display: inline;
+}
+</style>
+						<script>
+        let countBox = document.querySelector('#count'),
+            count = 0;
+        max_count ="${matchingScore}";
+        if(Number(max_count) > 0 ){
+        	max_count = Number(max_count);
+        }
+        let counting = setInterval(function () {
+            if (count == 65535) {
+                clearInterval(counting);
+                return false;
+            }
+       		  	count += 1;
+				countBox.innerHTML = new Intl.NumberFormat().format(count);
+        }, 20);
+    </script>
+
+
+
 						<h2>${vo.board_title }</h2>
 						<div>
 							<div class="add-to-btn" style="display: inline-block;">
@@ -125,14 +179,16 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 									<li>
 								</ul>
 							</div>
-							<div>
-								<p>${vo.board_content }</p>
+							<div class='original'>
+								${fn:replace(fn:replace(vo.board_content, lf, '<br>'),
+								crlf, '<br>')}
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row" style="width: 43%; margin: 0 auto;">
+			<div class="row" style="width: 100%; margin: 0 auto;">
 				<div class="col my-5">
 					<div class="card card-outline-secondary my-4">
 						<div
@@ -180,9 +236,9 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 
 											</div>
 											<!-- == 삭제 == -->
-											<c:if test="${loginInfo.member_id eq reply.member_id}">
+											<c:if test="${loginInfo.member_id eq reply.member_id} or loginInfo.member_grade eq 'master' ">
 												<span style=""><a
-													style="font-size: 10px; color: #666666; float: right; padding: 20px 0px; position: absolute; left: 88%; "
+													style="font-size: 10px; color: #666666; float: right; padding: 20px 0px; position: absolute; left: 96%;"
 													href="replydelete?board_sn=${vo.board_sn }&reply_sn=${reply.reply_sn}&member_id=${reply.member_id }">
 														삭제 </a></span>
 											</c:if>
@@ -190,18 +246,21 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 										</div>
 										<div class="media-body">
 											<!-- == 사진 == -->
-											<div>
+											<div style="display: flex;">
 												<c:if test="${! empty reply.picture_filepath }">
 													<img class="d-block"
 														style="width: 400px; height: 300px; margin: 15px 0px;"
 														src="${reply.picture_filepath }" alt="NO IMAGE">
 												</c:if>
+												<!-- == 본문 == -->
+												<div style="width: 500px; padding: 20px;">
+													<p>${reply.reply_content }</p>
+												</div>
+												<!-- ========= -->
 											</div>
 											<!-- ========= -->
 
-											<!-- == 본문 == -->
-											<p>${reply.reply_content }</p>
-											<!-- ========= -->
+
 
 										</div>
 										<hr>
@@ -294,6 +353,15 @@ function like_regist() {
 }
 
 
+window.onload = function() {
+
+	var tag = "<p>"
+		+ $div.children('.original').html().replace(/<br>/g, '\n') + "</p>"
+	
+
+	}	
+	
+	
 
 
 </script>

@@ -19,11 +19,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 				<div class="col-lg-12">
 					<div class="table-main table-responsive">
 						<table class="table">
-							<!-- 							========================== board_sn =========================== -->
-							<!-- 							<form action="board_detail" method="post"> -->
-							<!-- 								<input type="text" name='board_sn' value=""></input> -->
-							<!-- 							</form> -->
-							<!-- 							============================================================ -->
 							<thead>
 								<tr>
 									<th id="whatCase_list">T E X T</th>
@@ -34,7 +29,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
 							<tbody>
 								<c:forEach items="${boardVO }" var="vo">
-
 
 									<tr style="height: 89px">
 										<th class="thumbnail-img"><c:if

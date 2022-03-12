@@ -69,7 +69,7 @@ delete from tbl_reply where reply_sn = #{reply_sn}
 	
 	<!-- 댓글 insert -->
 	<insert id="reply_insert" >
-insert into tbl_reply (reply_sn, reply_content, board_sn ,member_id ) values (seq_reply_sn.nextval,#{reply_content}, #{board_sn}, #{member_id} )
+insert into tbl_reply (reply_sn, reply_content, board_sn ,member_id ) values (#{reply_sn},#{reply_content}, #{board_sn}, #{member_id} )
 </insert>
 
 	<!-- 방명록 글 수정 저장 처리 -->

@@ -3,6 +3,8 @@
 
 <mapper namespace="mypage.mapper">
 
+
+
 <!-- 특정 사용자의 VO 조회 -->
 <select id="selectvo" resultType="member.MemberVO">
 SELECT
@@ -21,6 +23,15 @@ FROM
     tbl_member_info m
 WHERE
     member_id = #{member_id}
+</select>
+
+<!-- 특정 사용자의 작성 리뷰 조회 -->
+<select id="/mypage_list_timeline" resultType="chaminhwan.board.ReplyVO">
+select a.* , (select count(*) from tbl_likes likes where likes.board_sn = a.board_sn) reply_like
+from
+(select reply.* ,(select picture_filepath from tbl_board_picture picture where rownum=1 and picture.reply_sn = reply.reply_sn) picture_filepath
+from tbl_reply reply where member_id = #{member_id} order by reply_sn desc) a
+where picture_filepath is not null and ROWNUM <![CDATA[ <= ]]> #{stack}
 </select>
 
 <!-- 특정 사용자의 작성 게시물 조회 -->

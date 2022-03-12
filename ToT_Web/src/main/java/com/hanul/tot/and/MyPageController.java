@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import chaminhwan.board.BoardPage;
 import chaminhwan.board.BoardServiceImpl;
 import chaminhwan.board.BoardVO;
+import chaminhwan.board.ReplyVO;
 import common.CommonService;
 import common.MatchingVO;
 import common.chaminhwan;
@@ -63,7 +64,7 @@ public class MyPageController {
 			MatchingVO matchingVO = new MatchingVO();
 			matchingVO.setMy_member_id(my_memberVO.getMember_id());
 			matchingVO.setWhose_member_id(member_id);
-			String matchingScore = sql.selectOne("mbti.mapper.fitMBTI_user", matchingVO);
+			String matchingScore = sql.selectOne("mbti.mapper.matching_user", matchingVO);
 			model.addAttribute("matchingScore",matchingScore);
 			}
 		}
@@ -75,10 +76,21 @@ public class MyPageController {
 			throws IOException {
 		String path = req.getServletPath();
 		System.out.println(path);
-		List<BoardVO> list = sql.selectList("mypage.mapper." + path, vo);
-		model.addAttribute("boardVO", list);
+		
+		
+		if(path.equals("/mypage_list_timeline")) {
+			vo.setStack(vo.getStack() * 8);
+			List<ReplyVO> list = sql.selectList("mypage.mapper." + path, vo);
+			model.addAttribute("replyList", list);
+			return "zzchaminhwan00mypage/mypage_00_grid_stack";
+		}else {
+			vo.setStack(vo.getStack() * 10);
+			List<BoardVO> list = sql.selectList("mypage.mapper." + path, vo);
+			model.addAttribute("boardVO", list);
+			return "zzchaminhwan00mypage/mypage_00_list_stack";
+		}
 
-		return "zzchaminhwan00mypage/mypage_00_list_stack";
+		
 	}
 
 	
@@ -86,7 +98,7 @@ public class MyPageController {
 	@RequestMapping("/my_modify")
 	public String mypage_modify(String member_id, Model model, HttpSession session ,HttpServletRequest req) {
 		if(chaminhwan.isLoginedCheck(session) == false) {
-			return "home";
+			return "redirect:home";
 		}
 
 		MemberVO vo = sql.selectOne("mypage.mapper.member_info", member_id);

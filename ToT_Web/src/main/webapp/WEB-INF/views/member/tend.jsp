@@ -130,7 +130,6 @@ table td {text-align: center; }
 	<script type="text/javascript">
 	$(function() { 
 		if( $('input[name=tendVOchk]').val() != null ){
-		alert('아');
 // 		var mbti_tour = ${tendVO.mbti_tour};
 // 		var mbti_activity = ${tendVO.mbti_activity};
 // 		var mbti_festival =${tendVO.mbti_festival};

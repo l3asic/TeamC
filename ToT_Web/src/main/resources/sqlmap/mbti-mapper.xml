@@ -3,7 +3,8 @@
 
 <mapper namespace="mbti.mapper">
 
-<select id="fitMBTI_user" resultType="String">
+<!-- user끼리 매칭점수 -->
+<select id="matching_user" resultType="String">
 SELECT
     100 - ( abs(a.mbti_activity - b.mbti_activity) + abs(a.mbti_festival - b.mbti_festival) + abs(a.mbti_tour - b.mbti_tour) + abs(a.
     mbti_solo - b.mbti_solo) + abs(a.mbti_couple - b.mbti_couple) + abs(a.mbti_buddys - b.mbti_buddys) + abs(a.mbti_family - b.mbti_family) +
@@ -11,6 +12,17 @@ SELECT
 FROM
     ( SELECT * FROM tbl_mbti WHERE member_id = #{my_member_id} ) a,
     ( SELECT * FROM tbl_mbti WHERE member_id = #{whose_member_id} ) b
+</select>
+
+<!-- 여행지 매칭점수 -->
+<select id="matching_where" resultType="String">
+SELECT
+    100 - ( abs(a.mbti_activity - b.mbti_activity) + abs(a.mbti_festival - b.mbti_festival) + abs(a.mbti_tour - b.mbti_tour) + abs(a.
+    mbti_solo - b.mbti_solo) + abs(a.mbti_couple - b.mbti_couple) + abs(a.mbti_buddys - b.mbti_buddys) + abs(a.mbti_family - b.mbti_family) +
+    abs(a.mbti_price - b.mbti_price) + abs(a.mbti_sd - b.mbti_sd) + abs(a.mbti_io - b.mbti_io)  )* 2.5 AS matchscore
+FROM
+    ( SELECT * FROM tbl_mbti WHERE member_id = #{my_member_id} ) a,
+    ( SELECT * FROM tbl_mbti WHERE board_sn = #{where_board_sn} and rownum=1) b
 </select>
 
 <!--  -->

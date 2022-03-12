@@ -44,7 +44,7 @@ pageEncoding="UTF-8"%>
 	<%@include file="include/header.jsp"%>
 	<!-- End header  -->
 
-	
+
 
 
 
@@ -65,9 +65,24 @@ pageEncoding="UTF-8"%>
 					<c:forEach items="${vo_readcnt}" var="vo" varStatus="status">
 
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-					<p style=" font-weight: bolder;   z-index: 100;  position: absolute; background: #bdedff; color: white; top:30%;left: 45%; display: flex; font-size:30px;">  <img alt="하트" src="images/ic_cmh_eye.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo.board_read_cnt }</p>
-						<p style=" font-weight: bolder;   z-index: 100;  position: absolute; background: #bdedff; color: white; top: 61%;left: 54%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">${vo.function_like }</p>
-						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: #bdedff; color: white; top: 61%;left: 74%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">${vo.board_cnt_reply } </p>
+							<p
+								style="font-weight: bolder; z-index: 100; position: absolute; background: #; color: white; top: 30%; left: 45%; display: flex; font-size: 30px;">
+								<img alt="하트" src="images/ic_cmh_eye.png"
+									style="width: 35px; height: 35px; align-self: center;">&nbsp${vo.board_read_cnt
+								}
+							</p>
+							<p
+								style="font-weight: bolder; z-index: 100; position: absolute; background: #; color: white; top: 61%; left: 54%; display: flex; font-size: 30px;">
+								<img alt="하트" src="images/like.png"
+									style="width: 35px; height: 35px; align-self: center;">${vo.function_like
+								}
+							</p>
+							<p
+								style="font-weight: bolder; z-index: 100; position: absolute; background: #; color: white; top: 61%; left: 74%; display: flex; font-size: 30px;">
+								<img alt="하트" src="images/ic_cmh_comment.png"
+									style="width: 35px; height: 35px; align-self: center;">${vo.board_cnt_reply
+								}
+							</p>
 							<div class="shop-cat-box">
 								<c:if test="${vo.picture_filepath ne null}">
 									<img src="${vo.picture_filepath }" alt="여행지 대표사진"
@@ -87,15 +102,31 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 
+
 		<!-- 댓글수, 좋아요수 가장 많은 여행지 각1 -->
 		<div class="box-add-products">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12">
-					<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: ; color: white; top: 86%;left: 65%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_likes.function_like }</p>
-						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background: ; color: white; top: 86%;left: 81%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_likes.board_cnt_reply } </p>
-							<a class="btn hvr-hover"
-								href="detail.ca?board_sn=${vo_likes.board_sn }">${vo_likes.board_title } :: 좋아요가 가장많음</a>
+						<p
+							style="font-weight: bolder; z-index: 100; position: absolute; background:; color: white; top: 86%; left: 65%; display: flex; font-size: 30px;">
+							<img alt="하트" src="images/like.png"
+								style="width: 35px; height: 35px; align-self: center;">&nbsp${vo_likes.function_like
+							}
+						</p>
+						<p
+							style="font-weight: bolder; z-index: 100; position: absolute; background:; color: white; top: 86%; left: 81%; display: flex; font-size: 30px;">
+							<img alt="하트" src="images/ic_cmh_comment.png"
+								style="width: 35px; height: 35px; align-self: center;">&nbsp${vo_likes.board_cnt_reply
+							}
+						</p>
+						<!--== 마킹 ==-->
+						<!--=========-->
+						<div
+							style="background-repeat: no-repeat; background-position: center; width: 100%; height: 130px; background-image: url('images/ic_cmh_like.png');"></div>
+						<a class="btn hvr-hover" style="width: 100%;"
+							href="detail.ca?board_sn=${vo_likes.board_sn }">${vo_likes.board_title
+							}</a>
 						<div class="offer-box-products">
 							<c:if test="${vo_likes.picture_filepath ne null}">
 								<img src="${vo_likes.picture_filepath }" alt="여행지 대표사진"
@@ -107,23 +138,36 @@ pageEncoding="UTF-8"%>
 							</c:if>
 						</div>
 					</div>
-					
 					<div class="col-lg-6 col-md-6 col-sm-12">
-					<p style="font-weight: bolder;    z-index: 100;  position: absolute; background:; color: white; top: 86%;left: 65%; display: flex; font-size:30px;">  <img alt="하트" src="images/like.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_replycnt.function_like }</p>
-						<p style="font-weight: bolder;    z-index: 100;  position: absolute; background:; color: white; top: 86%;left: 81%; display: flex; font-size:30px;"><img alt="하트" src="images/ic_cmh_comment.png" style="width: 35px; height: 35px;align-self: center;">&nbsp${vo_replycnt.board_cnt_reply } </p>
-							<a class="btn hvr-hover"
-								href="detail.ca?board_sn=${vo_replycnt.board_sn }">${vo_replycnt.board_title} :: 댓글수가 가장많음</a>
-						<div class="offer-box-products">
-						
+						<p
+							style="font-weight: bolder; z-index: 100; position: absolute; background:; color: white; top: 86%; left: 65%; display: flex; font-size: 30px;">
+							<img alt="하트" src="images/like.png"
+								style="width: 35px; height: 35px; align-self: center;">&nbsp${vo_replycnt.function_like
+							}
+						</p>
+						<p
+							style="font-weight: bolder; z-index: 100; position: absolute; background:; color: white; top: 86%; left: 81%; display: flex; font-size: 30px;">
+							<img alt="하트" src="images/ic_cmh_comment.png"
+								style="width: 35px; height: 35px; align-self: center;">&nbsp${vo_replycnt.board_cnt_reply
+							}
+						</p>
+						<!--== 마킹 ==-->
+						<div
+							style="background-repeat: no-repeat; background-position: center; width: 100%; height: 130px; background-image: url('images/ic_cmh_comment.png');"></div>
+						<!--=========-->
+						<a class="btn hvr-hover" style="width: 100%;"
+							href="detail.ca?board_sn=${vo_replycnt.board_sn }">${vo_replycnt.board_title}</a>
+						<div class="offer-box-products" style="">
+
 							<c:if test="${vo_replycnt.picture_filepath ne null}">
 								<img src="${vo_replycnt.picture_filepath }" alt="여행지 대표사진"
-									style="width: 540px; height: 300px" />
+									style="width: 540px; height: 300px;" />
 							</c:if>
 							<c:if test="${vo_replycnt.picture_filepath eq null}">
 								<img src="images/no_image.png" alt="여행지 대표사진"
-									style="width: 540px; height: 300px" />
+									style="width: 540px; height: 300px;" />
 							</c:if>
-						
+
 						</div>
 					</div>
 				</div>
@@ -165,7 +209,7 @@ pageEncoding="UTF-8"%>
 	<script src="js/baguetteBox.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
-	<script src="js/custom.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,17 @@
+★category _ detail.jsp 파일에
+
+1. window.onload = function() 스크립트 추가
+  -> 128번째 줄 <p> ${vo.board_content}</p> 를   	<div class='original'>${fn:replace(fn:replace(vo.board_content, lf, '<br>'), crlf, '<br>')}</div>  로 변경
+
+2. 134번째 줄 댓글창 div 에 width: 43%에서 100% 로 변경
+
+
+
+★카테고리 컨트롤러(307번째줄부터 있는)  model.addAttribute("crlf", "\r\n");
+				     model.addAttribute("lf", "\n");			추가함
+
+
+
+3. 어제 선생님이 보내주신 카톡대로 사진 나올수있게 스크립트 구문 한줄 삭제
+=> 메인 슬라이드 이미지는 크기 조정해보려고 삭제하고 원래 샘플에 있던 사진 넣어놨음.
+사진 크기는 줄였는데 가운데로 가는거 안돼고, 옆으로 넘기는 버튼도 위치 조정이 안돼서 아직 해보는중임.

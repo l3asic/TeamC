@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="home.mapper">
+
+<!-- 조회수 많은순서 -->
+<select id="orderby_readcnt" resultType="chaminhwan.board.BoardVO">
+select tbl.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn  AND likes.board_sn = tbl.board_sn
+    ) function_like,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
+    ) board_cnt_reply,
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.board_sn = tbl.board_sn and rownum = 1
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
+    ) member_grade,
+    ( select count(*) from tbl_likes likes where likes.member_id = tbl.member_id
+    ) function_like
+from
+( select * from tbl_board 
+where board_class = 'tour' or board_class = 'activity' or board_class = 'festival'
+order by board_read_cnt desc ) tbl where rownum <![CDATA[ <= ]]> 3
+</select>
+
+<select id="orderby_likes" resultType="chaminhwan.board.BoardVO">
+select * from (
+select tbl.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn  AND likes.board_sn = tbl.board_sn
+    ) function_like,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
+    ) board_cnt_reply,
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+        WHERE picture.board_sn = tbl.board_sn and rownum = 1
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
+    ) member_grade
+from
+( select * from tbl_board 
+where board_class = 'tour' or board_class = 'activity' or board_class = 'festival' ) tbl 
+order by function_like desc ) where rownum =1 
+</select>
+
+<select id="orderby_replycnt" resultType="chaminhwan.board.BoardVO">
+select * from (
+select tbl.* ,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_likes likes
+        WHERE board.board_sn = likes.board_sn  AND likes.board_sn = tbl.board_sn
+    ) function_like,
+    ( SELECT COUNT(*) FROM tbl_board board, tbl_reply reply
+        WHERE board.board_sn = reply.board_sn AND reply.board_sn = tbl.board_sn
+    ) board_cnt_reply,
+    ( SELECT picture.picture_filepath FROM tbl_board_picture picture
+         WHERE picture.board_sn = tbl.board_sn and rownum = 1
+    ) picture_filepath,
+    ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
+    ) member_grade
+from
+( select * from tbl_board 
+where board_class = 'tour' or board_class = 'activity' or board_class = 'festival' ) tbl 
+order by board_cnt_reply desc) where rownum =1
+</select>
+	
+</mapper>

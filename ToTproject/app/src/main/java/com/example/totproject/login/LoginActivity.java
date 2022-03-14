@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-    Button login_btn_login;
+    RelativeLayout login_btn_login;
     EditText edit_login_id, edit_login_pw;
     TextView text_login_join, search_id, search_pw;
     Button kakaologin;
@@ -50,8 +51,8 @@ public class LoginActivity extends AppCompatActivity {
         text_login_join =findViewById(R.id.text_login_join);
         edit_login_id = findViewById(R.id.edit_login_id);
         edit_login_pw = findViewById(R.id.edit_login_pw);
-        search_id = findViewById(R.id.search_id);
-        search_pw = findViewById(R.id.search_pw);
+       // search_id = findViewById(R.id.search_id);
+       // search_pw = findViewById(R.id.search_pw);
         kakaologin = findViewById(R.id.kakaologin);
 
         // Naver 로그인

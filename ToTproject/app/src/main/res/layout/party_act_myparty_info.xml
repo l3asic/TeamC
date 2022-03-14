@@ -27,28 +27,78 @@
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"
                 app:titleTextColor="@color/black">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/ic_launcher_background" />
-
-                <TextView
-                    android:id="@+id/partyinfo_tv_title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        >
+                        <LinearLayout
+                            android:id="@+id/lin_info_home_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/radius"
+                            android:backgroundTint="@color/old_main_color"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginRight="20dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/logo_tot"
+                                android:scaleType="fitXY"
+                                android:layout_margin="5dp"/>
 
-                    android:layout_gravity="center"
-                    android:text="유동"
-                    android:textSize="40dp" />
+                        </LinearLayout>
 
-                <Button
 
-                    android:id="@+id/partyinfo_btn_burger"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/icon_main_burger" />
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/partyinfo_tv_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_marginRight="15dp"
+                            android:text="파티 이름"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/partyinfo_btn_burger"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/icon_main_burger"
+                            android:layout_margin="10dp"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -59,27 +109,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="95"
                 android:orientation="vertical"
-                android:background="@drawable/bottom_line">
-                <!--
-                                <ScrollView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="9">-->
+                android:background="@drawable/bottom_line"
+                android:backgroundTint="#BDEDFF">
 
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rec_party_chat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
                     android:nestedScrollingEnabled="false"/>
 
 
@@ -90,37 +138,46 @@
             </FrameLayout>
 
             <LinearLayout
-
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="15dp"
+                android:layout_height="20dp"
                 android:layout_weight="10"
-                android:layout_marginBottom="5dp"
-
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
-
-                <ImageView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_launcher_foreground" />
+                    android:layout_weight="1"/>
 
                 <EditText
                     android:id="@+id/edt_chat"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="5"
                     android:hint="채팅 내용을 입력하세요" />
 
-                <Button
-                    android:id="@+id/btn_chat_push"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_launcher_foreground" />
+                    android:layout_height="35dp"
+                    android:background="@drawable/radius"
+                    android:backgroundTint="@color/main_color"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="15dp"
+                    >
+                    <Button
+                        android:id="@+id/btn_chat_push"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/icon_send" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.totproject.R;
@@ -12,7 +14,7 @@ import com.example.totproject.R;
 public class MainBurger00Activity extends AppCompatActivity {
     int tabcode;
     TextView mainburger_menu_maintext;
-
+    ImageView category_img_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,13 @@ public class MainBurger00Activity extends AppCompatActivity {
         setContentView(R.layout.mainburger00_activity);
         mainburger_menu_maintext = findViewById(R.id.mainburger_menu_maintext);
         Intent getIntent = getIntent();
-
+        category_img_back = findViewById(R.id.category_img_back);
+        category_img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mainburger_menu_maintext.setText(getIntent().getStringExtra("tabText"));
 
 

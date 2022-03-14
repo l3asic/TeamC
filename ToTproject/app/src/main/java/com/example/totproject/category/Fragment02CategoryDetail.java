@@ -44,6 +44,7 @@ public class Fragment02CategoryDetail extends Fragment {
     TextView category_detail_tv_reply;
     TextView category_detail_tv_content;    // 추가
     TextView category_detail_like_count;    // 추가
+    TextView tv_reply_cnt;    // 추가
     ImageView like_ico;
     int boardSN;      // 추가
     BoardCommonVO vo = new BoardCommonVO();
@@ -73,6 +74,10 @@ public class Fragment02CategoryDetail extends Fragment {
         pager2 = rootView.findViewById(R.id.category_detail_pager);
         like_ico = rootView.findViewById(R.id.like_ico);
         category_detail_like_count = rootView.findViewById(R.id.category_detail_like_count);
+
+        tv_reply_cnt = rootView.findViewById(R.id.tv_reply_cnt);
+
+
 
         // 추가
         category_detail_tv_content = rootView.findViewById(R.id.category_detail_tv_content);
@@ -121,9 +126,8 @@ public class Fragment02CategoryDetail extends Fragment {
                 detail();
                 contentPictureList();
                 getLikeCount();
-                getReplyList();
-
-
+                int reply_cnt = getReplyList();
+                tv_reply_cnt.setText("+"+reply_cnt);
             }
         });
     }
@@ -148,7 +152,8 @@ public class Fragment02CategoryDetail extends Fragment {
         }
     }
     /* =============================================================== */
-    public void getReplyList() {
+    public int getReplyList() {
+        int reply_cnt = 0;
         commonAsk = new CommonAsk("list_reviewpath");
         commonAsk.params.add(new CommonAskParam("board_sn", String.valueOf(boardSN)));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
@@ -160,9 +165,11 @@ public class Fragment02CategoryDetail extends Fragment {
             layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(adapter);
+            reply_cnt = getList.size();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return reply_cnt;
     }
     /* =============================================================== */
     public void contentPictureList() {

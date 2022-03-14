@@ -13,10 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -270,7 +266,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="준비물 체크리스트"
-                        android:textSize="24dp" />
+                        android:textSize="24dp"
+                        android:visibility="gone"/>
 
                     <!-- check_list_item -->
                     <androidx.recyclerview.widget.RecyclerView
@@ -299,7 +296,7 @@
                         android:background="@drawable/bottom_line"
                         android:gravity="center"
                         android:paddingBottom="10dp"
-                        android:text="240만원 유동" />
+                        android:text="240000" />
                 </LinearLayout>
 
                     <Button

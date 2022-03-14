@@ -44,6 +44,7 @@ import com.bumptech.glide.Glide;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.login.TendencyActivity;
 import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
@@ -203,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
         TextView main_burger_tv_logout = nav_headerview.findViewById(R.id.main_burger_tv_logout);
 
 
+        // 로그아웃 버튼 클릭시
         main_burger_tv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         main_burger_mbti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChangeActivity(TendencyActivity01.class);
+                ChangeActivity(TendencyActivity.class);
             }
         });
 
@@ -347,6 +349,7 @@ public class MainActivity extends AppCompatActivity {
                     Date date = new Date();
                     Toast.makeText(MainActivity.this, "버전정보 확인 : " + date, Toast.LENGTH_LONG).show();
                 }
+                item.setChecked(false);
                 return true;
             }
         });
@@ -469,13 +472,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("tabcode", tabcode);
         intent.putExtra("tabText", tabText);
         startActivity(intent);
-        finish();
+
     }
 
     public void ChangeActivity(Class nextClass) {
         Intent intent = new Intent(MainActivity.this, nextClass);
         startActivity(intent);
-        finish();
+
     }
 
     public void goSplash() {
@@ -520,7 +523,8 @@ public class MainActivity extends AppCompatActivity {
         memberDTO.setMember_id(Logined.member_id);
         memberDTO.setPicture_filepath(Logined.picture_filepath);
     intent.putExtra("memberDTO",memberDTO);
-    startActivity(intent);}
+    startActivity(intent);
+    }
 
     public void toastCheck(){
         Toast.makeText(this, "toastCheck", Toast.LENGTH_SHORT).show();

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.totproject.R;
+import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
 
 
@@ -46,8 +47,9 @@ public class Fragment04PartyTab extends Fragment {
 
         create_party.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                click_partytab(2);
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), PartyCreateActivity.class);
+                startActivity(intent);
             }
         });
 

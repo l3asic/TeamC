@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainburgeractivity.MainBurger01NoticeFg">
+    tools:context=".mainburgeractivity.MainBurger01NoticeFg"
+    android:background="#E8E8E8">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:layout_gravity="center_horizontal"
-       android:layout_width="wrap_content"
-       android:id="@+id/notice_list"
-tools:listitem="@layout/mainburger01_notice_fg_item"
-       android:layout_height="wrap_content">
-
-   </androidx.recyclerview.widget.RecyclerView>
+   <ExpandableListView
+       android:layout_marginTop="1dp"
+       android:id="@+id/expdListView"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       >
+   </ExpandableListView>
 
 </FrameLayout>

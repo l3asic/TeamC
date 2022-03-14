@@ -37,9 +37,11 @@ public class PartyMemberManageActivity extends AppCompatActivity {
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
-    ImageView imgv_partleader_pic;
+    ImageView imgv_partyleader_pic;
     TextView tv_partyleader_name;
     Button btn_party_memberdelete;
+
+    LinearLayout lin_party_memberdelete, lin_manage_title;
 
 
 
@@ -49,9 +51,11 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         setContentView(R.layout.party_act_membermanage);
 
         rec_member_list = findViewById(R.id.rec_member_list);
-        imgv_partleader_pic =findViewById(R.id.imgv_partleader_pic);
+        imgv_partyleader_pic =findViewById(R.id.imgv_partyleader_pic);
         tv_partyleader_name =findViewById(R.id.tv_partyleader_name);
         btn_party_memberdelete =findViewById(R.id.btn_party_memberdelete);
+        lin_party_memberdelete =findViewById(R.id.lin_party_memberdelete);
+        lin_manage_title =findViewById(R.id.lin_manage_title);
 
 
 
@@ -65,11 +69,9 @@ public class PartyMemberManageActivity extends AppCompatActivity {
             for (int i =0; i<member_list.size(); i++){
                 // 파티장 영역 세팅
                 if (member_list.get(i).getMemberid().equals(plDTO.getParty_leader())){
-                    // @@@ 이미지 세팅 세팅해야함, 멤버 DTO라 이미지 주소없음
-                    Glide.with(PartyMemberManageActivity.this).load(member_list.get(i).getPicture_filepath()).into(imgv_partleader_pic);
+                    Glide.with(PartyMemberManageActivity.this).load(member_list.get(i).getPicture_filepath()).into(imgv_partyleader_pic);
                     tv_partyleader_name.setText(member_list.get(i).getMemberid());
                     member_list.remove(i);  // 파티장 정보 세팅하고 파티장리스트는 지워줌 (멤버에 안들어가게)
-
                 }
             }
 
@@ -85,10 +87,18 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
+        // 제목 클릭시 새로고침
+        lin_manage_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();//인텐트 종료
+                overridePendingTransition(0, 0);//인텐트 효과 없애기
+                Intent intent = getIntent(); //인텐트
+                startActivity(intent); //액티비티 열기
+                finish();
+                overridePendingTransition(0, 0);//인텐트 효과 없애기
+            }
+        });
 
 
 
@@ -115,14 +125,14 @@ public class PartyMemberManageActivity extends AppCompatActivity {
 
 
 
-    // @@@@@ 롱 온클릭 삭제 영역
+    // 롱 온클릭 삭제 영역
     public void test(PartyListDTO plDTO){
 
 
         // 체크박스 다나오게하는거
         for(int i  = 0 ; i< rec_member_list.getChildCount(); i++){
             PartymemberManageAdapter.Viewholder viewholder = (PartymemberManageAdapter.Viewholder) rec_member_list.findViewHolderForAdapterPosition(i);
-            viewholder.chk_member_delete.setVisibility(View.VISIBLE);
+            viewholder.lin_chk_box.setVisibility(View.VISIBLE);
 
         }
 
@@ -146,8 +156,6 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         String data = gson.toJson(list);
         commonAsk.params.add(new CommonAskParam("list" , data));
         commonAsk.params.add(new CommonAskParam("party_sn" , plDTO.getParty_sn()+""));
-
-
 
         InputStream in = CommonMethod.excuteAsk(commonAsk);
 

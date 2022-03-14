@@ -60,15 +60,6 @@ public class MainBurger01NoticeFg_backup extends Fragment {
 
             list.add(vo);
         }
-        notice_rc_view = v.findViewById(R.id.notice_list);
-
-
-        LinearLayoutManager lmanager = new LinearLayoutManager(
-                context, RecyclerView.VERTICAL, false);
-        NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
-
-        notice_rc_view.setLayoutManager(lmanager);
-        notice_rc_view.setAdapter(adapter);
 
         //manager.setOrientation(LinearLayoutManager.VERTICAL);
 

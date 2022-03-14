@@ -6,81 +6,166 @@
     android:orientation="vertical"
     tools:context=".mainburgeractivity.MainBurger02ServiceFg">
 
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_bg_imgv">
+
+        <ImageView
+            android:id="@+id/imgv_servicemain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/service_image"
+            android:scaleType="fitXY" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="bottom|center"
+            android:textColor="#F1F1F1"
+            android:fontFamily="@font/haenamfont"
+            android:textSize="20dp"
+            android:text="ToT 고객센터" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="#7D7D7D" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/linear_service1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_article_24"/>
         <TextView
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:gravity="center_vertical"
             android:text="자주 묻는 질문"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/service_btn1"
-            android:layout_width="75dp"
-            android:layout_height="75dp" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear_service2"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_people_outline_24"/>
         <TextView
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:gravity="center_vertical"
             android:text="1대1 문의"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/service_btn2"
-            android:layout_width="75dp"
-            android:layout_height="75dp" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear_service3"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_email_24"/>
         <TextView
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:gravity="center_vertical"
             android:text="이메일 문의"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/service_btn3"
-            android:layout_width="75dp"
-            android:layout_height="75dp" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear_service4"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_phone_forwarded_24"/>
         <TextView
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:gravity="center_vertical"
             android:text="전화 문의"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/service_btn4"
-            android:layout_width="75dp"
-            android:layout_height="75dp" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
     </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

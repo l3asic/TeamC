@@ -36,7 +36,7 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
     EditText edt_party_detail, edt_party_tag;
     CheckBox checkbox_party_private;
     Button btn_party_update, btn_party_tag, btn_create_party_add;
-    LinearLayout lin_display_tags;
+    LinearLayout lin_display_tags, lin_temp_checkbox;
     ImageView imgv_party_pic;
 
     public int reqGcode = 1004;
@@ -66,6 +66,8 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
         tv_party_tag3 = findViewById(R.id.tv_party_tag3);
         imgv_party_pic = findViewById(R.id.imgv_party_pic);
         btn_create_party_add = findViewById(R.id.btn_create_party_add);
+        lin_temp_checkbox = findViewById(R.id.lin_temp_checkbox);
+
 
 
         Intent getIntent = getIntent();
@@ -78,11 +80,13 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
 
         if(plDTO.getParty_private().equals("y")){
             checkbox_party_private.setChecked(true);
+            lin_temp_checkbox.setVisibility(View.GONE);
             lin_display_tags.setVisibility(View.VISIBLE);
             tv_party_tag1.setText(plDTO.getParty_tag1());
             tv_party_tag2.setText(plDTO.getParty_tag2());
             tv_party_tag3.setText(plDTO.getParty_tag3());
         }else{
+            lin_temp_checkbox.setVisibility(View.VISIBLE);
             checkbox_party_private.setChecked(false);
             lin_display_tags.setVisibility(View.GONE);
         }
@@ -92,9 +96,11 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (checkbox_party_private.isChecked()){
+                    lin_temp_checkbox.setVisibility(View.GONE);
                     lin_display_tags.setVisibility(View.VISIBLE);
                 }else{
                     lin_display_tags.setVisibility(View.GONE);
+                    lin_temp_checkbox.setVisibility(View.VISIBLE);
                 }
 
             }
@@ -115,7 +121,7 @@ public class UpdateMyPartyActivity extends AppCompatActivity {
 
 
 
-        // 파티정보 수정역역
+        // 파티정보 수정영역
 
 
 

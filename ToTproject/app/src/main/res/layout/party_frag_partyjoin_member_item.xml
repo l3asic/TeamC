@@ -13,13 +13,24 @@
         android:layout_margin="20dp"
         android:background="@drawable/radius">
 
-        <ImageView
-            android:id="@+id/imgv_member_pic"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_launcher_foreground"
-            android:background="@drawable/radius"/>
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_radius"
+            android:backgroundTint="#BDEDFF"
+            android:layout_margin="1dp">
+
+            <ImageView
+                android:id="@+id/imgv_member_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="@drawable/radius"/>
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

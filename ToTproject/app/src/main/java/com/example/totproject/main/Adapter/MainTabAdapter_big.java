@@ -89,8 +89,8 @@ public class MainTabAdapter_big extends RecyclerView.Adapter<MainTabAdapter_big.
         //ItemView세팅되고 나서 list <-> item.xml 연결해서 세팅하는부분
         public void bind(@NonNull Viewholder holder, int position, FragmentManager manager) {
             //내용 바꾸기 처리
-            if ( list.get(position).getBoard_filepath() != null){
-                Glide.with(context).load(list.get(position).getBoard_filepath()).into(hometab_big_img);
+            if ( list.get(position).getPicture_filepath() != null){
+                Glide.with(context).load(list.get(position).getPicture_filepath()).into(hometab_big_img);
             }
             holder.hometab_big_tv_title.setText(list.get(position).getBoard_title() + "");
 

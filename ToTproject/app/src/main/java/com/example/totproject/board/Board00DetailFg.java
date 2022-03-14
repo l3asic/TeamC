@@ -47,7 +47,7 @@ public class Board00DetailFg extends Fragment {
     RelativeLayout board_user_detail_layout_ismine, board_user_detail_relative_reply;
 
     ImageView board_user_detail_imgv_profile, board_user_detail_img_reply_submit, board_user_detail_img_like;
-    TextView board_user_detail_tv_member_id, board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt, board_user_detail_tv_board_date_create,board_user_detail_tv_board_class;
+    TextView board_user_detail_tv_member_id, board_user_detail_tv_replycnt, board_user_detail_tv_like_cnt, board_user_detail_tv_board_date_create, board_user_detail_tv_board_class;
     EditText board_user_detail_edt_board_title, board_user_detail_edt_board_content;
     Button board_act_btn_left, board_act_btn_right;
     EditText board_user_detail_edt_reply_input;
@@ -121,7 +121,8 @@ public class Board00DetailFg extends Fragment {
         board_user_detail_edt_board_content = v.findViewById(R.id.board_user_detail_edt_board_content);
         board_user_detail_tv_replycnt = v.findViewById(R.id.board_user_detail_tv_replycnt);
         board_user_detail_tv_member_id = v.findViewById(R.id.board_user_detail_tv_member_id);
-        board_user_detail_tv_member_id.setText(vo.getMember_id()+"\n["+vo.getMember_grade()+"]");
+        board_user_detail_tv_member_id.setText(vo.getMember_id() + "\n[" + vo.getMember_grade() + "]");
+        String member_grade = vo.getMember_grade();
         board_act_btn_left = getActivity().findViewById(R.id.board_act_btn_left);
         board_act_btn_right = getActivity().findViewById(R.id.board_act_btn_right);
         board_user_detail_layout_replybar = v.findViewById(R.id.board_user_detail_layout_replybar);
@@ -138,14 +139,14 @@ public class Board00DetailFg extends Fragment {
             board_user_detail_edt_board_title.setText(vo.getBoard_title() + "");
             board_user_detail_edt_board_content.setText(vo.getBoard_content() + "");
             board_user_detail_tv_replycnt.setText(vo.getBoard_cnt_reply() + "");
-            board_user_detail_tv_board_date_create.setText(vo.getBoard_date_create()+"");
-            board_user_detail_tv_board_class.setText(vo.getBoard_class()+"");
+            board_user_detail_tv_board_date_create.setText(vo.getBoard_date_create() + "");
+            board_user_detail_tv_board_class.setText(vo.getBoard_class() + "");
             boardSN = vo.getBoard_sn();
             detail();
             /* ====================================================================================== */
 
             /* ================================= 내 게시물일 경우에만 수정/삭제 세팅, 글 수정 모드 ========================================= */
-            if (vo.getMember_id().equals(Logined.member_id)) {
+            if (vo.getMember_id().equals(Logined.member_id) || "master".equals(Logined.member_grade) || "admin".equals(Logined.member_grade)) {
                 board_user_detail_layout_ismine = v.findViewById(R.id.board_user_detail_layout_ismine);
                 board_user_detail_linear_update = v.findViewById(R.id.board_user_detail_linear_update);
                 board_user_detail_linear_delete = v.findViewById(R.id.board_user_detail_linear_delete);
@@ -188,7 +189,7 @@ public class Board00DetailFg extends Fragment {
                 board_act_btn_right.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        vo.setBoard_content(board_user_detail_edt_board_content.getText()+"");
+                        vo.setBoard_content(board_user_detail_edt_board_content.getText() + "");
                         if (board_update(vo) > 0) {
                             manager.beginTransaction().replace(R.id.board_container_top, new Board00DetailFg(context, manager, vo)).commit(); //자기 자신을 불러서 현재 화면을 새로고침 한다는 뜻ㅎ
                             viewMode();

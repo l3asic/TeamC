@@ -106,7 +106,7 @@ String whose_member_id;
             boardtab_fab_write = v.findViewById(R.id.boardtab_fab_write);
             boardtab_fab_mypage = v.findViewById(R.id.boardtab_fab_mypage);
             boardtab_fab_main = v.findViewById(R.id.boardtab_fab_main);
-            boardtab_fab_search.setVisibility(View.VISIBLE);
+//            boardtab_fab_search.setVisibility(View.VISIBLE);
             boardtab_fab_write.setVisibility(View.VISIBLE);
             boardtab_fab_mypage.setVisibility(View.VISIBLE);
             boardtab_fab_main.setVisibility(View.VISIBLE);
@@ -167,16 +167,16 @@ String whose_member_id;
     private void showfabMenu() {
         isFabOpen = true;
         boardtab_fab_mypage.animate().translationY(-getResources().getDimension(R.dimen.up_1state));
-        boardtab_fab_search.animate().translationY(-getResources().getDimension(R.dimen.up_2state));
-        boardtab_fab_write.animate().translationY(-getResources().getDimension(R.dimen.up_3state));
+        boardtab_fab_write.animate().translationY(-getResources().getDimension(R.dimen.up_2state));
+        boardtab_fab_search.animate().translationY(-getResources().getDimension(R.dimen.up_3state));
 
     }
 
     private void closefabMenu() {
         isFabOpen = false;
         boardtab_fab_mypage.animate().translationY(0);
-        boardtab_fab_search.animate().translationY(0);
         boardtab_fab_write.animate().translationY(0);
+        boardtab_fab_search.animate().translationY(0);
 
     }
 

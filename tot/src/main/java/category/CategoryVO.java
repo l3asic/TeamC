@@ -9,9 +9,15 @@ public class CategoryVO {
     private String board_date_create, picture_filepath , member_nick;
     private int picture_file_count;
     private int board_cnt_reply, function_like;
-    
+    private String member_grade; //글쓴이등급
 	public int getBoard_sn() {
 		return board_sn;
+	}
+	public String getMember_grade() {
+		return member_grade;
+	}
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
 	}
 	public void setBoard_sn(int board_sn) {
 		this.board_sn = board_sn;

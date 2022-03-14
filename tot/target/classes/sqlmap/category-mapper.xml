@@ -106,7 +106,8 @@
 	
 	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
 		select 
-			a.*,
+			a.*, (select member_grade from tbl_member_info where member_id = a.member_id) member_grade
+			,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
 			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like

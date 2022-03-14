@@ -44,6 +44,7 @@ import com.bumptech.glide.Glide;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
+import com.example.totproject.login.TendencyActivity;
 import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
@@ -223,13 +224,13 @@ public class MainActivity extends AppCompatActivity {
         main_burger_mbti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChangeActivity(TendencyActivity01.class);
+                ChangeActivity(TendencyActivity.class);
             }
         });
 
 
 
-        
+
         main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
         if (Logined.picture_filepath != null) {

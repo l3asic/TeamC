@@ -23,7 +23,7 @@ from tbl_reply reply where board_sn = #{paramSn} order by reply_sn desc
 </select>
 
 <insert id="reply_insert" >
-insert into tbl_reply (reply_content, board_sn ,member_id ) values (#{reply_content}, #{board_sn}, #{member_id} )
+insert into tbl_reply (reply_sn,reply_content, board_sn ,member_id ) values (seq_reply_sn.nextval,#{reply_content}, #{board_sn}, #{member_id} )
 </insert>
 
 

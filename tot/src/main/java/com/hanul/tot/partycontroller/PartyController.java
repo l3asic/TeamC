@@ -65,8 +65,7 @@ public class PartyController {
 		try {
 
 			pDAO.insertParty(vo);
-
-			// 이걸 안드로이드에서 가져감 // vo = sql.selectOne("mainburger.mapper.selectThisVs");
+			
 			if (party_pic != null) {
 				System.out.println("Null 아님 파일 들어옴");
 				String path = service.fileupload("and", party_pic, session);

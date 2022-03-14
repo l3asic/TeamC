@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab(MainActivity.this, manager);
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
         Fragment05IotTab iotTab_frag = new Fragment05IotTab();
-        Fragment00Empty empty_frag = new Fragment00Empty();
+
         //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         /* =================================== 바텀메뉴 =================================== */
        // main_tv_acttitle = findViewById(R.id.main_tv_acttitle);

@@ -7,13 +7,15 @@ public class IotDTO implements Serializable {
     String member_id;
     double iot_x, iot_y;
     String iot_day, iot_time;
+    int iot_onoff;
 
-    public IotDTO(String member_id, double iot_x, double iot_y, String iot_day, String iot_time) {
+    public IotDTO(String member_id, double iot_x, double iot_y, String iot_day, String iot_time, int iot_onoff) {
         this.member_id = member_id;
         this.iot_x = iot_x;
         this.iot_y = iot_y;
         this.iot_day = iot_day;
         this.iot_time = iot_time;
+        this.iot_onoff = iot_onoff;
     }
 
     public String getMember_id() {
@@ -55,4 +57,13 @@ public class IotDTO implements Serializable {
     public void setIot_time(String iot_time) {
         this.iot_time = iot_time;
     }
+
+    public int getIot_onoff() {
+        return iot_onoff;
+    }
+
+    public void setIot_onoff(int iot_onoff) {
+        this.iot_onoff = iot_onoff;
+    }
 }
+

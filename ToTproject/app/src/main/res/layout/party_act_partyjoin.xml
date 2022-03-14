@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".party.PartyJoinActivity"
     android:orientation="vertical"
+    android:background="#eeeeee"
     >
 
     <FrameLayout
@@ -29,7 +30,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@drawable/bottom_line"
+                android:background="#232344"
                 android:orientation="horizontal"
                 >
 
@@ -43,7 +44,8 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:src="@drawable/less_than"
+                        android:background="@drawable/ic_baseline_arrow_back_24"
+                        android:backgroundTint="@color/white"
                         android:layout_margin="10dp"/>
 
                 </LinearLayout>
@@ -59,7 +61,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="파티 이름 1번"
-                        android:textSize="20dp"/>
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -85,12 +89,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/top_radius"
-                    android:backgroundTint="#2ba0da"
+                    android:backgroundTint="#232344"
                     android:layout_marginHorizontal="20dp"
                     android:gravity="center"
                     android:layout_marginTop="250dp"
                     android:text="파티 이름입니다."
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:id="@+id/tv_partyjoin_detail"
@@ -148,8 +153,10 @@
                 android:text="가입된 파티 멤버(5)"
                 android:textStyle="bold"
                 android:textSize="16dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/both_line"/>
+                android:background="@drawable/both_line"
+                android:backgroundTint="#232344"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

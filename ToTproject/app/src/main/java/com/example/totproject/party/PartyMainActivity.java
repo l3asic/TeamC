@@ -44,6 +44,8 @@ public class PartyMainActivity extends AppCompatActivity {
 
    TextView tv_party_title;
     FloatingNavigationView nav_view;
+
+    LinearLayout lin_party_main_back;
   /*  String[] mainColors = {
 
             "#2BA0DA",
@@ -59,6 +61,14 @@ public class PartyMainActivity extends AppCompatActivity {
         setContentView(R.layout.party_act_main); //이 엑스엠엘에서
         int tabcode = 0 ;
         tv_party_title = findViewById(R.id.tv_party_title);
+        lin_party_main_back = findViewById(R.id.lin_party_main_back);
+
+        lin_party_main_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         OpenpartyListFragment openparty_list_frag = new OpenpartyListFragment(PartyMainActivity.this);

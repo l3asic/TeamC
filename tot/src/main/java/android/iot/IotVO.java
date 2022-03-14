@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 public class IotVO implements Serializable {
 
-    String member_id;
+	String member_id;
     double iot_x, iot_y;
     String iot_day, iot_time;
+    int iot_onoff;
 
-    
+   
 
     public String getMember_id() {
         return member_id;
@@ -49,4 +50,13 @@ public class IotVO implements Serializable {
     public void setIot_time(String iot_time) {
         this.iot_time = iot_time;
     }
+
+    public int getIot_onoff() {
+        return iot_onoff;
+    }
+
+    public void setIot_onoff(int iot_onoff) {
+        this.iot_onoff = iot_onoff;
+    }
 }
+

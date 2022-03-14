@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -35,8 +34,6 @@ public class PlanInfo02Fragment extends Fragment {
     Gson gson = new Gson();
     ArrayList<PlanInfoDTO> list = new ArrayList<>();
 
-    LinearLayout lin_no_plandetail;
-
 
     public PlanInfo02Fragment(Context context) { //컨텍슽르르 메인에서부터 가져옴
         this.context = context;
@@ -51,8 +48,6 @@ public class PlanInfo02Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.partyplan_frag_planinfo02, container, false);
-
-        lin_no_plandetail = view.findViewById(R.id.lin_no_plandetail);
 
         // 디비 연결 후 리스트 리턴
         showPlanInfo(planDTO.getPlan_sn());
@@ -84,8 +79,6 @@ public class PlanInfo02Fragment extends Fragment {
                     flag ++ ;
                 }
             }
-        }else{
-            lin_no_plandetail.setVisibility(View.VISIBLE);
         }
 
 
@@ -95,7 +88,7 @@ public class PlanInfo02Fragment extends Fragment {
             PlanInfoAdapter adapter = new PlanInfoAdapter(getContext() , inflater, item_list);
             expdListView.setAdapter(adapter);
         }else if(list.size() == 0){
-            Toast.makeText(getActivity(), "파티 플랜아이템이 없습니다 (임시)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "파티 플랜이 없습니다 (임시)", Toast.LENGTH_SHORT).show();
         }
 
 

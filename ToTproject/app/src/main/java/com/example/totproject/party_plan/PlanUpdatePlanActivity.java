@@ -47,7 +47,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
     PartyListDTO plDTO = new PartyListDTO();
     PlanlistDTO planlistDTO ;
 
-    LinearLayout lin_update_plan_back;
 
 
     final int DIALOG_REQ = 1000;
@@ -66,8 +65,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
 
     int party_sn, plan_sn;
-
-    String temp_wrtier = "";
 
 
     CommonAsk commonAsk;
@@ -93,13 +90,9 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
 
         edt_invite_member =findViewById(R.id.edt_invite_member);
         btn_plan_invite =findViewById(R.id.btn_plan_invite);
-        lin_update_plan_back =findViewById(R.id.lin_update_plan_back);
-
 
         Intent get_intent = getIntent();
         planlistDTO = (PlanlistDTO) get_intent.getSerializableExtra("planlistDTO");
-
-        temp_wrtier = planlistDTO.getPlan_writer();
 
         edt_plan_name.setText(planlistDTO.getPlan_name());
         tv_plan_startdate.setText(planlistDTO.getPlan_startdate());
@@ -137,15 +130,6 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
         rec_memberlist.setLayoutManager(layoutManager);
         rec_memberlist.setAdapter(adapter);
 
-        // 뒤로가기 버튼클릭시
-        lin_update_plan_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-
 
         // datepicker 영역
         // 출발날짜 데이트피커로 세팅
@@ -158,6 +142,9 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlanUpdatePlanActivity.this, DatePickerActivity.class);
                     startActivityForResult(intent ,DIALOG_REQ );
                 }
+
+
+
 
 
             }
@@ -219,7 +206,7 @@ public class PlanUpdatePlanActivity extends AppCompatActivity {
                         leader_pic,
                         party_sn,
                         edt_plan_name.getText()+"",
-                        planlistDTO.getPlan_writer(),
+                        Logined.member_id,
                         start_date,
                         end_date,
                         edt_plan_location.getText()+"",

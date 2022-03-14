@@ -43,17 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            >
-            <Button
-                android:id="@+id/btn_plan_create"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:background="@drawable/ic_baseline_save_alt_24"
-                android:backgroundTint="@color/white"
-                />
-        </LinearLayout>
+            />
 
     </LinearLayout>
 
@@ -66,19 +56,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#eeeeee"
-
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
-
+            android:padding="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="* 은 필수 입력입니다."
-                android:layout_gravity="right"
+                android:text="여행 제목은 필수 입력입니다."
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 />
 
 
@@ -96,7 +82,7 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text=" * 여행 제목         :" />
+                    android:text=" * 여행 제목 " />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -111,7 +97,7 @@
                             android:id="@+id/edt_plan_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="뉴욕 여행"
+                            android:hint="필수 입력란 입니다. "
                             android:background="@color/white"
                             android:textSize="14dp" />
                     </LinearLayout>
@@ -122,22 +108,11 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="여행 기간"
-                android:textSize="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"/>
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -158,8 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:hint="출발 일자 선택"
-                        android:textSize="14dp"/>
+                        android:hint="2022-03-18"/>
 
 
 
@@ -171,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -194,8 +168,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="09 : 30"
-                        android:textSize="14dp"/>
+                        android:hint="09:40"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -204,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -227,7 +200,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="복귀 일자 선택" />
+                        android:hint="ex) 20220321" />
 
 
                 </LinearLayout>
@@ -236,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -259,26 +232,16 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="19 : 00"
-                        android:textSize="14dp"/>
+                        android:hint="ex) 19:30" />
 
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="장소"
-                android:textSize="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -299,8 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:hint="뉴욕"
-                        android:textSize="14dp"/>
+                        android:hint="ex) 프랑스 파리" />
 
                 </LinearLayout>
 
@@ -311,7 +273,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -331,8 +293,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="인천 공항"
-                        android:textSize="14dp"/>
+                        android:hint="ex) 농성역에서 모이기" />
 
                 </LinearLayout>
 
@@ -343,7 +304,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
+                android:background="@drawable/radius_clean"
                 android:orientation="horizontal">
 
                 <TextView
@@ -351,7 +312,41 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="   숙소    : " />
+                    android:text="  참여 멤버"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/radius_clean"
+                android:padding="20dp"
+                android:orientation="vertical">
+                <!-- ↓ plan_member_list 출력 공간-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_memberlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_clean"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=" * 숙소    : " />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -365,42 +360,13 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="뉴욕 호텔"
-                        android:textSize="14dp"/>
+
+                        android:hint="ex) 파리 호텔"/>
 
                 </LinearLayout>
 
 
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="5dp"
-                android:text="* 플랜에 참여할 파티멤버를 선택해주세요"
-                android:textSize="14dp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_clean2"
-                android:padding="20dp"
-                android:orientation="vertical">
-                <!-- ↓ plan_member_list 출력 공간-->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rec_memberlist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    />
-            </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -426,24 +392,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/radius_clean2"
-                android:orientation="horizontal"
-                >
+                android:background="@drawable/radius_clean"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="   예상 경비    : " />
+                    android:text=" * 예상 경비    : " />
 
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    >
+                    android:gravity="center">
 
                     <EditText
                         android:id="@+id/edt_plan_cost"
@@ -451,14 +415,20 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="30000"
-                        android:textSize="14dp"/>
+                        android:hint="ex) 2400000" />
                 </LinearLayout>
 
 
             </LinearLayout>
 
-
+            <Button
+                android:id="@+id/btn_plan_create"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/radius"
+                android:text="플랜 저장하기" />
 
         </LinearLayout>
 

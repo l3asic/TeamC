@@ -77,21 +77,10 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.Viewho
             if ( list.get(position).getPicture_filepath() != null){
                 Glide.with(context).load(list.get(position).getPicture_filepath()).into(leader_pic);
             }
-            if(list.get(position).getPlan_startdate() != null){
-                holder.tv_startdate.setText( list.get(position).getPlan_startdate() +"" );
-            }else{
-                holder.tv_startdate.setText( " " );
-            }
-
-            if(list.get(position).getPlan_starttime() != null){
-                holder.tv_starttime.setText( list.get(position).getPlan_starttime() +"" );
-            }else{
-                holder.tv_starttime.setText( " " );
-            }
             holder.tv_plan_writer.setText( list.get(position).getPlan_writer() +"" );
             holder.tv_plan_name.setText( list.get(position).getPlan_name() +"" );
-
-
+            holder.tv_startdate.setText( list.get(position).getPlan_startdate() +"" );
+            holder.tv_starttime.setText( list.get(position).getPlan_starttime() +"" );
 
             // 해당 플랜 클릭시
             holder.lin_plan_click.setOnClickListener(new View.OnClickListener() {

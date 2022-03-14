@@ -1,6 +1,7 @@
 package com.example.totproject.mainburgeractivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,12 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.example.totproject.R;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.main.MainActivity;
 import com.example.totproject.mainburgeractivity.Adapter.NoticeAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,7 +33,7 @@ import java.util.List;
 public class MainBurger01NoticeFg extends Fragment {
 
 
-    RecyclerView notice_rc_view;
+    ExpandableListView expdListView;
     ArrayList<BoardCommonVO> list = new ArrayList<>();
     BoardCommonVO vo = new BoardCommonVO();
 
@@ -53,15 +57,12 @@ public class MainBurger01NoticeFg extends Fragment {
         vo.setList_cnt_many(999);
         selectBoardList(vo);
 
-        notice_rc_view = v.findViewById(R.id.notice_list);
-
-
-        LinearLayoutManager lmanager = new LinearLayoutManager(
-                context, RecyclerView.VERTICAL, false);
+        expdListView = v.findViewById(R.id.expdListView);
+        expdListView.setGroupIndicator(null);
+        setListener();
         NoticeAdapter adapter = new NoticeAdapter(getContext(), list, manager);
 
-        notice_rc_view.setLayoutManager(lmanager);
-        notice_rc_view.setAdapter(adapter);
+        expdListView.setAdapter(adapter);
 
 
 
@@ -84,6 +85,20 @@ public class MainBurger01NoticeFg extends Fragment {
             e.printStackTrace();
         }
         return  list;
+    }
+
+    void setListener() {
+        expdListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int previousGroup = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if (groupPosition != previousGroup)
+                    expdListView.collapseGroup(previousGroup);
+                previousGroup = groupPosition;
+
+            }
+
+        });
     }
 
 }

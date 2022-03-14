@@ -48,7 +48,6 @@ public class PlanListFragment extends Fragment {
         planlist_item = view.findViewById(R.id.planlist_item);
 
 
-
         showPlanList();
 
 

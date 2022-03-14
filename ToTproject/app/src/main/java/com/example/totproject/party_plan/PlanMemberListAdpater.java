@@ -25,7 +25,7 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
     ArrayList<PartyMemberListDTO> list;
     LayoutInflater inflater;
     PartyListDTO plDTO;
-    int tabcode = 0;
+    int tabcode;
 
 
 
@@ -58,13 +58,11 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
         ImageView imgv_member_pic;
         TextView tv_member_nick;
         CheckBox chk_member_invite;
-        LinearLayout lin_chk_box;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             imgv_member_pic = itemView.findViewById(R.id.imgv_member_pic);
             tv_member_nick = itemView.findViewById(R.id.tv_member_nick);
             chk_member_invite = itemView.findViewById(R.id.chk_member_delete);
-            lin_chk_box = itemView.findViewById(R.id.lin_chk_box);
 
             // 플랜 생성에서 사용 (멤버 리스트 선택해서 초대할때 사용)
             if (tabcode ==1 ){
@@ -88,8 +86,6 @@ public class PlanMemberListAdpater extends RecyclerView.Adapter<PlanMemberListAd
 
             // 플랜 생성에서 사용 (멤버 리스트 선택해서 초대할때 사용)
             if (tabcode == 1){
-                lin_chk_box.setVisibility(View.VISIBLE);
-
                 chk_member_invite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

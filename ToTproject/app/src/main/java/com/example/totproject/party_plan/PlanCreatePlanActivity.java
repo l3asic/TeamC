@@ -241,7 +241,6 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 초대멤버가 없을시
                 if(invite_list.size() == 0 ){
-                    Toast.makeText(PlanCreatePlanActivity.this, "플랜에 추가된 멤버가 없습니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

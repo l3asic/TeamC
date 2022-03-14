@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -21,10 +20,8 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.party.PartyJoinActivity;
-import com.example.totproject.party.PartyListDTO;
 import com.example.totproject.party.PartyMemberListDTO;
 import com.example.totproject.party.PartymemberListAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -38,7 +35,7 @@ public class PlanInfo01Fragment extends Fragment {
     Context context;
     PlanMainActivity planMainActivity = new PlanMainActivity();
     PlanlistDTO planlistDTO;
-    PartyListDTO plDTO;
+
     GridView grid_memberlist;
     ArrayList<PartyMemberListDTO> plan_member_list = new ArrayList<>();
     CommonAsk commonAsk;
@@ -46,7 +43,6 @@ public class PlanInfo01Fragment extends Fragment {
 
 
 
-    LinearLayout lin_plan_tohome, lin_plan_toback;
 
 
     TextView tv_plan_startdate, tv_plan_starttime, tv_plan_enddate, tv_plan_endtime, tv_plan_location, tv_plan_startpoint,
@@ -54,12 +50,10 @@ public class PlanInfo01Fragment extends Fragment {
 
     Button btn_plan_info02, btn_planmain_update,btn_planmain_create;
 
-    FloatingActionButton fab_planmain_create;
 
-    public PlanInfo01Fragment(Context context, PlanlistDTO planlistDTO, PartyListDTO plDTO) {
+    public PlanInfo01Fragment(Context context, PlanlistDTO planlistDTO) {
         this.context = context;
         this.planlistDTO = planlistDTO;
-        this.plDTO = plDTO;
     }
 
     @Override
@@ -82,21 +76,9 @@ public class PlanInfo01Fragment extends Fragment {
         tv_plan_startpoint=view.findViewById(R.id.tv_plan_startpoint);
         tv_plan_hotel=view.findViewById(R.id.tv_plan_hotel);
         tv_plan_cost=view.findViewById(R.id.tv_plan_cost);
-        btn_planmain_update=view.findViewById(R.id.btn_planmain_update);
-
-        
-        // 프레그 01에서  플랜 추가 플로팅버튼 안보이게
-        fab_planmain_create=getActivity().findViewById(R.id.fab_planmain_create);
-        fab_planmain_create.setVisibility(View.GONE);
-
-        // 홈버튼 없에기
-        lin_plan_tohome=getActivity().findViewById(R.id.lin_plan_tohome);
-        lin_plan_tohome.setVisibility(View.GONE);
-
-        // 뒤로가기버튼 보이게
-        lin_plan_toback=getActivity().findViewById(R.id.lin_plan_toback);
-        lin_plan_toback.setVisibility(View.VISIBLE);
-
+        //@@
+        //btn_planmain_create=getActivity().findViewById(R.id.btn_planmain_create);
+        //btn_planmain_update=getActivity().findViewById(R.id.btn_planmain_update);
 
         // 계획추가 버튼사라지고, 업데이트 버튼 나오게     @@
 //        btn_planmain_create.setVisibility(View.GONE);
@@ -125,21 +107,6 @@ public class PlanInfo01Fragment extends Fragment {
         tv_plan_cost.setText(planlistDTO.getPlan_cost());
 
 
-        // 뒤로가기 버튼 클릭시  (플랜 리스트 프레그로 이동)
-        lin_plan_toback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                PlanMainActivity activity = new PlanMainActivity();
-//                PlanListFragment list_frag = new PlanListFragment(getActivity(),planlistDTO.getParty_sn());
-//                activity.changePlanFrag(list_frag,"파티 플랜 목록");
-                Intent intent = new Intent(getActivity(),PlanMainActivity.class);
-                intent.putExtra("plDTO", plDTO);
-                startActivity(intent);
-            }
-        });
-
-
-
         //해당 플랜 디테일 보기
         btn_plan_info02.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,20 +114,18 @@ public class PlanInfo01Fragment extends Fragment {
                 PlanInfo02Fragment plan_info_frag02 = new PlanInfo02Fragment(getActivity(),planlistDTO);
                 planMainActivity.changePlanFrag(plan_info_frag02 , planlistDTO.getPlan_name());
 
-
-
             }
         });
 
-        // 플랜 업데이트 버튼 클릭시
-        btn_planmain_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), PlanUpdatePlanActivity.class);
-                intent.putExtra("planlistDTO",planlistDTO);
-                getActivity().startActivity(intent);
-            }
-        });
+        //@@@@@
+//        btn_planmain_update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), PlanUpdatePlanActivity.class);
+//                intent.putExtra("planlistDTO",planlistDTO);
+//                getActivity().startActivity(intent);
+//            }
+//        });
 
 
 

@@ -23,8 +23,7 @@ public class PlanMainActivity extends AppCompatActivity {
     String title_name;
     FloatingActionButton fab_planmain_create;
 
-    LinearLayout lin_plan_tohome, lin_plan_toback;
-    PartyListDTO plDTO;
+    LinearLayout lin_plan_tohome;
 
     PlanListFragment   plan_list_frag     ;
     PlanInfo02Fragment plan_info_frag02 ;
@@ -38,16 +37,6 @@ public class PlanMainActivity extends AppCompatActivity {
         tv_planmain_title = findViewById(R.id.tv_planmain_title);
         fab_planmain_create = findViewById(R.id.fab_planmain_create);
         lin_plan_tohome = findViewById(R.id.lin_plan_tohome);
-        lin_plan_toback = findViewById(R.id.lin_plan_toback);
-
-        // 메인에선 무조건 뒤로 버튼 없에고 홈버튼보이게
-        lin_plan_tohome.setVisibility(View.VISIBLE);
-        lin_plan_toback.setVisibility(View.GONE);
-
-        // 계획추가 플로팅 버튼 보이게
-        fab_planmain_create.setVisibility(View.VISIBLE);
-
-
 
 
 
@@ -55,14 +44,13 @@ public class PlanMainActivity extends AppCompatActivity {
         //btn_planmain_update = findViewById(R.id.btn_planmain_update);
 
         fab_planmain_create.setVisibility(View.VISIBLE);
-        tv_planmain_title.setText("파티 플랜 목록");
         //btn_planmain_update.setVisibility(View.GONE);
 
 
 
         // 내파티 INFO에서 넘어옴 (파티정보)
         Intent get_intent = getIntent();
-        plDTO = (PartyListDTO) get_intent.getSerializableExtra("plDTO");
+        PartyListDTO plDTO = (PartyListDTO) get_intent.getSerializableExtra("plDTO");
 
 
 
@@ -71,7 +59,7 @@ public class PlanMainActivity extends AppCompatActivity {
         plan_list_frag   = new PlanListFragment(PlanMainActivity.this, plDTO.getParty_sn());
         plan_info_frag02 = new PlanInfo02Fragment(PlanMainActivity.this);
 
-        //title_name = plDTO.getParty_name()+" 플랜 목록";
+        title_name = plDTO.getParty_name()+" 플랜 목록";
 
         // 프레그 전환
         changePlanFrag(plan_list_frag, title_name);
@@ -87,7 +75,7 @@ public class PlanMainActivity extends AppCompatActivity {
         });
 
 
-        // 플랜 추가 플로팅 버튼 클릭시
+        //
         fab_planmain_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +115,7 @@ public class PlanMainActivity extends AppCompatActivity {
 
     // 해당하는 플랜 보여주기 (이동)
     public void changePlanFrag(PlanlistDTO planDTO){
-        PlanInfo01Fragment plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this, planDTO, plDTO);
+        PlanInfo01Fragment plan_info_frag01 = new PlanInfo01Fragment(PlanMainActivity.this, planDTO);
         getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag01).addToBackStack(null).commit();
 
         tv_planmain_title.setText(planDTO.getPlan_name());

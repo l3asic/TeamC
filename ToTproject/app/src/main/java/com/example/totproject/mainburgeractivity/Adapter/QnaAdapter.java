@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -69,11 +70,9 @@ public class QnaAdapter extends RecyclerView.Adapter<QnaAdapter.Viewholder> {
     //1. RecyclerView.ViewHolder 상속을 받은 클래스 ViewHolder를 만들어줌
     public class Viewholder extends RecyclerView.ViewHolder {
       //  ImageView hometab_small_img, hometab_small_img_like, hometab_small_img_comment;
-        TextView qna_tv_question, hometab_small_tv_like, qna_tv_answer; //xml에 있는 위젯들을 전역변수로 선언.
+        TextView qna_tv_question, qna_tv_questionno, qna_tv_answer; //xml에 있는 위젯들을 전역변수로 선언.
         int board_sn;
-        Button qna_btn_click;
-        Button qna_btn_unnamed01, qna_btn_unnamed02;
-        LinearLayout qna_linear_answerzone;
+        LinearLayout qna_btn_click , qna_linear_answerzone;
         int isView = 0;
 
         public Viewholder(@NonNull View itemView) {
@@ -83,14 +82,15 @@ public class QnaAdapter extends RecyclerView.Adapter<QnaAdapter.Viewholder> {
             qna_tv_question = itemView.findViewById(R.id.qna_tv_question);
             qna_tv_answer = itemView.findViewById(R.id.qna_tv_answer);
             qna_linear_answerzone = itemView.findViewById(R.id.qna_linear_answerzone);
+            qna_tv_questionno = itemView.findViewById(R.id.qna_tv_questionno);
 
             /* =============== 답안 보기/숨기기 버튼 =============== */
             qna_btn_click = itemView.findViewById(R.id.qna_btn_click);
             /* =============== 답안 보기/숨기기 버튼 =============== */
 
             /* =============== 관리자용 버튼 =============== */
-            qna_btn_unnamed01 = itemView.findViewById(R.id.qna_btn_unnamed01);
-            qna_btn_unnamed02 = itemView.findViewById(R.id.qna_btn_unnamed02);
+            //qna_btn_unnamed01 = itemView.findViewById(R.id.qna_btn_unnamed01);
+           // qna_btn_unnamed02 = itemView.findViewById(R.id.qna_btn_unnamed02);
             /* =============== 관리자용 버튼 =============== */
         }
 
@@ -105,6 +105,7 @@ public class QnaAdapter extends RecyclerView.Adapter<QnaAdapter.Viewholder> {
             /* =============== 답변부분 숨기기 =============== */
    //         qna_linear_answerzone.setVisibility(View.GONE);
             /* =============== 답변부분 숨기기 =============== */
+            holder.qna_tv_questionno.setText(position +1+ "");
 
             holder.qna_tv_question.setText(list.get(position).getBoard_title() + "");
             holder.qna_tv_answer.setText(list.get(position).getBoard_content() + "");

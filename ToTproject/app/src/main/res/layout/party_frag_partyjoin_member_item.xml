@@ -11,32 +11,22 @@
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:layout_margin="20dp"
-        android:background="@drawable/radius_clean2">
+        android:background="@drawable/radius">
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_radius"
+            android:backgroundTint="#BDEDFF"
             android:layout_margin="1dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardBackgroundView"
+            <ImageView
+                android:id="@+id/imgv_member_pic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text">
-
-                <ImageView
-                    android:id="@+id/imgv_member_pic"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@drawable/radius_clean"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/icon_user"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="@drawable/radius"/>
 
         </LinearLayout>
 
@@ -55,7 +45,6 @@
                 android:gravity="center"
                 android:text="사용자1"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 />
 
             <CheckBox

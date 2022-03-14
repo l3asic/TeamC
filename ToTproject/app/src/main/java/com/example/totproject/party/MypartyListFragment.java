@@ -37,7 +37,7 @@ public class MypartyListFragment extends Fragment {
     public MypartyListFragment(Context context) {
         this.context = context;
     }
-
+//저 만져도 대나용
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

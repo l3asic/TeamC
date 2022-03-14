@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,8 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
     TextView tv_plan_startdate, tv_plan_enddate;
     Button btn_plan_create;
 
+    LinearLayout lin_create_plan_back;
+
     String leader_pic = null;
 
     String start_date;
@@ -85,6 +88,9 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
         btn_plan_create = findViewById(R.id.btn_plan_create);
         edt_plan_starttime =findViewById(R.id.edt_plan_starttime);
         edt_plan_endtime =findViewById(R.id.edt_plan_endtime);
+        lin_create_plan_back =findViewById(R.id.lin_create_plan_back);
+
+
 
         Intent get_intent = getIntent();
         PartyListDTO plDTO = (PartyListDTO) get_intent.getSerializableExtra("plDTO");
@@ -102,8 +108,18 @@ public class PlanCreatePlanActivity extends AppCompatActivity {
         rec_memberlist.setAdapter(adapter);
 
 
-        // @@@@@@@@@@@@ datepicker 영역
+        lin_create_plan_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanCreatePlanActivity.this,PlanMainActivity.class);
+                intent.putExtra("plDTO",plDTO);
+                startActivity(intent);
+                finish();
+            }
+        });
 
+
+        // datepicker 영역
 
         // 출발날짜 데이트피커로 세팅
         tv_plan_startdate.setOnClickListener(new View.OnClickListener() {

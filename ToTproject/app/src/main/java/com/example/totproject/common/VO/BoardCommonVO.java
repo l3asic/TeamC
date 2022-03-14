@@ -12,8 +12,35 @@ public class BoardCommonVO implements Serializable {
     private int list_cnt_many;
     private int matchScore;
     private String member_grade; //글쓴이등급
-    private int whose_cnt_like;
 
+    public String getBoard_filepath() {
+        return board_filepath;
+    }
+
+    public void setBoard_filepath(String board_filepath) {
+        this.board_filepath = board_filepath;
+    }
+
+    private int whose_cnt_like;
+private int cnt_reply_recent;
+    String board_filepath;
+    public int getCnt_reply_recent() {
+        return cnt_reply_recent;
+    }
+
+    public void setCnt_reply_recent(int cnt_reply_recent) {
+        this.cnt_reply_recent = cnt_reply_recent;
+    }
+
+    public int getCnt_likes_recent() {
+        return cnt_likes_recent;
+    }
+
+    public void setCnt_likes_recent(int cnt_likes_recent) {
+        this.cnt_likes_recent = cnt_likes_recent;
+    }
+
+    private int cnt_likes_recent;
     public int getWhose_cnt_like() {
         return whose_cnt_like;
     }

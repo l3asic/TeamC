@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/new_main_color"
+    android:background="#232344"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
     android:padding="20dp"
@@ -57,6 +57,17 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/partyinfo_burger_tv_grade"
+            android:layout_marginTop="10dp"
+            android:text="로그아웃"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
 
         <LinearLayout
             android:id="@+id/lin_leader_option"
@@ -103,7 +114,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="멤버 초대"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -130,10 +141,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:gravity="center"
                         android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="멤버 관리"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
@@ -170,10 +181,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:gravity="center"
                         android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="파티정보수정"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -205,7 +216,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티 해산"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -253,11 +264,11 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="멤버 초대"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
@@ -289,7 +300,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="멤버목록"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -330,7 +341,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티정보보기"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -362,7 +373,7 @@
                         android:gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="파티 탈퇴"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 

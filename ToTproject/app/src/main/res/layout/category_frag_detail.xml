@@ -48,11 +48,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:text="0" />
-                    <TextView
-                        android:id="@+id/category_detail_tv_like"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:text="좋아요" />
+
 
                 </LinearLayout>
 
@@ -71,6 +67,20 @@
                         android:textSize="18dp"
                         android:layout_gravity="left|center"
                         android:fontFamily="@font/haenamfont"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/tv_reply_cnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="190dp"
+                            android:text="+99"/>
+
+                    </LinearLayout>
+
+
                 <TextView
                     android:id="@+id/category_detail_tv_reply"
                     android:layout_width="wrap_content"

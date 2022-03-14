@@ -32,6 +32,12 @@ public class TendencyActivity01 extends AppCompatActivity implements RadioGroup.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tendency_activity_01);
 
+        findViewById(R.id.category_img_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mbti_tour = findViewById(R.id.mbti_tour);
         mbti_activity = findViewById(R.id.mbti_activity);
         mbti_festival = findViewById(R.id.mbti_festival);

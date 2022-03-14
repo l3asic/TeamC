@@ -5,19 +5,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.totproject.R;
+import com.example.totproject.party.MyPartyInfoActivity;
 import com.example.totproject.party.PartyListDTO;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PlanMainActivity extends AppCompatActivity {
     int tabcode = 0;
     TextView tv_planmain_title;
-    Button btn_planmain_create,btn_planmain_update;
+    //Button btn_planmain_create,btn_planmain_update;
     String title_name;
+    FloatingActionButton fab_planmain_create;
+
+    LinearLayout lin_plan_tohome;
 
     PlanListFragment   plan_list_frag     ;
     PlanInfo02Fragment plan_info_frag02 ;
@@ -29,14 +35,19 @@ public class PlanMainActivity extends AppCompatActivity {
         setContentView(R.layout.partyplan_act_main);
 
         tv_planmain_title = findViewById(R.id.tv_planmain_title);
-        btn_planmain_create = findViewById(R.id.btn_planmain_create);
-        btn_planmain_update = findViewById(R.id.btn_planmain_update);
-
-        btn_planmain_create.setVisibility(View.VISIBLE);
-        btn_planmain_update.setVisibility(View.GONE);
+        fab_planmain_create = findViewById(R.id.fab_planmain_create);
+        lin_plan_tohome = findViewById(R.id.lin_plan_tohome);
 
 
-        
+
+        //@@ 업뎃 버튼 뭐지?
+        //btn_planmain_update = findViewById(R.id.btn_planmain_update);
+
+        fab_planmain_create.setVisibility(View.VISIBLE);
+        //btn_planmain_update.setVisibility(View.GONE);
+
+
+
         // 내파티 INFO에서 넘어옴 (파티정보)
         Intent get_intent = getIntent();
         PartyListDTO plDTO = (PartyListDTO) get_intent.getSerializableExtra("plDTO");
@@ -53,10 +64,19 @@ public class PlanMainActivity extends AppCompatActivity {
         // 프레그 전환
         changePlanFrag(plan_list_frag, title_name);
 
-        
+        lin_plan_tohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlanMainActivity.this, MyPartyInfoActivity.class);
+                intent.putExtra("party_dto",plDTO);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         //
-        btn_planmain_create.setOnClickListener(new View.OnClickListener() {
+        fab_planmain_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PlanMainActivity.this, PlanCreatePlanActivity.class);
@@ -110,8 +130,9 @@ public class PlanMainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-         if(tabcode ==3){
-           // getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag02).commit();
+        if(tabcode ==3){
+
+            // getSupportFragmentManager().beginTransaction().replace(R.id.party_plan_container, plan_info_frag02).commit();
         }
     }
 }

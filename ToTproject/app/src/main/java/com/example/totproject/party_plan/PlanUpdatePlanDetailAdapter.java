@@ -58,9 +58,9 @@ public class PlanUpdatePlanDetailAdapter extends RecyclerView.Adapter<PlanUpdate
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             btn_plandetail_update = itemView.findViewById(R.id.btn_plandetail_update);
-            edt_partyplan_time = itemView.findViewById(R.id.edt_partyplan_time);
-            edt_partyplan_content = itemView.findViewById(R.id.edt_partyplan_content);
-            edt_partyplan_content_detail = itemView.findViewById(R.id.edt_partyplan_content_detail);
+            edt_partyplan_time = itemView.findViewById(R.id.tv_partyplan_time);
+            edt_partyplan_content = itemView.findViewById(R.id.tv_partyplan_content);
+            edt_partyplan_content_detail = itemView.findViewById(R.id.tv_partyplan_content_detail);
             lin_longclick = itemView.findViewById(R.id.lin_longclick);
             chk_planudelete = itemView.findViewById(R.id.chk_planudelete);
 

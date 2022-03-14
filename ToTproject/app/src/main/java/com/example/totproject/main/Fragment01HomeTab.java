@@ -23,6 +23,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.VO.BoardCommonVO;
+import com.example.totproject.common.statics.Logined;
 import com.example.totproject.main.Adapter.MainTabAdapter_big;
 
 import com.example.totproject.main.Adapter.MainTabAdapter_small_mbti;
@@ -42,7 +43,8 @@ public class Fragment01HomeTab extends Fragment {
 
 mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));	// 가로*/
 
-    RecyclerView maintab_rv_recommend,  maintab_rv_tour;
+    RecyclerView   maintab_rv_tour;
+    ViewPager2 maintab_rv_recommend;
     ViewPager2 maintab_rv_where ;
     SwipeRefreshLayout swipe_layout;
 
@@ -91,8 +93,10 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
                     context, RecyclerView.HORIZONTAL, false);
             MainTabAdapter_small_mbti adapter = new MainTabAdapter_small_mbti(getContext(), list, manager);
 
-            maintab_rv_recommend.setLayoutManager(lmanager);
             maintab_rv_recommend.setAdapter(adapter);
+            setSlide(maintab_rv_recommend);
+//            maintab_rv_recommend.setLayoutManager(lmanager);
+//            maintab_rv_recommend.setAdapter(adapter);
         }
         /* ==============================================*/
 
@@ -138,8 +142,8 @@ mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZO
 
     public ArrayList<BoardCommonVO> dbBoardCall(String mapping) {
         commonAsk = new CommonAsk(mapping);
+        commonAsk.params.add(new CommonAskParam("member_id", Logined.member_id));
         InputStream in = CommonMethod.excuteAsk(commonAsk);
-
         try {
             list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<BoardCommonVO>>() {
             }.getType());

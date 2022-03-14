@@ -90,7 +90,7 @@ public class Fragment03BoardTab_Detail_backup extends Fragment {
 
         /* ===================================== DB댓글조회 및 어댑터 ============================== */
         selectReply(vo.getBoard_sn());
-        Board_User_Reply_RcView = v.findViewById(R.id.board_useR_detail_recycler_detail);
+        Board_User_Reply_RcView = v.findViewById(R.id.board_user_detail_recycler_detail);
 
         LinearLayoutManager lmanager = new LinearLayoutManager(
                 context, RecyclerView.VERTICAL, false);

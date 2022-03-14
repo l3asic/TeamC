@@ -1,7 +1,12 @@
 package com.example.totproject.party;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -35,6 +40,7 @@ import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
 import com.example.totproject.common.statics.Logined;
+import com.example.totproject.login.SplashActivity;
 import com.example.totproject.main.MainActivity;
 import com.example.totproject.party_plan.PlanMainActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -65,6 +71,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
     PartyListDTO plDTO;
     TextView party_title;
     LinearLayout lin_info_home_btn;
+
 
 
     ArrayList<PartyMemberListDTO> party_member_list = new ArrayList<>();
@@ -227,6 +234,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ      버거 세팅영역     ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
         LinearLayout lin_leader_option, lin_member_option;
+        TextView tv_logout;
 
         LinearLayout lin_mypartyburger_invite, lin_mypartyburger_delete, lin_mypartyburger_membermanage, lin_mypartyburger_update;
         LinearLayout lin_mypartyburger_invite2, lin_mypartyburger_delete2, lin_mypartyburger_membermanage2, lin_mypartyburger_update2;
@@ -243,6 +251,9 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         lin_mypartyburger_membermanage2 = nav_headerview.findViewById(R.id.lin_mypartyburger_membermanage2);
         lin_mypartyburger_update2 = nav_headerview.findViewById(R.id.lin_mypartyburger_update2);
         lin_mypartyburger_delete2 = nav_headerview.findViewById(R.id.lin_mypartyburger_delete2);
+        tv_logout = nav_headerview.findViewById(R.id.tv_logout);
+
+
 
 
         // 로그인한 사람이 파티 리더 아이디와 같다면
@@ -253,6 +264,22 @@ public class MyPartyInfoActivity extends AppCompatActivity {
             lin_leader_option.setVisibility(View.INVISIBLE);
             lin_member_option.setVisibility(View.VISIBLE);
         }
+
+        // 로그아웃 버튼 클릭시
+        tv_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor spEditor = auto.edit();
+                spEditor.clear();
+                spEditor.commit();
+
+                Intent intent = new Intent(MyPartyInfoActivity.this, SplashActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
@@ -386,6 +413,7 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         NavigationView bottom_nav2;
         bottom_nav2 = findViewById(R.id.partyinfo_burger_view);
         bottom_nav2.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("WrongConstant")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 item.setChecked(true);
@@ -394,24 +422,25 @@ public class MyPartyInfoActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 String tabText = (String) item.getTitle();
                 String title = item.getTitle().toString();
-                if (id == R.id.partyinfo_burger_home) {
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
-                } else if (id == R.id.partyinfo_burger_notice) {
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
-                } else if (id == R.id.partyinfo_burger_board) {
 
+                // @@@ 액티비티별로 버거메뉴 아이템들 세팅해주기
+
+                if (id == R.id.partyinfo_burger_home) {
+                    drawer.closeDrawer(Gravity.END);
+
+                    // 파티 계획
                 } else if (id == R.id.partyinfo_burger_plan) {
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MyPartyInfoActivity.this, PlanMainActivity.class);
                     intent.putExtra("plDTO",plDTO);
+                    intent.putExtra("tabcode",0);   //여기서 타는거
                     startActivity(intent);
 
-                    //ChangeActivity(PlanMainActivity.class);
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
-                } else if (id == R.id.partyinfo_burger_member) {
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
-                } else if (id == R.id.partyinfo_burger_chat) {
-                    Toast.makeText(MyPartyInfoActivity.this, "메뉴", Toast.LENGTH_LONG).show();
+                } else if (id == R.id.partyinfo_burger_myparty_list) {
+                    Intent intent = new Intent(MyPartyInfoActivity.this,PartyMainActivity.class);
+                    intent.putExtra("tabcode",3);
+                    startActivity(intent);
+                    finish();
+
                 }
 
 
@@ -420,7 +449,8 @@ public class MyPartyInfoActivity extends AppCompatActivity {
         });
 
 
-    }
+    }//onCreate()
+
 
     public void showCustomDialog(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MyPartyInfoActivity.this,

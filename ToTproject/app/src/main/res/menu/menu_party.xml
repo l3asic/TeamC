@@ -7,30 +7,16 @@
         android:enabled="true"
         android:title="파티 홈"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/partyinfo_burger_notice"
-        android:enabled="true"
-        android:title="파티 공지"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/partyinfo_burger_board"
-        android:enabled="true"
-        android:title="파티 게시판"
-        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/partyinfo_burger_plan"
         android:enabled="true"
         android:title="파티 계획"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/partyinfo_burger_member"
+        android:id="@+id/partyinfo_burger_myparty_list"
         android:enabled="true"
-        android:title="파티 멤버"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/partyinfo_burger_chat"
-        android:enabled="true"
-        android:title="파티 채팅"
+        android:title="내 파티 목록"
         app:showAsAction="ifRoom" />
 </menu>
 

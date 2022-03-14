@@ -238,13 +238,13 @@ public class PartyCreateActivity extends Activity {
             Uri galleryUri = data.getData();
             party_pic = getPathFromURI(galleryUri);
             //img_filepath = galleryUri;
-            Glide.with(PartyCreateActivity.this).load(galleryUri).into(imgv_party_pic);
+           Glide.with(PartyCreateActivity.this).load(galleryUri).into(imgv_party_pic);
 
         }
     }
 
 
-
+String chaminhwan = "asdf"  ;
 
 
 

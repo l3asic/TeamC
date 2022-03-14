@@ -37,7 +37,7 @@ public class PartyMemberManageActivity extends AppCompatActivity {
     CommonAsk commonAsk;
     Gson gson = new Gson();
 
-    ImageView imgv_partleader_pic;
+    ImageView imgv_partyleader_pic;
     TextView tv_partyleader_name;
     Button btn_party_memberdelete;
 
@@ -51,7 +51,7 @@ public class PartyMemberManageActivity extends AppCompatActivity {
         setContentView(R.layout.party_act_membermanage);
 
         rec_member_list = findViewById(R.id.rec_member_list);
-        imgv_partleader_pic =findViewById(R.id.imgv_partleader_pic);
+        imgv_partyleader_pic =findViewById(R.id.imgv_partyleader_pic);
         tv_partyleader_name =findViewById(R.id.tv_partyleader_name);
         btn_party_memberdelete =findViewById(R.id.btn_party_memberdelete);
         lin_party_memberdelete =findViewById(R.id.lin_party_memberdelete);
@@ -69,7 +69,7 @@ public class PartyMemberManageActivity extends AppCompatActivity {
             for (int i =0; i<member_list.size(); i++){
                 // 파티장 영역 세팅
                 if (member_list.get(i).getMemberid().equals(plDTO.getParty_leader())){
-                    Glide.with(PartyMemberManageActivity.this).load(member_list.get(i).getPicture_filepath()).into(imgv_partleader_pic);
+                    Glide.with(PartyMemberManageActivity.this).load(member_list.get(i).getPicture_filepath()).into(imgv_partyleader_pic);
                     tv_partyleader_name.setText(member_list.get(i).getMemberid());
                     member_list.remove(i);  // 파티장 정보 세팅하고 파티장리스트는 지워줌 (멤버에 안들어가게)
                 }

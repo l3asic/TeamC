@@ -12,11 +12,11 @@ public class BoardCommonVO_double implements Serializable {
 	private int function_like;
 	private int list_cnt_many;
 	private int matchScore;
-    private String member_grade; //글쓴이등급
-    private int whose_cnt_like;
-    private double distanceScore;
+	private String member_grade; // 글쓴이등급
+	private int whose_cnt_like;
+	private double distanceScore;
 
-    public double getDistanceScore() {
+	public double getDistanceScore() {
 		return distanceScore;
 	}
 
@@ -24,22 +24,31 @@ public class BoardCommonVO_double implements Serializable {
 		this.distanceScore = distanceScore;
 	}
 
+	private String board_filepath;
+
+	public String getBoard_filepath() {
+		return board_filepath;
+	}
+
+	public void setBoard_filepath(String board_filepath) {
+		this.board_filepath = board_filepath;
+	}
+
 	public int getWhose_cnt_like() {
-        return whose_cnt_like;
-    }
+		return whose_cnt_like;
+	}
 
-    public void setWhose_cnt_like(int whose_cnt_like) {
-        this.whose_cnt_like = whose_cnt_like;
-    }
+	public void setWhose_cnt_like(int whose_cnt_like) {
+		this.whose_cnt_like = whose_cnt_like;
+	}
 
+	public String getMember_grade() {
+		return member_grade;
+	}
 
-    public String getMember_grade() {
-        return member_grade;
-    }
-
-    public void setMember_grade(String member_grade) {
-        this.member_grade = member_grade;
-    }
+	public void setMember_grade(String member_grade) {
+		this.member_grade = member_grade;
+	}
 
 	public int getMatchScore() {
 		return matchScore;

@@ -10,11 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.totproject.R;
+import com.example.totproject.common.statics.Logined;
+import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
 
 
@@ -46,8 +49,9 @@ public class Fragment04PartyTab extends Fragment {
 
         create_party.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                click_partytab(2);
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), PartyCreateActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -70,9 +74,14 @@ public class Fragment04PartyTab extends Fragment {
 
 
     public void click_partytab(int tabcode){
-        Intent intent = new Intent(getActivity(), PartyMainActivity.class);
-        intent.putExtra("tabcode",tabcode);
-        startActivity(intent);
+        if(Logined.member_id != null ){
+            Intent intent = new Intent(getActivity(), PartyMainActivity.class);
+            intent.putExtra("tabcode",tabcode);
+            startActivity(intent);
+        }else{
+            Toast.makeText(getActivity(), "회원만 이용가능한 기능입니다.", Toast.LENGTH_SHORT).show();
+        }
+
 
 
     }

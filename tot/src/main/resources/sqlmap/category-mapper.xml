@@ -9,6 +9,7 @@
 			a.*,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
+		<!-- 	NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn),0) board_cnt_reply, -->
 			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn),0) function_like
 		from tbl_board a 
 		where a.board_class = 'tour'
@@ -33,20 +34,39 @@
 	</select>
 	<!-- mapper 내 SQL 구문 입력시 ';' 이 없도록 작성해야 함. -->
 
-	<insert id="reply_insert" useGeneratedKeys="false">
-		insert into tbl_board(board_sn,board_title, board_content, board_class, member_id,board_reviewpath)
-		values (seq_board_sn.NEXTVAL, #{board_title}, #{board_content}, #{board_class}, #{member_id},#{board_sn})
+<!-- 	<insert id="reply_insert" useGeneratedKeys="false">
+		insert into tbl_board(reply_sn,reply_content, board_sn, member_id)
+		values (seq_reply_sn.NEXTVAL, #{reply_content}, #{board_sn}, #{member_id})
 		
-		<selectKey keyProperty="board_sn" resultType="int" order="AFTER"> SELECT seq_board_sn.CURRVAL FROM DUAL </selectKey>
+		<selectKey keyProperty="reply_sn" resultType="int" order="AFTER"> SELECT seq_board_sn.CURRVAL FROM DUAL </selectKey>
 		
 	</insert>
 	<insert id="reply_picture"  parameterType="java.util.List">
 	
 		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
-		    INTO tbl_board_picture (picture_filepath,board_sn,member_id) VALUES (#{item.picture_filepath}, #{item.board_sn}, #{item.member_id})
+		    INTO tbl_board_picture (picture_filepath,reply_sn,member_id) VALUES (#{item.picture_filepath}, #{item.reply_sn}, #{item.member_id})
+		</foreach>
+		
+	</insert> -->
+	
+	<insert id="reply_insert" useGeneratedKeys="false">
+		insert into tbl_reply(reply_sn,reply_content, board_sn, member_id)
+		values (seq_reply_sn.NEXTVAL, #{reply_content}, #{board_sn}, #{member_id})
+		
+		<selectKey keyProperty="reply_sn" resultType="int" order="AFTER"> SELECT seq_reply_sn.CURRVAL FROM DUAL </selectKey>
+		
+	</insert>
+	<insert id="reply_picture"  parameterType="java.util.List">
+	
+		<foreach collection="list" item="item" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL"> 
+		    INTO tbl_board_picture (picture_filepath,reply_sn) VALUES (#{item.picture_filepath}, #{item.reply_sn})
 		</foreach>
 		
 	</insert>
+	
+	
+	
+	
 	<!-- <insert id="reply_picture">
 		insert into tbl_board_picture (picture_filepath)
 		values (#{picture_filepath})
@@ -68,15 +88,26 @@
 		where board_sn = #{board_sn}
 	</select>
 	
-	<select id="list_reviewpath" resultType="category.CategoryVO">
+	<select id="list_picture_re" resultType="picture.PictureVO">
+		select * from tbl_board_picture
+		where reply_sn = #{reply_sn}
+	</select>
+	
+<!-- 	<select id="list_reviewpath" resultType="category.CategoryVO">
 		select a.* , b.member_nick from tbl_board a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
 		where a.board_reviewpath = #{board_sn}
 		order by board_date_create desc
+	</select> -->
+	<select id="list_reviewpath" resultType="category.ReplyVO">
+		select a.* , b.member_nick from tbl_reply a left join TBL_MEMBER_INFO b on a.member_id = b.member_id
+		where a.board_sn = #{board_sn}
+		order by reply_writedate desc
 	</select>
 	
 	<select id="detail_categoryBoard_one" resultType="category.CategoryVO">
 		select 
-			a.*,
+			a.*, (select member_grade from tbl_member_info where member_id = a.member_id) member_grade
+			,
 			NVL((select b.picture_filepath from tbl_board_picture b where a.board_sn = b.board_sn and rownum =1 ),'') picture_filepath,
 			NVL((select count(b.board_sn) from TBL_REPLY b where a.board_sn = b.board_sn group by b.board_sn),0) board_cnt_reply,
 			NVL((select count(b.board_sn) from tbl_likes b where a.board_sn = b.board_sn and b.member_id = #{member_id}),0) function_like
@@ -96,6 +127,12 @@
 	
 	<delete id="like_delete">
 		delete from tbl_likes where board_sn = #{board_sn} and member_id = #{member_id}
+	</delete>
+	
+	<!-- 리플삭제 메소드 -->
+	<delete id="deliteReply">
+		delete from tbl_reply
+		where reply_sn = #{reply_sn}
 	</delete>
 	
 </mapper>

@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 import category.CategoryDAO;
 import category.CategoryVO;
+import category.ReplyVO;
 import common.CommonService;
 import picture.PictureVO;
 
@@ -52,8 +53,8 @@ public class CategoryController {
 	@RequestMapping("/category_reply")
 	public void reply_insert(HttpServletRequest req, HttpServletResponse res,HttpSession session) throws IOException {
 		
-		String tempVo = req.getParameter("category");
-		CategoryVO vo = gson.fromJson(tempVo, CategoryVO.class);
+		String tempVo = req.getParameter("reply");
+		ReplyVO vo = gson.fromJson(tempVo, ReplyVO.class);
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -83,12 +84,9 @@ public class CategoryController {
 		}
 		
 		System.out.println(vo.getBoard_sn());
-		System.out.println(vo.getBoard_title());
-		System.out.println(vo.getBoard_class());
 		System.out.println(vo.getMember_id());
-		
-		System.out.println(vo.getBoard_content());
-		
+		System.out.println(vo.getReply_content());
+
 		System.out.println(dao.reply_insert(vo) + "asdasdasd");
 		
 		if(pictureCount != 0) {
@@ -97,7 +95,7 @@ public class CategoryController {
 				PictureVO pVO = new PictureVO();
 				pVO.setPicture_filepath(path);
 				pVO.setMember_id(vo.getMember_id());
-				pVO.setBoard_sn(vo.getBoard_sn());
+				pVO.setReply_sn(vo.getReply_sn());
 				pictureVOs.add(pVO);
 			}
 			if(pictureVOs.size() != 0)
@@ -179,6 +177,22 @@ public class CategoryController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("/list_picture_re")
+	public void list_picture_re(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("list_picture_re 확인");
+		
+		int reply_sn = Integer.parseInt(req.getParameter("reply_sn"));
+		
+		List<PictureVO> list = dao.list_picture_re(reply_sn);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	@ResponseBody
 	@RequestMapping("/detail_categoryBoard")
 	public void board_picture_list(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		System.out.println("detail_categoryBoard 확인");
@@ -203,7 +217,7 @@ public class CategoryController {
 		
 		int board_sn = Integer.parseInt(req.getParameter("board_sn"));
 		
-		List<CategoryVO> list = dao.list_reviewpath(board_sn);
+		List<ReplyVO> list = dao.list_reviewpath(board_sn);
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -243,6 +257,19 @@ public class CategoryController {
 		}else {	//좋아요 추가
 			dao.like_insert(vo);
 		}
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/detailDelete")
+	public void detailDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("detailDelete 확인");
+		
+		int reply_sn = Integer.parseInt(req.getParameter("reply_sn"));
+		
+		dao.deliteReply(reply_sn);
+		
+		
 		
 	}
 	

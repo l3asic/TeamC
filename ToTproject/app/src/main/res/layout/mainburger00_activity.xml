@@ -7,35 +7,32 @@
     android:orientation="vertical"
     tools:context=".mainburgeractivity.MainBurger00Activity">
 
-    <LinearLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:orientation="horizontal">
+        <FrameLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/category_img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+            <TextView
+                android:id="@+id/mainburger_menu_maintext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="관광지"
+                android:textColor="#121212"
+                android:fontFamily="@font/haenamfont"
+                android:textSize="20dp" />
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp" />
+        </FrameLayout>
 
-        <TextView
-            android:id="@+id/mainburger_menu_maintext"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="텍텍스스트트"
-            android:textSize="30dp" />
-
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp" />
-
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/mainburger_container"

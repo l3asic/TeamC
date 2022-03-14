@@ -48,9 +48,9 @@ public class MainBurger01NoticeFgDetailFg extends Fragment {
         notice_detail_content = v.findViewById(R.id.notice_detail_content);
         notice_detail_writedate = v.findViewById(R.id.notice_detail_writedate);
 
-vo = detail(paramSn);
+        vo = detail(paramSn);
 
-notice_detail_title.setText(vo.getBoard_title());
+        notice_detail_title.setText(vo.getBoard_title());
         notice_detail_content.setText(vo.getBoard_content());
         notice_detail_writedate.setText(vo.getBoard_date_create()+"");
 

@@ -136,8 +136,8 @@ and member_id in (select member_id from tbl_party where party_sn=#{party_sn}  )
 	
 	insert into tbl_plan (plan_sn, party_sn, plan_name, plan_startdate, plan_enddate, 
 	plan_location, plan_startpoint, plan_hotel, plan_cost, member_id, plan_writer, plan_starttime)
-	values( seq_plan_sn.nextval, #{party_sn}, #{plan_name}, #{plan_startdate}, #{plan_enddate}, 
-	#{plan_location}, #{plan_startpoint}, #{plan_hotel}, #{plan_cost}, #{member_id}, #{plan_writer}, #{plan_starttime}) 
+	values( seq_plan_sn.nextval, #{party_sn}, #{plan_name,jdbcType=VARCHAR}, #{plan_startdate,jdbcType=VARCHAR}, #{plan_enddate,jdbcType=VARCHAR}, 
+	#{plan_location,jdbcType=VARCHAR}, #{plan_startpoint,jdbcType=VARCHAR}, #{plan_hotel,jdbcType=VARCHAR}, #{plan_cost,jdbcType=VARCHAR}, #{member_id,jdbcType=VARCHAR}, #{plan_writer,jdbcType=VARCHAR}, #{plan_starttime,jdbcType=VARCHAR}) 
 	
 </insert>
 

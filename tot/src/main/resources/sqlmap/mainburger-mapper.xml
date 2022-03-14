@@ -16,13 +16,13 @@ SELECT ROWNUM, tbl.*,
         WHERE picture.member_id = tbl.member_id
     ) picture_filepath,
     ( select member.member_grade from tbl_member_info member where member.member_id = tbl.member_id
-    ) member_grade<!-- ,
-    ( select count(*) from tbl_likes likes where likes.member_id = tbl.member_id
-    ) function_like -->
+    ) member_grade ,
+    ( select picture.picture_filepath from tbl_board_picture picture where picture.board_sn = tbl.board_sn and rownum=1
+    ) board_filepath 
 FROM
     ( SELECT * FROM tbl_board
         where board_class =#{board_class}
-        ORDER BY board_sn
+        ORDER BY board_sn desc
     ) tbl
 WHERE ROWNUM <![CDATA[ <= ]]> #{list_cnt_many} order by rownum
 </select>

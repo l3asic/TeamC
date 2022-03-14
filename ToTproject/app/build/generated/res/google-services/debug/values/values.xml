@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">873585232921-092tpr228gc4slol7iffrm27hbg36rdm.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">873585232921</string>
+    <string name="google_api_key" translatable="false">AIzaSyB2b2P0t2IVvVHklApSxF44tZlsGFsfcoU</string>
+    <string name="google_app_id" translatable="false">1:873585232921:android:7990b1225fbb86fd2d2e88</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB2b2P0t2IVvVHklApSxF44tZlsGFsfcoU</string>
+    <string name="google_storage_bucket" translatable="false">totchat-ec4e5.appspot.com</string>
+    <string name="project_id" translatable="false">totchat-ec4e5</string>
+</resources>

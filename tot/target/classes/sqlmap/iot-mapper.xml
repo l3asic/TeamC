@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="iot.mapper">
+
+
+
+<select id="selectSaveIot" resultType="android.iot.IotVO">
+	
+	select * from tbl_iot where member_id = #{member_id}
+
+</select>
+
+
+<insert id="insertParty">	
+	
+	insert into tbl_iot (member_id, iot_x, iot_y, iot_day, iot_time)
+	values( #{member_id}, #{iot_x, jdbcType=NUMERIC }, #{iot_y, jdbcType=NUMERIC }, #{iot_day, jdbcType=VARCHAR}, #{iot_time, jdbcType=VARCHAR})	
+	
+</insert>
+
+
+<update id="updateSaveIot">	
+	UPDATE tbl_iot
+SET 
+IOT_ONOFF = #{iot_onoff}
+WHERE
+MEMBER_ID = #{member_id}
+	
+	
+</update>
+
+
+
+
+
+
+
+</mapper>

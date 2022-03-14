@@ -44,7 +44,6 @@ import com.bumptech.glide.Glide;
 import com.example.totproject.common.CommonAsk;
 import com.example.totproject.common.CommonAskParam;
 import com.example.totproject.common.CommonMethod;
-import com.example.totproject.login.TendencyActivity;
 import com.example.totproject.party.PartyCreateActivity;
 import com.example.totproject.party.PartyMainActivity;
 import com.example.totproject.whosepageactivity.WhosePage00Activity;
@@ -108,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
         Fragment02CategoryTab categoryTab_frag = new Fragment02CategoryTab();
         Fragment03BoardTab boardTab_frag = new Fragment03BoardTab(MainActivity.this, manager);
         Fragment04PartyTab partyTab_frag = new Fragment04PartyTab();
-        Fragment05IotTab loginTab_frag = new Fragment05IotTab();
-        Fragment00Empty empty_frag = new Fragment00Empty();
+        Fragment05IotTab iotTab_frag = new Fragment05IotTab();
+
         //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, mainTab_frag).commit();
         /* =================================== 바텀메뉴 =================================== */
        // main_tv_acttitle = findViewById(R.id.main_tv_acttitle);
@@ -145,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 3) {
                     ChangeFrament(main_container, partyTab_frag, "파티");
                 } else if (position == 4) {
-                    toolbar.setTitle("iot 탭입니다.");
+                    ChangeFrament(main_container, iotTab_frag, "IoT");
                 //    main_tv_acttitle.setText("iot 탭입니다.");
                 }
                 toolbar.setBackgroundColor(Color.parseColor(mainColors[position]));
@@ -224,13 +223,13 @@ public class MainActivity extends AppCompatActivity {
         main_burger_mbti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChangeActivity(TendencyActivity.class);
+                ChangeActivity(TendencyActivity01.class);
             }
         });
 
 
 
-
+        
         main_burger_imgv_circle= nav_headerview.findViewById(R.id.main_burger_imgv_circle);
 
         if (Logined.picture_filepath != null) {

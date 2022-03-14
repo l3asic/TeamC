@@ -28,8 +28,9 @@
 		<!-- 순서를 1로 변경 지정 -->
 	</beans:bean>
 
+	<!-- 컨트롤러 -->
 	<context:component-scan
-		base-package="com.hanul.tot.*" />
+		base-package="com.hanul.tot.*" /> <!--dd누가수정한듯 ㅎㅎㅎ 화이팅... 허허 감사합니다-->
 
 
 

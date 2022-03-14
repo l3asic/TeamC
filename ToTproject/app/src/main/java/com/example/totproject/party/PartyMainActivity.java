@@ -44,6 +44,8 @@ public class PartyMainActivity extends AppCompatActivity {
 
    TextView tv_party_title;
     FloatingNavigationView nav_view;
+
+    LinearLayout lin_party_main_back;
   /*  String[] mainColors = {
 
             "#2BA0DA",
@@ -58,8 +60,16 @@ public class PartyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.party_act_main); //이 엑스엠엘에서
         int tabcode = 0 ;
-        tv_party_title = findViewById(R.id.tv_party_title); //다른 텍스트를 찾아놓고 바꿀려고함
-        tv_party_title = findViewById(R.id.tv_party_title); //  방금 이거 컨트롤클릭했는데 오른쪽에꺼떴잖
+        tv_party_title = findViewById(R.id.tv_party_title);
+        lin_party_main_back = findViewById(R.id.lin_party_main_back);
+
+        lin_party_main_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         OpenpartyListFragment openparty_list_frag = new OpenpartyListFragment(PartyMainActivity.this);
         MypartyListFragment myparty_list_frag = new MypartyListFragment(PartyMainActivity.this);

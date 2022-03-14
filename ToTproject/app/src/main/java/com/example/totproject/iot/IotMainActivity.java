@@ -13,19 +13,35 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.totproject.R;
+import com.example.totproject.common.CommonAsk;
+import com.example.totproject.common.CommonAskParam;
+import com.example.totproject.common.CommonMethod;
+import com.example.totproject.common.statics.Logined;
+import com.example.totproject.party.PartyListDTO;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -55,6 +71,12 @@ public class IotMainActivity extends AppCompatActivity {
     CountDownTimer CDT;
 
     TextView textView;
+    ImageView imgv_iot_bticon, imgv_iot_onoff;
+    LinearLayout lin_iot_back, lin_iot_onoff, lin_iot_beep, lin_iot_detail;
+
+    // 켜져있는 상태인지 꺼져있는 상태인지 0꺼짐, 1 켜짐
+    public static int on_off = -1;
+
 
     // 위경도
     double loc, lac;
@@ -62,45 +84,133 @@ public class IotMainActivity extends AppCompatActivity {
     // 날짜, 시간
     String get_day, get_time;
 
+    // 디비 연결용
+    CommonAsk commonAsk;
+    Gson gson = new Gson();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.iot_act_main);
 
+        lin_iot_back = findViewById(R.id.lin_iot_back);
+        lin_iot_onoff = findViewById(R.id.lin_iot_onoff);
+        imgv_iot_onoff = findViewById(R.id.imgv_iot_onoff);
+        lin_iot_beep = findViewById(R.id.lin_iot_beep);
+        lin_iot_detail = findViewById(R.id.lin_iot_detail);
+
+
+
+
+        // 현상태 체크하고 세팅
+        checkIoT();
+        if(on_off == 1){
+            imgv_iot_onoff.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#2BA0DA")));
+        }else if(on_off == 0){
+            imgv_iot_onoff.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#999999")));
+        }
+        lin_iot_detail.setVisibility(View.GONE);
+
+
+
+        
+
+
+
+
+        // 뒤로가기 버튼 클릭시
+        lin_iot_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
+        // @@ 세이프 모드 온 오프 버튼 클릭시
+        lin_iot_onoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //iotOnOffSet(); 이걸 왜 실행하지?
+
+                // 켜져 있는 상태면 끄기
+                if (on_off == 1){
+                    on_off = 0;
+                    iotOnOffSet();
+                    Toast.makeText(IotMainActivity.this, "껐습니다.", Toast.LENGTH_SHORT).show();
+                    imgv_iot_onoff.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#999999")));
+
+
+                    return;
+                    // 꺼져있는 상태면 켜기
+                }else if(on_off == 0){
+                    on_off = 1;
+                    iotOnOffSet();
+                    Toast.makeText(IotMainActivity.this, "켰습니다.", Toast.LENGTH_SHORT).show();
+                    imgv_iot_onoff.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#2BA0DA")));
+                    return;
+                    // 둘다 아니라면
+                }else{
+                    Toast.makeText(IotMainActivity.this, "작동불가 값 없거나 실패", Toast.LENGTH_SHORT).show();
+                    imgv_iot_onoff.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#999999")));
+                    return;
+
+                }
+
+
+            }
+        });
+
+        // @@@@소리신호 보내기
+        lin_iot_beep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(IotMainActivity.this, "소리 신호 보냄 임시", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
         // 블루투스 영역
 
-        checkDangerousPermissions();
-        textView = findViewById(R.id.textView);
-        bluetooth_device = new HashSet<>();
+        // On 상태라면 동작?
+        if(on_off == 1){
+            checkDangerousPermissions();
+            textView = findViewById(R.id.textView);
+            imgv_iot_bticon = findViewById(R.id.imgv_iot_bticon);
+            bluetooth_device = new HashSet<>();
 
-        // 리시버 등록
-        regiserRec();
+            // 리시버 등록
+            regiserRec();
 
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();   //블루투스 adapter 획득
-        boolean isStart = mBluetoothAdapter.startDiscovery(); //블루투스 기기 검색 시작
-        Log.d("main", "onCreate: isStart " + isStart);
+            mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();   //블루투스 adapter 획득
+            boolean isStart = mBluetoothAdapter.startDiscovery(); //블루투스 기기 검색 시작
+            Log.d("main", "onCreate: isStart " + isStart);
 
-        CDT = new CountDownTimer(60 * 1000, 15000) {
-            public void onTick(long millisUntilFinished) {
-                //textView.append("시간안에 들어옴... : isConnect"+ isConnect + " => isContinue : " + isContinue + "\n");
-                connCount++;
-                if(connCount >= 3 && isContinue == 1){
-                    isContinue = 0;
-                    connCount = 0;
+            CDT = new CountDownTimer(60 * 1000, 15000) {
+                public void onTick(long millisUntilFinished) {
+                    //textView.append("시간안에 들어옴... : isConnect"+ isConnect + " => isContinue : " + isContinue + "\n");
+                    connCount++;
+                    if(connCount >= 3 && isContinue == 1){
+                        isContinue = 0;
+                        connCount = 0;
+                    }
+                    //반복실행할 구문
+                    if(isConnect == 0 && isContinue == 0){
+                        mBluetoothAdapter.startDiscovery(); //블루투스 기기 검색 시작
+                        isContinue = 1;
+                        textView.setText("블루투스 연결을 시도합니다...");
+                    }
+
                 }
-                //반복실행할 구문
-                if(isConnect == 0 && isContinue == 0){
-                    mBluetoothAdapter.startDiscovery(); //블루투스 기기 검색 시작
-                    isContinue = 1;
-                    textView.append("블루투스 연결을 시도합니다...\n");
+                public void onFinish() {
+                    //마지막에 실행할 구문
+                    CDT.start();
                 }
-
-            }
-            public void onFinish() {
-                //마지막에 실행할 구문
-                CDT.start();
-            }
-        }.start();
+            }.start();
+        }
 
         //CDT.start(); //CountDownTimer 실행
         //CDT.cancel();// 타이머 종료
@@ -132,71 +242,80 @@ public class IotMainActivity extends AppCompatActivity {
             if (device != null) {
                 name = device.getName();    //broadcast를 보낸 기기의 이름을 가져온다.
             }
-            //입력된 action에 따라서 함수를 처리한다
-            switch (action){
-                case BluetoothAdapter.ACTION_STATE_CHANGED: //블루투스의 연결 상태 변경
-                    final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
-                    switch(state) {
-                        case BluetoothAdapter.STATE_OFF:
+            if(on_off == 1){
+                switch (action){
+                    case BluetoothAdapter.ACTION_STATE_CHANGED: //블루투스의 연결 상태 변경
+                        final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
+                        switch(state) {
+                            case BluetoothAdapter.STATE_OFF:
 
-                            break;
-                        case BluetoothAdapter.STATE_TURNING_OFF:
+                                break;
+                            case BluetoothAdapter.STATE_TURNING_OFF:
 
-                            break;
-                        case BluetoothAdapter.STATE_ON:
+                                break;
+                            case BluetoothAdapter.STATE_ON:
 
-                            break;
-                        case BluetoothAdapter.STATE_TURNING_ON:
+                                break;
+                            case BluetoothAdapter.STATE_TURNING_ON:
 
-                            break;
-                    }
+                                break;
+                        }
 
-                    break;
-                case BluetoothDevice.ACTION_ACL_CONNECTED:  //블루투스 기기 연결
-                    isConnect = 1;
-                    Log.d("Bluetooth", "ACTION_ACL_CONNECTED");
-                    textView.append("받은 액션 : " + "ACTION_ACL_CONNECTED *** 블루투스연결댐" + "\n" );
-
-                    // 사용자 위치 저장 영역
-                    LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);     //GPS 사용?
-
-                    // 위치 권한 확인
-                    if (ActivityCompat.checkSelfPermission(IotMainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(IotMainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                        return;
-                    }
-                    Location location =  manager.getLastKnownLocation(LocationManager.GPS_PROVIDER) == null ? manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) : manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)  ;
-                    lac = location.getLatitude();   // 위도 저장
-                    loc = location.getLongitude();  // 경도 저장
-
-                    // 시간 저장 영역
-                    get_day = getDayOrTime("yyyy-MM-dd");
-                    get_time = getDayOrTime("hh:mm:ss");
-
-                    textView.append(lac+"\n");
-                    textView.append(loc+"\n");
-                    textView.append(get_day+"\n");
-                    textView.append(get_time+"\n");
+                        break;
+                    case BluetoothDevice.ACTION_ACL_CONNECTED:  //블루투스 기기 연결
+                        isConnect = 1;
+                        Log.d("Bluetooth", "ACTION_ACL_CONNECTED");
+                        textView.setText("블루투스 연결 됨" );
+                        imgv_iot_bticon.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#2BA0DA")));
 
 
 
+                        // 사용자 위치 저장 영역
+                        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);     //GPS 사용?
+
+                        // 위치 권한 확인
+                        if (ActivityCompat.checkSelfPermission(IotMainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(IotMainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                            return;
+                        }
+                        Location location =  manager.getLastKnownLocation(LocationManager.GPS_PROVIDER) == null ? manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) : manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)  ;
+                        lac = location.getLatitude();   // 위도 저장
+                        loc = location.getLongitude();  // 경도 저장
+
+                        // 시간 저장 영역
+                        get_day = getDayOrTime("yyyy-MM-dd");
+                        get_time = getDayOrTime("hh:mm:ss");
+
+
+                        // 시간, 위경도 디비 저장
+                        IotDTO dto = new IotDTO(Logined.member_id, lac, loc, get_day, get_time,1);
+
+                        saveIot(dto);
 
 
 
 
-                break;
-                case BluetoothDevice.ACTION_BOND_STATE_CHANGED:
 
-                    break;
-                case BluetoothDevice.ACTION_ACL_DISCONNECTED:   //블루투스 기기 끊어짐
-                    isConnect = 0;
-                    Log.d("Bluetooth", "ACTION_ACL_DISCONNECTED");
-                    textView.append("받은 액션 : " + "ACTION_ACL_DISCONNECTED *** 블루투스 끊김" + "\n" );
 
-                    // 서버에 사용자 위치를 보내준다
-                    // 서버에서는 받은 위치와 시간(서버 시간)를 데이터베이스에 저장한다
 
-                    // 사용자 위치 저장 영역
+
+                        break;
+                    case BluetoothDevice.ACTION_BOND_STATE_CHANGED:
+
+                        break;
+                    case BluetoothDevice.ACTION_ACL_DISCONNECTED:   //블루투스 기기 끊어짐
+                        isConnect = 0;
+                        Log.d("Bluetooth", "ACTION_ACL_DISCONNECTED");
+                        textView.setText("블루투스 끊김" );
+                        imgv_iot_bticon.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#999999")));
+
+                        // 위치정보 보이게
+                        lin_iot_detail.setVisibility(View.VISIBLE);
+
+                        // 서버에 사용자 위치를 보내준다
+                        // 서버에서는 받은 위치와 시간(서버 시간)를 데이터베이스에 저장한다
+
+                        // 사용자 위치 저장 영역
 //                    LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);     //GPS 사용?
 //
 //                    // 위치 권한 확인
@@ -209,43 +328,53 @@ public class IotMainActivity extends AppCompatActivity {
 //                    loc = location.getLongitude();  // 경도 저장
 
 
-                    break;
+                        break;
 
-                case BluetoothAdapter.ACTION_DISCOVERY_STARTED: //블루투스 기기 검색 시작
+                    case BluetoothAdapter.ACTION_DISCOVERY_STARTED: //블루투스 기기 검색 시작
 
-                    break;
-                case BluetoothDevice.ACTION_FOUND:  //블루투스 기기 검색 됨, 블루투스 기기가 근처에서 검색될 때마다 수행됨
-                    String device_name = device.getName();
-                    //textView.append("받은 액션 : " + "ACTION_FOUND : " + device_name + "\n" );
-                    String device_Address = device.getAddress();
-                    //textView.append("받은 액션 : " + "ACTION_FOUND : " + device_Address + "\n" );
+                        break;
+                    case BluetoothDevice.ACTION_FOUND:  //블루투스 기기 검색 됨, 블루투스 기기가 근처에서 검색될 때마다 수행됨
+                        String device_name = device.getName();
+                        //textView.append("받은 액션 : " + "ACTION_FOUND : " + device_name + "\n" );
+                        String device_Address = device.getAddress();
+                        //textView.append("받은 액션 : " + "ACTION_FOUND : " + device_Address + "\n" );
 
-                    //Log.d("Bluetooth Name: ", device_name);
-                    //Log.d("Bluetooth Mac Address: ", device_Address);
+                        //Log.d("Bluetooth Name: ", device_name);
+                        //Log.d("Bluetooth Mac Address: ", device_Address);
 
-                    //본 함수는 블루투스 기기 이름의 앞글자가 "hanul301"으로 시작하는 기기만을 검색하는 코드이다
-                    if(device_name != null && device_name.length() > 2){
-                        Log.d("Bluetooth Name: ", device_name);
-                        Log.d("Bluetooth Mac Address: ", device_Address);
-                        if(device_name.substring(0,3).equals("TOT")){
-                            bluetooth_device.add(device);
+                        //본 함수는 블루투스 기기 이름의 앞글자가 "hanul301"으로 시작하는 기기만을 검색하는 코드이다
+                        if(device_name != null && device_name.length() > 2){
+                            Log.d("Bluetooth Name: ", device_name);
+                            Log.d("Bluetooth Mac Address: ", device_Address);
+                            if(device_name.substring(0,3).equals("TOT")){
+                                bluetooth_device.add(device);
+                            }
                         }
-                    }
-                    break;
-                case BluetoothAdapter.ACTION_DISCOVERY_FINISHED:    //블루투스 기기 검색 종료
-                    Log.d("Bluetooth", "Call Discovery finished");
-                    //textView.append("받은 액션 : " + "ACTION_DISCOVERY_FINISHED:: " + "\n" );
+                        break;
+                    case BluetoothAdapter.ACTION_DISCOVERY_FINISHED:    //블루투스 기기 검색 종료
+                        Log.d("Bluetooth", "Call Discovery finished");
+                        //textView.append("받은 액션 : " + "ACTION_DISCOVERY_FINISHED:: " + "\n" );
 
-                    isContinue = 0;
-                    StartBluetoothDeviceConnection();   //원하는 기기에 연결
-                    break;
-                case BluetoothDevice.ACTION_PAIRING_REQUEST:
+                        isContinue = 0;
+                        StartBluetoothDeviceConnection();   //원하는 기기에 연결
+                        break;
+                    case BluetoothDevice.ACTION_PAIRING_REQUEST:
 
-                    break;
+                        break;
+                }
             }
+            //입력된 action에 따라서 함수를 처리한다
+
 
         }
     };
+
+    // 블루투스 연결 끊길시 디비에 정보 저장
+    private void saveIot(IotDTO dto) {
+        commonAsk = new CommonAsk("android/iot/saveIot");
+        commonAsk.params.add(new CommonAskParam("dto",gson.toJson(dto)));
+        CommonMethod.excuteAsk(commonAsk);
+    }
 
     private String getDayOrTime(String pattern) {
         long now = System.currentTimeMillis();
@@ -369,4 +498,48 @@ public class IotMainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+    // 기본 설정 체크
+    private int checkIoT() {
+
+        commonAsk = new CommonAsk("android/iot/checkIoT");
+        commonAsk.params.add(new CommonAskParam("member_id", Logined.member_id));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+        try {
+            on_off = gson.fromJson(new InputStreamReader(in), new TypeToken<Integer>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return on_off;
+    }
+
+
+    // @@ IoT 켜고 끄기 용
+    public int iotOnOffSet(){
+
+        commonAsk = new CommonAsk("android/iot/iotOnOffSet");
+        commonAsk.params.add(new CommonAskParam("member_id", Logined.member_id));
+        commonAsk.params.add(new CommonAskParam("on_off", on_off+""));
+        InputStream in = CommonMethod.excuteAsk(commonAsk);
+
+
+        try {
+            on_off = gson.fromJson(new InputStreamReader(in), new TypeToken<Integer>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return on_off;
+
+
+
+    }//iotOnOffSet()
+
+
+
 }

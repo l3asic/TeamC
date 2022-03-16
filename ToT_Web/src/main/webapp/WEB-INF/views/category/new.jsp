@@ -13,7 +13,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>리뷰 작성</title>
+<title>ToT 리뷰 작성</title>
 <script type="text/javascript"
 	src='js/file_check.js?v=<%=new Date().getTime()%>'></script>
 	

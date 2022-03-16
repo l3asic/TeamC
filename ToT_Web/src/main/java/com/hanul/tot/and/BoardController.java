@@ -59,12 +59,13 @@ public class BoardController {
 
 	Gson gson = new Gson();
 
-	@RequestMapping("/boardlist_*")
-	public String boardList(@PathVariable BoardVO vo, Locale locale, HttpSession session, Model model,
-			HttpServletRequest req, MultipartFile multipartFile) throws IOException {
-
-		return "empty";
-	}
+	/*
+	 * @RequestMapping("/boardlist_*") public String boardList(@PathVariable BoardVO
+	 * vo, Locale locale, HttpSession session, Model model, HttpServletRequest req,
+	 * MultipartFile multipartFile) throws IOException {
+	 * 
+	 * return "empty"; }
+	 */
 
 //	==================================================== MultipartHttpServletRequest =======
 	@RequestMapping("/multi_board_*")
@@ -237,9 +238,10 @@ public class BoardController {
 			} else {
 				System.out.println("글수정 실패ㅠ");
 			}
+			vo.setBoard_class("user");
 			model.addAttribute("boardVO", vo);
 			model.addAttribute("jsonVO", gson.toJson(vo));
-			model.addAttribute("path", "/board_detail");
+			model.addAttribute("path", "/board_list");
 			return "zzchaminhwan04board/board_00_main";
 		} else {
 			return "redirect:home";
@@ -252,7 +254,7 @@ public class BoardController {
 		System.out.println("path : " + path);
 	}
 
-	// ========================================================방명록 글에 대한 댓글 저장처리 요청
+	// ========================================================방명록 글에 대한 댓글 목록 요청
 	@RequestMapping("/board/comment/list")
 	public String comment_list(ReplyVO replyVO, Locale locale, HttpSession session, Model model,
 			HttpServletRequest req) {

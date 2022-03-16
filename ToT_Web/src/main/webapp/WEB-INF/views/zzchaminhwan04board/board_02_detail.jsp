@@ -6,7 +6,7 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${boardVO.board_title}</title>
 </head>
 <body>
 

@@ -8,12 +8,12 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 	<div class="card card-outline-secondary my-4" style="width: 100%;">
 		<div class="card-header">
 			<h2>댓글 : ${replyList[0].reply_cnt}</h2>
-
 		</div>
 		<div class="card-body">
 			<c:forEach items="${replyList }" var="vo" varStatus="status">
 				<div class="media mb-3">
 					<div class="mr-2">
+						<!-- == 사진 == -->
 						<c:if test="${vo.member_filepath ne null}">
 							<img class="rounded-circle border p-1 picture_member_profile"
 								src="${vo.member_filepath}" alt="프사" />
@@ -22,26 +22,23 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 							<img class="rounded-circle border p-1 picture_member_profile"
 								src="images/tot_icon_profile_none.png" alt="프사" />
 						</c:if>
+						<!-- ========= -->
+						<!-- == 네임태그 == -->
 						<div class="btn hvr-hover user_name_tag"
 							onclick=" go_mypage( '${vo.member_id}' ) "
 							style="color: #ffffff; border-radius: 100px; margin: 0px 5px;">${vo.member_id}
 							[${vo.member_grade}]</div>
-						<input type="hidden" id="reply_sn" value="${vo.reply_sn}"></input>
+						<!-- <input type="text" id="reply_sn" value="${vo.reply_sn}"></input> -->
 					</div>
-					<div2 class="media-body" style="padding-top: 17px;">
-
-					<p class="original">
-						<p2 class="original">${fn:replace( fn:replace(
-						vo.reply_content, lf, '<br>
-						') , crlf, '<br>
-						' )} </p2>
-						<small class="text-muted" style="float: right; padding: 0px;">
-							${vo.reply_writedate}</small>
-					</p>
-
-					<div class='modify'></div>
-
-					<c:if
+					<!-- ============ -->
+					<!-- == 댓글본문 == -->
+					<div2 class="media-body" style="padding-top: 17px;"
+						data-seq="${vo.reply_sn}">
+					<div class="original2"> ${fn:replace( fn:replace( vo.reply_content, lf, '<br> ') , crlf, '<br> ' )} </div>
+					<div class='modify'></div> 
+					<small class="text-muted" style="float: right; padding: 0px;">
+						${vo.reply_writedate}</small>
+					<!-- == 수정 삭제 == --> <c:if
 						test="${loginInfo.member_id eq vo.member_id || loginInfo.member_grade eq 'master' }">
 						<div class="share-bar" style="margin: -5px; float: right;">
 							<a class=' hvr-hover btn-modify-save'
@@ -49,8 +46,9 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 							<a class=' hvr-hover btn-delete-cancel'
 								style="color: #666666; background: none; font-size: 10px; cursor: pointer; padding: 0px">삭제</a>
 						</div>
-					</c:if> 
-					</div2>
+					</c:if> <!-- ============= --> 
+					 </div2>
+					<!-- ============ -->
 				</div>
 				<hr>
 			</c:forEach>
@@ -75,8 +73,8 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 				전달받은 선택자에 해당하는 요소의 집합에서 가장 첫번째 요소를 선택  */
 
 				if ($(this).text() == '수정') {
-					var tag = "<textarea style='width:96%; height:90%;'>"
-							+ $div.children('.original').html().replace(
+					var tag = "<textarea style='width:96%; height:120%;'>"
+							+ $div.children('.original2').html().replace(
 									/<br>/g, '\n') + "</textarea>"
 					/* .replace(/<br>/g, '\n') 모든 <br> 태그를 엔터키를 부여 */
 					$div.children('.modify').html(tag);
@@ -88,17 +86,16 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 						// 			, contentType : 'application/json',
 						url : 'board/comment/update',
 						data : {
-							reply_sn : $('input#reply_sn').val(),
+							reply_sn : $div.data('seq'),
 							reply_content : $div.find('textarea').val()
 						},
 						success : function(response) {
-							alert('댓글 변경' + response);
-							document.location.reload()
+							alert('댓글이 변경 되었습니다');
 							reply_list();
 
 						},
 						error : function(req, text) {
-							alert(text + ':' + req.status);
+							alert('잠시후 다시 시도해주세요.');
 						}
 					});
 
@@ -106,22 +103,22 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 			});
 
 	$('.btn-delete-cancel').on('click', function() {
+		var $div = $(this).closest('div2');
 		if ($(this).text() == '취소')
 			display(true, $div);
 		else {
 			if (confirm('정말 삭제하시겠습니까?')) {
 				$.ajax({
-					url : 'board/comment/delete/',
+					url : "board/comment/delete/",
 					data : {
-						reply_sn : $('input#reply_sn').val()
+						reply_sn : $div.data('seq')
 					},
 					success : function() {
-						alert('삭 제 완 료');
-						document.location.reload()
+						alert('댓글이 삭제되었습니다.');
 						reply_list();
 					},
 					error : function(req, text) {
-						alert(text + ":" + req.status);
+						alert('잠시후 다시 시도해주세요.');
 					}
 				});
 
@@ -137,10 +134,11 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
 
 		// 수정상태 : .original 안 보이게, .modify 보이게
 		// 목록상태 : .original 보이게, .modify 안 보이게
-		div.children('.original').css('display', mode ? 'block' : 'none');
+		div.children('.original2').css('display', mode ? 'block' : 'none');
 		div.children('.modify').css('display', mode ? 'none' : 'block');
 	}
 </script>
+
 
 
 

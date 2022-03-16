@@ -13,7 +13,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>홈 메인화면</title>
+<title>${vo.member_id}</title>
 <script type="text/javascript"
 	src='js/file_check.js?v=<%=new Date().getTime()%>'></script>
 <meta name="keywords" content="">

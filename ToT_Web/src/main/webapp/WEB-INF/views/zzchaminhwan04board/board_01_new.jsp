@@ -4,7 +4,7 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToT 글작성</title>
 <script type="text/javascript"
 	src='js/file_check.js?v=<%=new Date().getTime()%>'></script>
 </head>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToT 회원가입</title>
 <style type="text/css">
 table tr td {text-align: left;}
 .addr input {margin-bottom: 5px;}

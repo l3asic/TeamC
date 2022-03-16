@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToT 비밀번호 찾기</title>
 <style type="text/css">
 #userid, #usertel{ width: 35%; height:45px; margin-bottom: 10px; text-align: left;}
 </style>

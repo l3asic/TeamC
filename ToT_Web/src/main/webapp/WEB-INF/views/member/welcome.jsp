@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome ToT</title>
 <style type="text/css">
 .center { 
 	position: absolute; 

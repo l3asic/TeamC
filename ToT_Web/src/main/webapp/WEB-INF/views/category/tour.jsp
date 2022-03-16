@@ -13,7 +13,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>홈 메인화면</title>
+<title>Category - 여행지</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">

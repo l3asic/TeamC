@@ -78,14 +78,18 @@ public class MemberController {
 			MemberVO vo = new MemberVO();
 			vo.setMember_is_kakao("kakao");
 			vo.setMember_gender(json.has("gender") && json.getString("gender").equals("F") ? "여성" : "남성");
-			vo.setMember_id(json.getString("email"));
-
+			
+			/*
+			 * if( json.getString("email") != null) {
+			 * vo.setMember_id(json.getString("email")); }
+			 */
 			// 카카오 최초 로그인인 경우 회원정보 저장(insert)
 			// 카카오 로그인 이력이 있으면 ..
 
 			// int result = service.member_social_email(vo);
 
 			if (json != null) {
+			vo.setMember_id(  (json.getJSONObject("profile")).getString("nickname")  );
 				session.setAttribute("loginInfo", vo);
 				return "redirect:home";
 			} else {

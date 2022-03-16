@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToT 여행지 성향 입력</title>
 <style type="text/css">
 table td {text-align: center; }
 </style>

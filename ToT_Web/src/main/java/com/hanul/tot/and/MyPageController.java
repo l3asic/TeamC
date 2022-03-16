@@ -125,7 +125,6 @@ public class MyPageController {
 		sql.update("mypage.mapper.member_info_update",memberVO);
 
 		return "redirect:/mypage_" + memberVO.getMember_id();
-//		return "empty";
 	}
 
 //======================================================================================================================

@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>Insert title here</title>
+<title>ToT</title>
 
 <meta name="keywords" content="">
 <meta name="description" content="">

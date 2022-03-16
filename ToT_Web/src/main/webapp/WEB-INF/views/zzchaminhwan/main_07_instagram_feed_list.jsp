@@ -14,7 +14,7 @@
 						<p style=" border-radius : 15px ;padding: 10px ; position: absolute ; background: rgba(0,0,0,0.5) ; color: white; top: 60%; left: 30%; font-size: 25px;"> 성향일치 ${vo.matchScore } %</p>
 						
 					<c:if test="${vo.picture_filepath ne null}">
-						<img src="${vo.picture_filepath }" alt="여행지 대표사진" style="width: 515px; height: 500px;"/>
+						<img src="${vo.picture_filepath }" alt="여행지 대표사진" style="width: 515px; height: 500px; background-image: url('images/about-img.jpg');" />
 					</c:if>
 					<c:if test="${vo.picture_filepath eq null}">
 						<img src="images/about-img.jpg" alt="여행지 대표사진" style="width: 515x; height: 500px;"/>

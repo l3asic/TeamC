@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:weightSum="100">
+    <LinearLayout
+        android:id="@+id/sub_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="vertical"
+       >
+
+        <LinearLayout
+
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_subdirectory_arrow_right_24"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="등등록록일일자자"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:id="@+id/notice_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:text="등등록록일일자자"
+            android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+
+

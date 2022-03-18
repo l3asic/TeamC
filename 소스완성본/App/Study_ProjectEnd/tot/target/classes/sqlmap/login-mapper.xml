@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login.mapper">
+	
+	<!-- 회원가입 -->
+	<insert id="join_insert">
+		insert into tbl_member_info (member_id, member_pw, member_name, member_nick, member_gender, member_tel, member_email, member_grade)
+		values (#{member_id}, #{member_pw}, #{member_name}, #{member_nick}, #{member_gender}, #{member_tel}, #{member_email}, 'user')
+	</insert>
+
+
+	<!-- 성향 조회  -->
+	<select id="tend_check"  resultType="Integer">
+		select * from tbl_mbti where member_id = #{member_id}	
+	</select>
+
+
+	<!-- 성향수정 -->
+	<update id="tend_update">
+		UPDATE tbl_mbti
+SET 
+mbti_addr = '임시주소',
+mbti_x = #{mbti_x},
+mbti_y = #{mbti_y},
+
+mbti_activity = #{mbti_activity},
+mbti_festival = #{mbti_festival},
+mbti_tour = #{mbti_tour},
+mbti_solo = #{mbti_solo},
+mbti_couple =  #{mbti_couple},
+mbti_buddys = #{mbti_buddys},
+mbti_family = #{mbti_family},
+mbti_price = #{mbti_price},
+mbti_sd = #{mbti_sd},
+mbti_io = #{mbti_io}
+
+WHERE
+member_id = #{member_id}
+	</update>
+
+
+	<!-- 성향추가 -->
+	<insert id="tend_insert">
+		insert into tbl_mbti (member_id ,mbti_addr, mbti_x, mbti_y 
+					, mbti_activity, mbti_festival, mbti_tour, mbti_solo, mbti_couple
+					, mbti_buddys, mbti_family, mbti_price, mbti_sd, mbti_io)
+		values (#{member_id},'jj', #{mbti_x}, #{mbti_y}
+					, #{mbti_activity}, #{mbti_festival}, #{mbti_tour}, #{mbti_solo}, #{mbti_couple}
+					, #{mbti_buddys}, #{mbti_family}, #{mbti_price}, #{mbti_sd}, #{mbti_io})
+	</insert>
+	
+	
+	
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="android.kwk.MemberVO">
+		select member.* , (select pic.picture_filepath 
+							from tbl_board_picture pic
+							where pic.member_id = member.member_id) picture_filepath
+		from tbl_member_info member
+		where member_id = #{member_id} and member_pw = #{member_pw}
+	</select>
+	
+	<!-- 회원가입 id 중복 체크 -->
+	<select id="id_check" resultType="integer">
+		select count(*) from tbl_member_info
+		where member_id = #{member_id}
+	</select>
+	
+	<!-- 회원가입 닉네임 중복 체크 -->
+	<select id="nick_check" resultType="integer">
+		select count(*) from tbl_member_info
+		where member_nick = #{member_nick}
+	</select>
+	
+	<!-- id 찾기 -->
+	<select id="find_id" resultType="String">
+		select member_id from tbl_member_info
+		where member_tel = #{member_tel}
+	</select>
+	
+	<!-- pw 찾기 -->
+	<select id="find_pw" resultType="android.kwk.MemberVO">
+		select member_pw from tbl_member_info
+		where member_id = #{member_id} and member_tel = #{member_tel}
+	</select>
+	
+	<!-- social 로그인  -->
+	<select id="kakao_login" resultType="android.kwk.MemberVO">
+		select * from tbl_member_info
+		where member_is_kakao = #{member_is_kakao}
+	</select>
+	
+	
+	
+	<!-- @@ 영문쌤 코드 긴급 수정  -->
+	<select id="tend_data" resultType="login.TendVO" >
+      SELECT FN_MBTIRTN(MBTI_ACTIVITY) MBTI_ACTIVITY,
+       FN_MBTIRTN(MBTI_FESTIVAL) MBTI_FESTIVAL,
+       FN_MBTIRTN(MBTI_TOUR) MBTI_TOUR,
+       FN_MBTIRTN(MBTI_SOLO) MBTI_SOLO,
+       FN_MBTIRTN(MBTI_COUPLE) MBTI_COUPLE,
+       FN_MBTIRTN(MBTI_BUDDYS) MBTI_BUDDYS,
+       FN_MBTIRTN(MBTI_FAMILY) MBTI_FAMILY,
+       FN_MBTIRTN(MBTI_PRICE) MBTI_PRICE,
+       FN_MBTIRTN(MBTI_SD) MBTI_SD,
+       FN_MBTIRTN(MBTI_IO) MBTI_IO
+
+      FROM TBL_MBTI
+      WHERE MEMBER_ID = #{member_id}
+   </select>
+	
+	
+	
+	
+	
+
+</mapper>

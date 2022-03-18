@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+/* 01. 공통(PC,MOBILE)요소 정의 */
+body{
+/* 	background : url("../images/product_bg.gif")center 0;
+			background-size : cover; */
+	font:14px/1.5 "Maven Pro", "Noto sans KR", sans-serif;
+	color : #666;
+	overflow-x:hidden;
+	font-weight: 400;
+}
+.blind {
+	display: none;
+}
+a, a:link {
+	text-decoration: none;
+	color: inherit;
+}
+/* 02. 각 부분 디자인 요소 */
+/* 02-1. header */
+.header-wrap{
+	background : url("../images/visual_bg.jpg") no-repeat center 0;
+		background-size : cover;
+	min-height: 950px;
+	position: relative;
+	}
+
+.header-main{
+	max-width: 1000px;
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+	position: absolute;
+	width: 1000px;
+	padding: 25px 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000
+	
+}	
+
+.header-sub{
+	display: flex;
+	align-items: flex-start; /* center, flex-end 등 여러값 중 하나 */
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -150%);
+	bottom: 0;
+	
+}
+
+
+
+
+.article-titles{
+	padding-top: 100px;
+	padding-bottom: 50px;
+}
+	
+
+.article-title{
+	text-align: center;
+	font-size:30px;
+	font-weight: 500;
+	color: #1e598c;
+	border-bottom:1px solid;
+	padding: 10px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+#article-top{
+	background : url("../images/system_bg.jpg") no-repeat center 0; 
+		background-size : cover;
+	min-height: 705px;
+	position: relative;
+}
+
+.article-top-subtitle{
+	max-width:300px;
+	font-size:20px;
+	font-weight:500;
+	color:#ffffff;
+	background:#1e598c;
+	text-align: center;
+	padding:8px;
+	margin: 0px auto;
+	
+}
+.benefit-wrap {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.benefit{
+	display: flex;
+	justify-content: space-evenly;
+}
+.benefit li {
+	width: 300px;
+	height: 300px; /* auto가 기본이기때문에~ 확실하게!! */
+	overflow: hidden;
+	border-radius: 50%;
+	background:black;
+	position: relative;
+}
+.hover-text {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display:none;
+}
+.benefit li:hover .benefit-img {
+	opacity:.5;
+}
+.benefit li:hover .hover-text{
+	display:block;
+	z-index:500;
+}
+
+#article-bottom{
+	background : url("../images/product_bg.gif")center 0;
+		min-height: 900px;
+		position: relative;
+}
+
+.article-bottom-subtitle{
+	font-size: 36px;
+	font-weight:700;
+	color:#000000;
+	text-align: center;
+	padding-bottom:15px;
+}
+
+.article-bottom-subtitle span{
+	color: #ff8e00;
+}
+
+#article-bottom ul {
+	text-align: center;
+}
+#article-bottom ul li{
+	padding-bottom: 50px;	
+}
+.moreBTN{
+    font-size: 16px;
+    color: #000000;
+    border: 2px solid;
+    padding: 10px 40px;
+    border-radius: 30px;
+}
+.moreBTN:hover{
+	color : #fff;
+	background: #000000;
+}
+
+.aside-top{
+	background: url("../images/company_bg.jpg") no-repeat center 0;
+		background-size : cover;
+	min-height: 420px;
+	max-height:420px;
+}
+.aside-top-title{
+	font-size: 30px;
+	font-weight:500;	
+	color: #193f5c;
+	white-space:nowrap; 
+	padding-top : 100px
+}
+.aside-top-title h3{
+	font-size:20px;
+	padding-bottom:20px;
+}
+.aside-top-title p2{
+	font-weight: 300;
+}
+
+.aside-top-object{
+	max-width: 1000px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto
+}
+.aside-top-object img{
+	padding: 39px 0px 0px 307px;
+}
+.aside-bottom-wrap{
+	background: #f5f5f5 left center;
+	margin: 0 auto;
+	max-height: 61px;
+}
+.aside-bottom {	
+	max-width: 1000px;
+	margin:0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#btn_top{
+	padding: 1px 0px 0px 0px;
+}
+
+.cs-center{
+	background : url("../images/icon_call.png") no-repeat left center;
+	padding: 0 0 0 40px;
+	margin-top : -6px;
+	font-size:20px;
+	font-weight:700;
+	color:#e86708;	
+}
+
+footer{
+	margin-top:50px;
+	margin-bottom:70px;
+	text-align:center;
+	font-size:13px;
+	color: #666666
+}
+.footer-wrap div{
+	margin: 30px;
+}
+.owner-info{
+	font-size: 11px;
+	color: #999999;
+}
+
+.vp-wrap {
+	display:none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index:1001;
+	background: rgba(0, 0, 0, 0.8);
+}
+.vp-wrap ul li{
+	display: flex;
+	padding: 30px 30px 30px 0px;
+	justify-content: center;
+	width:100%;
+
+		
+}
+.vp-wrap ul li p{
+    font-size: 13px;
+    color: #cccccc;
+    border: 1px solid;
+    width: 125px;
+    height: 25px;
+    text-align: center;
+    padding-top: 5px;
+}
+.vp-wrap ul li p:hover{
+	color: #ffffff;
+	
+}
+.vp-wrap ul li pm{
+    font-size: 20px;
+    font-weight: 500;
+    color: #cccccc;
+    border: 1px solid;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+}
+.vp-wrap ul li pm:hover{
+	background: #0a6dca;
+}
+#btn_close {
+	padding: 0px 0px 0px 935px;
+}
